@@ -55,6 +55,15 @@ defaults:
 toc:
   lessons:
   - /intro/
+  - /style/
+  - /tools/
+  - /libs/
+  - /project/
+  - /automate/
+  - /reuse/
+  - /correct/
+  - /quality/
+  - /workflow/
   - /finale/
   bib:
   - /bib/

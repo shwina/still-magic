@@ -20,16 +20,17 @@ keypoints:
     -   Other people (including our future selves) can re-do analyses
     -   All stakeholders can be confident in the results
     -   Re-using software is cheaper than rewriting it
+    -   In short, the coding equivalent of [tidy data](#g:tidy-data) [[Wick2014](#CITE)]
 -   We will cover:
-    -   Writing code that is readable, testable, and maintainable (and why those are all actually the same thing)
-    -   Building software tools that play nicely with others
-    -   Managing libraries in a reproducible way
-    -   Organizing the code, data, results, and reports in a small or medium-sized project
-    -   Automating analyses with build tools
-    -   Using classes and/or higher-order functions to create reusable software
-    -   Checking and demonstrating correctness via automated tests
-    -   Maintaining code quality using checking tools
-    -   Using a branch-per-feature workflow, rebasing, and tags to manage work
+    -   Writing code that is readable, testable, and maintainable ([s:style](#CHAPTER))
+    -   Building software tools that play nicely with others ([s:tools](#CHAPTER))
+    -   Managing libraries in a reproducible way ([s:libs](#CHAPTER))
+    -   Organizing the code, data, results, and reports in a small or medium-sized project ([s:project](#CHAPTER))
+    -   Automating analyses with build tools ([s:automate](#CHAPTER))
+    -   Building reusable software with classes and higher-order functions ([s:reuse](#CHAPTER))
+    -   Checking and demonstrating correctness via automated tests ([s:correct](#CHAPTER))
+    -   Maintaining code quality using checking tools ([s:quality](#CHAPTER))
+    -   Using a branch-per-feature workflow, rebasing, and tags to manage work ([s:workflow](#CHAPTER))
 -   Prerequisites
     -   Python: lists, loops, conditionals, functions, importing and using libraries
     -   Unix shell: paths, editing/renaming/deleting files, wildcards, redirection, pipes and filters, shell scripts
@@ -43,9 +44,11 @@ who are already comfortable writing two-page programs in Python using lists, fun
 
 ## Sources
 
+-   "A Quick Guide to Organizing Computational Biology Projects" [[Nobl2009](#CITE)]
+-   "Ten Simple Rules for Making Research Software More Robust" [[Tasc2017](#CITE)]
 -   "Best Practices for Scientific Computing" [[Wils2014](#CITE)]
 -   "Good Enough Practices in Scientific Computing" [[Wils2017](#CITE)]
--   "Ten Simple Rules for Making Research Software More Robust" [[Tasc2017](#CITE)]
+-   *Teaching Tech Together* [[Wils2018](#CITE)]
 
 ## Contributing
 

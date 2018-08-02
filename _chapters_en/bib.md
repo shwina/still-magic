@@ -3,6 +3,16 @@ permalink: "/en/bib/"
 title: "Bibliography"
 ---
 
+**Nobl2009**{:#Nobl2009}: William Stafford Noble: "A Quick Guide to Organizing Computational Biology Projects". *PLoS Computational Biology*, 5(7), Jul 2009, <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424>. *How to organize a small to medium-sized bioinformatics project.*
+
+**Tasc2017**{:#Tasc2017}: Morgan Taschuk and Greg Wilson: "Ten Simple Rules for Making Research Software More Robust". *PLoS Computational Biology*, 13(4), Apr 2017, <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005412>. *A short guide to making research software usable by other people.*
+
+**Wick2014**{:#Wick2014}: Hadley Wickham: "Tidy Data". *Journal of Statistical Software*, 59(10), 2014, <https://doi.org/10.18637/jss.v059.i10>. *The defining paper on tidy data.*
+
+**Wils2014**{:#Wils2014}: Greg Wilson, D. A. Aruliah, C. Titus Brown, Neil P. Chue Hong, Matt Davis, Richard T. Guy, Steven H. D. Haddock, Kathryn D. Huff, Ian M. Mitchell, Mark D. Plumbley, Ben Waugh, Ethan P. White, and Paul Wilson: "Best Practices for Scientific Computing". *PLoS Biology*, 12(1), Jan 2014, <https://doi.org/10.1371/journal.pbio.1001745>. *Outlines what a mature research software project should look like.*
+
+**Wils2017**{:#Wils2017}: Greg Wilson, Jennifer Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt, and Tracy K. Teal: "Good Enough Practices in Scientific Computing". *PLoS Computational Biology*, 13(6), Jun 2017, <https://doi.org/10.1371/journal.pcbi.1005510>. *Outlines what a ``good enough'' research software project should look like.*
+
 **Wils2018**{:#Wils2018}: Greg Wilson: *Teaching Tech Together*. Lulu.com, 2018, <http://teachtogether.tech>. *How to create and deliver lessons that work and build a teaching community around them.*
 
 {% include links.md %}

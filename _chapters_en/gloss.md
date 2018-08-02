@@ -3,11 +3,10 @@ permalink: "/en/gloss/"
 title: "Glossary"
 ---
 
-**Absolute beginner**{:#g:absolute-beginner}: Lorem ipsum dolor sit
-amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-labore et dolore magna aliqua.
-
-**Agile development**{:#g:agile-development}: Lacinia quis vel eros
-donec ac odio tempor orci.
+**Tidy data**{:#g:tidy-data}: tabular data organized so that:
+1.  Each variable is in one column.
+2.  Each different observation of that variable is in a different row.
+3.  There is one table for each "kind" of variable.
+4.  If there are multiple tables, each includes a key so that related data can be linked.
 
 {% include links.md %}

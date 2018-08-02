@@ -1,0 +1,552 @@
+---
+permalink: "/en/all.html"
+---
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <meta name="author" content="Greg Wilson" />
+    <title>Tidy Code: Index</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/css/tango.css" />
+<link rel="stylesheet" href="/css/youbou.css" />
+
+    <script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/files/crossref.js"></script>
+<script src="/js/youbou.js" ROOT="true"></script>
+
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2 d-print-none toc">
+          
+
+
+<nav>
+  <strong><a href="./">
+    <img src="/files/logo.svg" alt="Tidy Code logo" width="50%" />
+    <p><em>Tidy Code</em></p>
+  </a></strong>
+
+  <hr/>
+  
+
+<p><strong>Lessons</strong></p>
+<ol class="chapter">
+  <li>
+      <a href="#s:intro">Introduction</a>
+      
+  </li>
+        <li>
+      <a href="#s:style">Programming Style</a>
+      
+  </li>
+        <li>
+      <a href="#s:tools">Building Tools</a>
+      
+  </li>
+        <li>
+      <a href="#s:libs">Managing Libraries</a>
+      
+  </li>
+        <li>
+      <a href="#s:project">Project Organization</a>
+      
+  </li>
+        <li>
+      <a href="#s:automate">Automating Analyses</a>
+      
+  </li>
+        <li>
+      <a href="#s:reuse">Creating Reusable Code</a>
+      
+  </li>
+        <li>
+      <a href="#s:correct">Making Sure It's Right</a>
+      
+  </li>
+        <li>
+      <a href="#s:quality">Maintaining Code Quality</a>
+      
+  </li>
+        <li>
+      <a href="#s:workflow">A Scalable Workflow</a>
+      
+  </li>
+        <li>
+      <a href="#s:finale">Finale</a>
+      
+  </li>
+        </ol>
+
+  
+
+<p>
+  
+    <a href="#s:bib">Bibliography</a>
+  
+</p>
+      
+  
+
+<p><strong>Extras</strong></p>
+<ol class="appendix">
+  <li>
+      <a href="#s:license">License</a>
+      
+  </li>
+        <li>
+      <a href="#s:conduct">Code of Conduct</a>
+      
+  </li>
+        <li>
+      <a href="#s:citation">Citation</a>
+      
+  </li>
+        <li>
+      <a href="#s:gloss">Glossary</a>
+      
+  </li>
+        </ol>
+
+  <p><a href="./all.html">Single page version</a></p>
+
+  
+
+  <hr/>
+  <p>
+    <a href="#s:license"><img src="/files/cc-by.svg" alt="CC-BY License" width="80%" /></a>
+  </p>
+  <p>
+    <a href="mailto:gvwilson@third-bit.com"><img src="/files/email.svg" alt="Email" width="20%" /></a>
+    <a href="https://github.com/gvwilson/tidy-code/"><img src="/files/github.svg" alt="GitHub" width="20%" /></a>
+  </p>
+
+  
+  <p>
+    <em>Last generated 2018-08-02.</em>
+  </p>
+  
+</nav>
+
+        </div>
+        <div class="col-md-10 main">
+          <!-- main start -->
+
+          <h1>Tidy Code</h1>
+          
+
+          <p>FIXME: overview</p>
+
+
+          
+
+          <h1 id="s:intro">Introduction</h1>
+          
+<div class="listblock">
+  <p><strong>After reading this chapter, you will be able to...</strong></p>
+  <ul>
+    <li>Explain the difference between open science, reproducible research, and computational competence.
+</li><li>Determine readiness for using this material.
+</li>
+  </ul>
+</div>
+
+
+          <ul>
+  <li>Research doesn’t necessarily mean “academic”
+    <ul>
+      <li>Most data scientists are doing research</li>
+      <li>Act on findings instead of publishing them</li>
+    </ul>
+  </li>
+  <li>Researchers of all kinds need the equivalent of good laboratory skills for computing
+    <ul>
+      <li>Because software is just another kind of lab equipment</li>
+    </ul>
+  </li>
+  <li>Goals of this training:
+    <ul>
+      <li>Other people (including our future selves) can re-do analyses</li>
+      <li>All stakeholders can be confident in the results</li>
+      <li>Re-using software is cheaper than rewriting it</li>
+      <li>In short, the coding equivalent of <a href="#g:tidy-data">tidy data</a> [<a href="#Wick2014">Wick2014</a>]</li>
+    </ul>
+  </li>
+  <li>We will cover:
+    <ul>
+      <li>Writing code that is readable, testable, and maintainable (<a href="#s:style">Chapter 2</a>)</li>
+      <li>Building software tools that play nicely with others (<a href="#s:tools">Chapter 3</a>)</li>
+      <li>Managing libraries in a reproducible way (<a href="#s:libs">Chapter 4</a>)</li>
+      <li>Organizing the code, data, results, and reports in a small or medium-sized project (<a href="#s:project">Chapter 5</a>)</li>
+      <li>Automating analyses with build tools (<a href="#s:automate">Chapter 6</a>)</li>
+      <li>Building reusable software with classes and higher-order functions (<a href="#s:reuse">Chapter 7</a>)</li>
+      <li>Checking and demonstrating correctness via automated tests (<a href="#s:correct">Chapter 8</a>)</li>
+      <li>Maintaining code quality using checking tools (<a href="#s:quality">Chapter 9</a>)</li>
+      <li>Using a branch-per-feature workflow, rebasing, and tags to manage work (<a href="#s:workflow">Chapter 10</a>)</li>
+    </ul>
+  </li>
+  <li>Prerequisites
+    <ul>
+      <li>Python: lists, loops, conditionals, functions, importing and using libraries</li>
+      <li>Unix shell: paths, editing/renaming/deleting files, wildcards, redirection, pipes and filters, shell scripts</li>
+      <li>Git: add/commit, log, merge, resolving conflicts, push, pull</li>
+      <li>The <a href="http://software-carpentry.org">Software Carpentry</a> lessons cover these topics</li>
+    </ul>
+  </li>
+</ul>
+
+<p>These lessons can be used for self-study by people who plan to enroll in
+something like the <a href="https://www.insightdatascience.com/">Insight Data Science</a> Fellows Program,
+or as part of a one-semester course for graduate students or senior undergraduates
+who are already comfortable writing two-page programs in Python using lists, functions, and libraries.</p>
+
+<h2 id="sources">Sources</h2>
+
+<ul>
+  <li>“A Quick Guide to Organizing Computational Biology Projects” [<a href="#Nobl2009">Nobl2009</a>]</li>
+  <li>“Ten Simple Rules for Making Research Software More Robust” [<a href="#Tasc2017">Tasc2017</a>]</li>
+  <li>“Best Practices for Scientific Computing” [<a href="#Wils2014">Wils2014</a>]</li>
+  <li>“Good Enough Practices in Scientific Computing” [<a href="#Wils2017">Wils2017</a>]</li>
+  <li><em>Teaching Tech Together</em> [<a href="#Wils2018">Wils2018</a>]</li>
+</ul>
+
+<h2 id="contributing">Contributing</h2>
+
+<p>Contributions of all kinds are welcome, from errata and minor
+improvements to entirely new sections and chapters. All proposed
+contributions will be managed in the same way as edits to Wikipedia or
+patches to open source software, and all contributors will be credited
+for their work each time a new version is released.  please file an
+issue in our <a href="https://github.com/gvwilson/tidy-code/">GitHub repository</a> or <a href="mailto:gvwilson@third-bit.com">email the author
+directly</a>.  Please note that all contributors
+are required to abide by our code of conduct ((s:joining)[#APPENDIX]).</p>
+
+
+          
+
+          <h1 id="s:style">Programming Style</h1>
+          
+<div class="listblock">
+  <p><strong>After reading this chapter, you will be able to...</strong></p>
+  <ul>
+    <li>FIXME
+</li>
+  </ul>
+</div>
+
+
+          <p>FIXME</p>
+
+
+          
+
+          <h1 id="s:tools">Building Tools</h1>
+          
+<div class="listblock">
+  <p><strong>After reading this chapter, you will be able to...</strong></p>
+  <ul>
+    <li>FIXME
+</li>
+  </ul>
+</div>
+
+
+          <p>FIXME</p>
+
+
+          
+
+          <h1 id="s:libs">Managing Libraries</h1>
+          
+<div class="listblock">
+  <p><strong>After reading this chapter, you will be able to...</strong></p>
+  <ul>
+    <li>FIXME
+</li>
+  </ul>
+</div>
+
+
+          <p>FIXME</p>
+
+
+          
+
+          <h1 id="s:project">Project Organization</h1>
+          
+<div class="listblock">
+  <p><strong>After reading this chapter, you will be able to...</strong></p>
+  <ul>
+    <li>FIXME
+</li>
+  </ul>
+</div>
+
+
+          <p>FIXME</p>
+
+
+          
+
+          <h1 id="s:automate">Automating Analyses</h1>
+          
+<div class="listblock">
+  <p><strong>After reading this chapter, you will be able to...</strong></p>
+  <ul>
+    <li>FIXME
+</li>
+  </ul>
+</div>
+
+
+          <p>FIXME</p>
+
+
+          
+
+          <h1 id="s:reuse">Creating Reusable Code</h1>
+          
+<div class="listblock">
+  <p><strong>After reading this chapter, you will be able to...</strong></p>
+  <ul>
+    <li>FIXME
+</li>
+  </ul>
+</div>
+
+
+          <p>FIXME</p>
+
+
+          
+
+          <h1 id="s:correct">Making Sure It's Right</h1>
+          
+<div class="listblock">
+  <p><strong>After reading this chapter, you will be able to...</strong></p>
+  <ul>
+    <li>FIXME
+</li>
+  </ul>
+</div>
+
+
+          <p>FIXME</p>
+
+
+          
+
+          <h1 id="s:quality">Maintaining Code Quality</h1>
+          
+<div class="listblock">
+  <p><strong>After reading this chapter, you will be able to...</strong></p>
+  <ul>
+    <li>FIXME
+</li>
+  </ul>
+</div>
+
+
+          <p>FIXME</p>
+
+
+          
+
+          <h1 id="s:workflow">A Scalable Workflow</h1>
+          
+<div class="listblock">
+  <p><strong>After reading this chapter, you will be able to...</strong></p>
+  <ul>
+    <li>FIXME
+</li>
+  </ul>
+</div>
+
+
+          <p>FIXME</p>
+
+
+          
+
+          <h1 id="s:finale">Finale</h1>
+          
+
+          
+
+          
+
+          <h1 id="s:license">License</h1>
+          
+
+          <p><em>This is a human-readable summary of (and not a substitute for) the license.
+Please see <a href="https://creativecommons.org/licenses/by/4.0/legalcode">https://creativecommons.org/licenses/by/4.0/legalcode</a> for the full legal text.</em></p>
+
+<p>This work is licensed under the Creative Commons Attribution 4.0
+International license (CC-BY-4.0).</p>
+
+<p><strong>You are free to:</strong></p>
+
+<ul>
+  <li>
+    <p><strong>Share</strong>—copy and redistribute the material in any medium or
+format</p>
+  </li>
+  <li>
+    <p><strong>Remix</strong>—remix, transform, and build upon the material for any
+purpose, even commercially.</p>
+  </li>
+</ul>
+
+<p>The licensor cannot revoke these freedoms as long as you follow the
+license terms.</p>
+
+<p><strong>Under the following terms:</strong></p>
+
+<ul>
+  <li>
+    <p><strong>Attribution</strong>—You must give appropriate credit, provide a link
+to the license, and indicate if changes were made. You may do so in
+any reasonable manner, but not in any way that suggests the licensor
+endorses you or your use.</p>
+  </li>
+  <li>
+    <p><strong>No additional restrictions</strong>—You may not apply legal terms or
+technological measures that legally restrict others from doing
+anything the license permits.</p>
+  </li>
+</ul>
+
+<p><strong>Notices:</strong></p>
+
+<p>You do not have to comply with the license for elements of the
+material in the public domain or where your use is permitted by an
+applicable exception or limitation.</p>
+
+<p>No warranties are given. The license may not give you all of the
+permissions necessary for your intended use. For example, other rights
+such as publicity, privacy, or moral rights may limit how you use the
+material.</p>
+
+
+          
+
+          <h1 id="s:conduct">Code of Conduct</h1>
+          
+
+          <p>In the interest of fostering an open and welcoming environment, we as
+contributors and maintainers pledge to making participation in our
+project and our community a harassment-free experience for everyone,
+regardless of age, body size, disability, ethnicity, gender identity
+and expression, level of experience, education, socio-economic status,
+nationality, personal appearance, race, religion, or sexual identity
+and orientation.</p>
+
+<h2 id="our-standards">Our Standards</h2>
+
+<p>Examples of behavior that contributes to creating a positive
+environment include:</p>
+
+<ul>
+  <li>using welcoming and inclusive language,</li>
+  <li>being respectful of differing viewpoints and experiences,</li>
+  <li>gracefully accepting constructive criticism,</li>
+  <li>focusing on what is best for the community, and</li>
+  <li>showing empathy towards other community members.</li>
+</ul>
+
+<p>Examples of unacceptable behavior by participants include:</p>
+
+<ul>
+  <li>the use of sexualized language or imagery and unwelcome sexual
+attention or advances,</li>
+  <li>trolling, insulting/derogatory comments, and personal or political
+attacks,</li>
+  <li>public or private harassment,</li>
+  <li>publishing others’ private information, such as a physical or
+electronic address, without explicit permission, and</li>
+  <li>other conduct which could reasonably be considered inappropriate in
+a professional setting</li>
+</ul>
+
+<h2 id="our-responsibilities">Our Responsibilities</h2>
+
+<p>Project maintainers are responsible for clarifying the standards of
+acceptable behavior and are expected to take appropriate and fair
+corrective action in response to any instances of unacceptable
+behavior.</p>
+
+<p>Project maintainers have the right and responsibility to remove, edit,
+or reject comments, commits, code, wiki edits, issues, and other
+contributions that are not aligned to this Code of Conduct, or to ban
+temporarily or permanently any contributor for other behaviors that
+they deem inappropriate, threatening, offensive, or harmful.</p>
+
+<h2 id="scope">Scope</h2>
+
+<p>This Code of Conduct applies both within project spaces and in public
+spaces when an individual is representing the project or its
+community. Examples of representing a project or community include
+using an official project e-mail address, posting via an official
+social media account, or acting as an appointed representative at an
+online or offline event. Representation of a project may be further
+defined and clarified by project maintainers.</p>
+
+<h2 id="enforcement">Enforcement</h2>
+
+<p>Instances of abusive, harassing, or otherwise unacceptable behavior
+may be reported by <a href="gvwilson@third-bit.com">emailing the project team</a>. All
+complaints will be reviewed and investigated and will result in a
+response that is deemed necessary and appropriate to the
+circumstances. The project team is obligated to maintain
+confidentiality with regard to the reporter of an incident.  Further
+details of specific enforcement policies may be posted separately.</p>
+
+<p>Project maintainers who do not follow or enforce the Code of Conduct
+in good faith may face temporary or permanent repercussions as
+determined by other members of the project’s leadership.</p>
+
+<h2 id="attribution">Attribution</h2>
+
+<p>This Code of Conduct is adapted from
+the <a href="https://www.contributor-covenant.org">Contributor Covenant</a> version 1.4.</p>
+
+
+          
+
+          <h1 id="s:citation">Citation</h1>
+          
+
+          <p>Please cite this work as:</p>
+
+<blockquote>
+  <p>FIXME</p>
+</blockquote>
+
+
+          
+
+          <h1 id="s:gloss">Glossary</h1>
+          
+
+          <p><strong id="g:tidy-data">Tidy data</strong>: tabular data organized so that:</p>
+<ol>
+  <li>Each variable is in one column.</li>
+  <li>Each different observation of that variable is in a different row.</li>
+  <li>There is one table for each “kind” of variable.</li>
+  <li>If there are multiple tables, each includes a key so that related data can be linked.</li>
+</ol>
+
+
+          
+<!-- main end -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
