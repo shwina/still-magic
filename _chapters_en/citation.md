@@ -1,5 +1,5 @@
 ---
-permalink: "/um/citation/"
+permalink: "/en/citation/"
 title: "Citation"
 ---
 

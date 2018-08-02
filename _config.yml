@@ -1,17 +1,17 @@
 # Display.
-title: "Youbou Template"
-subtitle: "A template for building lessons with Jekyll and LaTeX"
+title: "Tidy Code"
+subtitle: "How to Write Good Software for Data Science"
 author: "Greg Wilson"
 copyrightyear: "2018"
-repo: "https://github.com/gvwilson/youbou/"
+repo: "https://github.com/gvwilson/tidy-code/"
 email: "gvwilson@third-bit.com"
 isbn: "000-0-0000000-0-0"
-website: "http://gvwilson.github.io/youbou/"
+website: "http://gvwilson.github.io/tidy-code/"
 purchase: ""
 paypal: ""
 
 # Theme color.
-background: "#f0e0e0"
+background: "#f8e8e8"
 
 # Jekyll settings.
 highlighter: rouge
@@ -29,7 +29,7 @@ exclude:
 - bin
 - misc
 - requirements.txt
-- tex_um
+- tex_en
 
 # Markers in generated files.
 marker:
@@ -39,16 +39,16 @@ marker:
 
 # Collections: one for lessons and one for extras for each language suffix.
 collections:
-  chapters_um:
+  chapters_en:
     output: true
 
 # Set the language for various collections.
 defaults:
   - scope:
       path: ""
-      type: chapters_um
+      type: chapters_en
     values:
-      language: "um"
+      language: "en"
       layout: "default"
 
 # Order for Table of Contents.
@@ -66,9 +66,7 @@ toc:
 
 # Translations by language.
 translations:
-  um:
-    donate: "Cursus risus at ultrices, mi tempus imperdiet nulla malesuada pellentesque <a href='^1'>$10</a> (amet tellus cras). Dis parturient montes nascetur ridiculus mus mauris."
-    generated: "Lastum generatum"
-    lulu: "Purchasum ad Lulu."
-    objectives: "Sodales ut etiam sit amet nisl purus in..."
+  en:
+    generated: "Last generated"
+    objectives: "After reading this chapter, you will be able to..."
     singlepage: "Single page version"

@@ -1,5 +1,5 @@
 ---
-permalink: "/um/gloss/"
+permalink: "/en/gloss/"
 title: "Glossary"
 ---
 

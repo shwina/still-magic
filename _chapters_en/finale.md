@@ -1,5 +1,5 @@
 ---
-permalink: "/um/finale/"
+permalink: "/en/finale/"
 title: "Finale"
 ---
 

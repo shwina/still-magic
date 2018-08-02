@@ -80,7 +80,7 @@ ${DIR_MD}/bib.md : ${BIB_SRC} bin/bib2md.py
 ## crossref    : rebuild cross-reference file.
 crossref : files/crossref.js
 
-files/crossref.js : bin/crossref.py _config.yml ${CHAPTERS_MD}
+files/crossref.js : bin/crossref.py _config.yml ${ALL_MD}
 	bin/crossref.py ${DIR_MD} < _config.yml > files/crossref.js
 
 ## ----------------------------------------

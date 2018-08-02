@@ -1,5 +1,5 @@
 ---
-permalink: "/um/intro/"
+permalink: "/en/intro/"
 title: "Introduction"
 questions:
 - "Sed turpis tincidunt id aliquet risus feugiat?"
