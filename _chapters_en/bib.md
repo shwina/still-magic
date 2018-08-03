@@ -3,6 +3,10 @@ permalink: "/en/bib/"
 title: "Bibliography"
 ---
 
+**Hart2016**{:#Hart2016}: Edmund M. Hart, Pauline Barmby, David LeBauer, Fran\ccois Michonneau, Sarah Mount, Patrick Mulrooney, Timoth\'ee Poisot, Kara H. Woo, Naupaka B. Zimmerman, and Jeffrey W. Hollister: "Ten Simple Rules for Digital Data Storage". *PLOS Computational Biology*, 12(10), oct 2016, <https://doi.org/10.1371/journal.pcbi.1005097>. *FIXME*
+
+**List2017**{:#List2017}: Markus List, Peter Ebert, and Felipe Albrecht: "Ten Simple Rules for Developing Usable Software in Computational Biology". *PLOS Computational Biology*, 13(1), Jan 2017, <https://doi.org/10.1371/journal.pcbi.1005265>. *FIXME*
+
 **Nobl2009**{:#Nobl2009}: William Stafford Noble: "A Quick Guide to Organizing Computational Biology Projects". *PLoS Computational Biology*, 5(7), Jul 2009, <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424>. *How to organize a small to medium-sized bioinformatics project.*
 
 **Tasc2017**{:#Tasc2017}: Morgan Taschuk and Greg Wilson: "Ten Simple Rules for Making Research Software More Robust". *PLoS Computational Biology*, 13(4), Apr 2017, <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005412>. *A short guide to making research software usable by other people.*

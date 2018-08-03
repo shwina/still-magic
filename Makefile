@@ -36,11 +36,11 @@ commands :
 	@grep -h -E '^##' Makefile | sed -e 's/## //g'
 
 ## serve       : run a local server.
-serve :
+serve : files/crossref.js
 	${JEKYLL} serve -I
 
 ## site        : build files but do not run a server.
-site :
+site : files/crossref.js
 	${JEKYLL} build
 
 ## ebook       : regenerate all-in-one versions of book.

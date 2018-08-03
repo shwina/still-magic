@@ -2,7 +2,7 @@
 permalink: "/en/intro/"
 title: "Introduction"
 questions:
--   "What is tidy code?"
+-   "What is computational competence?"
 -   "What is the scope of this training?"
 objectives:
 -   "Explain the difference between open science, reproducible research, and computational competence."
@@ -11,10 +11,11 @@ keypoints:
 -   FIXME
 ---
 
--   Research doesn't necessarily mean "academic"
-    -   Most data scientists are doing research
-    -   Act on findings instead of publishing them
--   Researchers of all kinds need the equivalent of good laboratory skills for computing
+-   Distinguish between:
+    -   Open science: everyone can read it
+    -   Reproducible research: people can re-do the analysis
+    -   Computational competence: get reliable results without late nights and heartbreak
+-   Computational competence requires the programming equivalent of good laboratory skills
     -   Because software is just another kind of lab equipment
 -   Goals of this training:
     -   Other people (including our future selves) can re-do analyses
@@ -29,7 +30,6 @@ keypoints:
     -   Automating analyses with build tools ([s:automate](#CHAPTER))
     -   Building reusable software with classes and higher-order functions ([s:reuse](#CHAPTER))
     -   Checking and demonstrating correctness via automated tests ([s:correct](#CHAPTER))
-    -   Maintaining code quality using checking tools ([s:quality](#CHAPTER))
     -   Using a branch-per-feature workflow, rebasing, and tags to manage work ([s:workflow](#CHAPTER))
 -   Prerequisites
     -   Python: lists, loops, conditionals, functions, importing and using libraries
@@ -41,6 +41,16 @@ These lessons can be used for self-study by people who plan to enroll in
 something like the [Insight Data Science][insight] Fellows Program,
 or as part of a one-semester course for graduate students or senior undergraduates
 who are already comfortable writing two-page programs in Python using lists, functions, and libraries.
+
+## What Does 'Done' Look Like?
+
+1.  Analysts are reasonably confident that results are correct.
+    -   Not the same as "absolutely sure".
+    -   As trustworthy as lab experiments or careful manual analysis.
+2.  Software can be used by people other than original authors without heroic effort.
+    -   I.e., people other than the authors can figure it out and use it in less time than it would take to write their own.
+3.  Small changes and extensions are easy.
+    -   So that the software can be re-used as problems and questions evolve.
 
 ## Sources
 

@@ -1,12 +1,12 @@
 # Display.
-title: "Tidy Code"
-subtitle: "How to Write Good Software for Data Science"
+title: "Still Magic"
+subtitle: "How to Build Research Software You Can Trust and Still Be Home in Time for Dinner"
 author: "Greg Wilson"
 copyrightyear: "2018"
-repo: "https://github.com/gvwilson/tidy-code/"
+repo: "https://github.com/gvwilson/still-magic/"
 email: "gvwilson@third-bit.com"
 isbn: "000-0-0000000-0-0"
-website: "http://gvwilson.github.io/tidy-code/"
+website: "http://gvwilson.github.io/still-magic/"
 purchase: ""
 paypal: ""
 
@@ -62,7 +62,6 @@ toc:
   - /automate/
   - /reuse/
   - /correct/
-  - /quality/
   - /workflow/
   - /finale/
   bib:
