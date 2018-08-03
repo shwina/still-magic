@@ -8,5 +8,6 @@ definitions if that's done.
 {% endcomment %}
 
 [covenant]: https://www.contributor-covenant.org
+[dc]: https://datacarpentry.org/
 [insight]: https://www.insightdatascience.com/
 [swc]: http://software-carpentry.org

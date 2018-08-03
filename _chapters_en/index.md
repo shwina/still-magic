@@ -8,6 +8,26 @@ redirect_from: "/"
 >
 > -- Terry Pratchett
 
+As research becomes more computing intensive,
+researchers need more computing skills.
+Being able to write code and use version control is a start;
+the goal of this training is to help you take your next steps
+so that:
+
+-   other people (including your future self) can re-do your analyses,
+-   you and the people using your results can be confident that they're correct,
+-   and re-using your software is easier than rewriting it.
+
+These lessons are based on:
+
+-   "A Quick Guide to Organizing Computational Biology Projects" [[Nobl2009](#CITE)]
+-   "Ten Simple Rules for Making Research Software More Robust" [[Tasc2017](#CITE)]
+-   "Best Practices for Scientific Computing" [[Wils2014](#CITE)]
+-   "Good Enough Practices in Scientific Computing" [[Wils2017](#CITE)]
+-   The [Software Carpentry][swc] and [Data Carpentry][dc] lessons
+
+For notes on how these lessons were designed, please see [[Wils2018](#CITE)].
+
 ## Who Are These Lessons For?
 
 **Samira** completed a Master's in epidemiology five years ago, and
