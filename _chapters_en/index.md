@@ -4,7 +4,9 @@ root: true
 redirect_from: "/"
 ---
 
-FIXME: overview
+> *It's still magic even if you know how it's done.*
+>
+> -- Terry Pratchett
 
 ## Who Are These Lessons For?
 
