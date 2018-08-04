@@ -2,4 +2,9 @@
 
 Please cite this work as:
 
-> FIXME
+> Greg Wilson (ed.):
+
+## Contributors
+
+-   Gerard Capes
+-   Greg Wilson
