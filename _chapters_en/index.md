@@ -77,34 +77,34 @@ their internal analysis pipelines.
     -   Use a logging framework to report activity.
     -   Always install software using a package manager.
     -   Use virtual environments to avoid conflicts between projects.
-    -   Separate code, raw data, processed data, and reports, and use matchable names for directories and files.
     -   Use a build tool with pattern rules to make analyses reproducible.
-    -   Use higher-order functions to create reusable abstractions and frameworks.
-    -   Use a documentation generator to extract and format embedded documentation.
     -   Use a unit testing harness to run and manage tests.
     -   Use a coverage tool to identify unused or untested code.
     -   Use stubs and mocks to isolate hard-to-test components.
-    -   Use CC-0 for data, CC-BY for reports, and the MIT License for code.
     -   Produce identical results when given identical inputs.
     -   Use a branch-per-feature/merge-to-master workflow.
     -   Rebase to consolidate work.
     -   Use tags and semantic versioning to identify production versions of software.
+    -   Separate code, raw data, processed data, and reports, and use matchable names for directories and files.
+    -   Use CC-0 for data, CC-BY for reports, and the MIT License for code.
+    -   Use a documentation generator to extract and format embedded documentation.
+    -   Use higher-order functions to create reusable abstractions and frameworks.
 1.  What technologies will learners use?
-    -    `pep8` for checking style.
-    -    `coverage.py` for code coverage.
-    -    `make` for build automation.
-    -    `pydoc` for documentation generation.
-    -    `getopt` for parsing command-line arguments.
-    -    `virtualenv` for environment management.
-    -    `conda` for package installation.
-    -    `yaml` for configuration files.
-    -    `logging` for logging.
-    -    Noble's Rules for project organization [[Nobl2009](#CITE)].
-    -    Taschuk's Rules for robust software [[Tasc2017](#CITE)].
-    -    `unittest` for unit testing.
-    -    `StringIO` for testing text streams.
-    -    `git rebase -i` to consolidate work.
-    -    `git tag` to tag releases.
+    -   `pep8` for checking style.
+    -   `coverage.py` for code coverage.
+    -   `make` for build automation.
+    -   `pydoc` for documentation generation.
+    -   `getopt` for parsing command-line arguments.
+    -   `virtualenv` for environment management.
+    -   `conda` for package installation.
+    -   `yaml` for configuration files.
+    -   `logging` for logging.
+    -   Noble's Rules for project organization [[Nobl2009](#CITE)].
+    -   Taschuk's Rules for robust software [[Tasc2017](#CITE)].
+    -   `unittest` for unit testing.
+    -   `StringIO` for testing text streams.
+    -   `git rebase -i` to consolidate work.
+    -   `git tag` to tag releases.
 1.  What do learners already need to know?
     -   Python: lists, loops, conditionals, functions, importing and using libraries
     -   Unix shell: paths, editing/renaming/deleting files, wildcards, redirection, pipes and filters, shell scripts
@@ -192,22 +192,6 @@ Your program must follow the style rules in PEP-8.
 3.  Add documentation strings to `combine` so that `pydoc` generates a reasonable page.
 4.  Test your package by installing it in a virtual environment called `combine-test`.
 
-### [s:project](#CHAPTER): Organize a Small Project
-
-The directory `latest` contains data files downloaded from several websites,
-analysis scripts,
-data summaries produced by those scripts,
-and a few plots of those summaries;
-the file `README.txt` contains
-a transcript of the operations used to produce these files and plots.
-
-1.  Reorganize these files so that they conform to Noble's Rules.
-2.  Compare your reorganization to the sample solution
-    and (if you are working through this material with others)
-    with what one of your peers has done.
-    Where did you make different changes?
-    Do any of those differences change the program's behavior?
-
 ### [s:automate](#CHAPTER): Automating a Small Project
 
 The directory `occupancy` contains data files and scripts
@@ -230,6 +214,41 @@ Write a Makefile with appropriate targets so that:
 
 Your Makefile should use pattern rules wherever possible.
 
+### [s:correct](#CHAPTER): Finding and Testing Hard-to-Reach Code
+
+1.  Clone the `match` repository on your personal computer.
+2.  Run the unit test suite.
+3.  Look at the coverage report: what function isn't being tested?
+4.  Write at least three tests for this function using `StringIO` to capture output.
+
+### [s:workflow](#CHAPTER): Git Workflow
+
+1.  Clone the `health` repository on your personal computer.
+2.  Create a new branch from `master`, using your user name as the name of the branch.
+3.  Edit and commit `CONTRIBUTORS.md` three times:
+    1.  Add your name.
+    2.  Add your email.
+    3.  Add your GitHub user ID.
+4.  Use `git rebase -i` to squash those three commits into one.
+5.  Merge your changes into `master`.
+6.  Create a tag for the merge commit.
+
+### [s:project](#CHAPTER): Organize a Small Project
+
+The directory `latest` contains data files downloaded from several websites,
+analysis scripts,
+data summaries produced by those scripts,
+and a few plots of those summaries;
+the file `README.txt` contains
+a transcript of the operations used to produce these files and plots.
+
+1.  Reorganize these files so that they conform to Noble's Rules.
+2.  Compare your reorganization to the sample solution
+    and (if you are working through this material with others)
+    with what one of your peers has done.
+    Where did you make different changes?
+    Do any of those differences change the program's behavior?
+
 ### [s:reuse](#CHAPTER): A Generic Data Windowing Function
 
 Write a function `window` that takes three parameters:
@@ -250,25 +269,6 @@ then the output for the values `[1, 3, 2, 5, 4, 2]` will be `[3, 3, 5, 5, 5, 4]`
 while if `filter` returns the minimum and the width is also 3,
 the output will be `[1, 1, 2, 2, 2, 2]`.
 
-### [s:correct](#CHAPTER): Finding and Testing Hard-to-Reach Code
-
-1.  Clone the `match` repository on your personal computer.
-2.  Run the unit test suite.
-3.  Look at the coverage report: what function isn't being tested?
-4.  Write at least three tests for this function using `StringIO` to capture output.
-
-### [s:workflow](#CHAPTER): Git Workflow
-
-1.  Clone the `health` repository on your personal computer.
-2.  Create a new branch from `master`, using your user name as the name of the branch.
-3.  Edit and commit `CONTRIBUTORS.md` three times:
-    1.  Add your name.
-    2.  Add your email.
-    3.  Add your GitHub user ID.
-4.  Use `git rebase -i` to squash those three commits into one.
-5.  Merge your changes into `master`.
-6.  Create a tag for the merge commit.
-
 ## Lesson Plan
 
 We budget two hours for each of these topics, divided evenly between instruction, worked examples, and exercises.
@@ -277,11 +277,11 @@ It should therefore be possible to cover everything in an intensive two-day work
 1.  Writing code that is readable, testable, and maintainable ([s:style](#CHAPTER)).
 1.  Building software tools that play nicely with others ([s:tools](#CHAPTER)).
 1.  Managing libraries in a reproducible way ([s:libs](#CHAPTER)).
-1.  Organizing the code, data, results, and reports in a small or medium-sized project ([s:project](#CHAPTER)).
 1.  Automating analyses with build tools ([s:automate](#CHAPTER)).
-1.  Building reusable software with higher-order functions ([s:reuse](#CHAPTER)).
 1.  Checking and demonstrating correctness via automated tests ([s:correct](#CHAPTER)).
 1.  Using a branch-per-feature workflow, rebasing, and tags to manage work ([s:workflow](#CHAPTER)).
+1.  Organizing the code, data, results, and reports in a small or medium-sized project ([s:project](#CHAPTER)).
+1.  Building reusable software with higher-order functions ([s:reuse](#CHAPTER)).
 
 ## Summary
 
