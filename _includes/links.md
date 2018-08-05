@@ -18,11 +18,16 @@ definitions if that's done.
 
 [gnu-make]: http://www.gnu.org/software/make/
 
+[huff-katy]: http://katyhuff.github.io/
+[huff-testing]: https://github.com/katyhuff/python-testing
+
 [insight]: https://www.insightdatascience.com/
 
 [make]: https://www.gnu.org/software/make/
 
 [swc]: http://software-carpentry.org
 [swc-make]: https://github.com/swcarpentry/make-novice
+
+[tf-idf]: https://en.wikipedia.org/wiki/Tf%E2%80%93idf
 
 [zipfs-law]: http://en.wikipedia.org/wiki/Zipf%27s_law
