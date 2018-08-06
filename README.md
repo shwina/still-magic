@@ -1,4 +1,4 @@
-# Youbou Template
+# Still Magic
 
-A Jekyll template for building GitHub Pages sites and LaTeX books to go with them.
-See `BUILD.md` for documentation.
+How to Build Research Software You Can Trust and Still Be Home in Time for Dinner
+
