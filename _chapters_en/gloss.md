@@ -27,6 +27,8 @@ title: "Glossary"
 
 **Phony target**{:#g:phony-target}: FIXME
 
+**Ticketing**{:#g:ticketing}: FIXME
+
 **Tidy data**{:#g:tidy-data}: tabular data organized so that:
 1.  Each variable is in one column.
 2.  Each different observation of that variable is in a different row.

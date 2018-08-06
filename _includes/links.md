@@ -7,6 +7,7 @@ file is a Markdown file because Jekyll doesn't expand the link
 definitions if that's done.
 {% endcomment %}
 
+[branch-per-feature]: https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
 [build-tools]: https://en.wikipedia.org/wiki/List_of_build_automation_software
 
 [capes-gerard]: https://github.com/gcapes
