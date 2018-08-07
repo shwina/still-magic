@@ -76,7 +76,13 @@ FIXME: output
 ## Did It Fail As It Was Supposed To? {#s:correct-exception}
 
 -   Did the call fail as it was supposed to, i.e., raise the right kind of exception?
-    -   Many errors in production systems happen because people don't test their error handling code [[Yuan2014](#CITE)]
+-   Many errors in production systems happen because people don't test their error handling code [[Yuan2014](#CITE)]
+    -   Almost all (92%) of the catastrophic system failures are the result of
+        incorrect handling of non-fatal errors explicitly signaled in software.
+    -   In 58% of the catastrophic failures, the underlying faults could easily have
+        been detected through simple testing of error handling code.
+    -   A majority (77%) of the failures require more than one input event to manifest, but
+        most of the failures (90%) require no more than 3.
 
 ```
 FIXME: example

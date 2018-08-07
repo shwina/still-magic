@@ -76,5 +76,27 @@ FIXME
     -   YAML is increasingly popular
     -   "If you have to write a parser, you've done something wrong."
     - ...or someone upstream from you did
+-   But be careful [[Xu2015](#CITE)]
+    -   Only a small percentage (6.1%-16.7%) of configuration parameters
+        are set by the majority of users; a significant percentage (up to
+        54.1%) of parameters are rarely set by any user.
+    -   A small percentage (1.8%-7.8%) of parameters are configured by more than 90% of the users.
+    -   Software developers often choose more "flexible" data types for
+        configuration parameters to give users more flexibility of
+        settings (e.g., using numeric types instead of the simple Boolean
+        or enumerative ones). However, users seem not to take full
+        advantage of such flexibility. A significant percentage (up to
+        47.4%) of numeric parameters have no more than five distinct
+        settings among all the users' settings.
+    -   Similarly, for enumerative parameters with many options, typically
+        only two to three of the options are actually used by the users,
+        indicating once again the over-designed flexibility.
+    -   A significant percentage (up to 48.5%) of configuration
+        issues are about users' difficulties in finding or setting the
+        parameters to obtain the intended system behavior
+    -   A significant percentage (up to 53.3%) of configuration errors are
+        introduced due to users' staying with default values incorrectly.
+    -   Searching user manuals by keywords is not efficient to help users
+        identify the target parameter(s).
 
 {% include links.md %}
