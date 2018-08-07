@@ -7,9 +7,13 @@ title: "Glossary"
 
 **Action**{:#g:make-action} (in Makefile): FIXME
 
+**Annotated tag**{:#g:annotated-tag}: FIXME
+
 **Automatic variable**{:#g:automatic-variable}: FIXME
 
 **Build tool**{:#g:build-tool}: FIXME
+
+**Control flow**{:#g:control-flow}: FIXME
 
 **Default target**{:#g:default-target}: FIXME
 
@@ -23,13 +27,25 @@ title: "Glossary"
 
 **Function**{:#g:make-function} (in Make): FIXME
 
+**Guard clause**{:#g:guard-clause}: FIXME
+
+**Object-oriented programming**{:#g:oop}: FIXME
+
 **Pattern rule**{:#g:pattern-rule}: FIXME
 
 **Phony target**{:#g:phony-target}: FIXME
 
+**Procedural programming**{:#g:procedural-programming}: FIXME
+
+**Protocol**{:#g:protocol}: FIXME
+
+**Refactor**{:#g:refactor}: FIXME
+
 **Relative error**{:#g:relative-error}: FIXME
 
 **Rule**{:#g:make-rule} (in Make): FIXME
+
+**Tab completion**{:#g:tab-completion}: FIXME
 
 **Target**{:#g:make-target} (in Make): FIXME
 
@@ -37,11 +53,15 @@ title: "Glossary"
 
 **Test coverage**{:#g:test-coverage}: FIXME
 
+**Test-driven development**{:#g:tdd}: FIXME
+
 **Test runner**{:#g:test-runner}: FIXME
 
 **Timestamp**{:#g:timestamp} (on file): FIXME
 
 **Unit test**{:#g:unit-test}: FIXME
+
+**Virtual environment**{:#g:virtual-environment}: FIXME
 
 **Wildcard**{:#g:wildcard}: FIXME
 

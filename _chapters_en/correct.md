@@ -127,4 +127,21 @@ FIXME: example
 -   Look at summary report
 -   Drill down into line-by-line HTML listing
 
+## Test-Driven Development {#s:correct-tdd}
+
+-   [Test-driven development](#g:tdd) (TDD)
+    -   Write a handful of tests that don't even run because the code they
+        are supposed to test doesn't exist yet.
+    -   Write just enough code to make those tests pass.
+    -   Clean up what's just been written.
+    -   Commit it to version control.
+-   Advocates claim that writing tests first:
+    -   Focuses people's minds on what code is supposed to
+        so that they're not subject to confirmation bias when viewing test results
+    -   Ensures that code actually *is* testable
+    -   Ensures tests are actually written
+-   Evidence backing these claims is contradictory
+    -   Empirical studies have not found a strong effect [[Fucc2016](#CITE)]
+    -   But many productive programmers believe in it, so maybe we're measuring the wrong things...
+
 {% include links.md %}

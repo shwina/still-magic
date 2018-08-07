@@ -175,23 +175,6 @@ and combines records with the same keys.
 
 Your program must follow the style rules in PEP-8.
 
-### [s:libs](#CHAPTER): Create and Install a Package
-
-1.  Reorganize the code for `combine` so that it has two files:
-    -   `combine.py` contains a single function called `combine` that takes
-        two lists of lists containing data read from CSV files
-        and keyword arguments corresponding to command-line options
-        and produces a list of lists with the combined tables.
-    -   `main.py` contains a single function called `main`
-        that parses command-line parameters,
-        reads data,
-        calls the `combine` functions,
-        and writes the output.
-2.  Create a Pip package that will install `combine`
-    so that it can be used as a utility function and as command-line tool.
-3.  Add documentation strings to `combine` so that `pydoc` generates a reasonable page.
-4.  Test your package by installing it in a virtual environment called `combine-test`.
-
 ### [s:automate](#CHAPTER): Automating a Small Project
 
 The directory `occupancy` contains data files and scripts
@@ -233,7 +216,7 @@ Your Makefile should use pattern rules wherever possible.
 5.  Merge your changes into `master`.
 6.  Create a tag for the merge commit.
 
-### [s:project](#CHAPTER): Organize a Small Project
+### [s:structure](#CHAPTER): Reorganize a Small Project
 
 The directory `latest` contains data files downloaded from several websites,
 analysis scripts,
@@ -248,6 +231,8 @@ a transcript of the operations used to produce these files and plots.
     with what one of your peers has done.
     Where did you make different changes?
     Do any of those differences change the program's behavior?
+3.  Create a Pip package that will install the scripts as a Python package.
+4.  Test your package by installing it in a virtual environment called `combine-test`.
 
 ### [s:reuse](#CHAPTER): A Generic Data Windowing Function
 

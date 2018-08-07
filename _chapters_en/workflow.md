@@ -55,6 +55,11 @@ FIXME:
 
 FIXME:
 -   Why and how to tag
+-   Use [annotated tags](#g:annotated-tag) to mark every major event in the project's history
+    -   Annotated because they allow a message, just like a commit
+    -   Use semantic versioning for software releases ([s:robust](#CHAPTER))
+    -   Use `manuscript-date-event` for publications
+        -   E.g., `jse-2018-06-23-response`
 -   Semantic versioning
 -   Treat each release branch as its own `master`
 -   Porting bug fixes and features across releases is complicated

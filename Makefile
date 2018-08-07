@@ -99,7 +99,7 @@ checkchars :
 	@bin/checkchars.py ${ALL_MD}
 
 ## checkcites  : list all missing bibliography entries.
-checkcites :
+checkcites : ${BIB_SRC} ${CHAPTERS_TEX}
 	@bin/checkcites.py --missing ${BIB_SRC} ${CHAPTERS_TEX}
 
 ## checkgloss  : check that all glossary entries are defined and used.
@@ -107,7 +107,7 @@ checkgloss :
 	@bin/checkgloss.py ${ALL_MD}
 
 ## checklabels : make sure all labels conform to standards.
-checklabels :
+checklabels : ${CHAPTERS_TEX}
 	@bin/checklabels.py ${CHAPTERS_TEX}
 
 ## checklinks  : check that all links in source Markdown resolve.

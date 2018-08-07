@@ -3,7 +3,17 @@ permalink: "/en/bib/"
 title: "Bibliography"
 ---
 
+**Beni2017**{:#Beni2017}: Gal Beniamini, Sarah Gingichashvili, Alon Klein Orbach, and Dror G. Feitelson: "Meaningful Identifier Names: The Case of Single-Letter Variables". *Meaningful Identifier Names: The Case of Single-Letter Variables*, May 2017, <https://doi.org/10.1109/icpc.2017.18>. *Reports that use of single-letter variable names doesn't affect ability to modify code, and that some single-letter variable names have implicit types and meanings.*
+
+**Bran1995**{:#Bran1995}: Stewart Brand: *How Buildings Learn: What Happens After They're Built*. Penguin USA, 1995. *FIXME*
+
+**Fucc2016**{:#Fucc2016}: Davide Fucci, Giuseppe Scanniello, Simone Romano, Martin Shepperd, Boyce Sigweni, Fernando Uyaguari, Burak Turhan, Natalia Juristo, and Markku Oivo: "An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach". *An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach*, 2016, <https://doi.org/10.1145/2961111.2962592>. *The latest in a long line to find that test-driven development (TDD) has little or no impact on development time or code quality.*
+
+**Gawa2007**{:#Gawa2007}: Atul Gawande: "The Checklist". *The New Yorker*, Dec 2007, <https://www.newyorker.com/magazine/2007/12/10/the-checklist>. *Describes the life-saving effects of simple checklists.*
+
 **Hart2016**{:#Hart2016}: Edmund M. Hart, Pauline Barmby, David LeBauer, Fran\ccois Michonneau, Sarah Mount, Patrick Mulrooney, Timoth\'ee Poisot, Kara H. Woo, Naupaka B. Zimmerman, and Jeffrey W. Hollister: "Ten Simple Rules for Digital Data Storage". *PLOS Computational Biology*, 12(10), oct 2016, <https://doi.org/10.1371/journal.pcbi.1005097>. *FIXME*
+
+**Kapser2006**{:#Kapser2006}: Cory Kapser and Michael Godfrey: ""Cloning Considered Harmful" Considered Harmful". *"Cloning Considered Harmful" Considered Harmful*, 2006, <https://doi.org/10.1109/wcre.2006.1>. *Reports empirical research showing that code clones are sometimes beneficial.*
 
 **List2017**{:#List2017}: Markus List, Peter Ebert, and Felipe Albrecht: "Ten Simple Rules for Developing Usable Software in Computational Biology". *PLOS Computational Biology*, 13(1), Jan 2017, <https://doi.org/10.1371/journal.pcbi.1005265>. *FIXME*
 

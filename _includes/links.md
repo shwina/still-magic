@@ -16,6 +16,7 @@ definitions if that's done.
 [covenant]: https://www.contributor-covenant.org
 
 [dc]: https://datacarpentry.org/
+[docker]: https://en.wikipedia.org/wiki/Docker_(software)
 [dursi-jonathan]: https://www.dursi.ca/
 [dursi-pattern-rules]: https://github.com/ljdursi/make_pattern_rules
 

@@ -574,4 +574,17 @@ help: show available targets
     -   The pattern `/## //` means "find two #'s followed by a space and replace them with nothing (i.e., delete them)"
 -   None of this is part of Make, so most people simply copy this rule from file to file
 
+## Exercises {#s:automate-ex}
+
+### Create a Setup Checklist
+
+FIXME
+-   Not everything can be automated
+-   So use a checklist [[Gawa2007](#CITE)]
+
+1.  Write a short point-form checklist describing the things you do
+    when setting up a new machine to do development on your project.
+2.  How many of the steps in your checklist can be automated using shell scripts or other small programs?
+3.  How will newcomers know if they have completed the steps in the checklist correctly?
+
 {% include links.md %}
