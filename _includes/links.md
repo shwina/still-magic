@@ -26,6 +26,8 @@ definitions if that's done.
 
 [make]: https://www.gnu.org/software/make/
 
+[pep-8]: https://www.python.org/dev/peps/pep-0008/
+
 [swc]: http://software-carpentry.org
 [swc-make]: https://github.com/swcarpentry/make-novice
 

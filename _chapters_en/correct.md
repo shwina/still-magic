@@ -67,7 +67,7 @@ FIXME: output
 -   Searches for all files named `test_*.py` or `*_test.py` in the current directory and its sub-directories
 -   Runs all functions in those files whose names start with `test_`
 
-## Is It Close Enough? (#s:correct-float)
+## Is It Close Enough? {#s:correct-float}
 
 -   Recap of floating point roundoff
 -   Use `pytest.approx` with a [relative error](#g:relative-error) rather than an [absolute error](#g:absolute-error)
