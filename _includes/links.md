@@ -8,9 +8,11 @@ definitions if that's done.
 {% endcomment %}
 
 [branch-per-feature]: https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
+[bryan-jenny]: https://jennybryan.org/
 [build-tools]: https://en.wikipedia.org/wiki/List_of_build_automation_software
 
 [capes-gerard]: https://github.com/gcapes
+[code-smells-and-feels]: https://github.com/jennybc/code-smells-and-feels
 [covenant]: https://www.contributor-covenant.org
 
 [dc]: https://datacarpentry.org/

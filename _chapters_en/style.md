@@ -32,6 +32,11 @@ FIXME
     -   Constants
     -   Functions (highest level first)
     -   `if __name__ == '__main__'`
+-   A few other rules (some borrowed from [Jenny Bryan][bryan-jenny]'s "[Code Smells and Feels][code-smells-and-feels]")
+    -   Do not comment and uncomment sections of code to change behavior
+    -   Keep functions short (no more than a page or three levels of control flow)
+    -   Put early exits or decisions at the top of the function ([guard clause](#g:guard-clause))
+    -   Prefer `if` to `else`
 
 ## Embedded Documentation {#s:style-docstrings}
 
