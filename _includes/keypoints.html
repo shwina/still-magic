@@ -1,0 +1,19 @@
+{% if include.language == 'en' %}
+  {% assign chapters = site.chapters_en %}
+{% elsif include.language == 'um' %}
+  {% assign chapters = site.chapters_um %}
+{% endif %}
+
+{% assign prefix = '/' | append: include.language | append: '/' %}
+{%- for toc_entry in site.toc.lessons -%}
+  {%- for lesson in chapters -%}
+    {% assign key = lesson.permalink | replace: prefix, '/' %}
+    {%- if toc_entry == key -%}
+<h2><a href="{{lesson.permalink|relative_url}}">{{lesson.title}}</a></h2>
+<ul>
+{%- for kp in lesson.keypoints -%}<li>{{kp|markdownify|replace: "<p>", ""|replace: "</p>", ""}}</li>{%- endfor -%}
+</ul>
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}

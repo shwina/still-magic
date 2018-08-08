@@ -252,7 +252,7 @@ def do_twice(function, value):
 -   A very common pattern in numerical computing, and one that you should use
 -   Makes the control flow re-usable
 
-## Summary {#s:automate-summary}
+## Summary {#s:reuse-summary}
 
 <figure>
   <figcaption>Reuse Concept Map</figcaption>

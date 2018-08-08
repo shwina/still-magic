@@ -25,12 +25,11 @@ keypoints:
 -   We will cover:
     -   Writing code that is readable, testable, and maintainable ([s:style](#CHAPTER))
     -   Building software tools that play nicely with others ([s:tools](#CHAPTER))
-    -   Managing libraries in a reproducible way ([s:libs](#CHAPTER))
-    -   Organizing the code, data, results, and reports in a small or medium-sized project ([s:project](#CHAPTER))
     -   Automating analyses with build tools ([s:automate](#CHAPTER))
-    -   Building reusable software with classes and higher-order functions ([s:reuse](#CHAPTER))
     -   Checking and demonstrating correctness via automated tests ([s:correct](#CHAPTER))
     -   Using a branch-per-feature workflow, rebasing, and tags to manage work ([s:workflow](#CHAPTER))
+    -   Organizing the code, data, results, and reports in a small or medium-sized project ([s:structure](#CHAPTER))
+    -   Building reusable software with classes and higher-order functions ([s:reuse](#CHAPTER))
 -   Prerequisites
     -   Python: lists, loops, conditionals, functions, importing and using libraries
     -   Unix shell: paths, editing/renaming/deleting files, wildcards, redirection, pipes and filters, shell scripts
