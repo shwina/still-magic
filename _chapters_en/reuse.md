@@ -1,12 +1,32 @@
 ---
 permalink: "/en/reuse/"
-title: "Creating Reusable Code"
+title: "Creating Re-usable Code"
 questions:
--   FIXME
+-   "How can I write software that I'll be able to re-use in the future?"
 objectives:
--   FIXME
+-   "Write functions whose parameters have default values."
+-   "Explain which parameters should have default values and how to select good ones."
+-   "Write functions that can handle variable numbers of arguments."
+-   "Explain what problems can most easily be solved by creating functions with variable numbers of arguments."
+-   "Explain what happens when a new function is defined."
+-   "Create an alias for a function and explain what this does."
+-   "Write programs that pass functions as arguments to other functions."
+-   "Use higher-order functions to separate control flow from specific operations."
+-   "Write programs that store functions in lists."
+-   "Explain why too little or too much abstraction increases cognitive load, and why 'too little' and 'too much' are relative terms."
 keypoints:
--   FIXME
+-   "Use `name=value` to define a default value for a function parameter."
+-   "Use `*args` to define a catch-all parameter for functions taking a variable number of unnamed arguments."
+-   "Use `**kwargs` to define a catch-all parameter for functions taking a variable number of named arguments."
+-   "When a function is defined, Python translates the instructions into data and stores that data in memory."
+-   "Variables can refer to functions just as they refer to lists, strings, and other values."
+-   "References to functions can be stored in lists and other data structures."
+-   "Functions can be passed as arguments to other functions just like other values."
+-   "Higher-order functions are a way to abstract and re-use control flow."
+-   "Every higher-order function implicitly defines a contract that must be respected by the functions passed to it."
+-   "Too little abstraction increases cognitive load by requiring the reader to assemble meaning as they read."
+-   "Too much abstraction increases cognitive load by requiring the reader to translate generalities into specifics as they read."
+-   "'Too little' and 'too much' depend on the reader's level of expertise, which varies over time."
 ---
 
 -   The more code you re-use, the less code you have to write

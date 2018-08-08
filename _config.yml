@@ -75,5 +75,7 @@ toc:
 translations:
   en:
     generated: "Last generated"
+    keypoints: "Key points"
     objectives: "After reading this chapter, you will be able to..."
+    questions: "Questions this lesson answers"
     singlepage: "Single page version"
