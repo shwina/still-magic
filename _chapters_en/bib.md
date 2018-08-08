@@ -29,6 +29,8 @@ title: "Bibliography"
 
 **Wils2018**{:#Wils2018}: Greg Wilson: *Teaching Tech Together*. Lulu.com, 2018, <http://teachtogether.tech>. *How to create and deliver lessons that work and build a teaching community around them.*
 
+**Xu2015**{:#Xu2015}: Tianyin Xu, Long Jin, Xuepeng Fan, Yuanyuan Zhou, Shankar Pasupathy, and Rukma Talwadker: "Hey,  you have given me too many knobs!: understanding and dealing with over-designed configuration in system software". *Hey,  you have given me too many knobs!: understanding and dealing with over-designed configuration in system software*, 2015, <https://doi.org/10.1145/2786805.2786852>. *Examines the over-abundance of configuration options in software.*
+
 **Yuan2014**{:#Yuan2014}: Ding Yuan, Yu Luo, Xin Zhuang, Guilherme Renna Rodrigues, Xu Zhao, Yongle Zhang, Pranay Jain, and Michael Stumm: "Simple Testing Can Prevent Most Critical Failures: An Analysis of Production Failures in Distributed Data-Intensive Systems". *Simple Testing Can Prevent Most Critical Failures: An Analysis of Production Failures in Distributed Data-Intensive Systems*, 2014. *Most failures in big data systems can be prevented by testing the error-handling code.*
 
 {% include links.md %}

@@ -574,7 +574,14 @@ help: show available targets
     -   The pattern `/## //` means "find two #'s followed by a space and replace them with nothing (i.e., delete them)"
 -   None of this is part of Make, so most people simply copy this rule from file to file
 
-## Exercises {#s:automate-ex}
+## Summary {#s:automate-summary}
+
+<figure>
+  <figcaption>Make Concept Map</figcaption>
+  <img id="f:automate-concept" src="../../files/automate.svg" alt="Make Concept Map" />
+</figure>
+
+## Exercises {#s:automate-exercises}
 
 ### Create a Setup Checklist
 
