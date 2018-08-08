@@ -2,13 +2,18 @@
 permalink: "/en/intro/"
 title: "Introduction"
 questions:
--   "What is computational competence?"
+-   "What is the difference between open, reproducible, and competent?"
 -   "What is the scope of this training?"
+-   "What are the prerequisites for this training?"
 objectives:
 -   "Explain the difference between open science, reproducible research, and computational competence."
 -   "Determine readiness for using this material."
+-   "Explain what 'done' looks like for the computational component of a small or medium-sized research project."
+-   "Determine whether a particular research project meets that standard."
 keypoints:
--   FIXME
+-   "Research is 'open' if everyone can read it, 'reproducible' if people who have access can regenerate it, and 'competent' if it was built in reasonable time and without heroic effort."
+-   "Computational competence is the digital equivalent of knowing how to use lab equipment properly."
+-   "A project is 'done' when stakeholders can be reasonably sure the results are correct and the software can be understood, run, and extended by people other than the original authors without heroic effort."
 ---
 
 -   Distinguish between:
@@ -41,7 +46,7 @@ something like the [Insight Data Science][insight] Fellows Program,
 or as part of a one-semester course for graduate students or senior undergraduates
 who are already comfortable writing two-page programs in Python using lists, functions, and libraries.
 
-## What Does 'Done' Look Like?
+## What Does 'Done' Look Like? {#s:intro-done}
 
 1.  Analysts are reasonably confident that results are correct.
     -   Not the same as "absolutely sure".
@@ -51,7 +56,7 @@ who are already comfortable writing two-page programs in Python using lists, fun
 3.  Small changes and extensions are easy.
     -   So that the software can be re-used as problems and questions evolve.
 
-## Sources
+## Sources {#s:intro-sources}
 
 -   "A Quick Guide to Organizing Computational Biology Projects" [[Nobl2009](#CITE)]
 -   "Ten Simple Rules for Making Research Software More Robust" [[Tasc2017](#CITE)]
@@ -59,7 +64,7 @@ who are already comfortable writing two-page programs in Python using lists, fun
 -   "Good Enough Practices in Scientific Computing" [[Wils2017](#CITE)]
 -   *Teaching Tech Together* [[Wils2018](#CITE)]
 
-## Contributing
+## Contributing {#s:intro-contrib}
 
 Contributions of all kinds are welcome, from errata and minor
 improvements to entirely new sections and chapters. All proposed
@@ -69,5 +74,9 @@ for their work each time a new version is released.  please file an
 issue in our [GitHub repository]({{site.repo}}) or [email the author
 directly](mailto:{{site.email}}).  Please note that all contributors
 are required to abide by our code of conduct ((s:joining)[#APPENDIX]).
+
+## Exercises {#s:intro-exercises}
+
+FIXME
 
 {% include links.md %}
