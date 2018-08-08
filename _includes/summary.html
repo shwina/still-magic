@@ -9,9 +9,16 @@
   {%- for lesson in chapters -%}
     {% assign key = lesson.permalink | replace: prefix, '/' %}
     {%- if toc_entry == key -%}
+    {%- if include.which == 'questions' -%}
+      {%- assign which = lesson.questions -%}
+    {%- elsif include.which == 'objectives' -%}
+      {%- assign which = lesson.objectives -%}
+    {%- elsif include.which == 'keypoints' -%}
+      {%- assign which = lesson.keypoints -%}
+    {%- endif -%}
 <h2><a href="{{lesson.permalink|relative_url}}">{{lesson.title}}</a></h2>
 <ul>
-{%- for kp in lesson.keypoints -%}<li>{{kp|markdownify|replace: "<p>", ""|replace: "</p>", ""}}</li>{%- endfor -%}
+{%- for item in which -%}<li>{{item|markdownify|replace: "<p>", ""|replace: "</p>", ""}}</li>{%- endfor -%}
 </ul>
       {%- break -%}
     {%- endif -%}

@@ -4,6 +4,6 @@ title: "Key Points"
 ---
 
 {% assign translations=site.translations[page.language] %}
-{% include keypoints.html language=page.language translations=translations %}
+{% include summary.html which="keypoints" language=page.language translations=translations %}
 
 {% include links.md %}
