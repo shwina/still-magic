@@ -4,7 +4,7 @@ root: true
 redirect_from: "/"
 ---
 
-> *It's still magic even if you know how it's done.*
+> It's still magic even if you know how it's done.
 >
 > -- Terry Pratchett
 
