@@ -13,6 +13,12 @@ title: "Glossary"
 
 **Build tool**{:#g:build-tool}: FIXME
 
+**Chunking**{:#g:chunking}: FIXME
+
+**Cognitive load**{:#g:cognitive-load}: FIXME
+
+**Continuous integration**{:#g:continuous-integration}: FIXME
+
 **Control flow**{:#g:control-flow}: FIXME
 
 **Default target**{:#g:default-target}: FIXME
@@ -20,6 +26,10 @@ title: "Glossary"
 **Dependency**{:#g:make-dependency} (in Makefile): FIXME
 
 **Dependency graph**{:#g:dependency-graph}: FIXME
+
+**Design patterns**{:#g:design-patterns}: FIXME
+
+**Docstring**{:#g:docstring}: FIXME
 
 **Filename stem**{:#g:filename-stem}: FIXME
 
@@ -42,6 +52,8 @@ title: "Glossary"
 **Refactor**{:#g:refactor}: FIXME
 
 **Relative error**{:#g:relative-error}: FIXME
+
+**reStructured Text**{:#g:restructured-text}: FIXME
 
 **Rule**{:#g:make-rule} (in Make): FIXME
 
