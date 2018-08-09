@@ -3,15 +3,15 @@ title: "Still Magic"
 subtitle: "How to Build Research Software You Can Trust and Still Be Home in Time for Dinner"
 author: "Greg Wilson"
 copyrightyear: "2018"
-repo: "https://github.com/gvwilson/still-magic/"
+repo: "https://github.com/merely-useful/still-magic/"
 email: "gvwilson@third-bit.com"
 isbn: "000-0-0000000-0-0"
-website: "http://gvwilson.github.io/still-magic/"
+website: "http://merely-useful.github.io/still-magic/"
 purchase: ""
 paypal: ""
 
 # Theme color.
-background: "#f8e8e8"
+background: "#faf0f0"
 
 # Jekyll settings.
 highlighter: rouge

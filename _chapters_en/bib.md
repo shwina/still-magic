@@ -21,6 +21,8 @@ title: "Bibliography"
 
 **Nobl2009**{:#Nobl2009}: William Stafford Noble: "A Quick Guide to Organizing Computational Biology Projects". *PLoS Computational Biology*, 5(7), Jul 2009, <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424>. *How to organize a small to medium-sized bioinformatics project.*
 
+**Saja2006**{:#Saja2006}: Jorma Sajaniemi, Mordechai Ben-Ari, Pauli Byckling, Petri Gerdt, and Yevgeniya Kulikova: "Roles of Variables in Three Programming Paradigms". *Computer Science Education*, 16(4), Dec 2006, <https://doi.org/10.1080/08993400600874584>. *A detailed look at the authors' work on roles of variables.*
+
 **Tasc2017**{:#Tasc2017}: Morgan Taschuk and Greg Wilson: "Ten Simple Rules for Making Research Software More Robust". *PLoS Computational Biology*, 13(4), Apr 2017, <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005412>. *A short guide to making research software usable by other people.*
 
 **Wick2014**{:#Wick2014}: Hadley Wickham: "Tidy Data". *Journal of Statistical Software*, 59(10), 2014, <https://doi.org/10.18637/jss.v059.i10>. *The defining paper on tidy data.*
