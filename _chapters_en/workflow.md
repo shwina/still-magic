@@ -95,6 +95,13 @@ FIXME
     -   Estimate how long work will take
     -   Record how long work actually took
     -   Don't worry about any of this until people are actually using tickets...
+-   More sophisticated systems also constrain the transitions between states and who can make them
+    -    Defines the project's workflow
+
+<figure>
+  <figcaption>Ticket State Transitions</figcaption>
+  <img id="f:workflow-lifecycle" src="../../files/ticket-lifecycle.svg" alt="Ticket State Transitions" />
+</figure>
 
 ## How to Write a Good Bug Report {#s:workflow-bugs}
 
@@ -115,13 +122,13 @@ Owner: malvika
 Tags: Bug, Verified
 Summary: wordbase.py fails on accented characters
 Description:
-1.  Create a text file called 'accent.txt' containing the word "Pümpernickel"
+1.  Create a text file called 'accent.txt' containing the word "Pumpernickel"
     with an umlaut over the 'u'.
 
 2.  Run 'python wordbase.py --all --message accent.txt'
 
-Program should print "Pümpernickel" on a line by itself, but instead
-it fails with the message:
+Program should print "Pumpernickel" on a line by itself with the umlaut, but
+instead it fails with the message:
 
     No encoding for [] on line 1 of 'accent.txt'.
 
