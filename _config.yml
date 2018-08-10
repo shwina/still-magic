@@ -11,7 +11,7 @@ purchase: ""
 paypal: ""
 
 # Theme color.
-background: "#faf0f0"
+background: "#f0faf0"
 
 # Jekyll settings.
 highlighter: rouge
