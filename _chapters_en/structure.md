@@ -48,10 +48,20 @@ FIXME
 -   A few files Noble didn't mention that have become conventional
     -   `README`: one-paragraph description of the project
     -   `LICENSE`: the project's license
-    -   `CONDUCT`: its code of conduct
+    -   `CONDUCT`: its code of conduct (discussed below)
     -   `CITATION`: how the work should be cited
         -  May have a separate `CONTRIBUTORS` file, or list contributors in `CITATION`
     -   These files may be plain text or Markdown, or have no suffix at all, but please use the principal names as given
+
+## Code of Conduct {#s:structure-conduct}
+
+FIXME
+-   Why
+-   Ada Initiative
+-   Contributor Covenant
+-   Make clear:
+    -   How to report
+    -   Who handles
 
 ## Virtual Environments {#s:structure-virtualenv}
 
@@ -72,5 +82,10 @@ FIXME
 -   How to make the package available
     -   On PyPI
     -   From GitHub
+-   Citing packages
+    -   [Connect GitHub to Zenodo][citable-code]
+    -   Create a release
+    -   Create a DOI
+    -   Publish in [JOSS][joss] or [F1000 Research][f1000-research]
 
 {% include links.md %}

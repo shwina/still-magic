@@ -12,6 +12,7 @@ definitions if that's done.
 [build-tools]: https://en.wikipedia.org/wiki/List_of_build_automation_software
 
 [capes-gerard]: https://github.com/gcapes
+[citable-code]: https://guides.github.com/activities/citable-code/
 [code-smells-and-feels]: https://github.com/jennybc/code-smells-and-feels
 [covenant]: https://www.contributor-covenant.org
 
@@ -20,6 +21,10 @@ definitions if that's done.
 [dursi-jonathan]: https://www.dursi.ca/
 [dursi-pattern-rules]: https://github.com/ljdursi/make_pattern_rules
 
+[f1000-research]: https://f1000research.com/
+[formatR]: https://yihui.name/formatr/
+
+[github]: http://github.com
 [gnu-make]: http://www.gnu.org/software/make/
 
 [huff-katy]: http://katyhuff.github.io/
@@ -27,20 +32,28 @@ definitions if that's done.
 
 [insight]: https://www.insightdatascience.com/
 
+[joss]: https://joss.theoj.org/
+
+[lint]: https://en.wikipedia.org/wiki/Lint_(software)
+
 [make]: https://www.gnu.org/software/make/
 [markdown]: https://en.wikipedia.org/wiki/Markdown
 
 [orwells-rules]: https://en.wikipedia.org/wiki/Politics_and_the_English_Language#Remedy_of_Six_Rules
 
 [pep-8]: https://www.python.org/dev/peps/pep-0008/
+[python-travis-tutorial]: https://www.smartfile.com/blog/testing-python-with-travis-ci/
 
 [readthedocs]: https://docs.readthedocs.io/en/latest/
 [roles-variables]: http://www.cs.joensuu.fi/~saja/var_roles/role_intro.html
 
+[snakemake]: https://snakemake.readthedocs.io/
 [sphinx]: http://www.sphinx-doc.org/en/master/
 [swc]: http://software-carpentry.org
 [swc-make]: https://github.com/swcarpentry/make-novice
 
 [tf-idf]: https://en.wikipedia.org/wiki/Tf%E2%80%93idf
+[travis-ci]: https://travis-ci.org/
 
+[zenodo]: https://zenodo.org/
 [zipfs-law]: http://en.wikipedia.org/wiki/Zipf%27s_law

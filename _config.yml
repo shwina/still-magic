@@ -56,9 +56,10 @@ toc:
   lessons:
   - /intro/
   - /style/
-  - /tools/
   - /automate/
   - /correct/
+  - /publish/
+  - /continuous/
   - /workflow/
   - /structure/
   - /reuse/

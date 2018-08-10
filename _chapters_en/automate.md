@@ -49,6 +49,7 @@ keypoints:
 -   Most widely used build tool is [Make][make]
     -   First written in 1976 to recompile programs (which at the time was a slow process)
     -   [Many better tools][build-tools] have been developed since, but none has been as widely adopted
+    -   In particular, [Snakemake][snakemake] has a lot of fans, and a future version of this tutorial might well use it
 -   Make uses:
     -   [Timestamps](#g:timestamp) on files to determine what's out of date
     -   Shell commands to create or update files

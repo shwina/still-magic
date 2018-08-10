@@ -22,6 +22,11 @@ keypoints:
     -   Computational competence: get reliable results without late nights and heartbreak
 -   Computational competence requires the programming equivalent of good laboratory skills
     -   Because software is just another kind of lab equipment
+-   Why would you want to make your work open source?
+    -   Academia doesn't yet know how to reward it
+    -   Fear of looking foolish or harming career isn't just impostor syndrome
+    -   But things *are* improving
+    -   Being open is a big step toward a (non-academic) career path, which is where ~80% of Ph.D.s go
 -   Goals of this training:
     -   Other people (including our future selves) can re-do analyses
     -   All stakeholders can be confident in the results
