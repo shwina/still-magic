@@ -28,6 +28,7 @@ definitions if that's done.
 [gfm]: https://help.github.com/articles/github-flavored-markdown/
 [github]: http://github.com
 [gnu-make]: http://www.gnu.org/software/make/
+[go-fair]: https://www.go-fair.org/fair-principles/
 
 [huff-katy]: http://katyhuff.github.io/
 [huff-testing]: https://github.com/katyhuff/python-testing

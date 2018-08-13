@@ -170,4 +170,45 @@ FIXME: more on GitHub Pages and templates.
     -   Medium-size raw data (between 500 MB and 5 GB): Open Science Framework <osf.io>
     -   Small raw data (under 500 MB): GitHub and [Zenodo][zenodo]
 
+## FAIR {#s:publish-fair}
+
+FIXME
+-   explain what FAIR is
+-   [GO FAIR][go-fair]
+
+### Findable
+
+The first step in (re)using data is to find them.
+
+-   (Meta)data are assigned a globally unique and persistent identifier
+-   Data are described with rich metadata
+-   Metadata clearly and explicitly include the identifier of the data they describe
+-   (Meta)data are registered or indexed in a searchable resource
+
+### Accessible
+
+Once the user finds the required data, they need to know how can they be accessed, possibly including authentication and authorisation.
+
+-   (Meta)data are retrievable by their identifier using a standardised communications protocol
+    -   The protocol is open, free, and universally implementable
+    -   The protocol allows for an authentication and authorisation procedure, where necessary
+-   Metadata are accessible, even when the data are no longer available
+
+### Interoperable
+
+Data usually needs to be integrated with other data, which means that tools need to be able to process it.
+
+-   (Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.
+-   (Meta)data use vocabularies that follow FAIR principles
+-   (Meta)data include qualified references to other (meta)data
+
+### Reusable
+
+The ultimate goal of FAIR is re-use.
+
+-   Meta(data) are richly described with a plurality of accurate and relevant attributes
+    -   (Meta)data are released with a clear and accessible data usage license
+    -   (Meta)data are associated with detailed provenance
+    -   (Meta)data meet domain-relevant community standards
+
 {% include links.md %}
