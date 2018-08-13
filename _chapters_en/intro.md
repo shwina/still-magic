@@ -16,6 +16,15 @@ keypoints:
 -   "A project is 'done' when stakeholders can be reasonably sure the results are correct and the software can be understood, run, and extended by people other than the original authors without heroic effort."
 ---
 
+-   One of the things that distinguishes research programmers is that they're writing code in order to figure out what the right answer is
+-   One of the things they struggle with is the transition from exploration to infrastructure
+    -   I.e., from "coding to figure out what the problem is" to "I'm building a reusable tool"
+    -   Habits from the first are often carried over to the second
+-   One possible analogy is game development
+    -   Lots of individual developers trying to get something that works well enough to ship
+    -   A handful of large, stable organizations doing software engineering to create things like Mario Kart 8
+    -   The latter tend to look down on the methods and standards of the former
+    -   But the methods and standards of the latter aren't helpful for the former
 -   Distinguish between:
     -   Open science: everyone can read it
     -   Reproducible research: people can re-do the analysis
