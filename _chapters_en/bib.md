@@ -19,6 +19,8 @@ title: "Bibliography"
 
 **List2017**{:#List2017}: Markus List, Peter Ebert, and Felipe Albrecht: "Ten Simple Rules for Developing Usable Software in Computational Biology". *PLOS Computational Biology*, 13(1), Jan 2017, <https://doi.org/10.1371/journal.pcbi.1005265>. *FIXME*
 
+**Mak2006**{:#Mak2006}: Ronald Mak: *The Martian Principles*. Wiley, 2006. *A short, enjoyable guide to software architecture from someone whose code had to deal with Mars.*
+
 **Nobl2009**{:#Nobl2009}: William Stafford Noble: "A Quick Guide to Organizing Computational Biology Projects". *PLoS Computational Biology*, 5(7), Jul 2009, <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424>. *How to organize a small to medium-sized bioinformatics project.*
 
 **Saja2006**{:#Saja2006}: Jorma Sajaniemi, Mordechai Ben-Ari, Pauli Byckling, Petri Gerdt, and Yevgeniya Kulikova: "Roles of Variables in Three Programming Paradigms". *Computer Science Education*, 16(4), Dec 2006, <https://doi.org/10.1080/08993400600874584>. *A detailed look at the authors' work on roles of variables.*

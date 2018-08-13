@@ -2,11 +2,32 @@
 permalink: "/en/automate/"
 title: "Automating Analyses"
 questions:
--   FIXME
+-   "How can I make my analyses easier to reproduce?"
+-   "How can I make it easier to repeat analyses when I get new data, or when my data or scripts change?"
 objectives:
--   FIXME
+-   "Explain what a build tool is and how build tools aid reproducible research."
+-   "Describe and identify the three parts of a Make rule."
+-   "Write a Makefile that re-runs a multi-stage data analysis."
+-   "Explain and trace how Make chooses an order in which to execute rules."
+-   "Explain what phony targets are and define a phony target."
+-   "Explain what automatic variables are and correctly identify three commonly-used automatic variables."
+-   "Rewrite Make rules to use automatic variables."
+-   "Explain why and how to write a pattern rule in a Makefile."
+-   "Rewrite Make rules to use patterns."
+-   "Define variables in a Makefile explicitly and by using functions."
+-   "Make a self-documenting Makefile."
 keypoints:
--   FIXME
+-   "A build tool re-runs commands to bring files up to date with respect to the things they depend on."
+-   "Make is a widely-used build tool that uses files' timestamps to find out-of-date dependencies."
+-   "A Make rule has targets, dependencies, and actions."
+-   "A target can correspond to a file or be a phony target (used simply to trigger actions)."
+-   "When a target is out of date with respect to its dependencies, Make executes the actions associated with its rule."
+-   "Make executes as many rules as it needs to when updating files, but always respect depdendency order."
+-   "Make defines the automatic variables `$@` (target), `$^` (all dependencies), and `$<` (first dependency)."
+-   "Pattern rules can use `%` as a placeholder for parts of filenames."
+-   "Makefiles can define variables using `NAME=value`."
+-   "Makefiles can also use functions such as `$(wildcard ...)` and `$(patsubst ...)`."
+-   "Specially-formatted comments can be used to make Makefiles self-documenting."
 ---
 
 ## Introduction {#s:automate-intro}
