@@ -42,16 +42,19 @@ definitions if that's done.
 [orwells-rules]: https://en.wikipedia.org/wiki/Politics_and_the_English_Language#Remedy_of_Six_Rules
 
 [pep-8]: https://www.python.org/dev/peps/pep-0008/
+[pytest-mpl]: https://github.com/matplotlib/pytest-mpl
 [python-travis-tutorial]: https://www.smartfile.com/blog/testing-python-with-travis-ci/
 
 [readthedocs]: https://docs.readthedocs.io/en/latest/
 [roles-variables]: http://www.cs.joensuu.fi/~saja/var_roles/role_intro.html
 
+[shapiro-wilk]: https://en.wikipedia.org/wiki/Shapiro%E2%80%93Wilk_test
 [snakemake]: https://snakemake.readthedocs.io/
 [sphinx]: http://www.sphinx-doc.org/en/master/
 [swc]: http://software-carpentry.org
 [swc-make]: https://github.com/swcarpentry/make-novice
 
+[tdda-site]: http://www.tdda.info/
 [tf-idf]: https://en.wikipedia.org/wiki/Tf%E2%80%93idf
 [travis-ci]: https://travis-ci.org/
 

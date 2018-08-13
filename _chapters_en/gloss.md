@@ -59,6 +59,8 @@ title: "Glossary"
 
 **Rule**{:#g:make-rule} (in Make): FIXME
 
+**Silent error**{:#g:silent-error}: FIXME
+
 **Tab completion**{:#g:tab-completion}: FIXME
 
 **Target**{:#g:make-target} (in Make): FIXME
@@ -67,11 +69,15 @@ title: "Glossary"
 
 **Test coverage**{:#g:test-coverage}: FIXME
 
+**Test double**{:#g:test-double}: FIXME
+
 **Test-driven development**{:#g:tdd}: FIXME
 
 **Test runner**{:#g:test-runner}: FIXME
 
 **Timestamp**{:#g:timestamp} (on file): FIXME
+
+**Tolerance**{:#g:tolerance}: FIXME
 
 **Unit test**{:#g:unit-test}: FIXME
 

@@ -70,6 +70,10 @@ keypoints:
     -   Put early exits or decisions at the top of the function ([guard clause](#g:guard-clause))
     -   Prefer `if` to `else`
 
+### Exercises
+
+FIXME: exercises
+
 ## Embedded Documentation {#s:style-docstrings}
 
 -   Some people argue that if you need to add comments to your software, you should have written clearer software
@@ -166,6 +170,10 @@ help(trim)
     -   An example of [continuous integration](#g:continuous-integration)
     -   And it's free
     -   But out of the scope of this lesson
+
+### Exercises
+
+FIXME: exercises
 
 ## Roles of Variables {#s:style-roles}
 
@@ -317,6 +325,10 @@ def sort_by_length(names):
 ```
 
 -   Note that this is completely unnecessary, since Python allows you to specify a sorting function
+
+### Exercises
+
+FIXME: exercises
 
 ## Refactoring {#s:style-refactor}
 
@@ -535,8 +547,8 @@ raw = [(d.id, calculate_score(d)) for d in data]
 trimmed = [(d.id, THRESHOLD) if d.s > THRESHOLD else (d.id, d.s) for d in raw]
 ```
 
-## Exercises {#s:style-exercises}
+### Exercises
 
-FIXME
+FIXME: exercises
 
 {% include links.md %}
