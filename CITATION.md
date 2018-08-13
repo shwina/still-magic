@@ -14,3 +14,5 @@ Please cite this work as:
 
 -   [Gerard Capes](https://github.com/gcapes)
 -   [Katy Huff](http://katyhuff.github.io/)
+-   [Timothée Poisot](http://poisotlab.io/)
+-   [Daniel Standage](https://standage.github.io/)

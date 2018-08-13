@@ -9,8 +9,156 @@ keypoints:
 -   FIXME
 ---
 
-FIXME
--   What to publish (from <https://hackmd.io/2G2THPHKRH6EtUl2cS53uQ>)
+-   It is not enough to be right: you must be heard
+
+## Editing {#s:publish-editing}
+
+-   Options in the early 21st Century are clumsy and contradictory
+    -   Just as all classroom instruction compromises the efficacy of individual tutoring in the name of economics,
+        all publishing options compromise the flexibility of pen on paper in the name of readability and efficiency
+-   [WYSIWYG](#g:wysiwyg) tools like [Microsoft Word][ms-word], [LibreOffice][libreoffice], and [Google Docs][google-docs]
+    -   Lower cognitive load because you can see what your readers will see
+    -   *Can* allow restyling, but most people don't take advantage of those features (extra work up front for downstream payoff)
+    -   Hard to automatically regenerate (although again it's possible, just not taken advantage of)
+    -   Hard to coordinate the work of multiple contributors because version control systems don't support their formats
+-   [Typesetting languages](#g:typesetting-language) like [Markdown][markdown], [HTML][html], and [LaTeX][latex] use plain text plus instructions
+    -   Much higher cognitive load because of the compilation step
+    -   Much easier to restyle because of the compilation step
+    -   Much easier to automatically regenerate (provided the thing you want to regenerate fits the format)
+    -   Better suited to large-scale collaboration because plain text is the one format that programmers respect
+-   Many attempts to compromise by offering WYSIWYG view of typesetting language, e.g., [Authorea][authorea], [Overleaf][overleaf], and a gazillion different in-browser Markdown editors
+    -   These work until authors try to use any features of the substrate that aren't supported by the WYSIWYG view
+    -   Or author things in the substrate in ways that the overlay doesn't recognize
+-   We will explore Markdown and GitHub Pages
+    -   Illustrates the key ideas of a compilation-based workflow
+    -   Probably the least painful to set up
+
+## Markdown {#s:publish-markdown}
+
+This part of the lesson will give an overview of the core Markdown syntax.
+Before we begin, it is worth keeping in mind that there are a few different
+markdowns around. [CommonMark][cm] is built to be a standard, and [GitHub
+Flavored Markdown][gfm] (GFM) is so widely used that it could well be a standard
+already. This lesson will present the syntax that is *common* to both (a very
+large part of it is).
+
+## Basic Syntax
+
+Markdown easily allows to specify *italics*, **bold**, and ***bold italics***
+(although not all "flavors" of Markdown agree on the last point). These styles
+can be applied using either `*` or `_`, so that the following commands are all
+equivalent:
+
+```
+*italics* and _italics_
+**bold** and __bold__
+***bold italics*** and ___bold italics___
+```
+
+Levels of sub-division in your text can be indicated by writing a single line
+with between one and six hash marks. For example, the following document will
+have two first-level headers (`Introduction` and `Methods`), and a second-level
+header nested under `Methods`:
+
+```
+# Introduction
+# Methods
+## Model of population dynamics
+```
+
+Code can be written either inline by wrapping the text in backticks:
+
+```
+The program can be compiled using `Make`.
+```
+
+or with blocks by using a line with three backticks or three tildes (`~`)
+to delimitate the code block:
+
+~~~
+```
+this is
+a
+code block
+```
+~~~
+
+On the first line of the block, it is common to specify the language.
+Many tools that translate Markdown into HTML and other formats use this
+to determine what rules to apply for syntax highlighting.
+
+~~~
+We write loops in `Python`:
+
+``` python
+for value in data:
+    print(value)
+```
+
+to print these values.
+```
+
+Code can also be written by indenting four spaces, which is useful when you are
+trying to show the use of triple back quotes or triple tildes.
+
+There are two ways to write hyperlinks. The first is to write them inline
+with the text in square brackets and the URL in parentheses:
+
+```
+Please see [our website](http://example.com) for more information.
+```
+
+The second is to use symbolic names for links by putting the second part
+in square brackets:
+
+```
+Please see [our website][website] for more information.
+```
+
+and then putting a table of name-to-link translations at the bottom of the document:
+
+```
+[website]: http://example.com
+```
+
+FIXME: images
+
+## Pandoc {#s:publish-pandoc}
+
+Standard Markdown doesn't support equations, automatic section numbering, or
+bibliographic citations.  Most dialects support tables, but in different ways
+(and most of those are confusing to write and read for anything except very
+simple two- or three-column tables).
+
+[Pandoc][pandoc] does support all of these, but... FIXME
+
+## GitHub Pages {#s:publish-github-pages}
+
+FIXME: basic structure of GitHub Pages.
+
+## Metadata and Templating {#s:publish-templating}
+
+Markdown allows authors to indicate metadata in the document, in the form a
+`YAML` header. `YAML` stands from Yet Another Markup Language, but this is
+hardly important. A `YAML` header could look like:
+
+```
+---
+title: "Modern Scientific Authoring Using Markdown"
+author: "Meredith Slalom"
+date: "2018-05-09"
+---
+...body of page...
+```
+
+These elements do not appear when the document is displayed, but are often
+processed by publication tools.
+
+FIXME: more on GitHub Pages and templates.
+
+## What to Publish and Where {#s:publish-what-where}
+
+-   What to publish
     -   Raw data
     -   Intermediate files that take a long time to generate
     -   Software versions

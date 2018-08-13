@@ -13,6 +13,7 @@ definitions if that's done.
 
 [capes-gerard]: https://github.com/gcapes
 [citable-code]: https://guides.github.com/activities/citable-code/
+[cm]: http://commonmark.org/
 [code-smells-and-feels]: https://github.com/jennybc/code-smells-and-feels
 [covenant]: https://www.contributor-covenant.org
 
@@ -24,6 +25,7 @@ definitions if that's done.
 [f1000-research]: https://f1000research.com/
 [formatR]: https://yihui.name/formatr/
 
+[gfm]: https://help.github.com/articles/github-flavored-markdown/
 [github]: http://github.com
 [gnu-make]: http://www.gnu.org/software/make/
 
@@ -41,7 +43,9 @@ definitions if that's done.
 
 [orwells-rules]: https://en.wikipedia.org/wiki/Politics_and_the_English_Language#Remedy_of_Six_Rules
 
+[pandoc]: https://pandoc.org/
 [pep-8]: https://www.python.org/dev/peps/pep-0008/
+[poisot-timothee]: http://poisotlab.io/
 [pytest-mpl]: https://github.com/matplotlib/pytest-mpl
 [python-travis-tutorial]: https://www.smartfile.com/blog/testing-python-with-travis-ci/
 
@@ -51,6 +55,7 @@ definitions if that's done.
 [shapiro-wilk]: https://en.wikipedia.org/wiki/Shapiro%E2%80%93Wilk_test
 [snakemake]: https://snakemake.readthedocs.io/
 [sphinx]: http://www.sphinx-doc.org/en/master/
+[standage-daniel]: https://standage.github.io/
 [swc]: http://software-carpentry.org
 [swc-make]: https://github.com/swcarpentry/make-novice
 
