@@ -21,6 +21,8 @@ title: "Glossary"
 
 **Control flow**{:#g:control-flow}: FIXME
 
+**Declarative programming**{#g:declarative-programming}: FIXME
+
 **Default target**{:#g:default-target}: FIXME
 
 **Dependency**{:#g:make-dependency} (in Makefile): FIXME

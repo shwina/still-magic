@@ -178,32 +178,145 @@ help(trim)
     -   Names for things you're probably already doing
     -   Makes it easier to communicate
     -   And if you consciously stick to these patterns, others will find your code easier to read as well
--   fixed value: not changed after it is first defined
-    -   Some languages allow explicit definition of constants
-    -   But sometimes a fixed value's actual value isn't known until the program runs (e.g., output directory)
--   stepper: goes through a succession of values in a predictable way
-    -   E.g., the loop variable in a `for` loop or the current time in a simulation that advances hour by hour
--   most-recent holder: the value most recently seen
-    -   A stepper is a common special case of this
-    -   Most-recent holder's value isn't predictable, e.g., the last URL visited
--   most-wanted holder: the "best" value seen so far
-    -   E.g., the largest value seen so far in a list, or the record with the highest score
--   gatherer: often called an accumulator or aggregator, it collects values seen so far in some way
-    -   Sum of all values seen to date
-    -   List of all positive scores seen to date
--   follower: the value before the current one
-    -   E.g., the last-but-one value when calculating the Fibonacci sequence
--   one-way flag: changes value once and only once if a condition is seen
-    -   E.g., have any negative values been included in this sum?
--   temporary: holds a value long enough to be used in some calculation and is then discarded
-    -   E.g., temporary value for three-way swap
-    -   Or intermediate values in large numerical expression
--   organizer: a temporary used to organize some set of values
-    -   E.g., a list that exists just long enough to sort values
--   container: used to hold values so that they can be processed together
-    -   An organizer is a temporary container
 
-FIXME: include examples of these
+### Fixed Value
+
+-   Not changed after it is first defined
+-   Some languages allow explicit definition of constants
+-   But note that sometimes a "fixed" value may require executing some code
+
+```
+SECONDS_PER_DAY = 24 * 60 * 60
+DEFAULT_TEMP_DIR = os.getenv('TMPDIR', '/tmp')
+```
+
+### Stepper
+
+-   Goes through a succession of values in a predictable way
+-   E.g., the loop variable in a `for` loop or the day of the week
+
+```
+DAYS = 'Sun Mon Tue Wed Thu Fri Sat'.split()
+for i in range(100):
+    day = DAYS[i % len(DAYS)]
+```
+
+### Most-Recent Holder
+
+-   The value most recently seen
+-   A stepper is a common special case of this
+-   But most-recent holder's value isn't predictable, e.g., the last URL visited
+
+```
+record = None
+while True:
+    record = database.get_record()
+    if not record: break
+    ...process record...
+```
+
+### Most-Wanted Holder
+
+-   The "best" value seen so far
+-   E.g., the largest value seen so far in a list, or the record with the highest score
+
+```
+def data_range(values):
+    if not values: return None, None
+    low = high = values[0]
+    for v in values:
+        low = min(low, v)
+        high = max(high, v)
+    return low, high
+```
+
+### Gatherer
+
+-   Often called an accumulator or aggregator, it collects values seen so far in some way
+-   Sum of all values seen to date or list of all positive scores seen to date
+
+```
+def acronym(words):
+    '''
+    acronym(['red', 'green', 'blue']) => 'RGB'
+    '''
+    result = ''
+    for w in words:
+        result += w[0].upper()
+    return result
+```
+
+### Follower
+
+-   The value before the current one
+-   E.g., the last-but-one value when calculating the Fibonacci sequence
+
+```
+def shift_up(values, follower):
+    '''
+    shift_up(['a', 'b', 'c'], 'x') => ['x', 'a', 'b']
+    '''
+    for (i, v) in enumerate(values):
+        values[i], follower = follower, values[i]
+```
+
+### One-Way Flag
+
+-   Changes value once if a condition is seen
+-   E.g., have any negative values been included in this sum?
+
+```
+def sum_in_band(values, low, high):
+    result = 0
+    out_of_band = False
+    for v in values:
+        if low <= v <= high:
+            result += v
+        else:
+            out_of_band = True
+    return result, out_of_band
+```
+
+### Temporary
+
+-   Holds a value long enough to be used in some calculation and is then discarded
+-   E.g., temporary value for three-way swap (which is unnecessary in Python)
+-   Or intermediate values in large numerical expression
+
+```
+def quadratic_roots(a, b, c):
+    discriminant = sqrt(b*b - 4*a*c)
+    return (-b + discriminant)/(2*a), (-b - discriminant)/(2*a)
+```
+
+### Container
+
+-   Used to hold values so that they can be processed together
+
+```
+lines = reader.readlines()
+...do things with lines...
+```
+
+### Organizer
+
+-   A temporary used to organize some set of values
+-   E.g., a list that exists just long enough to sort values
+-   An organizer is a temporary container
+
+```
+def sort_by_length(names):
+    organizer = []
+    for n in names:
+        organizer.append((len(n), n))
+    organizer.sort()
+    result = []
+    for (length, name) in organizer:
+        result.append(name)
+    return result
+```
+
+-   Note that this is completely unnecessary, since Python allows you to specify a sorting function
 
 ## Refactoring {#s:style-refactor}
 
@@ -211,19 +324,219 @@ FIXME: include examples of these
     -   Like refactoring an equation
 -   Most discussions of refactoring focus on [object-oriented programming](#g:oop)
 -   But many patterns can and should be used to clean up [procedural](#g:procedural-programming) code
--   Replace Value With Name
-    -   FIXME: example
--   Replace Repeated Test With Flag
-    -   FIXME: example
--   Extract Function
-    -   FIXME: example
--   Combine Functions
-    -   FIXME: example
--   Create Lookup Table
-    -   FIXME: example
--   Provide Default
-    -   FIXME: forward reference to [s:reuse](#CHAPTER)
--   Encapsulate Control Flow
-    -   FIXME: forward reference to [s:reuse](#CHAPTER)
+
+### Replace Value With Name
+
+```
+# BEFORE
+seconds_elapsed = num_days * 24 * 60 * 60
+```
+
+```
+# AFTER
+seconds_elapsed = num_days * SECONDS_PER_DAY
+```
+
+-   Easier to understand when read aloud (which is always a good test)
+-   Easier to change
+    -   You don't think you'll have to, but then people want to use your software on Mars ([Mak2006](#CITE))
+
+### Replace Repeated Test With Flag
+
+-   Similar to the above
+-   Remember that Booleans are values and can be assigned
+
+```
+# BEFORE
+def process_data(data, scaling):
+    if len(data) > THRESHOLD:
+        scaling = sqrt(scaling)
+    ...process data to create score...
+    if len(data) > THRESHOLD:
+        score = score ** 2
+```
+
+```
+# AFTER
+def process_data(data, scaling):
+    is_large_data = len(data) > THRESHOLD
+    if is_large_data:
+        scaling = sqrt(scaling)
+    ...process data to create score...
+    if is_large_data:
+        score = score ** 2
+```
+
+-   Less risk of the tests falling out of sync
+-   Clear to reader that the tests are the same
+-   Purpose of test is clearer
+
+### Extract Function
+
+```
+# BEFORE
+def check_neighbors(grid, point):
+    if (0 < point.x) and (point.x < grid.width) and \
+       (0 < point.y) and (point.y < grid.height):
+        ...look at all four neighbors
+```
+
+```
+# AFTER
+def check_neighbors(grid, point):
+    if in_interior(grid, point):
+        ...look at all four neighbors...
+
+def in_interior(grid, point):
+    ...four tests as above...
+```
+
+-   Function might be usable in other contexts
+-   But even if not, easier to read aloud (which is a good test of comprehensibility)
+-   Use original variable names as parameter names during refactoring to reduce typing
+
+### Combine Functions
+
+```
+# BEFORE
+def count_vowels(text):
+    num = 0
+    for char in text:
+        if char in VOWELS:
+            num += 1
+    return num
+
+def count_consonants(text):
+    num = 0
+    for char in text:
+        if char in CONSONANTS:
+            num += 1
+    return num
+```
+
+```
+# AFTER
+def count_vowels_and_consonants(text):
+    num_vowels = 0
+    num_consonants = 0
+    for char in text:
+        if char in VOWELS:
+            num_vowels += 1
+        elif char in CONSONANTS:
+            num_consonants += 1
+    return num_vowels, num_consonants
+```
+
+-   Generally done for performance reasons
+-   Can make code harder to re-use
+    -   For example, assumes that a character is either a vowel or a consonant
+    -   Not true of all languages
+-   Or people use it and throw some results away
+
+### Create Lookup Table
+
+```
+# BEFORE
+def count_vowels_and_consonants(text):
+    ...as above...
+```
+
+```
+# AFTER
+
+IS_VOWEL = {'a' : 1, 'b' : 0, 'c' : 0, ... }
+IS_CONSONANT = {'a' : 0, 'b' : 1, 'c' : 1, ... }
+
+def count_vowels_and_consonants(text):
+    num_vowels = num_consonants = 0
+    for char in text:
+        num_vowels += IS_VOWEL[char]
+        num_consonants += IS_CONSONANT[char]
+    return num_vowels, num_consonants
+```
+
+-   Easier to understand and maintain than complicated conditionals
+-   [Declarative programming](#g:declarative-programming)
+
+### Others
+
+-   Provide Default and Encapsulate Control Flow: forward reference to [s:reuse](#CHAPTER)
+-   Many language features exist to give programmers something to refactor *to*
+    -   See a pattern in many contexts
+    -   Provide syntactic support for it
+    -   Explain in terms of original
+-   Replace Loop With Comprehension is the best example
+
+### Replace Loop With Comprehension
+
+```
+# BEFORE
+result = []
+for num in values:
+    result.append(num * num)
+```
+
+```
+# AFTER
+result = [num * num for num in values]
+```
+
+-   Easier to read *for simple calculations*
+-   Becomes more complicated to understand with conditionals
+
+```
+# BEFORE
+result = []
+for num in values:
+    if num > 0:
+        result.append(num * num)
+    else:
+        result.append(0)
+```
+
+```
+# AFTER
+result = [num * num if num > 0 else 0 for num in values]
+```
+
+-   The `else` is necessary so that there's a result for each input
+-   Nested loops take a while to figure out, but they work too
+
+```
+# BEFORE
+result = []
+for left in 'ABC':
+    for right in 'xyz':
+        result.append(left + right)
+```
+
+```
+# AFTER
+result = [left + right for left in 'ABC' for right in 'xyz']
+```
+
+-   Works for sets, dictionaries, and anything else that can be iterated over
+-   This is the direction most modern Python is going, so refactor whenever you can
+-   And don't be afraid (at least during development) to create temporaries
+
+```
+# BEFORE
+for record in data:
+    result = []
+    score = calculate_score(record)
+    if score > THRESHOLD:
+        score = THRESHOLD
+    result.append(record.ID, score)
+```
+
+```
+# AFTER
+raw = [(d.id, calculate_score(d)) for d in data]
+trimmed = [(d.id, THRESHOLD) if d.s > THRESHOLD else (d.id, d.s) for d in raw]
+```
+
+## Exercises {#s:style-exercises}
+
+FIXME
 
 {% include links.md %}

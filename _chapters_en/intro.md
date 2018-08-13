@@ -22,24 +22,25 @@ keypoints:
     -   Computational competence: get reliable results without late nights and heartbreak
 -   Computational competence requires the programming equivalent of good laboratory skills
     -   Because software is just another kind of lab equipment
--   Why would you want to make your work open source?
-    -   Academia doesn't yet know how to reward it
-    -   Fear of looking foolish or harming career isn't just impostor syndrome
-    -   But things *are* improving
+-   Reasons not to make your work open
+    -   Academia doesn't yet know how to reward it, so your effort may not be rewarded
+    -   Fear of looking foolish or harming career isn't just impostor syndrome (particularly for members of marginalized groups)
+-   Reasons to do it
     -   Being open is a big step toward a (non-academic) career path, which is where ~80% of Ph.D.s go
--   Goals of this training:
-    -   Other people (including our future selves) can re-do analyses
-    -   All stakeholders can be confident in the results
-    -   Re-using software is cheaper than rewriting it
-    -   In short, the coding equivalent of [tidy data](#g:tidy-data) [[Wick2014](#CITE)]
+    -   Proven benefits: work is cited more often than closed (FIXME: citation)
+-   Goal of this training is to produce more (correct) results in less time and with less effort
+    -   Stakeholders need to be confident that you did things the right way so that they can be confident in your results (good lab practices)
+    -   Need to be able to re-do your analyses (trust, but verify)
+    -   You (and others) need to be able to re-use your data, software, and reports instead of constantly rewriting
 -   We will cover:
     -   Writing code that is readable, testable, and maintainable ([s:style](#CHAPTER))
-    -   Building software tools that play nicely with others ([s:tools](#CHAPTER))
     -   Automating analyses with build tools ([s:automate](#CHAPTER))
     -   Checking and demonstrating correctness via automated tests ([s:correct](#CHAPTER))
+    -   Publishing science in the 21st Century ([s:publish](#CHAPTER))
+    -   Setting up continuous integration to build and check everything ([s:continuous](#CHAPTER))
     -   Using a branch-per-feature workflow, rebasing, and tags to manage work ([s:workflow](#CHAPTER))
     -   Organizing the code, data, results, and reports in a small or medium-sized project ([s:structure](#CHAPTER))
-    -   Building reusable software with classes and higher-order functions ([s:reuse](#CHAPTER))
+    -   Building reusable software with higher-order functions ([s:reuse](#CHAPTER))
 -   Prerequisites
     -   Python: lists, loops, conditionals, functions, importing and using libraries
     -   Unix shell: paths, editing/renaming/deleting files, wildcards, redirection, pipes and filters, shell scripts
@@ -48,8 +49,7 @@ keypoints:
 
 These lessons can be used for self-study by people who plan to enroll in
 something like the [Insight Data Science][insight] Fellows Program,
-or as part of a one-semester course for graduate students or senior undergraduates
-who are already comfortable writing two-page programs in Python using lists, functions, and libraries.
+or as part of a one-semester course for graduate students or senior undergraduates.
 
 ## What Does 'Done' Look Like? {#s:intro-done}
 
@@ -78,7 +78,7 @@ patches to open source software, and all contributors will be credited
 for their work each time a new version is released.  please file an
 issue in our [GitHub repository]({{site.repo}}) or [email the author
 directly](mailto:{{site.email}}).  Please note that all contributors
-are required to abide by our code of conduct ((s:joining)[#APPENDIX]).
+are required to abide by our code of conduct ((s:conduct)[#APPENDIX]).
 
 ## Exercises {#s:intro-exercises}
 
