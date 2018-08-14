@@ -2,18 +2,31 @@
 permalink: "/en/publish/"
 title: "Publishing"
 questions:
--   FIXME
+-   "How and where should I publish my reports?"
+-   "What should I include in my publications?"
 objectives:
--   FIXME
+-   "Explain the strengths and shortcomings of today's publishing options for research reports."
+-   "Format pages using Markdown."
+-   "Publish pages online using GitHub Pages."
+-   "Use metadata headers, templates, and configuration files to eliminate redundancy in GitHub Pages."
+-   "Preview GitHub Pages sites locally."
+-   "Publish sites on GitHub Pages by generating documentation locally and committing it to the repository."
+-   "Configure and use MathJax to add mathematics to web pages."
+-   "Explain what to include in publications, and where to publish large, medium, and small datasets."
+-   "Describe the FAIR Principles and determine whether a dataset conforms to them."
 keypoints:
--   FIXME
+-   "WYSIWYG editors make simple things simple, but complex things hard, and are not well suited to large-scale collaboration."
+-   "Typesetting pipelines are more complex to use, but scale well and are easier to integrate into reproducible research pipelines."
+-   "Markdown is a family of throwback text formats that provides a subset of the formatting available in HTML."
+-   "GitHub can be configured to use Jekyll to publish files located in the `docs` directory of a repository's `master` branch as a website."
+-   "Jekyll can be controlled using YAML metadata in page headers, configuration data in `_config.yml`, and page templates in `_layouts`."
+-   "Instead of using Jekyll, pages can be generated locally and committed to the repository's `docs` directory."
+-   "Math can be added to pages using MathJax and LaTeX equation syntax."
+-   "Include small datasets in repositories; store large ones on data sharing sites, and include metadata in the repository to locate them."
+-   "Data should be findable, accessible, interoperable, and reusable (FAIR)."
 ---
 
--   It is not enough to be right: you must be heard
-
-## Editing {#s:publish-editing}
-
--   Options in the early 21st Century are clumsy and contradictory
+-   All options for publishing data science in the early 21st Century are clumsy and contradictory
     -   Just as all classroom instruction compromises the efficacy of individual tutoring in the name of economics,
         all publishing options compromise the flexibility of pen on paper in the name of readability and efficiency
 -   [WYSIWYG](#g:wysiwyg) tools like [Microsoft Word][ms-word], [LibreOffice][libreoffice], and [Google Docs][google-docs]
@@ -26,7 +39,7 @@ keypoints:
     -   Much easier to restyle because of the compilation step
     -   Much easier to automatically regenerate (provided the thing you want to regenerate fits the format)
     -   Better suited to large-scale collaboration because plain text is the one format that programmers respect
--   Many attempts to compromise by offering WYSIWYG view of typesetting language, e.g., [Authorea][authorea], [Overleaf][overleaf], and a gazillion different in-browser Markdown editors
+-   Many attempts to compromise by offering WYSIWYG view of typesetting language, e.g., [Authorea][authorea], [Overleaf][overleaf], and a gazillion different in-browser Markdown editors, including those built into the [Jupyter Notebook][jupyter]
     -   These work until authors try to use any features of the substrate that aren't supported by the WYSIWYG view
     -   Or author things in the substrate in ways that the overlay doesn't recognize
 -   We will explore Markdown and GitHub Pages
@@ -35,180 +48,366 @@ keypoints:
 
 ## Markdown {#s:publish-markdown}
 
-This part of the lesson will give an overview of the core Markdown syntax.
-Before we begin, it is worth keeping in mind that there are a few different
-markdowns around. [CommonMark][cm] is built to be a standard, and [GitHub
-Flavored Markdown][gfm] (GFM) is so widely used that it could well be a standard
-already. This lesson will present the syntax that is *common* to both (a very
-large part of it is).
-
-## Basic Syntax
-
-Markdown easily allows to specify *italics*, **bold**, and ***bold italics***
-(although not all "flavors" of Markdown agree on the last point). These styles
-can be applied using either `*` or `_`, so that the following commands are all
-equivalent:
+-   Created as a simple way to write simple HTML
+    -   Support the same kinds of formatting (bold, italics, headings, etc.)
+    -   But save people from all the angle brackets
+    -   And allow embedded HTML for things the "standard" doesn't support
+-   Turns out that:
+    -   Everybody wants something more (tables! citations!)
+    -   Using an arbitrary collection of syntax rules for simple things makes more complicated things hard to do
+-   We will focus on [GitHub Flavored Markdown][gfm] (GFM)
+-   Use asterisks (or underscores) for `*italics*` and `**bold**` (which render as *italics* and **bold**)
+    -   I prefer to mix them to do `*__bold italics__*` because I can't tell three marks from two
+-   Use one to six `#` signs at the start of a line to create a heading
 
 ```
-*italics* and _italics_
-**bold** and __bold__
-***bold italics*** and ___bold italics___
+# Level-1
+## Level-2
+### Level-3
 ```
 
-Levels of sub-division in your text can be indicated by writing a single line
-with between one and six hash marks. For example, the following document will
-have two first-level headers (`Introduction` and `Methods`), and a second-level
-header nested under `Methods`:
+-   Unnumbered lists are written using dashes or asterisks as markers
+    -   Conventional to indent text and nested lists by four columns for readability
 
 ```
-# Introduction
-# Methods
-## Model of population dynamics
+-   First top item
+    -   First nested item
+    -   Second nested
+        item with text
+        spanning multiple lines
+-   Second top item
+    *   Use asterisks instead of dashes
 ```
 
-Code can be written either inline by wrapping the text in backticks:
+-   Numbered lists are written with numbers
+    -   Usually number everything with `1.` and let the processor figure it out
 
 ```
-The program can be compiled using `Make`.
+1.  First top item
+1.  Second top item
+    1.  You can use
+    2.  the actual numbers
+    3.  if you want
+1.  Third top item
 ```
 
-or with blocks by using a line with three backticks or three tildes (`~`)
-to delimitate the code block:
+-   Code can be written inline using back quotes:
 
-~~~
 ```
-this is
-a
-code block
-```
-~~~
-
-On the first line of the block, it is common to specify the language.
-Many tools that translate Markdown into HTML and other formats use this
-to determine what rules to apply for syntax highlighting.
-
-~~~
-We write loops in `Python`:
-
-``` python
-for value in data:
-    print(value)
+Compile `rnadiff` using `Make`.
 ```
 
-to print these values.
-```
+-   Use three back quotes or tildes at the start and end of a code block:
 
-Code can also be written by indenting four spaces, which is useful when you are
-trying to show the use of triple back quotes or triple tildes.
+    ```
+    this is
+    a
+    code block
+    ```
 
-There are two ways to write hyperlinks. The first is to write them inline
-with the text in square brackets and the URL in parentheses:
+-   Can also indent code blocks by four spaces
+    -   Which is helpful when you're trying to show how back quotes work
+-   Write links as `[text](URL)`
 
 ```
 Please see [our website](http://example.com) for more information.
 ```
 
-The second is to use symbolic names for links by putting the second part
-in square brackets:
-
-```
-Please see [our website][website] for more information.
-```
-
-and then putting a table of name-to-link translations at the bottom of the document:
+-   Better style to use a symbolic name in the text `[like this][website]`
+-   Then put a definition for the link name at the bottom of the file
 
 ```
 [website]: http://example.com
 ```
 
-FIXME: images
+-   This ensures that all uses are consistent
+-   Images are where things start to get squirrelly
+    -   No obvious syntax, so use link syntax with an exclamation mark at the start
 
-## Pandoc {#s:publish-pandoc}
+```
+![image title](URL)
+```
 
-Standard Markdown doesn't support equations, automatic section numbering, or
-bibliographic citations.  Most dialects support tables, but in different ways
-(and most of those are confusing to write and read for anything except very
-simple two- or three-column tables).
+-   And then there are tables
+    -   Draw them in ASCII
 
-[Pandoc][pandoc] does support all of these, but... FIXME
+```
+| Common Name | Scientific Name       |
+|-------------|-----------------------|
+| groath      | Hebecephalus montanus |
+| grobbit     | Ungulamys cerviforme  |
+| gurrath     | Oncherpestes fodrhami |
+```
 
-## GitHub Pages {#s:publish-github-pages}
+-   Columns don't have to line up, but it's easier to read if you do
+    -   So you'll spend far more time than you should using a supercomputer to indent with spaces
+-   Or use something like the [Tables Generator][tables-generator]
+    -   Yes, you are using a WYSIWYG program to create 1970s-era text to be translated back into what you drew
+-   This is the point where it's often simpler to just write HTML
 
-FIXME: basic structure of GitHub Pages.
+## GitHub Pages {#s:publish-ghp}
 
-## Metadata and Templating {#s:publish-templating}
-
-Markdown allows authors to indicate metadata in the document, in the form a
-`YAML` header. `YAML` stands from Yet Another Markup Language, but this is
-hardly important. A `YAML` header could look like:
+-   Most people don't want to read Markdown as-is, so need some way to translate and publish it
+-   GitHub provides a mechanism called [GitHub Pages][github-pages]
+-   Several ways to use it, the simplest of which is:
+    1.  Go to the `master` branch of your repository
+    1.  Create a top-level subdirectory in your project called `docs`
+    1.  Go to the settings for your project on GitHub and turn on publishing
+-   GitHub Pages uses a tool called [Jekyll][jekyll] to translate Markdown and other files for publication
+    -   Simple things are simple
+    -   Complex things are complex, and should be avoided in favor of self-publishing (discussed below)
+-   By default, Jekyll copies all of the files in `docs` to create the website for the project
+    -   If the project is hosted at `https://github.com/USER/PROJECT`, the website is `https://USER.github.io/PROJECT`
+    -   Note: `github.io`, not `github.com`
+-   Files and directories whose names begin with `_` aren't copied
+    -   Jekyll will generate the site into a directory called `_site`
+    -   So add that to your `.gitignore`
+-   Text files (including Markdown and HTML) are copied as-is...
+-   ...unless they start with two triple-dash lines:
 
 ```
 ---
-title: "Modern Scientific Authoring Using Markdown"
-author: "Meredith Slalom"
-date: "2018-05-09"
 ---
-...body of page...
+
+The manifold perplexities of my chosen research topic...
 ```
 
-These elements do not appear when the document is displayed, but are often
-processed by publication tools.
+-   Any file with this header is processed - in particular, Markdown is turned into HTML
 
-FIXME: more on GitHub Pages and templates.
+## Metadata and Templating {#s:publish-metadata}
+
+-   The triple-dash header can contain metadata telling Jekyll how to format the document
+-   Work through this example
+
+```
+---
+layout: simple
+title: "Adagu's Home Page"
+author: "Adagu Okereke"
+---
+
+The manifold perplexities of my chosen research topic...
+```
+
+-   First line specifies the [page template](#g:page-template) to use
+-   Create a sub-directory called `_layouts`
+-   Create an HTML file with everything common to all pages
+-   Use `{% raw %}{{content}}{% endraw %}` to show where the content of the page is to go
+-   Jekyll will fill it in
+
+```
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body bgcolor="LightYellow">
+{% raw %}{{content}}{% endraw %}
+  </body>
+</html>
+```
+
+-   Jekyll will copy values from the header into the page where `{% raw %}{{page.key}}{% endraw %}` appears
+
+```
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="{% raw %}{{page.author}}{% endraw %}" />
+  </head>
+  <body bgcolor="LightYellow">
+  <h1>{% raw %}{{page.title}}{% endraw %}</h1>
+{% raw %}{{content}}{% endraw %}
+  </body>
+</html>
+```
+
+```
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Adagu Okereke" />
+  </head>
+  <body bgcolor="LightYellow">
+  <h1>Adagu's Home Page</h1>
+<p>The manifold perplexities of my chosen research topic...</p>
+  </body>
+</html>
+```
+
+-   Can (should) also put data in `_config.yml` in the `docs` directory
+    -   Uses a format called [YAML][yaml] for names with values and lists
+-   Values from the configuration file are used in pages as `{% raw %}{{site.key}}{% endraw %}`
+    -   E.g., replace `{% raw %}{{page.author}}{% endraw %}` with `{% raw %}{{site.author}}{% endraw %}`
+-   Other values control how Jekyll works
+    -   E.g., list of names under the `exclude` key tells Jekyll to ignore files and directories
+    -   This is completely independent from what's listed in `.gitignore`
+
+```
+author: "Adagu Okereke"
+exclude:
+- bin
+- status.xlsx
+- raw
+- results
+```
+
+-   There are *lots* of [themes](#g:theme) for Jekyll
+    -   Use one of GitHub's defaults unless you know a lot about graphic design and want to spend hours fiddling with CSS
+
+## Previewing Locally {#s:publish-preview}
+
+-   Pushing half-finished work to the web for everyone to see is a bit unprofessional
+-   To preview work locally:
+    -   Install Jekyll
+    -   Go into the `docs` directory
+    -   Run `jekyll serve` (can't do it from the root because that's a GitHub thing)
+-   Point your browser at <https://localhost:4000>
+    -   `localhost` means "this machine"
+    -   `:4000` means port 4000 (instead of the usual ports used by web servers)
+-   If there are missing files, you'll see an error message in the terminal window when you try to access them
+-   Have to be careful about paths to files
+    -   The home page of your project is `/index.html` when you're running locally
+    -   But `https://USER.github.io/PROJECT/index.html` when you're running on GitHub
+    -   Which means the path below the domain is `/PROJECT/index.html`
+    -   So you cannot use something like `/images/profile.png` as an image URL,
+        because that won't resolve
+-   Use relative URLs wherever you can
+    -   E.g., `../images/profile.png`
+-   But what about your templates?
+    -   Want to use the same template for pages at all levels
+-   Use a Jekyll [filter](#g:jekyll-filter)
+    -   Double curly brackets to trigger evalution by Jekyll
+    -   The absolute path for the link
+    -   A pipe symbol
+    -   The `relative_url` function name
+
+```
+<img src="{% raw %}{{'/images/profile.png' | relative_url}}{% endraw %}" />
+```
+
+-   or:
+
+```
+![My Profile Picture]({% raw %}{{'/images/profile.png' | relative_url}}{% endraw %})
+```
+
+-   There are lots of other filters, like `absolute_url`
+
+## Self-Publishing {#s:publish-self-pub}
+
+-   Jekyll is very limited for research publishing
+    -   Doesn't number sections or translate section cross-references
+    -   Doesn't handle bibliographic citations
+-   The solution is to use something else
+    -   Store source in a directory other than `docs` in your `master` branch
+    -   Generate the files you want using whatever tool you want and put them in `docs`
+    -   Make sure they *don't* have triple-dash YAML headers so that Jekyll doesn't try to translate them a second time
+    -   Commit and push
+    -   This means you're storing generated files in your repository, which is generally bad practice
+    -   But you do what you have to do...
+-   [Pandoc][pandoc] is a widely-used format-to-format conversion tool
+    -   Turn HTML into Word into Markdown into LaTeX into...
+    -   Uses its own superset of Markdown, but can be told to conform to GFM
+    -   Handles bibliographic citations and other things that GFM doesn't
+-   [R Markdown][r-markdown] and [Jupyter][jupyter] can both generate static websites that you can commit to `docs`
+-   Run `jekyll serve` in the `docs` folder to preview
+
+## Math {#s:publish-math}
+
+-   LaTeX is widely used for typesetting math
+-   [MathJax][mathjax] is a JavaScript library that parses LaTeX and renders it in the browser
+-   Steps are:
+    1.  Tell the browser to load the JavaScript library when it loads your page
+    2.  Mark the sections of your page that MathJax is to translate
+-   Loading the library:
+
+```
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
+  </head>
+  <body>
+  ...the body of your page...
+  </body>
+</html>
+```
+
+-   Break it down
+    -   Use the `script` tag inside the `head` of a page to tell the browser to load JavaScript
+    -   The `src` attribute tells the browser what to load
+    -   Everything after the `?` is configuration for MathJax
+    -   The word `async` means "don't hold up loading, but run the script as soon as it's available"
+    -   Things like this are why we use page templates...
+-   Note: this is loading MathJax from a [content delivery network]{#g:cdn}
+    -   Means the math won't render if you are offline
+    -   You can install MathJax locally, but that's out of the scope of this lesson
+-   Now mark the inline LaTeX in the body of your page with `$$...$$` markers
+    -   Works in both Markdown and HTML
+
+```
+The circle is defined by $$x^2 + y^2 = \mu$$.
+```
+
+-   Produces "The circle is defined by $$x^2 + y^2 = \mu$$."
+-   Use double dollar signs on lines of their own to generate block equations
+
+```
+$$ r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}} $$
+```
+
+-   Output is:
+
+$$ r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}} $$
 
 ## What to Publish and Where {#s:publish-what-where}
 
+-   Now that we know *how* to publish, the next questions are *what* and *where*
 -   What to publish
-    -   Raw data
+    -   Raw data (discussed below)
     -   Intermediate files that take a long time to generate
-    -   Software versions
-    -   Software command line flags
-    -   Workflows and/or shell scripts
-    -   R, Python, etc. scripts and notebooks for analysis and figures
--   Where to publish (same source)
-    -   Big raw data - may not be yours in the first place, but needs professional archiving.
-    -   Medium-size raw data (between 500 MB and 5 GB): Open Science Framework <osf.io>
-    -   Small raw data (under 500 MB): GitHub and [Zenodo][zenodo]
+    -   Every version of software used in a report
+    -   The configurations and parameters used for that software
+    -   The scripts, notebooks, and/or Makefiles used to produce results
+-   Where to publish
+    -   Big raw data (more than 5 GB)
+        -   May not be yours in the first place, and needs professional archiving
+        -   You should include identifiers and/or scripts so that other people can access it
+    -   Medium-size raw data (between 500 MB and 5 GB)
+        -   Use platforms like the [Open Science Framework][osf], [Dryad][dryad], and [Figshare][figshare]
+        -   Again, include identifiers and/or scripts
+    -   Small raw data (under 500 MB)
+        -   Store in GitHub
+    -   Whichever you use, get or create a [DOI](#g:doi) for each version of each dataset
+-   Use [Zenodo][zenodo] to get DOIs
+    -   FIXME: explain how to use Zenodo and integrate with GitHub
 
 ## FAIR {#s:publish-fair}
 
-FIXME
--   explain what FAIR is
--   [GO FAIR][go-fair]
-
-### Findable
-
-The first step in (re)using data is to find them.
-
--   (Meta)data are assigned a globally unique and persistent identifier
--   Data are described with rich metadata
--   Metadata clearly and explicitly include the identifier of the data they describe
--   (Meta)data are registered or indexed in a searchable resource
-
-### Accessible
-
-Once the user finds the required data, they need to know how can they be accessed, possibly including authentication and authorisation.
-
--   (Meta)data are retrievable by their identifier using a standardised communications protocol
-    -   The protocol is open, free, and universally implementable
-    -   The protocol allows for an authentication and authorisation procedure, where necessary
--   Metadata are accessible, even when the data are no longer available
-
-### Interoperable
-
-Data usually needs to be integrated with other data, which means that tools need to be able to process it.
-
--   (Meta)data use a formal, accessible, shared, and broadly applicable language for knowledge representation.
--   (Meta)data use vocabularies that follow FAIR principles
--   (Meta)data include qualified references to other (meta)data
-
-### Reusable
-
-The ultimate goal of FAIR is re-use.
-
--   Meta(data) are richly described with a plurality of accurate and relevant attributes
-    -   (Meta)data are released with a clear and accessible data usage license
-    -   (Meta)data are associated with detailed provenance
-    -   (Meta)data meet domain-relevant community standards
+-   The [FAIR Principles][go-fair] describe what research data should look like
+    -   Still mostly aspirational for most researchers
+    -   But it tells us what we need to work on
+    -   And yes, I suspect the acronym came first...
+-   Findable: because the first step in using or re-using data is to find it
+    -   (Meta)data is assigned a globally unique and persistent identifier
+    -   Data is described with rich metadata
+    -   Metadata clearly and explicitly includes the identifier of the data it describes
+    -   (Meta)data is registered or indexed in a searchable resource (FIXME: such as?)
+-   Accessible: you can't use data if you don't have access to it (which means a way to authenticate, and having permission)
+    -   (Meta)data is retrievable by its identifier using a standardised communications protocol
+        -   The protocol is open, free, and universally implementable
+        -   The protocol allows for an authentication and authorisation procedure if necessary
+    -   Metadata is accessible even when the data is no longer available
+-   Interoperable: data usually needs to be integrated with other data, which means that tools need to be able to process it
+    -   (Meta)data uses a formal, accessible, shared, and broadly applicable language for knowledge representation
+    -   (Meta)data uses vocabularies that follow FAIR principles
+    -   (Meta)data includes qualified references to other (meta)data
+-   Reusable: because this is the ultimate purpose of all of this
+    -   Meta(data) is described with accurate and relevant attributes
+    -   (Meta)data is released with a clear and accessible data usage license
+    -   (Meta)data has detailed provenance
+    -   (Meta)data meets domain-relevant community standards
 
 {% include links.md %}

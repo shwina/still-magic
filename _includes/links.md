@@ -21,14 +21,17 @@ definitions if that's done.
 
 [dc]: https://datacarpentry.org/
 [docker]: https://en.wikipedia.org/wiki/Docker_(software)
+[dryad]: https://datadryad.org/
 [dursi-jonathan]: https://www.dursi.ca/
 [dursi-pattern-rules]: https://github.com/ljdursi/make_pattern_rules
 
 [f1000-research]: https://f1000research.com/
-[formatR]: https://yihui.name/formatr/
+[figshare]: https://figshare.com/
+[format-r]: https://yihui.name/formatr/
 
 [gfm]: https://help.github.com/articles/github-flavored-markdown/
 [github]: http://github.com
+[github-pages]: https://pages.github.com/
 [gnu-make]: http://www.gnu.org/software/make/
 [go-fair]: https://www.go-fair.org/fair-principles/
 [google-docs]: https://en.wikipedia.org/wiki/Google_Docs,_Sheets,_and_Slides
@@ -38,7 +41,9 @@ definitions if that's done.
 
 [insight]: https://www.insightdatascience.com/
 
+[jekyll]: https://jekyllrb.com/
 [joss]: https://joss.theoj.org/
+[jupyter]: http://jupyter.org/
 
 [latex]: http://www.latex-project.org/
 [libreoffice]: https://www.libreoffice.org/
@@ -46,9 +51,11 @@ definitions if that's done.
 
 [make]: https://www.gnu.org/software/make/
 [markdown]: https://en.wikipedia.org/wiki/Markdown
+[mathjax]: https://www.mathjax.org/
 [ms-word]: https://en.wikipedia.org/wiki/Microsoft_Word
 
 [orwells-rules]: https://en.wikipedia.org/wiki/Politics_and_the_English_Language#Remedy_of_Six_Rules
+[osf]: https://osf.io/
 [overleaf]: https://www.overleaf.com/
 
 [pandoc]: https://pandoc.org/
@@ -57,6 +64,7 @@ definitions if that's done.
 [pytest-mpl]: https://github.com/matplotlib/pytest-mpl
 [python-travis-tutorial]: https://www.smartfile.com/blog/testing-python-with-travis-ci/
 
+[r-markdown]: https://rmarkdown.rstudio.com/
 [readthedocs]: https://docs.readthedocs.io/en/latest/
 [roles-variables]: http://www.cs.joensuu.fi/~saja/var_roles/role_intro.html
 
@@ -67,11 +75,14 @@ definitions if that's done.
 [swc]: http://software-carpentry.org
 [swc-make]: https://github.com/swcarpentry/make-novice
 
+[tables-generator]: https://www.tablesgenerator.com/
 [tdda-site]: http://www.tdda.info/
 [tf-idf]: https://en.wikipedia.org/wiki/Tf%E2%80%93idf
 [travis-ci]: https://travis-ci.org/
 
 [wilson-greg]: http://third-bit.com
+
+[yaml]: https://en.wikipedia.org/wiki/YAML
 
 [zenodo]: https://zenodo.org/
 [zipfs-law]: http://en.wikipedia.org/wiki/Zipf%27s_law

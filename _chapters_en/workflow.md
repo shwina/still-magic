@@ -2,11 +2,14 @@
 permalink: "/en/workflow/"
 title: "A Scalable Workflow"
 questions:
--   FIXME
+-   "How can I tell what state my project is actually in?"
 objectives:
--   FIXME
+-   "Explain how continuous integration works."
+-   "Configure continuous integration for a small software project."
 keypoints:
--   FIXME
+-   "Continuous integration rebuilds and/or re-tests software every time something changes."
+-   "Use continuous integration to check changes before they are inspected."
+-   "Check style as well as correctness."
 ---
 
 -   A common Git workflow for single-author/single-user projects:
@@ -163,5 +166,33 @@ python wordbase.py --version reports 0.13.1; using on Windows 10.
     -   I.e., only allow certain state transitions
     -   And notify interested parties of state transitions
 -   Don't worry about any of this until people are actually using tickets...
+
+## Continuous Integration {#s:workflow-continuous}
+
+-   [Continuous integration](#g:continuous-integration)
+    -   Build and test code and documentation every time someone commits code
+    -   Post results somewhere the team can see them
+    -   If build or tests fail, send out notifications
+-   Even better: build and test changes *before* they're merged
+    -   Only do code review on changes that have passed mechanical checks
+-   Most widely used system is [Travis CI][travis-ci]
+    -   Easy integration with [Github][github]
+    -   Will run tests on multiple platforms and with multiple versions of tools
+-   Developers still have to build the tests
+    -   CI only as good as the tests it runs
+-   Check style as well as correctness by running [pep8][pep-8] or [formatR][format-r] as part of the build
+
+### Exercises
+
+#### Lint Your Code
+
+1.  Find and install a [lint][lint]-like tool for your preferred language and run it on your code.
+2.  What does it complain about?
+3.  Which of its complaints do you disagree with?
+
+#### Setting Up Continuous Integration
+
+Follow the steps in [this tutorial][python-travis-tutorial] to set up Travis-CI testing for the SNDS repository.
+How long did it take you to set this up?
 
 {% include links.md %}

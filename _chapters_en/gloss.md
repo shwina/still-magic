@@ -17,6 +17,8 @@ title: "Glossary"
 
 **Cognitive load**{:#g:cognitive-load}: FIXME
 
+**Content delivery network**{#g:cdn} (CDN): FIXME
+
 **Continuous integration**{:#g:continuous-integration}: FIXME
 
 **Control flow**{:#g:control-flow}: FIXME
@@ -33,7 +35,11 @@ title: "Glossary"
 
 **Docstring**{:#g:docstring}: FIXME
 
+**DOI**{:#g:doi} (Digital Object Identifier): FIXME
+
 **Filename stem**{:#g:filename-stem}: FIXME
+
+**Filter**{:#g:jekyll-filter} (in Jekyll): FIXME
 
 **Fixture**{:#g:fixture}: FIXME
 
@@ -46,6 +52,8 @@ title: "Glossary"
 **Guard clause**{:#g:guard-clause}: FIXME
 
 **Object-oriented programming**{:#g:oop}: FIXME
+
+**Page template**{:#g:page-template}: FIXME
 
 **Pattern rule**{:#g:pattern-rule}: FIXME
 
@@ -79,6 +87,8 @@ title: "Glossary"
 
 **Test runner**{:#g:test-runner}: FIXME
 
+**Theme**{:#g:theme} (in Jekyll): FIXME
+
 **Timestamp**{:#g:timestamp} (on file): FIXME
 
 **Tolerance**{:#g:tolerance}: FIXME
@@ -91,7 +101,7 @@ title: "Glossary"
 
 **Wildcard**{:#g:wildcard}: FIXME
 
-**WYSIWYG**{:#g:wysiwyg}: FIXME
+**WYSIWYG**{:#g:wysiwyg} (What You See Is What You Get): FIXME
 
 ----
 
