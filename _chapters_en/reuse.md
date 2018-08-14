@@ -3,11 +3,10 @@ permalink: "/en/reuse/"
 title: "Creating Re-usable Code"
 questions:
 -   "How can I write software that I'll be able to re-use in the future?"
+-   "What kind of documentation should I write and where should I put it?"
 objectives:
--   "Write functions whose parameters have default values."
--   "Explain which parameters should have default values and how to select good ones."
--   "Write functions that can handle variable numbers of arguments."
--   "Explain what problems can most easily be solved by creating functions with variable numbers of arguments."
+-   "Explain what docstrings are and add correctly-formatted docstrings to short Python programs."
+-   "Extract and format documentation from docstrings using `pydoc`."
 -   "Explain what happens when a new function is defined."
 -   "Create an alias for a function and explain what this does."
 -   "Write programs that pass functions as arguments to other functions."
@@ -15,9 +14,9 @@ objectives:
 -   "Write programs that store functions in lists."
 -   "Explain why too little or too much abstraction increases cognitive load, and why 'too little' and 'too much' are relative terms."
 keypoints:
--   "Use `name=value` to define a default value for a function parameter."
--   "Use `*args` to define a catch-all parameter for functions taking a variable number of unnamed arguments."
--   "Use `**kwargs` to define a catch-all parameter for functions taking a variable number of named arguments."
+-   "Documentation strings (docstrings) can be placed at the start of a file or at the start of a function."
+-   "Docstrings can be formatted using a superset of Markdown."
+-   "Tools like `pydoc` and Sphinx can extract and format docstrings to create documentation for software."
 -   "When a function is defined, Python translates the instructions into data and stores that data in memory."
 -   "Variables can refer to functions just as they refer to lists, strings, and other values."
 -   "References to functions can be stored in lists and other data structures."
@@ -36,100 +35,106 @@ keypoints:
     -   *How Buildings Learn* [[Bran1995](#CITE)]
 -   Goal is to allow old code to use new code
 
-## Default Parameter Values {#s:reuse-defaults}
+## Embedded Documentation {#s:reuse-docstrings}
 
-FIXME
--   Give users control over everything *and* the ability to ignore details
--   Example: testing tolerance for image comparison
-    -   How large a difference in color value to notice?
-    -   How many differences above that threshold to tolerate (as percentage)?
-
-```
-def image_diff(left, right, per_pixel=0, fraction=0.01):
-    ...implementation...
-```
-
--   Default: "any difference counts" and "more than 1% of pixels differ"
-    -   But can also be called as `image_diff(old, new, per_pixel=2)` to raise threshold per pixel
-    -   Or `image_diff(old, new, fraction=0.05)` to allow more pixels to differ
-    -   Or `image_diff(old, new, per_pixel=1, fraction=0.005)` to raise per-pixel threshold but decrease number of allowed differences
--   A subtle trap:
-
-```
-def collect(new_value, accumulator=set()):
-    accumulator.add(new_value)
-    return accumulator
-```
-
--   All calls to `collect` will share the same `accumulator`
-    -   Python executes code to define a function
-    -   So `set()` is called once as the function is being defined
-    -   And `accumulator` refers to *that* set
+-   Some people argue that if you need to add comments to your software, you should have written clearer software
+-   But software is only "self-explanatory" if you understand intention and design constraints,
+    neither of which usually show up in the software itself
+    -   "Why does the software do this?"
+    -   "Why doesn't it do this in a simpler way?"
+-   A more reasonable guideline is therefore "if you need to document something in the middle of a function, put it in a separate function"
+-   And then document:
+    -   The overall purpose of the code in that file
+    -   The purpose of each function in the file
+-   Instead of using comments for this, use [docstrings](#g:docstring) (short for "documentation string")
+    -   A string that is created at the start of a file or function, but not assigned to a variable
+    -   Python automatically attaches this to the file (when it is loaded as a library) or to the function
+    -   Available as `module.__doc__` or `function.__doc__`
+-   The `help` function takes this string, formats it nicely using [Markdown][markdown] rules, and displays it
+-   Typically format docstrings using triple quotes (so that they can span multiple lines)
+-   Example: `trim.py`
 
 ```
->>> collect('first')
-{'first'}
->>> collect('second')
-{'first', 'second'}
-```
+'''
+Tools for trimming values to lie in a specified range.
+'''
 
-## Variable Numbers of Arguments {#s:reuse-varargs}
+def trim(values, low, high, in_place=False):
+    '''
+    Ensure that all values in the result list lie in low...high (inclusive).
+    If 'in_place' is 'True', modifies the input instead of creating a new list.
 
--   Often want functions to be able to accept variable number of arguments (like `print` and `max` do)
--   Can require user to stuff those arguments into a list, e.g., `find_limits([a, b, c, d])`
--   But Python can do this for us
--   Declare a single argument whose name starts with `*`, and Python will put all "extra" arguments into that tuple
-    -   By convention, this argument is called `args`
+    Args:
+        values: List of values to be trimmed.
+        low: Lower bound on values (inclusive).
+        high: Upper bound on values (inclusive).
+        in_place: If true, modify input list (default False).
 
-```
-def find_limits(*args):
-    print(args)
-```
-```
->>> find_limits(1, 3, 5, 2, 4)
-(1, 3, 5, 2, 4)
-```
+    Returns:
+        List of trimmed values (which may be the input list).
 
--   This comes after all explicit parameters to avoid ambiguity
-
-```
-def select_outside(low, high, *values):
-    result = []
-    for v in values:
-        if (v < low) or (v > high):
-            result.add(v)
+    Raises:
+        AssertionError: if 'low' is greater than 'high'.
+    '''
+    assert low <= high, 'Nonsensical trim range {}..{}'.format(low, high)
+    result = values if in_place else values[:]
+    for (i, x) in enumerate(result):
+        result[i] = min(high, max(low, x))
     return result
 ```
-```
->>> select_outside(0, 1.0, 0.3, -0.2, -0.5, 0.4, 1.7)
-[-0.2, -0.5, 1.7]
-```
 
--   Can use the reverse form
+-   Run `pydoc bin/trim.py` on the command line
 
 ```
-def trim_value(m, lower, upper):
-    print(m, lower, upper)
-```
-```
->>> saved = ['matrix', 'low', 'high']
->>> trim_value(*saved)
-matrix low high
+NAME
+    trim - Tools for trimming values to lie in a specified range.
+
+FUNCTIONS
+    trim(values, low, high, in_place=False)
+        Ensure that all values in the result list lie in low...high (inclusive).
+        If 'in_place' is 'True', modifies the input instead of creating a new list.
+        
+        Args:
+            values: List of values to be trimmed.
+            low: Lower bound on values (inclusive).
+            high: Upper bound on values (inclusive).
+            in_place: If true, modify input list (default False).
+        
+        Returns:
+            List of trimmed values (which may be the input list).
+        
+        Raises:
+            AssertionError: if 'low' is greater than 'high'.
+
+FILE
+    /Users/standage/magic/bin/trim.py
 ```
 
--   Parallel forms exist for keyword arguments
-    -   Prefix catch-all variable's name with `**`
-    -   By convention, variable is called `kwargs`
-    -   Catch-all is a dictionary instead of a tuple
+-   Get the same output from within the Python interpreter:
 
 ```
-def settings(user_id, **settings):
-    print(user_id, settings)
+import trim
+help(trim)
 ```
-```
->>> settings('jenny', country='CA', lang='R')
-jenny {'lang': 'R', 'country': 'CA'}
-```
+
+-   Or run `pydoc -w bin/trim.py` to generate an HTML page `trim.html`
+    -   Formatting is a bit garish
+
+{% include reuse/trim.html %}
+
+-   Can use a more sophisticated tool (i.e., more powerful but also more complicated) called [Sphinx][sphinx]
+    -   Reads a superset of Markdown called [reStructredText](#g:restructured-text)
+    -   Generates cross-indexed documentation that is more nicely formatted
+-   Used by [ReadTheDocs][readthedocs]
+    -   Extracts and formats documentation from GitHub repositories (and other places)
+    -   Automatically regenerates documentation every time there's a change
+    -   An example of [continuous integration](#g:continuous-integration)
+    -   And it's free
+    -   But out of the scope of this lesson
+
+### Exercises
+
+FIXME: exercises
 
 ## Functions as Variables {#s:reuse-funcvar}
 

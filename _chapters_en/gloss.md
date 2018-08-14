@@ -21,7 +21,7 @@ title: "Glossary"
 
 **Control flow**{:#g:control-flow}: FIXME
 
-**Declarative programming**{#g:declarative-programming}: FIXME
+**Declarative programming**{:#g:declarative-programming}: FIXME
 
 **Default target**{:#g:default-target}: FIXME
 
@@ -38,6 +38,10 @@ title: "Glossary"
 **Fixture**{:#g:fixture}: FIXME
 
 **Function**{:#g:make-function} (in Make): FIXME
+
+**Generator**{:#g:generator}: FIXME
+
+**Generator expression**{:#g:generator-expression}: FIXME
 
 **Guard clause**{:#g:guard-clause}: FIXME
 
@@ -79,11 +83,15 @@ title: "Glossary"
 
 **Tolerance**{:#g:tolerance}: FIXME
 
+**Typesetting language**{:#g:typesetting-language}: FIXME
+
 **Unit test**{:#g:unit-test}: FIXME
 
 **Virtual environment**{:#g:virtual-environment}: FIXME
 
 **Wildcard**{:#g:wildcard}: FIXME
+
+**WYSIWYG**{:#g:wysiwyg}: FIXME
 
 ----
 

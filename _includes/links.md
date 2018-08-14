@@ -7,6 +7,8 @@ file is a Markdown file because Jekyll doesn't expand the link
 definitions if that's done.
 {% endcomment %}
 
+[authorea]: https://www.authorea.com/
+
 [branch-per-feature]: https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
 [bryan-jenny]: https://jennybryan.org/
 [build-tools]: https://en.wikipedia.org/wiki/List_of_build_automation_software
@@ -29,6 +31,7 @@ definitions if that's done.
 [github]: http://github.com
 [gnu-make]: http://www.gnu.org/software/make/
 [go-fair]: https://www.go-fair.org/fair-principles/
+[google-docs]: https://en.wikipedia.org/wiki/Google_Docs,_Sheets,_and_Slides
 
 [huff-katy]: http://katyhuff.github.io/
 [huff-testing]: https://github.com/katyhuff/python-testing
@@ -37,12 +40,16 @@ definitions if that's done.
 
 [joss]: https://joss.theoj.org/
 
+[latex]: http://www.latex-project.org/
+[libreoffice]: https://www.libreoffice.org/
 [lint]: https://en.wikipedia.org/wiki/Lint_(software)
 
 [make]: https://www.gnu.org/software/make/
 [markdown]: https://en.wikipedia.org/wiki/Markdown
+[ms-word]: https://en.wikipedia.org/wiki/Microsoft_Word
 
 [orwells-rules]: https://en.wikipedia.org/wiki/Politics_and_the_English_Language#Remedy_of_Six_Rules
+[overleaf]: https://www.overleaf.com/
 
 [pandoc]: https://pandoc.org/
 [pep-8]: https://www.python.org/dev/peps/pep-0008/
@@ -63,6 +70,8 @@ definitions if that's done.
 [tdda-site]: http://www.tdda.info/
 [tf-idf]: https://en.wikipedia.org/wiki/Tf%E2%80%93idf
 [travis-ci]: https://travis-ci.org/
+
+[wilson-greg]: http://third-bit.com
 
 [zenodo]: https://zenodo.org/
 [zipfs-law]: http://en.wikipedia.org/wiki/Zipf%27s_law

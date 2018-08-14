@@ -21,7 +21,7 @@ keypoints:
     -   *Can* allow restyling, but most people don't take advantage of those features (extra work up front for downstream payoff)
     -   Hard to automatically regenerate (although again it's possible, just not taken advantage of)
     -   Hard to coordinate the work of multiple contributors because version control systems don't support their formats
--   [Typesetting languages](#g:typesetting-language) like [Markdown][markdown], [HTML][html], and [LaTeX][latex] use plain text plus instructions
+-   [Typesetting languages](#g:typesetting-language) like [Markdown][markdown], HTML, and [LaTeX][latex] use plain text plus instructions
     -   Much higher cognitive load because of the compilation step
     -   Much easier to restyle because of the compilation step
     -   Much easier to automatically regenerate (provided the thing you want to regenerate fits the format)
