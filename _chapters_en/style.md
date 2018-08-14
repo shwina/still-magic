@@ -512,7 +512,7 @@ result = [num * num if num > 0 else 0 for num in values]
 ```
 
 -   The `else` is necessary so that there's a result for each input
--   Nested loops take a while to figure out, but they work too
+-   Cross-product loops are straightforward
 
 ```
 # BEFORE
@@ -525,6 +525,14 @@ for left in 'ABC':
 ```
 # AFTER
 result = [left + right for left in 'ABC' for right in 'xyz']
+```
+
+-   What's hard to remember is the equivalent of nested loops where the inner loop depends on the outer
+    -   Order in expression feels inverted
+
+```
+words = ['first', 'second', 'third']
+flattened = [c for w in words for c in w]
 ```
 
 -   Works for sets, dictionaries, and anything else that can be iterated over

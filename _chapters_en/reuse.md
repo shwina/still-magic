@@ -252,6 +252,57 @@ def do_twice(function, value):
 -   A very common pattern in numerical computing, and one that you should use
 -   Makes the control flow re-usable
 
+## Generators {#s:reuse-generator}
+
+-   Using `yield` instead of `return` creates a [generator](#g:generator)
+    -   Looks like a function
+    -   But resumes execution from where it left off
+
+```
+def count_down(value):
+    while value > 0:
+        yield value
+        value -= 1
+
+c = count_down(3)
+print(next(c))
+print(next(c))
+print(next(c))
+print(next(c))
+```
+```
+3
+2
+1
+Traceback (most recent call last):
+  File "foo.py", line 10, in <module>
+    print(next(c))
+StopIteration
+```
+
+-   Meant to be used in loops
+    -   Don't require lots of memory
+-   The basis of [generator expressions](#g:generator-expression)
+    -   Use `(...)` instead of `[...]` (the latter actually creates the list in memory)
+    -   Equivalent to defining an unnamed generator and then using it
+
+```
+g = (c.upper() for c in 'abc')
+print(next(g))
+print(next(g))
+print(next(g))
+print(next(g))
+```
+```
+A
+B
+C
+Traceback (most recent call last):
+  File "foo.py", line 5, in <module>
+    print(next(g))
+StopIteration
+```
+
 ## Summary {#s:reuse-summary}
 
 <figure>
