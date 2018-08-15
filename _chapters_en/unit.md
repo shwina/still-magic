@@ -93,7 +93,7 @@ FIXME: output
 
 FIXME: exercises
 
-## Did It Fail As It Was Supposed To? {#s:correct-exception}
+## Did It Fail As It Was Supposed To? {#s:unit-exception}
 
 -   Did the call fail as it was supposed to, i.e., raise the right kind of exception?
     -   If not, system could produce a [silent error](#g:silent-error)
@@ -113,7 +113,7 @@ FIXME: example
 
 FIXME: exercises
 
-## Testing Randomness {#s:correct-random}
+## Testing Randomness {#s:unit-random}
 
 -   Testing random numbers: always allow specification of the seed
 -   Dates and times count as randomness
@@ -130,7 +130,7 @@ FIXME: example
 
 FIXME: exercises
 
-## Testing File I/O {#s:correct-io}
+## Testing File I/O {#s:unit-io}
 
 -   Reading from external files isn't so bad, but writing to temporary files is awkward
     -   Scraps need to be re-read for testing and then cleaned up

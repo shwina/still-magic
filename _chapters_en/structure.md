@@ -20,8 +20,6 @@ keypoints:
 -   "Be clear about how to report violations of the Code of Conduct and who will handle such reports."
 -   "Use `virtualenv` to create a separate virtual environment for each project."
 -   "Use `pip` to create a distributable package containing your project's software, documentation, and data."
--   "Use Zenodo to give your releases DOIs."
--   "Publish your software as you would a paper."
 ---
 
 -   Project organization is like a diet
@@ -128,19 +126,6 @@ FIXME
 -   How to make the package available
     -   On PyPI
     -   From GitHub
-
-### Exercises
-
-FIXME
-
-## Publishing Packages {#s:structure-publish}
-
-FIXME
--   Connect GitHub to [Zenodo][zenodo] to create [citable code][citable-code]
-    -   Create a release
-    -   Tag it
-    -   Create a DOI
--   Publish in [JOSS][joss] or [F1000 Research][f1000-research]
 
 ### Exercises
 

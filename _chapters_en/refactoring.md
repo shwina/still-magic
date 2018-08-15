@@ -16,6 +16,7 @@ FIXME: introduction
     -   Like refactoring an equation
 -   Most discussions of refactoring focus on [object-oriented programming](#g:oop)
 -   But many patterns can and should be used to clean up [procedural](#g:procedural-programming) code
+-   An example of [design patterns](#g:design-patterns)
 
 ## Replace Value With Name {#s:refactoring-replace-value-with-name}
 
