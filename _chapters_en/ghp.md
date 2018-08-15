@@ -360,7 +360,7 @@ FIXME
     -   Everything after the `?` is configuration for MathJax
     -   The word `async` means "don't hold up loading, but run the script as soon as it's available"
     -   Things like this are why we use page templates...
--   Note: this is loading MathJax from a [content delivery network]{#g:cdn}
+-   Note: this is loading MathJax from a [content delivery network](#g:cdn)
     -   Means the math won't render if you are offline
     -   You can install MathJax locally, but that's out of the scope of this lesson
 -   Now mark the inline LaTeX in the body of your page with `$$...$$` markers

@@ -17,11 +17,13 @@ title: "Glossary"
 
 **Cognitive load**{:#g:cognitive-load}: FIXME
 
-**Content delivery network**{#g:cdn} (CDN): FIXME
+**Conditional expression**{:#g:conditional-expression}: FIXME
+
+**Content delivery network**{:#g:cdn} (CDN): FIXME
+
+**Context manager**{:#g:context-manager}: FIXME
 
 **Continuous integration**{:#g:continuous-integration}: FIXME
-
-**Control flow**{:#g:control-flow}: FIXME
 
 **Coverage**{:#g:coverage}: FIXME
 
@@ -47,9 +49,7 @@ title: "Glossary"
 
 **Function**{:#g:make-function} (in Make): FIXME
 
-**Generator**{:#g:generator}: FIXME
-
-**Generator expression**{:#g:generator-expression}: FIXME
+**Function attribute**{:#g:function-attribute}: FIXME
 
 **Guard clause**{:#g:guard-clause}: FIXME
 
@@ -65,8 +65,6 @@ title: "Glossary"
 
 **Procedural programming**{:#g:procedural-programming}: FIXME
 
-**Protocol**{:#g:protocol}: FIXME
-
 **Refactor**{:#g:refactor}: FIXME
 
 **Relative error**{:#g:relative-error}: FIXME
@@ -74,6 +72,8 @@ title: "Glossary"
 **reStructured Text**{:#g:restructured-text}: FIXME
 
 **Rule**{:#g:make-rule} (in Make): FIXME
+
+**Short circuit**{:#g:short-circuit}: FIXME
 
 **Silent error**{:#g:silent-error}: FIXME
 
