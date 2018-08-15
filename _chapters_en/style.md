@@ -50,7 +50,7 @@ keypoints:
     -   A good programming editor will auto-complete names, so you don't have to do much typing
 -   However, short variable names for temporaries and loop variables are OK [[Beni2017](#CITE)]
 -   Order within file should be:
-    -   Docstring ([s:doc](#CHAPTER))
+    -   Docstring ([s:docs](#CHAPTER))
     -   Imports
     -   Constants
     -   Functions (highest level first)

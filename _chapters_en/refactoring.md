@@ -14,6 +14,8 @@ FIXME: introduction
 
 -   [Refactoring](#g:refactor) is changing the structure of code without changing what it does
     -   Like refactoring an equation
+    -   Nobody gets it right the first time
+    -   *How Buildings Learn* [[Bran1995](#CITE)]
 -   Most discussions of refactoring focus on [object-oriented programming](#g:oop)
 -   But many patterns can and should be used to clean up [procedural](#g:procedural-programming) code
 -   An example of [design patterns](#g:design-patterns)
