@@ -44,9 +44,14 @@ pre.highlight {
     border-color: {{site.background}};
 }
 
+/* Make inline code darker than Bootstrap default. */
+code.highlighter-rouge {
+    color: #a06060;
+}
+
 /* Make links darker than Bootstrap default. */
 a {
-  color: #6060C0;
+    color: #6060a0;
 }
 
 /* Don't indent lists quite so much. */
@@ -79,8 +84,13 @@ figcaption {
 
 /* Mark quotations. */
 blockquote {
-    border-left: solid 2px {{site.background}};
+    border-left: solid 0.5em {{site.background}};
     padding-left: 0.5em;
+    font-style: italic;
+}
+
+h3 {
+    font-style: italic;
 }
 
 /* Glossary references are in bold. */

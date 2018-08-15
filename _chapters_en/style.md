@@ -67,13 +67,12 @@ FIXME: exercises
 
 ## Default Parameter Values {#s:style-defaults}
 
-FIXME
 -   Give users control over everything *and* the ability to ignore details
 -   Example: testing tolerance for image comparison
     -   How large a difference in color value to notice?
     -   How many differences above that threshold to tolerate (as percentage)?
 
-```
+```python
 def image_diff(left, right, per_pixel=0, fraction=0.01):
     ...implementation...
 ```
@@ -84,7 +83,7 @@ def image_diff(left, right, per_pixel=0, fraction=0.01):
     -   Or `image_diff(old, new, per_pixel=1, fraction=0.005)` to raise per-pixel threshold but decrease number of allowed differences
 -   A subtle trap:
 
-```
+```python
 def collect(new_value, accumulator=set()):
     accumulator.add(new_value)
     return accumulator
@@ -95,7 +94,7 @@ def collect(new_value, accumulator=set()):
     -   So `set()` is called once as the function is being defined
     -   And `accumulator` refers to *that* set
 
-```
+```python
 >>> collect('first')
 {'first'}
 >>> collect('second')
@@ -114,18 +113,18 @@ FIXME: exercises
 -   Declare a single argument whose name starts with `*`, and Python will put all "extra" arguments into that tuple
     -   By convention, this argument is called `args`
 
-```
+```python
 def find_limits(*args):
     print(args)
 ```
-```
+```python
 >>> find_limits(1, 3, 5, 2, 4)
 (1, 3, 5, 2, 4)
 ```
 
 -   This comes after all explicit parameters to avoid ambiguity
 
-```
+```python
 def select_outside(low, high, *values):
     result = []
     for v in values:
@@ -133,18 +132,18 @@ def select_outside(low, high, *values):
             result.add(v)
     return result
 ```
-```
+```python
 >>> select_outside(0, 1.0, 0.3, -0.2, -0.5, 0.4, 1.7)
 [-0.2, -0.5, 1.7]
 ```
 
 -   Can use the reverse form
 
-```
+```python
 def trim_value(m, lower, upper):
     print(m, lower, upper)
 ```
-```
+```python
 >>> saved = ['matrix', 'low', 'high']
 >>> trim_value(*saved)
 matrix low high
@@ -155,11 +154,11 @@ matrix low high
     -   By convention, variable is called `kwargs`
     -   Catch-all is a dictionary instead of a tuple
 
-```
+```python
 def settings(user_id, **settings):
     print(user_id, settings)
 ```
-```
+```python
 >>> settings('jenny', country='CA', lang='R')
 jenny {'lang': 'R', 'country': 'CA'}
 ```
