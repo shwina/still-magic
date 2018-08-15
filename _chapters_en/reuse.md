@@ -12,6 +12,7 @@ objectives:
 -   "Write programs that pass functions as arguments to other functions."
 -   "Use higher-order functions to separate control flow from specific operations."
 -   "Write programs that store functions in lists."
+-   "Use generators and generator expressions to make complex operations appear simpler."
 -   "Explain why too little or too much abstraction increases cognitive load, and why 'too little' and 'too much' are relative terms."
 keypoints:
 -   "Documentation strings (docstrings) can be placed at the start of a file or at the start of a function."
@@ -23,6 +24,8 @@ keypoints:
 -   "Functions can be passed as arguments to other functions just like other values."
 -   "Higher-order functions are a way to abstract and re-use control flow."
 -   "Every higher-order function implicitly defines a contract that must be respected by the functions passed to it."
+-   "Define generators using the `yield` keyword to make complex calculations loopable."
+-   "Use generator expressions instead of creating lists in order to make code more efficient."
 -   "Too little abstraction increases cognitive load by requiring the reader to assemble meaning as they read."
 -   "Too much abstraction increases cognitive load by requiring the reader to translate generalities into specifics as they read."
 -   "'Too little' and 'too much' depend on the reader's level of expertise, which varies over time."
@@ -187,6 +190,10 @@ for m in matrices:
     -   Easier to read and understand loop without the extra conditional
     -   If there are several loops or other uses, ensures the same normalizer being used everywhere
 
+### Exercises
+
+FIXME
+
 ## Creating Pipelines {#s:reuse-pipeline}
 
 -   We can also put functions into lists
@@ -240,6 +247,10 @@ def pipeline(operations, values):
 -   A [protocol](#g:protocol)
     -   One of the things [object-oriented programming](#g:oop) does is make protocols explicit
 
+### Exercises
+
+FIXME
+
 ## Functions as Arguments {#s:reuse-funcarg}
 
 -   If we can pass functions to other functions in lists, surely we can pass them on their own
@@ -256,6 +267,10 @@ def do_twice(function, value):
 -   Separates [control flow](#g:control-flow) (e.g., the loop) from specific operations
 -   A very common pattern in numerical computing, and one that you should use
 -   Makes the control flow re-usable
+
+### Exercises
+
+FIXME
 
 ## Generators {#s:reuse-generator}
 
@@ -308,6 +323,52 @@ Traceback (most recent call last):
 StopIteration
 ```
 
+-   Why would we do this?
+
+```
+def odd(values):
+    for v in values:
+        if (v % 2) == 1:
+            yield v
+
+def double(values):
+    for v in values:
+        yield v + v
+
+def pair(values):
+    previous = None
+    for v in values:
+        if previous is None:
+            previous = v
+        else:
+            yield previous + v
+            previous = None
+
+numbers = [1, 2, 3, 4, 5, 6, 7, 8]
+for n in pair(double(odd(numbers))):
+    print(n)
+
+8
+24
+```
+
+-   `pair` asks `double` for a value, then for another one
+-   Each time, `double` asks `odd` for a value
+-   `odd` produces the next odd value from the input list
+-   No intermediate lists are created: the only memory cost is the call stack
+-   And these are easy to re-use
+    -   Though you have to be a bit careful about semantics
+
+```
+results = list(odd(pair(numbers)))
+print(results)
+[3, 7, 11, 15]
+
+results = [odd(pair(numbers))]
+print(results)
+[<generator object odd at 0x10f3ab5c8>]
+```
+
 ## Summary {#s:reuse-summary}
 
 <figure>
@@ -315,7 +376,7 @@ StopIteration
   <img id="f:reuse-concept" src="../../files/reuse.svg" alt="Reuse Concept Map" />
 </figure>
 
-## Exercises {#s:reuse-exercises}
+### Exercises
 
 FIXME
 

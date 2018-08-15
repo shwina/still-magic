@@ -68,6 +68,7 @@ definitions if that's done.
 [readthedocs]: https://docs.readthedocs.io/en/latest/
 [roles-variables]: http://www.cs.joensuu.fi/~saja/var_roles/role_intro.html
 
+[seven-ways]: http://blog.jonudell.net/2011/01/24/seven-ways-to-think-like-the-web/
 [shapiro-wilk]: https://en.wikipedia.org/wiki/Shapiro%E2%80%93Wilk_test
 [snakemake]: https://snakemake.readthedocs.io/
 [sphinx]: http://www.sphinx-doc.org/en/master/
