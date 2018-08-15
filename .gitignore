@@ -6,6 +6,7 @@
 *.toc
 *~
 .jekyll-metadata
+.pytest_cache
 __pycache__
 _site
 tex_*/inc
