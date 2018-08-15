@@ -51,6 +51,10 @@ FIXME:
 -   `git push --force` is sometimes necessary
     -   But usually a sign that you should have done something differently a while back
 
+### Exercises
+
+FIXME: exercises
+
 ## Branch Per Feature {#s:workflow-branch}
 
 FIXME:
@@ -68,6 +72,10 @@ FIXME:
 -   What's hard about branch-per-feature?
     -   Doing work in one branch while large refactoring is going on in another (so don't do this)
 
+### Exercises
+
+FIXME: exercises
+
 ## Tagging {#s:workflow-tag}
 
 FIXME:
@@ -81,6 +89,10 @@ FIXME:
 -   Treat each release branch as its own `master`
 -   Porting bug fixes and features across releases is complicated
     -   Outside the scope of this tutorial
+
+### Exercises
+
+FIXME: exercises
 
 ## Using Issues {#s:workflow-issues}
 
@@ -119,6 +131,10 @@ FIXME
   <img id="f:workflow-lifecycle" src="../../files/issue-lifecycle.svg" alt="Issue State Transitions" />
 </figure>
 
+### Exercises
+
+FIXME: exercises
+
 ## How to Write a Good Bug Report {#s:workflow-bugs}
 
 1.  Make sure it actually *is* a bug.
@@ -154,6 +170,10 @@ printable character.)
 python wordbase.py --version reports 0.13.1; using on Windows 10.
 ~~~
 
+### Exercises
+
+FIXME: exercises
+
 ## Status and Lifecycle {#s:workflow-status}
 
 -   Use labels to distinguish:
@@ -180,6 +200,10 @@ python wordbase.py --version reports 0.13.1; using on Windows 10.
     -   And notify interested parties of state transitions
 -   Don't worry about any of this until people are actually using issues...
 
+### Exercises
+
+FIXME: exercises
+
 ## Continuous Integration {#s:workflow-continuous}
 
 -   [Continuous integration](#g:continuous-integration)
@@ -197,15 +221,15 @@ python wordbase.py --version reports 0.13.1; using on Windows 10.
 
 ### Exercises
 
-#### Lint Your Code
-
-1.  Find and install a [lint][lint]-like tool for your preferred language and run it on your code.
-2.  What does it complain about?
-3.  Which of its complaints do you disagree with?
-
 #### Setting Up Continuous Integration
 
-Follow the steps in [this tutorial][python-travis-tutorial] to set up Travis-CI testing for the SNDS repository.
-How long did it take you to set this up?
+Follow the steps in [this tutorial][python-travis-tutorial] to set up Travis-CI testing for the example repository.
+
+1.  How long did it take you to get it working?
+2.  What could have been added to the documentation to make your life easier?
+
+## Summary {#s:workflow-summary}
+
+FIXME: create concept map
 
 {% include links.md %}

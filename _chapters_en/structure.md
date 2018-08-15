@@ -34,6 +34,10 @@ keypoints:
 -   Using [virtual environments](#g:virtual-environment) allows you to work on many projects at once without tripping over yourself
     -   Slowly being superceded by more general solutions like [Docker][docker], but still the easiest solution for most of us
 
+### Exercises
+
+FIXME
+
 ## Noble's Rules {#s:structure-noble}
 
 -   From [[Nobl2009](#CITE)]
@@ -66,6 +70,10 @@ keypoints:
         -  May have a separate `CONTRIBUTORS` file, or list contributors in `CITATION`
     -   These files may be plain text or Markdown, or have no suffix at all, but please use the principal names as given
 
+### Exercises
+
+FIXME
+
 ## Code of Conduct {#s:structure-conduct}
 
 A CoC lays out the expectations for interpersonal interaction in your project.
@@ -93,12 +101,20 @@ and believe that posting it entails no disadvantage.
     -   How to report
     -   Who handles
 
+### Exercises
+
+FIXME
+
 ## Virtual Environments {#s:structure-virtualenv}
 
 FIXME
 -   How Python finds packages
 -   How `virtualenv` changes the search order
 -   How to create, update, and change virtual environments
+
+### Exercises
+
+FIXME
 
 ## Creating Packages {#s:structure-package}
 
@@ -113,6 +129,10 @@ FIXME
     -   On PyPI
     -   From GitHub
 
+### Exercises
+
+FIXME
+
 ## Publishing Packages {#s:structure-publish}
 
 FIXME
@@ -121,5 +141,13 @@ FIXME
     -   Tag it
     -   Create a DOI
 -   Publish in [JOSS][joss] or [F1000 Research][f1000-research]
+
+### Exercises
+
+FIXME
+
+## Summary {#s:structure-summary}
+
+FIXME: create concept map
 
 {% include links.md %}

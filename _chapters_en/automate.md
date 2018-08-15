@@ -30,8 +30,6 @@ keypoints:
 -   "Specially-formatted comments can be used to make Makefiles self-documenting."
 ---
 
-## Introduction {#s:automate-intro}
-
 -   [Zipf's Law][zipfs-law]: frequency of a word is inversely proportional to rank
     -   I.e., second most common word occurs half as often as most common, third most common a third as often, etc.
 -   We want to test books against this distribution
@@ -127,6 +125,10 @@ make: `results/moby-dick.csv' is up to date.
 -   Means our target does not need any work
 -   Use `ls -l -t` to list files most recently changed first, with timestamps
 
+### Exercises
+
+FIXME: exercises
+
 ## Extending Our Pipeline {#s:automate-extend}
 
 -   Add another rule to the end of `pipeline.mk`
@@ -163,6 +165,10 @@ python bin/countwords.py raw/jane-eyre.txt results/jane-eyre.csv
     -   If we ask Make to build a file that exists but for which there is no rule,
         it tells us "Nothing to be done"
     -   Get the latter message when there is a rule with no actions
+
+### Exercises
+
+FIXME: exercises
 
 ## Cleaning Up {#s:automate-phony}
 
@@ -202,6 +208,10 @@ make: `clean' is up to date.
 ```
 .PHONY : clean
 ```
+
+### Exercises
+
+FIXME: exercises
 
 ## Chaining Dependencies {#s:automate-chain}
 
@@ -258,6 +268,10 @@ clean :
 
 FIXME: dependency graph
 
+### Exercises
+
+FIXME: exercises
+
 ## Automatic Variables {#s:automate-automatic}
 
 -   Add a third book to `pipeline.mk`, then a fourth
@@ -306,6 +320,10 @@ python bin/countwords.py raw/moby-dick.txt bin/countwords.py results/moby-dick.c
 results/moby-dick.csv : raw/moby-dick.txt bin/countwords.py
         python bin/countwords.py $^ $<
 ```
+
+### Exercises
+
+FIXME: exercises
 
 ## Pattern Rules {#s:automate-pattern}
 
@@ -356,6 +374,10 @@ python bin/countwords.py raw/jane-eyre.csv results/jane-eyre.txt
 ```
 $ make -f pipeline.mk results/jane-eyre.txt
 ```
+
+### Exercises
+
+FIXME: exercises
 
 ## Using Variables {#s:automate-variables}
 
@@ -495,6 +517,10 @@ python bin/countwords.py raw/life-of-frederick-douglass.csv results/life-of-fred
 
 -   And there we have it: a fully automated, reproducible data analysis pipeline
 
+### Exercises
+
+FIXME: exercises
+
 ## Documenting Makefiles {#s:automate-doc}
 
 -   Every well-behaved program can print a help message
@@ -596,16 +622,11 @@ help: show available targets
     -   The pattern `/## //` means "find two #'s followed by a space and replace them with nothing (i.e., delete them)"
 -   None of this is part of Make, so most people simply copy this rule from file to file
 
-## Summary {#s:automate-summary}
+### Exercises
 
-<figure>
-  <figcaption>Make Concept Map</figcaption>
-  <img id="f:automate-concept" src="../../files/automate.svg" alt="Make Concept Map" />
-</figure>
+FIXME: exercises
 
-## Exercises {#s:automate-exercises}
-
-### Create a Setup Checklist
+#### Create a Setup Checklist
 
 FIXME
 -   Not everything can be automated
@@ -615,5 +636,12 @@ FIXME
     when setting up a new machine to do development on your project.
 2.  How many of the steps in your checklist can be automated using shell scripts or other small programs?
 3.  How will newcomers know if they have completed the steps in the checklist correctly?
+
+## Summary {#s:automate-summary}
+
+<figure>
+  <figcaption>Make Concept Map</figcaption>
+  <img id="f:automate-concept" src="../../files/automate.svg" alt="Make Concept Map" />
+</figure>
 
 {% include links.md %}

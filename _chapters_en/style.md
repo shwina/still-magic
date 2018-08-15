@@ -112,6 +112,10 @@ def collect(new_value, accumulator=set()):
 {'first', 'second'}
 ```
 
+### Exercises
+
+FIXME: exercises
+
 ## Variable Numbers of Arguments {#s:style-varargs}
 
 -   Often want functions to be able to accept variable number of arguments (like `print` and `max` do)
@@ -170,6 +174,10 @@ def settings(user_id, **settings):
 jenny {'lang': 'R', 'country': 'CA'}
 ```
 
+### Exercises
+
+FIXME: exercises
+
 ## Roles of Variables {#s:style-roles}
 
 -   [Chunking](#g:chunking) refers to our brain's innate tendency to group things together and remember them as a unit
@@ -182,21 +190,19 @@ jenny {'lang': 'R', 'country': 'CA'}
     -   Makes it easier to communicate
     -   And if you consciously stick to these patterns, others will find your code easier to read as well
 
-### Fixed Value
-
--   Not changed after it is first defined
--   Some languages allow explicit definition of constants
--   But note that sometimes a "fixed" value may require executing some code
+-   Fixed Value
+    -   Not changed after it is first defined
+    -   Some languages allow explicit definition of constants
+    -   But note that sometimes a "fixed" value may require executing some code
 
 ```
 SECONDS_PER_DAY = 24 * 60 * 60
 DEFAULT_TEMP_DIR = os.getenv('TMPDIR', '/tmp')
 ```
 
-### Stepper
-
--   Goes through a succession of values in a predictable way
--   E.g., the loop variable in a `for` loop or the day of the week
+-   Stepper
+    -   Goes through a succession of values in a predictable way
+    -   E.g., the loop variable in a `for` loop or the day of the week
 
 ```
 DAYS = 'Sun Mon Tue Wed Thu Fri Sat'.split()
@@ -204,11 +210,10 @@ for i in range(100):
     day = DAYS[i % len(DAYS)]
 ```
 
-### Most-Recent Holder
-
--   The value most recently seen
--   A stepper is a common special case of this
--   But most-recent holder's value isn't predictable, e.g., the last URL visited
+-   Most-Recent Holder
+    -   The value most recently seen
+    -   A stepper is a common special case of this
+    -   But most-recent holder's value isn't predictable, e.g., the last URL visited
 
 ```
 record = None
@@ -218,10 +223,9 @@ while True:
     ...process record...
 ```
 
-### Most-Wanted Holder
-
--   The "best" value seen so far
--   E.g., the largest value seen so far in a list, or the record with the highest score
+-   Most-Wanted Holder
+    -   The "best" value seen so far
+    -   E.g., the largest value seen so far in a list, or the record with the highest score
 
 ```
 def data_range(values):
@@ -233,10 +237,9 @@ def data_range(values):
     return low, high
 ```
 
-### Gatherer
-
--   Often called an accumulator or aggregator, it collects values seen so far in some way
--   Sum of all values seen to date or list of all positive scores seen to date
+-   Gatherer
+    -   Often called an accumulator or aggregator, it collects values seen so far in some way
+    -   Sum of all values seen to date or list of all positive scores seen to date
 
 ```
 def acronym(words):
@@ -249,10 +252,9 @@ def acronym(words):
     return result
 ```
 
-### Follower
-
--   The value before the current one
--   E.g., the last-but-one value when calculating the Fibonacci sequence
+-   Follower
+    -   The value before the current one
+    -   E.g., the last-but-one value when calculating the Fibonacci sequence
 
 ```
 def shift_up(values, follower):
@@ -263,10 +265,9 @@ def shift_up(values, follower):
         values[i], follower = follower, values[i]
 ```
 
-### One-Way Flag
-
--   Changes value once if a condition is seen
--   E.g., have any negative values been included in this sum?
+-   One-Way Flag
+    -   Changes value once if a condition is seen
+    -   E.g., have any negative values been included in this sum?
 
 ```
 def sum_in_band(values, low, high):
@@ -280,11 +281,10 @@ def sum_in_band(values, low, high):
     return result, out_of_band
 ```
 
-### Temporary
-
--   Holds a value long enough to be used in some calculation and is then discarded
--   E.g., temporary value for three-way swap (which is unnecessary in Python)
--   Or intermediate values in large numerical expression
+-   Temporary
+    -   Holds a value long enough to be used in some calculation and is then discarded
+    -   E.g., temporary value for three-way swap (which is unnecessary in Python)
+    -   Or intermediate values in large numerical expression
 
 ```
 def quadratic_roots(a, b, c):
@@ -292,20 +292,19 @@ def quadratic_roots(a, b, c):
     return (-b + discriminant)/(2*a), (-b - discriminant)/(2*a)
 ```
 
-### Container
-
--   Used to hold values so that they can be processed together
+-   Container
+    -   Used to hold values so that they can be processed together
+    -   Python calls these "collections"
 
 ```
 lines = reader.readlines()
 ...do things with lines...
 ```
 
-### Organizer
-
--   A temporary used to organize some set of values
--   E.g., a list that exists just long enough to sort values
--   An organizer is a temporary container
+-   Organizer
+    -   A temporary used to organize some set of values
+    -   E.g., a list that exists just long enough to sort values
+    -   An organizer is a temporary container
 
 ```
 def sort_by_length(names):
@@ -332,7 +331,7 @@ FIXME: exercises
 -   Most discussions of refactoring focus on [object-oriented programming](#g:oop)
 -   But many patterns can and should be used to clean up [procedural](#g:procedural-programming) code
 
-### Replace Value With Name
+-   Replace Value With Name
 
 ```
 # BEFORE
@@ -348,10 +347,9 @@ seconds_elapsed = num_days * SECONDS_PER_DAY
 -   Easier to change
     -   You don't think you'll have to, but then people want to use your software on Mars ([Mak2006](#CITE))
 
-### Replace Repeated Test With Flag
-
--   Similar to the above
--   Remember that Booleans are values and can be assigned
+-   Replace Repeated Test With Flag
+    -   Similar to the above
+    -   Remember that Booleans are values and can be assigned
 
 ```
 # BEFORE
@@ -378,7 +376,7 @@ def process_data(data, scaling):
 -   Clear to reader that the tests are the same
 -   Purpose of test is clearer
 
-### Extract Function
+-   Extract Function
 
 ```
 # BEFORE
@@ -402,7 +400,7 @@ def in_interior(grid, point):
 -   But even if not, easier to read aloud (which is a good test of comprehensibility)
 -   Use original variable names as parameter names during refactoring to reduce typing
 
-### Combine Functions
+-   Combine Functions
 
 ```
 # BEFORE
@@ -440,7 +438,7 @@ def count_vowels_and_consonants(text):
     -   Not true of all languages
 -   Or people use it and throw some results away
 
-### Create Lookup Table
+-   Create Lookup Table
 
 ```
 # BEFORE
@@ -465,16 +463,15 @@ def count_vowels_and_consonants(text):
 -   Easier to understand and maintain than complicated conditionals
 -   [Declarative programming](#g:declarative-programming)
 
-### Others
+-   Others
+    -   Provide Default and Encapsulate Control Flow: forward reference to [s:reuse](#CHAPTER)
+    -   Many language features exist to give programmers something to refactor *to*
+        -   See a pattern in many contexts
+        -   Provide syntactic support for it
+        -   Explain in terms of original
+    -   Replace Loop With Comprehension is the best example
 
--   Provide Default and Encapsulate Control Flow: forward reference to [s:reuse](#CHAPTER)
--   Many language features exist to give programmers something to refactor *to*
-    -   See a pattern in many contexts
-    -   Provide syntactic support for it
-    -   Explain in terms of original
--   Replace Loop With Comprehension is the best example
-
-### Replace Loop With Comprehension
+-   Replace Loop With Comprehension
 
 ```
 # BEFORE
@@ -553,5 +550,9 @@ trimmed = [(d.id, THRESHOLD) if d.s > THRESHOLD else (d.id, d.s) for d in raw]
 ### Exercises
 
 FIXME: exercises
+
+## Summary {#s:style-summary}
+
+FIXME: create concept map
 
 {% include links.md %}

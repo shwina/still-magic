@@ -46,6 +46,10 @@ keypoints:
     -   Illustrates the key ideas of a compilation-based workflow
     -   Probably the least painful to set up
 
+## Exercises
+
+FIXME
+
 ## Markdown {#s:publish-markdown}
 
 -   Created as a simple way to write simple HTML
@@ -145,6 +149,10 @@ Please see [our website](http://example.com) for more information.
     -   Yes, you are using a WYSIWYG program to create 1970s-era text to be translated back into what you drew
 -   This is the point where it's often simpler to just write HTML
 
+## Exercises
+
+FIXME
+
 ## GitHub Pages {#s:publish-ghp}
 
 -   Most people don't want to read Markdown as-is, so need some way to translate and publish it
@@ -173,6 +181,10 @@ The manifold perplexities of my chosen research topic...
 ```
 
 -   Any file with this header is processed - in particular, Markdown is turned into HTML
+
+## Exercises
+
+FIXME
 
 ## Metadata and Templating {#s:publish-metadata}
 
@@ -257,6 +269,10 @@ exclude:
 -   There are *lots* of [themes](#g:theme) for Jekyll
     -   Use one of GitHub's defaults unless you know a lot about graphic design and want to spend hours fiddling with CSS
 
+## Exercises
+
+FIXME
+
 ## Previewing Locally {#s:publish-preview}
 
 -   Pushing half-finished work to the web for everyone to see is a bit unprofessional
@@ -296,6 +312,10 @@ exclude:
 
 -   There are lots of other filters, like `absolute_url`
 
+## Exercises
+
+FIXME
+
 ## Self-Publishing {#s:publish-self-pub}
 
 -   Jekyll is very limited for research publishing
@@ -314,6 +334,10 @@ exclude:
     -   Handles bibliographic citations and other things that GFM doesn't
 -   [R Markdown][r-markdown] and [Jupyter][jupyter] can both generate static websites that you can commit to `docs`
 -   Run `jekyll serve` in the `docs` folder to preview
+
+## Exercises
+
+FIXME
 
 ## Math {#s:publish-math}
 
@@ -362,6 +386,10 @@ $$ r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}} $$
 
 $$ r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}} $$
 
+## Exercises
+
+FIXME
+
 ## What to Publish and Where {#s:publish-what-where}
 
 -   Now that we know *how* to publish, the next questions are *what* and *where*
@@ -382,6 +410,10 @@ $$ r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}} $$
         -   Store in GitHub
     -   Whichever you use, get or create a [DOI](#g:doi) for each version of each dataset
 -   Use [Zenodo][zenodo] to get DOIs ([s:structure](#CHAPTER))
+
+## Exercises
+
+FIXME
 
 ## FAIR {#s:publish-fair}
 
@@ -408,5 +440,9 @@ $$ r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}} $$
     -   (Meta)data is released with a clear and accessible data usage license
     -   (Meta)data has detailed provenance
     -   (Meta)data meets domain-relevant community standards
+
+## Summary {#s:publish-summary}
+
+FIXME: create concept map
 
 {% include links.md %}

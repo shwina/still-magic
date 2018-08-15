@@ -38,6 +38,10 @@ keypoints:
     -   *How Buildings Learn* [[Bran1995](#CITE)]
 -   Goal is to allow old code to use new code
 
+### Exercises
+
+FIXME: exercises
+
 ## Embedded Documentation {#s:reuse-docstrings}
 
 -   Some people argue that if you need to add comments to your software, you should have written clearer software
@@ -375,9 +379,5 @@ print(results)
   <figcaption>Reuse Concept Map</figcaption>
   <img id="f:reuse-concept" src="../../files/reuse.svg" alt="Reuse Concept Map" />
 </figure>
-
-### Exercises
-
-FIXME
 
 {% include links.md %}

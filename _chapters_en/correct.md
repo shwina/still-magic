@@ -320,4 +320,12 @@ Constraints failing: 15
     -   Empirical studies have not found a strong effect [[Fucc2016](#CITE)]
     -   But many productive programmers believe in it, so maybe we're measuring the wrong things...
 
+### Exercises
+
+FIXME: exercises
+
+## Summary {#s:correct-summary}
+
+FIXME: create concept map
+
 {% include links.md %}
