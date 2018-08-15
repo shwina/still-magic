@@ -5,10 +5,12 @@
 *.out
 *.toc
 *~
+.coverage
 .jekyll-metadata
 .pytest_cache
 __pycache__
 _site
+htmlcov
 tex_*/inc
 tex_*/book.bib
 tex_*/book.pdf

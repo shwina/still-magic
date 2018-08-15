@@ -23,6 +23,8 @@ title: "Glossary"
 
 **Control flow**{:#g:control-flow}: FIXME
 
+**Coverage**{:#g:coverage}: FIXME
+
 **Declarative programming**{:#g:declarative-programming}: FIXME
 
 **Default target**{:#g:default-target}: FIXME

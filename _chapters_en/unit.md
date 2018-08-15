@@ -347,14 +347,99 @@ FIXME: exercises
 
 ## Coverage {#s:unit-coverage}
 
--   [Test coverage](#g:test-coverage) measures which parts of program are(n't) exercised by tests
--   Easy (and wrong) to obsess about meeting specific targets
--   But:
-    -   Anything that *isn't* tested should be assumed to be wrong
-    -   Drops in coverage often indicate new [technical debt](#g:technical-debt)
--   Run `coverage` with tests
--   Look at summary report
--   Drill down into line-by-line HTML listing
+-   Which lines are and aren't being executed?
+
+```python
+def first(left, right):
+    if left < right:
+        left, right = right, left
+    while left > right:
+        value = second(left, right)
+        left, right = right, int(right/2)
+    return value
+
+def second(check, balance):
+    if check > 0:
+        return balance
+    else:
+        return 0
+
+def main():
+    final = first(3, 5)
+    print(3, 5, final)
+
+if __name__ == '__main__':
+    main()
+```
+
+-   [Coverage](#g:coverage) measures which parts of program are(n't) executed
+    -   In principle, keep a list of Booleans, one per line
+    -   Each time the line is executed, set the flag to `True`
+    -   At the end, report `True` and `False` per line, percentages, etc.
+-   Easy (and wrong) to obsess about meeting specific targets for [test coverage](#g:test-coverage)
+    -   But anything that *isn't* tested should be assumed to be wrong
+    -   And drops in coverage often indicate new [technical debt](#g:technical-debt)
+-   Use `pip install coverage` to install coverage tool
+-   Instead of `python filename.py` use `coverage run filename.py`
+    -   Creates a file called `.coverage`
+-   Run `coverage report` to get a summary of the most recent report
+
+```
+Name               Stmts   Miss  Cover
+--------------------------------------
+demo_coverage.py      16      1    94%
+```
+
+-   Use `coverage html` to generate an HTML listing
+
+<table>
+  <tr>
+    <td>
+      1<br/>
+      2<br/>
+      3<br/>
+      4<br/>
+      5<br/>
+      6<br/>
+      7<br/>
+      8<br/>
+      9<br/>
+      10<br/>
+      11<br/>
+      12<br/>
+      <span class="coverage">13</span><br/>
+      14<br/>
+      15<br/>
+      16<br/>
+      17<br/>
+      18<br/>
+      19<br/>
+      20
+    </td>
+    <td>
+      def first(left, right):<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;if left &lt; right:<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left, right = right, left<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;while left > right:<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value = second(left, right)<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left, right = right, int(right/2)<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;return value<br/>
+      <br/>
+      def second(check, balance):<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;if check > 0:<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return balance<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;else:<br/>
+      <span class="coverage">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 0&nbsp;&nbsp;&nbsp;&nbsp;</span><br/>
+      <br/>
+      def main():<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;final = first(3, 5)<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;print(3, 5, final)<br/>
+      <br/>
+      if _name__ == '__main__':<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;main()
+    </td>
+  </tr>
+</table>
 
 ### Exercises
 
