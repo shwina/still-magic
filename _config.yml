@@ -10,6 +10,28 @@ website: "http://merely-useful.github.io/still-magic/"
 purchase: ""
 paypal: ""
 
+# Order for Table of Contents.
+toc:
+  lessons:
+  - /intro/
+  - /style/
+  - /automate/
+  - /correct/
+  - /publish/
+  - /workflow/
+  - /structure/
+  - /reuse/
+  - /finale/
+  bib:
+  - /bib/
+  extras:
+  - /license/
+  - /conduct/
+  - /citation/
+  - /gloss/
+  - /objectives/
+  - /keypoints/
+
 # Theme color.
 background: "#f0faf0"
 
@@ -50,28 +72,6 @@ defaults:
     values:
       language: "en"
       layout: "default"
-
-# Order for Table of Contents.
-toc:
-  lessons:
-  - /intro/
-  - /style/
-  - /automate/
-  - /correct/
-  - /publish/
-  - /workflow/
-  - /structure/
-  - /reuse/
-  - /finale/
-  bib:
-  - /bib/
-  extras:
-  - /license/
-  - /conduct/
-  - /citation/
-  - /gloss/
-  - /objectives/
-  - /keypoints/
 
 # Translations by language.
 translations:
