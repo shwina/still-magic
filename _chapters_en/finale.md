@@ -9,7 +9,7 @@ objectives:
 -   "Describe the next steps in a research programmer's development."
 keypoints:
 -   "It's all just data."
--   "Data doesn't mean anything on its own---it has to be interpreted."
+-   "Data doesn't mean anything on its own: it has to be interpreted."
 -   "Programming is about creating and composing abstractions."
 -   "Models are for computers, and views are for people."
 -   "Slowing down makes us go faster."
@@ -24,7 +24,7 @@ it.  I tried to sum up the big ideas of an earlier incarnation of [Software
 Carpentry][swc] in response; after some updates, the list is:
 
 1. It's all just data.
-2. Data doesn't mean anything on its own---it has to be interpreted.
+2. Data doesn't mean anything on its own: it has to be interpreted.
 3. Programming is about creating and composing abstractions.
 4. Models are for computers, and views are for people.
 5. Slowing down makes us go faster.
