@@ -22,15 +22,15 @@
   {% include toc-section.html language=include.language coll=chapters class="chapter" title="Lessons" toc=site.toc.lessons %}
   {% include toc-bib.html language=include.language coll=chapters toc=site.toc.bib %}
   {% include toc-section.html language=include.language coll=chapters class="appendix" title="Extras" toc=site.toc.extras %}
-  {% if page.root %}<p><a href="{{allpath|relative_url}}">{{site.translations[page.language].singlepage}}</a></p>{% endif %}
+  {% if page.root %}<p><a href="{{allpath|relative_url}}">{{include.translations.singlepage}}</a></p>{% endif %}
 
   {% if site.purchase != "" %}
   <hr/>
   <p>
-    <a href="{{site.purchase}}"><img src="{{'/files/lulu.gif'|relative_url}}" border="0" alt="{{site.translations[page.language].lulu}}" /></a>
+    <a href="{{site.purchase}}"><img src="{{'/files/lulu.gif'|relative_url}}" border="0" alt="{{include.translations.lulu}}" /></a>
   </p>
   <p>
-    {{site.translations[page.language].donate | replace: '^1', site.paypal}}
+    {{include.translations.donate | replace: '^1', site.paypal}}
   </p>
   {% endif %}
 
@@ -45,7 +45,7 @@
 
   {% if page.root %}
   <p>
-    <em>{{site.translations[page.language].generated}} {{site.time|date: '%Y-%m-%d'}}.</em>
+    <em>{{include.translations.generated}} {{site.time|date: '%Y-%m-%d'}}.</em>
   </p>
   {% endif %}
 </nav>

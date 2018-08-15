@@ -3,6 +3,7 @@
 {% elsif include.language == 'um' %}
   {% assign chapters = site.chapters_um %}
 {% endif %}
+{% assign translations=site.translations[include.language] %}
 
 {% assign prefix = '/' | append: include.language | append: '/' %}
 {%- for toc_entry in site.toc.lessons -%}
