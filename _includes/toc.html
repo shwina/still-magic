@@ -9,7 +9,13 @@
 <nav>
   {% if page.root %}<strong><a href="./">{% else %}<a href="../">{% endif %}
     <img src="{{'/files/logo.svg'|relative_url}}" alt="{{site.title}} logo" width="50%" />
-    <p><em>{{site.title}}</em></p>
+    <p>
+      <em>
+        {{site.title}}
+        <br/>
+        (a <a href="{{site.organization}}">Merely Useful</a> lesson)
+      </em>
+    </p>
   {% if page.root %}</a></strong>{% else %}</a>{% endif %}
 
   <hr/>

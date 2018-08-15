@@ -9,6 +9,7 @@ isbn: "000-0-0000000-0-0"
 website: "http://merely-useful.github.io/still-magic/"
 purchase: ""
 paypal: ""
+organization: https://merely-useful.github.io/
 
 # Order for Table of Contents.
 toc:
