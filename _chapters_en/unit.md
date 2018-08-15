@@ -28,15 +28,21 @@ keypoints:
     -   Inverse document frequency: (# documents) / (# documents in which word occurs)
     -   If a word is very common in one document, but absent in others, TF-IDF is high for that (word, document) pair
     -   If a word is common in all documents, or if a word is rare in a document, TF-IDF is lower
--   Input: one CSV file for each document containing (word, count) pairs
--   Output: a CSV file containing (word, document, TF-IDF score) for each word and each document
+-   Depends on counting words in a document
+    -   While ignoring leading/trailing punctuation
+    -   Except for words like "Ph.D."
+    -   And what to do about hyphenation?
 -   Goals for testing:
     -   Make it easy for people to write tests (because otherwise they won't do it)
     -   Run a set of tests
     -   Report which ones have failed
     -   Give some idea of where or why they failed (to help debugging)
     -   Give some idea of whether any results have changed since the last run
-    -   Give people a clear idea of what our [tolerances](#g:tolerance) are
+    -   Give people a clear idea of what our definition of correct and our [tolerances](#g:tolerance) are
+-   This introduction is based in part on [Testing and Continuous Integration with Python][huff-testing] by [Katy Huff][huff-katy]
+
+## Building Our Own {#s:unit-own}
+
 -   A test that checks one thing is called a [unit test](#g:unit-test)
 -   A tool that finds and runs unit tests and reports their results is called a [test runner](#g:test-runner)
 -   A single test can have one of three outcomes:
@@ -48,41 +54,93 @@ keypoints:
     -   Should produce the same results no matter what order they are run in
     -   Which means that each test starts from a freshly-generated fixture rather than using the output of previous tests
     -   Otherwise a failure in one test can cause false positives or false negatives in subsequent tests
--   This introduction is based in part on [Testing and Continuous Integration with Python][huff-testing] by [Katy Huff][huff-katy]
-
-## Some Simple Test Cases {#s:unit-simple}
-
--   Start with a simpler problem: test the calculation of IDF
-    -   Input: list of (filename, word, count) triples
-    -   Output: list of (word, filename, IDF) triples
-    -   We're not allowed to change the input or output formats (for now)
 -   Roll our own
-    -   `assert` that inputs produce outputs (example)
-    -   But our test script halts at the first failure
-    -   And we may want to split tests across files (e.g., to test different parts of the analysis)
--   Instead, put each input-output pair in a function in `test_idf.py`
-    -   Use `assert` to check that the output is correct
-    -   Calculate "correct" by hand for simple cases
-    -   If they don't work, nothing else is likely to...
+
+```python
+TESTS = [
+   ['word', {'word' : 1}],
+   ['word word', {'word' : 2}],
+   ['another word', {'another' : 1, 'word' : 1}],
+   ["anothers' word", {'anothers' : 1, 'word' : 1}]
+]
+
+pass = fail = error = 0
+for (fixture, expected) in TESTS:
+    try:
+        actual = count_words(fixture)
+        if actual == expected:
+            pass += 1
+        else:
+            fail += 1
+    except:
+        error += 1
+print('pass {} fail {} error {}'.format(pass, fail, error))
+```
+
+-   This works
+-   But what if test fixtures take several lines to construct?
+-   Or checking result is complex?
+-   Or we have tests split across multiple files?
+-   Or...
+
+## Using Pytest {#s:unit-pytest}
+
+-   Instead, put each input-output pair in a function in `test_count.py`
+-   Use `assert` to check that the output is correct
+
+```python
+from tf_idf import count_word
+
+def test_single_word():
+    assert count_words('word') == {'word' : 1}
+
+def test_single_repeated_word():
+   assert count_words('word word') == {'word' : 2}
+
+def test_two_words():
+   assert count_words('another word') == {'another' : 1, 'word' : 1}
+
+def test_trailing_punctuation():
+   assert count_words("anothers' word") == {'anothers' : 1, 'word' : 1}
+```
+
 -   Note the absence of an error message in the `assert`
     -   Name of test function is included in the output if the test fails
     -   That name should be all the documentation we need
     -   If the test is so complicated that more is needed, write a simpler test
-
-```
-FIXME: examples
-```
-
 -   Run from the command line
 
 ```
 $ pytest
 ```
 ```
-FIXME: output
+============================= test session starts ==============================
+platform darwin -- Python 3.6.5, pytest-3.5.1, py-1.5.3, pluggy-0.6.0
+rootdir: /Users/standage/still-magic/src/unit, inifile:
+plugins: remotedata-0.2.1, openfiles-0.3.0, doctestplus-0.1.3, arraydiff-0.2
+collected 4 items
+
+test_count.py ...F                                                       [100%]
+
+=================================== FAILURES ===================================
+__________________________ test_trailing_punctuation ___________________________
+
+    def test_trailing_punctuation():
+>      assert count_words("anothers' word") == {'anothers' : 1, 'word' : 1}
+E      assert {"anothers'": 1, 'word': 1} == {'anothers': 1, 'word': 1}
+E        Omitting 1 identical items, use -vv to show
+E        Left contains more items:
+E        {"anothers'": 1}
+E        Right contains more items:
+E        {'anothers': 1}
+E        Use -v to get the full diff
+
+test_count.py:13: AssertionError
+====================== 1 failed, 3 passed in 0.05 seconds ======================
 ```
 
 -   Searches for all files named `test_*.py` or `*_test.py` in the current directory and its sub-directories
+    -   Can use command-line options to narrow the search, e.g., `pytest test_count.py`
 -   Runs all functions in those files whose names start with `test_`
 -   Records pass/fail/error counts
 -   Gives us a nicely-formatted report
@@ -104,10 +162,50 @@ FIXME: exercises
         been detected through simple testing of error handling code.
     -   A majority (77%) of the failures require more than one input event to manifest, but
         most of the failures (90%) require no more than 3.
+-   Can check manually:
 
+```python
+# Expect count_words to raise ValueError for empty input.
+def test_text_not_empty():
+    try:
+        count_words('')
+        assert False, 'Should not get this far'
+    except ValueError:
+        pass
 ```
-FIXME: example
+
+-   Better: `pytest` provides a [context manager](#g:context-manager) to handle tests for exceptions
+    -   Uses Python's `with` keyword to create something for a particular scope
+
+```python
+import pytest
+
+def test_text_not_empty():
+    with pytest.raises(ValueError):
+        count_words('')
 ```
+```
+============================= test session starts ==============================
+platform darwin -- Python 3.6.5, pytest-3.5.1, py-1.5.3, pluggy-0.6.0
+rootdir: /Users/gvwilson/merely-useful/still-magic/src/unit, inifile:
+plugins: remotedata-0.2.1, openfiles-0.3.0, doctestplus-0.1.3, arraydiff-0.2
+collected 1 item
+
+test_exception.py F                                                      [100%]
+
+=================================== FAILURES ===================================
+_____________________________ test_text_not_empty ______________________________
+
+    def test_text_not_empty():
+        with pytest.raises(ValueError):
+>           count_words('')
+E           Failed: DID NOT RAISE <class 'ValueError'>
+
+test_exception.py:6: Failed
+=========================== 1 failed in 0.04 seconds ===========================
+```
+
+-   Clearly, we have some work to do...
 
 ### Exercises
 
@@ -115,15 +213,69 @@ FIXME: exercises
 
 ## Testing Randomness {#s:unit-random}
 
--   Testing random numbers: always allow specification of the seed
--   Dates and times count as randomness
+-   Testing random numbers
+    -   Rely on the fact that they aren't actually random
+    -   *Always* specify the RNG seed
+    -   And *always* record it
+-   Current dates and time count as randomness
     -   Write your own function
     -   Replace it with another for testing purposes
--   The replacement is called a [test double](#g:test-double)
-    -   Or a mock, or a stub, or... terminology is very inconsistent
+    -   The replacement is called a [test double](#g:test-double)
+        -   Or a mock, or a stub, or... terminology is very inconsistent
+    -   Or provide a way to change one function's behavior
+-   First version using the latter strategy
 
+```python
+# tf_idf.py
+import datetime
+
+DAYS_PER_WEEK = 7
+
+TESTING_DATE = None
+def weeks_since_01(start):
+    current = TESTING_DATE
+    if current is None:
+        current = datetime.date.today()
+    return round((current - start).days / DAYS_PER_WEEK)
 ```
-FIXME: example
+
+-   Test it
+
+```python
+# demo_test_weeks.py
+import datetime
+import tf_idf
+
+print('first', tf_idf.weeks_since_01(datetime.date(2018, 8, 1)))
+tf_idf.TESTING_DATE = datetime.date(2018, 8, 30)
+print('second', tf_idf.weeks_since_01(datetime.date(2018, 8, 1)))
+```
+```
+$ date
+Wed 15 Aug 2018 15:14:52 EDT
+$ python demo_test_weeks.py
+first 2
+second 4
+```
+
+-   Cleaner approach: make the test control an [attribute](#g:function-attribute) of the function
+    -   Works because body of function isn't executed as the function is defined
+    -   So it's OK to refer to values that are added afterward
+-   Advantage: can import the function alone, since the extra value is attached to it
+
+```python
+# demo_test_weeks.py
+import datetime
+from tf_idf import weeks_since_02
+
+print('first', weeks_since_02(datetime.date(2018, 8, 1)))
+weeks_since_02.testing_date = datetime.date(2018, 8, 30)
+print('second', weeks_since_02(datetime.date(2018, 8, 1)))
+```
+```
+$ python demo_test_weeks.py
+first 2
+second 4
 ```
 
 ### Exercises
@@ -134,9 +286,60 @@ FIXME: exercises
 
 -   Reading from external files isn't so bad, but writing to temporary files is awkward
     -   Scraps need to be re-read for testing and then cleaned up
--   Introduction to `StringIO`
+-   Use `StringIO`
+
+```python
+from io import StringIO
+
+writer = StringIO()
+for word in 'first second third'.split():
+    writer.write('{}\n'.format(word))
+print(writer.getvalue())
+```
+```
+first
+second
+third
+```
+
+-   And for input
+    -   Note: line includes trailing newline
+
+```python
+DATA = '''first
+second
+third'''
+
+for line in StringIO(DATA):
+    print(len(line))
+```
+```
+6
+7
+5
+```
+
+-   It's common to have a function open a file, read its contents, and return the result
+-   But this is hard to test, since there's no easy way to substitute a `StringIO`
 -   Reorganize software so that file opening is done separately from reading/writing
-    -   Good practice anyway for handling `stdin` and `stdout` in command-line tools
+    -   Good practice anyway for handling `stdin` and `stdout` in command-line tools, which don't need to be opened
+
+```python
+# BEFORE
+def main(infile, outfile):
+    with open(infile, 'r') as reader:
+        with open(outfile, 'w') as writer:
+            process(infile, outfile)
+```
+```python
+# AFTER
+def main(infile, outfile):
+    reader = stdin if infile == '-' else open(infile, 'r')
+    writer = stdout if outfile == '-' else open(outfile, 'w')
+    process(reader, writer)
+    if infile == '-': reader.close()
+    if outfile == '-': writer.close()
+```
 
 ### Exercises
 
