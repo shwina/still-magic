@@ -16,6 +16,7 @@ toc:
   lessons:
   - /intro/
   - /style/
+  - /refactoring/
   - /automate/
   - /correct/
   - /publish/
@@ -53,6 +54,7 @@ exclude:
 - misc
 - requirements.txt
 - tex_en
+- unused
 
 # Markers in generated files.
 marker:
