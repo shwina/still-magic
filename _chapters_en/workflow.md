@@ -3,7 +3,7 @@ permalink: "/en/workflow/"
 title: "A Scalable Workflow"
 questions:
 -   "How can a growing number of people coordinate work on a single project?"
--   "How can I tell what state my project is actually in?"
+-   "How can I tell what needs to be done and who is doing it?"
 objectives:
 -   "Explain what rebasing is and use it interactively to collapse a sequence of commits into a single commit."
 -   "Describe a branch-per-feature workflow and explain why to use it."
@@ -11,8 +11,6 @@ objectives:
 -   "Explain what an issue tracking tool does and what it should be used for."
 -   "Explain how to use labels on issues to manage work."
 -   "Describe the information a well-written issue should contain."
--   "Explain how continuous integration works."
--   "Configure continuous integration for a small software project."
 keypoints:
 -   "Create a new branch for every feature, and only work on that feature in that branch."
 -   "Always create branches from `master`, and always merge to `master`."
@@ -21,9 +19,6 @@ keypoints:
 -   "Add people to issues to show who is responsible for working on what."
 -   "Add labels to issues to identify their purpose."
 -   "Use rules for issue state transitions to define a workflow for a project."
--   "Continuous integration rebuilds and/or re-tests software every time something changes."
--   "Use continuous integration to check changes before they are inspected."
--   "Check style as well as correctness."
 ---
 
 -   A common Git workflow for single-author/single-user projects:
@@ -203,30 +198,6 @@ FIXME: exercises
 ### Exercises
 
 FIXME: exercises
-
-## Continuous Integration {#s:workflow-continuous}
-
--   [Continuous integration](#g:continuous-integration)
-    -   Build and test code and documentation every time someone commits code
-    -   Post results somewhere the team can see them
-    -   If build or tests fail, send out notifications
--   Even better: build and test changes *before* they're merged
-    -   Only do code review on changes that have passed mechanical checks
--   Most widely used system is [Travis CI][travis-ci]
-    -   Easy integration with [Github][github]
-    -   Will run tests on multiple platforms and with multiple versions of tools
--   Developers still have to build the tests
-    -   CI only as good as the tests it runs
--   Check style as well as correctness by running [pep8][pep-8] or [formatR][format-r] as part of the build
-
-### Exercises
-
-#### Setting Up Continuous Integration
-
-Follow the steps in [this tutorial][python-travis-tutorial] to set up Travis-CI testing for the example repository.
-
-1.  How long did it take you to get it working?
-2.  What could have been added to the documentation to make your life easier?
 
 ## Summary {#s:workflow-summary}
 
