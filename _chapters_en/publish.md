@@ -381,8 +381,7 @@ $$ r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}} $$
     -   Small raw data (under 500 MB)
         -   Store in GitHub
     -   Whichever you use, get or create a [DOI](#g:doi) for each version of each dataset
--   Use [Zenodo][zenodo] to get DOIs
-    -   FIXME: explain how to use Zenodo and integrate with GitHub
+-   Use [Zenodo][zenodo] to get DOIs ([s:structure](#CHAPTER))
 
 ## FAIR {#s:publish-fair}
 

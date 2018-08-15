@@ -5,7 +5,7 @@ title: "Citation"
 
 Please cite this work as:
 
-> Greg Wilson (ed.): *{{site.title}}: {{site.subtitle}}*.  <{{site.website}}>, {{site.copyrightyear}}.
+> {{site.author}} (ed.): *{{site.title}}: {{site.subtitle}}*.  <{{site.website}}>, {{site.copyrightyear}}.
 
 ## Contributors
 

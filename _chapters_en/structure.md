@@ -2,14 +2,28 @@
 permalink: "/en/structure/"
 title: "Projects and Packages"
 questions:
--   FIXME
+-   "How should I organize the files and directories in my project?"
+-   "Why should my project have an explicit Code of Conduct?"
+-   "How can I manage the libraries my project relies on?"
+-   "How can I package up my work for others to use?"
 objectives:
--   FIXME
+-   "Describe and justify Noble's Rules for organizing projects."
+-   "Explain the purpose of README, LICENSE, CONDUCT, and CITATION files."
+-   "Explain the purpose of a Code of Conduct and the essential features an effective one must have."
+-   "Create and use virtual environments to manage library versions without conflict."
+-   "Create and test a citable, shareable Pip package."
 keypoints:
--   FIXME
+-   "Put source code for compilation in `src/`, runnable code in `bin/`, raw data in `data/`, results in `results/`, and documentation and manuscripts in `doc/`."
+-   "Use file and directory names that are easy to match and include dates for the level under `data/` and `results/`."
+-   "Create README, LICENSE, CONDUCT, and CITATION files in the root directory of the project."
+-   "Create an explicit Code of Conduct for your project modelled on the Contributor Covenant."
+-   "Be clear about how to report violations of the Code of Conduct and who will handle such reports."
+-   "Use `virtualenv` to create a separate virtual environment for each project."
+-   "Use `pip` to create a distributable package containing your project's software, documentation, and data."
+-   "Use Zenodo to give your releases DOIs."
+-   "Publish your software as you would a paper."
 ---
 
-FIXME
 -   Project organization is like a diet
     -   There is no such thing as "no diet", just a good one or a bad one
     -   Similarly, there is no such thing as "no project organization"
@@ -25,11 +39,10 @@ FIXME
 -   From [[Nobl2009](#CITE)]
 -   Top level is logical, next level is chronological
     -   Source code in `src/` (short for "source")
-        -   Shell scripts and Python or R programs go here
         -   Source for C/C++ and the like go here
     -   Compiled programs in `bin/` (short for "binary", meaning "not text")
-        -   Executables for C/C++ programs go here
-        -   Usually *isn't* put under version control (since they can be rebuilt)
+        -   Executables for C/C++ programs go here (but not under version control)
+        -   Shell scripts and Python or R programs go here (but under version control, which can be confusing)
     -   Raw data in `data/`
         -   If it's too large, use `data/` to store data references
     -   Results in `results/`
@@ -55,11 +68,28 @@ FIXME
 
 ## Code of Conduct {#s:structure-conduct}
 
-FIXME
--   Why
--   Ada Initiative
--   Contributor Covenant
--   Make clear:
+A CoC lays out the expectations for interpersonal interaction in your project.
+The CoC that we suggest using is the [Contributor Covenant][covenant],
+which provides examples of acceptable and unacceptable behavior for your project,
+and specifies how unacceptable behavior will be handled.
+The goal of this is to explicitly communicate the standards of interaction to which this project holds its participants,
+and encourage newcomers to the project to engage with the project.
+
+This serves several purposes:
+
+-   It reduces the uncertainty that project participants face about what is acceptable and unacceptable behavior.
+    While you might think this is obvious,
+    long experience suggests that articulating it clearly and concisely reduces problems caused by have different expectations.
+
+-   It welcomes newcomers specifically, which can help grow your project and encourage user feedback.
+
+-   It delineates responsibilities within the project and provides specific points of contact in case of misconduct or harassment,
+    as well as specifying the process to be followed in these cases.
+
+We find that most people agree with the standards laid out in the Contributor Covenant,
+and believe that posting it entails no disadvantage.
+
+-   Important to make clear:
     -   How to report
     -   Who handles
 
@@ -82,10 +112,14 @@ FIXME
 -   How to make the package available
     -   On PyPI
     -   From GitHub
--   Citing packages
-    -   [Connect GitHub to Zenodo][citable-code]
+
+## Publishing Packages {#s:structure-publish}
+
+FIXME
+-   Connect GitHub to [Zenodo][zenodo] to create [citable code][citable-code]
     -   Create a release
+    -   Tag it
     -   Create a DOI
-    -   Publish in [JOSS][joss] or [F1000 Research][f1000-research]
+-   Publish in [JOSS][joss] or [F1000 Research][f1000-research]
 
 {% include links.md %}
