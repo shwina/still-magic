@@ -1,25 +1,19 @@
 ---
 permalink: "/en/structure/"
-title: "Projects and Packages"
+title: "Project Structure"
 questions:
 -   "How should I organize the files and directories in my project?"
 -   "Why should my project have an explicit Code of Conduct?"
--   "How can I manage the libraries my project relies on?"
--   "How can I package up my work for others to use?"
 objectives:
 -   "Describe and justify Noble's Rules for organizing projects."
 -   "Explain the purpose of README, LICENSE, CONDUCT, and CITATION files."
 -   "Explain the purpose of a Code of Conduct and the essential features an effective one must have."
--   "Create and use virtual environments to manage library versions without conflict."
--   "Create and test a citable, shareable Pip package."
 keypoints:
 -   "Put source code for compilation in `src/`, runnable code in `bin/`, raw data in `data/`, results in `results/`, and documentation and manuscripts in `doc/`."
 -   "Use file and directory names that are easy to match and include dates for the level under `data/` and `results/`."
 -   "Create README, LICENSE, CONDUCT, and CITATION files in the root directory of the project."
 -   "Create an explicit Code of Conduct for your project modelled on the Contributor Covenant."
 -   "Be clear about how to report violations of the Code of Conduct and who will handle such reports."
--   "Use `virtualenv` to create a separate virtual environment for each project."
--   "Use `pip` to create a distributable package containing your project's software, documentation, and data."
 ---
 
 -   Project organization is like a diet
@@ -98,34 +92,6 @@ and believe that posting it entails no disadvantage.
 -   Important to make clear:
     -   How to report
     -   Who handles
-
-### Exercises
-
-FIXME
-
-## Virtual Environments {#s:structure-virtualenv}
-
-FIXME
--   How Python finds packages
--   How `virtualenv` changes the search order
--   How to create, update, and change virtual environments
-
-### Exercises
-
-FIXME
-
-## Creating Packages {#s:structure-package}
-
-FIXME
--   What a package needs to have to be installable
--   The confusion of Python packaging solutions
--   Structure of a Pip package
--   Commands to create a package
--   How to test that a package installs correctly
-    -   Hint: `virtualenv`
--   How to make the package available
-    -   On PyPI
-    -   From GitHub
 
 ### Exercises
 
