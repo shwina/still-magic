@@ -1,6 +1,6 @@
 ---
 permalink: "/en/ghp/"
-title: "Publishing with GitHub Pages"
+title: "Using GitHub Pages"
 questions:
 -   "How can I create a static website for my work?"
 objectives:
