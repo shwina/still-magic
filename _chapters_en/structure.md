@@ -3,17 +3,13 @@ permalink: "/en/structure/"
 title: "Project Structure"
 questions:
 -   "How should I organize the files and directories in my project?"
--   "Why should my project have an explicit Code of Conduct?"
 objectives:
 -   "Describe and justify Noble's Rules for organizing projects."
 -   "Explain the purpose of README, LICENSE, CONDUCT, and CITATION files."
--   "Explain the purpose of a Code of Conduct and the essential features an effective one must have."
 keypoints:
 -   "Put source code for compilation in `src/`, runnable code in `bin/`, raw data in `data/`, results in `results/`, and documentation and manuscripts in `doc/`."
 -   "Use file and directory names that are easy to match and include dates for the level under `data/` and `results/`."
 -   "Create README, LICENSE, CONDUCT, and CITATION files in the root directory of the project."
--   "Create an explicit Code of Conduct for your project modelled on the Contributor Covenant."
--   "Be clear about how to report violations of the Code of Conduct and who will handle such reports."
 ---
 
 -   Project organization is like a diet
@@ -61,37 +57,6 @@ FIXME
     -   `CITATION`: how the work should be cited
         -  May have a separate `CONTRIBUTORS` file, or list contributors in `CITATION`
     -   These files may be plain text or Markdown, or have no suffix at all, but please use the principal names as given
-
-### Exercises
-
-FIXME
-
-## Code of Conduct {#s:structure-conduct}
-
-A CoC lays out the expectations for interpersonal interaction in your project.
-The CoC that we suggest using is the [Contributor Covenant][covenant],
-which provides examples of acceptable and unacceptable behavior for your project,
-and specifies how unacceptable behavior will be handled.
-The goal of this is to explicitly communicate the standards of interaction to which this project holds its participants,
-and encourage newcomers to the project to engage with the project.
-
-This serves several purposes:
-
--   It reduces the uncertainty that project participants face about what is acceptable and unacceptable behavior.
-    While you might think this is obvious,
-    long experience suggests that articulating it clearly and concisely reduces problems caused by have different expectations.
-
--   It welcomes newcomers specifically, which can help grow your project and encourage user feedback.
-
--   It delineates responsibilities within the project and provides specific points of contact in case of misconduct or harassment,
-    as well as specifying the process to be followed in these cases.
-
-We find that most people agree with the standards laid out in the Contributor Covenant,
-and believe that posting it entails no disadvantage.
-
--   Important to make clear:
-    -   How to report
-    -   Who handles
 
 ### Exercises
 

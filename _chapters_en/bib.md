@@ -13,6 +13,8 @@ title: "Bibliography"
 
 **Gawa2007**{:#Gawa2007}: Atul Gawande: "The Checklist". *The New Yorker*, Dec 2007, <https://www.newyorker.com/magazine/2007/12/10/the-checklist>. *Describes the life-saving effects of simple checklists.*
 
+**Gold1991**{:#Gold1991}: David Goldberg: "What Every Computer Scientist Should Know About Floating-Point Arithmetic". *ACM Computing Surveys*, 23(1), Mar 1991, <https://doi.org/10.1145/103162.103163>. *FIXME*
+
 **Hart2016**{:#Hart2016}: Edmund M. Hart, Pauline Barmby, David LeBauer, Fran\ccois Michonneau, Sarah Mount, Patrick Mulrooney, Timoth\'ee Poisot, Kara H. Woo, Naupaka B. Zimmerman, and Jeffrey W. Hollister: "Ten Simple Rules for Digital Data Storage". *PLOS Computational Biology*, 12(10), oct 2016, <https://doi.org/10.1371/journal.pcbi.1005097>. *FIXME*
 
 **Kapser2006**{:#Kapser2006}: Cory Kapser and Michael Godfrey: ""Cloning Considered Harmful" Considered Harmful". *"Cloning Considered Harmful" Considered Harmful*, 2006, <https://doi.org/10.1109/wcre.2006.1>. *Reports empirical research showing that code clones are sometimes beneficial.*
