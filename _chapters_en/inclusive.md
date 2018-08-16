@@ -51,7 +51,49 @@ FIXME
 
 ## Ally Skills {#s:inclusive-ally}
 
-FIXME: write up ally skills based on <https://frameshiftconsulting.com/ally-skills-workshop/>
+-   Drawn primarily from [Frameshift Consulting Ally Skills Workshop][ally-skills]
+    -   Which you should do
+-   Privilege: an unearned advantage given by society to some people but not all
+-   Oppression: systemic, pervasive inequality that benefits the privileged and harms those without privilege
+-   Target: someone who suffers from oppression
+    -   Often called "a member of a marginalized group", but that phrasing is deliberately passive
+    -   Targets don't choose to be marginalized: those with privilege marginalize them
+-   Ally: a member of a privileged group who is working to understand their own privilege and end oppression
+-   Example
+    -   Privilege: being able to walk into a store and have the owner assume you're there to buy things, not to steal them
+    -   Oppression: the self-perpetuating stories told about (for example) indigenous people being thieves,
+        and the actions people take as a result of them
+    -   Target: an indigenous person who wants to buy milk
+    -   Ally: a white person who pays attention to lesson like this one (raising their own awareness),
+        calls out peers who spread racist stories (peer action),
+        or asks the shopkeeper whether they should leave too (situational action)
+-   Why be an ally?
+    -   Because you've benefited, even if you don't realize it
+    -   The donut argument
+    -   Because taking action to value diversity results in worse performance ratings for minority and female leaders,
+        while ethnic majority or male leaders who do this aren't penalized [[Hekm2017](#CITE)]
+1.  Be short, simple, firm
+1.  Don't try to be funny
+1.  Play for the audience
+1.  Practice simple responses
+1.  Pick your battles
+1.  Don't shame or insult one group when trying to help another
+    -   E.g., don't call someone ugly or stupid when what you really mean is that they're racist or homophobic
+-   [Captain Awkward][captain-awkward] has useful advice
+-   [Charles' Rules of Argument][charles-rules]
+    1.  Don't go looking for an argument
+    1.  State your position once, speaking to the audience
+    1.  Wait for absurd replies
+    1.  Reply once more to correct any misunderstandings of your original statement
+    1.  Do not reply again - go do something fun instead
+-   Recognize that good principles sometimes conflict
+    -   "A manager consistently uses male pronouns to refer to software and people of unknown gender.
+        When you tell them it makes you uncomfortable to treat maleness as the norm,
+        they say that male is the default gender in their first language
+        and you should be more considerate of people from other cultures."
+    -   Respect for other cultures vs. being inclusive of women
+-   Change the terms of the debate
+    -   "Diversity hires" vs. ball and chain argument
 
 ### Exercises
 

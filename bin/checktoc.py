@@ -39,7 +39,7 @@ def report(title, values):
     if not values: return
     print(title)
     for v in sorted(values):
-        print(v)
+        print('    {}'.format(v))
     
 
 if __name__ == '__main__':

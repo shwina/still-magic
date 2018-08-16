@@ -59,11 +59,15 @@ title: "Glossary"
 
 **Issue**{:#g:issue}: FIXME
 
+**Linter**{:#g:linter}: FIXME
+
 **Magnitude**{:#g:magnitude}: FIXME
 
 **Mantissa**{:#g:mantissa}: FIXME
 
 **Object-oriented programming**{:#g:oop}: FIXME
+
+**Operational test**{:#g:operational-test}: FIXME
 
 **Page template**{:#g:page-template}: FIXME
 

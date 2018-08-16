@@ -38,6 +38,7 @@ keypoints:
 
 -   Python has a standard style called [PEP 8][pep-8]
 -   And a tool called `pep8` that checks code and reports violations
+    -   Tools of this kind are called [linters](#g:linter), after an early tool called `[lint][lint]`
 -   Indent 4 spaces, and always use spaces instead of tabs
 -   Do *not* put spaces inside parentheses, i.e., don't use `( 1+2 )`
     -   This applies to function calls as well

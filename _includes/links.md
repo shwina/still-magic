@@ -7,6 +7,7 @@ file is a Markdown file because Jekyll doesn't expand the link
 definitions if that's done.
 {% endcomment %}
 
+[ally-skills]: https://frameshiftconsulting.com/ally-skills-workshop/
 [authorea]: https://www.authorea.com/
 
 [branch-per-feature]: https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
@@ -14,8 +15,9 @@ definitions if that's done.
 [build-tools]: https://en.wikipedia.org/wiki/List_of_build_automation_software
 
 [capes-gerard]: https://github.com/gcapes
+[captain-awkward]: https://captainawkward.com/
+[charles-rules]: http://geekfeminism.wikia.com/wiki/Charles%27_Rules_of_Argument
 [citable-code]: https://guides.github.com/activities/citable-code/
-[cm]: http://commonmark.org/
 [code-smells-and-feels]: https://github.com/jennybc/code-smells-and-feels
 [covenant]: https://www.contributor-covenant.org
 
@@ -68,7 +70,6 @@ definitions if that's done.
 
 [r-markdown]: https://rmarkdown.rstudio.com/
 [readthedocs]: https://docs.readthedocs.io/en/latest/
-[roles-variables]: http://www.cs.joensuu.fi/~saja/var_roles/role_intro.html
 
 [seven-ways]: http://blog.jonudell.net/2011/01/24/seven-ways-to-think-like-the-web/
 [shapiro-wilk]: https://en.wikipedia.org/wiki/Shapiro%E2%80%93Wilk_test

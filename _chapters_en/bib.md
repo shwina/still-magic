@@ -15,7 +15,9 @@ title: "Bibliography"
 
 **Gold1991**{:#Gold1991}: David Goldberg: "What Every Computer Scientist Should Know About Floating-Point Arithmetic". *ACM Computing Surveys*, 23(1), Mar 1991, <https://doi.org/10.1145/103162.103163>. *FIXME*
 
-**Hart2016**{:#Hart2016}: Edmund M. Hart, Pauline Barmby, David LeBauer, Fran\ccois Michonneau, Sarah Mount, Patrick Mulrooney, Timoth\'ee Poisot, Kara H. Woo, Naupaka B. Zimmerman, and Jeffrey W. Hollister: "Ten Simple Rules for Digital Data Storage". *PLOS Computational Biology*, 12(10), oct 2016, <https://doi.org/10.1371/journal.pcbi.1005097>. *FIXME*
+**Hart2016**{:#Hart2016}: Edmund M. Hart, Pauline Barmby, David LeBauer, Fran\ccois Michonneau, Sarah Mount, Patrick Mulrooney, Timoth\'ee Poisot, Kara H. Woo, Naupaka B. Zimmerman, and Jeffrey W. Hollister: "Ten Simple Rules for Digital Data Storage". *PLOS Computational Biology*, 12(10), Oct 2016, <https://doi.org/10.1371/journal.pcbi.1005097>. *FIXME*
+
+**Hekm2017**{:#Hekm2017}: David R. Hekman, Stefanie K. Johnson, Maw-Der Foo, and Wei Yang: "Does Diversity-Valuing Behavior Result in Diminished Performance Ratings for Non-White and Female Leaders?". *Academy of Management Journal*, 60(2), Apr 2017, <https://doi.org/10.5465/amj.2014.0538>. *FIXME*
 
 **Kapser2006**{:#Kapser2006}: Cory Kapser and Michael Godfrey: ""Cloning Considered Harmful" Considered Harmful". *"Cloning Considered Harmful" Considered Harmful*, 2006, <https://doi.org/10.1109/wcre.2006.1>. *Reports empirical research showing that code clones are sometimes beneficial.*
 
