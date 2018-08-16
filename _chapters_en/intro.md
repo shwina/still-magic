@@ -42,14 +42,12 @@ keypoints:
     -   Need to be able to re-do your analyses (trust, but verify)
     -   You (and others) need to be able to re-use your data, software, and reports instead of constantly rewriting
 -   We will cover:
-    -   Writing code that is readable, testable, and maintainable ([s:style](#CHAPTER))
-    -   Automating analyses with build tools ([s:automate](#CHAPTER))
-    -   Checking and demonstrating correctness via automated tests ([s:correct](#CHAPTER))
-    -   Publishing science in the 21st Century ([s:publish](#CHAPTER))
-    -   Setting up continuous integration to build and check everything ([s:continuous](#CHAPTER))
-    -   Using a branch-per-feature workflow, rebasing, and tags to manage work ([s:workflow](#CHAPTER))
-    -   Organizing the code, data, results, and reports in a small or medium-sized project ([s:structure](#CHAPTER))
-    -   Building reusable software with higher-order functions ([s:reuse](#CHAPTER))
+    -   Writing code that is readable, testable, and maintainable
+    -   Automating analyses with build tools
+    -   Checking and demonstrating correctness via automated tests
+    -   Publishing science in the 21st Century
+    -   Using a branch-per-feature workflow, rebasing, and tags to manage work
+    -   Organizing the code, data, results, and reports in a small or medium-sized project
 -   Prerequisites
     -   Python: lists, loops, conditionals, functions, importing and using libraries
     -   Unix shell: paths, editing/renaming/deleting files, wildcards, redirection, pipes and filters, shell scripts

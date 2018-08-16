@@ -5,6 +5,8 @@ title: "Glossary"
 
 **Absolute error**{:#g:absolute-error}: FIXME
 
+**Accuracy**{:#g:accuracy}: FIXME
+
 **Action**{:#g:make-action} (in Makefile): FIXME
 
 **Annotated tag**{:#g:annotated-tag}: FIXME
@@ -41,6 +43,8 @@ title: "Glossary"
 
 **DOI**{:#g:doi} (Digital Object Identifier): FIXME
 
+**Exponent**{:#g:exponent}: FIXME
+
 **Filename stem**{:#g:filename-stem}: FIXME
 
 **Filter**{:#g:jekyll-filter} (in Jekyll): FIXME
@@ -55,6 +59,10 @@ title: "Glossary"
 
 **Issue**{:#g:issue}: FIXME
 
+**Magnitude**{:#g:magnitude}: FIXME
+
+**Mantissa**{:#g:mantissa}: FIXME
+
 **Object-oriented programming**{:#g:oop}: FIXME
 
 **Page template**{:#g:page-template}: FIXME
@@ -62,6 +70,8 @@ title: "Glossary"
 **Pattern rule**{:#g:pattern-rule}: FIXME
 
 **Phony target**{:#g:phony-target}: FIXME
+
+**Precision**{:#g:precision}: FIXME
 
 **Procedural programming**{:#g:procedural-programming}: FIXME
 
@@ -74,6 +84,8 @@ title: "Glossary"
 **Rule**{:#g:make-rule} (in Make): FIXME
 
 **Short circuit**{:#g:short-circuit}: FIXME
+
+**Sign**{:#g:sign}: FIXME
 
 **Silent error**{:#g:silent-error}: FIXME
 
