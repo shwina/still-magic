@@ -45,6 +45,8 @@ definitions if that's done.
 [joss]: https://joss.theoj.org/
 [jupyter]: http://jupyter.org/
 
+[kirk-matthew]: https://www.matthewkirk.com/
+
 [latex]: http://www.latex-project.org/
 [libreoffice]: https://www.libreoffice.org/
 [lint]: https://en.wikipedia.org/wiki/Lint_(software)

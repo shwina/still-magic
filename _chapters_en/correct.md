@@ -30,6 +30,13 @@ keypoints:
 -   Particularly important when doing repeated analyses
     -   Don't necessarily expect exactly the same result from the second data set
     -   Making tolerances explicit in tests in production tells us when something needs attention
+-   Most of the time we calibrate estimates by checking real data, convincing ourselves it's OK, then re-checking whenever an alarm rings
+    -   If you change things substantially the mean absolute error (which is in units of your original problem) will move noticeably
+-   There are also method-specific checks
+    -   A good metric for k-means clustering is homogeneity score
+    -   0 = every datapoint is a different class
+    -   1 = there is only one class in the cluster
+    -   If the score for a production run differs from the score for an earlier run, human attention is required
 
 ## Is It Close Enough? {#s:correct-float}
 
@@ -342,7 +349,10 @@ check(data['word_count.py']['num_words'] >= data['word_count.py']['num_distinct'
     -   E.g., [Shapiro-Wilk test][shapiro-wilk] that data is normal
     -   Requires a tolerance, but at least you're now making your tolerances specific
 -   Alternative: use a non-parametric test
-    -   Create histogram of results for test data
+    -   Kolmogorov Smirnov test checks that an empirical distribution fits a ideal distribution
+    -   Chi-square test check whether the two distributions are the same or different
+    -   t-stat test is good for testing how far out of the mean something is
+-   Create histogram of results for test data
     -   Verify that subsequent data fits histogram
     -   Although you still have to decide what "fits" means
     -   And you have to 

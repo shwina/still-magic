@@ -14,5 +14,6 @@ Please cite this work as:
 
 -   [Gerard Capes](https://github.com/gcapes)
 -   [Katy Huff](http://katyhuff.github.io/)
+-   [Matthew J. Kirk](https://www.matthewkirk.com/)
 -   [Timothée Poisot](http://poisotlab.io/)
 -   [Daniel Standage](https://standage.github.io/)

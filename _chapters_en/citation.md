@@ -15,6 +15,7 @@ Please cite this work as:
 
 -   [Gerard Capes][capes-gerard]
 -   [Katy Huff][huff-katy]
+-   [Matthew J. Kirk][kirk-matthew]
 -   [Timothée Poisot][poisot-timothee]
 -   [Daniel Standage][standage-daniel]
 
