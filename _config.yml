@@ -15,14 +15,16 @@ organization: https://merely-useful.github.io/
 toc:
   lessons:
   - /intro/
-  - /style/
-  - /refactoring/
   - /automate/
   - /unit/
   - /correct/
+  - /logging/
+  - /config/
   - /ghp/
   - /workflow/
   - /continuous/
+  - /style/
+  - /refactoring/
   - /structure/
   - /inclusive/
   - /packages/
