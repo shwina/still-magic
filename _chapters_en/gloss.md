@@ -69,6 +69,8 @@ title: "Glossary"
 
 **Operational test**{:#g:operational-test}: FIXME
 
+**Overlay configuration**{:#g:overlay-configuration}: FIXME
+
 **Page template**{:#g:page-template}: FIXME
 
 **Pattern rule**{:#g:pattern-rule}: FIXME
