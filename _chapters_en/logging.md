@@ -185,6 +185,55 @@ $ get_words.py | count_words.py
 -   You probably don't need any of these
     -   But sys admins will be grateful that you used `logging`, because then they can set it up with very little work
 -   Open a second window and use `tail -f log.csv` to monitor progress
+-   Common to "tee" the logging
+    -   Everything to a file
+    -   Errors and critical messages to standard error
+
+```
+import sys
+import logging
+
+# Create logger.
+logger = logging.getLogger('example')
+logger.setLevel(logging.DEBUG)
+
+# Define common format.
+formatter = logging.Formatter('%(asctime)s,%(name)s,%(levelname)s,%(message)s',
+                              datefmt='%Y-%m-%dT%H:%M:%S')
+
+# Send all logging messages to a file.
+toFile = logging.FileHandler('log.csv')
+toFile.setLevel(logging.DEBUG)
+toFile.setFormatter(formatter)
+
+# Send errors and critical messages to standard error.
+toScreen = logging.StreamHandler(sys.stderr)
+toScreen.setLevel(logging.ERROR)
+toScreen.setFormatter(formatter)
+
+# Stitch everything together.
+logger.addHandler(toFile)
+logger.addHandler(toScreen)
+
+# Try some messages.
+logger.debug('debug')
+logger.info('info')
+logger.warning('warning')
+logger.error('error')
+logger.critical('critical')
+```
+```
+$ python tee.py
+2018-08-20T16:29:42,example,ERROR,error
+2018-08-20T16:29:42,example,CRITICAL,critical
+```
+```
+2018-08-20T16:29:42,example,DEBUG,debug
+2018-08-20T16:29:42,example,INFO,info
+2018-08-20T16:29:42,example,WARNING,warning
+2018-08-20T16:29:42,example,ERROR,error
+2018-08-20T16:29:42,example,CRITICAL,critical
+```
 
 ### Exercises
 
