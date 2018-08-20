@@ -43,11 +43,11 @@ serve : files/crossref.js
 site : files/crossref.js
 	${JEKYLL} build
 
-## ebook       : regenerate all-in-one versions of book.
-ebook : ${ALL_HTML}
+## single      : regenerate all-in-one version of book.
+single : ${ALL_HTML}
 
 ${ALL_HTML} : _config.yml files/crossref.js bin/mergebook.py
-	@bin/mergebook.py ${lang} _config.yml files/crossref.js ${DIR_WEB} > $@
+	bin/mergebook.py ${lang} _config.yml files/crossref.js ${DIR_WEB} > $@
 
 ## pdf         : build PDF version of book.
 pdf : ${DIR_TEX}/book.pdf
@@ -63,7 +63,7 @@ ${DIR_TEX}/book.pdf : ${ALL_TEX} ${BIB_SRC}
 	&& ${LATEX} book \
 	&& ${LATEX} book
 
-${DIR_TEX}/inc/%.tex : ${DIR_MD}/%.md bin/texpre.py bin/texpost.py _includes/links.md
+${DIR_TEX}/inc/%.tex : ${DIR_MD}/%.md _config.yml bin/texpre.py bin/texpost.py _includes/links.md
 	mkdir -p ${DIR_TEX}/inc && \
 	cat $< \
 	| bin/texpre.py _config.yml \
