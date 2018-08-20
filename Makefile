@@ -161,9 +161,10 @@ years :
 
 ## clean       : clean up junk files.
 clean :
-	@rm -rf _site ${CHAPTERS_TEX} */*.aux */*.bbl */*.blg */*.log */*.out */*.toc
-	@find . -name .DS_Store -exec rm {} \;
-	@find . -name '*~' -exec rm {} \;
+	@rm -r -f _site ${CHAPTERS_TEX} */*.aux */*.bbl */*.blg */*.log */*.out */*.toc
+	@find . -name .DS_Store -exec rm -f {} \;
+	@find . -name '*~' -exec rm -f {} \;
+	@find . -name '__pycache__' -exec rm -r -f {} \;
 
 ## settings    : show macro values.
 settings :

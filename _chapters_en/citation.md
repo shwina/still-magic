@@ -17,6 +17,7 @@ Please cite this work as:
 -   [Katy Huff][huff-katy]
 -   [Matthew J. Kirk][kirk-matthew]
 -   [Timothée Poisot][poisot-timothee]
+-   [Ashwin Srinath][srinath-ashwin]
 -   [Daniel Standage][standage-daniel]
 
 {% include links.md %}

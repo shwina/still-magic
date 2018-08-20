@@ -65,16 +65,19 @@ definitions if that's done.
 [pandoc]: https://pandoc.org/
 [pep-8]: https://www.python.org/dev/peps/pep-0008/
 [poisot-timothee]: http://poisotlab.io/
+[python-102]: https://python-102.readthedocs.io/
 [pytest-mpl]: https://github.com/matplotlib/pytest-mpl
 [python-travis-tutorial]: https://www.smartfile.com/blog/testing-python-with-travis-ci/
 
 [r-markdown]: https://rmarkdown.rstudio.com/
 [readthedocs]: https://docs.readthedocs.io/en/latest/
 
+[setuptools]: https://setuptools.readthedocs.io/
 [seven-ways]: http://blog.jonudell.net/2011/01/24/seven-ways-to-think-like-the-web/
 [shapiro-wilk]: https://en.wikipedia.org/wiki/Shapiro%E2%80%93Wilk_test
 [snakemake]: https://snakemake.readthedocs.io/
 [sphinx]: http://www.sphinx-doc.org/en/master/
+[srinath-ashwin]: https://ccit.clemson.edu/research/researcher-profiles/ashwin-srinath/
 [standage-daniel]: https://standage.github.io/
 [swc]: http://software-carpentry.org
 [swc-make]: https://github.com/swcarpentry/make-novice

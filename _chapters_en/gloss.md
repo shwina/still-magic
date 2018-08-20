@@ -71,6 +71,8 @@ title: "Glossary"
 
 **Overlay configuration**{:#g:overlay-configuration}: FIXME
 
+**Package**{:#g:package}: FIXME
+
 **Page template**{:#g:page-template}: FIXME
 
 **Pattern rule**{:#g:pattern-rule}: FIXME

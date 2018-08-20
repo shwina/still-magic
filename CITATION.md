@@ -16,4 +16,5 @@ Please cite this work as:
 -   [Katy Huff](http://katyhuff.github.io/)
 -   [Matthew J. Kirk](https://www.matthewkirk.com/)
 -   [Timothée Poisot](http://poisotlab.io/)
+-   [Ashwin Srinath](https://ccit.clemson.edu/research/researcher-profiles/ashwin-srinath/)
 -   [Daniel Standage](https://standage.github.io/)
