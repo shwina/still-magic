@@ -19,6 +19,8 @@ title: "Glossary"
 
 **Cognitive load**{:#g:cognitive-load}: FIXME
 
+**Commons**{:#g:commons}: FIXME
+
 **Conditional expression**{:#g:conditional-expression}: FIXME
 
 **Content delivery network**{:#g:cdn} (CDN): FIXME
@@ -28,6 +30,8 @@ title: "Glossary"
 **Continuous integration**{:#g:continuous-integration}: FIXME
 
 **Coverage**{:#g:coverage}: FIXME
+
+**Creative Commons - Attribution License**{:#g:cc-by} (CC-BY): FIXME
 
 **Declarative programming**{:#g:declarative-programming}: FIXME
 
@@ -55,6 +59,8 @@ title: "Glossary"
 
 **Function attribute**{:#g:function-attribute}: FIXME
 
+**GNU Public License**{:#g:gpl} (GPL): FIXME
+
 **Guard clause**{:#g:guard-clause}: FIXME
 
 **Issue**{:#g:issue}: FIXME
@@ -64,6 +70,8 @@ title: "Glossary"
 **Magnitude**{:#g:magnitude}: FIXME
 
 **Mantissa**{:#g:mantissa}: FIXME
+
+**MIT License**{:#g:mit-license}: FIXME
 
 **Object-oriented programming**{:#g:oop}: FIXME
 
@@ -82,6 +90,8 @@ title: "Glossary"
 **Precision**{:#g:precision}: FIXME
 
 **Procedural programming**{:#g:procedural-programming}: FIXME
+
+**Public domain license**{:#g:cc-0} (CC-0): FIXME
 
 **Refactor**{:#g:refactor}: FIXME
 

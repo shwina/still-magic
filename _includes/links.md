@@ -17,9 +17,11 @@ definitions if that's done.
 [capes-gerard]: https://github.com/gcapes
 [captain-awkward]: https://captainawkward.com/
 [charles-rules]: http://geekfeminism.wikia.com/wiki/Charles%27_Rules_of_Argument
+[choose-license]: http://choosealicense.com/
 [citable-code]: https://guides.github.com/activities/citable-code/
 [code-smells-and-feels]: https://github.com/jennybc/code-smells-and-feels
 [covenant]: https://www.contributor-covenant.org
+[creative-commons]: https://creativecommons.org/
 
 [dc]: https://datacarpentry.org/
 [docker]: https://en.wikipedia.org/wiki/Docker_(software)
@@ -31,6 +33,7 @@ definitions if that's done.
 [figshare]: https://figshare.com/
 [format-r]: https://yihui.name/formatr/
 
+[geek-feminism]: http://geekfeminism.wikia.com/
 [gfm]: https://help.github.com/articles/github-flavored-markdown/
 [github]: http://github.com
 [github-pages]: https://pages.github.com/
@@ -56,18 +59,20 @@ definitions if that's done.
 [make]: https://www.gnu.org/software/make/
 [markdown]: https://en.wikipedia.org/wiki/Markdown
 [mathjax]: https://www.mathjax.org/
+[model-coc]: http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy
 [ms-word]: https://en.wikipedia.org/wiki/Microsoft_Word
 
 [orwells-rules]: https://en.wikipedia.org/wiki/Politics_and_the_English_Language#Remedy_of_Six_Rules
+[osi-license-list]: http://opensource.org/licenses
 [osf]: https://osf.io/
 [overleaf]: https://www.overleaf.com/
 
 [pandoc]: https://pandoc.org/
 [pep-8]: https://www.python.org/dev/peps/pep-0008/
 [poisot-timothee]: http://poisotlab.io/
+[producing-oss]: https://producingoss.com/
 [python-102]: https://python-102.readthedocs.io/
 [pytest-mpl]: https://github.com/matplotlib/pytest-mpl
-[python-travis-tutorial]: https://www.smartfile.com/blog/testing-python-with-travis-ci/
 
 [r-markdown]: https://rmarkdown.rstudio.com/
 [readthedocs]: https://docs.readthedocs.io/en/latest/
@@ -85,7 +90,11 @@ definitions if that's done.
 [tables-generator]: https://www.tablesgenerator.com/
 [tdda-site]: http://www.tdda.info/
 [tf-idf]: https://en.wikipedia.org/wiki/Tf%E2%80%93idf
+[tldr-gpl]: https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)
 [travis-ci]: https://travis-ci.org/
+[tyranny-structurelessness]: http://www.jofreeman.com/joreen/tyranny.htm
+
+[vanderplas-licensing]: http://www.astrobetter.com/blog/2014/03/10/the-whys-and-hows-of-licensing-scientific-code/
 
 [wilson-greg]: http://third-bit.com
 

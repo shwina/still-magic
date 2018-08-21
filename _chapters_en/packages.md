@@ -123,9 +123,9 @@ if __name__ == '__main__':
 -   Files and directories are:
 
 ```
-+─ use.py
-+─ zipf
-    +─ __init__.py
++- use.py
++- zipf
+    +- __init__.py
 ```
 
 -   `zipf/__init__.py` contains the functions and `RELATIVE_ERROR`
@@ -174,10 +174,10 @@ print('passes test with tolerance of 1.0: {}'.format(zipf.is_zipf(generated, rel
 
 ```
 +- setup.py
-+─ use.py
-+─ zipf
-    +─ __init__.py
-    +─ generate.py
++- use.py
++- zipf
+    +- __init__.py
+    +- generate.py
 ```
 
 
