@@ -23,6 +23,8 @@ keypoints:
 -   This lesson shows you how to use Python's tools
 -   Based in part on [Python 102][python-102] by [Ashwin Srinath][srinath-ashwin]
 
+FIXME: explain `requirements.txt`
+
 ## Modules {#s:packages-modules}
 
 -   Any Python source file can be imported
