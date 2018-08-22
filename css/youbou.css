@@ -84,11 +84,20 @@ figcaption {
 
 /* Mark quotations. */
 blockquote {
-    border-left: solid 0.5em {{site.background}};
+    background-color: {{site.background}};
     padding-left: 0.5em;
     font-style: italic;
 }
 
+/* Mark callouts. */
+blockquote.callout {
+    border-width: 1px;
+    border-color: #000000;
+    border-style: solid;
+    padding: 5px;
+}
+
+/* Make h3 more distinct from h2. */
 h3 {
     font-style: italic;
 }

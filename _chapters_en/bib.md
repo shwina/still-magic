@@ -5,6 +5,8 @@ title: "Bibliography"
 
 **Beni2017**{:#Beni2017}: Gal Beniamini, Sarah Gingichashvili, Alon Klein Orbach, and Dror G. Feitelson: "Meaningful Identifier Names: The Case of Single-Letter Variables". *Meaningful Identifier Names: The Case of Single-Letter Variables*, May 2017, <https://doi.org/10.1109/icpc.2017.18>. *Reports that use of single-letter variable names doesn't affect ability to modify code, and that some single-letter variable names have implicit types and meanings.*
 
+**Boll2014**{:#Boll2014}: David Bollier: *Think Like a Commoner: A Short Introduction to the Life of the Commons*. New Society Publishers, 2014, <https://isbndb.com/book/0865717680>. *A short introduction to a widely-used model of governance.*
+
 **Bran1995**{:#Bran1995}: Stewart Brand: *How Buildings Learn: What Happens After They're Built*. Penguin USA, 1995. *FIXME*
 
 **Dobz1973**{:#Dobz1973}: Theodosius Dobzhansky: "Nothing in biology makes sense except in the light of evolution". *The American Biology Teacher*, Mar 1973, <https://en.wikipedia.org/wiki/Nothing_in_Biology_Makes_Sense_Except_in_the_Light_of_Evolution>. *A forceful statement of the central unifying theme of modern biology.*
@@ -24,6 +26,8 @@ title: "Bibliography"
 **List2017**{:#List2017}: Markus List, Peter Ebert, and Felipe Albrecht: "Ten Simple Rules for Developing Usable Software in Computational Biology". *PLOS Computational Biology*, 13(1), Jan 2017, <https://doi.org/10.1371/journal.pcbi.1005265>. *FIXME*
 
 **Mak2006**{:#Mak2006}: Ronald Mak: *The Martian Principles*. Wiley, 2006. *A short, enjoyable guide to software architecture from someone whose code had to deal with Mars.*
+
+**Mori2012**{:#Mori2012}: Andrew Morin and Jennifer Urban AND Piotr Sliz: "A Quick Guide to Software Licensing for the Scientist-Programmer". *PLOS Computational Biology*, 8(7), Jul 2012, <https://doi.org/10.1371/journal.pcbi.1002598>. *A short introduction to software licensing for non-specialists.*
 
 **Nobl2009**{:#Nobl2009}: William Stafford Noble: "A Quick Guide to Organizing Computational Biology Projects". *PLoS Computational Biology*, 5(7), Jul 2009, <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424>. *How to organize a small to medium-sized bioinformatics project.*
 
