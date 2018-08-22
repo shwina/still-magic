@@ -18,25 +18,22 @@ keypoints:
 -   Previous lesson explained how to test in general
 -   This lesson focuses on tests specific to data analysis pipelines
     -   Run them when building the pipeline to convince ourselves the code is correct
-    -   Run them in production to make sure assumptions still hold and environment hasn't changed
--   Different from the test most software engineers write because you don't always know what the right answer is
+    -   Run them in production to make sure assumptions still hold
+    -   They might not because the environment might have changed
+-   Different from the tests most software engineers write because you don't always know what the right answer is
     -   If you did, you would have submitted your report and moved on to the next problem
 -   But there's a close analogy with physical experiments
     -   High school students should get $$10 m/sec^2$$
     -   Undergraduates might get $$9.8 m/sec^2$$ depending on the equipment used
     -   If any of them get $$9.806 m/sec^2$$ with a stopwatch, they're either incredibly lucky or rather foolish
--   Similarly, when testing data analysis, we specify tolerances
-    -   How close is good enough?
--   Particularly important when doing repeated analyses
-    -   Don't necessarily expect exactly the same result from the second data set
-    -   Making tolerances explicit in tests in production tells us when something needs attention
+-   Similarly, when testing data analysis, specify tolerances
+    -   Does the answer have to be exactly the same as a hand-calculated value or a previously-saved value?
+    -   If not, how close is good enough?
+-   Distinguish between *development* and *production*
+    -   During development: is this (exactly or approximately) right?
+    -   In production: has behavior deviated significantly from what I previously decided was right?
 -   Most of the time we calibrate estimates by checking real data, convincing ourselves it's OK, then re-checking whenever an alarm rings
-    -   If you change things substantially the mean absolute error (which is in units of your original problem) will move noticeably
--   There are also method-specific checks
-    -   A good metric for k-means clustering is homogeneity score
-    -   0 = every datapoint is a different class
-    -   1 = there is only one class in the cluster
-    -   If the score for a production run differs from the score for an earlier run, human attention is required
+    -   If you change things substantially then the mean absolute error (which is in units of your original problem) will move noticeably
 
 ## Is It Close Enough? {#s:correct-float}
 
@@ -168,16 +165,19 @@ for i in range(1, 10):
     -   Process is completely deterministic, just hard to predict
     -   If you see someone run the same code on the same data with the same parameters many times and average the results,
         you should ask if they know what they're doing
-    -   It *can* be defensible if there is parallelism (which can change evaluation order),
-        but in every other case, it's usually a sign that they don't understand
+    -   Thought it *can* be defensible if there is parallelism (which can change evaluation order)
+        or if you're changing platform (e.g., moving computation to a GPU)
 -   So what does this have to do with testing?
     -   If the function you're testing uses floating point numbers, what do you compare its result to?
     -   If we compared the sum of the first few numbers in `vals` to what it's supposed to be, the answer could be `False`
+    -   If we compare it to a previously calculated result, the match should be exact
 -   No one has a good generic answer,
     because the root of our problem is that we're using approximations,
     and each approximation has to be judged on its own merits
 -   So what can you do to test your programs?
--   Use `pytest.approx` with a relative error rather than an absolute error
+-   If you are comparing to a saved result (and the result was saved at full precision), use equality
+    -   No reason for it not to be equal
+-   Otherwise, use `pytest.approx` with a relative error rather than an absolute error
     -   It works on lists, sets, arrays, and other collections
 -   `approx` can be given either relative or absolute error bounds
     -   To show how it works, set an unrealistically tight absolute bound
@@ -203,11 +203,11 @@ for bound in (1e-15, 1e-16):
 -   So two tests pass at an absolute error of $$10^{-15}$$ but fail at $$10^{-16}$$
 -   Both of these bounds are unreasonably tight
     -   A relative error of $$10^{-3}$$ (three decimal places) is more than good enough for most data science
+    -   Because the decision the human being would make won't change if the number changes by 0.1%
 -   [Accuracy](#g:accuracy) is how close your answer is to right
 -   [Precision](#g:precision) is how close repeated measurements are to each other
 -   You can be precise without being accurate (systematic bias), or accurate without being precise (near the right answer, but without many significant digits)
--   Accuracy is usually more important than precision
--   Putting explicit bounds in your tests tells people what you have focused on
+-   For human decision making, accuracy is usually more important than precision
 
 ### Exercises
 
@@ -216,11 +216,12 @@ FIXME: exercises
 ## Testing Plots {#s:correct-plots}
 
 -   Testing visualizations is hard
-    -   Any change to the dimension of the plot, however small, can change many pixels
+    -   Any change to the dimension of the plot, however small, can change many pixels in a [raster image](#g:raster-image)
     -   Trivial changes (such as moving the legend up a couple of pixels) will generate false positives
--   Test the data and data structures going into your plots instead, and trust the plotting library
--   If you really need to test the generated image, there are tools that do this
--   [pytest-mpl][pytest-mpl] compares the latest image against a saved reference verseion
+-   As with floating point, the generated image should not change if nothing else has changed
+    -   So you should be able to do an exact match against a saved (reference) image
+-   But if the image size has changed at all, or the fonts, or the color scheme, that will fail
+-   [pytest-mpl][pytest-mpl] compares the latest image against a saved reference version
     -   Root mean square (RMS) difference between images must be below a threshold for the comparison to pass
 -   It also allows you to turn off comparison of text, because font differences can throw up spurious failures
     -   If images are close enough that a human being would make the same decision about meaning, the test should pass
@@ -228,8 +229,12 @@ FIXME: exercises
 ```
 FIXME: example
 ```
--   The right answer is to test the data structures used to generate the plot and then trust the plotting library
-    -   If the right data and parameters are going in, the rest is outside your control anyway
+
+-   If the plotting library allows output as SVG, can test the structure of the SVG
+    -   SVG is a [vector format](#g:vector-image) that uses a hierarchical document structure like HTML's
+    -   Check that the right elements are there with the right properties
+    -   Although any changes to the library can invalidate all the tests because of layers being introduced, renamed, or removed
+-   The best option is to test the data structures used to generate the plot and then trust the plotting library
 
 ### Exercises
 
@@ -241,6 +246,7 @@ FIXME: exercises
     -   Choose random subsets of input data, do analysis, see how close output is to output with full data set
     -   If output doesn't converge as sample size grows, something is probably unstable
     -   Which is not the same as wrong: it's a problem with the algorithm, rather than with the implementation
+    -   FIXME: add an exercise that subsamples the Zipf data
 -   Test with synthesized data
     -   Uniform data, i.e., same values for all observations
     -   Strictly bimodal data
@@ -290,7 +296,8 @@ def test_fit_last_too_large():
 -   Common pattern:
     -   Have every tool append information to a log
     -   Have another tool check that log file after the run is over
-    -   Simpler to do comparisons between different stages of the pipeline than inserting checks between stages
+    -   Logging and then checking makes it easy to compare values between pipeline stages
+    -   [s:logging](#CHAPTER) shows how to do logging
 -   Common tests
     -   Same number of output records as input records
     -   Or fewer output records than input records if you're aggregating
@@ -347,7 +354,7 @@ check(data['word_count.py']['num_words'] >= data['word_count.py']['num_distinct'
 
 -   Verify data against a distribution
     -   E.g., [Shapiro-Wilk test][shapiro-wilk] that data is normal
-    -   Requires a tolerance, but at least you're now making your tolerances specific
+    -   Requires a tolerance, but again, that's good because it forces you to make your tolerances explicit
 -   Alternative: use a non-parametric test
     -   Kolmogorov Smirnov test checks that an empirical distribution fits a ideal distribution
     -   Chi-square test check whether the two distributions are the same or different
