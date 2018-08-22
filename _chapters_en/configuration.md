@@ -1,5 +1,5 @@
 ---
-permalink: "/en/config/"
+permalink: "/en/configuration/"
 title: "Configuration"
 questions:
 -   "How can I make it easy for users to configure software?"
@@ -88,9 +88,13 @@ extras is ['file1.txt', 'file2.txt']
 -   Only provide short (single-letter) flags for commonly-used options
     -   Signals what you expect to change frequently and what you expect will be left alone
 
+### Common Problems
+
+FIXME: common problems for handling command-line flags
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for handling command-line flags
 
 ## Configuration Files {#s:config-files}
 
@@ -132,11 +136,15 @@ print(config)
     -   Rather than creating a bunch of free-standing variables, fill in one dictionary of options
     -   `if config['quiet']` is only a little more typing than `if quiet`, intent is clearer, and it's consistent with reaing from config files
 
+### Common Problems
+
+FIXME: common problems for configuration files
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for configuration files
 
-## Overlay {#s:config-overlay}
+## Overlay Configuration {#s:config-overlay}
 
 -   System settings, then user settings, then job settings, each overriding what came before
 -   use `dict.update` to overwrite previous settings
@@ -177,9 +185,13 @@ def find_configuration_files():
     return result
 ```
 
+### Common Problems
+
+FIXME: common problems for overlay configuration
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for overlay configuration
 
 ## Keeping a Record {#s:config-dump}
 
@@ -196,8 +208,12 @@ FIXME: exercises
     -   The `--version` flag should produce this as well
 -   Because option interpretation will change over time, and if you don't know what the version was, you'll have to guess
 
+### Common Problems
+
+FIXME: common problems for keeping a record of configuration
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for keeping a record of configuration
 
 {% include links.md %}

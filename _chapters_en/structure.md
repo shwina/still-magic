@@ -22,10 +22,6 @@ keypoints:
 -   Using [virtual environments](#g:virtual-environment) allows you to work on many projects at once without tripping over yourself
     -   Slowly being superceded by more general solutions like [Docker][docker], but still the easiest solution for most of us
 
-### Exercises
-
-FIXME
-
 ## Noble's Rules {#s:structure-noble}
 
 -   From [[Nobl2009](#CITE)]
@@ -58,12 +54,16 @@ FIXME
         -  May have a separate `CONTRIBUTORS` file, or list contributors in `CITATION`
     -   These files may be plain text or Markdown, or have no suffix at all, but please use the principal names as given
 
+### Common Problems
+
+FIXME: common problems for Noble's Rules
+
 ### Exercises
 
-FIXME
+FIXME: create exercises for Noble's Rules
 
 ## Summary {#s:structure-summary}
 
-FIXME: create concept map
+FIXME: create concept map for project structure
 
 {% include links.md %}

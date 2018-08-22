@@ -19,7 +19,7 @@ keypoints:
 -   "Publish your software as you would a paper."
 ---
 
-FIXME: introduction
+FIXME: write introduction to publishing
 
 ## What to Publish and Where {#s:publish-what-where}
 
@@ -42,9 +42,13 @@ FIXME: introduction
     -   Whichever you use, get or create a [DOI](#g:doi) for each version of each dataset
 -   Use [Zenodo][zenodo] to get DOIs ([s:structure](#CHAPTER))
 
-## Exercises
+### Common Problems
 
-FIXME
+FIXME: common problems for what to publish and where
+
+### Exercises
+
+FIXME: create exercises for what to publish and where
 
 ## FAIR {#s:publish-fair}
 
@@ -72,13 +76,17 @@ FIXME
     -   (Meta)data has detailed provenance
     -   (Meta)data meets domain-relevant community standards
 
+### Common Problems
+
+FIXME: common problems for FAIR Principles
+
 ## Exercises
 
-FIXME
+FIXME: create exercises for FAIR Principles
 
 ## Publishing Packages {#s:publish-DOI}
 
-FIXME
+FIXME: publishing packages
 -   What is an ORCID?
 -   What is a DOI?
 -   Connect GitHub to [Zenodo][zenodo] to create [citable code][citable-code]
@@ -87,12 +95,16 @@ FIXME
     -   Create a DOI
 -   Publish in [JOSS][joss] or [F1000 Research][f1000-research]
 
+### Common Problems
+
+FIXME: common problems for publishing packages
+
 ### Exercises
 
-FIXME
+FIXME: create exercises for publishing packages
 
 ## Summary {#s:publish-summary}
 
-FIXME: create concept map
+FIXME: create concept map for publishing
 
 {% include links.md %}

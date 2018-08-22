@@ -62,9 +62,13 @@ keypoints:
     -   Put early exits or decisions at the top of the function ([guard clause](#g:guard-clause))
     -   Prefer `if` to `else`
 
+### Common Problems
+
+FIXME: common problems for standard Python style
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for standard Python style
 
 ## Default Parameter Values {#s:style-defaults}
 
@@ -102,9 +106,13 @@ def collect(new_value, accumulator=set()):
 {'first', 'second'}
 ```
 
+### Common Problems
+
+FIXME: common problems for default parameter values
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for default parameter values
 
 ## Variable Numbers of Arguments {#s:style-varargs}
 
@@ -164,12 +172,16 @@ def settings(user_id, **settings):
 jenny {'lang': 'R', 'country': 'CA'}
 ```
 
+### Common Problems
+
+FIXME: common problems for varargs
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for varargs
 
 ## Summary {#s:style-summary}
 
-FIXME: create concept map
+FIXME: create concept map for style
 
 {% include links.md %}

@@ -112,6 +112,14 @@ if __name__ == '__main__':
     -   The usage message doesn't appear, which means the main block wasn't executed, which is what we want
     -   So now we can go back and put its content in a function and call that function, because we are good people
 
+### Common Problems
+
+FIXME: common problems for writing modules
+
+### Exercises
+
+FIXME: create exercises for writing modules
+
 ## Creating Packages {#s:packages-package}
 
 -   Next step: put the two functions in their own files underneath a `zipf` package
@@ -162,7 +170,15 @@ print('passes test with default tolerance: {}'.format(zipf.is_zipf(generated)))
 print('passes test with tolerance of 1.0: {}'.format(zipf.is_zipf(generated, rel=1.0)))
 ```
 
-### Distributing Software {#s:packages-distribute}
+### Common Problems
+
+FIXME: common problems for creating packages
+
+### Exercises
+
+FIXME: create exercises for creating packages
+
+## Distributing Software {#s:packages-distribute}
 
 -   Yes, people can clone your repository and copy files from that
 -   But it's much friendlier to create something they can install
@@ -253,9 +269,13 @@ drwxr-xr-x  0 standage staff       0 20 Aug 15:36 zipf-0.1/zipf.egg-info/
 -   Next step is to test installation...
 -   ...but first we should clean up the warnings about `README.md`, `url`, and `author_email`
 
+### Common Problems
+
+FIXME: common problems for distributing software
+
 ### Exercises
 
-FIXME
+FIXME: create exercises for distributing software
 
 ## Virtual Environments {#s:packages-virtualenv}
 
@@ -337,12 +357,16 @@ Proceed (y/n)? y
 -   ...but less than most of your data sets...
 -   ...and saves a *lot* of pain
 
+### Common Problems
+
+FIXME: common problems for virtual environments
+
 ### Exercises
 
-FIXME
+FIXME: create exercises for virtual environments
 
 ## Summary {#s:packages-summary}
 
-FIXME: create concept map
+FIXME: create concept map for packages
 
 {% include links.md %}

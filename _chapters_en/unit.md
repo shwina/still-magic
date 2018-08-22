@@ -83,6 +83,14 @@ print('pass {} fail {} error {}'.format(pass, fail, error))
 -   Or we have tests split across multiple files?
 -   Or...
 
+### Common Problems
+
+FIXME: common problems for writing our own unit test harness
+
+### Exercises
+
+FIXME: exercises for writing our own unit test harness
+
 ## Using Pytest {#s:unit-pytest}
 
 -   Instead, put each input-output pair in a function in `test_count.py`
@@ -147,9 +155,13 @@ test_count.py:13: AssertionError
 -   Works the same way for everyone, so we can test without having think about *how* (only about *what*)
     -   Although fitting tests into this framework sometimes requires some tricks
 
+### Common Problems
+
+FIXME: common problems for using pytest
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for using pytest
 
 ## Did It Fail As It Was Supposed To? {#s:unit-exception}
 
@@ -207,9 +219,13 @@ test_exception.py:6: Failed
 
 -   Clearly, we have some work to do...
 
+### Common Problems
+
+FIXME: common problems for testing exceptions
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for testing exceptions
 
 ## Testing Randomness {#s:unit-random}
 
@@ -278,9 +294,13 @@ first 2
 second 4
 ```
 
+### Common Problems
+
+FIXME: common problems for testing randomness
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for testing randomness
 
 ## Testing File I/O {#s:unit-io}
 
@@ -341,9 +361,13 @@ def main(infile, outfile):
     if outfile == '-': writer.close()
 ```
 
+### Common Problems
+
+FIXME: common problems for testing file I/O
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for testing file I/O
 
 ## Coverage {#s:unit-coverage}
 
@@ -441,9 +465,13 @@ demo_coverage.py      16      1    94%
   </tr>
 </table>
 
+### Common Problems
+
+FIXME: common problems for coverage
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for coverage
 
 ## Summary {#s:unit-summary}
 
@@ -462,6 +490,6 @@ FIXME: exercises
     -   Empirical studies have not found a strong effect [[Fucc2016](#CITE)]
     -   But many productive programmers believe in it, so maybe we're measuring the wrong things...
 
-FIXME: create concept map
+FIXME: create concept map for unit testing
 
 {% include links.md %}

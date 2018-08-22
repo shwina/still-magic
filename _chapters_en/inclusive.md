@@ -90,6 +90,14 @@ keypoints:
         -   Some publishers try to imply that -NC means *nobody* can make money from it, which is untrue
     -   -SA: share-alike
 
+### Common Problems
+
+FIXME: common problems for licensing
+
+### Exercises
+
+FIXME: create exercises for licensing
+
 ## Code of Conduct {#s:inclusive-conduct}
 
 -   A CoC lays out the expectations for personal interaction in your project
@@ -115,9 +123,13 @@ keypoints:
     -   What they really mean is that thinking about unfairness that may have benefited from makes them uncomfortable
     -   In our experience, that is also a very useful filter on contributors...
 
+### Common Problems
+
+FIXME: common problems for code of conduct
+
 ### Exercises
 
-FIXME
+FIXME: create exercises for code of conduct
 
 ## Ally Skills {#s:inclusive-ally}
 
@@ -176,12 +188,16 @@ FIXME
         considering how much someone has achieved despite systemic unfairness might not make sense,
         but you're not arguing for that, are you?
 
+### Common Problems
+
+FIXME: common problems for ally skills
+
 ### Exercises
 
-FIXME
+FIXME: create exercises for ally skills
 
 ## Summary {#s:inclusive-summary}
 
-FIXME: create concept map
+FIXME: create concept map for making an inclusive project
 
 {% include links.md %}

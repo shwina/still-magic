@@ -38,7 +38,7 @@ keypoints:
 
 ## Rebasing {#s:workflow-rebase}
 
-FIXME:
+FIXME: rebasing
 -   What rebasing is and when/how to use it
 -   The Golden Rule: never rebase shared branches
     -   Creating a pull request from a branch implicitly makes that branch shared
@@ -46,13 +46,17 @@ FIXME:
 -   `git push --force` is sometimes necessary
     -   But usually a sign that you should have done something differently a while back
 
+### Common Problems
+
+FIXME: common problems for rebasing
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for rebasing
 
 ## Branch Per Feature {#s:workflow-branch}
 
-FIXME:
+FIXME: branch per feature
 -   [branch-per-feature][branch-per-feature] workflow
 -   Always branch from `master`
 -   Don't do several things in one branch
@@ -67,13 +71,17 @@ FIXME:
 -   What's hard about branch-per-feature?
     -   Doing work in one branch while large refactoring is going on in another (so don't do this)
 
+### Common Problems
+
+FIXME: common problems for branch per feature
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for branch per feature
 
 ## Tagging {#s:workflow-tag}
 
-FIXME:
+FIXME: tagging
 -   Why and how to tag
 -   Use [annotated tags](#g:annotated-tag) to mark every major event in the project's history
     -   Annotated because they allow a message, just like a commit
@@ -85,13 +93,17 @@ FIXME:
 -   Porting bug fixes and features across releases is complicated
     -   Outside the scope of this tutorial
 
+### Common Problems
+
+FIXME: common problems for tagging
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for tagging
 
 ## Using Issues {#s:workflow-issues}
 
-FIXME
+FIXME: issues
 -   Version control tells you where you've been; [issues](#g:issue) tells us where you're going
     -   Issue tracking tools are often called ticketing systems or bug trackers,
         since they were created to keep track of work that nees to be done and bugs that needed fixing
@@ -126,9 +138,13 @@ FIXME
   <img id="f:workflow-lifecycle" src="../../files/issue-lifecycle.svg" alt="Issue State Transitions" />
 </figure>
 
+### Common Problems
+
+FIXME: common problems for issues
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for issues
 
 ## How to Write a Good Bug Report {#s:workflow-bugs}
 
@@ -165,9 +181,13 @@ printable character.)
 python wordbase.py --version reports 0.13.1; using on Windows 10.
 ~~~
 
+### Common Problems
+
+FIXME: common problems for writing bug reports
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for writing bug reports
 
 ## Status and Lifecycle {#s:workflow-status}
 
@@ -195,12 +215,16 @@ FIXME: exercises
     -   And notify interested parties of state transitions
 -   Don't worry about any of this until people are actually using issues...
 
+### Common Problems
+
+FIXME: common problems for lifecycle
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for lifecycle
 
 ## Summary {#s:workflow-summary}
 
-FIXME: create concept map
+FIXME: create concept map for workflow
 
 {% include links.md %}

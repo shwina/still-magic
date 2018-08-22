@@ -22,6 +22,9 @@ keypoints:
 -   And then document:
     -   The overall purpose of the code in that file
     -   The purpose of each function in the file
+
+## Using Docstrings {#s:docs-docstrings}
+
 -   Instead of using comments for this, use [docstrings](#g:docstring) (short for "documentation string")
     -   A string that is created at the start of a file or function, but not assigned to a variable
     -   Python automatically attaches this to the file (when it is loaded as a library) or to the function
@@ -108,8 +111,16 @@ help(trim)
     -   And it's free
     -   But out of the scope of this lesson
 
+### Common Problems
+
+FIXME: common problems for using docstrings
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for using docstrings
+
+## Summary {#s:docs-summary}
+
+FIXME: create concept maps for documentation
 
 {% include links.md %}

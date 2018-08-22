@@ -78,6 +78,14 @@ CRITICAL:root:Something went seriously wrong.
     -   Useful during debugging
     -   Think twice before doing in production
 
+### Common Problems
+
+FIXME: common problems for basic logging
+
+## Exercises
+
+FIXME: create exercises for basic logging
+
 ## Changing Format {#s:logging-format}
 
 -   Library uses the conventions of an older form of string formatting
@@ -98,6 +106,14 @@ logging.warning('This is a warning.')
 -   As noted in [s:config](#CHAPTER), record the configuration data as a single string
     -   Because CSV doesn't handle nested data...
     -   ...and you want to be able to read a single field, convert from YAML back to memory, and manipulate
+
+### Common Problems
+
+FIXME: common problems for changing log format
+
+## Exercises
+
+FIXME: create exercises for changing log format
 
 ## Handling Multiple Sources {#s:logging-source}
 
@@ -235,8 +251,16 @@ $ python tee.py
 2018-08-20T16:29:42,example,CRITICAL,critical
 ```
 
+### Common Problems
+
+FIXME: common problems for handling multiple log sources
+
 ### Exercises
 
-FIXME: exercises
+FIXME: create exercises for handling multiple log sources
+
+## Summary {#s:logging-summary}
+
+FIXME: create concept map for logging
 
 {% include links.md %}

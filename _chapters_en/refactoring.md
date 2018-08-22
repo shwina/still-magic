@@ -40,9 +40,13 @@ SECONDS_PER_DAY = 24 * 60 * 60
 seconds_elapsed = num_days * SECONDS_PER_DAY
 ```
 
+### Common Problems
+
+FIXME: common problems for replacing value with name
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for replacing value with name
 
 ## Hoist Repeated Calculation Out of Loop {#s:refactoring-hoist-repeated}
 
@@ -63,9 +67,13 @@ for sample in all_signals:
     transform.append(sample * scaling)
 ```
 
+### Common Problems
+
+FIXME: common problems for hoist repeated calculation
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for hoist repeated calculation
 
 ## Replace Repeated Test With Flag {#s:refactoring-repeated-test}
 
@@ -106,9 +114,13 @@ def process_data(data, scaling):
 
 -   If the test needs to change to `>=`, the `AFTER` version is more likely to be right the first time
 
+### Common Problems
+
+FIXME: common problems for replace repeated test
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for replace repeated test
 
 ## Use In-Place Operator {#s:refactoring-in-place}
 
@@ -129,6 +141,14 @@ for least_factor_index in all_factor_indexes:
 for least_factor_index in all_factor_indexes:
     samples[least_factor_index, max(current_offset, offset_limit)] *= scaling_factor
 ```
+
+### Common Problems
+
+FIXME: common problems for in-place operator
+
+### Exercises
+
+FIXME: exercises for in-place operator
 
 ## Place Short Circuits Early {#s:refactoring-short-circuits}
 
@@ -163,9 +183,13 @@ def rescale_by_average(values, factors, weights):
         values[i] = v / a
 ```
 
+### Common Problems
+
+FIXME: common problems for short circuits
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for short circuits
 
 ## Default and Override {#s:refactoring-default-override}
 
@@ -205,6 +229,14 @@ scale = 0.8 if configuration['threshold'] > UPPER_BOUND else 1.0
 -   However, this puts the default last instead of first, which is unclear
     -   Can invert the sense of the test, but that's also confusing
 
+### Common Problems
+
+FIXME: common problems for default and override
+
+### Exercises
+
+FIXME: create exercises for default and override
+
 ## Extract Function {#s:refactoring-extract-function}
 
 -   Move common operations into functions to reduce amount of code that needs to be read
@@ -235,9 +267,13 @@ def in_interior(grid, point):
 -   Use original variable names as parameter names during refactoring to reduce typing
 -   Multi-part conditionals, parts of long equations, and bodies of loops are good candidates for extraction
 
+### Common Problems
+
+FIXME: common problems for extract function
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for extract function
 
 ## Combine Functions {#s:refactoring-combine-functions}
 
@@ -281,9 +317,13 @@ def count_vowels_and_consonants(text):
     -   But you probably didn't notice the change in semantics
 -   One sign that functions shouldn't have been combined is how often people use the combination and throw some results away
 
+### Common Problems
+
+FIXME: common problems for combine functions
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for combine functions
 
 ## Create Lookup Table {#s:refactoring-lookup}
 
@@ -331,9 +371,13 @@ def count_vowels_and_consonants(text):
 -   Note: in this case, could use a set, check for membership, and increment
 -   So we should only use lookup tables when weights differ among elements
 
+### Common Problems
+
+FIXME: common problems for create lookup table
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for create lookup table
 
 ## Replace Loop With Comprehension {#s:refactoring-comprehension}
 
@@ -412,15 +456,19 @@ flattened = [c for w in words for c in w]
 -   This is the direction most modern Python is going, so write comprehensions for new code and refactor wherever you can
 -   And don't be afraid (at least during development) to create temporaries
 
+### Common Problems
+
+FIXME: common problems for replace loop with comprehension
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for replace loop with comprehension
 
 ## Summary {#s:refactoring-summary}
 
 -   Provide Default and Encapsulate Control Flow: forward reference to [s:reuse](#CHAPTER)
 -   A good test of code quality: each plausible small change to functionality requires one change in one place
 
-FIXME: create concept map
+FIXME: create concept map for refactoring
 
 {% include links.md %}

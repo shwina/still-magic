@@ -209,9 +209,13 @@ for bound in (1e-15, 1e-16):
 -   You can be precise without being accurate (systematic bias), or accurate without being precise (near the right answer, but without many significant digits)
 -   For human decision making, accuracy is usually more important than precision
 
+### Common Problems
+
+FIXME: common problems for testing a data analysis pipeline
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for testing a data analysis pipeline
 
 ## Testing Plots {#s:correct-plots}
 
@@ -236,9 +240,13 @@ FIXME: example
     -   Although any changes to the library can invalidate all the tests because of layers being introduced, renamed, or removed
 -   The best option is to test the data structures used to generate the plot and then trust the plotting library
 
+### Common Problems
+
+FIXME: common problems for testing plotting
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for testing plotting
 
 ## Testing Simple Inputs {#s:correct-simple}
 
@@ -374,9 +382,13 @@ check = actual.hist(column=3, bins=TEST_BINS)
 assert actual == pytest.approx(reference, rel=TEST_TOLERANCE)
 ```
 
+### Common Problems
+
+FIXME: common problems for operational tests
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for operational tests
 
 ## Inferring Constraints {#s:correct-infer}
 
@@ -459,12 +471,16 @@ Constraints failing: 15
     -   "Is this dataset similar to the one I tested on?"
 -   Especially useful if the constraint file is put under version control
 
+inferring con### Common Problems
+
+FIXME: common problems for straints
+
 ### Exercises
 
-FIXME: exercises
+FIXME: exercises for ### Exercises
 
 ## Summary {#s:correct-summary}
 
-FIXME: create concept map
+FIXME: create concept map for correctness
 
 {% include links.md %}
