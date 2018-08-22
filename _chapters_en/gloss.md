@@ -77,6 +77,8 @@ title: "Glossary"
 
 **Operational test**{:#g:operational-test}: FIXME
 
+**ORCID**{:#g:orcid}: FIXME
+
 **Overlay configuration**{:#g:overlay-configuration}: FIXME
 
 **Package**{:#g:package}: FIXME
@@ -92,6 +94,8 @@ title: "Glossary"
 **Procedural programming**{:#g:procedural-programming}: FIXME
 
 **Public domain license**{:#g:cc-0} (CC-0): FIXME
+
+**Raster image**{:#g:raster-image}: FIXME
 
 **Refactor**{:#g:refactor}: FIXME
 
@@ -136,6 +140,8 @@ title: "Glossary"
 **Typesetting language**{:#g:typesetting-language}: FIXME
 
 **Unit test**{:#g:unit-test}: FIXME
+
+**Vector image**{:#g:vector-image}: FIXME
 
 **Virtual environment**{:#g:virtual-environment}: FIXME
 

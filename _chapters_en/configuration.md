@@ -29,7 +29,7 @@ keypoints:
 -   Usually also allow longer command-line options to control everything to support scripting
     -   Out of scope of this lesson
 
-## Handling Command-Line Flags {#s:config-cmdline}
+## Handling Command-Line Flags {#s:configuration-cmdline}
 
 -   Use `getopt` for simple programs and `argparse` for complex ones
     -   `getopt` example will illustrate the ideas
@@ -96,7 +96,7 @@ FIXME: common problems for handling command-line flags
 
 FIXME: exercises for handling command-line flags
 
-## Configuration Files {#s:config-files}
+## Configuration Files {#s:configuration-files}
 
 -   Enable program to read configuration from file
     -   Because in manual use, a lot of values stay the same
@@ -144,7 +144,7 @@ FIXME: common problems for configuration files
 
 FIXME: exercises for configuration files
 
-## Overlay Configuration {#s:config-overlay}
+## Overlay Configuration {#s:configuration-overlay}
 
 -   System settings, then user settings, then job settings, each overriding what came before
 -   use `dict.update` to overwrite previous settings
@@ -193,7 +193,7 @@ FIXME: common problems for overlay configuration
 
 FIXME: exercises for overlay configuration
 
-## Keeping a Record {#s:config-dump}
+## Keeping a Record {#s:configuration-dump}
 
 -   Careful record keeping is essential to reproducible science
     -   The computer can do the record keeping

@@ -18,7 +18,6 @@ definitions if that's done.
 [captain-awkward]: https://captainawkward.com/
 [charles-rules]: http://geekfeminism.wikia.com/wiki/Charles%27_Rules_of_Argument
 [choose-license]: http://choosealicense.com/
-[citable-code]: https://guides.github.com/activities/citable-code/
 [code-smells-and-feels]: https://github.com/jennybc/code-smells-and-feels
 [covenant]: https://www.contributor-covenant.org
 [creative-commons]: https://creativecommons.org/
@@ -37,6 +36,7 @@ definitions if that's done.
 [gfm]: https://help.github.com/articles/github-flavored-markdown/
 [github]: http://github.com
 [github-pages]: https://pages.github.com/
+[github-zenodo-tutorial]: https://guides.github.com/activities/citable-code/
 [gnu-make]: http://www.gnu.org/software/make/
 [go-fair]: https://www.go-fair.org/fair-principles/
 [google-docs]: https://en.wikipedia.org/wiki/Google_Docs,_Sheets,_and_Slides
@@ -63,6 +63,7 @@ definitions if that's done.
 [ms-word]: https://en.wikipedia.org/wiki/Microsoft_Word
 
 [one-extra-thing]: https://merely-useful.github.io/one-extra-thing/
+[orcid]: https://orcid.org/
 [orwells-rules]: https://en.wikipedia.org/wiki/Politics_and_the_English_Language#Remedy_of_Six_Rules
 [osi-license-list]: http://opensource.org/licenses
 [osf]: https://osf.io/
@@ -72,6 +73,7 @@ definitions if that's done.
 [pep-8]: https://www.python.org/dev/peps/pep-0008/
 [poisot-timothee]: http://poisotlab.io/
 [producing-oss]: https://producingoss.com/
+[pypi]: https://pypi.org/
 [python-102]: https://python-102.readthedocs.io/
 [pytest-mpl]: https://github.com/matplotlib/pytest-mpl
 

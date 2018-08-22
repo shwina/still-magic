@@ -23,8 +23,6 @@ keypoints:
 -   This lesson shows you how to use Python's tools
 -   Based in part on [Python 102][python-102] by [Ashwin Srinath][srinath-ashwin]
 
-FIXME: explain `requirements.txt`
-
 ## Modules {#s:packages-modules}
 
 -   Any Python source file can be imported
@@ -119,6 +117,35 @@ FIXME: common problems for writing modules
 ### Exercises
 
 FIXME: create exercises for writing modules
+
+## Installing Packages {#s:packages-install}
+
+-   `pip install package`
+    -   Checks to see if the package is already installed (or needs to be upgraded)
+    -   Downloads from [PyPI][pypi] (the Python Package Index)
+    -   Unpacks and installs
+-   May require admin privileges to write files, depending on where Python is installed
+-   `pip install -r filename` will install dependencies listed in a file
+    -   File is conventionally called `requirements.txt` and placed in the project's root directory
+-   Can be just a list of package names
+-   Or specify exact versions, minimum versions, etc.
+
+```
+request
+scipy==1.1.0
+tdda>=1.0
+```
+
+-   `pip freeze` will print exact versions of all installed packages
+    -   Save this when producing reports ([s:publish](#CHAPTER))
+
+### Common Problems
+
+FIXME: common problems for installing packages
+
+### Exercises
+
+FIXME: create exercises for installing packages
 
 ## Creating Packages {#s:packages-package}
 
