@@ -30,10 +30,7 @@ keypoints:
 -   "Specially-formatted comments can be used to make Makefiles self-documenting."
 ---
 
--   [Zipf's Law][zipfs-law]: frequency of a word is inversely proportional to rank
-    -   I.e., second most common word occurs half as often as most common, third most common a third as often, etc.
--   We want to test books against this distribution
--   Each book is in `raw/title.txt`
+-   Zipf's Law: each book is in `raw/title.txt`
 -   Use `bin/countwords.py` to produce `results/title.csv`
     -   Each row is rank, word, number of occurrences
 -   Use `bin/plotcounts.py` to visualize counts

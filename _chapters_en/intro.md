@@ -58,6 +58,12 @@ These lessons can be used for self-study by people who plan to enroll in
 something like the [Insight Data Science][insight] Fellows Program,
 or as part of a one-semester course for graduate students or senior undergraduates.
 
+## Running Example {#s:intro-example}
+
+-   [Zipf's Law][zipfs-law]: frequency of a word is inversely proportional to rank
+    -   I.e., second most common word occurs half as often as most common, third most common a third as often, etc.
+-   We want to test books against this distribution
+
 ## What Does 'Done' Look Like? {#s:intro-done}
 
 1.  Analysts are reasonably confident that results are correct.

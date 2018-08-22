@@ -62,6 +62,7 @@ definitions if that's done.
 [model-coc]: http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy
 [ms-word]: https://en.wikipedia.org/wiki/Microsoft_Word
 
+[one-extra-thing]: https://merely-useful.github.io/one-extra-thing/
 [orwells-rules]: https://en.wikipedia.org/wiki/Politics_and_the_English_Language#Remedy_of_Six_Rules
 [osi-license-list]: http://opensource.org/licenses
 [osf]: https://osf.io/
