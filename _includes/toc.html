@@ -7,16 +7,18 @@
 {% assign licensepath = '/' | append: include.language | append: '/license/' %}
 
 <nav>
-  {% if page.root %}<strong><a href="./">{% else %}<a href="../">{% endif %}
+  <a href={% if page.root %}"./"{% else %}"../"{% endif %}>
     <img src="{{'/files/logo.svg'|relative_url}}" alt="{{site.title}} logo" width="50%" />
-    <p>
-      <em>
+  </a>
+  <p>
+    <em>
+      {% if page.root %}<strong><a href="./">{% else %}<a href="../">{% endif %}
         {{site.title}}
-        <br/>
-        (a <a href="{{site.organization}}">Merely Useful</a> lesson)
-      </em>
-    </p>
-  {% if page.root %}</a></strong>{% else %}</a>{% endif %}
+      {% if page.root %}</a></strong>{% else %}</a>{% endif %}
+      <br/>
+      (a <a href="{{site.organization}}">Merely Useful</a> lesson)
+    </em>
+  </p>
 
   <hr/>
   {% include toc-section.html language=include.language coll=chapters class="chapter" title="Lessons" toc=site.toc.lessons %}
