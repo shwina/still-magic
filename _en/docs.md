@@ -23,7 +23,7 @@ keypoints:
     -   The overall purpose of the code in that file
     -   The purpose of each function in the file
 
-## Using Docstrings {#s:docs-docstrings}
+## How Can I Embed Documentation for My Code in the Code Itself? {#s:docs-docstrings}
 
 -   Instead of using comments for this, use [docstrings](#g:docstring) (short for "documentation string")
     -   A string that is created at the start of a file or function, but not assigned to a variable

@@ -23,7 +23,7 @@ keypoints:
 -   This lesson shows you how to use Python's tools
 -   Based in part on [Python 102][python-102] by [Ashwin Srinath][srinath-ashwin]
 
-## Modules {#s:packages-modules}
+## How Can I Turn a Set of Python Source Files Into a Module? {#s:packages-modules}
 
 -   Any Python source file can be imported
     -   Statements are executed as the file is loaded
@@ -118,7 +118,7 @@ FIXME: common problems for writing modules
 
 FIXME: create exercises for writing modules
 
-## Installing Packages {#s:packages-install}
+## How Can I Install a Python Package? {#s:packages-install}
 
 -   `pip install package`
     -   Checks to see if the package is already installed (or needs to be upgraded)
@@ -147,7 +147,7 @@ FIXME: common problems for installing packages
 
 FIXME: create exercises for installing packages
 
-## Creating Packages {#s:packages-package}
+## How Can I Create an Installable Python Package? {#s:packages-package}
 
 -   Next step: put the two functions in their own files underneath a `zipf` package
     -   Would probably keep them in the same file in a real project, because they're small and closely related
@@ -205,7 +205,7 @@ FIXME: common problems for creating packages
 
 FIXME: create exercises for creating packages
 
-## Distributing Software {#s:packages-distribute}
+## How Can I Distribute Software Packages That I Have Created? {#s:packages-distribute}
 
 -   Yes, people can clone your repository and copy files from that
 -   But it's much friendlier to create something they can install
@@ -304,7 +304,7 @@ FIXME: common problems for distributing software
 
 FIXME: create exercises for distributing software
 
-## Virtual Environments {#s:packages-virtualenv}
+## How Can I Manage the Packages My Projects Need? {#s:packages-virtualenv}
 
 -   Want to test the package we just created
 -   But *don't* want to damage the packages we already have installed

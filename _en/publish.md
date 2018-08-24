@@ -24,7 +24,7 @@ keypoints:
     and everything else that is shorter than a book and is going to be read by someone else
     -   "A report is a PDF you would print on your own printer."
 
-## What to Publish and Where {#s:publish-what-where}
+## What Should I Publish and Where? {#s:publish-what-where}
 
 -   Small raw data (under 500 MB): store in GitHub
 -   Medium-size raw data (between 500 MB and 5 GB)
@@ -82,7 +82,7 @@ FIXME: common problems for what to publish and where
 
 FIXME: create exercises for what to publish and where
 
-## ORCIDs and DOIs {#s:publish-identifiers}
+## How Can I Identify Myself and My Work in Bibliographies? {#s:publish-identifiers}
 
 -   An [ORCID](#g:orcid) is an Open Researcher and Contributor ID
     -   Because names and affiliations change
@@ -118,7 +118,7 @@ FIXME: common problems for ORCIDs and DOIs
 
 FIXME: create exercises for ORCIDs and DOIs
 
-## FAIR {#s:publish-fair}
+## What Is the Most Useful Way to Share My Data? {#s:publish-fair}
 
 -   The [FAIR Principles][go-fair] describe what research data should look like
     -   Still mostly aspirational for most researchers

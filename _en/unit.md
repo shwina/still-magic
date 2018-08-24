@@ -41,7 +41,7 @@ keypoints:
     -   Give people a clear idea of what our definition of correct and our [tolerances](#g:tolerance) are
 -   This introduction is based in part on [Testing and Continuous Integration with Python][huff-testing] by [Katy Huff][huff-katy]
 
-## Building Our Own {#s:unit-own}
+## What Does a Systematic Software Testing Framework Look Like? {#s:unit-own}
 
 -   A test that checks one thing is called a [unit test](#g:unit-test)
 -   A tool that finds and runs unit tests and reports their results is called a [test runner](#g:test-runner)
@@ -91,7 +91,7 @@ FIXME: common problems for writing our own unit test harness
 
 FIXME: exercises for writing our own unit test harness
 
-## Using Pytest {#s:unit-pytest}
+## How Can I Use a Standard Software Testing Framework? {#s:unit-pytest}
 
 -   Instead, put each input-output pair in a function in `test_count.py`
 -   Use `assert` to check that the output is correct
@@ -163,7 +163,7 @@ FIXME: common problems for using pytest
 
 FIXME: exercises for using pytest
 
-## Did It Fail As It Was Supposed To? {#s:unit-exception}
+## How Can I Tell If My Software Failed As It Was Supposed To? {#s:unit-exception}
 
 -   Did the call fail as it was supposed to, i.e., raise the right kind of exception?
     -   If not, system could produce a [silent error](#g:silent-error)
@@ -227,7 +227,7 @@ FIXME: common problems for testing exceptions
 
 FIXME: exercises for testing exceptions
 
-## Testing Randomness {#s:unit-random}
+## How Can I Test Software That is Random or Unpredictable? {#s:unit-random}
 
 -   Testing random numbers
     -   Rely on the fact that they aren't actually random
@@ -302,7 +302,7 @@ FIXME: common problems for testing randomness
 
 FIXME: exercises for testing randomness
 
-## Testing File I/O {#s:unit-io}
+## How Can I Test Software That Does File I/O? {#s:unit-io}
 
 -   Reading from external files isn't so bad, but writing to temporary files is awkward
     -   Scraps need to be re-read for testing and then cleaned up
@@ -369,7 +369,7 @@ FIXME: common problems for testing file I/O
 
 FIXME: exercises for testing file I/O
 
-## Coverage {#s:unit-coverage}
+## How Can I Tell Which Parts of My Software Have and Have Not Been Tested? {#s:unit-coverage}
 
 -   Which lines are and aren't being executed?
 

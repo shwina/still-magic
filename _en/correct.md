@@ -35,7 +35,7 @@ keypoints:
 -   Most of the time we calibrate estimates by checking real data, convincing ourselves it's OK, then re-checking whenever an alarm rings
     -   If you change things substantially then the mean absolute error (which is in units of your original problem) will move noticeably
 
-## Is It Close Enough? {#s:correct-float}
+## Why Should I Be Cautious When Using Floating-Point Numbers? {#s:correct-float}
 
 -   Finding a good representation for floating point numbers is hard.
     -   We cannot represent an infinite number of real values with a finite set of bit patterns
@@ -217,7 +217,7 @@ FIXME: common problems for testing a data analysis pipeline
 
 FIXME: exercises for testing a data analysis pipeline
 
-## Testing Plots {#s:correct-plots}
+## How Can I Test Plots and Other Graphical Results? {#s:correct-plots}
 
 -   Testing visualizations is hard
     -   Any change to the dimension of the plot, however small, can change many pixels in a [raster image](#g:raster-image)
@@ -248,7 +248,7 @@ FIXME: common problems for testing plotting
 
 FIXME: exercises for testing plotting
 
-## Testing Simple Inputs {#s:correct-simple}
+## How Can I Test the Steps in a Data Analysis Pipeline During Development? {#s:correct-simple}
 
 -   Subsampling
     -   Choose random subsets of input data, do analysis, see how close output is to output with full data set
@@ -297,7 +297,7 @@ def test_fit_last_too_large():
     assert not is_zipf(actual)
 ```
 
-## Operational Tests {#s:correct-operational}
+## How Can I Check the Steps in a Data Analysis Pipeline in Production? {#s:correct-operational}
 
 -   [Operational tests](#g:operational-test) are ones that are kept in place during production
     -   Is everything working as it should?
@@ -390,7 +390,7 @@ FIXME: common problems for operational tests
 
 FIXME: exercises for operational tests
 
-## Inferring Constraints {#s:correct-infer}
+## How Can I Infer and Check Properties of My Data? {#s:correct-infer}
 
 -   The [TDDA library][tdda-site] can infer test rules from data
 -   `age <= 100`, `Date` should be sorted ascending, `StartDate <= EndDate`, etc.

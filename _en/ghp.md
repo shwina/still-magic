@@ -41,7 +41,7 @@ keypoints:
     -   Illustrates the key ideas of a compilation-based workflow
     -   Probably the least painful to set up
 
-## Writing Markdown {#s:ghp-authoring}
+## How Can I Write Web Pages Using Simple Text Formatting? {#s:ghp-authoring}
 
 -   Created as a simple way to write simple HTML
     -   Support the same kinds of formatting (bold, italics, headings, etc.)
@@ -148,7 +148,7 @@ FIXME: common problems for writing Markdown
 
 FIXME for writing Markdown
 
-## GitHub Pages {#s:ghp-ghp}
+## How Can I Publish Simple Web Pages Using GitHub? {#s:ghp-ghp}
 
 -   Most people don't want to read Markdown as-is, so need some way to translate and publish it
 -   GitHub provides a mechanism called [GitHub Pages][github-pages]
@@ -185,7 +185,7 @@ FIXME: common problems for getting started with GitHub pages
 
 FIXME: create exercises for getting started with GitHub pages
 
-## Metadata and Templating {#s:ghp-metadata}
+## How Can I Give My Pages a Consistent Look and Feel? {#s:ghp-metadata}
 
 -   The triple-dash header can contain metadata telling Jekyll how to format the document
 -   Work through this example
@@ -276,7 +276,7 @@ FIXME: common problems for templates and metadata
 
 FIXME: exercises for templates and metadata
 
-## Previewing Locally {#s:ghp-preview}
+## How Can I Preview Pages Locally? {#s:ghp-preview}
 
 -   Pushing half-finished work to the web for everyone to see is a bit unprofessional
 -   To preview work locally:
@@ -323,7 +323,7 @@ FIXME: common problems for previewing GitHub Pages locally
 
 FIXME: create exercises for previewing GitHub Pages locally
 
-## Self-Publishing {#s:ghp-self-pub}
+## How Can I Publish Pages Myself Instead of Relying on GitHub? {#s:ghp-self-pub}
 
 -   Jekyll is very limited for research publishing
     -   Doesn't number sections or translate section cross-references
@@ -350,7 +350,7 @@ FIXME: common problems for self-publishing GitHub Pages sites
 
 FIXME: create exercises for self-publishing GitHub Pages sites
 
-## Math {#s:ghp-math}
+## How Can I Include Math in Web Pages? {#s:ghp-math}
 
 -   LaTeX is widely used for typesetting math
 -   [MathJax][mathjax] is a JavaScript library that parses LaTeX and renders it in the browser

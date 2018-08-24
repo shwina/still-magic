@@ -34,7 +34,7 @@ keypoints:
 -   Always remember [Orwell's Sixth Rule][orwells-rules]:
     "Break any of these rules sooner than saying anything outright barbarous."
 
-## Standard Python Style {#s:style-pep8}
+## What Are the Standard Rules of Good Style for Python Programs? {#s:style-pep8}
 
 -   Python has a standard style called [PEP 8][pep-8]
 -   And a tool called `pep8` that checks code and reports violations
@@ -70,7 +70,7 @@ FIXME: common problems for standard Python style
 
 FIXME: exercises for standard Python style
 
-## Default Parameter Values {#s:style-defaults}
+## How Can I Specify Default Values for My Functions' Parameters? {#s:style-defaults}
 
 -   Give users control over everything *and* the ability to ignore details
 -   Example: testing tolerance for image comparison
@@ -114,7 +114,7 @@ FIXME: common problems for default parameter values
 
 FIXME: exercises for default parameter values
 
-## Variable Numbers of Arguments {#s:style-varargs}
+## How Can I Write Functions to Handle a Variable Number of Arguments? {#s:style-varargs}
 
 -   Often want functions to be able to accept variable number of arguments (like `print` and `max` do)
 -   Can require user to stuff those arguments into a list, e.g., `find_limits([a, b, c, d])`

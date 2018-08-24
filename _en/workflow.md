@@ -37,7 +37,7 @@ keypoints:
     -   And this workflow doesn't provide guidance for collaborating with others
 -   Following a few rules and using some of Git's more advanced capabilities solves these problems
 
-## Branch Per Feature {#s:workflow-branch}
+## How Can I Use Branches to Manage Development of New Features? {#s:workflow-branch}
 
 -   Use a [branch-per-feature][branch-per-feature] workflow
     -   `git checkout master`
@@ -76,7 +76,7 @@ FIXME: common problems for branch per feature
 
 FIXME: exercises for branch per feature
 
-## Rebasing {#s:workflow-rebase}
+## How Can I Keep My Project's History Clean When Working on Many Branches? {#s:workflow-rebase}
 
 -   [Rebasing](#g:rebase) means moving or combining some commits from one branch to another
     -   Replay changes on one branch on top of changes made to another
@@ -109,7 +109,7 @@ FIXME: common problems for rebasing
 
 FIXME: exercises for rebasing
 
-## Tagging {#s:workflow-tag}
+## How Can I Label Specific Versions of My Work? {#s:workflow-tag}
 
 -   A [tag](#g:git-tag) is a permanent label on a particular state of the repository
     -   Theoretically redundant, since the [commit hash](#g:commit-hash) identifies that state as well
@@ -137,7 +137,7 @@ FIXME: common problems for tagging
 
 FIXME: exercises for tagging
 
-## Using Issues {#s:workflow-issues}
+## How Can I Manage the Work I Still Have To Do? {#s:workflow-issues}
 
 -   Version control tells you where you've been; [issues](#g:issue) tells us where you're going
     -   Issue tracking tools are often called ticketing systems or bug trackers,
@@ -181,7 +181,7 @@ FIXME: common problems for issues
 
 FIXME: exercises for issues
 
-## How to Write a Good Bug Report {#s:workflow-bugs}
+## How Can I Write a Good Bug Report? {#s:workflow-bugs}
 
 1.  Make sure it actually *is* a bug.
 2.  Try to come up with a short, repeatable way to trigger it.
@@ -224,7 +224,7 @@ FIXME: common problems for writing bug reports
 
 FIXME: exercises for writing bug reports
 
-## Status and Lifecycle {#s:workflow-status}
+## How Can I Set Up a Consistent Workflow for My Project? {#s:workflow-status}
 
 -   Use labels to distinguish:
     -   Bug: something should work but doesn't

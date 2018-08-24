@@ -22,7 +22,7 @@ keypoints:
 -   Using [virtual environments](#g:virtual-environment) allows you to work on many projects at once without tripping over yourself
     -   Slowly being superceded by more general solutions like [Docker][docker], but still the easiest solution for most of us
 
-## Noble's Rules {#s:structure-noble}
+## What Are Noble's Rules? {#s:structure-noble}
 
 -   From [[Nobl2009](#CITE)]
 -   Top level is logical, next level is chronological

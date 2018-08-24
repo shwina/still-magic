@@ -35,7 +35,7 @@ keypoints:
     -   Only question is whether it is formal and accountable,
         or informal and unaccountable
 
-## Licensing {#s:inclusive-license}
+## How Should I License My Software, Data, and Reports? {#s:inclusive-license}
 
 -   If the law or a publication agreement prevents people from reading your work or using your software,
     you're excluding them
@@ -99,7 +99,7 @@ FIXME: common problems for licensing
 
 FIXME: create exercises for licensing
 
-## Code of Conduct {#s:inclusive-conduct}
+## Why Should I Establish a Code of Conduct for My Project? {#s:inclusive-conduct}
 
 -   A CoC lays out the expectations for personal interaction in your project
     -   Explicitly communicate standards to which this project holds its participants
@@ -132,7 +132,7 @@ FIXME: common problems for code of conduct
 
 FIXME: create exercises for code of conduct
 
-## Ally Skills {#s:inclusive-ally}
+## How Can I Be a Good Ally for Members of Marginalized Groups? {#s:inclusive-ally}
 
 -   Drawn primarily from [Frameshift Consulting Ally Skills Workshop][ally-skills]
     -   Which you should attend if you can

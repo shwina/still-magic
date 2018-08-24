@@ -75,7 +75,7 @@ keypoints:
     -   The [Software Carpentry lesson on Make][swc-make] maintained by [Gerard Capes][capes-gerard]
     -   [Jonathan Dursi][dursi-jonathan]'s [introduction to pattern rules][dursi-pattern-rules]
 
-## Our First Build {#s:automate-first}
+## How Can I Update a File When Things It Depends On Change? {#s:automate-first}
 
 -   Create a file called `Makefile` containing the following:
 
@@ -130,7 +130,7 @@ FIXME: common problems for first Makefile
 
 FIXME: exercises for first Makefile
 
-## Extending Our Pipeline {#s:automate-extend}
+## How Can I Update Multiple Files When Their Dependencies Change? {#s:automate-extend}
 
 -   Add another rule to the end of `pipeline.mk`
 
@@ -175,7 +175,7 @@ FIXME: common problems for extending the Make pipeline
 
 FIXME: exercises for extending the Make pipeline
 
-## Cleaning Up {#s:automate-phony}
+## How Can I Clean Up Temporary Files That I Don't Need? {#s:automate-phony}
 
 -   Add another target to `pipeline.mk` to delete all generated files
     -   By convention, this target is called `clean`
@@ -222,7 +222,7 @@ FIXME: common problems for phony targets
 
 FIXME: exercises for phony targets
 
-## Chaining Dependencies {#s:automate-chain}
+## How Can I Make One Update Depend On Another? {#s:automate-chain}
 
 -   To re-make all the results files, provide multiple targets on the command line:
 
@@ -285,7 +285,7 @@ FIXME: common problems for chaining dependencies
 
 FIXME: exercises for chaining dependencies
 
-## Automatic Variables {#s:automate-automatic}
+## How Can I Abbreviate My Update Rules? {#s:automate-automatic}
 
 -   Add a third book to `pipeline.mk`, then a fourth
     -   Lots of duplication, which means lots of future maintenance effort
@@ -342,7 +342,7 @@ FIXME: common problems for automatic variables
 
 FIXME: exercises for automatic variables
 
-## Pattern Rules {#s:automate-pattern}
+## How Can I Write One Rule To Update Many Different Files in the Same Way? {#s:automate-pattern}
 
 -   We can now replace the repeated rules for results files with one [pattern rule](#g:pattern-rule)
 -   Use `%` as a [wildcard](#g:wildcard) on the left and right sides
@@ -400,7 +400,7 @@ FIXME: common problems for pattern rules
 
 FIXME: exercises for pattern rules
 
-## Using Variables {#s:automate-variables}
+## How Can I Define Sets of Files Automatically? {#s:automate-variables}
 
 -   Our automated build is still not fully automated
     -   If we add another book to `raw`, we have to remember to also add it to `pipeline.mk`
@@ -546,7 +546,7 @@ FIXME: common problems for using variables in Make
 
 FIXME: exercises for using variables in Make
 
-## Documenting Makefiles {#s:automate-doc}
+## How Can I Document My Update Rules? {#s:automate-doc}
 
 -   Every well-behaved program can print a help message
 -   `make --help` shows help for Make itself, not for our Makefile

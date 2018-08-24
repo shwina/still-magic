@@ -29,7 +29,7 @@ keypoints:
     -   Enable or disable in standard ways
     -   Send output to any of several places for collation and inspection
 
-## Basic Usage {#s:logging-basic}
+## How Can My Program Report Its Activity Consistently? {#s:logging-basic}
 
 -   Standard levels (each more verbose than the next)
     -   `DEBUG`: very detailed information used for localizing errors
@@ -86,7 +86,7 @@ FIXME: common problems for basic logging
 
 FIXME: create exercises for basic logging
 
-## Changing Format {#s:logging-format}
+## How Can I Change the Format of My Program's Reports? {#s:logging-format}
 
 -   Library uses the conventions of an older form of string formatting
     -   `%(NAME)s` to insert a named value as a string
@@ -115,7 +115,7 @@ FIXME: common problems for changing log format
 
 FIXME: create exercises for changing log format
 
-## Handling Multiple Sources {#s:logging-source}
+## How Can I Handle Multiple Reporting Sources in One Program? {#s:logging-source}
 
 -   Can configure multiple loggers to write to the same output with different source names.
 -   Again, reserve `stdin` and `stdout` for normal pipe operations

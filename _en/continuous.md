@@ -25,7 +25,7 @@ keypoints:
     -   CI only as good as the tests it runs
 -   Check style as well as correctness by running [pep8][pep-8] or [formatR][format-r] as part of the build
 
-## Hello, Integration {#s:continuous-basic}
+## How Can I Run Commands Automatically Every Time a Repository Is Updated? {#s:continuous-basic}
 
 -   Tell Travis to care about your repository
     -   Log in to [Travis-CI][travis-ci] with your GitHub credentials
@@ -138,7 +138,7 @@ FIXME: common problems for setting up Travis-CI
 
 FIXME: exercises for setting up Travis-CI
 
-## Displaying Status {#s:continuous-display}
+## How Can I Display the Status of a Repostiory? {#s:continuous-display}
 
 -   Display build status on GitHub because that's where most people look
 -   Look at the top of the status page for the build icon
@@ -181,7 +181,7 @@ FIXME: common problems for displaying Travis-CI status
 
 FIXME: exercises for displaying Travis-CI status
 
-## Running Real Tests {#s:continuous-tests}
+## How Can I Automatically Run Tests for My Project When Things Change?  {#s:continuous-tests}
 
 FIXME: describe how to run actual tests with Travis-CI
 
