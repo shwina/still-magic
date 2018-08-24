@@ -111,7 +111,7 @@ FIXME: exercises for rebasing
 
 ## Tagging {#s:workflow-tag}
 
--   A [tag](#s:git-tag) is a permanent label on a particular state of the repository
+-   A [tag](#g:git-tag) is a permanent label on a particular state of the repository
     -   Theoretically redundant, since the [commit hash](#g:commit-hash) identifies that state as well
     -   But commit hashes are (deliberately) random and therefore hard to remember or find
 -   Use [annotated tags](#g:annotated-tag) to mark every major event in the project's history

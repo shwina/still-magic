@@ -155,7 +155,7 @@ FIXME: create exercises for ORCIDs and DOIs
 
 FIXME: common problems for FAIR Principles
 
-## Exercises
+### Exercises
 
 FIXME: create exercises for FAIR Principles
 

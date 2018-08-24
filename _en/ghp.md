@@ -41,7 +41,7 @@ keypoints:
     -   Illustrates the key ideas of a compilation-based workflow
     -   Probably the least painful to set up
 
-## Markdown {#s:ghp-markdown}
+## Writing Markdown {#s:ghp-authoring}
 
 -   Created as a simple way to write simple HTML
     -   Support the same kinds of formatting (bold, italics, headings, etc.)
@@ -181,7 +181,7 @@ The manifold perplexities of my chosen research topic...
 
 FIXME: common problems for getting started with GitHub pages
 
-## Exercises
+### Exercises
 
 FIXME: create exercises for getting started with GitHub pages
 
@@ -272,7 +272,7 @@ exclude:
 
 FIXME: common problems for templates and metadata
 
-## Exercises
+### Exercises
 
 FIXME: exercises for templates and metadata
 
@@ -319,7 +319,7 @@ FIXME: exercises for templates and metadata
 
 FIXME: common problems for previewing GitHub Pages locally
 
-## Exercises
+### Exercises
 
 FIXME: create exercises for previewing GitHub Pages locally
 
@@ -346,7 +346,7 @@ FIXME: create exercises for previewing GitHub Pages locally
 
 FIXME: common problems for self-publishing GitHub Pages sites
 
-## Exercises
+### Exercises
 
 FIXME: create exercises for self-publishing GitHub Pages sites
 
@@ -401,7 +401,7 @@ $$ r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}} $$
 
 FIXME: common problems for adding math to GitHub Pages
 
-## Exercises
+### Exercises
 
 FIXME: create exercises for adding math to GitHub Pages
 

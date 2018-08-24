@@ -49,6 +49,8 @@ title: "Glossary"
 
 **DOI**{:#g:doi} (Digital Object Identifier): FIXME
 
+**Exit status**{:#g:exit-status}: FIXME
+
 **Exponent**{:#g:exponent}: FIXME
 
 **Filename stem**{:#g:filename-stem}: FIXME
@@ -64,6 +66,8 @@ title: "Glossary"
 **GNU Public License**{:#g:gpl} (GPL): FIXME
 
 **Guard clause**{:#g:guard-clause}: FIXME
+
+**In-place operator**{:#g:in-place-operator}: FIXME
 
 **Issue**{:#g:issue}: FIXME
 
@@ -120,6 +124,8 @@ title: "Glossary"
 **Silent error**{:#g:silent-error}: FIXME
 
 **Tab completion**{:#g:tab-completion}: FIXME
+
+**Tag**{:#g:git-tag}: FIXME
 
 **Target**{:#g:make-target} (in Make): FIXME
 

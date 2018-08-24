@@ -82,7 +82,7 @@ CRITICAL:root:Something went seriously wrong.
 
 FIXME: common problems for basic logging
 
-## Exercises
+### Exercises
 
 FIXME: create exercises for basic logging
 
@@ -103,7 +103,7 @@ logging.warning('This is a warning.')
 
 -   This looks like readable CSV data (on purpose)
     -   Call the log file `log.csv` and record everything needed to re-create the run
--   As noted in [s:config](#CHAPTER), record the configuration data as a single string
+-   As noted in [s:configuration](#CHAPTER), record the configuration data as a single string
     -   Because CSV doesn't handle nested data...
     -   ...and you want to be able to read a single field, convert from YAML back to memory, and manipulate
 
@@ -111,7 +111,7 @@ logging.warning('This is a warning.')
 
 FIXME: common problems for changing log format
 
-## Exercises
+### Exercises
 
 FIXME: create exercises for changing log format
 
@@ -205,39 +205,38 @@ $ get_words.py | count_words.py
     -   Everything to a file
     -   Errors and critical messages to standard error
 
-```
-import sys
-import logging
+    import sys
+    import logging
 
-# Create logger.
-logger = logging.getLogger('example')
-logger.setLevel(logging.DEBUG)
+    # Create logger.
+    logger = logging.getLogger('example')
+    logger.setLevel(logging.DEBUG)
 
-# Define common format.
-formatter = logging.Formatter('%(asctime)s,%(name)s,%(levelname)s,%(message)s',
-                              datefmt='%Y-%m-%dT%H:%M:%S')
+    # Define common format.
+    formatter = logging.Formatter('%(asctime)s,%(name)s,%(levelname)s,%(message)s',
+                                  datefmt='%Y-%m-%dT%H:%M:%S')
 
-# Send all logging messages to a file.
-toFile = logging.FileHandler('log.csv')
-toFile.setLevel(logging.DEBUG)
-toFile.setFormatter(formatter)
+    # Send all logging messages to a file.
+    toFile = logging.FileHandler('log.csv')
+    toFile.setLevel(logging.DEBUG)
+    toFile.setFormatter(formatter)
 
-# Send errors and critical messages to standard error.
-toScreen = logging.StreamHandler(sys.stderr)
-toScreen.setLevel(logging.ERROR)
-toScreen.setFormatter(formatter)
+    # Send errors and critical messages to standard error.
+    toScreen = logging.StreamHandler(sys.stderr)
+    toScreen.setLevel(logging.ERROR)
+    toScreen.setFormatter(formatter)
 
-# Stitch everything together.
-logger.addHandler(toFile)
-logger.addHandler(toScreen)
+    # Stitch everything together.
+    logger.addHandler(toFile)
+    logger.addHandler(toScreen)
 
-# Try some messages.
-logger.debug('debug')
-logger.info('info')
-logger.warning('warning')
-logger.error('error')
-logger.critical('critical')
-```
+    # Try some messages.
+    logger.debug('debug')
+    logger.info('info')
+    logger.warning('warning')
+    logger.error('error')
+    logger.critical('critical')
+
 ```
 $ python tee.py
 2018-08-20T16:29:42,example,ERROR,error

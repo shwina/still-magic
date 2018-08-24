@@ -73,14 +73,14 @@ marker:
 
 # Collections: one for lessons and one for extras for each language suffix.
 collections:
-  chapters_en:
+  en:
     output: true
 
 # Set the language for various collections.
 defaults:
   - scope:
       path: ""
-      type: chapters_en
+      type: en
     values:
       language: "en"
       layout: "default"

@@ -27,7 +27,7 @@ keypoints:
 -   I.e., define a constant
 -   Easier to understand when read aloud (which is always a good test)
 -   Easier to change
-    -   You don't think you'll have to, but then people want to use your software on Mars ([Mak2006](#CITE))
+    -   You don't think you'll have to, but then people want to use your software on Mars [[Mak2006](#CITE)]
 
 ```python
 # BEFORE
@@ -124,7 +124,7 @@ FIXME: exercises for replace repeated test
 
 ## Use In-Place Operator {#s:refactoring-in-place}
 
--   An [in-place operator](#s:in-place-operator) does a calculation with two values and overwrites one of those values
+-   An [in-place operator](#g:in-place-operator) does a calculation with two values and overwrites one of those values
 -   Instead of `x = x + 1`, write `x += 1`
 -   `samples[least_factor_index, max(current_offset, offset_limit)] *= scaling_factor` is much easier to read if the array indexing *isn't* repeated
 -   Using in-place operators also makes it clear that a value is being overwritten
@@ -466,7 +466,6 @@ FIXME: exercises for replace loop with comprehension
 
 ## Summary {#s:refactoring-summary}
 
--   Provide Default and Encapsulate Control Flow: forward reference to [s:reuse](#CHAPTER)
 -   A good test of code quality: each plausible small change to functionality requires one change in one place
 
 FIXME: create concept map for refactoring

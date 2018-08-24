@@ -85,7 +85,7 @@ print('Hello, continuous')
   <img id="f:continuous-log" src="../../files/travis-log.png" alt="Travis Log" />
 </figure>
 
--   Most important thing is the test program's [exit status]{#g:exit-status}
+-   Most important thing is the test program's [exit status](#g:exit-status)
 -   Exit status of 0 means "nothing went wrong"
     -   The default if you don't specify anything else
     -   You can do it explicitly with `sys.exit(0)`
