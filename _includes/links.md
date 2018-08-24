@@ -97,6 +97,8 @@ definitions if that's done.
 [travis-ci]: https://travis-ci.org/
 [tyranny-structurelessness]: http://www.jofreeman.com/joreen/tyranny.htm
 
+[unpaywall]: http://unpaywall.org/
+
 [vanderplas-licensing]: http://www.astrobetter.com/blog/2014/03/10/the-whys-and-hows-of-licensing-scientific-code/
 
 [wilson-greg]: http://third-bit.com

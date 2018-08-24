@@ -37,7 +37,8 @@ keypoints:
 
 ## Licensing {#s:inclusive-license}
 
--   If the law prevents people from reading your work or using your software to solve their own problems, you're excluding them
+-   If the law or a publication agreement prevents people from reading your work or using your software,
+    you're excluding them
     -   And probably hurting your own career
 -   Creative works are automatically eligible for intellectual property (and thus copyright) protection
 -   Every creative work has some sort of license - the only question is whether authors and users know what it is

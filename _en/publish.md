@@ -107,6 +107,8 @@ FIXME: create exercises for what to publish and where
 -   Cite datasets and software versions in reports
     -   Include DOIs in bibliography entries
 -   Publish software in [JOSS][joss] or [F1000 Research][f1000-research]
+-   Publish *everything* in open access venues ([s:inclusive-license](#SECTION))
+    -   Use [Unpaywall][unpaywall] browser extension to check and find things
 
 ### Common Problems
 
