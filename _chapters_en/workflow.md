@@ -29,6 +29,7 @@ keypoints:
     -   `git pull` to get changes (and possibly resolve merge conflicts)
     -   Occasionally `git checkout -- .` or `git reset --hard VERSION` to discard changes
     -   (Even less frequently) recover old version(s) of file(s)
+    -   Or `rm -rf` the repository and clone a new copy because everything is messed up
 -   Essentially using Git for multi-version backup
 -   But:
     -   Sometimes you have to work on several things at once
@@ -36,40 +37,36 @@ keypoints:
     -   And this workflow doesn't provide guidance for collaborating with others
 -   Following a few rules and using some of Git's more advanced capabilities solves these problems
 
-## Rebasing {#s:workflow-rebase}
-
-FIXME: rebasing
--   What rebasing is and when/how to use it
--   The Golden Rule: never rebase shared branches
-    -   Creating a pull request from a branch implicitly makes that branch shared
--   Common error messages and what to do next
--   `git push --force` is sometimes necessary
-    -   But usually a sign that you should have done something differently a while back
-
-### Common Problems
-
-FIXME: common problems for rebasing
-
-### Exercises
-
-FIXME: exercises for rebasing
-
 ## Branch Per Feature {#s:workflow-branch}
 
-FIXME: branch per feature
--   [branch-per-feature][branch-per-feature] workflow
--   Always branch from `master`
+-   Use a [branch-per-feature][branch-per-feature] workflow
+    -   `git checkout master`
+    -   `git pull origin master` (or `git pull upstream master`) to make sure you're up to date
+    -   `git checkout -b feature-name`
+    -   Do some work
+    -   `git push origin feature-name` to upload or update that branch
+    -   `git pull origin master` again and resolve any conflicts
+    -   `git merge feature-name master` (command line) to merge into master when work is done
+-   Better:
+    -   Create a [pull request](#g:pull-request) on GitHub
+    -   Within one repository (which may be shared with other people) or between repositories (from your fork to the upstream repository)
+    -   Get someone to look over the changes and leave comments
+    -   Make fixes: the pull request is updated in place
+    -   Merge when done
+-   But what's a "feature"?
+    -   A pure addition that doesn't change anything else (e.g., a new analysis run)
+    -   A change that you might want to undo as a unit
+    -   E.g., a new parameter with configuration, option parsing, help, and effect on execution
+    -   If you then re-run analyses, do those as separate features (because you might want to undo them separately)
 -   Don't do several things in one branch
     -   Commit work (don't use `git stash`)
     -   Do the other thing
+    -   Squash the history (described below)
     -   Merge to `master`
     -   Merge from master to the original branch
-    -   Rebase as necessary to clean up history
--   What's a "feature"?
-    -   A change that you might want to undo
-    -   E.g., a new parameter with configuration, option parsing, help, and effect on execution
 -   What's hard about branch-per-feature?
-    -   Doing work in one branch while large refactoring is going on in another (so don't do this)
+    -   Doing work in one branch while large refactoring is going on in another
+    -   So don't do this
 
 ### Common Problems
 
@@ -79,19 +76,58 @@ FIXME: common problems for branch per feature
 
 FIXME: exercises for branch per feature
 
+## Rebasing {#s:workflow-rebase}
+
+-   [Rebasing](#g:rebase) means moving or combining some commits from one branch to another
+    -   Replay changes on one branch on top of changes made to another
+    -   And/or collapse several consecutive commits into a single commit
+    -   We will just use the latter ability
+-   `git rebase -i BASE`
+    -   `BASE` is the most recent commit *before* the sequence to be compressed
+    -   Which is always confusing
+-   Brings up a display of recent commits
+    -   `pick` the first and `squash` the rest
+    -   Then see the combination of recent changes and messages
+    -   Edit to combine into one
+-   Why go to this trouble?
+    -   Because you may have done a commit, switched branches to work on something else, and then come back
+    -   (You could use `git stash`, but that just makes life even more confusing)
+    -   Or it may have taken you several tries to get something right
+    -   Either way, only want one change in the final log in order to make undo and comprehension easier
+-   What if you have pushed a branch to GitHub (or elsewhere) and then combine the commits to change its history?
+    -   Use `git push --force` to overwrite the remote history
+    -   This is a sign that you should have done something differently a while back
+    -   "It's tough to make predictions, especially about the future" - Yogi Berra
+-   Don't rebase branches that are shared with other people
+    -   Creating a pull request from a branch effectively makes that branch shared
+
+### Common Problems
+
+FIXME: common problems for rebasing
+
+### Exercises
+
+FIXME: exercises for rebasing
+
 ## Tagging {#s:workflow-tag}
 
-FIXME: tagging
--   Why and how to tag
+-   A [tag](#s:git-tag) is a permanent label on a particular state of the repository
+    -   Theoretically redundant, since the [commit hash](#g:commit-hash) identifies that state as well
+    -   But commit hashes are (deliberately) random and therefore hard to remember or find
 -   Use [annotated tags](#g:annotated-tag) to mark every major event in the project's history
     -   Annotated because they allow a message, just like a commit
-    -   Use semantic versioning for software releases
-    -   Use `manuscript-date-event` for publications
-        -   E.g., `jse-2018-06-23-response`
--   Semantic versioning
--   Treat each release branch as its own `master`
--   Porting bug fixes and features across releases is complicated
-    -   Outside the scope of this tutorial
+-   Software projects use [semantic versioning](#g:semantic-versioning) for software releases
+    -   `major.minor.patch`
+    -   Increment `major` every time there's an incompatible externally-visible change
+    -   Increment `minor` when adding functionality without breaking any existing code
+    -   Increment `patch` for bug fixes that don't add any new features ("now works as previously documented")
+-   Research projects often use `report-date-event` instead of semantic versioning
+    -   E.g., `jse-2018-06-23-response` or `pediatrics-2018-08-15-summary`
+    -   Do not tempt fate by calling something `-final`
+-   For simple projects, only tag the master branch
+    -   Because everything that is finished is merged to master
+-   Larger software projects may create a branch for each released version and do minor or patch updates on that branch
+    -   Outside the scope of this lesson
 
 ### Common Problems
 
@@ -103,7 +139,6 @@ FIXME: exercises for tagging
 
 ## Using Issues {#s:workflow-issues}
 
-FIXME: issues
 -   Version control tells you where you've been; [issues](#g:issue) tells us where you're going
     -   Issue tracking tools are often called ticketing systems or bug trackers,
         since they were created to keep track of work that nees to be done and bugs that needed fixing

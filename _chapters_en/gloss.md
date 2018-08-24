@@ -19,6 +19,8 @@ title: "Glossary"
 
 **Cognitive load**{:#g:cognitive-load}: FIXME
 
+**Commit hash**{:#g:commit-hash}: FIXME
+
 **Commons**{:#g:commons}: FIXME
 
 **Conditional expression**{:#g:conditional-expression}: FIXME
@@ -95,7 +97,11 @@ title: "Glossary"
 
 **Public domain license**{:#g:cc-0} (CC-0): FIXME
 
+**Pull request**{:#g:pull-request}: FIXME
+
 **Raster image**{:#g:raster-image}: FIXME
+
+**Rebase**{:#g:rebase}: FIXME
 
 **Refactor**{:#g:refactor}: FIXME
 
@@ -104,6 +110,8 @@ title: "Glossary"
 **reStructured Text**{:#g:restructured-text}: FIXME
 
 **Rule**{:#g:make-rule} (in Make): FIXME
+
+**Semantic versioning**{:#g:semantic-versioning}: FIXME <https://semver.org/>
 
 **Short circuit**{:#g:short-circuit}: FIXME
 
