@@ -140,13 +140,7 @@ Please see [our website](http://example.com) for more information.
     -   Yes, you are using a WYSIWYG program to create 1970s-era text to be translated back into what you drew
 -   This is the point where it's often simpler to just write HTML
 
-### Common Problems
-
-FIXME: common problems for writing Markdown
-
-### Exercises
-
-FIXME for writing Markdown
+{% include problems-exercises.md topic="writing Markdown" %}
 
 ## How Can I Publish Simple Web Pages Using GitHub? {#s:ghp-ghp}
 
@@ -177,13 +171,7 @@ The manifold perplexities of my chosen research topic...
 
 -   Any file with this header is processed - in particular, Markdown is turned into HTML
 
-### Common Problems
-
-FIXME: common problems for getting started with GitHub pages
-
-### Exercises
-
-FIXME: create exercises for getting started with GitHub pages
+{% include problems-exercises.md topic="getting started with GitHub pages" %}
 
 ## How Can I Give My Pages a Consistent Look and Feel? {#s:ghp-metadata}
 
@@ -268,13 +256,7 @@ exclude:
 -   There are *lots* of [themes](#g:theme) for Jekyll
     -   Use one of GitHub's defaults unless you know a lot about graphic design and want to spend hours fiddling with CSS
 
-### Common Problems
-
-FIXME: common problems for templates and metadata
-
-### Exercises
-
-FIXME: exercises for templates and metadata
+{% include problems-exercises.md topic="templates and metadata" %}
 
 ## How Can I Preview Pages Locally? {#s:ghp-preview}
 
@@ -315,13 +297,7 @@ FIXME: exercises for templates and metadata
 
 -   There are lots of other filters, like `absolute_url`
 
-### Common Problems
-
-FIXME: common problems for previewing GitHub Pages locally
-
-### Exercises
-
-FIXME: create exercises for previewing GitHub Pages locally
+{% include problems-exercises.md topic="previewing GitHub Pages locally" %}
 
 ## How Can I Publish Pages Myself Instead of Relying on GitHub? {#s:ghp-self-pub}
 
@@ -342,13 +318,7 @@ FIXME: create exercises for previewing GitHub Pages locally
 -   [R Markdown][r-markdown] and [Jupyter][jupyter] can both generate static websites that you can commit to `docs`
 -   Run `jekyll serve` in the `docs` folder to preview
 
-### Common Problems
-
-FIXME: common problems for self-publishing GitHub Pages sites
-
-### Exercises
-
-FIXME: create exercises for self-publishing GitHub Pages sites
+{% include problems-exercises.md topic="self-publishing GitHub Pages sites" %}
 
 ## How Can I Include Math in Web Pages? {#s:ghp-math}
 
@@ -397,13 +367,7 @@ $$ r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}} $$
 
 $$ r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}} $$
 
-### Common Problems
-
-FIXME: common problems for adding math to GitHub Pages
-
-### Exercises
-
-FIXME: create exercises for adding math to GitHub Pages
+{% include problems-exercises.md topic="adding math to GitHub Pages" %}
 
 ## Summary {#s:ghp-summary}
 

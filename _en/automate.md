@@ -122,13 +122,7 @@ make: `results/moby-dick.csv' is up to date.
 -   Means our target does not need any work
 -   Use `ls -l -t` to list files most recently changed first, with timestamps
 
-### Common Problems
-
-FIXME: common problems for first Makefile
-
-### Exercises
-
-FIXME: exercises for first Makefile
+{% include problems-exercises.md topic="first Makefile" %}
 
 ## How Can I Update Multiple Files When Their Dependencies Change? {#s:automate-extend}
 
@@ -167,13 +161,7 @@ python bin/countwords.py raw/jane-eyre.txt results/jane-eyre.csv
         it tells us "Nothing to be done"
     -   Get the latter message when there is a rule with no actions
 
-### Common Problems
-
-FIXME: common problems for extending the Make pipeline
-
-### Exercises
-
-FIXME: exercises for extending the Make pipeline
+{% include problems-exercises.md topic="extending the Make pipeline" %}
 
 ## How Can I Clean Up Temporary Files That I Don't Need? {#s:automate-phony}
 
@@ -214,13 +202,7 @@ make: `clean' is up to date.
 .PHONY : clean
 ```
 
-### Common Problems
-
-FIXME: common problems for phony targets
-
-### Exercises
-
-FIXME: exercises for phony targets
+{% include problems-exercises.md topic="phony targets" %}
 
 ## How Can I Make One Update Depend On Another? {#s:automate-chain}
 
@@ -277,13 +259,7 @@ clean :
 
 FIXME: dependency graph
 
-### Common Problems
-
-FIXME: common problems for chaining dependencies
-
-### Exercises
-
-FIXME: exercises for chaining dependencies
+{% include problems-exercises.md topic="chaining dependencies" %}
 
 ## How Can I Abbreviate My Update Rules? {#s:automate-automatic}
 
@@ -334,13 +310,7 @@ results/moby-dick.csv : raw/moby-dick.txt bin/countwords.py
         python bin/countwords.py $^ $<
 ```
 
-### Common Problems
-
-FIXME: common problems for automatic variables
-
-### Exercises
-
-FIXME: exercises for automatic variables
+{% include problems-exercises.md topic="automatic variables" %}
 
 ## How Can I Write One Rule To Update Many Different Files in the Same Way? {#s:automate-pattern}
 
@@ -392,13 +362,7 @@ python bin/countwords.py raw/jane-eyre.csv results/jane-eyre.txt
 $ make -f pipeline.mk results/jane-eyre.txt
 ```
 
-### Common Problems
-
-FIXME: common problems for pattern rules
-
-### Exercises
-
-FIXME: exercises for pattern rules
+{% include problems-exercises.md topic="pattern rules" %}
 
 ## How Can I Define Sets of Files Automatically? {#s:automate-variables}
 
@@ -538,13 +502,7 @@ python bin/countwords.py raw/life-of-frederick-douglass.csv results/life-of-fred
 
 -   And there we have it: a fully automated, reproducible data analysis pipeline
 
-### Common Problems
-
-FIXME: common problems for using variables in Make
-
-### Exercises
-
-FIXME: exercises for using variables in Make
+{% include problems-exercises.md topic="using variables in Make" %}
 
 ## How Can I Document My Update Rules? {#s:automate-doc}
 
@@ -647,13 +605,7 @@ help: show available targets
     -   The pattern `/## //` means "find two #'s followed by a space and replace them with nothing (i.e., delete them)"
 -   None of this is part of Make, so most people simply copy this rule from file to file
 
-### Common Problems
-
-FIXME: common problems for documenting Makefiles
-
-### Exercises
-
-FIXME: exercises for documenting Makefiles
+{% include problems-exercises.md topic="documenting Makefiles" %}
 
 ## Summary {#s:automate-summary}
 

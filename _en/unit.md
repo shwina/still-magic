@@ -83,13 +83,7 @@ print('pass {} fail {} error {}'.format(pass, fail, error))
 -   Or we have tests split across multiple files?
 -   Or...
 
-### Common Problems
-
-FIXME: common problems for writing our own unit test harness
-
-### Exercises
-
-FIXME: exercises for writing our own unit test harness
+{% include problems-exercises.md topic="writing our own unit test harness" %}
 
 ## How Can I Use a Standard Software Testing Framework? {#s:unit-pytest}
 
@@ -155,13 +149,7 @@ test_count.py:13: AssertionError
 -   Works the same way for everyone, so we can test without having think about *how* (only about *what*)
     -   Although fitting tests into this framework sometimes requires some tricks
 
-### Common Problems
-
-FIXME: common problems for using pytest
-
-### Exercises
-
-FIXME: exercises for using pytest
+{% include problems-exercises.md topic="using pytest" %}
 
 ## How Can I Tell If My Software Failed As It Was Supposed To? {#s:unit-exception}
 
@@ -219,13 +207,7 @@ test_exception.py:6: Failed
 
 -   Clearly, we have some work to do...
 
-### Common Problems
-
-FIXME: common problems for testing exceptions
-
-### Exercises
-
-FIXME: exercises for testing exceptions
+{% include problems-exercises.md topic="testing exceptions" %}
 
 ## How Can I Test Software That is Random or Unpredictable? {#s:unit-random}
 
@@ -294,13 +276,7 @@ first 2
 second 4
 ```
 
-### Common Problems
-
-FIXME: common problems for testing randomness
-
-### Exercises
-
-FIXME: exercises for testing randomness
+{% include problems-exercises.md topic="testing randomness" %}
 
 ## How Can I Test Software That Does File I/O? {#s:unit-io}
 
@@ -361,13 +337,7 @@ def main(infile, outfile):
     if outfile == '-': writer.close()
 ```
 
-### Common Problems
-
-FIXME: common problems for testing file I/O
-
-### Exercises
-
-FIXME: exercises for testing file I/O
+{% include problems-exercises.md topic="testing file I/O" %}
 
 ## How Can I Tell Which Parts of My Software Have and Have Not Been Tested? {#s:unit-coverage}
 
@@ -465,13 +435,7 @@ demo_coverage.py      16      1    94%
   </tr>
 </table>
 
-### Common Problems
-
-FIXME: common problems for coverage
-
-### Exercises
-
-FIXME: exercises for coverage
+{% include problems-exercises.md topic="coverage" %}
 
 ## Summary {#s:unit-summary}
 

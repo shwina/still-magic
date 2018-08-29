@@ -74,13 +74,7 @@ archive :
     -   If all parameters are in a configuration file, use that ([s:configuration](#CHAPTER))
     -   Or log all configuration parameters and use `grep` or a script to extract from the logfile ([s:logging](#CHAPTER))
 
-### Common Problems
-
-FIXME: common problems for what to publish and where
-
-### Exercises
-
-FIXME: create exercises for what to publish and where
+{% include problems-exercises.md topic="what to publish and where" %}
 
 ## How Can I Identify Myself and My Work in Bibliographies? {#s:publish-identifiers}
 
@@ -110,13 +104,7 @@ FIXME: create exercises for what to publish and where
 -   Publish *everything* in open access venues ([s:inclusive-license](#SECTION))
     -   Use [Unpaywall][unpaywall] browser extension to check and find things
 
-### Common Problems
-
-FIXME: common problems for ORCIDs and DOIs
-
-### Exercises
-
-FIXME: create exercises for ORCIDs and DOIs
+{% include problems-exercises.md topic="ORCIDs and DOIs" %}
 
 ## What Is the Most Useful Way to Share My Data? {#s:publish-fair}
 
@@ -153,13 +141,7 @@ FIXME: create exercises for ORCIDs and DOIs
     -   Include scripts or documentation on how to get or regenerate data
     -   Include units (please)
 
-### Common Problems
-
-FIXME: common problems for FAIR Principles
-
-### Exercises
-
-FIXME: create exercises for FAIR Principles
+{% include problems-exercises.md topic="FAIR Principles" %}
 
 ## Summary {#s:publish-summary}
 

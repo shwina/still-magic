@@ -91,13 +91,7 @@ keypoints:
         -   Some publishers try to imply that -NC means *nobody* can make money from it, which is untrue
     -   -SA: share-alike
 
-### Common Problems
-
-FIXME: common problems for licensing
-
-### Exercises
-
-FIXME: create exercises for licensing
+{% include problems-exercises.md topic="licensing" %}
 
 ## Why Should I Establish a Code of Conduct for My Project? {#s:inclusive-conduct}
 
@@ -124,13 +118,7 @@ FIXME: create exercises for licensing
     -   What they really mean is that thinking about unfairness that may have benefited from makes them uncomfortable
     -   In our experience, that is also a very useful filter on contributors...
 
-### Common Problems
-
-FIXME: common problems for code of conduct
-
-### Exercises
-
-FIXME: create exercises for code of conduct
+{% include problems-exercises.md topic="code of conduct" %}
 
 ## How Can I Be a Good Ally for Members of Marginalized Groups? {#s:inclusive-ally}
 
@@ -189,13 +177,7 @@ FIXME: create exercises for code of conduct
         considering how much someone has achieved despite systemic unfairness might not make sense,
         but you're not arguing for that, are you?
 
-### Common Problems
-
-FIXME: common problems for ally skills
-
-### Exercises
-
-FIXME: create exercises for ally skills
+{% include problems-exercises.md topic="ally skills" %}
 
 ## Summary {#s:inclusive-summary}
 

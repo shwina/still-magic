@@ -78,13 +78,7 @@ CRITICAL:root:Something went seriously wrong.
     -   Useful during debugging
     -   Think twice before doing in production
 
-### Common Problems
-
-FIXME: common problems for basic logging
-
-### Exercises
-
-FIXME: create exercises for basic logging
+{% include problems-exercises.md topic="basic logging" %}
 
 ## How Can I Change the Format of My Program's Reports? {#s:logging-format}
 
@@ -107,13 +101,7 @@ logging.warning('This is a warning.')
     -   Because CSV doesn't handle nested data...
     -   ...and you want to be able to read a single field, convert from YAML back to memory, and manipulate
 
-### Common Problems
-
-FIXME: common problems for changing log format
-
-### Exercises
-
-FIXME: create exercises for changing log format
+{% include problems-exercises.md topic="changing log format" %}
 
 ## How Can I Handle Multiple Reporting Sources in One Program? {#s:logging-source}
 
@@ -144,7 +132,7 @@ def create_logger(application, filename):
 
     return logger
 ```
-``python
+```python
 # get_words.py
 from util import create_logger
 
@@ -250,13 +238,7 @@ $ python tee.py
 2018-08-20T16:29:42,example,CRITICAL,critical
 ```
 
-### Common Problems
-
-FIXME: common problems for handling multiple log sources
-
-### Exercises
-
-FIXME: create exercises for handling multiple log sources
+{% include problems-exercises.md topic="handling multiple log sources" %}
 
 ## Summary {#s:logging-summary}
 

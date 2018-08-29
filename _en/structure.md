@@ -54,13 +54,7 @@ keypoints:
         -  May have a separate `CONTRIBUTORS` file, or list contributors in `CITATION`
     -   These files may be plain text or Markdown, or have no suffix at all, but please use the principal names as given
 
-### Common Problems
-
-FIXME: common problems for Noble's Rules
-
-### Exercises
-
-FIXME: create exercises for Noble's Rules
+{% include problems-exercises.md topic="Noble's Rules" %}
 
 ## Summary {#s:structure-summary}
 

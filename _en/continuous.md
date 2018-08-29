@@ -130,13 +130,7 @@ sys.exit(1)
   <img id="f:continuous-failure" src="../../files/travis-failure.png" alt="Travis Failure" />
 </figure>
 
-### Common Problems
-
-FIXME: common problems for setting up Travis-CI
-
-### Exercises
-
-FIXME: exercises for setting up Travis-CI
+{% include problems-exercises.md topic="setting up Travis-CI" %}
 
 ## How Can I Display the Status of a Repostiory? {#s:continuous-display}
 
@@ -173,25 +167,13 @@ FIXME: exercises for setting up Travis-CI
   <img id="f:continuous-github-icon" src="../../files/travis-github-icon.png" alt="Travis GitHub Icon" />
 </figure>
 
-### Common Problems
-
-FIXME: common problems for displaying Travis-CI status
-
-### Exercises
-
-FIXME: exercises for displaying Travis-CI status
+{% include problems-exercises.md topic="displaying Travis-CI status" %}
 
 ## How Can I Automatically Run Tests for My Project When Things Change?  {#s:continuous-tests}
 
 FIXME: describe how to run actual tests with Travis-CI
 
-### Common Problems
-
-FIXME: common problems for running tests with Travis-CI
-
-### Exercises
-
-FIXME: exercises for running tests with Travis-CI
+{% include problems-exercises.md topic="running tests with Travis-CI" %}
 
 ## Summary {#s:continuous-summary}
 

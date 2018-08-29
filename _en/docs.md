@@ -111,13 +111,7 @@ help(trim)
     -   And it's free
     -   But out of the scope of this lesson
 
-### Common Problems
-
-FIXME: common problems for using docstrings
-
-### Exercises
-
-FIXME: exercises for using docstrings
+{% include problems-exercises.md topic="using docstrings" %}
 
 ## Summary {#s:docs-summary}
 

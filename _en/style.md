@@ -62,13 +62,7 @@ keypoints:
     -   Put early exits or decisions at the top of the function ([guard clause](#g:guard-clause))
     -   Prefer `if` to `else`
 
-### Common Problems
-
-FIXME: common problems for standard Python style
-
-### Exercises
-
-FIXME: exercises for standard Python style
+{% include problems-exercises.md topic="standard Python style" %}
 
 ## How Can I Specify Default Values for My Functions' Parameters? {#s:style-defaults}
 
@@ -106,13 +100,7 @@ def collect(new_value, accumulator=set()):
 {'first', 'second'}
 ```
 
-### Common Problems
-
-FIXME: common problems for default parameter values
-
-### Exercises
-
-FIXME: exercises for default parameter values
+{% include problems-exercises.md topic="default parameter values" %}
 
 ## How Can I Write Functions to Handle a Variable Number of Arguments? {#s:style-varargs}
 
@@ -172,13 +160,7 @@ def settings(user_id, **settings):
 jenny {'lang': 'R', 'country': 'CA'}
 ```
 
-### Common Problems
-
-FIXME: common problems for varargs
-
-### Exercises
-
-FIXME: exercises for varargs
+{% include problems-exercises.md topic="varargs" %}
 
 ## Summary {#s:style-summary}
 

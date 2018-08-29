@@ -110,13 +110,7 @@ if __name__ == '__main__':
     -   The usage message doesn't appear, which means the main block wasn't executed, which is what we want
     -   So now we can go back and put its content in a function and call that function, because we are good people
 
-### Common Problems
-
-FIXME: common problems for writing modules
-
-### Exercises
-
-FIXME: create exercises for writing modules
+{% include problems-exercises.md topic="writing modules" %}
 
 ## How Can I Install a Python Package? {#s:packages-install}
 
@@ -139,13 +133,7 @@ tdda>=1.0
 -   `pip freeze` will print exact versions of all installed packages
     -   Save this when producing reports ([s:publish](#CHAPTER))
 
-### Common Problems
-
-FIXME: common problems for installing packages
-
-### Exercises
-
-FIXME: create exercises for installing packages
+{% include problems-exercises.md topic="installing packages" %}
 
 ## How Can I Create an Installable Python Package? {#s:packages-package}
 
@@ -186,8 +174,8 @@ def is_zipf(hist, rel=RELATIVE_ERROR):
     scaled = [h/hist[0] for h in hist]
     perfect = generate.make_zipf(len(hist))
     return scaled == approx(perfect, rel=rel)
-``
-``py
+```
+```py
 import zipf
 
 generated = zipf.generate.make_zipf(5)
@@ -197,13 +185,7 @@ print('passes test with default tolerance: {}'.format(zipf.is_zipf(generated)))
 print('passes test with tolerance of 1.0: {}'.format(zipf.is_zipf(generated, rel=1.0)))
 ```
 
-### Common Problems
-
-FIXME: common problems for creating packages
-
-### Exercises
-
-FIXME: create exercises for creating packages
+{% include problems-exercises.md topic="creating packages" %}
 
 ## How Can I Distribute Software Packages That I Have Created? {#s:packages-distribute}
 
@@ -296,13 +278,7 @@ drwxr-xr-x  0 standage staff       0 20 Aug 15:36 zipf-0.1/zipf.egg-info/
 -   Next step is to test installation...
 -   ...but first we should clean up the warnings about `README.md`, `url`, and `author_email`
 
-### Common Problems
-
-FIXME: common problems for distributing software
-
-### Exercises
-
-FIXME: create exercises for distributing software
+{% include problems-exercises.md topic="distributing software" %}
 
 ## How Can I Manage the Packages My Projects Need? {#s:packages-virtualenv}
 
@@ -384,13 +360,7 @@ Proceed (y/n)? y
 -   ...but less than most of your data sets...
 -   ...and saves a *lot* of pain
 
-### Common Problems
-
-FIXME: common problems for virtual environments
-
-### Exercises
-
-FIXME: create exercises for virtual environments
+{% include problems-exercises.md topic="virtual environments" %}
 
 ## Summary {#s:packages-summary}
 

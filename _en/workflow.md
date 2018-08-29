@@ -68,13 +68,7 @@ keypoints:
     -   Doing work in one branch while large refactoring is going on in another
     -   So don't do this
 
-### Common Problems
-
-FIXME: common problems for branch per feature
-
-### Exercises
-
-FIXME: exercises for branch per feature
+{% include problems-exercises.md topic="branch per feature" %}
 
 ## How Can I Keep My Project's History Clean When Working on Many Branches? {#s:workflow-rebase}
 
@@ -101,13 +95,7 @@ FIXME: exercises for branch per feature
 -   Don't rebase branches that are shared with other people
     -   Creating a pull request from a branch effectively makes that branch shared
 
-### Common Problems
-
-FIXME: common problems for rebasing
-
-### Exercises
-
-FIXME: exercises for rebasing
+{% include problems-exercises.md topic="rebasing" %}
 
 ## How Can I Label Specific Versions of My Work? {#s:workflow-tag}
 
@@ -129,13 +117,7 @@ FIXME: exercises for rebasing
 -   Larger software projects may create a branch for each released version and do minor or patch updates on that branch
     -   Outside the scope of this lesson
 
-### Common Problems
-
-FIXME: common problems for tagging
-
-### Exercises
-
-FIXME: exercises for tagging
+{% include problems-exercises.md topic="tagging" %}
 
 ## How Can I Manage the Work I Still Have To Do? {#s:workflow-issues}
 
@@ -173,13 +155,7 @@ FIXME: exercises for tagging
   <img id="f:workflow-lifecycle" src="../../files/issue-lifecycle.svg" alt="Issue State Transitions" />
 </figure>
 
-### Common Problems
-
-FIXME: common problems for issues
-
-### Exercises
-
-FIXME: exercises for issues
+{% include problems-exercises.md topic="issues" %}
 
 ## How Can I Write a Good Bug Report? {#s:workflow-bugs}
 
@@ -216,13 +192,7 @@ printable character.)
 python wordbase.py --version reports 0.13.1; using on Windows 10.
 ~~~
 
-### Common Problems
-
-FIXME: common problems for writing bug reports
-
-### Exercises
-
-FIXME: exercises for writing bug reports
+{% include problems-exercises.md topic="writing bug reports" %}
 
 ## How Can I Set Up a Consistent Workflow for My Project? {#s:workflow-status}
 
@@ -250,13 +220,7 @@ FIXME: exercises for writing bug reports
     -   And notify interested parties of state transitions
 -   Don't worry about any of this until people are actually using issues...
 
-### Common Problems
-
-FIXME: common problems for lifecycle
-
-### Exercises
-
-FIXME: exercises for lifecycle
+{% include problems-exercises.md topic="lifecycle" %}
 
 ## Summary {#s:workflow-summary}
 
