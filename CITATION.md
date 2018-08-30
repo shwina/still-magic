@@ -4,7 +4,7 @@ Please cite this work as:
 
 > Greg Wilson (ed.):
 > *Still Magic: How to Build Research Software You Can Trust and Still Be Home in Time for Dinner*.
-> <http://gvwilson.github.io/still-magic/>, 2018.
+> <https://merely-useful.github.io/still-magic/>, 2018.
 
 ## Contributors
 
