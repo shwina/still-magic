@@ -147,7 +147,7 @@ def rescale_by_average(values, factors, weights):
             values[i] = v / a
 ```
 ```python
-# BEFORE
+# AFTER
 def rescale_by_average(values, factors, weights):
     if (not values) or (not factors) or (not weights):
         return
