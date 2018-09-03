@@ -18,7 +18,21 @@ so that:
 -   you and the people using your results can be confident that they're correct,
 -   and re-using your software is easier than rewriting it.
 
-These lessons are part of [Merely Useful]({{site.organization}}), and are based on:
+These lessons are the second of three parts of [Merely Useful]({{site.organization}}).
+Each part is designed as a one-semester course:
+
+1.  [One Extra Fact](https://merely-useful.github.io/one-extra-fact/)
+    is the fundamentals that every researcher ought to know
+    (basically, what [the Carpentries][carpentries] teach, but in more detail).
+2.  This course,
+    [Still Magic](https://merely-useful.github.io/still-magic/),
+    is more advanced material for people whose primary role is building research software.
+    The learner profiles below describe its intended audience in more detail.
+3.  Finally,
+    [Set On Fire](https://merely-useful.github.io/set-on-fire/)
+    is intended for those who find themselves running larger projects with external collaborators.
+
+This material is based on:
 
 -   "A Quick Guide to Organizing Computational Biology Projects" [[Nobl2009](#CITE)]
 -   "Ten Simple Rules for Making Research Software More Robust" [[Tasc2017](#CITE)]

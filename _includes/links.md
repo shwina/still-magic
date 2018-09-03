@@ -16,6 +16,7 @@ definitions if that's done.
 
 [capes-gerard]: https://github.com/gcapes
 [captain-awkward]: https://captainawkward.com/
+[carpentries]: https://carpentries.org/
 [charles-rules]: http://geekfeminism.wikia.com/wiki/Charles%27_Rules_of_Argument
 [choose-license]: http://choosealicense.com/
 [code-smells-and-feels]: https://github.com/jennybc/code-smells-and-feels
