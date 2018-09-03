@@ -62,7 +62,7 @@ exclude:
 - misc
 - requirements.txt
 - src
-- tex_en
+- tex
 - unused
 
 # Markers in generated files.

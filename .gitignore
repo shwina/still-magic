@@ -13,6 +13,5 @@ __pycache__
 _site
 dist
 htmlcov
-tex/*/book.bib
 tex/*/book.pdf
 tex/*/inc
