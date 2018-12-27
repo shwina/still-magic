@@ -14,6 +14,7 @@ Please cite this work as:
 ## Acknowledgments
 
 -   [Gerard Capes][capes-gerard]
+-   [Julia Gustavsen][gustavsen-julia]
 -   [Katy Huff][huff-katy]
 -   [Matthew J. Kirk][kirk-matthew]
 -   [Timothée Poisot][poisot-timothee]
