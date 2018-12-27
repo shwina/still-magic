@@ -1,6 +1,7 @@
 ---
 permalink: "/en/docs/"
 title: "Documenting Code"
+undone: true
 questions:
 -   "What kind of documentation should I write and where should I put it?"
 objectives:

@@ -1,6 +1,7 @@
 ---
 permalink: "/en/finale/"
 title: "Finale"
+undone: true
 questions:
 -   "What does it all mean?"
 -   "Where do we go next?"

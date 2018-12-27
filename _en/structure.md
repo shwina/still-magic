@@ -1,6 +1,7 @@
 ---
 permalink: "/en/structure/"
 title: "Project Structure"
+undone: true
 questions:
 -   "How should I organize the files and directories in my project?"
 objectives:

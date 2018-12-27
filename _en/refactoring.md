@@ -1,6 +1,7 @@
 ---
 permalink: "/en/refactoring/"
 title: "Refactoring"
+undone: true
 questions:
 -   "How can I go about reorganizing code when I'm making changes?"
 objectives:

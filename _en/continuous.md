@@ -1,6 +1,7 @@
 ---
 permalink: "/en/continuous/"
 title: "Continuous Integration"
+undone: true
 questions:
 -   "How can I tell what state my project is actually in?"
 objectives:

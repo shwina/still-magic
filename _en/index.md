@@ -26,15 +26,15 @@ This course are the second part of [Merely Useful][config-organization]:
 2.  This part,
     [Still Magic][config-website],
     is more advanced material for people who are building research software for others to use
-    or find themselves doing some [data engineering](../gloss/#g:data-engineering).
+    or find themselves doing some [data engineering](./gloss/#g:data-engineering).
 3.  Finally,
     [Set On Fire][set-on-fire]
     is intended for people running larger projects with external collaborators.
 
-## Who Are These Lessons For? {:#s:index-personas}
+## Who Are These Lessons For? {#s:index-personas}
 
-Amira:
-    Completed a Master's in epidemiology five years ago,
+Amira
+:   completed a Master's in epidemiology five years ago,
     and has worked since then for a small NGO.
     She did a biostatistics course during her degree,
     and has learned some R and Python by doing data science courses online,
@@ -43,16 +43,16 @@ Amira:
     in order to share them with her colleagues.
     These lessons will show her how to do this and what "done" looks like.
 
-Jun:
-    Completed an Insight Data Science fellowship last year after doing a PhD in Geology,
+Jun
+:   completed an Insight Data Science fellowship last year after doing a PhD in Geology,
     and now works for a company that does forensic audits.
     He has used a variety of machine learning and visualization software,
     and has made a few small contributions to a couple of open source R packages.
     He would now like to make his own code available to others;
     this course will show him how such projects should be organized.
 
-Sami:
-    Learned a fair bit of numerical programming while doing a BSc in applied math,
+Sami
+:   learned a fair bit of numerical programming while doing a BSc in applied math,
     then started working for the university's supercomputing center.
     Over the past few years,
     the kinds of applications they are being asked to support
@@ -62,13 +62,13 @@ Sami:
 
 ## Summary {#s:index-summary}
 
-For researchers and data scientists who have a basic understanding of the Unix shell, Python, and Git,
+For researchers and data scientists who can build and run programs that are three or four pages long,
 and who want to be more productive and have more confidence in their results,
 this training course
 provides a pragmatic, tools-based introduction to program design and maintenance.
-Unlike academic software engineering courses and most books aimed at professional software developers,
+Unlike books and courses aimed at computer scientists and professional software developers,
 this course uses data analysis as a motivating example
-and assumes that the learner's ultimate goal is to answer a question rather than ship an application.
+and assumes that the learner's ultimate goal is to answer questions rather than ship products.
 
 Learners must be comfortable with the basics of
 the [Unix shell][swc-shell], [Python][swc-python] or [R][swc-r], and [Git][swc-git].
@@ -81,9 +81,9 @@ and a GitHub account.
 
 This material is based on [Nobl2009,Tasc2017,Wils2014,Wils2017](#BIB)
 and on the [Carpentries][carpentries] lessons;
-please see [Wils2018](#BIB) and [this appendix](../design/) for design notes.
+please see [Wils2018](#BIB) and [this appendix](./design/) for design notes.
 We are grateful to [Insight Data Science][insight] for sponsoring the early stages of this work,
-and to [everyone who has contributed](../citation/#s:citation-contributors).
+and to [everyone who has contributed](./citation/#s:citation-contributors).
 
 ## Contributing {#s:index-contributing}
 

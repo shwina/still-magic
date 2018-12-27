@@ -1,6 +1,7 @@
 ---
 permalink: "/en/inclusive/"
 title: "Including Everyone"
+undone: true
 questions:
 -   "Why should I make my project welcoming for everyone?"
 -   "Why do I need a license for my work?"

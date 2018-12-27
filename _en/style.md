@@ -1,6 +1,7 @@
 ---
 permalink: "/en/style/"
 title: "Programming Style"
+undone: true
 questions:
 -   "How should I name my variables and functions?"
 -   "How should I organize my code so that other people can understand it?"

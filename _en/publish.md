@@ -1,6 +1,7 @@
 ---
 permalink: "/en/publish/"
 title: "Publishing"
+undone: true
 questions:
 -   "How and where should I publish my reports?"
 -   "What should I include in my publications?"

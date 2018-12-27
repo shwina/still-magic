@@ -1,6 +1,7 @@
 ---
 permalink: "/en/ghp/"
 title: "Using GitHub Pages"
+undone: true
 questions:
 -   "How can I create a static website for my work?"
 objectives:

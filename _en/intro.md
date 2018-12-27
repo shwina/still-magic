@@ -1,6 +1,7 @@
 ---
 permalink: "/en/intro/"
 title: "Introduction"
+undone: true
 questions:
 -   "What is the difference between open, reproducible, and competent?"
 -   "What is the scope of this training?"
