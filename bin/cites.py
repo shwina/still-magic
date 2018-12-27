@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 
-'''Handle citations in LaTeX transformation because 'sed' can't.'''
+'''
+Handle citations in LaTeX transformation because 'sed' can't.
+'''
 
 import sys
 import re

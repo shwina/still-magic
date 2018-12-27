@@ -12,7 +12,7 @@ keypoints:
 -   "Check style as well as correctness."
 ---
 
--   [Continuous integration](#g:continuous-integration) is a simple idea
+-   [Continuous integration](../gloss/#g:continuous-integration) is a simple idea
     -   Build and test code and documentation every time someone commits code
     -   Post results somewhere everyone can see them (you, the team, users, ...)
     -   If build or tests fail, send out notifications
@@ -79,7 +79,7 @@ print('Hello, continuous')
 
 <figure id="f:continuous-log"> <figcaption>Travis Log</figcaption> <img src="../../files/travis-log.png"/> </figure>
 
--   Most important thing is the test program's [exit status](#g:exit-status)
+-   Most important thing is the test program's [exit status](../gloss/#g:exit-status)
 -   Exit status of 0 means "nothing went wrong"
     -   The default if you don't specify anything else
     -   You can do it explicitly with `sys.exit(0)`

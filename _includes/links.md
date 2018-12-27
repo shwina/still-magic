@@ -7,6 +7,11 @@ file is a Markdown file because Jekyll doesn't expand the link
 definitions if that's done.
 {% endcomment %}
 
+[config-email]: mailto:{{site.email}}
+[config-organization]: {{site.organization}}
+[config-repo]: {{site.repo}}
+[config-website]: {{site.website}}
+
 [ally-skills]: https://frameshiftconsulting.com/ally-skills-workshop/
 [authorea]: https://www.authorea.com/
 
@@ -64,7 +69,7 @@ definitions if that's done.
 [model-coc]: http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy
 [ms-word]: https://en.wikipedia.org/wiki/Microsoft_Word
 
-[one-extra-thing]: https://merely-useful.github.io/one-extra-thing/
+[one-extra-fact]: https://merely-useful.github.io/one-extra-fact/
 [orcid]: https://orcid.org/
 [orwells-rules]: https://en.wikipedia.org/wiki/Politics_and_the_English_Language#Remedy_of_Six_Rules
 [osi-license-list]: http://opensource.org/licenses
@@ -82,6 +87,7 @@ definitions if that's done.
 [r-markdown]: https://rmarkdown.rstudio.com/
 [readthedocs]: https://docs.readthedocs.io/en/latest/
 
+[set-on-fire]: https://merely-useful.github.io/set-on-fire/
 [setuptools]: https://setuptools.readthedocs.io/
 [seven-ways]: http://blog.jonudell.net/2011/01/24/seven-ways-to-think-like-the-web/
 [shapiro-wilk]: https://en.wikipedia.org/wiki/Shapiro%E2%80%93Wilk_test

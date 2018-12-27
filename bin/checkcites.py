@@ -1,14 +1,22 @@
 #!/usr/bin/env python
 
+'''
+Check for unused and undefined citations.
+'''
+
 import sys
 import re
+from util import report
 
-def main():
-    bibFile, sourceFiles = sys.argv[1], sys.argv[2:]
+
+TITLE = 'Citations'
+
+
+def main(bibFile, sourceFiles):
     defined = getKeys(bibFile)
     used = getRefs(sourceFiles)
-    report('unused', defined - used)
-    report('undefined', used - defined)
+    report(TITLE, 'unused', defined - used)
+    report(TITLE, 'undefined', used - defined)
 
 
 def getKeys(filename):
@@ -31,10 +39,9 @@ def getRefs(filenames):
     return result
 
 
-def report(title, keys):
-    if keys:
-        print(title, ', '.join(sorted(keys)))
-
-
 if __name__ == '__main__':
-    main()
+    if len(sys.argv) < 3:
+        print('Usage: checkcites.py bibFile sourceFile [sourceFile ...]',
+              file=sys.stderr)
+        sys.exit(1)
+    main(sys.argv[1], sys.argv[2:])

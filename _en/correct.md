@@ -41,10 +41,10 @@ keypoints:
     -   We cannot represent an infinite number of real values with a finite set of bit patterns
     -   And unlike integers, no matter what values we *do* represent, there will be an infinite number of values between each of them that we can't
 -   The explanation that follows is simplified---possibly over-simplified---to keep it manageable.
-    -   If you want to know more, take half an hour to read [[Gold1991](#CITE)]
--   Floating point numbers are usually represented using [sign](#g:sign), [magnitude](#g:magnitude), and an [exponent](#g:exponent).
+    -   If you want to know more, take half an hour to read [Gold1991](#BIB)
+-   Floating point numbers are usually represented using [sign](../gloss/#g:sign), [magnitude](../gloss/#g:magnitude), and an [exponent](../gloss/#g:exponent).
 -   In a 32-bit word, the IEEE 754 standard calls for 1 bit of sign,
-    23 bits for the magnitude (or [mantissa](#g:mantissa)),
+    23 bits for the magnitude (or [mantissa](../gloss/#g:mantissa)),
     and 8 bits for the exponent
 -   To illustrate the problems with floating point, we'll use a much dumber representation.
     -   Only use 5 bits: 3 for the magnitude and 2 for the exponent
@@ -111,8 +111,8 @@ keypoints:
     -   The first group is separated by 1, then the separation becomes 2, then 4, then 8
     -   This happens because we're multiplying the same fixed set of mantissas by ever-larger exponents
     -   Leads to some useful definitions
--   The [absolute error](#g:absolute-error) in some approximation to a value is the absolute value of the difference between the two
--   The [relative error](#g:relative-error) is the ratio of the absolute error to the value we're approximating
+-   The [absolute error](../gloss/#g:absolute-error) in some approximation to a value is the absolute value of the difference between the two
+-   The [relative error](../gloss/#g:relative-error) is the ratio of the absolute error to the value we're approximating
     -   If we are off by 1 in approximating 8+1 and 56+1, that's the same absolute error
     -   But the relative error is larger in the first case than in the second
 -   Relative error is almost always more useful than absolute
@@ -201,15 +201,15 @@ for bound in (1e-15, 1e-16):
 -   Both of these bounds are unreasonably tight
     -   A relative error of $$10^{-3}$$ (three decimal places) is more than good enough for most data science
     -   Because the decision the human being would make won't change if the number changes by 0.1%
--   [Accuracy](#g:accuracy) is how close your answer is to right
--   [Precision](#g:precision) is how close repeated measurements are to each other
+-   [Accuracy](../gloss/#g:accuracy) is how close your answer is to right
+-   [Precision](../gloss/#g:precision) is how close repeated measurements are to each other
 -   You can be precise without being accurate (systematic bias), or accurate without being precise (near the right answer, but without many significant digits)
 -   For human decision making, accuracy is usually more important than precision
 
 ## How Can I Test Plots and Other Graphical Results? {#s:correct-plots}
 
 -   Testing visualizations is hard
-    -   Any change to the dimension of the plot, however small, can change many pixels in a [raster image](#g:raster-image)
+    -   Any change to the dimension of the plot, however small, can change many pixels in a [raster image](../gloss/#g:raster-image)
     -   Trivial changes (such as moving the legend up a couple of pixels) will generate false positives
 -   As with floating point, the generated image should not change if nothing else has changed
     -   So you should be able to do an exact match against a saved (reference) image
@@ -224,7 +224,7 @@ FIXME: example
 ```
 
 -   If the plotting library allows output as SVG, can test the structure of the SVG
-    -   SVG is a [vector format](#g:vector-image) that uses a hierarchical document structure like HTML's
+    -   SVG is a [vector format](../gloss/#g:vector-image) that uses a hierarchical document structure like HTML's
     -   Check that the right elements are there with the right properties
     -   Although any changes to the library can invalidate all the tests because of layers being introduced, renamed, or removed
 -   The best option is to test the data structures used to generate the plot and then trust the plotting library
@@ -280,7 +280,7 @@ def test_fit_last_too_large():
 
 ## How Can I Check the Steps in a Data Analysis Pipeline in Production? {#s:correct-operational}
 
--   [Operational tests](#g:operational-test) are ones that are kept in place during production
+-   [Operational tests](../gloss/#g:operational-test) are ones that are kept in place during production
     -   Is everything working as it should?
 -   Common pattern:
     -   Have every tool append information to a log

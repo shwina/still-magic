@@ -21,7 +21,7 @@ keypoints:
 -   Software needs to be controlled
     -   Some things change more often than others
     -   Want a simple, uniform way to specify some options and leave others alone
--   Modern Unix convention is [overlay configuration](#g:overlay-configuration)
+-   Modern Unix convention is [overlay configuration](../gloss/#g:overlay-configuration)
     -   Short command-line options to change things that commonly change
     -   Per-result configuration file to control all those same options
     -   Per-user configuration file for personal preferences
@@ -121,7 +121,7 @@ print(config)
 {'logfile': '/tmp/log.txt', 'quiet': False, 'overwrite': False, 'fonts': ['Verdana', 'Serif']}
 ```
 
--   If your configuration file needs more depth than this, you're probably doing something wrong [[Xu2015](#CITE)]
+-   If your configuration file needs more depth than this, you're probably doing something wrong [Xu2015](#BIB)
     -   Most users never use most configuration options
     -   And find their presence confusing
 -   Return to command-line parsing

@@ -48,7 +48,7 @@ keypoints:
     -   `git pull origin master` again and resolve any conflicts
     -   `git merge feature-name master` (command line) to merge into master when work is done
 -   Better:
-    -   Create a [pull request](#g:pull-request) on GitHub
+    -   Create a [pull request](../gloss/#g:pull-request) on GitHub
     -   Within one repository (which may be shared with other people) or between repositories (from your fork to the upstream repository)
     -   Get someone to look over the changes and leave comments
     -   Make fixes: the pull request is updated in place
@@ -70,7 +70,7 @@ keypoints:
 
 ## How Can I Keep My Project's History Clean When Working on Many Branches? {#s:workflow-rebase}
 
--   [Rebasing](#g:rebase) means moving or combining some commits from one branch to another
+-   [Rebasing](../gloss/#g:rebase) means moving or combining some commits from one branch to another
     -   Replay changes on one branch on top of changes made to another
     -   And/or collapse several consecutive commits into a single commit
     -   We will just use the latter ability
@@ -95,12 +95,12 @@ keypoints:
 
 ## How Can I Label Specific Versions of My Work? {#s:workflow-tag}
 
--   A [tag](#g:git-tag) is a permanent label on a particular state of the repository
-    -   Theoretically redundant, since the [commit hash](#g:commit-hash) identifies that state as well
+-   A [tag](../gloss/#g:git-tag) is a permanent label on a particular state of the repository
+    -   Theoretically redundant, since the [commit hash](../gloss/#g:commit-hash) identifies that state as well
     -   But commit hashes are (deliberately) random and therefore hard to remember or find
--   Use [annotated tags](#g:annotated-tag) to mark every major event in the project's history
+-   Use [annotated tags](../gloss/#g:annotated-tag) to mark every major event in the project's history
     -   Annotated because they allow a message, just like a commit
--   Software projects use [semantic versioning](#g:semantic-versioning) for software releases
+-   Software projects use [semantic versioning](../gloss/#g:semantic-versioning) for software releases
     -   `major.minor.patch`
     -   Increment `major` every time there's an incompatible externally-visible change
     -   Increment `minor` when adding functionality without breaking any existing code
@@ -115,7 +115,7 @@ keypoints:
 
 ## How Can I Manage the Work I Still Have To Do? {#s:workflow-issues}
 
--   Version control tells you where you've been; [issues](#g:issue) tells us where you're going
+-   Version control tells you where you've been; [issues](../gloss/#g:issue) tells us where you're going
     -   Issue tracking tools are often called ticketing systems or bug trackers,
         since they were created to keep track of work that nees to be done and bugs that needed fixing
 -   Every issue has:

@@ -1,15 +1,23 @@
 #!/usr/bin/env python
 
+'''
+Check for unused or missing files compared to table of contents in YAML configuration.
+'''
+
 import sys
 import re
 import yaml
+from util import report
+
+
+TITLE = 'Table of Contents'
 
 
 def main(configPath, chapterFiles):
     configToc = read_config_toc(configPath)
     filesToc = normalize(chapterFiles) - {'index'}
-    report('in configuration but no file',  configToc - filesToc)
-    report('file but not in configuration', filesToc - configToc)
+    report(TITLE, 'missing',  configToc - filesToc)
+    report(TITLE, 'unused', filesToc - configToc)
 
 
 def read_config_toc(configPath):
@@ -23,15 +31,9 @@ def normalize(filenames):
     return set([f.split('/')[1].split('.')[0] for f in filenames])
 
 
-def report(title, values):
-    if not values: return
-    print(title)
-    for v in sorted(values):
-        print(v)
-    
-
 if __name__ == '__main__':
     if len(sys.argv) < 3:
-        sys.stderr.write('Usage: checkfiles /path/to/config /path/to/chapterfiles...')
+        print('Usage: checkfiles /path/to/config /path/to/chapterfiles...',
+              file=sys.stderr)
         sys.exit(1)
     main(sys.argv[1], sys.argv[2:])

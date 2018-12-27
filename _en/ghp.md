@@ -24,12 +24,12 @@ keypoints:
 -   All options for publishing data science in the early 21st Century are clumsy and contradictory
     -   Just as all classroom instruction compromises the efficacy of individual tutoring in the name of economics,
         all publishing options compromise the flexibility of pen on paper in the name of readability and efficiency
--   [WYSIWYG](#g:wysiwyg) tools like [Microsoft Word][ms-word], [LibreOffice][libreoffice], and [Google Docs][google-docs]
+-   [WYSIWYG](../gloss/#g:wysiwyg) tools like [Microsoft Word][ms-word], [LibreOffice][libreoffice], and [Google Docs][google-docs]
     -   Lower cognitive load because you can see what your readers will see
     -   *Can* allow restyling, but most people don't take advantage of those features (extra work up front for downstream payoff)
     -   Hard to automatically regenerate (although again it's possible, just not taken advantage of)
     -   Hard to coordinate the work of multiple contributors because version control systems don't support their formats
--   [Typesetting languages](#g:typesetting-language) like [Markdown][markdown], HTML, and [LaTeX][latex] use plain text plus instructions
+-   [Typesetting languages](../gloss/#g:typesetting-language) like [Markdown][markdown], HTML, and [LaTeX][latex] use plain text plus instructions
     -   Much higher cognitive load because of the compilation step
     -   Much easier to restyle because of the compilation step
     -   Much easier to automatically regenerate (provided the thing you want to regenerate fits the format)
@@ -184,7 +184,7 @@ author: "Adagu Okereke"
 The manifold perplexities of my chosen research topic...
 ```
 
--   First line specifies the [page template](#g:page-template) to use
+-   First line specifies the [page template](../gloss/#g:page-template) to use
 -   Create a sub-directory called `_layouts`
 -   Create an HTML file with everything common to all pages
 -   Use `{% raw %}{{content}}{% endraw %}` to show where the content of the page is to go
@@ -249,7 +249,7 @@ exclude:
 - results
 ```
 
--   There are *lots* of [themes](#g:theme) for Jekyll
+-   There are *lots* of [themes](../gloss/#g:theme) for Jekyll
     -   Use one of GitHub's defaults unless you know a lot about graphic design and want to spend hours fiddling with CSS
 
 ## How Can I Preview Pages Locally? {#s:ghp-preview}
@@ -273,7 +273,7 @@ exclude:
     -   E.g., `../images/profile.png`
 -   But what about your templates?
     -   Want to use the same template for pages at all levels
--   Use a Jekyll [filter](#g:jekyll-filter)
+-   Use a Jekyll [filter](../gloss/#g:jekyll-filter)
     -   Double curly brackets to trigger evalution by Jekyll
     -   The absolute path for the link
     -   A pipe symbol
@@ -336,7 +336,7 @@ exclude:
     -   Everything after the `?` is configuration for MathJax
     -   The word `async` means "don't hold up loading, but run the script as soon as it's available"
     -   Things like this are why we use page templates...
--   Note: this is loading MathJax from a [content delivery network](#g:cdn)
+-   Note: this is loading MathJax from a [content delivery network](../gloss/#g:cdn)
     -   Means the math won't render if you are offline
     -   You can install MathJax locally, but that's out of the scope of this lesson
 -   Now mark the inline LaTeX in the body of your page with `$$...$$` markers

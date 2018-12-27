@@ -15,19 +15,19 @@ keypoints:
 -   "Use comprehensions instead of loops."
 ---
 
--   [Refactoring](#g:refactor) is changing the structure of code without changing what it does
+-   [Refactoring](../gloss/#g:refactor) is changing the structure of code without changing what it does
     -   Like refactoring an equation
-    -   Because nobody gets it right the first time [[Bran1995](#CITE)]
--   Most discussions of refactoring focus on [object-oriented programming](#g:oop)
--   But many patterns can and should be used to clean up [procedural](#g:procedural-programming) code
-    -   An example of [design patterns](#g:design-patterns)
+    -   Because nobody gets it right the first time [Bran1995](#BIB)
+-   Most discussions of refactoring focus on [object-oriented programming](../gloss/#g:oop)
+-   But many patterns can and should be used to clean up [procedural](../gloss/#g:procedural-programming) code
+    -   An example of [design patterns](../gloss/#g:design-patterns)
 
 ## Replace Value With Name {#s:refactoring-replace-value-with-name}
 
 -   I.e., define a constant
 -   Easier to understand when read aloud (which is always a good test)
 -   Easier to change
-    -   You don't think you'll have to, but then people want to use your software on Mars [[Mak2006](#CITE)]
+    -   You don't think you'll have to, but then people want to use your software on Mars [Mak2006](#BIB)
 
 ```python
 # BEFORE
@@ -100,7 +100,7 @@ def process_data(data, scaling):
 
 ## Use In-Place Operator {#s:refactoring-in-place}
 
--   An [in-place operator](#g:in-place-operator) does a calculation with two values and overwrites one of those values
+-   An [in-place operator](../gloss/#g:in-place-operator) does a calculation with two values and overwrites one of those values
 -   Instead of `x = x + 1`, write `x += 1`
 -   `samples[least_factor_index, max(current_offset, offset_limit)] *= scaling_factor` is much easier to read if the array indexing *isn't* repeated
 -   Using in-place operators also makes it clear that a value is being overwritten
@@ -120,7 +120,7 @@ for least_factor_index in all_factor_indexes:
 
 ## Place Short Circuits Early {#s:refactoring-short-circuits}
 
--   A [short circuit](#g:short-circuit) test is a quick check to handle a special case
+-   A [short circuit](../gloss/#g:short-circuit) test is a quick check to handle a special case
 -   Place these near the start of functions to give readers a sense of what the remaining code is there to handle
 
 ```python
@@ -179,7 +179,7 @@ scale = 1.0
 if configuration['threshold'] > UPPER_BOUND: scale = 0.8
 ```
 
--   Some programmers prefer to use [conditional expression](#g:conditional-expression)
+-   Some programmers prefer to use [conditional expression](../gloss/#g:conditional-expression)
 
 ```python
 # BETTER
@@ -264,7 +264,7 @@ def count_vowels_and_consonants(text):
 ## Create Lookup Table {#s:refactoring-lookup}
 
 -   Easier to understand (and therefore maintain) lookup tables than complicated conditionals
-    -   An example of [declarative programming](#g:declarative-programming) (see [s:automate](#CHAPTER))
+    -   An example of [declarative programming](../gloss/#g:declarative-programming) (see [s:automate](#CHAPTER))
 
 ```python
 # BEFORE

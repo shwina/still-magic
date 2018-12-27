@@ -55,8 +55,8 @@ title: "Design Notes"
     -   `git tag` to tag releases.
     -   Travis-CI for continuous integration.
     -   `pep8` for checking style.
-    -   Noble's Rules for project organization [[Nobl2009](#CITE)].
-    -   Taschuk's Rules for robust software [[Tasc2017](#CITE)].
+    -   Noble's Rules for project organization [Nobl2009](#BIB).
+    -   Taschuk's Rules for robust software [Tasc2017](#BIB).
     -   Creative Commons and MIT licenses for data, reports, and software.
     -   The Contributor Covenant as a code of conduct.
     -   `pip` for package creationg and installation.
@@ -66,7 +66,7 @@ title: "Design Notes"
     -   Python: lists, loops, conditionals, functions, importing and using libraries
     -   Unix shell: paths, editing/renaming/deleting files, wildcards, redirection, pipes and filters, shell scripts
     -   Git: add/commit, log, merge, resolving conflicts, push, pull
-    -   The core [Software Carpentry][swc] lessons cover these topics, as does the [prerequisite course][one-extra-thing] in this series
+    -   The core [Software Carpentry][swc] lessons cover these topics, as does the [prerequisite course][one-extra-fact] in this series
 1.  What *won't* be covered?
     -   Statistics: not the focus of this course.
     -   Higher-order functions and object-oriented programming: higher-level programming isn't the focus of this material.

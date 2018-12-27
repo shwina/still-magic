@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+'''
+Check for non-7-bit characters in files.
+'''
+
 import sys
 
 

@@ -18,30 +18,30 @@ so that:
 -   you and the people using your results can be confident that they're correct,
 -   and re-using your software is easier than rewriting it.
 
-These lessons are the second of three parts of [Merely Useful]({{site.organization}}).
+These lessons are the second of three parts of [Merely Useful][config-organization].
 Each part is designed as a one-semester course:
 
-1.  [One Extra Fact](https://merely-useful.github.io/one-extra-fact/)
+1.  [One Extra Fact][one-extra-fact]
     is the fundamentals that every researcher ought to know
     (basically, what [the Carpentries][carpentries] teach, but in more detail).
 2.  This course,
-    [Still Magic](https://merely-useful.github.io/still-magic/),
+    [Still Magic][config-website],
     is more advanced material for people whose primary role is building research software.
     The learner profiles below describe its intended audience in more detail.
 3.  Finally,
-    [Set On Fire](https://merely-useful.github.io/set-on-fire/)
+    [Set On Fire][set-on-fire]
     is intended for those who find themselves running larger projects with external collaborators.
 
 This material is based on:
 
--   "A Quick Guide to Organizing Computational Biology Projects" [[Nobl2009](#CITE)]
--   "Ten Simple Rules for Making Research Software More Robust" [[Tasc2017](#CITE)]
--   "Best Practices for Scientific Computing" [[Wils2014](#CITE)]
--   "Good Enough Practices in Scientific Computing" [[Wils2017](#CITE)]
+-   "A Quick Guide to Organizing Computational Biology Projects" [Nobl2009](#BIB)
+-   "Ten Simple Rules for Making Research Software More Robust" [Tasc2017](#BIB)
+-   "Best Practices for Scientific Computing" [Wils2014](#BIB)
+-   "Good Enough Practices in Scientific Computing" [Wils2017](#BIB)
 -   The [Software Carpentry][swc] and [Data Carpentry][dc] lessons
 
 For notes on how these lessons were designed, please see [s:design](#APPENDIX)
-and [[Wils2018](#CITE)].
+and [Wils2018](#BIB).
 
 ## Who Are These Lessons For?
 

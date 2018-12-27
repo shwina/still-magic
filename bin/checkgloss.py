@@ -1,9 +1,15 @@
 #!/usr/bin/env python
 
+'''
+Check for unused and undefined glossary entries.
+'''
+
 import sys
 import re
+from util import report
 
 
+TITLE = 'Glossary Entries'
 DEF = re.compile(r'\*\*.+?\*\*{:#(g:.+?)}', re.DOTALL)
 REF = re.compile(r'\[.+?\]\([^#]*#(g:.+?)\)', re.DOTALL)
 
@@ -16,16 +22,12 @@ def main(filenames):
             doc = reader.read()
             defs.update({d for d in DEF.findall(doc)})
             refs.update({r for r in REF.findall(doc)})
-    report('missing', refs - defs)
-    report('unused', defs - refs)
-
-
-def report(title, items):
-    if not items: return
-    print(title)
-    for i in sorted(items):
-        print('  {}'.format(i))
+    report(TITLE, 'unused', defs - refs)
+    report(TITLE, 'undefined', refs - defs)
 
 
 if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print('Usage: checkgloss.py glossFile [filename ...]',
+              file=sys.stderr)
     main(sys.argv[1:])

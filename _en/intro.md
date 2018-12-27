@@ -76,11 +76,11 @@ or as part of a one-semester course for graduate students or senior undergraduat
 
 ## Sources {#s:intro-sources}
 
--   "A Quick Guide to Organizing Computational Biology Projects" [[Nobl2009](#CITE)]
--   "Ten Simple Rules for Making Research Software More Robust" [[Tasc2017](#CITE)]
--   "Best Practices for Scientific Computing" [[Wils2014](#CITE)]
--   "Good Enough Practices in Scientific Computing" [[Wils2017](#CITE)]
--   *Teaching Tech Together* [[Wils2018](#CITE)]
+-   "A Quick Guide to Organizing Computational Biology Projects" [Nobl2009](#BIB)
+-   "Ten Simple Rules for Making Research Software More Robust" [Tasc2017](#BIB)
+-   "Best Practices for Scientific Computing" [Wils2014](#BIB)
+-   "Good Enough Practices in Scientific Computing" [Wils2017](#BIB)
+-   *Teaching Tech Together* [Wils2018](#BIB)
 
 ## Contributing {#s:intro-contrib}
 
@@ -89,8 +89,8 @@ improvements to entirely new sections and chapters. All proposed
 contributions will be managed in the same way as edits to Wikipedia or
 patches to open source software, and all contributors will be credited
 for their work each time a new version is released.  please file an
-issue in our [GitHub repository]({{site.repo}}) or [email the author
-directly](mailto:{{site.email}}).  Please note that all contributors
+issue in our [GitHub repository][config-repo] or [email the author
+directly][config-email].  Please note that all contributors
 are required to abide by our code of conduct ((s:conduct)[#APPENDIX]).
 
 {% include links.md %}

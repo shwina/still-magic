@@ -33,7 +33,7 @@ keypoints:
 -   Big raw data (more than 5 GB)
     -   May not be yours in the first place, and needs professional archiving
     -   Again, include identifiers or download scripts
--   Whichever you use, get or create a [DOI](#g:doi) for each version of each dataset ([s:publish-identifiers](#SECTION))
+-   Whichever you use, get or create a [DOI](../gloss/#g:doi) for each version of each dataset ([s:publish-identifiers](#SECTION))
 -   Also publish intermediate files that take a long time to generate
     -   Same sizing rules as above
     -   If they're likely to be used by other people or in other reports, get a DOI
@@ -76,11 +76,11 @@ archive :
 
 ## How Can I Identify Myself and My Work in Bibliographies? {#s:publish-identifiers}
 
--   An [ORCID](#g:orcid) is an Open Researcher and Contributor ID
+-   An [ORCID](../gloss/#g:orcid) is an Open Researcher and Contributor ID
     -   Because names and affiliations change
 -   Can [get an ORCID][orcid] for free and include in publications
     -   Greg Wilson's is 0000-0001-8659-8979
--   A [DOI](#g:doi) is a Digital Object Identifier
+-   A [DOI](../gloss/#g:doi) is a Digital Object Identifier
     -   Uniquely identifies a particular version of a particular digital artefact
     -   Can be a report, a dataset, or a version of software
     -   Format is `doi:prefix/suffix`, but will often see URLs like `http://dx.doi.org/prefix/suffix`
@@ -128,7 +128,7 @@ archive :
     3.  (Meta)data has detailed provenance
     4.  (Meta)data meets domain-relevant community standards
 -   In practice:
-    -   Always use [tidy data](#g:tidy-data)
+    -   Always use [tidy data](../gloss/#g:tidy-data)
     -   Include keywords in the project's `README.md` so that they appear on its home page
     -   Give everything DOIs
     -   Put data in open repositories

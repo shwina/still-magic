@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+'''
+Remove code blocks from stdin and echo to stdout.
+'''
+
 import sys
 
 

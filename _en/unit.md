@@ -38,18 +38,18 @@ keypoints:
     -   Report which ones have failed
     -   Give some idea of where or why they failed (to help debugging)
     -   Give some idea of whether any results have changed since the last run
-    -   Give people a clear idea of what our definition of correct and our [tolerances](#g:tolerance) are
+    -   Give people a clear idea of what our definition of correct and our [tolerances](../gloss/#g:tolerance) are
 -   This introduction is based in part on [Testing and Continuous Integration with Python][huff-testing] by [Katy Huff][huff-katy]
 
 ## What Does a Systematic Software Testing Framework Look Like? {#s:unit-own}
 
--   A test that checks one thing is called a [unit test](#g:unit-test)
--   A tool that finds and runs unit tests and reports their results is called a [test runner](#g:test-runner)
+-   A test that checks one thing is called a [unit test](../gloss/#g:unit-test)
+-   A tool that finds and runs unit tests and reports their results is called a [test runner](../gloss/#g:test-runner)
 -   A single test can have one of three outcomes:
     -   Pass: everything worked as expected
     -   Fail: something went wrong in the software being tested
     -   Error: something went wrong in the test itself (so we don't know anything about the software being tested)
--   A [fixture](#g:fixture) is what the test is run on, e.g., the input data
+-   A [fixture](../gloss/#g:fixture) is what the test is run on, e.g., the input data
 -   Good tests are independent
     -   Should produce the same results no matter what order they are run in
     -   Which means that each test starts from a freshly-generated fixture rather than using the output of previous tests
@@ -150,8 +150,8 @@ test_count.py:13: AssertionError
 ## How Can I Tell If My Software Failed As It Was Supposed To? {#s:unit-exception}
 
 -   Did the call fail as it was supposed to, i.e., raise the right kind of exception?
-    -   If not, system could produce a [silent error](#g:silent-error)
--   Many errors in production systems happen because people don't test their error handling code [[Yuan2014](#CITE)]
+    -   If not, system could produce a [silent error](../gloss/#g:silent-error)
+-   Many errors in production systems happen because people don't test their error handling code [Yuan2014](#BIB)
     -   Almost all (92%) of the catastrophic system failures are the result of
         incorrect handling of non-fatal errors explicitly signaled in software.
     -   In 58% of the catastrophic failures, the underlying faults could easily have
@@ -170,7 +170,7 @@ def test_text_not_empty():
         pass
 ```
 
--   Better: `pytest` provides a [context manager](#g:context-manager) to handle tests for exceptions
+-   Better: `pytest` provides a [context manager](../gloss/#g:context-manager) to handle tests for exceptions
     -   Uses Python's `with` keyword to create something for a particular scope
 
 ```python
@@ -212,7 +212,7 @@ test_exception.py:6: Failed
 -   Current dates and time count as randomness
     -   Write your own function
     -   Replace it with another for testing purposes
-    -   The replacement is called a [test double](#g:test-double)
+    -   The replacement is called a [test double](../gloss/#g:test-double)
         -   Or a mock, or a stub, or... terminology is very inconsistent
     -   Or provide a way to change one function's behavior
 -   First version using the latter strategy
@@ -250,7 +250,7 @@ first 2
 second 4
 ```
 
--   Cleaner approach: make the test control an [attribute](#g:function-attribute) of the function
+-   Cleaner approach: make the test control an [attribute](../gloss/#g:function-attribute) of the function
     -   Works because body of function isn't executed as the function is defined
     -   So it's OK to refer to values that are added afterward
 -   Advantage: can import the function alone, since the extra value is attached to it
@@ -356,13 +356,13 @@ if __name__ == '__main__':
     main()
 ```
 
--   [Coverage](#g:coverage) measures which parts of program are(n't) executed
+-   [Coverage](../gloss/#g:coverage) measures which parts of program are(n't) executed
     -   In principle, keep a list of Booleans, one per line
     -   Each time the line is executed, set the flag to `True`
     -   At the end, report `True` and `False` per line, percentages, etc.
--   Easy (and wrong) to obsess about meeting specific targets for [test coverage](#g:test-coverage)
+-   Easy (and wrong) to obsess about meeting specific targets for [test coverage](../gloss/#g:test-coverage)
     -   But anything that *isn't* tested should be assumed to be wrong
-    -   And drops in coverage often indicate new [technical debt](#g:technical-debt)
+    -   And drops in coverage often indicate new [technical debt](../gloss/#g:technical-debt)
 -   Use `pip install coverage` to install coverage tool
 -   Instead of `python filename.py` use `coverage run filename.py`
     -   Creates a file called `.coverage`
@@ -427,7 +427,7 @@ demo_coverage.py      16      1    94%
 
 ## Summary {#s:unit-summary}
 
--   [Test-driven development](#g:tdd) (TDD)
+-   [Test-driven development](../gloss/#g:tdd) (TDD)
     -   Write a handful of tests that don't even run because the code they
         are supposed to test doesn't exist yet.
     -   Write just enough code to make those tests pass.
@@ -439,7 +439,7 @@ demo_coverage.py      16      1    94%
     -   Ensures that code actually *is* testable
     -   Ensures tests are actually written
 -   Evidence backing these claims is contradictory
-    -   Empirical studies have not found a strong effect [[Fucc2016](#CITE)]
+    -   Empirical studies have not found a strong effect [Fucc2016](#BIB)
     -   But many productive programmers believe in it, so maybe we're measuring the wrong things...
 
 FIXME: create concept map for unit testing

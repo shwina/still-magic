@@ -102,29 +102,27 @@ ${PAGES_HTML} : ${PAGES_MD}
 
 ## check       : check everything.
 check :
-	@echo "Characters"
 	@make lang=${lang} checkchars
-	@echo
-	@echo "Glossary"
-	@make lang=${lang} checkgloss
-	@echo
-	@echo "Table of Contents"
-	@make lang=${lang} checktoc
-	@echo
-	@echo "Citations"
 	@make lang=${lang} checkcites
+	@make lang=${lang} checkgloss
+	@make lang=${lang} checklinks
+	@make lang=${lang} checktoc
 
 ## checkchars  : look for non-ASCII characters.
 checkchars :
 	@bin/checkchars.py ${PAGES_MD}
 
+## checkcites  : list all missing or unused bibliography entries.
+checkcites :
+	@bin/checkcites.py ${DIR_MD}/bib.md ${PAGES_MD}
+
 ## checkgloss  : check that all glossary entries are defined and used.
 checkgloss :
 	@bin/checkgloss.py ${PAGES_MD}
 
-## checkcites  : list all missing or unused bibliography entries.
-checkcites :
-	@bin/checkcites.py ${DIR_MD}/bib.md ${PAGES_MD}
+## checklinks  : check that all links are defined and used.
+checklinks :
+	@bin/checklinks.py _includes/links.md ${PAGES_MD}
 
 ## checktoc    : check consistency of tables of contents.
 checktoc :

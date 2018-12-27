@@ -60,14 +60,14 @@ keypoints:
 -   What we want is a way to describe:
     -   Which files depend on which other files
     -   How to generate or update a file when necessary
--   This is the job of a [build tool](#g:build-tool)
+-   This is the job of a [build tool](../gloss/#g:build-tool)
     -   So-called because it builds new files out of old ones
 -   Most widely used build tool is [Make][make]
     -   First written in 1976 to recompile programs (which at the time was a slow process)
     -   [Many better tools][build-tools] have been developed since, but none has been as widely adopted
     -   In particular, [Snakemake][snakemake] has a lot of fans, and a future version of this tutorial might well use it
 -   Make uses:
-    -   [Timestamps](#g:timestamp) on files to determine what's out of date
+    -   [Timestamps](../gloss/#g:timestamp) on files to determine what's out of date
     -   Shell commands to create or update files
     -   Reliance on shell commands is a reason for its longevity: Make can run pretty much any command
 -   [GNU Make][gnu-make] is a free, fast, and well-documented implementation of Make
@@ -86,15 +86,15 @@ results/moby-dick.csv : raw/moby-dick.txt
 ```
 
 -   `#` starts a comment, which runs to the end of a line (just as it does in Python)
--   `results/moby-dick.csv` is the [target](#g:make-target) of a [rule](#g:make-rule)
+-   `results/moby-dick.csv` is the [target](../gloss/#g:make-target) of a [rule](../gloss/#g:make-rule)
     -   I.e., something that may need to be created or updated
     -   Every rule has one or more targets
--   `raw/moby-dick.txt` is a [dependency](#g:make-dependency) in that rule
+-   `raw/moby-dick.txt` is a [dependency](../gloss/#g:make-dependency) in that rule
     -   I.e., a file that some other file depends on
     -   A rule can have zero or more dependencies
 -   A colon separates targets from dependencies
 -   `python bin/countwords.py raw/moby-dick.txt results/moby-dick.csv`
-    is an [action](#g:make-action) that creates or updates the target when it is out of date
+    is an [action](../gloss/#g:make-action) that creates or updates the target when it is out of date
     -   A rule can have zero or more actions
 -   Actions are indented by a single tab character
     -   A legacy of Make's distant origins
@@ -139,7 +139,7 @@ make: `results/moby-dick.csv' is up to date.
 ```
 
 -   Nothing happens because Make attempts to build the first target it finds in `project.mk`
-    -   Called the [default target](#g:default-target)
+    -   Called the [default target](../gloss/#g:default-target)
 -   Need to tell Make to build `results/jane-eyre.csv`:
 
 ```
@@ -170,7 +170,7 @@ clean :
         rm -f results/*.csv
 ```
 
--   A [phony target](#g:phony-target): doesn't correspond to any files
+-   A [phony target](../gloss/#g:phony-target): doesn't correspond to any files
     -   Also doesn't have any dependencies
     -   Just a way to save useful commands in a Makefile
 -   Use it with:
@@ -246,7 +246,7 @@ clean :
         rm -f results/*.csv
 ```
 
--   We can draw the dependencies as a [dependency graph](#g:dependency-graph):
+-   We can draw the dependencies as a [dependency graph](../gloss/#g:dependency-graph):
     -   Arrows show what each target depends on
 -   Note: no guarantee of order when the graph is executed
     -   Make can rebuild either results file first
@@ -257,8 +257,8 @@ FIXME: dependency graph
 
 -   Add a third book to `pipeline.mk`, then a fourth
     -   Lots of duplication, which means lots of future maintenance effort
--   Make lets us write [pattern rules](#g:pattern-rule) to express general ideas
--   In order to use these, we first need to use [automatic variables](#g:automatic-variable)
+-   Make lets us write [pattern rules](../gloss/#g:pattern-rule) to express general ideas
+-   In order to use these, we first need to use [automatic variables](../gloss/#g:automatic-variable)
 -   Step 1: don't duplicate the target filename
 
 ```
@@ -304,8 +304,8 @@ results/moby-dick.csv : raw/moby-dick.txt bin/countwords.py
 
 ## How Can I Write One Rule To Update Many Different Files in the Same Way? {#s:automate-pattern}
 
--   We can now replace the repeated rules for results files with one [pattern rule](#g:pattern-rule)
--   Use `%` as a [wildcard](#g:wildcard) on the left and right sides
+-   We can now replace the repeated rules for results files with one [pattern rule](../gloss/#g:pattern-rule)
+-   Use `%` as a [wildcard](../gloss/#g:wildcard) on the left and right sides
 
 ```
 results/%.csv : raw/%.txt bin/countwords.py
@@ -390,7 +390,7 @@ python bin/countwords.py raw/jane-eyre.csv results/jane-eyre.txt
 
 -   But how is this better?  We still have to remember to add a file's name to this list
 -   Or we can get Make to generate the list for us
--   Step 4: define a variable using a [function](#g:make-function)
+-   Step 4: define a variable using a [function](../gloss/#g:make-function)
     -   The syntax is a bit ugly, because functions were added to Make long after it was first created
 
 ```
@@ -445,7 +445,7 @@ RESULTS = $(patsubst raw/%.txt,results/%.csv,${RAW})
 -   `$(patsubst ...)` calls the pattern substitution function
 -   First argument is what to look for
     -   In this case, a text file in the `raw` directory
-    -   `%` matches the [stem](#g:filename-stem) of the file's name, which is the part we want to keep
+    -   `%` matches the [stem](../gloss/#g:filename-stem) of the file's name, which is the part we want to keep
 -   Second argument is what to replace matches with
     -   Keep the stem, but create a CSV file in the `results` directory
 -   Third argument is the list to look in
