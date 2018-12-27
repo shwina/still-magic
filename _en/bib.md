@@ -21,7 +21,7 @@ title: "Bibliography"
 
 **Hekm2017**{:#b:Hekm2017}: David R. Hekman, Stefanie K. Johnson, Maw-Der Foo, and Wei Yang: "Does Diversity-Valuing Behavior Result in Diminished Performance Ratings for Non-White and Female Leaders?". *Academy of Management Journal*, 60(2), Apr 2017, <https://doi.org/10.5465/amj.2014.0538>. *FIXME*
 
-**Kapser2006**{:#b:Kapser2006}: Cory Kapser and Michael Godfrey: ""Cloning Considered Harmful" Considered Harmful". *"Cloning Considered Harmful" Considered Harmful*, 2006, <https://doi.org/10.1109/wcre.2006.1>. *Reports empirical research showing that code clones are sometimes beneficial.*
+**Kaps2006**{:#b:Kaps2006}: Cory Kapser and Michael Godfrey: ""Cloning Considered Harmful" Considered Harmful". *"Cloning Considered Harmful" Considered Harmful*, 2006, <https://doi.org/10.1109/wcre.2006.1>. *Reports empirical research showing that code clones are sometimes beneficial.*
 
 **List2017**{:#b:List2017}: Markus List, Peter Ebert, and Felipe Albrecht: "Ten Simple Rules for Developing Usable Software in Computational Biology". *PLOS Computational Biology*, 13(1), Jan 2017, <https://doi.org/10.1371/journal.pcbi.1005265>. *FIXME*
 

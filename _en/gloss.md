@@ -3,164 +3,245 @@ permalink: "/en/gloss/"
 title: "Glossary"
 ---
 
-**Absolute error**{:#g:absolute-error}: FIXME
+**Absolute error**{:#g:absolute-error}
+:   FIXME
 
-**Accuracy**{:#g:accuracy}: FIXME
+**Accuracy**{:#g:accuracy}
+:   FIXME
 
-**Action**{:#g:make-action} (in Makefile): FIXME
+**Action**{:#g:make-action} (in a Makefile)
+:   FIXME
 
-**Annotated tag**{:#g:annotated-tag}: FIXME
+**Annotated tag**{:#g:annotated-tag}
+:   FIXME
 
-**Automatic variable**{:#g:automatic-variable}: FIXME
+**Automatic variable**{:#g:automatic-variable}
+:   FIXME
 
-**Build tool**{:#g:build-tool}: FIXME
+**Build tool**{:#g:build-tool}
+:   FIXME
 
-**Chunking**{:#g:chunking}: FIXME
+**Chunking**{:#g:chunking}
+:   FIXME
 
-**Cognitive load**{:#g:cognitive-load}: FIXME
+**Cognitive load**{:#g:cognitive-load}
+:   FIXME
 
-**Commit hash**{:#g:commit-hash}: FIXME
+**Commit hash**{:#g:commit-hash}
+:   FIXME
 
-**Commons**{:#g:commons}: FIXME
+**Commons**{:#g:commons}
+:   FIXME
 
-**Conditional expression**{:#g:conditional-expression}: FIXME
+**Conditional expression**{:#g:conditional-expression}
+:   FIXME
 
-**Content delivery network**{:#g:cdn} (CDN): FIXME
+**Content delivery network**{:#g:cdn} (CDN)
+:   FIXME
 
-**Context manager**{:#g:context-manager}: FIXME
+**Context manager**{:#g:context-manager}
+:   FIXME
 
-**Continuous integration**{:#g:continuous-integration}: FIXME
+**Continuous integration**{:#g:continuous-integration}
+:   FIXME
 
-**Coverage**{:#g:coverage}: FIXME
+**Coverage**{:#g:coverage}
+:   FIXME
 
-**Creative Commons - Attribution License**{:#g:cc-by} (CC-BY): FIXME
+**Creative Commons - Attribution License**{:#g:cc-by} (CC-BY)
+:   FIXME
 
-**Declarative programming**{:#g:declarative-programming}: FIXME
+**Data engineering**{:#g:data-engineering}
+:   FIXME
 
-**Default target**{:#g:default-target}: FIXME
+**Declarative programming**{:#g:declarative-programming}
+:   FIXME
 
-**Dependency**{:#g:make-dependency} (in Makefile): FIXME
+**Default target**{:#g:default-target}
+:   FIXME
 
-**Dependency graph**{:#g:dependency-graph}: FIXME
+**Dependency**{:#g:make-dependency} (in a Makefile)
+:   FIXME
 
-**Design patterns**{:#g:design-patterns}: FIXME
+**Dependency graph**{:#g:dependency-graph}
+:   FIXME
 
-**Docstring**{:#g:docstring}: FIXME
+**Design patterns**{:#g:design-patterns}
+:   FIXME
 
-**DOI**{:#g:doi} (Digital Object Identifier): FIXME
+**Docstring**{:#g:docstring}
+:   FIXME
 
-**Exit status**{:#g:exit-status}: FIXME
+**Digital Object Identifier**{:#g:doi} (DOI)
+:   FIXME
 
-**Exponent**{:#g:exponent}: FIXME
+**Exit status**{:#g:exit-status}
+:   FIXME
 
-**Filename stem**{:#g:filename-stem}: FIXME
+**Exponent**{:#g:exponent}
+:   FIXME
 
-**Filter**{:#g:jekyll-filter} (in Jekyll): FIXME
+**Filename stem**{:#g:filename-stem}
+:   FIXME
 
-**Fixture**{:#g:fixture}: FIXME
+**Filter**{:#g:jekyll-filter} (in Jekyll)
+:   FIXME
 
-**Function**{:#g:make-function} (in Make): FIXME
+**Fixture**{:#g:fixture}
+:   FIXME
 
-**Function attribute**{:#g:function-attribute}: FIXME
+**Function**{:#g:make-function} (in Make)
+:   FIXME
 
-**GNU Public License**{:#g:gpl} (GPL): FIXME
+**Function attribute**{:#g:function-attribute}
+:   FIXME
 
-**Guard clause**{:#g:guard-clause}: FIXME
+**GNU Public License**{:#g:gpl} (GPL)
+:   FIXME
 
-**In-place operator**{:#g:in-place-operator}: FIXME
+**Guard clause**{:#g:guard-clause}
+:   FIXME
 
-**Issue**{:#g:issue}: FIXME
+**In-place operator**{:#g:in-place-operator}
+:   FIXME
 
-**Linter**{:#g:linter}: FIXME
+**Issue**{:#g:issue}
+:   FIXME
 
-**Magnitude**{:#g:magnitude}: FIXME
+**Linter**{:#g:linter}
+:   FIXME
 
-**Mantissa**{:#g:mantissa}: FIXME
+**Magnitude**{:#g:magnitude}
+:   FIXME
 
-**MIT License**{:#g:mit-license}: FIXME
+**Mantissa**{:#g:mantissa}
+:   FIXME
 
-**Object-oriented programming**{:#g:oop}: FIXME
+**MIT License**{:#g:mit-license}
+:   FIXME
 
-**Operational test**{:#g:operational-test}: FIXME
+**Object-oriented programming**{:#g:oop}
+:   FIXME
 
-**ORCID**{:#g:orcid}: FIXME
+**Operational test**{:#g:operational-test}
+:   FIXME
 
-**Overlay configuration**{:#g:overlay-configuration}: FIXME
+**ORCID**{:#g:orcid}
+:   FIXME
 
-**Package**{:#g:package}: FIXME
+**Overlay configuration**{:#g:overlay-configuration}
+:   FIXME
 
-**Page template**{:#g:page-template}: FIXME
+**Package**{:#g:package}
+:   FIXME
 
-**Pattern rule**{:#g:pattern-rule}: FIXME
+**Page template**{:#g:page-template}
+:   FIXME
 
-**Phony target**{:#g:phony-target}: FIXME
+**Pattern rule**{:#g:pattern-rule}
+:   FIXME
 
-**Precision**{:#g:precision}: FIXME
+**Phony target**{:#g:phony-target}
+:   FIXME
 
-**Procedural programming**{:#g:procedural-programming}: FIXME
+**Precision**{:#g:precision}
+:   FIXME
 
-**Public domain license**{:#g:cc-0} (CC-0): FIXME
+**Procedural programming**{:#g:procedural-programming}
+:   FIXME
 
-**Pull request**{:#g:pull-request}: FIXME
+**Public domain license**{:#g:cc-0} (CC-0)
+:   FIXME
 
-**Raster image**{:#g:raster-image}: FIXME
+**Pull request**{:#g:pull-request}
+:   FIXME
 
-**Rebase**{:#g:rebase}: FIXME
+**Raster image**{:#g:raster-image}
+:   FIXME
 
-**Refactor**{:#g:refactor}: FIXME
+**Rebase**{:#g:rebase}
+:   FIXME
 
-**Relative error**{:#g:relative-error}: FIXME
+**Refactor**{:#g:refactor}
+:   FIXME
 
-**reStructured Text**{:#g:restructured-text}: FIXME
+**Relative error**{:#g:relative-error}
+:   FIXME
 
-**Rule**{:#g:make-rule} (in Make): FIXME
+**reStructured Text**{:#g:restructured-text}
+:   FIXME
 
-**Semantic versioning**{:#g:semantic-versioning}: FIXME <https://semver.org/>
+**Rule**{:#g:make-rule} (in a Makefile)
+:   FIXME
 
-**Short circuit**{:#g:short-circuit}: FIXME
+**Semantic versioning**{:#g:semantic-versioning}
+:   FIXME <https://semver.org/>
 
-**Sign**{:#g:sign}: FIXME
+**Short circuit**{:#g:short-circuit}
+:   FIXME
 
-**Silent error**{:#g:silent-error}: FIXME
+**Sign**{:#g:sign}
+:   FIXME
 
-**Tab completion**{:#g:tab-completion}: FIXME
+**Silent error**{:#g:silent-error}
+:   FIXME
 
-**Tag**{:#g:git-tag}: FIXME
+**Tab completion**{:#g:tab-completion}
+:   FIXME
 
-**Target**{:#g:make-target} (in Make): FIXME
+**Tag**{:#g:git-tag}
+:   FIXME
 
-**Technical debt**{:#g:technical-debt}: FIXME
+**Target**{:#g:make-target} (in a Makefile)
+:   FIXME
 
-**Test coverage**{:#g:test-coverage}: FIXME
+**Technical debt**{:#g:technical-debt}
+:   FIXME
 
-**Test double**{:#g:test-double}: FIXME
+**Test coverage**{:#g:test-coverage}
+:   FIXME
 
-**Test-driven development**{:#g:tdd}: FIXME
+**Test double**{:#g:test-double}
+:   FIXME
 
-**Test runner**{:#g:test-runner}: FIXME
+**Test-driven development**{:#g:tdd}
+:   FIXME
 
-**Theme**{:#g:theme} (in Jekyll): FIXME
+**Test runner**{:#g:test-runner}
+:   FIXME
 
-**Tidy data**{:#g:tidy-data}: tabular data organized so that:
-1.  Each variable is in one column.
-2.  Each different observation of that variable is in a different row.
-3.  There is one table for each "kind" of variable.
-4.  If there are multiple tables, each includes a key so that related data can be linked.
+**Theme**{:#g:theme} (in Jekyll)
+:   FIXME
 
-**Timestamp**{:#g:timestamp} (on file): FIXME
+**Tidy data**{:#g:tidy-data}
+:   Tabular data organized so that:
+    1.  Each variable is in one column.
+    2.  Each different observation of that variable is in a different row.
+    3.  There is one table for each "kind" of variable.
+    4.  If there are multiple tables, each includes a key so that related data can be linked.
 
-**Tolerance**{:#g:tolerance}: FIXME
+**Timestamp**{:#g:timestamp} (on a file)
+:   FIXME
 
-**Typesetting language**{:#g:typesetting-language}: FIXME
+**Tolerance**{:#g:tolerance}
+:   FIXME
 
-**Unit test**{:#g:unit-test}: FIXME
+**Typesetting language**{:#g:typesetting-language}
+:   FIXME
 
-**Vector image**{:#g:vector-image}: FIXME
+**Unit test**{:#g:unit-test}
+:   FIXME
 
-**Virtual environment**{:#g:virtual-environment}: FIXME
+**Vector image**{:#g:vector-image}
+:   FIXME
 
-**Wildcard**{:#g:wildcard}: FIXME
+**Virtual environment**{:#g:virtual-environment}
+:   FIXME
 
-**WYSIWYG**{:#g:wysiwyg} (What You See Is What You Get): FIXME
+**Wildcard**{:#g:wildcard}
+:   FIXME
+
+**What You See Is What You Get**{:#g:wysiwyg} (WYSIWYG)
+:   FIXME
 
 {% include links.md %}

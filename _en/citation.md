@@ -7,11 +7,7 @@ Please cite this work as:
 
 > {{site.author}} (ed.): *{{site.title}}: {{site.subtitle}}*.  <{{site.website}}>, {{site.copyrightyear}}.
 
-## Contributors
-
--   [Greg Wilson][wilson-greg]
-
-## Acknowledgments
+## Contributors {#s:citation-contributors}
 
 -   [Gerard Capes][capes-gerard]
 -   [Julia Gustavsen][gustavsen-julia]
@@ -20,5 +16,6 @@ Please cite this work as:
 -   [Timothée Poisot][poisot-timothee]
 -   [Ashwin Srinath][srinath-ashwin]
 -   [Daniel Standage][standage-daniel]
+-   [Greg Wilson][wilson-greg]
 
 {% include links.md %}

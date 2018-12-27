@@ -66,7 +66,8 @@ title: "Design Notes"
     -   Python: lists, loops, conditionals, functions, importing and using libraries
     -   Unix shell: paths, editing/renaming/deleting files, wildcards, redirection, pipes and filters, shell scripts
     -   Git: add/commit, log, merge, resolving conflicts, push, pull
-    -   The core [Software Carpentry][swc] lessons cover these topics, as does the [prerequisite course][one-extra-fact] in this series
+    -   The core [Data Carpentry][dc] and [Software Carpentry][swc] lessons cover these topics,
+        as does the [prerequisite course][one-extra-fact] in this series
 1.  What *won't* be covered?
     -   Statistics: not the focus of this course.
     -   Higher-order functions and object-oriented programming: higher-level programming isn't the focus of this material.

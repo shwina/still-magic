@@ -96,7 +96,11 @@ definitions if that's done.
 [srinath-ashwin]: https://ccit.clemson.edu/research/researcher-profiles/ashwin-srinath/
 [standage-daniel]: https://standage.github.io/
 [swc]: http://software-carpentry.org
+[swc-git]: https://swcarpentry.github.io/git-novice/
 [swc-make]: https://github.com/swcarpentry/make-novice
+[swc-python]: https://swcarpentry.github.io/python-novice-inflammation/
+[swc-r]: https://swcarpentry.github.io/r-novice-gapminder/
+[swc-shell]: https://swcarpentry.github.io/shell-novice/
 
 [tables-generator]: https://www.tablesgenerator.com/
 [tdda-site]: http://www.tdda.info/
