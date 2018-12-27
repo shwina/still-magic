@@ -54,10 +54,7 @@ register 116.
 The reason for this is that machines don't understand; they obey.  If
 you look at this image, you can't help but see the word "data":
 
-<figure>
-  <figcaption>The Word "Data"</figcaption>
-  <img id="f:finale-data" src="../../files/finale-data.png" alt="The Word 'Data'" />
-</figure>
+<figure id="f:finale-data"> <figcaption>The Word "Data"</figcaption> <img src="../../files/finale-data.png"/> </figure>
 
 A machine doesn't; it doesn't even see four blobs of blue pixels on a gray
 background, because it doesn't "see" anything.  The computer stores this image,
@@ -99,10 +96,7 @@ to operate on; a view is a way of displaying part or all of that model that
 human beings can understand.  For example, an HTML document consists of elements
 with attributes that contain other elements or blocks of raw text:
 
-<figure>
-  <figcaption>Model-View Separation</figcaption>
-  <img id="f:finale-modelview" src="../../files/finale-modelview.png" alt="Model-View Separation" />
-</figure>
+<figure id="f:finale-modelview"> <figcaption>Model-View Separation</figcaption> <img src="../../files/finale-modelview.png"/> </figure>
 
 That model can be rendered in a browser, turned into speech for someone who is
 visually impaired, or displayed as text using angle brackets, quotes, and some

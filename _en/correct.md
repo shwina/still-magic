@@ -92,10 +92,7 @@ keypoints:
 
 -   Here's a clearer view of some of the values our scheme can represent:
 
-<figure>
-  <figcaption>Number Spacing</figcaption>
-  <img id="f:correct-spacing" src="../../files/number-spacing.png" alt="Number Spacing" />
-</figure>
+<figure id="f:correct-spacing"> <figcaption>Number Spacing</figcaption> <img src="../../files/number-spacing.png"/> </figure>
 
 -   There are a lot of values we *can't* store
     -   Can do 8 and 10 but not 9

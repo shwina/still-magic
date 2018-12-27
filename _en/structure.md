@@ -41,10 +41,7 @@ keypoints:
     -   Allows `human-*-cm200.csv` to match all human organs, or `*-kidney-*.csv` to match all kidney data
     -   Don't worry about long directory names: [tab completion](#g:tab-completion) means you only have to type them once
 
-<figure>
-  <figcaption>Project Layout</figcaption>
-  <img id="f:structure-layout" src="../../files/noble.svg" alt="Project Layout" />
-</figure>
+<figure id="f:structure-layout"> <figcaption>Project Layout</figcaption> <img src="../../files/noble.svg"/> </figure>
 
 -   A few files Noble didn't mention that have become conventional
     -   `README`: one-paragraph description of the project

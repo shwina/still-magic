@@ -71,19 +71,13 @@ print('Hello, continuous')
     -   Report the results at `https://travis-ci.org/USER/REPO`
 -   Summary report tells you what happened
 
-<figure>
-  <figcaption>Travis Summary Report</figcaption>
-  <img id="f:continuous-summary" src="../../files/travis-summary.png" alt="Travis Summary Report" />
-</figure>
+<figure id="f:continuous-summary"> <figcaption>Travis Summary Report</figcaption> <img src="../../files/travis-summary.png"/> </figure>
 
 -   Detailed log has *lots* of information
     -   397 lines hidden under "Build system information"
     -   Another 23 under "pip install" heading
 
-<figure>
-  <figcaption>Travis Log</figcaption>
-  <img id="f:continuous-log" src="../../files/travis-log.png" alt="Travis Log" />
-</figure>
+<figure id="f:continuous-log"> <figcaption>Travis Log</figcaption> <img src="../../files/travis-log.png"/> </figure>
 
 -   Most important thing is the test program's [exit status](#g:exit-status)
 -   Exit status of 0 means "nothing went wrong"
@@ -116,29 +110,20 @@ sys.exit(1)
 -   Commit and view
 -   Initially told that the build is queued
 
-<figure>
-  <figcaption>Travis Queued</figcaption>
-  <img id="f:continuous-queued" src="../../files/travis-queued.png" alt="Travis Queued" />
-</figure>
+<figure id="f:continuous-queued"> <figcaption>Travis Queued</figcaption> <img src="../../files/travis-queued.png"/> </figure>
 
 -   Don't need to refresh the page
     -   When the build starts, the page automatically starts updating
     -   And when the build finishes, the summary is red and the log displays this
 
-<figure>
-  <figcaption>Travis Failure</figcaption>
-  <img id="f:continuous-failure" src="../../files/travis-failure.png" alt="Travis Failure" />
-</figure>
+<figure id="f:continuous-failure"> <figcaption>Travis Failure</figcaption> <img src="../../files/travis-failure.png"/> </figure>
 
 ## How Can I Display the Status of a Repostiory? {#s:continuous-display}
 
 -   Display build status on GitHub because that's where most people look
 -   Look at the top of the status page for the build icon
 
-<figure>
-  <figcaption>Travis Build Icon</figcaption>
-  <img id="f:continuous-build-icon" src="../../files/travis-build-icon.png" alt="Travis Build Icon" />
-</figure>
+<figure id="f:continuous-build-icon"> <figcaption>Travis Build Icon</figcaption> <img src="../../files/travis-build-icon.png"/> </figure>
 
 -   Click on it to bring up a dialog
 -   Select the Markdown you need for the `master` branch
@@ -149,10 +134,7 @@ sys.exit(1)
 -   While we're waiting for the build, take a look at the "Branches" tab
     -   Clicking on a check mark or an X will bring up details of that build on that branch
 
-<figure>
-  <figcaption>Travis Overall</figcaption>
-  <img id="f:continuous-overall" src="../../files/travis-overall.png" alt="Travis Overall" />
-</figure>
+<figure id="f:continuous-overall"> <figcaption>Travis Overall</figcaption> <img src="../../files/travis-overall.png"/> </figure>
 
 -   Sure enough, once the build on `master` completes, the page displays a red X
 -   Modify `.travis.yml` to remove the failing script
@@ -160,10 +142,7 @@ sys.exit(1)
 -   Wait for email to arrive
 -   Go to project on GitHub
 
-<figure>
-  <figcaption>Travis GitHub Icon</figcaption>
-  <img id="f:continuous-github-icon" src="../../files/travis-github-icon.png" alt="Travis GitHub Icon" />
-</figure>
+<figure id="f:continuous-github-icon"> <figcaption>Travis GitHub Icon</figcaption> <img src="../../files/travis-github-icon.png"/> </figure>
 
 ## How Can I Automatically Run Tests for My Project When Things Change?  {#s:continuous-tests}
 

@@ -144,10 +144,7 @@ keypoints:
 -   More sophisticated systems also constrain the transitions between states and who can make them
     -    Defines the project's workflow
 
-<figure>
-  <figcaption>Issue State Transitions</figcaption>
-  <img id="f:workflow-lifecycle" src="../../files/issue-lifecycle.svg" alt="Issue State Transitions" />
-</figure>
+<figure id="f:workflow-lifecycle"> <figcaption>Issue State Transitions</figcaption> <img src="../../files/issue-lifecycle.svg"/> </figure>
 
 ## How Can I Write a Good Bug Report? {#s:workflow-bugs}
 

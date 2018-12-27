@@ -593,9 +593,6 @@ help: show available targets
 
 ## Summary {#s:automate-summary}
 
-<figure>
-  <figcaption>Make Concept Map</figcaption>
-  <img id="f:automate-concept" src="../../files/automate.svg" alt="Make Concept Map" />
-</figure>
+<figure id="f:automate-concept"> <figcaption>Make Concept Map</figcaption> <img src="../../files/automate.svg"/> </figure>
 
 {% include links.md %}
