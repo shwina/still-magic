@@ -1,34 +1,28 @@
 # Check that language is set.  Do NOT set 'LANG', as that would override the platform's LANG setting.
 ifndef lang
-$(error Must set 'lang' with 'lang=en' or similar.)
+$(warning Please set 'lang' with 'lang=en' or similar.)
+lang=en
 endif
+
+# Project stem.
+STEM=still-magic
 
 # Tools.
 JEKYLL=jekyll
-LATEX=pdflatex
-BIBTEX=bibtex
 PANDOC=pandoc
-PANDOC_FLAGS=--from=markdown --to=latex
-REPO=FIXME
+LATEX=pdflatex
+PYTHON=python
 
 # Language-dependent settings.
 DIR_MD=_${lang}
+PAGES_MD=$(wildcard ${DIR_MD}/*.md)
+DIR_HTML=_site/${lang}
+PAGES_HTML=${DIR_HTML}/index.html $(patsubst ${DIR_MD}/%.md,${DIR_HTML}/%/index.html,$(filter-out ${DIR_MD}/index.md,${PAGES_MD}))
 DIR_TEX=tex/${lang}
-DIR_INC=${DIR_TEX}/inc
-DIR_WEB=_site/${lang}
-WORDS_SRC=misc/${lang}.txt
-
-# Filesets.
-ALL_MD=$(wildcard ${DIR_MD}/*.md)
-BIB_SRC=${DIR_TEX}/book.bib
-CHAPTERS_MD=$(filter-out ${DIR_MD}/bib.md ${DIR_MD}/index.md,${ALL_MD})
-CHAPTERS_TEX=$(patsubst ${DIR_MD}/%.md,${DIR_INC}/%.tex,${CHAPTERS_MD})
-ALL_TEX=${CHAPTERS_TEX} ${DIR_TEX}/book.tex ${DIR_TEX}/frontmatter.tex
-CHAPTERS_HTML=$(patsubst ${DIR_MD}/%.md,${DIR_WEB}/%.html,${ALL_MD})
-ALL_HTML=all-${lang}.html
+ALL_TEX=${DIR_TEX}/all.tex
+BOOK_PDF=${DIR_TEX}/${STEM}.pdf
 
 # Controls
-.PHONY : commands serve site bib crossref clean
 all : commands
 
 ## commands    : show all commands.
@@ -36,151 +30,132 @@ commands :
 	@grep -h -E '^##' Makefile | sed -e 's/## //g'
 
 ## serve       : run a local server.
-serve : files/crossref.js
+serve :
 	${JEKYLL} serve -I
 
 ## site        : build files but do not run a server.
-site : files/crossref.js
+site :
 	${JEKYLL} build
 
-## single      : regenerate all-in-one version of book.
-single : ${ALL_HTML}
+## release     : build a release (all-in-one HTML page + PDF).
+release :
+	@make lang=${lang} site
+	@make lang=${lang} allhtml
+	@make lang=${lang} book
 
-${ALL_HTML} : _config.yml files/crossref.js bin/mergebook.py
-	bin/mergebook.py ${lang} _config.yml files/crossref.js ${DIR_WEB} > $@
+## pdf         : generate PDF from LaTeX source.
+pdf : ${BOOK_PDF}
 
-## pdf         : build PDF version of book.
-pdf : ${DIR_TEX}/book.pdf
+${BOOK_PDF} : ${ALL_TEX}
+	cd ${DIR_TEX} \
+	&& ${LATEX} ${STEM} \
+	&& ${LATEX} ${STEM}
 
-## tex         : generate LaTeX for book, but don't compile to PDF.
-tex : ${CHAPTERS_TEX}
+# Create the unified LaTeX file (separate target to simplify testing).
+# + 'sed' to pull glossary entry IDs out into '==g==' blocks (because Pandoc throws them away).
+# + 'sed' to pull bibliography entry IDs out into '==b==' blocks (because Pandoc throws them away).
+# + 'sed' to stash figure information (because Pandoc...).
+# + 'sed' to un-comment embedded LaTeX commands '<!-- == command -->' before Pandoc erases them.
+# + 'sed' to insert text signalling language type of code listing.
+# ! Pandoc
+# - 'tail' to strip out YAML header.
+# - 'sed' to add language type flag to code listing environment.
+# - 'sed' to restore embedded LaTeX commands (need to strip out the newline Pandoc introduces after the command).
+# - 'sed' to restore figures.
+# - 'sed' to turn SVG inclusions into PDF inclusions.
+# - 'sed' to convert '====' blocks into LaTeX labels.
+# - 'python' to convert bibliography citations (because 'sed' can't handle multiple keys).
+# - 'sed' to suppress indentation inside quotes (so that callout boxes format correctly).
+# - 'sed' to bump section headings back up.
+# - 'sed' (twice) to convert 'verbatim' environments
+${ALL_TEX} : ${PAGES_HTML} Makefile
+	node js/stitch.js _config.yml _site ${lang} \
+	| sed -E -e 's!<strong id="(g:[^"]+)">([^<]+)</strong>!<strong>==g==\1==g==\2==g==</strong>!' \
+	| sed -E -e 's!<strong id="(b:[^"]+)">([^<]+)</strong>!<strong>==b==\1==b==\2==b==</strong>!' \
+	| sed -E -e 's!<figure +id="(.+)"> *<img +src="(.+)"> *<figcaption>(.+)</figcaption> *</figure>!==f==\1==\2==\3==!' \
+	| sed -E -e 's/<!-- +== +(.+) +-->/==c==\1==/' \
+	| sed -E -e 's!(<div.+class="language-([^ ]+))!==l==\2==\1!' \
+	| ${PANDOC} --wrap=preserve -f html -t latex -o - \
+	| tail -n +6 \
+	| sed -E -e '/==l==.+==/{N;N;s/\n/ /g;}' \
+	| sed -E -e 's!==l==(css)== *\\begin\{verbatim\}!\\begin{lstlisting}!' \
+	| sed -E -e 's!==l==(text)== *\\begin\{verbatim\}!\\begin{lstlisting}[backgroundcolor=\\color{verylightgray}]!' \
+	| sed -E -e 's!==l==([^=]+)== *\\begin\{verbatim\}!\\begin{lstlisting}[language=\1]!' \
+	| sed -E -e 's!\\begin{verbatim}!\\begin{lstlisting}!' \
+	| sed -E -e 's!\\end{verbatim}!\\end{lstlisting}!' \
+	| sed -E -e '/==c==.+==/{N;s/\n/ /;}' -e 's!==c==(.+)==!\1!' -e s'!\\textbackslash{}!\\!' \
+	| sed -E -e 's!==f==([^=]+)==([^=]+)==([^=]+)==!\\begin{figure}[H]\\label{\1}\\centering\\includegraphics{\2}\\caption{\3}\\end{figure}!' \
+	| sed -E -e 's!\.svg}!\.pdf}!' \
+	| sed -E -e 's!==b==([^=]+)==b==([^=]+)==b==!\\hypertarget{\1}{\2}\\label{\1}!' \
+	| sed -E -e 's!==g==([^=]+)==g==([^=]+)==g==!\\hypertarget{\1}{\2}\\label{\1}!' \
+	| ${PYTHON} bin/cites.py \
+	| sed -E -e 's!\\begin{quote}!\\begin{quote}\\setlength{\\parindent}{0pt}!' \
+	| sed -E -e 's!\\section!\\chapter!' \
+	| sed -E -e 's!\\subsection!\\section!' \
+	| sed -E -e 's!\\subsubsection!\\subsection!' \
+	> ${ALL_TEX}
 
-${DIR_TEX}/book.pdf : ${ALL_TEX} ${BIB_SRC}
-	@cd ${DIR_TEX} \
-	&& ${LATEX} book \
-	&& ${BIBTEX} book \
-	&& ${LATEX} book \
-	&& ${LATEX} book \
-	&& ${LATEX} book
-
-${DIR_INC}/%.tex : ${DIR_MD}/%.md _config.yml bin/texpre.py bin/texpost.py _includes/links.md
-	mkdir -p ${DIR_INC} && \
-	cat $< \
-	| bin/texpre.py _config.yml \
-	| ${PANDOC} ${PANDOC_FLAGS} -o - \
-	| bin/texpost.py _includes/links.md \
-	> $@
-
-## bib         : rebuild Markdown bibliography from BibTeX source.
-bib : ${DIR_MD}/bib.md
-
-${DIR_MD}/bib.md : ${BIB_SRC} bin/bib2md.py
-	bin/bib2md.py ${lang} < $< > $@
-
-## crossref    : rebuild cross-reference file.
-crossref : files/crossref.js
-
-files/crossref.js : bin/crossref.py _config.yml ${ALL_MD}
-	bin/crossref.py ${DIR_MD} < _config.yml > files/crossref.js
+${PAGES_HTML} : ${PAGES_MD}
+	${JEKYLL} build
 
 ## ----------------------------------------
 
 ## check       : check everything.
 check :
+	@echo "Characters"
 	@make lang=${lang} checkchars
-	@make lang=${lang} checkcites
+	@echo
+	@echo "Glossary"
 	@make lang=${lang} checkgloss
-	@make lang=${lang} checklabels
-	@make lang=${lang} checklinks
+	@echo
+	@echo "Table of Contents"
 	@make lang=${lang} checktoc
+	@echo
+	@echo "Citations"
+	@make lang=${lang} checkcites
 
 ## checkchars  : look for non-ASCII characters.
 checkchars :
-	@bin/checkchars.py ${ALL_MD}
-
-## checkcites  : list all missing bibliography entries.
-checkcites : ${BIB_SRC} ${CHAPTERS_TEX}
-	@bin/checkcites.py --missing ${BIB_SRC} ${CHAPTERS_TEX}
+	@bin/checkchars.py ${PAGES_MD}
 
 ## checkgloss  : check that all glossary entries are defined and used.
 checkgloss :
-	@bin/checkgloss.py ${ALL_MD}
+	@bin/checkgloss.py ${PAGES_MD}
 
-## checklabels : make sure all labels conform to standards.
-checklabels : ${CHAPTERS_TEX}
-	@bin/checklabels.py ${CHAPTERS_TEX}
-
-## checklinks  : check that all links in source Markdown resolve.
-checklinks :
-	@bin/checklinks.py _includes/links.md ${ALL_MD}
+## checkcites  : list all missing or unused bibliography entries.
+checkcites :
+	@bin/checkcites.py ${DIR_MD}/bib.md ${PAGES_MD}
 
 ## checktoc    : check consistency of tables of contents.
 checktoc :
-	@bin/checktoc.py _config.yml ${DIR_TEX}/book.tex ${ALL_MD}
+	@bin/checktoc.py _config.yml ${PAGES_MD}
 
 ## ----------------------------------------
 
-## authors     : list all authors.
-authors :
-	@bin/authors.py ${BIB_SRC}
-
-## issues      : create single-page view of all GitHub issues.
-issues :
-	@bin/issues.py ${REPO} | ${PANDOC} -o issues.html -
-
-## pages       : count pages per chapter.
-pages : ${DIR_TEX}/book.toc
-	@bin/pages.py < ${DIR_TEX}/book.toc
-
-## publishers  : list all publishers.
-publishers :
-	@bin/fields.py ${BIB_SRC} publisher
-
-## spelling    : check spelling.
+## spelling    : compare words against saved list.
 spelling :
-	@grep bibnote ${BIB_SRC} \
-	| cat - ${CHAPTERS_MD} \
-	| aspell --mode=tex list \
-	| sort \
-	| uniq \
-	| comm -2 -3 - ${WORDS_SRC}
+	@cat ${PAGES_MD} | bin/uncode.py | aspell list | sort | uniq | comm -2 -3 - .words
 
-## unused      : list all unused bibliography entries.
-unused :
-	@bin/checkcites.py --unused ${BIB_SRC} ${CHAPTERS_TEX}
-
-## words       : count words per chapter.
+## words       : count words in finished files.
 words :
-	@wc -w ${CHAPTERS_MD} | sort -n -r
-
-## years       : CSV histogram of publication years.
-years :
-	@bin/years.py ${BIB_SRC}
+	@wc -w $$(fgrep -L 'undone: true' _en/*.md) | sort -n -r
 
 ## ----------------------------------------
 
 ## clean       : clean up junk files.
 clean :
-	@rm -r -f _site ${CHAPTERS_TEX} */*.aux */*.bbl */*.blg */*.log */*.out */*.toc
+	@rm -r -f _site dist bin/__pycache__
+	@rm -r -f tex/*/all.tex tex/*/*.aux tex/*/*.bbl tex/*/*.blg tex/*/*.log tex/*/*.out tex/*/*.toc
 	@find . -name '*~' -delete
 	@find . -name .DS_Store -prune -delete
-	@find . -name '__pycache__' -prune -delete
-	@rm -r -f ${DIR_INC}
 
 ## settings    : show macro values.
 settings :
 	@echo "JEKYLL=${JEKYLL}"
-	@echo "LATEX=${LATEX}"
-	@echo "BIBTEX=${BIBTEX}"
-	@echo "PANDOC=${PANDOC}"
-	@echo "PANDOC_FLAGS=${PANDOC_FLAGS}"
-	@echo "REPO=${REPO}"
 	@echo "DIR_MD=${DIR_MD}"
+	@echo "PAGES_MD=${PAGES_MD}"
+	@echo "DIR_HTML=${DIR_HTML}"
+	@echo "PAGES_HTML=${PAGES_HTML}"
 	@echo "DIR_TEX=${DIR_TEX}"
-	@echo "DIR_INC=${DIR_INC}"
-	@echo "DIR_WEB=${DIR_WEB}"
-	@echo "BIB_SRC=${BIB_SRC}"
-	@echo "WORDS_SRC=${WORDS_SRC}"
-	@echo "CHAPTERS_MD=${CHAPTERS_MD}"
-	@echo "CHAPTERS_TEX=${CHAPTERS_TEX}"
-	@echo "CHAPTERS_HTML=${CHAPTERS_HTML}"
+	@echo "ALL_TEX=${ALL_TEX}"
+	@echo "BOOK_PDF=${BOOK_PDF}"

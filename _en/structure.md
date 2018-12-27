@@ -54,8 +54,6 @@ keypoints:
         -  May have a separate `CONTRIBUTORS` file, or list contributors in `CITATION`
     -   These files may be plain text or Markdown, or have no suffix at all, but please use the principal names as given
 
-{% include problems-exercises.md topic="Noble's Rules" %}
-
 ## Summary {#s:structure-summary}
 
 FIXME: create concept map for project structure

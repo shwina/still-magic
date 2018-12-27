@@ -62,8 +62,6 @@ keypoints:
     -   Put early exits or decisions at the top of the function ([guard clause](#g:guard-clause))
     -   Prefer `if` to `else`
 
-{% include problems-exercises.md topic="standard Python style" %}
-
 ## How Can I Specify Default Values for My Functions' Parameters? {#s:style-defaults}
 
 -   Give users control over everything *and* the ability to ignore details
@@ -99,8 +97,6 @@ def collect(new_value, accumulator=set()):
 >>> collect('second')
 {'first', 'second'}
 ```
-
-{% include problems-exercises.md topic="default parameter values" %}
 
 ## How Can I Write Functions to Handle a Variable Number of Arguments? {#s:style-varargs}
 
@@ -159,8 +155,6 @@ def settings(user_id, **settings):
 >>> settings('jenny', country='CA', lang='R')
 jenny {'lang': 'R', 'country': 'CA'}
 ```
-
-{% include problems-exercises.md topic="varargs" %}
 
 ## Summary {#s:style-summary}
 

@@ -209,8 +209,6 @@ for bound in (1e-15, 1e-16):
 -   You can be precise without being accurate (systematic bias), or accurate without being precise (near the right answer, but without many significant digits)
 -   For human decision making, accuracy is usually more important than precision
 
-{% include problems-exercises.md topic="testing a data analysis pipeline" %}
-
 ## How Can I Test Plots and Other Graphical Results? {#s:correct-plots}
 
 -   Testing visualizations is hard
@@ -233,8 +231,6 @@ FIXME: example
     -   Check that the right elements are there with the right properties
     -   Although any changes to the library can invalidate all the tests because of layers being introduced, renamed, or removed
 -   The best option is to test the data structures used to generate the plot and then trust the plotting library
-
-{% include problems-exercises.md topic="testing plotting" %}
 
 ## How Can I Test the Steps in a Data Analysis Pipeline During Development? {#s:correct-simple}
 
@@ -370,8 +366,6 @@ check = actual.hist(column=3, bins=TEST_BINS)
 assert actual == pytest.approx(reference, rel=TEST_TOLERANCE)
 ```
 
-{% include problems-exercises.md topic="operational tests" %}
-
 ## How Can I Infer and Check Properties of My Data? {#s:correct-infer}
 
 -   The [TDDA library][tdda-site] can infer test rules from data
@@ -452,8 +446,6 @@ Constraints failing: 15
 -   Additional use: generate constraints for two datasets and then look at differences in constraint files
     -   "Is this dataset similar to the one I tested on?"
 -   Especially useful if the constraint file is put under version control
-
-{% include problems-exercises.md topic="constraints" %}
 
 ## Summary {#s:correct-summary}
 

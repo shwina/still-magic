@@ -88,8 +88,6 @@ extras is ['file1.txt', 'file2.txt']
 -   Only provide short (single-letter) flags for commonly-used options
     -   Signals what you expect to change frequently and what you expect will be left alone
 
-{% include problems-exercises.md topic="handling command-line flags" %}
-
 ## How Can I Manage Configuration Files Consistently? {#s:configuration-files}
 
 -   Enable program to read configuration from file
@@ -129,8 +127,6 @@ print(config)
 -   Return to command-line parsing
     -   Rather than creating a bunch of free-standing variables, fill in one dictionary of options
     -   `if config['quiet']` is only a little more typing than `if quiet`, intent is clearer, and it's consistent with reaing from config files
-
-{% include problems-exercises.md topic="configuration files" %}
 
 ## How Can I Implement Multi-Layer Configuration? {#s:configuration-overlay}
 
@@ -173,8 +169,6 @@ def find_configuration_files():
     return result
 ```
 
-{% include problems-exercises.md topic="overlay configuration" %}
-
 ## How Can I Keep a Record of the Actual Configuration That Produced Particular Results? {#s:configuration-dump}
 
 -   Careful record keeping is essential to reproducible science
@@ -189,8 +183,6 @@ def find_configuration_files():
 -   Always include a version number as a field in the dumped configuration
     -   The `--version` flag should produce this as well
 -   Because option interpretation will change over time, and if you don't know what the version was, you'll have to guess
-
-{% include problems-exercises.md topic="keeping a record of configuration" %}
 
 ## Summary {#s:workflow-summary}
 

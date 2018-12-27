@@ -83,8 +83,6 @@ print('pass {} fail {} error {}'.format(pass, fail, error))
 -   Or we have tests split across multiple files?
 -   Or...
 
-{% include problems-exercises.md topic="writing our own unit test harness" %}
-
 ## How Can I Use a Standard Software Testing Framework? {#s:unit-pytest}
 
 -   Instead, put each input-output pair in a function in `test_count.py`
@@ -149,8 +147,6 @@ test_count.py:13: AssertionError
 -   Works the same way for everyone, so we can test without having think about *how* (only about *what*)
     -   Although fitting tests into this framework sometimes requires some tricks
 
-{% include problems-exercises.md topic="using pytest" %}
-
 ## How Can I Tell If My Software Failed As It Was Supposed To? {#s:unit-exception}
 
 -   Did the call fail as it was supposed to, i.e., raise the right kind of exception?
@@ -206,8 +202,6 @@ test_exception.py:6: Failed
 ```
 
 -   Clearly, we have some work to do...
-
-{% include problems-exercises.md topic="testing exceptions" %}
 
 ## How Can I Test Software That is Random or Unpredictable? {#s:unit-random}
 
@@ -276,8 +270,6 @@ first 2
 second 4
 ```
 
-{% include problems-exercises.md topic="testing randomness" %}
-
 ## How Can I Test Software That Does File I/O? {#s:unit-io}
 
 -   Reading from external files isn't so bad, but writing to temporary files is awkward
@@ -336,8 +328,6 @@ def main(infile, outfile):
     if infile == '-': reader.close()
     if outfile == '-': writer.close()
 ```
-
-{% include problems-exercises.md topic="testing file I/O" %}
 
 ## How Can I Tell Which Parts of My Software Have and Have Not Been Tested? {#s:unit-coverage}
 
@@ -434,8 +424,6 @@ demo_coverage.py      16      1    94%
     </td>
   </tr>
 </table>
-
-{% include problems-exercises.md topic="coverage" %}
 
 ## Summary {#s:unit-summary}
 

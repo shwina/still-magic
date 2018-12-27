@@ -122,8 +122,6 @@ make: `results/moby-dick.csv' is up to date.
 -   Means our target does not need any work
 -   Use `ls -l -t` to list files most recently changed first, with timestamps
 
-{% include problems-exercises.md topic="first Makefile" %}
-
 ## How Can I Update Multiple Files When Their Dependencies Change? {#s:automate-extend}
 
 -   Add another rule to the end of `pipeline.mk`
@@ -160,8 +158,6 @@ python bin/countwords.py raw/jane-eyre.txt results/jane-eyre.csv
     -   If we ask Make to build a file that exists but for which there is no rule,
         it tells us "Nothing to be done"
     -   Get the latter message when there is a rule with no actions
-
-{% include problems-exercises.md topic="extending the Make pipeline" %}
 
 ## How Can I Clean Up Temporary Files That I Don't Need? {#s:automate-phony}
 
@@ -201,8 +197,6 @@ make: `clean' is up to date.
 ```
 .PHONY : clean
 ```
-
-{% include problems-exercises.md topic="phony targets" %}
 
 ## How Can I Make One Update Depend On Another? {#s:automate-chain}
 
@@ -259,8 +253,6 @@ clean :
 
 FIXME: dependency graph
 
-{% include problems-exercises.md topic="chaining dependencies" %}
-
 ## How Can I Abbreviate My Update Rules? {#s:automate-automatic}
 
 -   Add a third book to `pipeline.mk`, then a fourth
@@ -309,8 +301,6 @@ python bin/countwords.py raw/moby-dick.txt bin/countwords.py results/moby-dick.c
 results/moby-dick.csv : raw/moby-dick.txt bin/countwords.py
         python bin/countwords.py $^ $<
 ```
-
-{% include problems-exercises.md topic="automatic variables" %}
 
 ## How Can I Write One Rule To Update Many Different Files in the Same Way? {#s:automate-pattern}
 
@@ -361,8 +351,6 @@ python bin/countwords.py raw/jane-eyre.csv results/jane-eyre.txt
 ```
 $ make -f pipeline.mk results/jane-eyre.txt
 ```
-
-{% include problems-exercises.md topic="pattern rules" %}
 
 ## How Can I Define Sets of Files Automatically? {#s:automate-variables}
 
@@ -502,8 +490,6 @@ python bin/countwords.py raw/life-of-frederick-douglass.csv results/life-of-fred
 
 -   And there we have it: a fully automated, reproducible data analysis pipeline
 
-{% include problems-exercises.md topic="using variables in Make" %}
-
 ## How Can I Document My Update Rules? {#s:automate-doc}
 
 -   Every well-behaved program can print a help message
@@ -604,8 +590,6 @@ help: show available targets
     -   The `s` and `p` in `'s/## //p'` mean "search for lines that match this pattern and print them"
     -   The pattern `/## //` means "find two #'s followed by a space and replace them with nothing (i.e., delete them)"
 -   None of this is part of Make, so most people simply copy this rule from file to file
-
-{% include problems-exercises.md topic="documenting Makefiles" %}
 
 ## Summary {#s:automate-summary}
 

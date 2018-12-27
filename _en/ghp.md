@@ -140,8 +140,6 @@ Please see [our website](http://example.com) for more information.
     -   Yes, you are using a WYSIWYG program to create 1970s-era text to be translated back into what you drew
 -   This is the point where it's often simpler to just write HTML
 
-{% include problems-exercises.md topic="writing Markdown" %}
-
 ## How Can I Publish Simple Web Pages Using GitHub? {#s:ghp-ghp}
 
 -   Most people don't want to read Markdown as-is, so need some way to translate and publish it
@@ -170,8 +168,6 @@ The manifold perplexities of my chosen research topic...
 ```
 
 -   Any file with this header is processed - in particular, Markdown is turned into HTML
-
-{% include problems-exercises.md topic="getting started with GitHub pages" %}
 
 ## How Can I Give My Pages a Consistent Look and Feel? {#s:ghp-metadata}
 
@@ -256,8 +252,6 @@ exclude:
 -   There are *lots* of [themes](#g:theme) for Jekyll
     -   Use one of GitHub's defaults unless you know a lot about graphic design and want to spend hours fiddling with CSS
 
-{% include problems-exercises.md topic="templates and metadata" %}
-
 ## How Can I Preview Pages Locally? {#s:ghp-preview}
 
 -   Pushing half-finished work to the web for everyone to see is a bit unprofessional
@@ -297,8 +291,6 @@ exclude:
 
 -   There are lots of other filters, like `absolute_url`
 
-{% include problems-exercises.md topic="previewing GitHub Pages locally" %}
-
 ## How Can I Publish Pages Myself Instead of Relying on GitHub? {#s:ghp-self-pub}
 
 -   Jekyll is very limited for research publishing
@@ -317,8 +309,6 @@ exclude:
     -   Handles bibliographic citations and other things that GFM doesn't
 -   [R Markdown][r-markdown] and [Jupyter][jupyter] can both generate static websites that you can commit to `docs`
 -   Run `jekyll serve` in the `docs` folder to preview
-
-{% include problems-exercises.md topic="self-publishing GitHub Pages sites" %}
 
 ## How Can I Include Math in Web Pages? {#s:ghp-math}
 
@@ -366,8 +356,6 @@ $$ r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}} $$
 -   Output is:
 
 $$ r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}} $$
-
-{% include problems-exercises.md topic="adding math to GitHub Pages" %}
 
 ## Summary {#s:ghp-summary}
 

@@ -1,5 +1,3 @@
----
----
 /* Remove Table of Contents sidebar when printing. */
 @media print {
     .main {
@@ -8,12 +6,16 @@
     }
 }
 
+/* Highlight pages that haven't been done. */
+.undone {
+    background-color: #F0FFFF;
+}
+
 /* Table of Contents sidebar. */
 div.toc {
     min-height: 100vh;
     padding-top: 0.5em;
     font-size: 80%;
-    background-color: {{site.background}};
 }
 
 /* Less space between titles and bullet lists in ToC and objectives/keypoints boxes. */
@@ -26,7 +28,7 @@ div.listblock p ~ ul {
     margin-bottom: 5px;
 }
 
-/* Outlines for objectives and key points. */
+/* Outlines for objectives, contents, and key points. */
 div.listblock {
     border-style: solid;
     border-width: 1px;
@@ -36,12 +38,16 @@ div.listblock {
     margin-bottom: 1em;
 }
 
+/* Make headings smaller in listblocks. */
+div.listblock h2 {
+    font-size: 1.5em;
+}
+
 /* Outlines for code samples. */
 pre.highlight {
     border-style: solid;
     border-width: 2px;
     padding: 0.5em;
-    border-color: {{site.background}};
 }
 
 /* Make inline code darker than Bootstrap default. */
@@ -49,9 +55,24 @@ code.highlighter-rouge {
     color: #a06060;
 }
 
+/* Make output distinct. */
+div.language-text {
+    font-weight: bold;
+}
+
+/* Make keyboard items a little less stark */
+kbd {
+    background-color: #606060;
+}
+
 /* Make links darker than Bootstrap default. */
 a {
     color: #6060a0;
+}
+
+/* Style glossary reference links. */
+a[href^="#g:"] {
+    font-weight: bold;
 }
 
 /* Don't indent lists quite so much. */
@@ -71,8 +92,7 @@ ol.appendix {
 figure {
     border-style: solid;
     border-width: 1px;
-    border-color: #000000;
-    background-color: {{site.background}};
+    border-color: #808080;
     padding: 2px;
     text-align: center;
 }
@@ -84,17 +104,9 @@ figcaption {
 
 /* Mark quotations. */
 blockquote {
-    background-color: {{site.background}};
-    padding-left: 0.5em;
+    padding-left: 2em;
+    padding-right: 2em;
     font-style: italic;
-}
-
-/* Mark callouts. */
-blockquote.callout {
-    border-width: 1px;
-    border-color: #000000;
-    border-style: solid;
-    padding: 5px;
 }
 
 /* Make h3 more distinct from h2. */
@@ -140,4 +152,8 @@ dt {
 }
 
 /* Fix Pygments displaying back quotes as errors by marking back quotes as Operator. */
-.highlight .err { color: #ce5c00; font-weight: bold; border: none; }
+.highlight .err {
+    color: #ce5c00;
+    font-weight: bold;
+    border: none;
+}

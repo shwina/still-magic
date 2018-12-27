@@ -110,8 +110,6 @@ if __name__ == '__main__':
     -   The usage message doesn't appear, which means the main block wasn't executed, which is what we want
     -   So now we can go back and put its content in a function and call that function, because we are good people
 
-{% include problems-exercises.md topic="writing modules" %}
-
 ## How Can I Install a Python Package? {#s:packages-install}
 
 -   `pip install package`
@@ -132,8 +130,6 @@ tdda>=1.0
 
 -   `pip freeze` will print exact versions of all installed packages
     -   Save this when producing reports ([s:publish](#CHAPTER))
-
-{% include problems-exercises.md topic="installing packages" %}
 
 ## How Can I Create an Installable Python Package? {#s:packages-package}
 
@@ -184,8 +180,6 @@ generated[-1] *= 2
 print('passes test with default tolerance: {}'.format(zipf.is_zipf(generated)))
 print('passes test with tolerance of 1.0: {}'.format(zipf.is_zipf(generated, rel=1.0)))
 ```
-
-{% include problems-exercises.md topic="creating packages" %}
 
 ## How Can I Distribute Software Packages That I Have Created? {#s:packages-distribute}
 
@@ -278,8 +272,6 @@ drwxr-xr-x  0 standage staff       0 20 Aug 15:36 zipf-0.1/zipf.egg-info/
 -   Next step is to test installation...
 -   ...but first we should clean up the warnings about `README.md`, `url`, and `author_email`
 
-{% include problems-exercises.md topic="distributing software" %}
-
 ## How Can I Manage the Packages My Projects Need? {#s:packages-virtualenv}
 
 -   Want to test the package we just created
@@ -359,8 +351,6 @@ Proceed (y/n)? y
 -   Uses more disk space than absolutely necessary...
 -   ...but less than most of your data sets...
 -   ...and saves a *lot* of pain
-
-{% include problems-exercises.md topic="virtual environments" %}
 
 ## Summary {#s:packages-summary}
 

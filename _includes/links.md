@@ -8,103 +8,144 @@ definitions if that's done.
 {% endcomment %}
 
 [ally-skills]: https://frameshiftconsulting.com/ally-skills-workshop/
+[amaya]: http://www.w3.org/Amaya
+[ant]: http://ant.apache.org
+[apache]: http://httpd.apache.org
 [authorea]: https://www.authorea.com/
-
+[bdb]: https://en.wikipedia.org/wiki/Berkeley_DB
 [branch-per-feature]: https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
+[bridge]: https://bridgeschool.io/
 [bryan-jenny]: https://jennybryan.org/
+[bugzilla]: http://www.bugzilla.org
 [build-tools]: https://en.wikipedia.org/wiki/List_of_build_automation_software
-
+[buildbot]: http://buildbot.sourceforge.net
 [capes-gerard]: https://github.com/gcapes
 [captain-awkward]: https://captainawkward.com/
 [carpentries]: https://carpentries.org/
 [charles-rules]: http://geekfeminism.wikia.com/wiki/Charles%27_Rules_of_Argument
+[checkstyle]: http://checkstyle.sourceforge.net
 [choose-license]: http://choosealicense.com/
+[clearsilver]: http://www.clearsilver.net/
 [code-smells-and-feels]: https://github.com/jennybc/code-smells-and-feels
 [covenant]: https://www.contributor-covenant.org
 [creative-commons]: https://creativecommons.org/
-
+[cruisecontrol]: http://cruisecontrol.sourceforge.net
+[cvs]: http://www.nongnu.org/cvs
 [dc]: https://datacarpentry.org/
-[docker]: https://en.wikipedia.org/wiki/Docker_(software)
+[debian]: http://www.debian.org
+[docbook]: http://www.docbook.org
+[docker]: http://docker.com/
+[draw-io]: https://www.draw.io/
+[drproject]: http://www.drproject.org
 [dryad]: https://datadryad.org/
 [dursi-jonathan]: https://www.dursi.ca/
 [dursi-pattern-rules]: https://github.com/ljdursi/make_pattern_rules
-
+[eclipse]: http://www.eclipse.org
+[emacs]: http://www.gnu.org/software/emacs
+[email]: mailto:gvwilson@third-bit.com
 [f1000-research]: https://f1000research.com/
 [figshare]: https://figshare.com/
+[findbugs]: http://findbugs.sourceforge.net
 [format-r]: https://yihui.name/formatr/
-
+[gdb]: http://sourceware.org/gdb
 [geek-feminism]: http://geekfeminism.wikia.com/
 [gfm]: https://help.github.com/articles/github-flavored-markdown/
-[github]: http://github.com
 [github-pages]: https://pages.github.com/
 [github-zenodo-tutorial]: https://guides.github.com/activities/citable-code/
+[github]: http://github.com
 [gnu-make]: http://www.gnu.org/software/make/
 [go-fair]: https://www.go-fair.org/fair-principles/
+[google-code]: http://code.google.com
 [google-docs]: https://en.wikipedia.org/wiki/Google_Docs,_Sheets,_and_Slides
-
+[httpunit]: http://httpunit.sourceforge.net
 [huff-katy]: http://katyhuff.github.io/
 [huff-testing]: https://github.com/katyhuff/python-testing
-
 [insight]: https://www.insightdatascience.com/
-
+[irc]: http://www.irc.org
+[javadoc]: http://java.sun.com/j2se/javadoc/
+[jedit]: http://www.jedit.org
 [jekyll]: https://jekyllrb.com/
 [joss]: https://joss.theoj.org/
+[js-vs-ds]: https://software-tools-in-javascript.github.io/js-vs-ds/
+[junit]: http://www.junit.org
 [jupyter]: http://jupyter.org/
-
 [kirk-matthew]: https://www.matthewkirk.com/
-
 [latex]: http://www.latex-project.org/
+[learning-scientists]: http://www.learningscientists.org/
 [libreoffice]: https://www.libreoffice.org/
 [lint]: https://en.wikipedia.org/wiki/Lint_(software)
-
+[log4j]: http://logging.apache.org/log4j/docs/index.html
+[lyx]: http://www.lyx.org
 [make]: https://www.gnu.org/software/make/
 [markdown]: https://en.wikipedia.org/wiki/Markdown
 [mathjax]: https://www.mathjax.org/
+[mathml]: http://www.w3.org/Math/
 [model-coc]: http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy
 [ms-word]: https://en.wikipedia.org/wiki/Microsoft_Word
-
+[msoffice]: http://office.microsoft.com/word
+[nant]: http://nant.sourceforge.net
+[noller-a-lot-happens]: http://jessenoller.com/blog/2015/9/27/a-lot-happens
+[noller-sequel]: http://jessenoller.com/blog/2015/10/31/community-boundaries
 [one-extra-thing]: https://merely-useful.github.io/one-extra-thing/
+[openid]: http://www.openid.net
+[oracle]: http://www.oracle.com/
 [orcid]: https://orcid.org/
 [orwells-rules]: https://en.wikipedia.org/wiki/Politics_and_the_English_Language#Remedy_of_Six_Rules
-[osi-license-list]: http://opensource.org/licenses
 [osf]: https://osf.io/
+[osi-license-list]: http://opensource.org/licenses
 [overleaf]: https://www.overleaf.com/
-
 [pandoc]: https://pandoc.org/
 [pep-8]: https://www.python.org/dev/peps/pep-0008/
+[perforce]: http://www.perforce.com
+[pmd]: http://pmd.sourceforge.net
 [poisot-timothee]: http://poisotlab.io/
 [producing-oss]: https://producingoss.com/
 [pypi]: https://pypi.org/
-[python-102]: https://python-102.readthedocs.io/
 [pytest-mpl]: https://github.com/matplotlib/pytest-mpl
-
+[python-102]: https://python-102.readthedocs.io/
+[python]: http://python.org/
 [r-markdown]: https://rmarkdown.rstudio.com/
+[rake]: http://rake.rubyforge.org
 [readthedocs]: https://docs.readthedocs.io/en/latest/
-
+[scons]: http://www.scons.org
+[selenium]: http://www.openqa.org/selenium
 [setuptools]: https://setuptools.readthedocs.io/
 [seven-ways]: http://blog.jonudell.net/2011/01/24/seven-ways-to-think-like-the-web/
 [shapiro-wilk]: https://en.wikipedia.org/wiki/Shapiro%E2%80%93Wilk_test
 [snakemake]: https://snakemake.readthedocs.io/
+[sourceforge]: http://www.sourceforge.net
 [sphinx]: http://www.sphinx-doc.org/en/master/
+[sqlite]: http://www.sqlite.org
+[sqlunit]: http://sqlunit.sourceforge.net
 [srinath-ashwin]: https://ccit.clemson.edu/research/researcher-profiles/ashwin-srinath/
+[ssh]: https://en.wikipedia.org/wiki/Secure_Shell
 [standage-daniel]: https://standage.github.io/
-[swc]: http://software-carpentry.org
+[subversion]: http://subversion.tigris.org
+[swc-git]: https://swcarpentry.github.io/git-novice/
 [swc-make]: https://github.com/swcarpentry/make-novice
-
+[swc-python]: https://swcarpentry.github.io/python-novice-inflammation/
+[swc-r]: https://swcarpentry.github.io/python-novice-inflammation/
+[swc-shell]: http://swcarpentry.github.io/shell-novice/
+[swc]: http://software-carpentry.org
+[t3-personas]: http://teachtogether.tech/en/process/#s:process-personas
+[t3]: http://teachtogether.tech
 [tables-generator]: https://www.tablesgenerator.com/
 [tdda-site]: http://www.tdda.info/
 [tf-idf]: https://en.wikipedia.org/wiki/Tf%E2%80%93idf
+[third-bit]: http://third-bit.com
 [tldr-gpl]: https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)
+[tomcat]: http://tomcat.apache.org
+[trac]: http://trac.edgewall.org
 [travis-ci]: https://travis-ci.org/
+[troy-meetings]: https://chelseatroy.com/2018/03/29/why-do-remote-meetings-suck-so-much/
 [tyranny-structurelessness]: http://www.jofreeman.com/joreen/tyranny.htm
-
 [unpaywall]: http://unpaywall.org/
-
+[utoronto]: http://utoronto.ca
+[valgrind]: http://valgrind.org
 [vanderplas-licensing]: http://www.astrobetter.com/blog/2014/03/10/the-whys-and-hows-of-licensing-scientific-code/
-
+[vscode]: http://msdn.microsoft.com/vstudio
 [wilson-greg]: http://third-bit.com
-
+[xkcd-duty-calls]: https://xkcd.com/386/
 [yaml]: https://en.wikipedia.org/wiki/YAML
-
 [zenodo]: https://zenodo.org/
 [zipfs-law]: http://en.wikipedia.org/wiki/Zipf%27s_law

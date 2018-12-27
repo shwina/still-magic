@@ -74,8 +74,6 @@ archive :
     -   If all parameters are in a configuration file, use that ([s:configuration](#CHAPTER))
     -   Or log all configuration parameters and use `grep` or a script to extract from the logfile ([s:logging](#CHAPTER))
 
-{% include problems-exercises.md topic="what to publish and where" %}
-
 ## How Can I Identify Myself and My Work in Bibliographies? {#s:publish-identifiers}
 
 -   An [ORCID](#g:orcid) is an Open Researcher and Contributor ID
@@ -103,8 +101,6 @@ archive :
 -   Publish software in [JOSS][joss] or [F1000 Research][f1000-research]
 -   Publish *everything* in open access venues ([s:inclusive-license](#SECTION))
     -   Use [Unpaywall][unpaywall] browser extension to check and find things
-
-{% include problems-exercises.md topic="ORCIDs and DOIs" %}
 
 ## What Is the Most Useful Way to Share My Data? {#s:publish-fair}
 
@@ -140,8 +136,6 @@ archive :
     -   Include an explicit license in every project and every dataset
     -   Include scripts or documentation on how to get or regenerate data
     -   Include units (please)
-
-{% include problems-exercises.md topic="FAIR Principles" %}
 
 ## Summary {#s:publish-summary}
 

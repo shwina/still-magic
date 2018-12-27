@@ -2,16 +2,13 @@
 title: "Still Magic"
 subtitle: "How to Build Research Software You Can Trust and Still Be Home in Time for Dinner"
 author: "Greg Wilson"
-copyrightyear: "2018"
-repo: "https://github.com/merely-useful/still-magic/"
+copyrightyear: "2019"
+repo: "https://github.com/merely-useful/still-magic"
+website: "https://merely-useful.github.io/still-magic/"
 email: "gvwilson@third-bit.com"
 isbn: "000-0-0000000-0-0"
-website: "http://merely-useful.github.io/still-magic/"
-purchase: ""
-paypal: ""
-organization: https://merely-useful.github.io/
 
-# Order for Table of Contents.
+# Order for table of contents.
 toc:
   lessons:
   - /intro/
@@ -42,15 +39,36 @@ toc:
   - /keypoints/
   - /design/
 
-# Theme color.
-background: "#f0faf0"
+# Tell Jekyll that "en" is a collection (whose files are found in "_en").  This
+# is what allows us to loop over files in various inclusions.  We use "en" to
+# indicate English, and can use other two-letter codes for other languages.
+collections:
+  en:
+    output: true
 
-# Jekyll settings.
+# Specify the use of the "lesson" template for elements of the "en" collection.
+defaults:
+  - scope:
+      path: ""
+      type: en
+    values:
+      language: "en"
+      layout: "lesson"
+
+# Translations keyed by language.  This lookup table allows us to put the right
+# titles on inclusion blocks in various languages.
+translations:
+  en:
+    generated: "Last generated"
+    questions: "Questions"
+    keypoints: "Key Points"
+    singlepage: "Single page version"
+
+# Standard Jekyll settings.
+repository: <USERNAME>/<PROJECT>
 highlighter: rouge
 plugins:
-  - "jekyll-redirect-from"
-
-# Things to ignore
+- "jekyll-redirect-from"
 exclude:
 - BUILD.md
 - CITATION.md
@@ -59,37 +77,5 @@ exclude:
 - Makefile
 - README.md
 - bin
-- misc
-- requirements.txt
-- src
+- node_modules
 - tex
-- unused
-
-# Markers in generated files.
-marker:
-  start: "<!-- main start -->"
-  end: "<!-- main end -->"
-  crossref: "let CROSSREF="
-
-# Collections: one for lessons and one for extras for each language suffix.
-collections:
-  en:
-    output: true
-
-# Set the language for various collections.
-defaults:
-  - scope:
-      path: ""
-      type: en
-    values:
-      language: "en"
-      layout: "default"
-
-# Translations by language.
-translations:
-  en:
-    generated: "Last generated"
-    keypoints: "Key points"
-    objectives: "After reading this chapter, you will be able to..."
-    questions: "Questions this lesson answers"
-    singlepage: "Single page version"

@@ -91,8 +91,6 @@ keypoints:
         -   Some publishers try to imply that -NC means *nobody* can make money from it, which is untrue
     -   -SA: share-alike
 
-{% include problems-exercises.md topic="licensing" %}
-
 ## Why Should I Establish a Code of Conduct for My Project? {#s:inclusive-conduct}
 
 -   A CoC lays out the expectations for personal interaction in your project
@@ -117,8 +115,6 @@ keypoints:
 -   Some people may (still) push back claiming that it's unnecessary, or that it infringes freedom of speech, or...
     -   What they really mean is that thinking about unfairness that may have benefited from makes them uncomfortable
     -   In our experience, that is also a very useful filter on contributors...
-
-{% include problems-exercises.md topic="code of conduct" %}
 
 ## How Can I Be a Good Ally for Members of Marginalized Groups? {#s:inclusive-ally}
 
@@ -176,8 +172,6 @@ keypoints:
     -   So sure, if you intend to preserve an exclusionary culture in this lab,
         considering how much someone has achieved despite systemic unfairness might not make sense,
         but you're not arguing for that, are you?
-
-{% include problems-exercises.md topic="ally skills" %}
 
 ## Summary {#s:inclusive-summary}
 

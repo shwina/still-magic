@@ -78,8 +78,6 @@ CRITICAL:root:Something went seriously wrong.
     -   Useful during debugging
     -   Think twice before doing in production
 
-{% include problems-exercises.md topic="basic logging" %}
-
 ## How Can I Change the Format of My Program's Reports? {#s:logging-format}
 
 -   Library uses the conventions of an older form of string formatting
@@ -100,8 +98,6 @@ logging.warning('This is a warning.')
 -   As noted in [s:configuration](#CHAPTER), record the configuration data as a single string
     -   Because CSV doesn't handle nested data...
     -   ...and you want to be able to read a single field, convert from YAML back to memory, and manipulate
-
-{% include problems-exercises.md topic="changing log format" %}
 
 ## How Can I Handle Multiple Reporting Sources in One Program? {#s:logging-source}
 
@@ -237,8 +233,6 @@ $ python tee.py
 2018-08-20T16:29:42,example,ERROR,error
 2018-08-20T16:29:42,example,CRITICAL,critical
 ```
-
-{% include problems-exercises.md topic="handling multiple log sources" %}
 
 ## Summary {#s:logging-summary}
 

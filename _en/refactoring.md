@@ -40,8 +40,6 @@ SECONDS_PER_DAY = 24 * 60 * 60
 seconds_elapsed = num_days * SECONDS_PER_DAY
 ```
 
-{% include problems-exercises.md topic="replacing value with name" %}
-
 ## Hoist Repeated Calculation Out of Loop {#s:refactoring-hoist-repeated}
 
 -   Move something that is being re-calculated inside a loop out of the loop
@@ -60,8 +58,6 @@ scaling = 2 * pi / normalize
 for sample in all_signals:
     transform.append(sample * scaling)
 ```
-
-{% include problems-exercises.md topic="hoist repeated calculation" %}
 
 ## Replace Repeated Test With Flag {#s:refactoring-repeated-test}
 
@@ -102,8 +98,6 @@ def process_data(data, scaling):
 
 -   If the test needs to change to `>=`, the `AFTER` version is more likely to be right the first time
 
-{% include problems-exercises.md topic="replace repeated test" %}
-
 ## Use In-Place Operator {#s:refactoring-in-place}
 
 -   An [in-place operator](#g:in-place-operator) does a calculation with two values and overwrites one of those values
@@ -123,8 +117,6 @@ for least_factor_index in all_factor_indexes:
 for least_factor_index in all_factor_indexes:
     samples[least_factor_index, max(current_offset, offset_limit)] *= scaling_factor
 ```
-
-{% include problems-exercises.md topic="in-place operator" %}
 
 ## Place Short Circuits Early {#s:refactoring-short-circuits}
 
@@ -158,8 +150,6 @@ def rescale_by_average(values, factors, weights):
     for (i, v) in enumerate(values):
         values[i] = v / a
 ```
-
-{% include problems-exercises.md topic="short circuits" %}
 
 ## Default and Override {#s:refactoring-default-override}
 
@@ -199,8 +189,6 @@ scale = 0.8 if configuration['threshold'] > UPPER_BOUND else 1.0
 -   However, this puts the default last instead of first, which is unclear
     -   Can invert the sense of the test, but that's also confusing
 
-{% include problems-exercises.md topic="default and override" %}
-
 ## Extract Function {#s:refactoring-extract-function}
 
 -   Move common operations into functions to reduce amount of code that needs to be read
@@ -230,8 +218,6 @@ def in_interior(grid, point):
     -   But even if not, it is (again) easier to read aloud
 -   Use original variable names as parameter names during refactoring to reduce typing
 -   Multi-part conditionals, parts of long equations, and bodies of loops are good candidates for extraction
-
-{% include problems-exercises.md topic="extract function" %}
 
 ## Combine Functions {#s:refactoring-combine-functions}
 
@@ -274,8 +260,6 @@ def count_vowels_and_consonants(text):
     -   This implementation *could* use two independent tests instead of `elif`
     -   But you probably didn't notice the change in semantics
 -   One sign that functions shouldn't have been combined is how often people use the combination and throw some results away
-
-{% include problems-exercises.md topic="combine functions" %}
 
 ## Create Lookup Table {#s:refactoring-lookup}
 
@@ -322,8 +306,6 @@ def count_vowels_and_consonants(text):
 
 -   Note: in this case, could use a set, check for membership, and increment
 -   So we should only use lookup tables when weights differ among elements
-
-{% include problems-exercises.md topic="create lookup table" %}
 
 ## Replace Loop With Comprehension {#s:refactoring-comprehension}
 
@@ -401,8 +383,6 @@ flattened = [c for w in words for c in w]
 -   Works for sets, dictionaries, and anything else that can be iterated over
 -   This is the direction most modern Python is going, so write comprehensions for new code and refactor wherever you can
 -   And don't be afraid (at least during development) to create temporaries
-
-{% include problems-exercises.md topic="replace loop with comprehension" %}
 
 ## Summary {#s:refactoring-summary}
 

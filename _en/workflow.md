@@ -68,8 +68,6 @@ keypoints:
     -   Doing work in one branch while large refactoring is going on in another
     -   So don't do this
 
-{% include problems-exercises.md topic="branch per feature" %}
-
 ## How Can I Keep My Project's History Clean When Working on Many Branches? {#s:workflow-rebase}
 
 -   [Rebasing](#g:rebase) means moving or combining some commits from one branch to another
@@ -95,8 +93,6 @@ keypoints:
 -   Don't rebase branches that are shared with other people
     -   Creating a pull request from a branch effectively makes that branch shared
 
-{% include problems-exercises.md topic="rebasing" %}
-
 ## How Can I Label Specific Versions of My Work? {#s:workflow-tag}
 
 -   A [tag](#g:git-tag) is a permanent label on a particular state of the repository
@@ -116,8 +112,6 @@ keypoints:
     -   Because everything that is finished is merged to master
 -   Larger software projects may create a branch for each released version and do minor or patch updates on that branch
     -   Outside the scope of this lesson
-
-{% include problems-exercises.md topic="tagging" %}
 
 ## How Can I Manage the Work I Still Have To Do? {#s:workflow-issues}
 
@@ -155,8 +149,6 @@ keypoints:
   <img id="f:workflow-lifecycle" src="../../files/issue-lifecycle.svg" alt="Issue State Transitions" />
 </figure>
 
-{% include problems-exercises.md topic="issues" %}
-
 ## How Can I Write a Good Bug Report? {#s:workflow-bugs}
 
 1.  Make sure it actually *is* a bug.
@@ -192,8 +184,6 @@ printable character.)
 python wordbase.py --version reports 0.13.1; using on Windows 10.
 ~~~
 
-{% include problems-exercises.md topic="writing bug reports" %}
-
 ## How Can I Set Up a Consistent Workflow for My Project? {#s:workflow-status}
 
 -   Use labels to distinguish:
@@ -219,8 +209,6 @@ python wordbase.py --version reports 0.13.1; using on Windows 10.
     -   I.e., only allow certain state transitions
     -   And notify interested parties of state transitions
 -   Don't worry about any of this until people are actually using issues...
-
-{% include problems-exercises.md topic="lifecycle" %}
 
 ## Summary {#s:workflow-summary}
 

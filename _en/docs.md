@@ -99,8 +99,6 @@ help(trim)
 -   Or run `pydoc -w bin/trim.py` to generate an HTML page `trim.html`
     -   Formatting is a bit garish
 
-{% include reuse/trim.html %}
-
 -   Can use a more sophisticated tool (i.e., more powerful but also more complicated) called [Sphinx][sphinx]
     -   Reads a superset of Markdown called [reStructredText](#g:restructured-text)
     -   Generates cross-indexed documentation that is more nicely formatted
@@ -110,8 +108,6 @@ help(trim)
     -   An example of [continuous integration](#g:continuous-integration)
     -   And it's free
     -   But out of the scope of this lesson
-
-{% include problems-exercises.md topic="using docstrings" %}
 
 ## Summary {#s:docs-summary}
 

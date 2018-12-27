@@ -2,23 +2,39 @@
 
 import sys
 import re
-import bibtexparser
 
-CITE = re.compile(r'\\cite(\[[^\]]+\])?{([^}]+)}')
+def main():
+    bibFile, sourceFiles = sys.argv[1], sys.argv[2:]
+    defined = getKeys(bibFile)
+    used = getRefs(sourceFiles)
+    report('unused', defined - used)
+    report('undefined', used - defined)
 
-def getCites(filename):
-    with open(filename, 'r') as reader:
-        split = [x[1].split(',') for x in CITE.findall(reader.read())]
-        return [b for s in split for b in s]
 
-sense, bibfile, texfiles = sys.argv[1], sys.argv[2], sys.argv[3:]
-bib = set([b['ID'] for b in bibtexparser.loads(open(bibfile).read()).entries])
-cites = [getCites(f) for f in texfiles]
-cites = set([c for group in cites for c in group])
-if sense == '--used':
-    display = cites
-elif sense == '--unused':
-    display = bib - cites
-elif sense == '--missing':
-    display = cites - bib
-print('\n'.join(sorted(display)))
+def getKeys(filename):
+    pat = re.compile(r'{:#b:([^}]+)}')
+    data = open(filename, 'r').read()
+    keys = pat.findall(data)
+    return set(keys)
+
+
+def getRefs(filenames):
+    keyPat = re.compile(r'\[([^\]]+)\]\(#BIB\)')
+    titlePat = re.compile(r'/bib/#b:([^\)]+)')
+    result = set()
+    for f in filenames:
+        with open(f, 'r') as reader:
+            data = reader.read()
+            cites = [x.split(',') for x in keyPat.findall(data)]
+            result |= set([key for sublist in cites for key in sublist])
+            result |= set(titlePat.findall(data))
+    return result
+
+
+def report(title, keys):
+    if keys:
+        print(title, ', '.join(sorted(keys)))
+
+
+if __name__ == '__main__':
+    main()
