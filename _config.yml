@@ -15,17 +15,17 @@ toc:
   - /intro/
   - /automate/
   - /unit/
-  - /correct/
+  - /verify/
   - /logging/
-  - /configuration/
+  - /configure/
   - /ghp/
   - /workflow/
-  - /continuous/
+  - /integrate/
   - /style/
-  - /refactoring/
+  - /refactor/
   - /structure/
   - /inclusive/
-  - /packages/
+  - /package/
   - /publish/
   - /docs/
   - /finale/

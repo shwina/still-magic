@@ -1,6 +1,6 @@
 ---
-permalink: "/en/correct/"
-title: "Testing Data Analysis"
+permalink: "/en/verify/"
+title: "Verification"
 undone: true
 questions:
 -   "How should I test a data analysis pipeline?"
@@ -21,6 +21,9 @@ keypoints:
     -   Run them when building the pipeline to convince ourselves the code is correct
     -   Run them in production to make sure assumptions still hold
     -   They might not because the environment might have changed
+-   Difference between validation and verification
+    -   [Validation](../gloss/#g:validation): is specification correct (i.e., did we build the right thing?)
+    -   [Verification](../gloss/#g:verification): does the software meet the spec (i.e., did we build the thing right?)
 -   Different from the tests most software engineers write because you don't always know what the right answer is
     -   If you did, you would have submitted your report and moved on to the next problem
 -   But there's a close analogy with physical experiments

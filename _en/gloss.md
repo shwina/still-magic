@@ -232,7 +232,13 @@ title: "Glossary"
 **Unit test**{:#g:unit-test}
 :   FIXME
 
+**Validation**{:#g:validation}
+:   FIXME
+
 **Vector image**{:#g:vector-image}
+:   FIXME
+
+**Verification**{:#g:verification}
 :   FIXME
 
 **Virtual environment**{:#g:virtual-environment}

@@ -1,6 +1,6 @@
 ---
-permalink: "/en/packages/"
-title: "Packages"
+permalink: "/en/package/"
+title: "Packaging"
 undone: true
 questions:
 -   "How can I manage the libraries my project relies on?"
@@ -24,7 +24,7 @@ keypoints:
 -   This lesson shows you how to use Python's tools
 -   Based in part on [Python 102][python-102] by [Ashwin Srinath][srinath-ashwin]
 
-## How Can I Turn a Set of Python Source Files Into a Module? {#s:packages-modules}
+## How Can I Turn a Set of Python Source Files Into a Module? {#s:package-modules}
 
 -   Any Python source file can be imported
     -   Statements are executed as the file is loaded
@@ -111,7 +111,7 @@ if __name__ == '__main__':
     -   The usage message doesn't appear, which means the main block wasn't executed, which is what we want
     -   So now we can go back and put its content in a function and call that function, because we are good people
 
-## How Can I Install a Python Package? {#s:packages-install}
+## How Can I Install a Python Package? {#s:package-install}
 
 -   `pip install package`
     -   Checks to see if the package is already installed (or needs to be upgraded)
@@ -132,7 +132,7 @@ tdda>=1.0
 -   `pip freeze` will print exact versions of all installed packages
     -   Save this when producing reports ([s:publish](#CHAPTER))
 
-## How Can I Create an Installable Python Package? {#s:packages-package}
+## How Can I Create an Installable Python Package? {#s:package-package}
 
 -   Next step: put the two functions in their own files underneath a `zipf` package
     -   Would probably keep them in the same file in a real project, because they're small and closely related
@@ -182,7 +182,7 @@ print('passes test with default tolerance: {}'.format(zipf.is_zipf(generated)))
 print('passes test with tolerance of 1.0: {}'.format(zipf.is_zipf(generated, rel=1.0)))
 ```
 
-## How Can I Distribute Software Packages That I Have Created? {#s:packages-distribute}
+## How Can I Distribute Software Packages That I Have Created? {#s:package-distribute}
 
 -   Yes, people can clone your repository and copy files from that
 -   But it's much friendlier to create something they can install
@@ -273,7 +273,7 @@ drwxr-xr-x  0 standage staff       0 20 Aug 15:36 zipf-0.1/zipf.egg-info/
 -   Next step is to test installation...
 -   ...but first we should clean up the warnings about `README.md`, `url`, and `author_email`
 
-## How Can I Manage the Packages My Projects Need? {#s:packages-virtualenv}
+## How Can I Manage the Packages My Projects Need? {#s:package-virtualenv}
 
 -   Want to test the package we just created
 -   But *don't* want to damage the packages we already have installed
@@ -353,7 +353,7 @@ Proceed (y/n)? y
 -   ...but less than most of your data sets...
 -   ...and saves a *lot* of pain
 
-## Summary {#s:packages-summary}
+## Summary {#s:package-summary}
 
 FIXME: create concept map for packages
 

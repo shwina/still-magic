@@ -1,6 +1,6 @@
 ---
-permalink: "/en/configuration/"
-title: "Configuration"
+permalink: "/en/configure/"
+title: "Configuring Software"
 undone: true
 questions:
 -   "How can I make it easy for users to configure software?"
@@ -30,7 +30,7 @@ keypoints:
 -   Usually also allow longer command-line options to control everything to support scripting
     -   Out of scope of this lesson
 
-## How Can I Handle Command-Line Flags Consistently? {#s:configuration-cmdline}
+## How Can I Handle Command-Line Flags Consistently? {#s:configure-cmdline}
 
 -   Use `getopt` for simple programs and `argparse` for complex ones
     -   `getopt` example will illustrate the ideas
@@ -89,7 +89,7 @@ extras is ['file1.txt', 'file2.txt']
 -   Only provide short (single-letter) flags for commonly-used options
     -   Signals what you expect to change frequently and what you expect will be left alone
 
-## How Can I Manage Configuration Files Consistently? {#s:configuration-files}
+## How Can I Manage Configuration Files Consistently? {#s:configure-files}
 
 -   Enable program to read configuration from file
     -   Because in manual use, a lot of values stay the same
@@ -129,7 +129,7 @@ print(config)
     -   Rather than creating a bunch of free-standing variables, fill in one dictionary of options
     -   `if config['quiet']` is only a little more typing than `if quiet`, intent is clearer, and it's consistent with reaing from config files
 
-## How Can I Implement Multi-Layer Configuration? {#s:configuration-overlay}
+## How Can I Implement Multi-Layer Configuration? {#s:configure-overlay}
 
 -   System settings, then user settings, then job settings, each overriding what came before
 -   use `dict.update` to overwrite previous settings
@@ -170,7 +170,7 @@ def find_configuration_files():
     return result
 ```
 
-## How Can I Keep a Record of the Actual Configuration That Produced Particular Results? {#s:configuration-dump}
+## How Can I Keep a Record of the Actual Configuration That Produced Particular Results? {#s:configure-dump}
 
 -   Careful record keeping is essential to reproducible science
     -   The computer can do the record keeping
