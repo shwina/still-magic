@@ -1,7 +1,6 @@
 ---
 permalink: "/en/teamwork/"
 title: "Teamwork"
-undone: true
 questions:
 -   "FIXME"
 objectives:

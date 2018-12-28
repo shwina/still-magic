@@ -6,7 +6,7 @@ Check for unused and undefined citations.
 
 import sys
 import re
-from util import report
+from util import report, usage
 
 
 TITLE = 'Citations'
@@ -41,7 +41,5 @@ def getRefs(filenames):
 
 if __name__ == '__main__':
     if len(sys.argv) < 3:
-        print('Usage: checkcites.py bibFile sourceFile [sourceFile ...]',
-              file=sys.stderr)
-        sys.exit(1)
+        usage('checkcites.py bibFile sourceFile [sourceFile ...]')
     main(sys.argv[1], sys.argv[2:])

@@ -6,7 +6,7 @@ Check for unused and undefined glossary entries.
 
 import sys
 import re
-from util import report
+from util import report, usage
 
 
 TITLE = 'Glossary Entries'
@@ -28,6 +28,5 @@ def main(filenames):
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print('Usage: checkgloss.py glossFile [filename ...]',
-              file=sys.stderr)
+        usage('checkgloss.py glossFile [filename ...]')
     main(sys.argv[1:])

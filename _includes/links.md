@@ -70,6 +70,9 @@ definitions if that's done.
 [model-coc]: http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy
 [ms-word]: https://en.wikipedia.org/wiki/Microsoft_Word
 
+[noller-a-lot-happens]: http://jessenoller.com/blog/2015/9/27/a-lot-happens
+[noller-sequel]: http://jessenoller.com/blog/2015/10/31/community-boundaries
+
 [one-extra-fact]: https://merely-useful.github.io/one-extra-fact/
 [orcid]: https://orcid.org/
 [orwells-rules]: https://en.wikipedia.org/wiki/Politics_and_the_English_Language#Remedy_of_Six_Rules
@@ -108,6 +111,7 @@ definitions if that's done.
 [tf-idf]: https://en.wikipedia.org/wiki/Tf%E2%80%93idf
 [tldr-gpl]: https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)
 [travis-ci]: https://travis-ci.org/
+[troy-meetings]: https://chelseatroy.com/2018/03/29/why-do-remote-meetings-suck-so-much/
 [tyranny-structurelessness]: http://www.jofreeman.com/joreen/tyranny.htm
 
 [unpaywall]: http://unpaywall.org/
@@ -115,6 +119,8 @@ definitions if that's done.
 [vanderplas-licensing]: http://www.astrobetter.com/blog/2014/03/10/the-whys-and-hows-of-licensing-scientific-code/
 
 [wilson-greg]: http://third-bit.com
+
+[xkcd-duty-calls]: https://xkcd.com/386/
 
 [yaml]: https://en.wikipedia.org/wiki/YAML
 

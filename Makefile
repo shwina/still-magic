@@ -51,6 +51,12 @@ ${BOOK_PDF} : ${ALL_TEX}
 	&& ${LATEX} ${STEM} \
 	&& ${LATEX} ${STEM}
 
+## bib         : regenerate the Markdown bibliography from the BibTeX file.
+bib :
+	@bin/bib2md.py ${lang} < ${DIR_TEX}/${STEM}.bib > ${DIR_MD}/bib.md
+
+## ----------------------------------------
+
 # Create the unified LaTeX file (separate target to simplify testing).
 # + 'sed' to pull glossary entry IDs out into '==g==' blocks (because Pandoc throws them away).
 # + 'sed' to pull bibliography entry IDs out into '==b==' blocks (because Pandoc throws them away).
@@ -104,6 +110,7 @@ ${PAGES_HTML} : ${PAGES_MD}
 check :
 	@make lang=${lang} checkchars
 	@make lang=${lang} checkcites
+	@make lang=${lang} checkfigs
 	@make lang=${lang} checkgloss
 	@make lang=${lang} checklinks
 	@make lang=${lang} checktoc
@@ -115,6 +122,10 @@ checkchars :
 ## checkcites  : list all missing or unused bibliography entries.
 checkcites :
 	@bin/checkcites.py ${DIR_MD}/bib.md ${PAGES_MD}
+
+## checkfigs   : list all missing or unused figures.
+checkfigs :
+	@bin/checkfigs.py figures ${PAGES_MD}
 
 ## checkgloss  : check that all glossary entries are defined and used.
 checkgloss :

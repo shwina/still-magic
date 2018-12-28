@@ -7,7 +7,7 @@ Check for unused or missing files compared to table of contents in YAML configur
 import sys
 import re
 import yaml
-from util import report
+from util import report, usage
 
 
 TITLE = 'Table of Contents'
@@ -33,7 +33,5 @@ def normalize(filenames):
 
 if __name__ == '__main__':
     if len(sys.argv) < 3:
-        print('Usage: checkfiles /path/to/config /path/to/chapterfiles...',
-              file=sys.stderr)
-        sys.exit(1)
+        usage('checkfiles /path/to/config /path/to/chapterfiles...')
     main(sys.argv[1], sys.argv[2:])

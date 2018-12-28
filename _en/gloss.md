@@ -12,6 +12,9 @@ title: "Glossary"
 **Action**{:#g:make-action} (in a Makefile)
 :   FIXME
 
+**Active listening**{:#g:active-listening}
+:   FIXME
+
 **Annotated tag**{:#g:annotated-tag}
 :   FIXME
 
@@ -79,6 +82,9 @@ title: "Glossary"
 :   FIXME
 
 **Exponent**{:#g:exponent}
+:   FIXME
+
+**Feature creep**{:#g:feature-creep}
 :   FIXME
 
 **Filename stem**{:#g:filename-stem}
@@ -214,10 +220,10 @@ title: "Glossary"
 :   FIXME
 
 **Tidy data**{:#g:tidy-data}
-:   Tabular data organized so that:
+:   As defined in [Wick2014](#BIB), tabular data is tidy if:
     1.  Each variable is in one column.
     2.  Each different observation of that variable is in a different row.
-    3.  There is one table for each "kind" of variable.
+    3.  There is one table for each kind of variable.
     4.  If there are multiple tables, each includes a key so that related data can be linked.
 
 **Timestamp**{:#g:timestamp} (on a file)

@@ -8,6 +8,7 @@ of BibTeX used in this book's bibliography.
 # Libraries.
 import sys
 import bibtexparser
+from util import usage
 
 # Constants
 HEADER = '''---
@@ -91,7 +92,7 @@ def _key(entry):
     Format the citation key, including the Markdown to create a linkable ID.
     '''
     key = entry['ID']
-    return '**' + key + '**{:#' + key + '}'
+    return '**' + key + '**{:#b:' + key + '}'
 
 
 def _link(entry):
@@ -163,6 +164,5 @@ def main(language):
 # Command-line launch.
 if __name__ == '__main__':
     if len(sys.argv) != 2:
-        sys.stderr.write('Usage: bib2m language\n')
-        sys.exit(1)
+        usage('bib2m language < input > output')
     main(sys.argv[1])

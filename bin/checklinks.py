@@ -6,7 +6,7 @@ Check for unused and undefined links.
 
 import sys
 import re
-from util import report
+from util import report, usage
 
 
 TITLE = 'Links'
@@ -46,6 +46,5 @@ def readRefs(filenames):
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print('Usage: checklinks.py linksFile [filename ...]',
-              file=sys.stderr)
+        usage('checklinks.py linksFile [filename ...]')
     main(sys.argv[1], sys.argv[2:])

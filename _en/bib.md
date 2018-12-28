@@ -9,6 +9,12 @@ title: "Bibliography"
 
 **Bran1995**{:#b:Bran1995}: Stewart Brand: *How Buildings Learn: What Happens After They're Built*. Penguin USA, 1995. *FIXME*
 
+**Broo2016**{:#b:Broo2016}: Stephen D. Brookfield and Stephen Preskill: *The Discussion Book: 50 Great Ways to Get People Talking*. Jossey-Bass, 2016. *Describes fifty different ways to get groups talking productively.*
+
+**Brow2007**{:#b:Brow2007}: Michael Jacoby Brown: *Building Powerful Community Organizations: A Personal Guide to Creating Groups that Can Solve Problems and Change the World*. Long Haul Press, 2007. *A practical guide to creating effective organizations in and for communities.*
+
+**Csik1991**{:#b:Csik1991}: Mihaly Csikszentmihalyi: *Flow: The Psychology of Optimal Experience*. Harper Perennial Modern Classics, 2008. *FIXME*
+
 **Dobz1973**{:#b:Dobz1973}: Theodosius Dobzhansky: "Nothing in biology makes sense except in the light of evolution". *The American Biology Teacher*, Mar 1973, <https://en.wikipedia.org/wiki/Nothing_in_Biology_Makes_Sense_Except_in_the_Light_of_Evolution>. *A forceful statement of the central unifying theme of modern biology.*
 
 **Fucc2016**{:#b:Fucc2016}: Davide Fucci, Giuseppe Scanniello, Simone Romano, Martin Shepperd, Boyce Sigweni, Fernando Uyaguari, Burak Turhan, Natalia Juristo, and Markku Oivo: "An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach". *An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach*, 2016, <https://doi.org/10.1145/2961111.2962592>. *The latest in a long line to find that test-driven development (TDD) has little or no impact on development time or code quality.*
@@ -21,15 +27,23 @@ title: "Bibliography"
 
 **Hekm2017**{:#b:Hekm2017}: David R. Hekman, Stefanie K. Johnson, Maw-Der Foo, and Wei Yang: "Does Diversity-Valuing Behavior Result in Diminished Performance Ratings for Non-White and Female Leaders?". *Academy of Management Journal*, 60(2), Apr 2017, <https://doi.org/10.5465/amj.2014.0538>. *FIXME*
 
+**Hock2004**{:#b:Hock2004}: Roger R. Hock: *Forty Studies that Changed Psychology*. Prentice Hall, 2004. *FIXME*
+
 **Kaps2006**{:#b:Kaps2006}: Cory Kapser and Michael Godfrey: ""Cloning Considered Harmful" Considered Harmful". *"Cloning Considered Harmful" Considered Harmful*, 2006, <https://doi.org/10.1109/wcre.2006.1>. *Reports empirical research showing that code clones are sometimes beneficial.*
 
+**Klep2017**{:#b:Klep2017}: Martin Kleppmann: *Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems*. O'Reilly Media, 2017, <https://dataintensive.net/>. *FIXME*
+
 **List2017**{:#b:List2017}: Markus List, Peter Ebert, and Felipe Albrecht: "Ten Simple Rules for Developing Usable Software in Computational Biology". *PLOS Computational Biology*, 13(1), Jan 2017, <https://doi.org/10.1371/journal.pcbi.1005265>. *FIXME*
+
+**Lyon2018**{:#b:Lyon2018}: Dan Lyons: *Lab Rats: How Silicon Valley Made Work Miserable for the Rest of Us*. Hachette Books, 2018. *FIXME*
 
 **Mak2006**{:#b:Mak2006}: Ronald Mak: *The Martian Principles*. Wiley, 2006. *A short, enjoyable guide to software architecture from someone whose code had to deal with Mars.*
 
 **Mori2012**{:#b:Mori2012}: Andrew Morin and Jennifer Urban AND Piotr Sliz: "A Quick Guide to Software Licensing for the Scientist-Programmer". *PLOS Computational Biology*, 8(7), Jul 2012, <https://doi.org/10.1371/journal.pcbi.1002598>. *A short introduction to software licensing for non-specialists.*
 
 **Nobl2009**{:#b:Nobl2009}: William Stafford Noble: "A Quick Guide to Organizing Computational Biology Projects". *PLoS Computational Biology*, 5(7), Jul 2009, <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424>. *How to organize a small to medium-sized bioinformatics project.*
+
+**Robi2005**{:#b:Robi2005}: Evan Robinson: "Why Crunch Mode Doesn't Work: 6 Lessons". <http://www.igda.org/articles/erobinson\_crunch.php>2005. *Summarizes research on the effects of overwork and sleep deprivation.*
 
 **Saja2006**{:#b:Saja2006}: Jorma Sajaniemi, Mordechai Ben-Ari, Pauli Byckling, Petri Gerdt, and Yevgeniya Kulikova: "Roles of Variables in Three Programming Paradigms". *Computer Science Education*, 16(4), Dec 2006, <https://doi.org/10.1080/08993400600874584>. *A detailed look at the authors' work on roles of variables.*
 
