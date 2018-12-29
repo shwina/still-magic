@@ -77,14 +77,6 @@ the Bash shell,
 Python 3,
 and a GitHub account.
 
-## Acknowledgments {#s:index-acknowledgments}
-
-This material is based on [Nobl2009,Tasc2017,Wils2014,Wils2017](#BIB)
-and on the [Carpentries][carpentries] lessons;
-please see [Wils2018](#BIB) and [this appendix](./design/) for design notes.
-We are grateful to [Insight Data Science][insight] for sponsoring the early stages of this work,
-and to [everyone who has contributed](./citation/#s:citation-contributors).
-
 ## Contributing {#s:index-contributing}
 
 {% include contributing.md %}

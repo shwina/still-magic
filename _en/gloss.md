@@ -21,6 +21,9 @@ title: "Glossary"
 **Automatic variable**{:#g:automatic-variable}
 :   FIXME
 
+**Bit rot**{:#g:bit-rot}
+:   FIXME
+
 **Build tool**{:#g:build-tool}
 :   FIXME
 
@@ -34,6 +37,12 @@ title: "Glossary"
 :   FIXME
 
 **Commons**{:#g:commons}
+:   FIXME
+
+**Computational competence**{:#g:computational-competence}
+:   FIXME
+
+**Computational thinking**{:#g:computational-thinking}
 :   FIXME
 
 **Conditional expression**{:#g:conditional-expression}
@@ -108,6 +117,9 @@ title: "Glossary"
 **Guard clause**{:#g:guard-clause}
 :   FIXME
 
+**Impostor syndrome**{:#g:impostor-syndrome}
+:   FIXME
+
 **In-place operator**{:#g:in-place-operator}
 :   FIXME
 
@@ -126,7 +138,13 @@ title: "Glossary"
 **MIT License**{:#g:mit-license}
 :   FIXME
 
+**Not Invented Here**{:#g:not-invented-here} (NIH)
+:   FIXME
+
 **Object-oriented programming**{:#g:oop}
+:   FIXME
+
+**Open science**{:#g:open-science}
 :   FIXME
 
 **Operational test**{:#g:operational-test}
@@ -174,6 +192,12 @@ title: "Glossary"
 **Relative error**{:#g:relative-error}
 :   FIXME
 
+**Reproducible research**{:#g:reproducible-research}:
+:   FIXME
+
+**Research software engineer**{:#g:rse} (RSE):
+:   FIXME
+
 **reStructured Text**{:#g:restructured-text}
 :   FIXME
 
@@ -190,6 +214,9 @@ title: "Glossary"
 :   FIXME
 
 **Silent error**{:#g:silent-error}
+:   FIXME
+
+**Sustainability**{:#g:sustainability}
 :   FIXME
 
 **Tab completion**{:#g:tab-completion}

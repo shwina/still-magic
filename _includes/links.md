@@ -58,6 +58,7 @@ definitions if that's done.
 [joss]: https://joss.theoj.org/
 [jupyter]: http://jupyter.org/
 
+[kernighan-brian]: https://en.wikipedia.org/wiki/Brian_Kernighan
 [kirk-matthew]: https://www.matthewkirk.com/
 
 [latex]: http://www.latex-project.org/
