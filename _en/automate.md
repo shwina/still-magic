@@ -103,6 +103,8 @@ we will use it throughout this book.
 > [Snakemake][snakemake] has a lot of fans,
 > and a future version of this tutorial might well use it.
 
+## How Can I Update a File When Things It Depends On Change? {#s:automate-first}
+
 Make is based on three key ideas:
 
 1.  The operating system automatically records a [timestamp](../gloss/#g:timestamp)
@@ -121,8 +123,6 @@ Make is based on three key ideas:
     (Make's use on shell commands is one reason for its longevity,
     since it allows programmers to write tools for doing file updates
     in whatever language they want.)
-
-## How Can I Update a File When Things It Depends On Change? {#s:automate-first}
 
 -   Create a file called `Makefile` containing the following:
 
