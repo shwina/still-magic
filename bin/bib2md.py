@@ -16,14 +16,38 @@ permalink: "/{}/bib/"
 title: "Bibliography"
 ---
 '''
+
 FOOTER = '{% include links.md %}'
+
+CHARACTERS = (
+    (r"\_", '_'),
+    (r"\'{A}", 'Á'),
+    (r"\'{a}", 'á'),
+    (r"\'{e}", 'é'),
+    (r"\'{o}", 'ó'),
+    (r'\"{a}', 'ä'),
+    (r'\"{e}', 'ë'),
+    (r'\"{o}', 'ö'),
+    (r'\"{u}', 'ü'),
+    (r'\c{c}', 'ç'),
+    (r'\v{Z}', 'Ž'),
+    (r'\v{z}', 'ž'),
+    (r'\%', '%'),
+    (r'\&', '&'),
+    (r'\aa', 'å'),
+    (r'\o', 'ø'),
+    ('{', ''),
+    ('}', '')
+)
 
 
 def _c(text):
     '''
     Clean up LaTeXisms in strings.
     '''
-    return text.replace('{', '').replace('}', '')
+    for (orig, repl) in CHARACTERS:
+        text = text.replace(orig, repl)
+    return text
 
 
 def _authors(entry):
@@ -49,9 +73,9 @@ def _authors(entry):
 
 def _booktitle(entry):
     '''
-    Format the book title in an entry.
+    Format the book title for a collection or proceedings.
     '''
-    return _c('*{}*'.format(entry['title']))
+    return _c('*{}*'.format(entry['booktitle']))
 
 
 def _details(entry):
@@ -125,12 +149,19 @@ def _publisher(entry):
     return _c(entry['publisher'])
 
 
+def _title(entry):
+    '''
+    Format the book title in an entry.
+    '''
+    return _c('*{}*'.format(entry['title']))
+
+
 # Handlers for various entry types.
 # Each element is either a function (always called) or a (prefix, function) pair.
 # In the latter case, the prefix is only displayed if the function returns something.
 HANDLERS = {
     'article' : [_key, ': ', _authors, ': ', _papertitle, '. ', _journal, (', ', _details), (', ', _link), '. ', _note],
-    'book' : [_key, ': ', _authors, ': ', _booktitle, '. ', _publisher, (', ', _details), (', ', _link), '. ', _note],
+    'book' : [_key, ': ', _authors, ': ', _title, '. ', _publisher, (', ', _details), (', ', _link), '. ', _note],
     'comment' : [],
     'incollection' : [_key, ': ', _authors, ': ', _papertitle, ', in', _booktitle, '. ', _publisher, (', ', _details), (', ', _link), '. ', _note],
     'inproceedings' : [_key, ': ', _authors, ': ', _papertitle, '. ', _booktitle, (', ', _details), (', ', _link), '. ', _note],

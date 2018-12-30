@@ -32,7 +32,7 @@ keypoints:
     -   This is why Python files should be named using pothole\_case instead of kebab-case
 -   Example: put constant and two functions used in Zipf's Law study in `zipf.py`
 
-```py
+```python
 from pytest import approx
 
 
@@ -54,7 +54,7 @@ def is_zipf(hist, rel=RELATIVE_ERROR):
 
 -   Can now `import zipf`, `from zipf import is_zipf`, etc.
 
-```py
+```python
 from zipf import make_zipf, is_zipf
 
 generated = make_zipf(5)
@@ -80,7 +80,7 @@ passes test with tolerance of 1.0: True
     -   If the module is the main program, that variable is assigned the string `'__main__'`
     -   Otherwise, it has the module's name
 
-```py
+```python
 import sys
 from pytest import approx
 
@@ -158,7 +158,7 @@ tdda>=1.0
     -   But can do so using `from . import ...` (where "." means the same thing it does in the Unix shell)
     -   Client code now uses `zipf.generate.make_zipf`
 
-```py
+```python
 import sys
 from pytest import approx
 from . import generate
@@ -172,7 +172,7 @@ def is_zipf(hist, rel=RELATIVE_ERROR):
     perfect = generate.make_zipf(len(hist))
     return scaled == approx(perfect, rel=rel)
 ```
-```py
+```python
 import zipf
 
 generated = zipf.generate.make_zipf(5)

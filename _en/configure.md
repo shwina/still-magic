@@ -102,7 +102,7 @@ extras is ['file1.txt', 'file2.txt']
     -   And is used in the headers of Markdown pages, so you might as well get used to it
     -   And allows comments
 
-```yaml
+```text
 # Example configuration file
 logfile: "/tmp/log.txt"
 quiet: false

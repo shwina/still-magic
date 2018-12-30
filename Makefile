@@ -37,25 +37,19 @@ serve :
 site :
 	${JEKYLL} build
 
-## release     : build a release (all-in-one HTML page + PDF).
-release :
-	@make lang=${lang} site
-	@make lang=${lang} allhtml
-	@make lang=${lang} book
-
 ## pdf         : generate PDF from LaTeX source.
 pdf : ${BOOK_PDF}
 
+## bib         : regenerate the Markdown bibliography from the BibTeX file.
+bib : ${DIR_MD}/bib.md
+
+## ----------------------------------------
+
+# Regenerate PDF once 'all.tex' has been created.
 ${BOOK_PDF} : ${ALL_TEX}
 	cd ${DIR_TEX} \
 	&& ${LATEX} ${STEM} \
 	&& ${LATEX} ${STEM}
-
-## bib         : regenerate the Markdown bibliography from the BibTeX file.
-bib :
-	@bin/bib2md.py ${lang} < ${DIR_TEX}/${STEM}.bib > ${DIR_MD}/bib.md
-
-## ----------------------------------------
 
 # Create the unified LaTeX file (separate target to simplify testing).
 # + 'sed' to pull glossary entry IDs out into '==g==' blocks (because Pandoc throws them away).
@@ -101,8 +95,13 @@ ${ALL_TEX} : ${PAGES_HTML} Makefile
 	| sed -E -e 's!\\subsubsection!\\subsection!' \
 	> ${ALL_TEX}
 
+# Create all the HTML pages once the Markdown files are up to date.
 ${PAGES_HTML} : ${PAGES_MD}
 	${JEKYLL} build
+
+# Create the bibliography Markdown file from the BibTeX file.
+${DIR_MD}/bib.md : ${DIR_TEX}/${STEM}.bib
+	bin/bib2md.py ${lang} < ${DIR_TEX}/${STEM}.bib > ${DIR_MD}/bib.md
 
 ## ----------------------------------------
 

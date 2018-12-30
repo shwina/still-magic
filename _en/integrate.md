@@ -53,7 +53,7 @@ script:
     -   `script` tells Travis what to run on our behalf
 -   Create a "test" script that just prints a message
 
-```py
+```python
 #!/usr/bin/env python
 
 print('Hello, continuous')
@@ -99,7 +99,7 @@ script:
 -   "python src/continuous/hello.py"
 -   "python src/continuous/failure.py"
 ```
-```py
+```python
 #!/usr/bin/env python
 
 import sys
