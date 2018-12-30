@@ -94,6 +94,7 @@ keypoints:
 
 ## Why Should I Establish a Code of Conduct for My Project? {#s:inclusive-conduct}
 
+-   FIXME: [Auro2018](#BIB)
 -   A CoC lays out the expectations for personal interaction in your project
     -   Explicitly communicate standards to which this project holds its participants
     -   Encourages newcomers to engage with the project

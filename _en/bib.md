@@ -3,6 +3,8 @@ permalink: "/en/bib/"
 title: "Bibliography"
 ---
 
+**Auro2018**{:#b:Auro2018}: Valerie Aurora, Mary Gardiner, and Annalee Flower Horne: *How to Respond to Code of Conduct Reports*. Frame Shift Consulting, 2018, <https://frameshiftconsulting.com/code-of-conduct-book/>. *A practical step-by-step guide to handling code of conduct issues.*
+
 **Beni2017**{:#b:Beni2017}: Gal Beniamini, Sarah Gingichashvili, Alon Klein Orbach, and Dror G. Feitelson: "Meaningful Identifier Names: The Case of Single-Letter Variables". *Proc.\ 2017 International Conference on Program Comprehension (ICPC'17)*, May 2017, <https://doi.org/10.1109/icpc.2017.18>. *Reports that use of single-letter variable names doesn't affect ability to modify code, and that some single-letter variable names have implicit types and meanings.*
 
 **Boll2014**{:#b:Boll2014}: David Bollier: *Think Like a Commoner: A Short Introduction to the Life of the Commons*. New Society Publishers, 2014, <https://isbndb.com/book/0865717680>. *A short introduction to a widely-used model of governance.*
