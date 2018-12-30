@@ -33,6 +33,14 @@ title: "Bibliography"
 
 **Kaps2006**{:#b:Kaps2006}: Cory Kapser and Michael Godfrey: ""Cloning Considered Harmful" Considered Harmful". *2006 13th Working Conference on Reverse Engineering*, 2006, <https://doi.org/10.1109/wcre.2006.1>. *Reports empirical research showing that code clones are sometimes beneficial.*
 
+**Kern1978**{:#b:Kern1978}: Brian W. Kernighan and P. J. Plauger: *The Elements of Programming Style*. McGraw-Hill, 1978, <https://isbndb.com/book/0070342075>. *An influential early book on how (rather than what) to program.*
+
+**Kern1981**{:#b:Kern1981}: Brian W. Kernighan and P. J. Plauger: *Software Tools in Pascal*. Addison-Wesley Professional, 1981. *An early and influential description of tool-based programming.*
+
+**Kern1983**{:#b:Kern1983}: Brian W. Kernighan and Rob Pike: *The Unix Programming Environment*. Prentice-Hall, 1983, <https://isbndb.com/book/013937681X>. *An influential early description of Unix.*
+
+**Kern1988**{:#b:Kern1988}: Brian W. Kernighan and Dennis M. Ritchie: *The C Programming Language*. Prentice-Hall, 1988, <https://isbndb.com/book/0131103628>. *The book that made C a popular programming language.*
+
 **Klep2017**{:#b:Klep2017}: Martin Kleppmann: *Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems*. O'Reilly Media, 2017, <https://dataintensive.net/>. *FIXME*
 
 **List2017**{:#b:List2017}: Markus List, Peter Ebert, and Felipe Albrecht: "Ten Simple Rules for Developing Usable Software in Computational Biology". *PLOS Computational Biology*, 13(1), Jan 2017, <https://doi.org/10.1371/journal.pcbi.1005265>. *FIXME*
@@ -48,6 +56,8 @@ title: "Bibliography"
 **Robi2005**{:#b:Robi2005}: Evan Robinson: "Why Crunch Mode Doesn't Work: 6 Lessons". <http://www.igda.org/articles/erobinson_crunch.php>2005. *Summarizes research on the effects of overwork and sleep deprivation.*
 
 **Saja2006**{:#b:Saja2006}: Jorma Sajaniemi, Mordechai Ben-Ari, Pauli Byckling, Petri Gerdt, and Yevgeniya Kulikova: "Roles of Variables in Three Programming Paradigms". *Computer Science Education*, 16(4), Dec 2006, <https://doi.org/10.1080/08993400600874584>. *A detailed look at the authors' work on roles of variables.*
+
+**Smit2011**{:#b:Smit2011}: Peter Smith: *Software Build Systems: Principles and Experience*. Addison-Wesley Professional, 2011. *A thorough, readable exploration of how software build systems and tools work.*
 
 **Tasc2017**{:#b:Tasc2017}: Morgan Taschuk and Greg Wilson: "Ten Simple Rules for Making Research Software More Robust". *PLoS Computational Biology*, 13(4), Apr 2017, <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005412>. *A short guide to making research software usable by other people.*
 

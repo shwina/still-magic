@@ -16,9 +16,11 @@ PYTHON=python
 # Language-dependent settings.
 DIR_MD=_${lang}
 PAGES_MD=$(wildcard ${DIR_MD}/*.md)
+BIB_MD=${DIR_MD}/bib.md
 DIR_HTML=_site/${lang}
 PAGES_HTML=${DIR_HTML}/index.html $(patsubst ${DIR_MD}/%.md,${DIR_HTML}/%/index.html,$(filter-out ${DIR_MD}/index.md,${PAGES_MD}))
 DIR_TEX=tex/${lang}
+BIB_TEX=${DIR_TEX}/${STEM}.bib
 ALL_TEX=${DIR_TEX}/all.tex
 BOOK_PDF=${DIR_TEX}/${STEM}.pdf
 
@@ -41,9 +43,9 @@ site :
 pdf : ${BOOK_PDF}
 
 ## bib         : regenerate the Markdown bibliography from the BibTeX file.
-bib : ${DIR_MD}/bib.md
+bib : ${BIB_MD}
 
-## ----------------------------------------
+# ----------------------------------------
 
 # Regenerate PDF once 'all.tex' has been created.
 ${BOOK_PDF} : ${ALL_TEX}
@@ -100,26 +102,21 @@ ${PAGES_HTML} : ${PAGES_MD}
 	${JEKYLL} build
 
 # Create the bibliography Markdown file from the BibTeX file.
-${DIR_MD}/bib.md : ${DIR_TEX}/${STEM}.bib
+${BIB_MD} : ${BIB_TEX}
 	bin/bib2md.py ${lang} < ${DIR_TEX}/${STEM}.bib > ${DIR_MD}/bib.md
 
 ## ----------------------------------------
 
 ## check       : check everything.
 check :
-	@make lang=${lang} checkchars
 	@make lang=${lang} checkcites
 	@make lang=${lang} checkfigs
 	@make lang=${lang} checkgloss
 	@make lang=${lang} checklinks
 	@make lang=${lang} checktoc
 
-## checkchars  : look for non-ASCII characters.
-checkchars :
-	@bin/checkchars.py ${PAGES_MD}
-
 ## checkcites  : list all missing or unused bibliography entries.
-checkcites :
+checkcites : ${BIB_MD}
 	@bin/checkcites.py ${DIR_MD}/bib.md ${PAGES_MD}
 
 ## checkfigs   : list all missing or unused figures.
@@ -132,7 +129,7 @@ checkgloss :
 
 ## checklinks  : check that all links are defined and used.
 checklinks :
-	@bin/checklinks.py _includes/links.md ${PAGES_MD}
+	@bin/checklinks.py _includes/links.md ${PAGES_MD} _includes/contributing.md
 
 ## checktoc    : check consistency of tables of contents.
 checktoc :
@@ -162,8 +159,10 @@ settings :
 	@echo "JEKYLL=${JEKYLL}"
 	@echo "DIR_MD=${DIR_MD}"
 	@echo "PAGES_MD=${PAGES_MD}"
+	@echo "BIB_MD=${BIB_MD}"
 	@echo "DIR_HTML=${DIR_HTML}"
 	@echo "PAGES_HTML=${PAGES_HTML}"
 	@echo "DIR_TEX=${DIR_TEX}"
+	@echo "BIB_TEX=${BIB_TEX}"
 	@echo "ALL_TEX=${ALL_TEX}"
 	@echo "BOOK_PDF=${BOOK_PDF}"

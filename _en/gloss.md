@@ -132,6 +132,9 @@ title: "Glossary"
 **Magnitude**{:#g:magnitude}
 :   FIXME
 
+**Makefile**{:#g:makefile}
+:   FIXME
+
 **Mantissa**{:#g:mantissa}
 :   FIXME
 

@@ -31,50 +31,96 @@ keypoints:
 -   "Specially-formatted comments can be used to make Makefiles self-documenting."
 ---
 
--   Zipf's Law: each book is in `raw/title.txt`
--   Use `bin/countwords.py` to produce `results/title.csv`
-    -   Each row is rank, word, number of occurrences
--   Use `bin/plotcounts.py` to visualize counts
--   Use `bin/testfit.py` to compare actual distributions against expectations
--   Can also use `bin/countwords.py` to analyze multiple files, then plot and test aggregate results
--   Common workflow:
-    -   Analyze one input file to create one output file
-    -   Write the analysis results to a new file
-    -   Analyze multiple input files to create an aggregate output file
-    -   Plot individual and aggregate analyses
-    -   Test individual and aggregate data statistically
--   Easy to do this for a handful of files
-    -   But also easy to get wrong
-    -   Becomes tedious and error-prone as the number of files grows
--   Can write a shell script or another Python program to do the analysis
-    -   Explicitly documents the pipeline so that our colleagues (and future selves) can understand it
-    -   Enables us to re-do the entire analysis with a single command
-        if we change methods, parameters, libraries, etc.
-    -   Prevents us from making lots of little errors -
-        no guarantee we'll get the script right the first time,
-        but once we've fixed it,
-        it will stay fixed.
--   But it's inefficient
-    -   Re-analyze all individual files whenever a new file is added
-    -   Regenerate all plots, even for data sets (files) that haven't changed
-    -   Not a problem when computation is fast, but many computations aren't
--   What we want is a way to describe:
-    -   Which files depend on which other files
-    -   How to generate or update a file when necessary
--   This is the job of a [build tool](../gloss/#g:build-tool)
-    -   So-called because it builds new files out of old ones
--   Most widely used build tool is [Make][make]
-    -   First written in 1976 to recompile programs (which at the time was a slow process)
-    -   [Many better tools][build-tools] have been developed since, but none has been as widely adopted
-    -   In particular, [Snakemake][snakemake] has a lot of fans, and a future version of this tutorial might well use it
--   Make uses:
-    -   [Timestamps](../gloss/#g:timestamp) on files to determine what's out of date
-    -   Shell commands to create or update files
-    -   Reliance on shell commands is a reason for its longevity: Make can run pretty much any command
--   [GNU Make][gnu-make] is a free, fast, and well-documented implementation of Make
--   This introduction based on:
-    -   The [Software Carpentry lesson on Make][swc-make] maintained by [Gerard Capes][capes-gerard]
-    -   [Jonathan Dursi][dursi-jonathan]'s [introduction to pattern rules][dursi-pattern-rules]
+As [the introduction said](../intro/#s:intro-example),
+Zipf's Law states that the second most common word in a body of text
+appears half as often as the most common,
+the third most common appears a third as often,
+and so on.
+The analyses we want to do include:
+
+-   Analyze one input file to see how well it conforms to Zipf's Law.
+-   Analyze multiple input files to how well then conform in aggregate.
+-   Plot individual and aggregate word frequency distributions and expected values.
+
+The project we have inherited as a starting point contains the following:
+
+1.  The books we are analyzing are in <code>data/<em>title</em>.txt</code>.
+2.  A program called `bin/countwords.py` can read a text file
+    and produce a CSV file called <code>results/<em>title</em>.csv</code> with two columns:
+    the words in the text
+    and the number of times that word occurs.
+3.  `bin/countwords.py` can analyze several files at once if we provide many filenames on the command line
+    or concatenate the files and send them to standard input in a pipeline
+    using something like `cat data/*.txt | bin/countwords.py`.
+4.  Another program, `bin/plotcounts.py`, will create a visualization for us
+    that shows word rank on the X axis and word counts on the Y axis.
+    (It doesn't show the actual words.)
+5.  A third program, `bin/collate.py`,
+    takes one or more CSV files as input and merges them
+    by combining the counts for words they have in common.
+6.  Finally,
+    `bin/testfit.py` will compare actual distributions against expectations
+    and give a fitting score.
+
+It's easy enough to run these programs by hand if we only want to analyze a handful of files,
+but doing this becomes tedious and error-prone as the number of files grows.
+Instead,
+we can write a shell script or another Python program to do multi-file analyses.
+Doing this documents the pipeline so that our colleagues (and future selves) can understand it,
+and enables us to re-do the entire analysis with a single command if we get new data
+or change our methods, parameters, or libraries.
+It also prevents us from making lots of little errors:
+there's no guarantee we'll get the script right the first time,
+but once we've fixed it, it will stay fixed.
+
+However,
+re-running the entire analysis every time we get a new file is inefficient:
+we don't need to re-count the words in our first thousand books
+when we add the thousand and first.
+This isn't a problem when calculations can be done quickly,
+but many can't,
+and anyway,
+the point of this chapter is to introduce a tool for handling cases in which
+we really want to avoid doing unnecessary work.
+
+What we want is a way to describe which files depend on which other files
+and how to generate or update a file when necessary.
+This is the job of a [build tool](../gloss/#g:build-tool).
+As the name suggests,
+a build tool's job is to build new files out of old ones.
+The most widely used build tool,
+[Make][make],
+was written in 1976 to recompile programs
+(which at the time was a slow process).
+[GNU Make][gnu-make] is a free, fast, and well-documented version of Make;
+we will use it throughout this book.
+
+> #### Alternatives
+>
+> [Many better build tools][build-tools] have been developed since Make---so many,
+> in fact,
+> that none has been able to capture more than a small fraction of potential users.
+> [Snakemake][snakemake] has a lot of fans,
+> and a future version of this tutorial might well use it.
+
+Make is based on three key ideas:
+
+1.  The operating system automatically records a [timestamp](../gloss/#g:timestamp)
+    every time a file is changed.
+    By checking this,
+    Make can tell whether files are newer or older than other files.
+2.  A programmer can write a [Makefile](../gloss/#g:makefile)
+    to tell Make how files depend on each other.
+    For example,
+    the Makefile could say that `results/moby-dick.csv` depends on `data/moby-dick.txt`,
+    or that `plots/aggregate.svg` depends on all of the CSV files in the `results/` directory.
+3.  The Makefile can also include shell commands to create or update files that are out of date.
+    For example,
+    it could include a command to (re-)run `bin/countwords.py`
+    to create `results/moby-dick.csv` from `data/moby-dick.txt`.
+    (Make's use on shell commands is one reason for its longevity,
+    since it allows programmers to write tools for doing file updates
+    in whatever language they want.)
 
 ## How Can I Update a File When Things It Depends On Change? {#s:automate-first}
 
@@ -595,5 +641,10 @@ help: show available targets
 ## Summary {#s:automate-summary}
 
 <figure id="f:automate-concept"> <figcaption>Make Concept Map</figcaption> <img src="../../figures/automate.svg"/> </figure>
+
+This introduction based on
+the [Software Carpentry lesson on Make][swc-make] maintained by [Gerard Capes][capes-gerard]
+and on [Jonathan Dursi][dursi-jonathan]'s [introduction to pattern rules][dursi-pattern-rules].
+[Smit2011](#BIB) describes the design and implementation of several build tools in detail.
 
 {% include links.md %}
