@@ -90,7 +90,7 @@ ${ALL_TEX} : ${PAGES_HTML} Makefile
 	| sed -E -e 's!\.svg}!\.pdf}!' \
 	| sed -E -e 's!==b==([^=]+)==b==([^=]+)==b==!\\hypertarget{\1}{\2}\\label{\1}!' \
 	| sed -E -e 's!==g==([^=]+)==g==([^=]+)==g==!\\hypertarget{\1}{\2}\\label{\1}!' \
-	| ${PYTHON} bin/cites.py \
+	| ${PYTHON} tools/cites.py \
 	| sed -E -e 's!\\begin{quote}!\\begin{quote}\\setlength{\\parindent}{0pt}!' \
 	| sed -E -e 's!\\section!\\chapter!' \
 	| sed -E -e 's!\\subsection!\\section!' \
@@ -103,7 +103,7 @@ ${PAGES_HTML} : ${PAGES_MD}
 
 # Create the bibliography Markdown file from the BibTeX file.
 ${BIB_MD} : ${BIB_TEX}
-	bin/bib2md.py ${lang} < ${DIR_TEX}/${STEM}.bib > ${DIR_MD}/bib.md
+	tools/bib2md.py ${lang} < ${DIR_TEX}/${STEM}.bib > ${DIR_MD}/bib.md
 
 ## ----------------------------------------
 
@@ -117,29 +117,29 @@ check :
 
 ## checkcites  : list all missing or unused bibliography entries.
 checkcites : ${BIB_MD}
-	@bin/checkcites.py ${DIR_MD}/bib.md ${PAGES_MD}
+	@tools/checkcites.py ${DIR_MD}/bib.md ${PAGES_MD}
 
 ## checkfigs   : list all missing or unused figures.
 checkfigs :
-	@bin/checkfigs.py figures ${PAGES_MD}
+	@tools/checkfigs.py figures ${PAGES_MD}
 
 ## checkgloss  : check that all glossary entries are defined and used.
 checkgloss :
-	@bin/checkgloss.py ${PAGES_MD}
+	@tools/checkgloss.py ${PAGES_MD}
 
 ## checklinks  : check that all links are defined and used.
 checklinks :
-	@bin/checklinks.py _includes/links.md ${PAGES_MD} _includes/contributing.md
+	@tools/checklinks.py _includes/links.md ${PAGES_MD} _includes/contributing.md
 
 ## checktoc    : check consistency of tables of contents.
 checktoc :
-	@bin/checktoc.py _config.yml ${PAGES_MD}
+	@tools/checktoc.py _config.yml ${PAGES_MD}
 
 ## ----------------------------------------
 
 ## spelling    : compare words against saved list.
 spelling :
-	@cat ${PAGES_MD} | bin/uncode.py | aspell list | sort | uniq | comm -2 -3 - .words
+	@cat ${PAGES_MD} | tools/uncode.py | aspell list | sort | uniq | comm -2 -3 - .words
 
 ## words       : count words in finished files.
 words :
@@ -149,7 +149,7 @@ words :
 
 ## clean       : clean up junk files.
 clean :
-	@rm -r -f _site dist bin/__pycache__
+	@rm -r -f _site dist tools/__pycache__
 	@rm -r -f tex/*/all.tex tex/*/*.aux tex/*/*.bbl tex/*/*.blg tex/*/*.log tex/*/*.out tex/*/*.toc
 	@find . -name '*~' -delete
 	@find . -name .DS_Store -prune -delete

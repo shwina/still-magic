@@ -13,5 +13,6 @@ __pycache__
 _site
 dist
 htmlcov
+results/*.csv
 tex/*/*.pdf
 tex/*/all.tex

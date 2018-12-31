@@ -72,9 +72,6 @@ title: "Glossary"
 **Default target**{:#g:default-target}
 :   FIXME
 
-**Dependency**{:#g:make-dependency} (in a Makefile)
-:   FIXME
-
 **Dependency graph**{:#g:dependency-graph}
 :   FIXME
 
@@ -174,6 +171,9 @@ title: "Glossary"
 **Precision**{:#g:precision}
 :   FIXME
 
+**Prerequisite**{:#g:make-prerequisite} (in a Makefile)
+:   FIXME
+
 **Procedural programming**{:#g:procedural-programming}
 :   FIXME
 
@@ -217,6 +217,15 @@ title: "Glossary"
 :   FIXME
 
 **Silent error**{:#g:silent-error}
+:   FIXME
+
+**Standard error**{:#g:stderr}
+:   FIXME
+
+**Standard input**{:#g:stdin}
+:   FIXME
+
+**Standard output**{:#g:stdout}
 :   FIXME
 
 **Sustainability**{:#g:sustainability}
@@ -284,6 +293,9 @@ title: "Glossary"
 :   FIXME
 
 **What You See Is What You Get**{:#g:wysiwyg} (WYSIWYG)
+:   FIXME
+
+**Working directory**{:#g:working-directory}
 :   FIXME
 
 {% include links.md %}
