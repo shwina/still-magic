@@ -358,7 +358,87 @@ Other people put the `.PHONY` declarations right before the rules they refer to.
 As with most other rules about [programming style](../style/),
 consistency matters more than exactly what you do.
 
-## How Can I Make One Update Depend On Another? {#s:automate-chain}
+## How can I make a target depend on several prerequisites? {#s:automate-multi}
+
+Right now,
+our Makefile says that each result file depends only on the corresponding data file.
+That's not accurate:
+in reality,
+each result also depends on the script used to generate it.
+If we change our script,
+we ought to regenerate our results and then check to see if they've changed.
+(We can rely on version control to tell us that.)
+
+Here's a modified version of the Makefile
+in which each result depends on both the data file and the script:
+
+```make
+.PHONY: clean
+
+# Regenerate data for "Moby Dick"
+results/moby-dick.csv : data/moby-dick.txt bin/countwords.py
+	python bin/countwords.py data/moby-dick.txt > results/moby-dick.csv
+
+# Regenerate data for "Jane Eyre"
+results/jane-eyre.csv : data/jane-eyre.txt bin/countwords.py
+	python bin/countwords.py data/jane-eyre.txt > results/jane-eyre.csv
+
+# ...clean target as before...
+```
+{: title="automate/depend-on-script.mk"}
+
+We can test this by touching the script and then making one or the other result:
+
+```shell
+$ touch bin/countwords.py
+$ make -f depend-on-script.mk results/jane-eyre.csv
+```
+```text
+python bin/countwords.py data/jane-eyre.txt > results/jane-eyre.csv
+```
+
+## How can I reduce the amount of typing I have to do? {:#s:automate-variables}
+
+The name of our script now appears four times in our Makefile,
+which will make for a lot of typing if and when we decide to move it or rename it.
+We can fix that by defining a [variable](../gloss/#g:make-variable) at the top of our file
+to refer to the script,
+then using that variable in our rules:
+
+```make
+.PHONY: clean
+
+COUNT=bin/countwords.py
+
+# Regenerate data for "Moby Dick"
+results/moby-dick.csv : data/moby-dick.txt ${COUNT}
+	python ${COUNT} data/moby-dick.txt > results/moby-dick.csv
+
+# Regenerate data for "Jane Eyre"
+results/jane-eyre.csv : data/jane-eyre.txt ${COUNT}
+	python ${COUNT} data/jane-eyre.txt > results/jane-eyre.csv
+
+# ...clean target as before...
+```
+{: title="automate/define-variable.mk"}
+
+The definition takes the form `NAME=value`.
+By convention,
+variables are written in UPPER CASE
+so that they'll stand out from filenames (which are usually in lower case),
+but that's not required.
+What *is* required is using `${NAME}` to refer to the variable:
+if we write `$NAME`,
+Make interprets that as "the variable called `N` followed by the three literal characters 'AME'."
+If no variable called `N` exists,
+`$NAME` becomes `AME`,
+which is almost certainly not useful.
+
+Using variables doesn't just cut down on typing.
+They also make rules easier to understand,
+since they signal to readers that several things are always and exactly the same.
+
+## How can I make one update depend on another? {#s:automate-chain}
 
 -   To re-make all the results files, provide multiple targets on the command line:
 
@@ -512,7 +592,7 @@ python bin/countwords.py data/jane-eyre.csv results/jane-eyre.txt
 $ make -f pipeline.mk results/jane-eyre.txt
 ```
 
-## How Can I Define Sets of Files Automatically? {#s:automate-variables}
+## How Can I Define Sets of Files Automatically? {#s:automate-functions}
 
 -   Our automated build is still not fully automated
     -   If we add another book to `raw`, we have to remember to also add it to `pipeline.mk`

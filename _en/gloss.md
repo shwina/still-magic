@@ -9,7 +9,7 @@ title: "Glossary"
 **Accuracy**{:#g:accuracy}
 :   FIXME
 
-**Action**{:#g:make-action} (in a Makefile)
+**Action**{:#g:make-action} (in Make)
 :   FIXME
 
 **Active listening**{:#g:active-listening}
@@ -171,7 +171,7 @@ title: "Glossary"
 **Precision**{:#g:precision}
 :   FIXME
 
-**Prerequisite**{:#g:make-prerequisite} (in a Makefile)
+**Prerequisite**{:#g:make-prerequisite} (in Make)
 :   FIXME
 
 **Procedural programming**{:#g:procedural-programming}
@@ -204,7 +204,7 @@ title: "Glossary"
 **reStructured Text**{:#g:restructured-text}
 :   FIXME
 
-**Rule**{:#g:make-rule} (in a Makefile)
+**Rule**{:#g:make-rule} (in Make)
 :   FIXME
 
 **Semantic versioning**{:#g:semantic-versioning}
@@ -237,7 +237,7 @@ title: "Glossary"
 **Tag**{:#g:git-tag}
 :   FIXME
 
-**Target**{:#g:make-target} (in a Makefile)
+**Target**{:#g:make-target} (in Make)
 :   FIXME
 
 **Technical debt**{:#g:technical-debt}
@@ -278,6 +278,9 @@ title: "Glossary"
 :   FIXME
 
 **Validation**{:#g:validation}
+:   FIXME
+
+**Variable**{:#g:make-variable} (in Make)
 :   FIXME
 
 **Vector image**{:#g:vector-image}
