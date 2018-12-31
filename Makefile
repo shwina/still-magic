@@ -113,6 +113,7 @@ check :
 	@make lang=${lang} checkfigs
 	@make lang=${lang} checkgloss
 	@make lang=${lang} checklinks
+	@make lang=${lang} checksrc
 	@make lang=${lang} checktoc
 
 ## checkcites  : list all missing or unused bibliography entries.
@@ -130,6 +131,10 @@ checkgloss :
 ## checklinks  : check that all links are defined and used.
 checklinks :
 	@tools/checklinks.py _includes/links.md ${PAGES_MD} _includes/contributing.md
+
+## checksrc    : check source file inclusion references.
+checksrc :
+	@tools/checksrc.py src ${PAGES_MD}
 
 ## checktoc    : check consistency of tables of contents.
 checktoc :

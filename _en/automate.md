@@ -244,81 +244,119 @@ not in `/home/gvwilson/still-magic/src/automate/data/moby-dick.txt`.
 
 FIXME: diagram
 
-## How Can I Update Multiple Files When Their Prerequisites Change? {#s:automate-extend}
+## How can I update multiple files when their prerequisites change? {#s:automate-extend}
 
--   Add another rule to the end of `pipeline.mk`
+Our Makefile isn't particularly exciting so far.
+Let's add another rule to the end and save the result as `double-rule.mk`:
 
-```
+```make
+# Regenerate data for "Moby Dick"
+results/moby-dick.csv : data/moby-dick.txt
+        python bin/countwords.py data/moby-dick.txt > results/moby-dick.csv
+
 # Regenerate data for "Jane Eyre"
 results/jane-eyre.csv : data/jane-eyre.txt
-        python bin/countwords.py data/jane-eyre.txt results/jane-eyre.csv
+        python bin/countwords.py data/jane-eyre.txt > results/jane-eyre.csv
+```
+{: title="automate/double-rule.mk"}
+
+When we ask Make to run this file:
+
+```shell
+$ make -f double-rule.mk
 ```
 
--   Run `make -f pipeline.mk`
+<!-- == \noindent -->
+we get this rather disappointing message:
 
-```
+```text
 make: `results/moby-dick.csv' is up to date.
 ```
 
--   Nothing happens because Make attempts to build the first target it finds in `project.mk`
-    -   Called the [default target](../gloss/#g:default-target)
--   Need to tell Make to build `results/jane-eyre.csv`:
+Nothing happens because by default Make only attempts to update
+the first target it finds in the Makefile,
+which is called the [default target](../gloss/#g:default-target).
+To update something else,
+we need to tell Make we want it:
 
-```
-$ make -f project.mk results/jane-eyre.csv
-```
-
--   Now Make runs:
-
-```
-python bin/countwords.py data/jane-eyre.txt results/jane-eyre.csv
+```shell
+$ make -f double-rule.mk results/jane-eyre.csv
 ```
 
--   Note the difference between "up to date" and "nothing to be done"
-    -   If we ask Make to build a file that already exists and is up to date,
-        Make tells us it is up to date
-    -   If we ask Make to build a file that exists but for which there is no rule,
-        it tells us "Nothing to be done"
-    -   Get the latter message when there is a rule with no actions
+This time Make runs:
 
-## How Can I Clean Up Temporary Files That I Don't Need? {#s:automate-phony}
-
--   Add another target to `pipeline.mk` to delete all generated files
-    -   By convention, this target is called `clean`
-
+```text
+python bin/countwords.py data/jane-eyre.txt > results/jane-eyre.csv
 ```
+
+## How can I get rid of temporary files that I don't need? {#s:automate-phony}
+
+A [phony target](../gloss/#g:phony-target) in a Makefile
+is one that doesn't correspond to any files
+and doesn't have any prerequisites.
+Phony targets are just a way to save useful commands in a Makefile,
+but saying "just" is a bit misleading:
+what we're actually doing is recording all of the steps in our workflow,
+even if those steps don't create or update files.
+
+For example,
+let's add another target to our Makefile to delete all of the files we have generated.
+By convention this target is called `clean`,
+and ours looks like this:
+
+```make
 # Remove all generated files.
 clean :
         rm -f results/*.csv
 ```
+{: title="automate/clean.mk"}
 
--   A [phony target](../gloss/#g:phony-target): doesn't correspond to any files
-    -   Also doesn't have any prerequisites
-    -   Just a way to save useful commands in a Makefile
--   Use it with:
+(The `-f` flag to `rm` means "force removal".
+When we use it, `rm` won't complain if the files it's trying to remove are already gone.)
+Let's run Make:
 
-```
+```shell
 $ make -f pipeline.mk clean
 ```
 
--   Phony targets are useful as a way of documenting actions in a project
--   But there's a catch
-    -   Create a directory called `clean`
-    -   Run `make -f pipeline.mk clean`
+<!-- == \noindent -->
+and then use `ls` to list the contents of `results`.
+Sure enough, it's empty.
 
-```
+Phony targets are useful as a way of documenting actions in a project,
+but there's a catch.
+Use `mkdir` to create a directory called `clean`,
+then run `make -f clean.mk clean`.
+Make will print:
+
+```text
 make: `clean' is up to date.
 ```
 
--   Make finds something called `clean` and assumes that's what the rule is referring to
-    -   Since the rule has no prerequisites, it can't be out of date
-    -   So no actions are executed
--   Solution #1: don't have phony targets with the same names as files or directories
--   Solution #2: tell Make that the target is phony by putting this at the top of `pipeline.mk`
+The problem is that Make finds something called `clean` and assumes that's what the rule is referring to.
+Since the rule has no prerequisites,
+it can't be out of date,
+so no actions are executed.
 
-```
+There are two ways to solve this problem.
+The first is to make sure we don't have phony targets with the same names as files or directories.
+That works as long as our project is small and we're paying attention,
+but as the project grows,
+or we're rushing to meet a deadline
+or have inherited the project from someone else and don't realize that this might be a problem,
+it's bound to fail at exactly the worst time.
+
+A much better solution is to tell Make that the target is phony
+by putting this in the Makefile:
+
+```make
 .PHONY : clean
 ```
+
+I usually declare all of my phony targets together near the top of the file.
+Other people put the `.PHONY` declarations right before the rules they refer to.
+As with most other rules about [programming style](../style/),
+consistency matters more than exactly what you do.
 
 ## How Can I Make One Update Depend On Another? {#s:automate-chain}
 
