@@ -1,7 +1,9 @@
 ---
-permalink: "/en/advanced-tools/"
-title: "Advanced Tools"
+permalink: "/en/tools/"
+title: "Other Tools"
 undone: true
+questions:
+- "FIXME"
 objectives:
 - "FIXME"
 keypoints:
@@ -12,14 +14,14 @@ The next most important tool after a version control system is your
 editor.  There are literally thousands to choose from; if you want a
 plain text editor, your choices range from the very small (such as
 Pico, which is included in most Linux installations) to the very large
-(like [Emacs][emacs], whose name doesn't actually stand for "eighty
+(like Emacs, whose name doesn't actually stand for "eighty
 megabytes and constantly swapping", and which isn't actually a
 Lisp-based operating system in disguise).  There are also editors that
 understand the syntax of particular file formats, and can
 automatically indent text, complete phrases, and colorize the stuff
-you're typing: [JEdit][jedit] for Java, [Amaya][amaya] for HTML, and many
-others.  Finally, there are WYSIWYG tools like [Microsoft Word][msoffice]
-and [LibreOffice][libreoffice]; these usually *can't* be used for
+you're typing: JEdit for Java, Amaya for HTML, and many
+others.  Finally, there are WYSIWYG tools like Microsoft Word
+and LibreOffice; these usually *can't* be used for
 programming, since they insert non-ASCII characters and formatting
 information in files (even files that look unformatted).
 
@@ -83,7 +85,7 @@ Does it handle Unicode characters?
     still insist on using `<=`, for example---but at the very least, you
     have to be able to edit data and documentation (including comments
     in code) that include Greek, Tamil, and the like. (See
-    [[Spolsky2003](#spolsky2003)] for a developer-oriented introduction
+    [Spolsky2003] for a developer-oriented introduction
     to character sets in general, and Unicode in particular.)
 
 A **symbolic debugger** is a program that allows you to control and
@@ -96,7 +98,7 @@ your program with certain options turned on to make it debuggable, but
 that's a small price to pay for the hours or days a debugger can save
 you when you're trying to track down a problem.
 
-Some debuggers, like [GDB][gdb], are standalone programs; others are
+Some debuggers, like GDB, are standalone programs; others are
 build into IDEs.  Both are better than adding `print` statements to
 your program, recompiling it, and re-running it, because:
 
@@ -173,10 +175,10 @@ described above, modern IDEs usually include:
 
 In short, an IDE is to programming what a well-equipped workbench is
 to a carpenter.  The most popular one among open source developers is
-undoubtedly [Eclipse][eclipse] , which has hundreds of plugins of varying
+undoubtedly Eclipse , which has hundreds of plugins of varying
 quality to support database design, reverse engineering, a dozen
-different programming languages, and more.  [Microsoft Visual
-Studio][vscode] is still my personal favorite, largely because of how well its
+different programming languages, and more.  Microsoft Visual
+Studio is still my personal favorite, largely because of how well its
 debugger handles multithreaded programs; as of May 2007, the Express
 Edition is still free.
 

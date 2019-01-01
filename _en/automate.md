@@ -127,7 +127,7 @@ Make is based on three key ideas:
 Let's start by creating a file called `Makefile` that contains the following three lines:
 
 ```make
-# Regenerate data for "Moby Dick"
+# Regenerate results for "Moby Dick"
 results/moby-dick.csv : data/moby-dick.txt
         python bin/countwords.py data/moby-dick.txt > results/moby-dick.csv
 ```
@@ -250,11 +250,11 @@ Our Makefile isn't particularly exciting so far.
 Let's add another rule to the end and save the result as `double-rule.mk`:
 
 ```make
-# Regenerate data for "Moby Dick"
+# Regenerate results for "Moby Dick"
 results/moby-dick.csv : data/moby-dick.txt
         python bin/countwords.py data/moby-dick.txt > results/moby-dick.csv
 
-# Regenerate data for "Jane Eyre"
+# Regenerate results for "Jane Eyre"
 results/jane-eyre.csv : data/jane-eyre.txt
         python bin/countwords.py data/jane-eyre.txt > results/jane-eyre.csv
 ```
@@ -375,11 +375,11 @@ in which each result depends on both the data file and the script:
 ```make
 .PHONY: clean
 
-# Regenerate data for "Moby Dick"
+# Regenerate results for "Moby Dick"
 results/moby-dick.csv : data/moby-dick.txt bin/countwords.py
 	python bin/countwords.py data/moby-dick.txt > results/moby-dick.csv
 
-# Regenerate data for "Jane Eyre"
+# Regenerate results for "Jane Eyre"
 results/jane-eyre.csv : data/jane-eyre.txt bin/countwords.py
 	python bin/countwords.py data/jane-eyre.txt > results/jane-eyre.csv
 
@@ -410,11 +410,11 @@ then using that variable in our rules:
 
 COUNT=bin/countwords.py
 
-# Regenerate data for "Moby Dick"
+# Regenerate results for "Moby Dick"
 results/moby-dick.csv : data/moby-dick.txt ${COUNT}
 	python ${COUNT} data/moby-dick.txt > results/moby-dick.csv
 
-# Regenerate data for "Jane Eyre"
+# Regenerate results for "Jane Eyre"
 results/jane-eyre.csv : data/jane-eyre.txt ${COUNT}
 	python ${COUNT} data/jane-eyre.txt > results/jane-eyre.csv
 
@@ -440,156 +440,203 @@ since they signal to readers that several things are always and exactly the same
 
 ## How can I make one update depend on another? {#s:automate-chain}
 
--   To re-make all the results files, provide multiple targets on the command line:
+We can re-create all the results files with a single command
+by listing multiple targets when we run Make:
+
+```shell
+$ make results/moby-dick.csv results/jane-eyre.csv
+```
+
+However,
+users have to know what files they might want to create in order to do this,
+and have to type their names exactly right.
+A better approach is to create a phony target that depends on all of the output files
+and make it the first rule in the file so that it is the default.
+By convention,
+this target is called `all`:
 
 ```
-$ make -f pipeline.mk results/moby-dick.csv results/jane-eyre.csv
-```
+.PHONY: clean all
 
--   This requires users to know what files they might want to create
--   Better approach: create a phony target that rebuilds all the output files
-    -   And make it the first rule in the file so that it is the default
-
-```
-# Phony targets.
-.PHONY : clean everything
+COUNT=bin/countwords.py
 
 # Regenerate all results.
-everything : results/moby-dick.csv results/jane-eyre.csv
+all : results/moby-dick.csv results/jane-eyre.csv
+
+# ...rules for moby-dick, jane-eyre, and clean...
 ```
+{: title="automate/multi-prereq.mk"}
 
--   Now run `make -f pipeline.mk`
-    -   Make reads rules from `pipeline.mk`
-    -   Uses the rule for `everything` as its default
-    -   `everything` is only "up to date" if the two CSV files are up to date
-    -   So Make looks in `pipeline.mk` for a rule for each
-    -   And runs each of those rules
--   `pipeline.mk` now looks like this:
+If we run Make now,
+it sees that `all` is only "up to date" if the two CSV files are up to date,
+so it looks for a rule for each and runs each of those rules.
 
-```
-# Phony targets.
-.PHONY : clean everything
-
-# Regenerate all results.
-everything : results/moby-dick.csv results/jane-eyre.csv
-
-# Regenerate data for "Moby Dick"
-results/moby-dick.csv : data/moby-dick.txt
-        python bin/countwords.py data/moby-dick.txt results/moby-dick.csv
-
-# Regenerate data for "Jane Eyre"
-results/jane-eyre.csv : data/jane-eyre.txt
-        python bin/countwords.py data/jane-eyre.txt results/jane-eyre.csv
-
-# Remove all generated files.
-clean :
-        rm -f results/*.csv
-```
-
--   We can draw the prerequisites as a [dependency graph](../gloss/#g:dependency-graph):
-    -   Arrows show what each target depends on
--   Note: no guarantee of order when the graph is executed
-    -   Make can rebuild either results file first
+We can draw the prerequisites defined in the Makefile as a [dependency graph](../gloss/#g:dependency-graph),
+with arrows showing what each target depends on.
 
 FIXME: dependency graph
 
+Note that the Makefile doesn't define the order
+in which `results/moby-dick.csv` and `results/jane-eyre.csv` are updated,
+so Make can rebuild them in whatever order it wants.
+This is called [declarative programming](../gloss/#g:declarative-programming):
+we declare what outcome we want,
+and the program figures out how to achieve it.
+
 ## How Can I Abbreviate My Update Rules? {#s:automate-automatic}
 
--   Add a third book to `pipeline.mk`, then a fourth
-    -   Lots of duplication, which means lots of future maintenance effort
--   Make lets us write [pattern rules](../gloss/#g:pattern-rule) to express general ideas
--   In order to use these, we first need to use [automatic variables](../gloss/#g:automatic-variable)
--   Step 1: don't duplicate the target filename
+We could add a third book to our Makefile,
+then a fourth,
+but any time we find ourselves duplicating code,
+there's almost certainly a way to write a general rule.
+In order to create these,
+though,
+we first need to learn about [automatic variables](../gloss/#g:automatic-variable).
 
-```
-# Regenerate data for "Moby Dick"
+The first step is to use the very cryptic expression `$@` in the rule's action
+to mean "the target of the rule".
+We start with this:
+
+```make
+# Regenerate results for "Moby Dick"
 results/moby-dick.csv : data/moby-dick.txt
-        python bin/countwords.py data/moby-dick.txt $@
+        python bin/countwords.py data/moby-dick.txt > results/moby-dick.csv
 ```
+{: title="automate/single-rule.mk"}
 
--   `$@` means "the target of the current rule"
-    -   Cryptic name is unfortunate, but we're stuck with it
--   Step 2: replace the prerequisites in the action with `$^`
+<!-- == \noindent -->
+and turn it into this:
 
-```
-# Regenerate data for "Moby Dick"
+```make
+# Regenerate results for "Moby Dick"
 results/moby-dick.csv : data/moby-dick.txt
-        python bin/countwords.py $^ $@
+        python bin/countwords.py data/moby-dick.txt > $@
 ```
+{: title="automate/automatic-variables-wrong.mk"}
 
--   `$^` is another automatic variable meaning "all the prerequisites of the current rule"
--   What if we want to regenerate results when our script changes?
-    -   Make the result depend on the script
+<!-- == \noindent -->
+`$@` is an automatic variable:
+Make defines its value for us separately in each rule.
+And yes,
+`$@` is an unfortunate name:
+something like `$TARGET` would be easier to understand,
+but we're stuck with it.
 
+Step 2 is to replace the list of prerequisites in the action with `$^`,
+which is another automatic variable meaning "all the prerequisites of the current rule":
+
+```make
+# Regenerate results for "Jane Eyre"
+results/jane-eyre.csv : data/jane-eyre.txt
+        python bin/countwords.py $^ > $@
 ```
-# Regenerate data for "Moby Dick" - WRONG
-results/moby-dick.csv : data/moby-dick.txt bin/countwords.py
-        python bin/countwords.py $^ $@
-```
+{: title="automate/automatic-variables-wrong.mk"}
 
--   Doesn't do the right thing, since the action expands to:
-
-```
-python bin/countwords.py data/moby-dick.txt bin/countwords.py results/moby-dick.csv
-```
-
--   Make helpfully provides another automatic variable `$<` meaning "the first prerequisite"
--   Rewrite our improved rule like this:
-
-```
-# Regenerate data for "Moby Dick" - RIGHT
-results/moby-dick.csv : data/moby-dick.txt bin/countwords.py
-        python bin/countwords.py $^ $<
-```
-
-## How Can I Write One Rule To Update Many Different Files in the Same Way? {#s:automate-pattern}
-
--   We can now replace the repeated rules for results files with one [pattern rule](../gloss/#g:pattern-rule)
--   Use `%` as a [wildcard](../gloss/#g:wildcard) on the left and right sides
+But wait:
+our results files don't just have books as dependencies.
+They also depend on `bin/countwords.py`.
+What happens if we include that in the rule while using automatic variables?
+(We'll do this for a third book to keep the three rules separate in the example Makefile.)
 
 ```
-results/%.csv : data/%.txt bin/countwords.py
-        python bin/countwords.py $< $@
+# Regenerate results for "The Time Machine" - WRONG
+results/time-machine.csv : data/time-machine.txt ${COUNT}
+        python bin/countwords.py $^ > $@
+```
+{: title="automate/automatic-variables-wrong.mk"}
+
+<!-- == \noindent -->
+This doesn't do the right thing because `$^` includes *all* of the prerequisites,
+so the action tries to process the script as if it were a data file:
+
+```shell
+python bin/countwords.py data/time-machine.txt bin/countwords.py results/time-machine.csv
 ```
 
--   `%` cannot be used in actions, which is why `$<` and `$@` are needed
--   `pipeline.mk` is now:
+This situation comes up so often that
+Make helpfully provides another automatic variable `$<` meaning "the first prerequisite",
+which lets us rewrite our rules like this:
 
 ```
-# Phony targets.
-.PHONY : clean everything
+# Regenerate results for "Janey Eyre"
+results/jane-eyre.csv : data/jane-eyre.txt ${COUNT}
+        python bin/countwords.py $< > $@
+```
+{: title="automate/automatic-variables.mk"}
+
+And yes,
+`$< > $@` is hard to read,
+even with practice.
+Using [an editor that does syntax highlighting](../tools/) helps,
+and if you are ever designing software for other people to use,
+remember this case and don't do it.
+
+## How can I write one general rule to update many files in the same way? {#s:automate-pattern}
+
+We can now replace all the rules for generating results files
+with one [pattern rule](../gloss/#g:pattern-rule)
+that uses `%` as a [wildcard](../gloss/#g:wildcard).
+Whatever part of a filename `%` matches in the target,
+it must also match in the prerequisites,
+so the single rule:
+
+```make
+results/%.csv : data/%.txt ${COUNT}
+        python bin/countwords.py $< > $@
+```
+{: title="automate/pattern-rule.mk"}
+
+<!-- == \noindent -->
+will handle *Jane Eyre*, *Moby Dick*, and *The Time Machine*.
+(Unfortunately, `%` cannot be used in rules' actions,
+which is why `$<` and `$@` are needed.)
+With this rule in place,
+our entire Makefile is reduced to:
+
+```make
+.PHONY: clean
+
+COUNT=bin/countwords.py
 
 # Regenerate all results.
-everything : results/moby-dick.csv results/jane-eyre.csv
+all : results/moby-dick.csv results/jane-eyre.csv results/time-machine.csv
 
-# Regenerate data for a single book.
-results/%.csv : data/%.txt bin/countwords.py
-        python bin/countwords.py $< $@
+# Regenerate result for any book.
+results/%.csv : data/%.txt ${COUNT}
+	python ${COUNT} $< > $@
 
 # Remove all generated files.
 clean :
-        rm -f results/*.csv
+	rm -f results/*.csv
 ```
+{: title="automate/pattern-rule.mk"}
 
--   Clean and build:
+Let's delete all of the results files and re-create them all:
 
+```shell
+$ make -f pattern-rule.mk clean
 ```
-$ make -f pipeline.mk clean
-$ make -f pipeline.mk everything
-```
-
--   Output is:
-
-```
+```text
 rm -f results/*.csv
-python bin/countwords.py data/moby-dick.csv results/moby-dick.txt
-python bin/countwords.py data/jane-eyre.csv results/jane-eyre.txt
 ```
 
--   Can still rebuild individual files:
-
+```shell
+$ make -f pattern-rule.mk all
 ```
-$ make -f pipeline.mk results/jane-eyre.txt
+```text
+python bin/countwords.py data/moby-dick.txt > results/moby-dick.csv
+python bin/countwords.py data/jane-eyre.txt > results/jane-eyre.csv
+python bin/countwords.py data/time-machine.txt > results/time-machine.csv
+```
+
+We can still rebuild individual files:
+
+```shell
+$ touch data/jane-eyre.txt
+$ make -f pattern-rule.mk results/jane-eyre.csv
+```
+```text
+python bin/countwords.py data/jane-eyre.txt > results/jane-eyre.csv
 ```
 
 ## How Can I Define Sets of Files Automatically? {#s:automate-functions}
@@ -769,7 +816,7 @@ RESULTS = $(patsubst data/%.txt,results/%.csv,${RAW})
 ## everything: regenerate all results.
 everything : ${RESULTS}
 
-# Regenerate data for a single book.
+# Regenerate results for a single book.
 results/%.csv : data/%.txt
         python bin/countwords.py $< $@
 

@@ -2,6 +2,9 @@
 
 COUNT=bin/countwords.py
 
+# Regenerate all results.
+all : results/moby-dick.csv results/jane-eyre.csv
+
 # Regenerate results for "Moby Dick"
 results/moby-dick.csv : data/moby-dick.txt ${COUNT}
 	python ${COUNT} data/moby-dick.txt > results/moby-dick.csv
