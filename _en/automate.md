@@ -1,7 +1,6 @@
 ---
 permalink: "/en/automate/"
 title: "Automating Analyses"
-undone: true
 questions:
 -   "How can I make my analyses easier to reproduce?"
 -   "How can I make it easier to repeat analyses when I get new data, or when my data or scripts change?"
@@ -102,6 +101,12 @@ we will use it throughout this book.
 > that none has been able to capture more than a small fraction of potential users.
 > [Snakemake][snakemake] has a lot of fans,
 > and a future version of this tutorial might well use it.
+
+### Acknowledgments
+
+This introduction based on
+the [Software Carpentry lesson on Make][swc-make] maintained by [Gerard Capes][capes-gerard]
+and on [Jonathan Dursi][dursi-jonathan]'s [introduction to pattern rules][dursi-pattern-rules].
 
 ## How can I update a file when its prerequisites change? {#s:automate-first}
 
@@ -453,10 +458,12 @@ and have to type their names exactly right.
 A better approach is to create a phony target that depends on all of the output files
 and make it the first rule in the file so that it is the default.
 By convention,
-this target is called `all`:
+this target is called `all`,
+and while we don't have to list all our phony targets in alphabetical order,
+it makes them a lot easier to find:
 
 ```
-.PHONY: clean all
+.PHONY: all clean
 
 COUNT=bin/countwords.py
 
@@ -594,7 +601,7 @@ With this rule in place,
 our entire Makefile is reduced to:
 
 ```make
-.PHONY: clean
+.PHONY: all clean
 
 COUNT=bin/countwords.py
 
@@ -639,252 +646,286 @@ $ make -f pattern-rule.mk results/jane-eyre.csv
 python bin/countwords.py data/jane-eyre.txt > results/jane-eyre.csv
 ```
 
-## How Can I Define Sets of Files Automatically? {#s:automate-functions}
+## How can I define sets of files automatically? {#s:automate-functions}
 
--   Our automated build is still not fully automated
-    -   If we add another book to `raw`, we have to remember to also add it to `pipeline.mk`
--   Fix this in steps
--   Step 1: define a variable of our own for the list of files we want to generate
-    -   Put the definition near the top of the file to make it easy to find
-    -   Variables don't have to be in ALL CAPS, but it's conventional
+Our "automated" analysis is still not fully automated:
+If we add another book to `raw`,
+we have to remember to add it to the `all` target in the Makefile as well.
+Once again,
+we will fix this in steps.
 
+To start,
+imagine that all the results files already exist,
+and we just want to update them.
+We can define a variable called `RESULTS` to be a list of all the results files
+using the same notation we'd use in the shell to match all the CSV files in the `results/` directory:
+
+```make
+RESULTS=results/*.csv
 ```
-RESULTS = results/moby-dick.csv results/jane-eyre.csv
-```
+{: title="automate/filename-wildcard.mk"}
 
--   Step 2: change the `everything` target to depend on these files
+<!-- == \noindent -->
+and then make `all` depend on that:
 
-```
+```make
 # Regenerate all results.
-everything : ${RESULTS}
+all : ${RESULTS}
 ```
+{: title="automate/filename-wildcard.mk"}
 
--   We use a variable by putting its name in `${...}`
-    -   If we just use `$NAME`, as we do with the shell,
-        Make interprets this as a variable called `$N` followed by the literal characters `"AME"`
-    -   Another leftover from the 1970s
--   Step 3: test the change
+This works,
+but only for re-creating files:
+if a results file doesn't already exist when we run Make,
+its name won't be included in `RESULTS`,
+and Make won't realize that we want to generate it.
 
+What we really want to do is generate the list of results files
+from the list of books in the `data/` directory.
+We can use a [function](../gloss/#g:make-function) to do this.
+The syntax is a little odd,
+because functions were added to Make long after it was first written,
+but at least they have readable names.
+Let's create a variable `DATA` that holds the names of all of our data files:
+
+```make
+DATA = $(wildcard data/*.txt)
 ```
-$ make -f pipeline.mk clean
-$ make -f pipeline.mk everything
-```
-```
-rm -f results/*.csv
-python bin/countwords.py data/moby-dick.csv results/moby-dick.txt
-python bin/countwords.py data/jane-eyre.csv results/jane-eyre.txt
-```
+{: title="automate/function-wildcard.mk"}
 
--   But how is this better?  We still have to remember to add a file's name to this list
--   Or we can get Make to generate the list for us
--   Step 4: define a variable using a [function](../gloss/#g:make-function)
-    -   The syntax is a bit ugly, because functions were added to Make long after it was first created
+<!-- == \noindent -->
+This calls the function `wildcard` with the argument `data/*.txt`.
+The result is a list of all the text files in the `raw` directory,
+just as we'd get with `data/*.txt` in the shell.
+(We could use a shell wildcard here as we did when defining `RESULTS`,
+but we want to show how functions work.)
 
-```
-RAW = $(wildcard data/*.txt)
-```
+Did this do the right thing?
+To check,
+we can add another phony target to the end of the file called `settings`
+that uses the shell command `echo` to print the name and value of a variable:
 
--   This calls the function `wildcard` with the argument `data/*.txt`
--   Result is a list of all the text files in the `raw` directory
--   To check, add another phony target to the end of the file called `settings`
+```make
+.PHONY: all clean settings
 
-```
-.PHONY: clean everything settings
+# ...everything else...
 
-...
-
+# Show variables' values.
 settings :
-        echo RAW: ${RAW}
+        echo COUNT: ${COUNT}
+        echo DATA: ${DATA}
+```
+{: title="automate/function-wildcard.mk"}
+
+Let's run this:
+
+```shell
+$ make -f function-wildcard.mk settings
+```
+```text
+echo COUNT: bin/countwords.py
+COUNT: bin/countwords.py
+echo DATA: data/common-sense.txt data/jane-eyre.txt data/life-of-frederick-douglass.txt data/moby-dick.txt data/sense-and-sensibility.txt data/time-machine.txt
+DATA: data/common-sense.txt data/jane-eyre.txt data/life-of-frederick-douglass.txt data/moby-dick.txt data/sense-and-sensibility.txt data/time-machine.txt
 ```
 
--   `echo` is a shell command that simply prints its arguments
--   Running this gives:
+The output appears twice because Make shows us the command it's going to run before running it.
+If we put `@` before the command,
+Make doesn't show it before running it:
 
-```
-$ make -f pipeline.mk settings
-```
-```
-echo RAW: data/moby-dick.txt data/jane-eyre.txt
-RAW: data/moby-dick.txt data/jane-eyre.txt
-```
-
--   Output appears twice because Make shows us the command, then runs it
--   If we put `@` before the command, Make doesn't show it before running it
-
-```
+```make
 settings :
-        @echo RAW: ${RAW}
+	@echo COUNT: ${COUNT}
+        @echo DATA: ${DATA}
 ```
+{: title="automate/function-wildcard-silent.mk"}
+
+```shell
+$ make -f function-wildcard.mk settings
 ```
-$ make -f pipeline.mk settings
-```
-```
-RAW: data/moby-dick.txt data/jane-eyre.txt
+```text
+COUNT: bin/countwords.py
+DATA: data/common-sense.txt data/jane-eyre.txt data/life-of-frederick-douglass.txt data/moby-dick.txt data/sense-and-sensibility.txt data/time-machine.txt
 ```
 
--   Step 5: generate the list of desired output files from the list of input files
-    -   Use the same kind of patterns used in rules themselves with a function called `patsubst`
+We now have the names of our input files,
+but what we want is the names of the corresponding output files.
+Make has another function called `patsubst` (short for "**pat**tern **subst**itution")
+that uses the same kind of patterns used in rules to do exactly this:
 
+```make
+RESULTS=$(patsubst data/%.txt,results/%.csv,${DATA})
 ```
-RESULTS = $(patsubst data/%.txt,results/%.csv,${RAW})
-```
+{: title="automate/patsubst.mk"}
 
--   `$(patsubst ...)` calls the pattern substitution function
--   First argument is what to look for
-    -   In this case, a text file in the `raw` directory
-    -   `%` matches the [stem](../gloss/#g:filename-stem) of the file's name, which is the part we want to keep
--   Second argument is what to replace matches with
-    -   Keep the stem, but create a CSV file in the `results` directory
--   Third argument is the list to look in
-    -   In this case, the list of raw filenames
--   Check that this has worked by adding to the `settings` target
+`$(patsubst ...)` calls the pattern substitution function.
+The first argument is what to look for:
+in this case,
+a text file in the `raw` directory.
+As in a pattern rule,
+we use `%` to match the [stem](../gloss/#g:filename-stem) of the file's name,
+which is the part we want to keep.
 
-```
+The second argument is the replacement we want.
+Ours uses the stem matched by `%` to construct the name of a CSV file in the `results` directory.
+Finally,
+the third argument is what we're doing substitutions in,
+which is our list of books' names.
+
+Let's check that this has worked by adding to the `settings` target
+
+```make
 settings :
-        @echo RAW: ${RAW}
+        @echo COUNT: ${COUNT}
+        @echo DATA: ${DATA}
         @echo RESULTS: ${RESULTS}
 ```
+{: title="automate/patsubst.mk"}
+```shell
+$ make -f patsubst.mk settings
 ```
-$ make -f pipeline.mk settings
-```
-```
-RAW: data/moby-dick.txt data/jane-eyre.txt
-RESULTS: results/moby-dick.csv results/jane-eyre.csv
+```text
+COUNT: bin/countwords.py
+DATA: data/common-sense.txt data/jane-eyre.txt data/life-of-frederick-douglass.txt data/moby-dick.txt data/sense-and-sensibility.txt data/time-machine.txt
+RESULTS: results/common-sense.csv results/jane-eyre.csv results/life-of-frederick-douglass.csv results/moby-dick.csv results/sense-and-sensibility.csv results/time-machine.csv
 ```
 
--   Step 6: test
+Excellent:
+`DATA` has the names of all of the files we want to process
+and `RESULTS` automatically has the corresponding names of the files we want to generate.
+Let's test it:
 
+```shell
+$ make -f patsubst.mk clean
 ```
-$ make -f pipeline.mk clean
-$ make -f pipeline.mk everything
-```
-```
+```text
 rm -f results/*.csv
-python bin/countwords.py data/moby-dick.csv results/moby-dick.txt
-python bin/countwords.py data/jane-eyre.csv results/jane-eyre.txt
+```
+```shell
+$ make -f patsubst.mk all
+```
+```text
+python bin/countwords.py data/common-sense.txt > results/common-sense.csv
+python bin/countwords.py data/jane-eyre.txt > results/jane-eyre.csv
+python bin/countwords.py data/life-of-frederick-douglass.txt > results/life-of-frederick-douglass.csv
+python bin/countwords.py data/moby-dick.txt > results/moby-dick.csv
+python bin/countwords.py data/sense-and-sensibility.txt > results/sense-and-sensibility.csv
+python bin/countwords.py data/time-machine.txt > results/time-machine.csv
 ```
 
--   Step 7: add another source file and see what happens
-    -   If we've done everything right, Make will automatically generate the results file for it
+Our workflow is now just two steps:
+add a data file and run Make.
+As we'll see [later](../integrate/),
+we can even automate the second half in some cases,
+but this is still a big improvement over running things manually,
+particularly as we start to add more steps
+(such as merging data files and generating plots).
 
-```
-$ cp /tmp/life-of-frederick-douglass.txt raw
-$ make -f pipeline.mk
-```
-```
-python bin/countwords.py data/life-of-frederick-douglass.csv results/life-of-frederick-douglass.txt
-```
+## How can I document my workflow? {#s:automate-doc}
 
--   And there we have it: a fully automated, reproducible data analysis pipeline
+Every well-behaved program can tell people how to use it.
+If we run `make --help`, for example,
+we get a (long) list of things Make can do for us.
 
-## How Can I Document My Update Rules? {#s:automate-doc}
+But how can we document the workflow that our Makefile now embodies?
+One common choice is to provide a special target like `settings`
+that prints a description of available targets:
 
--   Every well-behaved program can print a help message
--   `make --help` shows help for Make itself, not for our Makefile
--   Option 1: provide a special target like `settings` to print available targets
+```make
+.PHONY: all clean help settings
 
-```
-.PHONY: clean everything help settings
+# ...other definitions...
 
-...
-
+# Show help.
 help :
-        @echo "everything: rebuild all results"
-        @echo "clean: remove all generated files"
-        @echo "help: show available targets"
-        @echo "settings: show variable values"
+	@echo "all : regenerate all out-of-date results files."
+	@echo "results/*.csv : regenerate a particular results file."
+	@echo "clean : remove all generated files."
+	@echo "settings : show the values of all variables."
+	@echo "help : show this message."
 ```
+{: title="automate/makefile-help.mk"}
 
--   This is easy to set up and does the job, but once again:
-    -   Redundancy: this information ought to appear as a comment on each rule as well
-    -   Relies on human memory: author has to remember to update `help` when adding or changing rules
--   A better way:
-    -   Format some comments specially
-    -   Extract and print only those comments
--   Use `grep` to find these special comments and print those lines
--   Step 1: decide how to mark the comments we want to extract
-    -   By convention, use `##` instead of a single `#`
+This is easy to set up and does the job,
+but once again its redundancy should worry us:
+the same information appears in both the comments on rules and the help,
+which means that authors have to remember to update the help when adding or changing rules.
 
-```
-# Phony targets.
-.PHONY : clean everything settings
+A better approach,
+which we will explore in more depth [later](../docs/),
+is to have people format some comments in a special way
+and then extract and display those comments when asked for help.
+We'll use `##` (a double comment marker) to indicate the lines we want displayed
+and use `grep` to extract lines that start with that marker.
+We will use Make's `MAKEFILE_LIST` variable to get the path to the Makefile,
+since we may be using the `-f` flag to specify which Makefile we're using.
+With all that in place,
+our finished Makefile is:
 
-# Define input and output files.
-RAW = $(wildcard data/*.txt)
-RESULTS = $(patsubst data/%.txt,results/%.csv,${RAW})
+```make
+.PHONY: all clean help settings
 
-## everything: regenerate all results.
-everything : ${RESULTS}
+COUNT=bin/countwords.py
+DATA=$(wildcard data/*.txt)
+RESULTS=$(patsubst data/%.txt,results/%.csv,${DATA})
 
-# Regenerate results for a single book.
-results/%.csv : data/%.txt
-        python bin/countwords.py $< $@
+## all : regenerate all results.
+all : ${RESULTS}
 
-## clean: remove all generated files.
+## results/*.csv : regenerate result for any book.
+results/%.csv : data/%.txt ${COUNT}
+	python ${COUNT} $< > $@
+
+## clean : remove all generated files.
 clean :
-        @rm -f ${RESULTS}
+	rm -f results/*.csv
 
-## settings: show variable values
+## settings : show variables' values.
 settings :
-        @echo RAW: ${RAW}
-        @echo RESULTS: ${RESULTS}
-```
+	@echo COUNT: ${COUNT}
+	@echo DATA: ${DATA}
+	@echo RESULTS: ${RESULTS}
 
--   Step 2: add a rule to find and print these lines
-
-```
-.PHONY : clean everything settings
-
-...
-
-## help: show available targets
+## help : show this message.
 help :
-        @grep -e '##' pipeline.mk
+	@grep '^##' ${MAKEFILE_LIST}
+```
+{: title="automate/makefile-grep.mk"}
+
+Let's test:
+
+```shell
+$ make -f makefile-grep.mk
+```
+```text
+## all : regenerate all results.
+## results/*.csv : regenerate result for any book.
+## clean : remove all generated files.
+## settings : show variables' values.
+## help : show this message.
 ```
 
--   Step 3: test
+With a bit more work we could strip off the leading `##` markers,
+but this is a good start.
 
-```
-$ make -f pipeline.mk help
-```
-```
-## everything: regenerate all results.
-## clean: remove all generated files.
-## settings: show variable values
-## help: show available targets
-```
-
--   That's *almost* what we want
--   Can get rid of the leading `##` markers by using the venerable Unix stream editor `sed` instead of `grep`
-
-```
-help :
-        @sed -n -e 's/## //p' pipeline.mk
-```
-```
-$ make -f pipeline.mk help
-```
-```
-everything: regenerate all results.
-clean: remove all generated files.
-settings: show variable values
-help: show available targets
-```
-
--   Taking the `sed` command apart:
-    -   `-n` means "do not print every line" (default is to do so)
-    -   `-e` means "here's the expression to match"
-    -   The `s` and `p` in `'s/## //p'` mean "search for lines that match this pattern and print them"
-    -   The pattern `/## //` means "find two #'s followed by a space and replace them with nothing (i.e., delete them)"
--   None of this is part of Make, so most people simply copy this rule from file to file
+> #### How did you know that?
+>
+> I had never used the variable `MAKEFILE_LIST` before writing this lesson.
+> In fact, until about 15 minutes ago, I didn't even know it existed:
+> I always had my `help` target's action `grep` for `##` in `Makefile`.
+> Once I realized that wouldn't work in this example
+> (because I'm writing lots of little Makefiles to demonstrate ideas step by step)
+> I searched online for "how to get name of Makefile in make".
+> The second hit took me to [the GNU Make documentation for other special variables][gnu-make-other-vars],
+> which told me exactly what I needed.
+> I spend anywhere from a quarter to three quarters of my time searching for things when I program these days;
+> one of the goals of these lessons is to give you an idea of what you ought to be searching for yourself
+> so that you can do this more efficiently.
 
 ## Summary {#s:automate-summary}
 
-<figure id="f:automate-concept"> <figcaption>Make Concept Map</figcaption> <img src="../../figures/automate.svg"/> </figure>
+<figure id="f:automate-concept"> <figcaption>Make Concept Map</figcaption> <img src="../../figures/automate-concept.svg"/> </figure>
 
-This introduction based on
-the [Software Carpentry lesson on Make][swc-make] maintained by [Gerard Capes][capes-gerard]
-and on [Jonathan Dursi][dursi-jonathan]'s [introduction to pattern rules][dursi-pattern-rules].
-[Smit2011](#BIB) describes the design and implementation of several build tools in detail.
+-   [Smit2011](#BIB) describes the design and implementation of several build tools in detail.
 
 {% include links.md %}

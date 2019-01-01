@@ -45,6 +45,7 @@ definitions if that's done.
 [github-pages]: https://pages.github.com/
 [github-zenodo-tutorial]: https://guides.github.com/activities/citable-code/
 [gnu-make]: http://www.gnu.org/software/make/
+[gnu-make-other-vars]: https://www.gnu.org/software/make/manual/html_node/Special-Variables.html
 [go-fair]: https://www.go-fair.org/fair-principles/
 [google-docs]: https://en.wikipedia.org/wiki/Google_Docs,_Sheets,_and_Slides
 [gustavsen-julia]: http://www.juliagustavsen.com/

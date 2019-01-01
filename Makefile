@@ -29,7 +29,7 @@ all : commands
 
 ## commands    : show all commands.
 commands :
-	@grep -h -E '^##' Makefile | sed -e 's/## //g'
+	@grep -h -E '^##' ${MAKEFILE_LIST} | sed -e 's/## //g'
 
 ## serve       : run a local server.
 serve :

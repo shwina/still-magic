@@ -1,9 +1,10 @@
 .PHONY: all clean
 
 COUNT=bin/countwords.py
+RESULTS=results/*.csv
 
 # Regenerate all results.
-all : results/moby-dick.csv results/jane-eyre.csv results/time-machine.csv
+all : ${RESULTS}
 
 # Regenerate result for any book.
 results/%.csv : data/%.txt ${COUNT}

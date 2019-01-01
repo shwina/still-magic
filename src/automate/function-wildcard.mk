@@ -1,9 +1,11 @@
-.PHONY: all clean
+.PHONY: all clean settings
 
 COUNT=bin/countwords.py
+DATA=$(wildcard data/*.txt)
+RESULTS=results/*.csv
 
 # Regenerate all results.
-all : results/moby-dick.csv results/jane-eyre.csv results/time-machine.csv
+all : ${RESULTS}
 
 # Regenerate result for any book.
 results/%.csv : data/%.txt ${COUNT}
@@ -12,3 +14,8 @@ results/%.csv : data/%.txt ${COUNT}
 # Remove all generated files.
 clean :
 	rm -f results/*.csv
+
+# Show variables' values.
+settings :
+	echo COUNT: ${COUNT}
+	echo DATA: ${DATA}

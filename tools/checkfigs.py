@@ -20,7 +20,8 @@ def main(figDir, filenames):
 
 
 def listFigures(figDir):
-    return set(os.listdir(figDir))
+    ignore = lambda x: x.endswith('.xml')
+    return set([x for x in os.listdir(figDir) if not ignore(x)])
 
 
 def findReferences(filenames):
