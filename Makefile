@@ -146,6 +146,10 @@ checktoc :
 spelling :
 	@cat ${PAGES_MD} | tools/uncode.py | aspell list | sort | uniq | comm -2 -3 - .words
 
+## undone      : which files have not yet been done?
+undone :
+	@grep -l 'undone: true' _en/*.md
+
 ## words       : count words in finished files.
 words :
 	@wc -w $$(fgrep -L 'undone: true' _en/*.md) | sort -n -r
