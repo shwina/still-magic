@@ -15,6 +15,12 @@ title: "Glossary"
 **Active listening**{:#g:active-listening}
 :   FIXME
 
+**Agile development**{:#g:agile}
+:   FIXME
+
+**Analysis and estimation**{:#g:ae}
+:   FIXME
+
 **Annotated tag**{:#g:annotated-tag}
 :   FIXME
 
@@ -90,6 +96,9 @@ title: "Glossary"
 **Exponent**{:#g:exponent}
 :   FIXME
 
+**Feature boxing**{:#g:feature-boxing}
+:   FIXME
+
 **Feature creep**{:#g:feature-creep}
 :   FIXME
 
@@ -121,6 +130,9 @@ title: "Glossary"
 :   FIXME
 
 **Issue**{:#g:issue}
+:   FIXME
+
+**Iteration**{:#g:iteration} (in software development)
 :   FIXME
 
 **Linter**{:#g:linter}
@@ -162,10 +174,16 @@ title: "Glossary"
 **Page template**{:#g:page-template}
 :   FIXME
 
+**Pair programming**{:#g:pair-programming}
+:   FIXME
+
 **Pattern rule**{:#g:pattern-rule}
 :   FIXME
 
 **Phony target**{:#g:phony-target}
+:   FIXME
+
+**Post-mortem**{:#g:post-mortem}
 :   FIXME
 
 **Precision**{:#g:precision}
@@ -219,6 +237,9 @@ title: "Glossary"
 **Silent error**{:#g:silent-error}
 :   FIXME
 
+**Stand-up meeting**{:#g:stand-up-meeting}
+:   FIXME
+
 **Standard error**{:#g:stderr}
 :   FIXME
 
@@ -226,6 +247,9 @@ title: "Glossary"
 :   FIXME
 
 **Standard output**{:#g:stdout}
+:   FIXME
+
+**Sturdy development**{:#g:sturdy}
 :   FIXME
 
 **Sustainability**{:#g:sustainability}
@@ -264,6 +288,9 @@ title: "Glossary"
     2.  Each different observation of that variable is in a different row.
     3.  There is one table for each kind of variable.
     4.  If there are multiple tables, each includes a key so that related data can be linked.
+
+**Time boxing**{:#g:time-boxing}
+:   FIXME
 
 **Timestamp**{:#g:timestamp} (on a file)
 :   FIXME

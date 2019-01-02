@@ -1,27 +1,50 @@
 ---
 permalink: "/en/process/"
 title: "Development Process"
-undone: true
+questions:
+- "How can a team develop software systematically?"
 objectives:
-- "FIXME"
+- "Explain what a software development process is."
+- "Define the key features of an agile development process."
+- "Describe the key roles in a planning-based software development process."
+- "Explain the true purpose of a schedule."
 keypoints:
-- "FIXME"
+- "A software development process can be chaotic, agile, or sturdy."
+- "Agile development depends on feedback loops at several scales."
+- "Pair programming provides realtime feedback on code as it is written."
+- "The primary responsibility of a product manager is to translate users' needs into features and priorities."
+- "The primary responsibility of a project manager is to create and maintain a schedule."
 ---
 
+A [software development process](../gloss/#s:dev-process) is
+the steps a team goes through to create, deliver, and maintain software.
 Broadly speaking,
-modern software development processes can be divided into two groups.
-The one that gets the most attention these days
-is called [agile development](../gloss/#g:agile).
-It starts from three related premises:
+software development processes can be divided into three groups:
+
+-   Chaotic: everyone's doing something,
+    but there's no overall plan or consistency.
+-   An [agile](../gloss/#g:agile) process
+    based on lots of short steps with frequent feedback and course correction.
+-   A [sturdy](../gloss/#g:sturdy) process
+    that invests a lot of effort in planning out work.
+    (This label is made up:
+    historically,
+    planning-based approaches were described first and didn't have a particular name,
+    but then agile came along and we needed one.)
+
+Most self-taught teams start with a chaotic process.
+This material is meant to help you move to something better.
+
+## What is agile development? {#s:process-agile}
+
+Agile development starts from three related premises:
 
 -   You *can't* plan a software project very far in advance
     because requirements and technology are constantly changing.
-
 -   You *shouldn't* try to plan everything in advance
     because you're going to learn what's possible,
     and your users are going to learn what they actually want,
     as the work progresses.
-
 -   You can *afford* not to lock yourself into a long-term plan
     because software is much more malleable than concrete or steel.
 
@@ -38,10 +61,10 @@ This approach came into prominence with the rise of the web in the 1990s:
     People couldn't help noticing that most open source projects didn't have long-range plans,
     but nevertheless produced high-quality software faster than many closed-source commercial projects.
 
-## What are the key features of agile development? {#s:agile-what}
+## What are the feedback loops in agile development? {#s:process-feedback}
 
-At its heart,
-it is any methodology that relies on continuous or nearly continuous feedback.
+At its core,
+agile development relies on continuous feedback.
 Agile methods break development down into short [iterations](../gloss/#g:iteration),
 typically no more than two weeks long,
 and often as short as a single day.
@@ -140,18 +163,16 @@ but is critical as soon as two or more people are involved in development.
 It's very frustrating (and unproductive) for someone to be blocked
 because someone else has broken something but not realized it.
 
-The final key practice in agile development is the post-mortem.
+The final key practice in agile development is the [post-mortem](../gloss/#g:post-mortem).
 At the end of every sprint,
 the team should get together and ask themselves what went well,
 what could be improved,
 and what new things they want to try (if any).
-Again,
-this is important enough to deserve [its own section](../post-mortem/).
 
-## What are the risks associated with agile development? {#s:agile-risks}
+## What are the risks associated with agile development? {#s:process-agile-risks}
 
 The biggest risk associated with agile is that
-people sometimes use the term as cover for doing whatever they want.
+people can use the term to excuse a process that's still actually chaotic.
 Most people don't like writing plans before they code or documenting what they've done;
 coincidentally,
 agile doesn't require them to do much of either.
@@ -171,12 +192,13 @@ but that's as essential to agile development as it is to scientific research.
 
 Finally, FIXME: customer buy-in.
 
----
+## What is sturdy development? {#s:process-sturdy}
 
-
-The alternative to [agile development](../agile/) doesn't have a widely-accepted name.
-I sometimes call it "sturdy",
+As we said in the introduction,
+the alternative to agile development doesn't have a widely-accepted name;
+I call it "sturdy",
 since "traditional", "old-fashioned", and "process-heavy" all sound pejorative.
+
 Whatever it's called,
 it's key feature is planning work in advance.
 If you're going to spend three days driving across the country,
@@ -189,6 +211,8 @@ and how long it ought to take.
 In order to explain how to do this systematically,
 we need to look at two roles in large software projects:
 the product manager and the project manager.
+
+## What is the role of a product manager? {#s:process-product}
 
 The [product manager](../gloss/#product-manager) is
 the person responsible for the software's feature list.
@@ -264,11 +288,18 @@ and each axis is divided into "low", "medium", and "high".
 (Finer-grained divisions, such as a 1--10 scale, add no value:
 nobody has an algorithm for distinguishing priority 6 items from priority 7 items,
 and anyway, the grid is just to get conversation going.)
+Each feature's name now goes in one of the nine grid cells,
+and the product manager steps out of the way.
 
-Each feature's name now goes in one of the nine grid cells.
-The high-effort, low-importance features in the lower right are crossed off,
-and the [project manager](../gloss/#project-manager) starts assembling the others into a schedule.
-She may decide to tackle some low-effort, high-value items first
+## What is the role of a project manager? {#s:process-project}
+
+The [project manager](../gloss/#project-manager)'s role is
+to turn priorities and effort estimates into a schedule
+and then ensure that the schedule is met.
+First,
+the high-effort, low-importance features in the grid are crossed off:
+they're simply not worth doing.
+The project manager may decide to tackle some low-effort, high-value items first
 in order to ensure that if things go badly wrong,
 something useful will still have been accomplished
 Alternatively,
@@ -288,6 +319,8 @@ Since project managers aren't stupid,
 they'll shave the estimates even more,
 so developers will add even more padding,
 and pretty soon the whole thing becomes science fiction.
+
+## What are the risks associated with sturdy development? {#s:process-sturdy-risks}
 
 The hardest step in this process for beginners is coming up with time estimates.
 How can you possibly guess how long it will take to write a database interface
@@ -330,7 +363,7 @@ since it encourages developers to take smaller steps,
 and allows them to give customers more frequent demos
 (which serve as course corrections).
 
-## Why, when, and how should our team start to cut corners? {#s:sturdy-corners}
+## Why, when, and how should our team start to cut corners? {#s:process-corners}
 
 Contrary to popular belief,
 a schedule's primary purpose is not to tell you what you're supposed to be doing on any given day.
@@ -405,10 +438,8 @@ It's unfortunate that most students only get to do it once or twice in their cou
 since you only really see the benefits with practice,
 but even a couple of rounds of practice can make a big difference.
 
-Unfortunately,
-most undergraduate students aren't allowed to adjust either the features they're supposed to deliver
-or the deadline they're supposed to meet.
-In that situation,
-the best you can do is figure which features are worth the fewest marks and cut those.
+## Summary {#s:process-summary}
+
+FIXME: summarize process
 
 {% include links.md %}
