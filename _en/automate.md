@@ -928,4 +928,11 @@ but this is a good start.
 
 -   [Smit2011](#BIB) describes the design and implementation of several build tools in detail.
 
+## Exercises {#s:automate-exercises}
+
+-   FIXME: add rule to Makefile to create a summary CSV file from all of the book CSV files.
+    -   Careful how to write the dependencies so that it doesn't depend on itself.
+-   FIXME: add rule to generate a plot for the top N words
+    -   Make it depends on the summary.
+
 {% include links.md %}

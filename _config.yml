@@ -14,10 +14,11 @@ toc:
   lessons:
   - /intro/
   - /automate/
+  - /interlude-01/
+  - /configure/
   - /unit/
   - /verify/
   - /logging/
-  - /configure/
   - /ghp/
   - /workflow/
   - /process/
