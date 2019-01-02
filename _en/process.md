@@ -155,7 +155,7 @@ and posts the results somewhere for the whole team to see.
 If any of the tests fail,
 the continuous integration system notifies people by sending out email or texting them.
 
-We will explain how to implement continuous integration in [its own section](../continuous/).
+We will explain how to implement continuous integration in [its own section](../integrate/).
 From a developer's point of view,
 its key benefit is that it ensures the project is always in a runnable state.
 This may not seem important if you don't have to hand it in until next week,

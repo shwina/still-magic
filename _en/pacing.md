@@ -157,7 +157,7 @@ Make a list of the things you have to do.
 
 Weed out everything that you don't need to do right away.
 :   Notice that I said "need", not "want":
-    if you want to mess around with a new theme for [your personal website](../online/),
+    if you want to mess around with a new theme for your personal website,
     that's fine,
     but that's play time, not work time,
     and we're talking about getting work done.
@@ -168,10 +168,10 @@ Prioritize what's left.
     since I'm going to re-check my list before I get to them anyway.
 
 Make sure you have everything you need to do the first task.
-:   Update your repository from [version control](../version-control/),
+:   Update your repository from version control,
     make sure you have an up-to-date copy of the assignment specification,
     install whatever libraries and documentation you need,
-    and [adjust your chair](../environment).
+    and adjust your chair.
     Don't give yourself an excuse to interrupt your own work:
     the world will provide enough of those.
 
@@ -370,7 +370,7 @@ whether it was important or not,
 and my family paid the price.
 
 Programmers still don't talk about this very often,
-but it's more important than programming languages or [elevator pitches](../elevator-pitch/).
+but it's more important than programming languages or business plans.
 No one should be ashamed to say,
 "That's worth doing but I'm not going to do it."
 And no one should be ashamed to say that they've hit their limit,

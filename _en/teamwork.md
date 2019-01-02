@@ -140,7 +140,7 @@ Everyone can check what was actually said or promised.
 People can be held accountable at subsequent meetings.
 :   There's no point making lists of questions and action items
     if you don't follow up on them later.
-    If you're using a [ticketing system](../ticketing/),
+    If you're using a [ticketing system](../workflow/#s:workflow-issues),
     create a ticket for each new question or task right after the meeting
     and update those that are being carried forward.
     That way,

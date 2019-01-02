@@ -6,17 +6,20 @@ Check for unused and undefined links.
 
 import sys
 import re
-from util import report, usage
+from util import readToc, report, usage
 
 
-TITLE = 'Links'
+LINKS_TITLE = 'Links'
+INTERNAL_TITLE = 'Internal References'
 
 
-def main(linksFile, sourceFiles):
+def main(configFile, linksFile, sourceFiles):
+    toc = readToc(configFile)
     defs = readDefs(linksFile)
-    refs = readRefs(sourceFiles)
-    report(TITLE, 'unused', defs - refs)
-    report(TITLE, 'undefined', refs - defs)
+    linkRefs, internalRefs = readRefs(sourceFiles)
+    report(LINKS_TITLE, 'unused', defs - linkRefs)
+    report(LINKS_TITLE, 'undefined', linkRefs - defs)
+    report(INTERNAL_TITLE, 'undefined', internalRefs - toc)
 
 
 def readDefs(filename):
@@ -34,17 +37,19 @@ def readDefs(filename):
 
 
 def readRefs(filenames):
-    pat = re.compile(r'\[[^\]]+\]\[([^\]]+)\]')
-    result = set()
+    linkPat = re.compile(r'\[[^\]]+\]\[([^\]]+)\]')
+    internalPat = re.compile(r'\[[^\]]+\]\(../([^/]+)/\)')
+    links = set()
+    internals = set()
     for f in filenames:
         with open(f, 'r') as reader:
             data = reader.read()
-            matches = pat.findall(data)
-            result |= set(matches)
-    return result
+            links |= set(linkPat.findall(data))
+            internals |= set(internalPat.findall(data))
+    return links, internals
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        usage('checklinks.py linksFile [filename ...]')
-    main(sys.argv[1], sys.argv[2:])
+    if len(sys.argv) < 3:
+        usage('checklinks.py configFile linksFile [filename ...]')
+    main(sys.argv[1], sys.argv[2], sys.argv[3:])

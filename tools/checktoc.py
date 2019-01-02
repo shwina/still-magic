@@ -6,25 +6,17 @@ Check for unused or missing files compared to table of contents in YAML configur
 
 import sys
 import re
-import yaml
-from util import report, usage
+from util import readToc, report, usage
 
 
 TITLE = 'Table of Contents'
 
 
 def main(configPath, chapterFiles):
-    configToc = read_config_toc(configPath)
+    configToc = readToc(configPath)
     filesToc = normalize(chapterFiles) - {'index'}
     report(TITLE, 'missing',  configToc - filesToc)
     report(TITLE, 'unused', filesToc - configToc)
-
-
-def read_config_toc(configPath):
-    with open(configPath, 'r') as reader:
-        config = yaml.load(reader)
-    toc = config['toc']
-    return {x.strip('/') for x in set(toc['lessons']) | set(toc['bib']) | set(toc['extras'])}
 
 
 def normalize(filenames):

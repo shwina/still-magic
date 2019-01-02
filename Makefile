@@ -130,7 +130,7 @@ checkgloss :
 
 ## checklinks  : check that all links are defined and used.
 checklinks :
-	@tools/checklinks.py _includes/links.md ${PAGES_MD} _includes/contributing.md
+	@tools/checklinks.py _config.yml _includes/links.md ${PAGES_MD} _includes/contributing.md
 
 ## checksrc    : check source file inclusion references.
 checksrc :
