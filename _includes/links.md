@@ -53,6 +53,7 @@ definitions if that's done.
 [huff-katy]: http://katyhuff.github.io/
 [huff-testing]: https://github.com/katyhuff/python-testing
 
+[ini-format]: https://en.wikipedia.org/wiki/INI_file
 [insight]: https://www.insightdatascience.com/
 
 [jekyll]: https://jekyllrb.com/

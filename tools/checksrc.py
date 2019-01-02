@@ -24,7 +24,7 @@ def main(srcDir, filenames):
 def findFiles(srcDir):
     prefixLen = len(srcDir + '/')
     unprefix = lambda x: x[prefixLen:]
-    ignore = lambda x: x.endswith('~')
+    ignore = lambda x: x.endswith('~') or ('__pycache__' in x)
     return set([unprefix(x)
                 for x in glob.iglob('{}/**/*.*'.format(srcDir), recursive=True)
                 if not ignore(x)])

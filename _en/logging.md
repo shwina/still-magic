@@ -20,6 +20,8 @@ keypoints:
 -   "Use `tail -f` to monitor log files."
 ---
 
+FIXME: how to log configurations
+
 -   Programs should report things that go wrong
     -   And optionally things that go right, to help track down the sources of errors
 -   Adding `print` statements during debugging is a common approach

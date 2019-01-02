@@ -573,7 +573,9 @@ results/jane-eyre.csv : data/jane-eyre.txt ${COUNT}
 
 And yes,
 `$< > $@` is hard to read,
-even with practice.
+even with practice,
+and `< $<` (reading the first prerequisite from [standard input](../gloss/#g:stdin))
+is even harder.
 Using [an editor that does syntax highlighting](../tools/) helps,
 and if you are ever designing software for other people to use,
 remember this case and don't do it.

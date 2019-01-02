@@ -24,6 +24,9 @@ title: "Glossary"
 **Annotated tag**{:#g:annotated-tag}
 :   FIXME
 
+**Assertion**{:#g:assertion}
+:   FIXME
+
 **Automatic variable**{:#g:automatic-variable}
 :   FIXME
 
@@ -52,6 +55,9 @@ title: "Glossary"
 :   FIXME
 
 **Conditional expression**{:#g:conditional-expression}
+:   FIXME
+
+**Configuration object**{:#g:configuration-object}
 :   FIXME
 
 **Content delivery network**{:#g:cdn} (CDN)
@@ -84,6 +90,9 @@ title: "Glossary"
 **Design patterns**{:#g:design-patterns}
 :   FIXME
 
+**Dictionary**{:#g:dictionary}
+:   FIXME
+
 **Docstring**{:#g:docstring}
 :   FIXME
 
@@ -111,6 +120,9 @@ title: "Glossary"
 **Fixture**{:#g:fixture}
 :   FIXME
 
+**Flag**{:#g:flag}
+:   FIXME
+
 **Function**{:#g:make-function} (in Make)
 :   FIXME
 
@@ -133,6 +145,9 @@ title: "Glossary"
 :   FIXME
 
 **Iteration**{:#g:iteration} (in software development)
+:   FIXME
+
+**JSON**{:#g:json}
 :   FIXME
 
 **Linter**{:#g:linter}
@@ -227,6 +242,9 @@ title: "Glossary"
 
 **Semantic versioning**{:#g:semantic-versioning}
 :   FIXME <https://semver.org/>
+
+**Set and override**{:#g:set-and-override} (pattern)
+:   FIXME
 
 **Short circuit**{:#g:short-circuit}
 :   FIXME
@@ -326,6 +344,9 @@ title: "Glossary"
 :   FIXME
 
 **Working directory**{:#g:working-directory}
+:   FIXME
+
+**YAML**{:#g:yaml}
 :   FIXME
 
 {% include links.md %}
