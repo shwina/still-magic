@@ -1,18 +1,19 @@
 import logging
 
-def create_logger(application, filename):
+MESSAGE_FORMAT = '%(asctime)s,%(name)s,%(levelname)s,%(message)s'
+DATE_FORMAT = '%Y-%m-%dT%H:%M:%S'
+
+def create_logger(name, level, filename):
 
     # Create logger.
-    logger = logging.getLogger(application)
-    logger.setLevel(logging.WARNING)
+    logger = logging.getLogger(name)
+    logger.setLevel(level)
 
     # Send messages to standard output.
     handler = logging.FileHandler(filename)
-    handler.setLevel(logging.DEBUG)
 
     # Define format.
-    formatter = logging.Formatter('%(asctime)s,%(name)s,%(levelname)s,%(message)s',
-                                  datefmt='%Y-%m-%dT%H:%M:%S')
+    formatter = logging.Formatter(MESSAGE_FORMAT, DATE_FORMAT)
 
     # Stitch everything together.
     handler.setFormatter(formatter)

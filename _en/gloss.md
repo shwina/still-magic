@@ -24,6 +24,9 @@ title: "Glossary"
 **Annotated tag**{:#g:annotated-tag}
 :   FIXME
 
+**Append mode**{:#g:append-mode}
+:   FIXME
+
 **Assertion**{:#g:assertion}
 :   FIXME
 
@@ -31,6 +34,9 @@ title: "Glossary"
 :   FIXME
 
 **Bit rot**{:#g:bit-rot}
+:   FIXME
+
+**Buffer**{:#g:buffer}
 :   FIXME
 
 **Build tool**{:#g:build-tool}
@@ -123,6 +129,9 @@ title: "Glossary"
 **Flag**{:#g:flag}
 :   FIXME
 
+**Format string**{:#g:format-string}
+:   FIXME
+
 **Function**{:#g:make-function} (in Make)
 :   FIXME
 
@@ -144,6 +153,9 @@ title: "Glossary"
 **Issue**{:#g:issue}
 :   FIXME
 
+**ISO date format**{:#g:iso-date-format}
+:   FIXME
+
 **Iteration**{:#g:iteration} (in software development)
 :   FIXME
 
@@ -151,6 +163,9 @@ title: "Glossary"
 :   FIXME
 
 **Linter**{:#g:linter}
+:   FIXME
+
+**Logging framework**{:#g:logging-framework}
 :   FIXME
 
 **Magnitude**{:#g:magnitude}
@@ -235,6 +250,9 @@ title: "Glossary"
 :   FIXME
 
 **reStructured Text**{:#g:restructured-text}
+:   FIXME
+
+**Rotating file**{:#g:rotating-file}
 :   FIXME
 
 **Rule**{:#g:make-rule} (in Make)

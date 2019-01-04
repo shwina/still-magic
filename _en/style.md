@@ -20,7 +20,7 @@ keypoints:
 -   "Use `**kwargs` to define a catch-all parameter for functions taking a variable number of named arguments."
 ---
 
-> Nothing in software engineering makes sense except in the light of human psychology.
+> Nothing in programming makes sense except in the light of human psychology.
 >
 > --- Greg Wilson (after [Dobz1973](#BIB))
 

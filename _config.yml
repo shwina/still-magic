@@ -16,9 +16,9 @@ toc:
   - /automate/
   - /interlude-01/
   - /configure/
+  - /logging/
   - /unit/
   - /verify/
-  - /logging/
   - /ghp/
   - /workflow/
   - /process/
@@ -44,6 +44,7 @@ toc:
   - /gloss/
   - /objectives/
   - /keypoints/
+  - /rules/
   - /design/
 
 # Tell Jekyll that "en" is a collection (whose files are found in "_en").  This

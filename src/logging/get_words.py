@@ -1,9 +1,10 @@
 from util import create_logger
 
-logger = create_logger('get_words', 'log.csv')
+logger = create_logger('get_words', 'WARNING', 'log.csv')
 
 for word in ['first', 'second', 'third']:
     print(word)
-    logger.debug('debug message')
-    logger.warn('warn message')
-    logger.critical('critical message')
+    message = 'getting word "{}"'.format(word)
+    logger.debug(message)
+    logger.warn(message)
+    logger.critical(message)
