@@ -22,25 +22,55 @@ keypoints:
 -   "Math can be added to pages using MathJax and LaTeX equation syntax."
 ---
 
--   All options for publishing data science in the early 21st Century are clumsy and contradictory
-    -   Just as all classroom instruction compromises the efficacy of individual tutoring in the name of economics,
-        all publishing options compromise the flexibility of pen on paper in the name of readability and efficiency
--   [WYSIWYG](../gloss/#g:wysiwyg) tools like [Microsoft Word][ms-word], [LibreOffice][libreoffice], and [Google Docs][google-docs]
-    -   Lower cognitive load because you can see what your readers will see
-    -   *Can* allow restyling, but most people don't take advantage of those features (extra work up front for downstream payoff)
-    -   Hard to automatically regenerate (although again it's possible, just not taken advantage of)
-    -   Hard to coordinate the work of multiple contributors because version control systems don't support their formats
--   [Typesetting languages](../gloss/#g:typesetting-language) like [Markdown][markdown], HTML, and [LaTeX][latex] use plain text plus instructions
-    -   Much higher cognitive load because of the compilation step
-    -   Much easier to restyle because of the compilation step
-    -   Much easier to automatically regenerate (provided the thing you want to regenerate fits the format)
-    -   Better suited to large-scale collaboration because plain text is the one format that programmers respect
--   Many attempts to compromise by offering WYSIWYG view of typesetting language, e.g., [Authorea][authorea], [Overleaf][overleaf], and a gazillion different in-browser Markdown editors, including those built into the [Jupyter Notebook][jupyter]
-    -   These work until authors try to use any features of the substrate that aren't supported by the WYSIWYG view
-    -   Or author things in the substrate in ways that the overlay doesn't recognize
--   We will explore Markdown and GitHub Pages
-    -   Illustrates the key ideas of a compilation-based workflow
-    -   Probably the least painful to set up
+All options for publishing technical work in the early 21st Century are clumsy and contradictory.
+[WYSIWYG](../gloss/#g:wysiwyg) tools like [Microsoft Word][ms-word],
+[LibreOffice][libreoffice],
+and [Google Docs][google-docs] lower [cognitive load](../gloss/#g:cognitive-load)
+because you can see what your readers will see as you're writing.
+They *can* allow restyling if authors are careful to apply named styles
+instead of just changing the font and making something bold,
+but most people don't to this
+because it's extra work up front for an uncertain downstream payoff.
+It's had to automatically regenerate reports as data chages
+(although again it's possible, just not taken advantage of),
+and most importantly,
+it's hard to coordinate the work of multiple contributors
+because version control systems don't support these formats.
+There's no reason they couldn't,
+but programmers are pretty heavily invested in plain text,
+and unfortunately tend to consider everything else beneath them.
+
+[Typesetting languages](../gloss/#g:typesetting-language) like [Markdown][markdown],
+HTML,
+and [LaTeX][latex] require authors to type in the text they want
+plus instructions on how to format it.
+The compilation from source to rendered view has a cognitive cost,
+but typesetting languages are better suited to large-scale collaboration
+because the source for every document is plain text
+and can therefore be managed by today's version control systems.
+Compilation also makes documents easier to restyle:
+simply change the definition of what a level-2 heading is supposed to look like,
+push the button,
+and bingo---there's your document.
+Of course,
+the last sentence of section 3 is now sitting on a page of its own,
+and the tables have all moved around,
+and...
+
+Some modern systems attempt to compromise
+by offering WYSIWYG view of typesetting language:
+[Overleaf][overleaf] uses LaTeX as its storage format,
+and many different in-browser editors
+(including those built into the [Jupyter Notebook][jupyter])
+will render Markdown in real time.
+These work until authors try to use any features of the underlying layer
+that aren't supported by the WYSIWYG view.
+
+In this section we will explore one of the simplest widely-used typesetting-style systems:
+Markdown and GitHub Pages.
+The combination illustrates the key ideas of a compilation-based workflow,
+and while its simplicity means that there are things it can't do (or can't do easily),
+it also means that less can go wrong.
 
 ## How Can I Write Web Pages Using Simple Text Formatting? {#s:ghp-authoring}
 
