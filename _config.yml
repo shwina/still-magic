@@ -14,6 +14,7 @@ toc:
   lessons:
   - /intro/
   - /automate/
+  - /syndicate/
   - /interlude-01/
   - /configure/
   - /logging/
@@ -30,7 +31,6 @@ toc:
   - /inclusive/
   - /package/
   - /publish/
-  - /syndicate/
   - /docs/
   - /teamwork/
   - /pacing/

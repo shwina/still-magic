@@ -7,8 +7,12 @@ objectives:
 - "Write Python programs to download data sets using simple REST APIs."
 - "Parse CSV data using the `csv` library."
 - "Test a program that parses CSV using multiline strings."
+- "Make a function more robust by explicitly handling errors."
+- "Construct a simple visualization using pyplot."
+- "Write Python programs that share static data sets."
 keypoints:
 - "FIXME"
+- "Make data sets more useful by providing metadata."
 ---
 
 A growing number of organizations make data sets available on the web in a style called [REST](../gloss/#g:rest),
@@ -440,20 +444,7 @@ else:
 ...
 ```
 
-========================================
-
----
-title: "Generalizing and Handling Errors"
-teaching: 15
-exercises: 0
-questions:
-- "FIXME"
-objectives:
-- "Turn a script into a function."
-- "Make a function more robust by explicitly handling errors."
-keypoints:
-- "FIXME"
----
+## How can I generalize data fetching and handle errors? {#s:syndicate-generalize}
 
 Now that we know how to get the data for Canada,
 let's create a function that will do the same thing for an arbitrary country.
@@ -465,7 +456,7 @@ The steps are simple:
 
 The resulting function looks like:
 
-```
+```python
 def annual_mean_temp(country):
     '''Get the annual mean temperature for a country given its 3-letter ISO code (such as "CAN").'''
     url = 'http://climatedataapi.worldbank.org/climateweb/rest/v1/country/cru/tas/year/' + country + '.csv'
@@ -482,33 +473,31 @@ def annual_mean_temp(country):
                 results.append([year, value])
         return results
 ```
-{: .python}
+{: title="syndicate/get-without-check.py"}
 
 This works:
 
-```
+```python
 canada = annual_mean_temp('CAN')
 print('first three entries for Canada:', canada[:3])
 ```
-{: .python}
-```
+{: title="syndicate/get-without-check.py"}
+```text
 first three entries for Canada: [[1901, -7.67241907119751], [1902, -7.862711429595947], [1903, -7.910782814025879]]
 ```
-{: .output}
 
 However,
 there's a problem.
 Look what happens when we pass in an invalid country identifier:
 
-```
+```python
 latveria = annual_mean_temp('LTV')
 print 'first three entries for Latveria:', latveria[:3]
 ```
-{: .python}
-```
+{: title="syndicate/get-without-check.py"}
+```text
 first three entries for Latveria: []
 ```
-{: .output}
 
 Latveria doesn't exist,
 so why is our function returning an empty list rather than printing an error message?
@@ -522,7 +511,7 @@ and returned `None`
 So if the response code was 200 and there was no data, that would explain what we're seeing.
 Let's check:
 
-```
+```python
 def annual_mean_temp(country):
     '''Get the annual mean temperature for a country given its 3-letter ISO code (such as "CAN").'''
     url = 'http://climatedataapi.worldbank.org/climateweb/rest/v1/country/cru/tas/year/' + country + '.csv'
@@ -545,14 +534,13 @@ def annual_mean_temp(country):
 latveria = annual_mean_temp('LTV')
 print('number of records for Latveria:', len(latveria))
 ```
-{: .python}
-```
+{: title="syndicate/get-with-minimal-check.py"}
+```text
 url used is http://climatedataapi.worldbank.org/climateweb/rest/v1/country/cru/tas/year/LTV.csv
 response code: 200
 length of data: 0
 number of records for Latveria: 0
 ```
-{: .output}
 
 In other words,
 the World Bank is always saying,
@@ -562,7 +550,7 @@ After a bit more experimenting, we discover that the site *always* returns a 200
 The only way to tell if there's real data or not is to check if `response.text` is empty.
 Here's the updated function:
 
-```
+```python
 def annual_mean_temp(country):
     '''
     Get the annual mean temperature for a country given its 3-letter ISO code (such as "CAN").
@@ -579,20 +567,27 @@ def annual_mean_temp(country):
                 value = float(record[1])
                 results.append([year, value])
     return results
+```
+{: title="syndicate/get-with-check.py"}
 
+<!-- == \noindent -->
+and here's a quick check:
+
+```python
 print('number of records for Canada:', len(annual_mean_temp('CAN')))
 print('number of records for Latveria:', len(annual_mean_temp('LTV')))
 ```
-{: .python}
-```
+{: title="syndicate/get-with-check.py"}
+
+```text
 number of records for Canada: 109
 number of records for Latveria: 0
 ```
-{: .output}
+
+========================================
 
 Now that we can get surface temperatures for different countries,
 we can write a function to compare those values.
-(We'll jump straight into writing a function because by now it's clear that's what we're eventually going to do anyway.)
 Here's our first attempt:
 
 ```
@@ -832,16 +827,9 @@ Excellent: the assertions we've added will now alert us if we try to work with b
 >
 > Rewrite `diff_records` to use `enumerate`.
 {: .challenge}
+
 ---
 title: "Visualization"
-teaching: 15
-exercises: 0
-questions:
-- "FIXME"
-objectives:
-- "Construct a simple visualization using pyplot."
-keypoints:
-- "FIXME"
 ---
 
 Long lists of numbers are not particularly useful,
@@ -891,16 +879,9 @@ or calculate some meaningful statistics.
 > Modify the plotting commands so that the Y-axis scale runs from 0 to 32.
 > Do you think this gives you a more accurate or less accurate view of this data?
 {: .challenge}
+
 ---
 title: "Publishing Data"
-teaching: 15
-exercises: 0
-questions:
-- "FIXME"
-objectives:
-- "Write Python programs that share static data sets."
-keypoints:
-- "FIXME"
 ---
 
 We now have functions to download temperature data for different countries and find annual differences.
@@ -1026,16 +1007,9 @@ so this should seem natural to our users.
 > 3.  The `csv` library requires it.
 > 4.  Programs can only process files and data correctly when they are.
 {: .challenge}
+
 ---
 title: "Making Data Findable"
-teaching: 15
-exercises: 0
-questions:
-- "FIXME"
-objectives:
-- "FIXME"
-keypoints:
-- "Make data sets more useful by providing metadata."
 ---
 
 It's not enough to tell people what the rule is for creating filenames,
