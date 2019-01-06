@@ -7,6 +7,7 @@ file is a Markdown file because Jekyll doesn't expand the link
 definitions if that's done.
 {% endcomment %}
 
+[climate-api]: http://data.worldbank.org/developers/climate-data-api
 [config-email]: mailto:{{site.email}}
 [config-organization]: {{site.organization}}
 [config-repo]: {{site.repo}}
@@ -93,6 +94,7 @@ definitions if that's done.
 
 [r-markdown]: https://rmarkdown.rstudio.com/
 [readthedocs]: https://docs.readthedocs.io/en/latest/
+[requests]: http://docs.python-requests.org
 
 [set-on-fire]: https://merely-useful.github.io/set-on-fire/
 [setuptools]: https://setuptools.readthedocs.io/
@@ -121,6 +123,7 @@ definitions if that's done.
 
 [vanderplas-licensing]: http://www.astrobetter.com/blog/2014/03/10/the-whys-and-hows-of-licensing-scientific-code/
 
+[wikipedia-iso-country]: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3
 [wilson-greg]: http://third-bit.com
 
 [xkcd-duty-calls]: https://xkcd.com/386/

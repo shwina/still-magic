@@ -27,6 +27,9 @@ title: "Glossary"
 **Append mode**{:#g:append-mode}
 :   FIXME
 
+**Application Programming Interface**{:#g:api} (API)
+:   FIXME
+
 **Assertion**{:#g:assertion}
 :   FIXME
 
@@ -81,6 +84,9 @@ title: "Glossary"
 **Creative Commons - Attribution License**{:#g:cc-by} (CC-BY)
 :   FIXME
 
+**Comma-separated values**{:#g:csv} (CSV)
+:   FIXME
+
 **Data engineering**{:#g:data-engineering}
 :   FIXME
 
@@ -103,6 +109,9 @@ title: "Glossary"
 :   FIXME
 
 **Digital Object Identifier**{:#g:doi} (DOI)
+:   FIXME
+
+**Escape sequence**{:#g:escape-sequence}
 :   FIXME
 
 **Exit status**{:#g:exit-status}
@@ -144,10 +153,16 @@ title: "Glossary"
 **Guard clause**{:#g:guard-clause}
 :   FIXME
 
+**HTTP status code**{:#g:http-status-code}
+:   FIXME
+
 **Impostor syndrome**{:#g:impostor-syndrome}
 :   FIXME
 
 **In-place operator**{:#g:in-place-operator}
+:   FIXME
+
+**Index**{:#g:index}
 :   FIXME
 
 **Issue**{:#g:issue}
@@ -243,6 +258,9 @@ title: "Glossary"
 **Relative error**{:#g:relative-error}
 :   FIXME
 
+**Representation State Transfer**{:#g:rest} (REST)
+:   FIXME
+
 **Reproducible research**{:#g:reproducible-research}:
 :   FIXME
 
@@ -271,6 +289,9 @@ title: "Glossary"
 :   FIXME
 
 **Silent error**{:#g:silent-error}
+:   FIXME
+
+**Silent failure**{:#g:silent-failure}
 :   FIXME
 
 **Stand-up meeting**{:#g:stand-up-meeting}
@@ -362,6 +383,9 @@ title: "Glossary"
 :   FIXME
 
 **Working directory**{:#g:working-directory}
+:   FIXME
+
+**Wrapper**{:#g:wrapper}:
 :   FIXME
 
 **YAML**{:#g:yaml}
