@@ -8,7 +8,6 @@ objectives:
 - "Parse CSV data using the `csv` library."
 - "Test a program that parses CSV using multiline strings."
 - "Make a function more robust by explicitly handling errors."
-- "Construct a simple visualization using pyplot."
 - "Write Python programs that share static data sets."
 keypoints:
 - "FIXME"
@@ -173,6 +172,7 @@ we create a file called `test-01.csv` that contains the following three lines:
 1902,45.6
 1903,78.9
 ```
+{: title="syndicate/test-01.csv"}
 
 It's easy to read this file line by line and (for example) report the length of each line:
 
@@ -434,7 +434,7 @@ else:
             value = float(record[1])
             print(year, value)
 ```
-{: src="syndicate/get-tas-can-clean.py"}
+{: title="syndicate/get-tas-can-clean.py"}
 ```text
 1901 -7.67241907119751
 1902 -7.862711429595947
@@ -584,13 +584,13 @@ number of records for Canada: 109
 number of records for Latveria: 0
 ```
 
-========================================
+## How can I compare different data sets? {#s:syndicate-compare}
 
 Now that we can get surface temperatures for different countries,
 we can write a function to compare those values.
 Here's our first attempt:
 
-```
+```python
 def diff_records(left, right):
     '''Given lists of [year, value] pairs, return list of [year, difference] pairs.'''
     num_years = len(left)
@@ -602,39 +602,29 @@ def diff_records(left, right):
         results.append([left_year, difference])
     return results
 ```
-{: .python}
+{: title="syndicate/compare-01.py"}
 
 Here, we're using the number of entries in `left` (which we find with `len(left)`) to control our loop.
-The expression:
-
-```
-for i in range(num_years):
-```
-{: .python}
-
-runs `i` from 0 to `num_years-1`, which corresponds exactly to the legal indices of `left`.
 Inside the loop we unpack the left and right years and values from the list entries,
 then append a pair containing a year and a difference to `results`,
 which we return at the end.
-
 To see if this function works, we can run a couple of tests on made-up data:
 
-```
+```python
 print('one record:', diff_records([[1900, 1.0]],
                                   [[1900, 2.0]]))
 print('two records:', diff_records([[1900, 1.0], [1901, 10.0]],
                                    [[1900, 2.0], [1901, 20.0]]))
 ```
-{: .python}
-```
+{: title="syndicate/compare-01.py}
+```text
 one record: [[1900, -1.0]]
 two records: [[1900, -1.0], [1901, -10.0]]
 ```
-{: .output}
 
 That looks pretty good—but what about these cases?
 
-```
+```python
 print('mis-matched years:', diff_records([[1900, 1.0]],
                                          [[1999, 2.0]]))
 print('left is shorter', diff_records([[1900, 1.0]],
@@ -642,27 +632,12 @@ print('left is shorter', diff_records([[1900, 1.0]],
 print('right is shorter', diff_records([[1900, 1.0], [1901, 2.0]],
                                        [[1900, 10.0]]))
 ```
-{: .python}
-```
----------------------------------------------------------------------------
-IndexError                                Traceback (most recent call last)
-<ipython-input-15-7582f56db8bf> in <module>()
-      4                                       [[1900, 10.0], [1901, 20.0]])
-      5 print('right is shorter', diff_records([[1900, 1.0], [1901, 2.0]],
-----> 6                                        [[1900, 10.0]]))
-
-<ipython-input-13-67464343fd99> in diff_records(left, right)
-      5     for i in range(num_years):
-      6         left_year, left_value = left[i]
-----> 7         right_year, right_value = right[i]
-      8         difference = left_value - right_value
-      9         results.append([left_year, difference])
-
+{: title="syndicate/compare-01.py}
+```text
 IndexError: list index out of rangemis-matched years: [[1900, -1.0]]
 left is shorter [[1900, -9.0]]
 right is shorter
 ```
-{: .error}
 
 The first test gives us an answer even though the years didn't match:
 we get a result, but it's meaningless.
@@ -676,7 +651,7 @@ because they are [silent failures](../gloss/#g:silent-failure):
 the function does the wrong thing, but doesn't indicate that in any way.
 Let's fix that:
 
-```
+```python
 def diff_records(left, right):
     '''
     Given lists of [year, value] pairs, return list of [year, difference] pairs.
@@ -695,194 +670,53 @@ def diff_records(left, right):
         results.append([left_year, difference])
     return results
 ```
-{: .python}
+{: title="syndicate/compare-02.py"}
 
 Do our "good" tests pass?
 
-```
+```python
 print('one record:', diff_records([[1900, 1.0]],
                                   [[1900, 2.0]]))
 print('two records:', diff_records([[1900, 1.0], [1901, 10.0]],
                                    [[1900, 2.0], [1901, 20.0]]))
 ```
-{: .python}
-```
+{: title="syndicate/compare-02.py"}
+```text
 one record: [[1900, -1.0]]
 two records: [[1900, -1.0], [1901, -10.0]]
 ```
-{: .output}
 
 What about our the three tests that we now expect to fail?
 
-```
+```python
 print('mis-matched years:', diff_records([[1900, 1.0]],
                                          [[1999, 2.0]]))
 ```
-{: .python}
-```
----------------------------------------------------------------------------
-AssertionError                            Traceback (most recent call last)
-<ipython-input-18-c101917a748e> in <module>()
-      1 print('mis-matched years:', diff_records([[1900, 1.0]],
-----> 2                                          [[1999, 2.0]]))
-
-<ipython-input-16-d41327791c15> in diff_records(left, right)
-     10         left_year, left_value = left[i]
-     11         right_year, right_value = right[i]
----> 12         assert left_year == right_year,                'Record {0} is for different years: {1} vs {2}'.format(i, left_year, right_year)
-     13         difference = left_value - right_value
-     14         results.append([left_year, difference])
-
+{: title="syndicate/compare-02.py"}
+```text
 AssertionError: Record 0 is for different years: 1900 vs 1999mis-matched years:
 ```
-{: .error}
-
-```
+```python
 print('left is shorter', diff_records([[1900, 1.0]],
                                       [[1900, 10.0], [1901, 20.0]]))
 ```
-{: .python}
-```
----------------------------------------------------------------------------
-AssertionError                            Traceback (most recent call last)
-<ipython-input-19-682d448d921e> in <module>()
-      1 print('left is shorter', diff_records([[1900, 1.0]],
-----> 2                                       [[1900, 10.0], [1901, 20.0]]))
-
-<ipython-input-16-d41327791c15> in diff_records(left, right)
-      4     Fails if the inputs are not for exactly corresponding years.
-      5     '''
-----> 6     assert len(left) == len(right),            'Inputs have different lengths.'
-      7     num_years = len(left)
-      8     results = []
-
+{: title="syndicate/compare-02.py"}
+```text
 AssertionError: Inputs have different lengths. left is shorter
 ```
-{: .error}
-```
+```python
 print('right is shorter', diff_records([[1900, 1.0], [1901, 2.0]],
                                        [[1900, 10.0]]))
 ```
-{: .python}
-```
----------------------------------------------------------------------------
-AssertionError                            Traceback (most recent call last)
-<ipython-input-20-a475e608dd70> in <module>()
-      1 print('right is shorter', diff_records([[1900, 1.0], [1901, 2.0]],
-----> 2                                        [[1900, 10.0]]))
-
-<ipython-input-16-d41327791c15> in diff_records(left, right)
-      4     Fails if the inputs are not for exactly corresponding years.
-      5     '''
-----> 6     assert len(left) == len(right),            'Inputs have different lengths.'
-      7     num_years = len(left)
-      8     results = []
-
+{: title="syndicate/compare-02.py"}
+```text
 AssertionError: Inputs have different lengths. right is shorter
 ```
-{: .error}
 
-Excellent: the assertions we've added will now alert us if we try to work with badly-formatted or inconsistent data.
+Excellent:
+the assertions we've added will now alert us if we try to work with badly-formatted or inconsistent data.
 
-> ## Error Handling
->
-> Python scripts should have error handling code because:
->
-> 1.  Python is an inherently unreliable language.
-> 2.  Functions can return errors.
-> 3.  One should never trust the data provided is what is expected.
-> 4.  A python script would stop on an error, so the task wouldn't be accomplished.
-{: .challenge}
-
-> ## When to Complain?
->
-> We have actually just committed the same mistake as the World Bank:
-> if someone gives `annual_mean_temp` an invalid country identifier,
-> it doesn't report an error,
-> but instead returns an empty list,
-> so the caller has to somehow know to look for that.
-> Should it use an assertion to fail if it doesn't get data?
-> Why or why not?
-{: .challenge}
-
-> ## Enumerating
->
-> Python includes a function called `enumerate` that's often used in `for` loops.
-> This loop:
->
-> ```
-> for (i, c) in enumerate('abc'):
->     print(i, '=', c)
-> ```
-> {: .python}
->
-> prints:
->
-> ```
-> 0 = a
-> 1 = b
-> 2 = c
-> ```
-> {: .output}
->
-> Rewrite `diff_records` to use `enumerate`.
-{: .challenge}
-
----
-title: "Visualization"
----
-
-Long lists of numbers are not particularly useful,
-but we now have the tools we need to visualize the temperature differences between countries:
-
-```
-from matplotlib import pyplot as plt
-
-australia = annual_mean_temp('AUS')
-canada = annual_mean_temp('CAN')
-diff = diff_records(australia, canada)
-plt.plot(diff)
-plt.show()
-```
-{: .python}
-
-![First Plot]({{ site.github.url }}/fig/plot-01.png)
-
-That's not what we want:
-pyplot has interpreted the list of pairs returned by `annual_mean_temp`
-as two corresponding curves rather than as the (x,y) coordinates for one curve.
-Let's convert our list of (year, difference) pairs into a NumPy array:
-
-```
-import numpy as np
-d = np.array(diff)
-```
-{: .python}
-
-and then plot the first column against the second:
-
-```
-plt.plot(d[:, 0], d[:, 1])
-plt.show()
-```
-{: .python}
-
-![Second Plot]({{ site.github.url }}/fig/plot-02.png)
-
-It looks like the difference is slowly decreasing, but the signal is very noisy.
-At this point, if we wanted to do some real science,
-it would be time to use a curve-fitting library
-or calculate some meaningful statistics.
-
-> ## Changing Visualizations
->
-> Modify the plotting commands so that the Y-axis scale runs from 0 to 32.
-> Do you think this gives you a more accurate or less accurate view of this data?
-{: .challenge}
-
----
-title: "Publishing Data"
----
+## How can I publish data so that others can use it? {#s:syndicate-publish}
 
 We now have functions to download temperature data for different countries and find annual differences.
 The next step is to share our findings with the world by publishing the data sets we generate.
@@ -895,7 +729,7 @@ To do this, we have to answer three questions:
 The first question is the easiest to answer:
 `diff_records` returns a list of (year, difference) pairs that we can write out as a CSV file:
 
-```
+```python
 import csv
 
 def save_records(filename, records):
@@ -904,30 +738,26 @@ def save_records(filename, records):
         writer = csv.writer(raw)
         writer.writerows(records)
 ```
-{: .python}
+{: title="syndicate/save-records-01.py"}
 
-> ## Lessons Learned
->
-> We use the `csv` library to write data
-> for the same reason we use it to read:
-> it correctly handles special cases (such as text containing commas).
-{: .callout}
-
+We use the `csv` library to write data
+for the same reason we use it to read:
+it correctly handles special cases (such as text containing commas).
 Let's test it:
 
-```
+```python
 save_records('temp.csv', [[1, 2], [3, 4]])
 ```
-{: .python}
+{: title="syndicate/save-records-01.py"}
 
 If we then look in the file `temp.csv`, we find:
 
-```
+```text
 1,2
 3,4
 ```
-{: .source}
 
+<!-- == \noindent -->
 as desired.
 
 Now, where should this file go?
@@ -943,7 +773,8 @@ and the web server will automatically search in those directories.
 For example,
 if Nelle has a file called `thesis.pdf` in her `public_html` directory,
 the web server will find it when it gets the URL `http://the.server.name/~nelle/thesis.pdf`.
-(The tilde `~` in front of Nelle's name is what tells the web server
+(In this case,
+the tilde `~` in front of Nelle's name tells the web server
 to look in Nelle's `public_html` directory.)
 The specifics differ from one machine to the next,
 but the basic idea stays the same.
@@ -961,7 +792,7 @@ Someone could, for example, call `save_records('aus+bra.csv', records)`.
 To reduce the odds of this happening,
 let's modify `save_records` to take country identifiers as parameters:
 
-```
+```python
 import csv
 
 def save_records(left, right, records):
@@ -971,62 +802,34 @@ def save_records(left, right, records):
         writer = csv.writer(raw)
         writer.writerows(records)
 ```
-{: .python}
+{: title="syndicate/save-records-02.py"}
 
 We can now call it like this:
 
-```
+```python
 save_records('AUS', 'BRA', [[1, 2], [3, 4]])
 ```
-{: .python}
+{: title="syndicate/save-records-02.py"}
 
 and then check that the right output file has been created.
 We are bound to have the country codes anyway (having used them to look up our data),
 so this should seem natural to our users.
 
-> ## Deciding What to Check
->
-> Should `save_records` check that every record in its input has exactly two fields?
-> Why or why not?
-> What about country codes -
-> should it contain a list of those that match actual countries
-> and check that `left` and `right` are in that list?
-{: .challenge}
-
-> ## Setting Up Locally
->
-> Find out how to publish a file on your department's server.
-{: .challenge}
-
-> ## Published Data Consistency
->
-> It is important for the file names of published data to be consistent because:
->
-> 1.  Some operating systems (e.g. Windows) treat spaces differently.
-> 2.  You may not have access to your department's server to rename them.
-> 3.  The `csv` library requires it.
-> 4.  Programs can only process files and data correctly when they are.
-{: .challenge}
-
----
-title: "Making Data Findable"
----
+## How can I make it easy for other people to *find* my data: {#s:syndicate-findable}
 
 It's not enough to tell people what the rule is for creating filenames,
 since that doesn't tell them what data sets we've actually generated.
 The final step in this lesson is therefoore
 to make the data we generate findable
 by creating an [index](../gloss/#g:index) to tell people what files exist.
-
 Here's the format we will use:
 
-```
+```text
 2014-05-26,FRA,TCD,FRA-TCD.csv
 2014-05-27,AUS,BRA,AUS-BRA.csv
 2014-05-27,AUS,CAN,AUS-CAN.csv
 2014-05-28,BRA,CAN,BRA-CAN.csv
 ```
-{: .source}
 
 The columns are the date the data set was generated,
 the identifiers of the two countries being compared,
@@ -1039,7 +842,7 @@ other people's programs shouldn't have to.
 
 Here's a function that updates the index file every time we generate a new data file:
 
-```
+```python
 import time
 
 def update_index(index_filename, left, right):
@@ -1063,44 +866,43 @@ def update_index(index_filename, left, right):
         writer = csv.writer(raw)
         writer.writerows(records)
 ```
-{: .python}
+{: title="syndicate/make-index.py"}
 
 Let's test it.
 If our index file contains:
 
-```
+```text
 2014-05-26,FRA,TCD,FRA-TCD.csv
 2014-05-27,AUS,BRA,AUS-BRA.csv
 2014-05-27,AUS,CAN,AUS-CAN.csv
 2014-05-28,BRA,CAN,BRA-CAN.csv
 ```
-{: .source}
 
 and we run:
 
-```
+```python
 update_index('data/index.csv', 'TCD', 'CAN')
 ```
-{: .python}
+{: title="syndicate/make-index.py"}
 
 then our index file now contains:
 
-```
+```text
 2014-05-26,FRA,TCD,FRA-TCD.csv
 2014-05-27,AUS,BRA,AUS-BRA.csv
 2014-05-27,AUS,CAN,AUS-CAN.csv
 2014-05-28,BRA,CAN,BRA-CAN.csv
 2014-05-29,TCD,CAN,TCD-CAN.csv
 ```
-{: .source}
 
 Now that all of this is in place,
-it's easy for us—and other people—to do new and exciting things with our data.
+it's easy for us---and more importantly,
+for other people---to do new and exciting things with our data.
 For example,
 we can easily write a small program that tells us what data sets include information about a particular country
 *and* have been published since we last checked:
 
-```
+```python
 def what_is_available(index_file, country, after):
     '''What data files include a country and have been published since 'after'?'''
     with open(index_file, 'r') as raw:
@@ -1113,58 +915,73 @@ def what_is_available(index_file, country, after):
 
 print what_is_available('data/index.csv', 'BRA', '2014-05-27')
 ```
-{: .python}
-```
+{: title="syndicate/available.py"}
+```text
 ['AUS-BRA.csv', 'BRA-CAN.csv']
 ```
-{: .output}
 
-> ## New Kinds of Science
->
-> This may not seem like a breakthrough,
-> but it is actually an example of how the web helps researchers do new kinds of science.
-> With a little bit more work,
-> we could create a file on *our* machine to record when we last ran `what_is_available` for each of several different sites that are producing data.
-> Each time we run it, our program would:
->
-> *   read our local "what to check" file;
-> *   ask each data source whether it had any new data for us;
-> *   download and process that data; and
-> *   present us with a summary of the results.
->
-> This is exactly how blogs work.
-> Every blog reader keeps a list of blog URLs that it's supposed to check.
-> When it is run, it goes to each of those sites and asks them for their index file (which is typically called something like `feed.xml`).
-> It then checks the articles listed in that index against its local record of what has already been seen,
-> then downloads any articles that are new.
-> By automating this process, blogging tools help us focus attention on things that are actually worth looking at.
-{: .callout}
+This may not seem like a breakthrough,
+but it is actually an example of how the web helps researchers do new kinds of science.
+With a little bit more work,
+we could create a file on *our* machine to record when we last ran `what_is_available`
+for each of several different sites that are producing data.
+Each time we run it, our program would:
 
-> ## Indexing
->
-> We should always create an index for generated data because:
->
-> 1.  It can be checked in an automated way for changes.
-> 2.  The web server will not display the directory without an index.
-> 3.  REST APIs require an index to function.
-> 4.  It is too complicated for a program to calculate itself.
-{: .challenge}
+-   read our local "what to check" file;
+-   ask each data source whether it had any new data for us;
+-   download and process that data; and
+-   present us with a summary of the results.
 
-> ## Metadata for Metadata
->
-> Should the first line of the index file be a header giving the names of the columns?
-> Why or why not?
-{: .challenge}
+This is exactly how blogs work.
+Every blog reader keeps a list of blog URLs that it's supposed to check.
+When it is run, it goes to each of those sites and asks them for their index file
+(which is typically called something like `feed.xml`).
+It then checks the articles listed in that index against its local record of what has already been seen,
+then downloads any articles that are new.
+By automating this process, blogging tools help us focus attention on things that are actually worth looking at.
 
-> ## To Automate or Not
->
-> Should `update_index` be called inside `save_records`
-> so that the index is automatically updated every time a new data set is generated?
-> Why or why not?
-{: .challenge}
+## Exercises {#s:syndicate-summary}
 
-> ## Removing Redundant Redundancy
->
-> `update_index` and `save_records` both construct the name of the data file.
-> Refactor them to remove this redundancy.
-{: .challenge}
+FIXME: summarize with concept map
+
+## Exercises {#s:syndicate-exercises}
+
+### Enumerating
+
+Python includes a function called `enumerate` that's often used in `for` loops.
+Look at its documentation, then rewrite `diff_records` to use it.
+
+### When to Complain?
+
+We committed the same mistake as the World Bank in our differencing code:
+if someone gives `annual_mean_temp` an invalid country identifier,
+it doesn't report an error,
+but instead returns an empty list,
+so the caller has to somehow know to look for that.
+Should it use an assertion to fail if it doesn't get data?
+Why or why not?
+
+### Deciding What to Check
+
+Should `save_records` check that every record in its input has exactly two fields?
+Why or why not?
+What about country codes -
+should it contain a list of those that match actual countries
+and check that `left` and `right` are in that list?
+
+### Metadata for Metadata
+
+Should the first line of the index file be a header giving the names of the columns?
+Why or why not?
+
+### To Automate or Not
+
+Should `update_index` be called inside `save_records`
+so that the index is automatically updated every time a new data set is generated?
+Why or why not?
+
+### Removing Redundant Redundancy
+
+`update_index` and `save_records` both construct the name of the data file.
+Refactor them to remove this redundancy.
+
