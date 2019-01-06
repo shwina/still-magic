@@ -344,6 +344,9 @@ We can test this with these three configuration files
     <tr><code>logfile: "./complaints.txt"</code></tr>
   </tr>
 </table>
+<!-- {: title="configure/system.yml"} -->
+<!-- {: title="configure/user.yml"} -->
+<!-- {: title="configure/job.yml"} -->
 
 <!-- == \noindent -->
 using this test program:
@@ -360,7 +363,7 @@ options = getopt_to_dict(options, {'-b': 'logfile', '-q': 'quiet'})
 config = get_full_configuration(config_files, options)
 print(config)
 ```
-{: src="configure/test-config.py"}
+{: title="configure/test-config.py"}
 
 <!-- == \noindent -->
 and this command line:
