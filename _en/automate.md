@@ -156,7 +156,7 @@ is the rule's [action](../gloss/#g:make-action).
 It creates or updates the target when it is out of date.
 A rule can have any number of actions,
 but they *must* be indented by a single tab character.
-Notice that the output of `bin/countwords.py` is [redirected](#../gloss/#g:redirection) using `>`
+Notice that the output of `bin/countwords.py` is [redirected](../gloss/#g:redirection) using `>`
 to create the output file:
 we will look [later](../configure/) at modifying the script
 so that it can take the name of an output file as an argument.

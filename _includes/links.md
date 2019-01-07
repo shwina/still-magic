@@ -14,7 +14,6 @@ definitions if that's done.
 [config-website]: {{site.website}}
 
 [ally-skills]: https://frameshiftconsulting.com/ally-skills-workshop/
-[authorea]: https://www.authorea.com/
 
 [branch-per-feature]: https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
 [bryan-jenny]: https://jennybryan.org/

@@ -232,7 +232,7 @@ we'll explore it in this section.
 
 Here's a sample configuration file:
 
-```yaml
+```text
 # Example configuration file
 logfile: "/tmp/log.txt"
 quiet: false

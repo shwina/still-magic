@@ -240,6 +240,12 @@ title: "Glossary"
 **Procedural programming**{:#g:procedural-programming}
 :   FIXME
 
+**Product manager**{:#g:product-manager}
+:   FIXME
+
+**Project manager**{:#g:project-manager}
+:   FIXME
+
 **Public domain license**{:#g:cc-0} (CC-0)
 :   FIXME
 
@@ -250,6 +256,9 @@ title: "Glossary"
 :   FIXME
 
 **Rebase**{:#g:rebase}
+:   FIXME
+
+**Redirection**{:#g:redirection}
 :   FIXME
 
 **Refactor**{:#g:refactor}

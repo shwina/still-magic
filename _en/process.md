@@ -214,7 +214,7 @@ the product manager and the project manager.
 
 ## What is the role of a product manager? {#s:process-product}
 
-The [product manager](../gloss/#product-manager) is
+The [product manager](../gloss/#g:product-manager) is
 the person responsible for the software's feature list.
 Typically,
 while developers are building Version N,
@@ -293,7 +293,7 @@ and the product manager steps out of the way.
 
 ## What is the role of a project manager? {#s:process-project}
 
-The [project manager](../gloss/#project-manager)'s role is
+The [project manager](../gloss/#g:project-manager)'s role is
 to turn priorities and effort estimates into a schedule
 and then ensure that the schedule is met.
 First,

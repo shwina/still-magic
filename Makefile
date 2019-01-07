@@ -95,6 +95,7 @@ ${ALL_TEX} : ${PAGES_HTML} Makefile
 	| sed -E -e 's!\\section!\\chapter!' \
 	| sed -E -e 's!\\subsection!\\section!' \
 	| sed -E -e 's!\\subsubsection!\\subsection!' \
+	| sed -E -e 's!\\texttt\{\\n\}!\\texttt\{\\textbackslash n\}!g' \
 	> ${ALL_TEX}
 
 # Create all the HTML pages once the Markdown files are up to date.
