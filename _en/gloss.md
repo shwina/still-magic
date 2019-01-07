@@ -315,6 +315,9 @@ title: "Glossary"
 **Standard output**{:#g:stdout}
 :   FIXME
 
+**Static website**{:#g:static-website}
+:   FIXME
+
 **Sturdy development**{:#g:sturdy}
 :   FIXME
 

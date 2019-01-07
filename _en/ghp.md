@@ -72,19 +72,40 @@ The combination illustrates the key ideas of a compilation-based workflow,
 and while its simplicity means that there are things it can't do (or can't do easily),
 it also means that less can go wrong.
 
-## How Can I Write Web Pages Using Simple Text Formatting? {#s:ghp-authoring}
+## How can I write HTML without writing HTML? {#s:ghp-markdown}
 
--   Created as a simple way to write simple HTML
-    -   Support the same kinds of formatting (bold, italics, headings, etc.)
-    -   But save people from all the angle brackets
-    -   And allow embedded HTML for things the "standard" doesn't support
--   Turns out that:
-    -   Everybody wants something more (tables! citations!)
-    -   Using an arbitrary collection of syntax rules for simple things makes more complicated things hard to do
--   We will focus on [GitHub Flavored Markdown][gfm] (GFM)
--   Use asterisks (or underscores) for `*italics*` and `**bold**` (which render as *italics* and **bold**)
-    -   I prefer to mix them to do `*__bold italics__*` because I can't tell three marks from two
--   Use one to six `#` signs at the start of a line to create a heading
+A [static website](../gloss/#g:static-website) is one that consists solely of pages:
+no forms, no interactivity, just information to read.
+To create such a site,
+we ust write HTML,
+but some people find that typing `<p>` to start a paragraph
+and `</p>` to end one is too much work.
+
+[Markdown][markdown] was created as a simpler way to write the equivalent of HTML.
+It supports many of the same kinds of formatting,
+such as bold, italics, headings, and links,
+but doesn't require tags in angle brackets.
+It also allows authors to write HTML for things the "standard" doesn't support.
+
+The word "standard" is in quotes because it turned out that
+everyone wanted a little bit more than what was originally included in Markdown.
+Tables, for example:
+lots of people wanted tables.
+And footnotes,
+and images,
+and on and on until eventually Markdwon became just as complex as HTML
+but much less regular,
+once again proving that using an arbitrary collection of syntax rules for simple things
+makes complicated things harder to do.
+
+We will focus on [GitHub Flavored Markdown][gfm],
+which is the variation of Markdown used to create websites on GitHub.
+Paragraphs are separated by blank lines,
+and it uses asterisks or underscores for `*italics*` and `**bold**`,
+which render as *italics* and **bold**.
+(I prefer to mix them to do `*__bold italics__*` because I can't tell three marks from two.)
+
+We can use one to six `#` signs at the start of a line to create headings of various levels:
 
 ```
 # Level-1
@@ -92,8 +113,9 @@ it also means that less can go wrong.
 ### Level-3
 ```
 
--   Unnumbered lists are written using dashes or asterisks as markers
-    -   Conventional to indent text and nested lists by four columns for readability
+Unnumbered lists are written using dashes or asterisks as markers;
+it's conventional to indent points and nested lists by four columns for readability,
+but not strictly required.
 
 ```
 -   First top item
@@ -105,8 +127,9 @@ it also means that less can go wrong.
     *   Use asterisks instead of dashes
 ```
 
--   Numbered lists are written with numbers
-    -   Usually number everything with `1.` and let the processor figure it out
+Numbered lists are written `1.`, `2.`, and so on instead of dashes or asterisks.
+We usually number everything with `1.`
+and let the Markdown processor figure out what the actual numbers should be.
 
 ```
 1.  First top item
@@ -117,13 +140,14 @@ it also means that less can go wrong.
 1.  Third top item
 ```
 
--   Code can be written inline using back quotes:
+Code can be written inline using back quotes:
 
 ```
 Compile `rnadiff` using `Make`.
 ```
 
--   Use three back quotes or tildes at the start and end of a code block:
+<!-- == \noindent -->
+or we can use three back quotes or tildes at the start and end of a code block:
 
     ```
     this is
@@ -131,31 +155,41 @@ Compile `rnadiff` using `Make`.
     code block
     ```
 
--   Can also indent code blocks by four spaces
-    -   Which is helpful when you're trying to show how back quotes work
--   Write links as `[text](URL)`
+Alternatively,
+we can indent code blocks by four spaces,
+which is helpful when we're trying to show how back quotes work
+(as we just did).
+
+There are three ways to write links.
+The first puts the displayed text in square brackets and the URL in parentheses:
 
 ```
 Please see [our website](http://example.com) for more information.
 ```
 
--   Better style to use a symbolic name in the text `[like this][website]`
--   Then put a definition for the link name at the bottom of the file
+It's generally considered better style to use a symbolic name for the link in the text
+in square brackets, `[like this][website]`,
+and then put a definition for the link name at the bottom of the file:
 
 ```
 [website]: http://example.com
 ```
 
--   This ensures that all uses are consistent
--   Images are where things start to get squirrelly
-    -   No obvious syntax, so use link syntax with an exclamation mark at the start
+This ensures that all uses are consistent.
+Finally, we can display the link itself by putting it in angle brackets like:
+`<http://example.org>`.
+
+Images are where things start to get squirrelly.
+There is no obvious syntax,
+so Markdown uses link syntax with an exclamation mark at the start:
 
 ```
 ![image title](URL)
 ```
 
--   And then there are tables
-    -   Draw them in ASCII
+And then there are tables.
+In a throwback to the 1970s,
+Markdown requires us to draw them using horizontal and vertical bars:
 
 ```
 | Common Name | Scientific Name       |
@@ -165,11 +199,14 @@ Please see [our website](http://example.com) for more information.
 | gurrath     | Oncherpestes fodrhami |
 ```
 
--   Columns don't have to line up, but it's easier to read if you do
-    -   So you'll spend far more time than you should using a supercomputer to indent with spaces
--   Or use something like the [Tables Generator][tables-generator]
-    -   Yes, you are using a WYSIWYG program to create 1970s-era text to be translated back into what you drew
--   This is the point where it's often simpler to just write HTML
+The columns don't have to line up,
+but the table source easier to read if we do,
+which means we'll spend far more time than we should using a supercomputer to indent with spaces.
+Alternatively,
+we can use something like the [Tables Generator][tables-generator]
+to create the layout we need.
+And if you want to merge rows or columns,
+it's much simpler simply to write HTML.
 
 ## How Can I Publish Simple Web Pages Using GitHub? {#s:ghp-ghp}
 
