@@ -235,9 +235,10 @@ Files and directories whose names begin with a single underscore `_` aren't copi
 but are instead used for configuration and customization,
 which are described below.
 
-## How Can I Give My Pages a Consistent Look and Feel? {#s:ghp-metadata}
+## How can I give my pages a consistent appearance? {#s:ghp-metadata}
 
-Text files (including Markdown and HTML) are copied as-is,
+When Jekyll processes source files,
+it copies text files (including Markdown and HTML) as-is,
 unless they start with two triple-dash lines:
 
 ```
@@ -247,12 +248,15 @@ unless they start with two triple-dash lines:
 The manifold perplexities of my chosen research topic...
 ```
 
--   Any file with this header is processed - in particular, Markdown is turned into HTML
+Any file with this header is processed:
+in particular, Markdown is turned into HTML,
+which is what browsers know how to render.
 
--   The triple-dash header can contain metadata telling Jekyll how to format the document
--   Work through this example
+The triple-dash header can contain [metadata](../gloss/#g:metadata)
+telling Jekyll how to format the document.
+Here's a simple example:
 
-```
+```text
 ---
 layout: simple
 title: "Adagu's Home Page"
@@ -261,14 +265,17 @@ author: "Adagu Okereke"
 
 The manifold perplexities of my chosen research topic...
 ```
+{: title="ghp/adagu.md"}
 
--   First line specifies the [page template](../gloss/#g:page-template) to use
--   Create a sub-directory called `_layouts`
--   Create an HTML file with everything common to all pages
--   Use `{% raw %}{{content}}{% endraw %}` to show where the content of the page is to go
--   Jekyll will fill it in
+First line specifies the [page template](../gloss/#g:page-template) that Jekyll is to use.
+This tells it what common HTML elements should be put in each page.
+To create a template,
+make a sub-directory called `_layouts`
+and create an HTML file called `simple.html` with everything common to all pages.
+`{% raw %}{{content}}{% endraw %}` to show where the content of the page is to go,
+and Jekyll will fill it in:
 
-```
+```html
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
@@ -279,10 +286,15 @@ The manifold perplexities of my chosen research topic...
   </body>
 </html>
 ```
+{: title="ghp/simple-01.html"}
 
--   Jekyll will copy values from the header into the page where `{% raw %}{{page.key}}{% endraw %}` appears
+As it processes the page,
+Jekyll copies values from the header into the expanded text wherever `{% raw %}{{page.key}}{% endraw %}` appears,
+where `key` is the name of one of the keys from the header.
+For example,
+suppose we add an `h1` element to our HTML template like this:
 
-```
+```html
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
@@ -295,8 +307,12 @@ The manifold perplexities of my chosen research topic...
   </body>
 </html>
 ```
+{: title="ghp/simple-02.html"}
 
-```
+After Jekyll does its filling in,
+the generated page will be:
+
+```html
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
@@ -309,26 +325,45 @@ The manifold perplexities of my chosen research topic...
   </body>
 </html>
 ```
+{: title="ghp/simple-02-generated.html"}
 
--   Can (should) also put data in `_config.yml` in the `docs` directory
-    -   Uses a format called [YAML][yaml] for names with values and lists
--   Values from the configuration file are used in pages as `{% raw %}{{site.key}}{% endraw %}`
-    -   E.g., replace `{% raw %}{{page.author}}{% endraw %}` with `{% raw %}{{site.author}}{% endraw %}`
--   Other values control how Jekyll works
-    -   E.g., list of names under the `exclude` key tells Jekyll to ignore files and directories
-    -   This is completely independent from what's listed in `.gitignore`
+We can (and should) put data that's common to all pages
+in a file called `_config.yml` in the top leve of the `docs` directory.
+This is a YAML-formatted configuration file that controls how Jekyll operates;
+values from this file are used in pages as `{% raw %}{{site.key}}{% endraw %}`.
+For example,
+if `_config.yml` contains this line:
 
-```
+```text
 author: "Adagu Okereke"
-exclude:
-- bin
-- status.xlsx
-- raw
-- results
 ```
+{: title="ghp/config.yml"}
 
--   There are *lots* of [themes](../gloss/#g:theme) for Jekyll
-    -   Use one of GitHub's defaults unless you know a lot about graphic design and want to spend hours fiddling with CSS
+<!-- == \noindent -->
+then every occurrence of `{% raw %}{{site.author}}{% endraw %}`
+will be replaced with "Adagu Okereke" (without the quotation marks).
+
+Other values in `_config.yml` control how Jekyll works.
+One of the most common is the key `exclude`,
+that introduces a list of things Jekyll is to ignore
+and *not* copy into the site it builds:
+
+```text
+exclude:
+- *.bak
+- status.xlsx
+```
+{: title="ghp/config.yml"}
+
+<!-- == \noindent -->
+The `exclude` list is completely independent of what's listed in the repository's `.gitignore`
+because there are things we probably *do* want saved (like the spreadsheet with the status of our experiments)
+but *don't* want shared with the world.
+
+There are *lots* of [themes](../gloss/#g:theme) for Jekyll
+that will set background colors, fonts, and page layouts:
+use one of GitHub's defaults unless you know a lot about graphic design
+and want to spend hours fiddling with [CSS](../gloss/#g:css).
 
 ## How Can I Preview Pages Locally? {#s:ghp-preview}
 

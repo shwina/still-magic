@@ -45,6 +45,9 @@ title: "Glossary"
 **Build tool**{:#g:build-tool}
 :   FIXME
 
+**Cascading Style Sheets**{:#g:css} (CSS)
+:   FIXME
+
 **Chunking**{:#g:chunking}
 :   FIXME
 
@@ -190,6 +193,9 @@ title: "Glossary"
 :   FIXME
 
 **Mantissa**{:#g:mantissa}
+:   FIXME
+
+**Metadata**{:#g:metadata}
 :   FIXME
 
 **MIT License**{:#g:mit-license}
