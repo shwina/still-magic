@@ -208,25 +208,37 @@ to create the layout we need.
 And if you want to merge rows or columns,
 it's much simpler simply to write HTML.
 
-## How Can I Publish Simple Web Pages Using GitHub? {#s:ghp-ghp}
+## How can I publish web pages using GitHub? {#s:ghp-ghp}
 
--   Most people don't want to read Markdown as-is, so need some way to translate and publish it
--   GitHub provides a mechanism called [GitHub Pages][github-pages]
--   Several ways to use it, the simplest of which is:
-    1.  Go to the `master` branch of your repository
-    1.  Create a top-level subdirectory in your project called `docs`
-    1.  Go to the settings for your project on GitHub and turn on publishing
--   GitHub Pages uses a tool called [Jekyll][jekyll] to translate Markdown and other files for publication
-    -   Simple things are simple
-    -   Complex things are complex, and should be avoided in favor of self-publishing (discussed below)
--   By default, Jekyll copies all of the files in `docs` to create the website for the project
-    -   If the project is hosted at `https://github.com/USER/PROJECT`, the website is `https://USER.github.io/PROJECT`
-    -   Note: `github.io`, not `github.com`
--   Files and directories whose names begin with `_` aren't copied
-    -   Jekyll will generate the site into a directory called `_site`
-    -   So add that to your `.gitignore`
--   Text files (including Markdown and HTML) are copied as-is...
--   ...unless they start with two triple-dash lines:
+Most people don't want to read Markdown as-is,
+so we need some way to translate and publish it.
+GitHub provides a mechanism called [GitHub Pages][github-pages].
+There are several ways to use it,
+the simplest of which is:
+
+1.  Go to the `master` branch of your repository.
+1.  Create a top-level subdirectory in your project called `docs`.
+1.  Go to the settings for your project on GitHub and turn on publishing for that directory.
+
+GitHub Pages uses a tool called [Jekyll][jekyll] to translate Markdown and other files for publication.
+Simple things are simple to do in Jekyll;
+complex things are complex,
+and should be avoided in favor of self-publishing (discussed [below](#s:ghp-self-pub)).
+
+By default,
+Jekyll copies all of the files in the `docs` directory to create the website for the project.
+If the project is hosted at <code>https://github.com/<em>user</em>/<em>project</em></code>,
+its website is <code>https://<em>user</em>.github.io/<em>project</em></code>.
+(Note that the domain is `github.io`, not `github.com`.)
+
+Files and directories whose names begin with a single underscore `_` aren't copied,
+but are instead used for configuration and customization,
+which are described below.
+
+## How Can I Give My Pages a Consistent Look and Feel? {#s:ghp-metadata}
+
+Text files (including Markdown and HTML) are copied as-is,
+unless they start with two triple-dash lines:
 
 ```
 ---
@@ -236,8 +248,6 @@ The manifold perplexities of my chosen research topic...
 ```
 
 -   Any file with this header is processed - in particular, Markdown is turned into HTML
-
-## How Can I Give My Pages a Consistent Look and Feel? {#s:ghp-metadata}
 
 -   The triple-dash header can contain metadata telling Jekyll how to format the document
 -   Work through this example
