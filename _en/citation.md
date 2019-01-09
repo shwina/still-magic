@@ -5,7 +5,7 @@ title: "Citation"
 
 Please cite this work as:
 
-> {{site.author}} (ed.): *{{site.title}}: {{site.subtitle}}*.  <{{site.website}}>, {{site.copyrightyear}}.
+> {{site.editor}} (ed.): *{{site.title}}: {{site.subtitle}}*.  <{{site.website}}>, {{site.copyrightyear}}.
 
 ## Contributors {#s:citation-contributors}
 
