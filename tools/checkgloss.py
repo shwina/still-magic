@@ -11,7 +11,7 @@ from util import report, usage
 
 TITLE = 'Glossary Entries'
 DEF = re.compile(r'\*\*.+?\*\*{:#(g:.+?)}', re.DOTALL)
-REF = re.compile(r'\[.+?\]\([^#]*#(g:.+?)\)', re.DOTALL)
+REF = re.compile(r'\[.+?\]\(#(g:.+?)\)', re.DOTALL)
 
 
 def main(filenames):

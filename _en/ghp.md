@@ -23,9 +23,9 @@ keypoints:
 ---
 
 All options for publishing technical work in the early 21st Century are clumsy and contradictory.
-[WYSIWYG](../gloss/#g:wysiwyg) tools like [Microsoft Word][ms-word],
+[WYSIWYG](#g:wysiwyg) tools like [Microsoft Word][ms-word],
 [LibreOffice][libreoffice],
-and [Google Docs][google-docs] lower [cognitive load](../gloss/#g:cognitive-load)
+and [Google Docs][google-docs] lower [cognitive load](#g:cognitive-load)
 because you can see what your readers will see as you're writing.
 They *can* allow restyling if authors are careful to apply named styles
 instead of just changing the font and making something bold,
@@ -40,7 +40,7 @@ There's no reason they couldn't,
 but programmers are pretty heavily invested in plain text,
 and unfortunately tend to consider everything else beneath them.
 
-[Typesetting languages](../gloss/#g:typesetting-language) like [Markdown][markdown],
+[Typesetting languages](#g:typesetting-language) like [Markdown][markdown],
 HTML,
 and [LaTeX][latex] require authors to type in the text they want
 plus instructions on how to format it.
@@ -74,7 +74,7 @@ it also means that less can go wrong.
 
 ## How can I write HTML without writing HTML? {#s:ghp-markdown}
 
-A [static website](../gloss/#g:static-website) is one that consists solely of pages:
+A [static website](#g:static-website) is one that consists solely of pages:
 no forms, no interactivity, just information to read.
 To create such a site,
 we ust write HTML,
@@ -252,7 +252,7 @@ Any file with this header is processed:
 in particular, Markdown is turned into HTML,
 which is what browsers know how to render.
 
-The triple-dash header can contain [metadata](../gloss/#g:metadata)
+The triple-dash header can contain [metadata](#g:metadata)
 telling Jekyll how to format the document.
 Here's a simple example:
 
@@ -267,7 +267,7 @@ The manifold perplexities of my chosen research topic...
 ```
 {: title="ghp/adagu.md"}
 
-First line specifies the [page template](../gloss/#g:page-template) that Jekyll is to use.
+First line specifies the [page template](#g:page-template) that Jekyll is to use.
 This tells it what common HTML elements should be put in each page.
 To create a template,
 make a sub-directory called `_layouts`
@@ -360,10 +360,10 @@ The `exclude` list is completely independent of what's listed in the repository'
 because there are things we probably *do* want saved (like the spreadsheet with the status of our experiments)
 but *don't* want shared with the world.
 
-There are *lots* of [themes](../gloss/#g:theme) for Jekyll
+There are *lots* of [themes](#g:theme) for Jekyll
 that will set background colors, fonts, and page layouts:
 use one of GitHub's defaults unless you know a lot about graphic design
-and want to spend hours fiddling with [CSS](../gloss/#g:css).
+and want to spend hours fiddling with [CSS](#g:css).
 
 ## How Can I Preview Pages Locally? {#s:ghp-preview}
 
@@ -386,7 +386,7 @@ and want to spend hours fiddling with [CSS](../gloss/#g:css).
     -   E.g., `../images/profile.png`
 -   But what about your templates?
     -   Want to use the same template for pages at all levels
--   Use a Jekyll [filter](../gloss/#g:jekyll-filter)
+-   Use a Jekyll [filter](#g:jekyll-filter)
     -   Double curly brackets to trigger evalution by Jekyll
     -   The absolute path for the link
     -   A pipe symbol
@@ -449,7 +449,7 @@ and want to spend hours fiddling with [CSS](../gloss/#g:css).
     -   Everything after the `?` is configuration for MathJax
     -   The word `async` means "don't hold up loading, but run the script as soon as it's available"
     -   Things like this are why we use page templates...
--   Note: this is loading MathJax from a [content delivery network](../gloss/#g:cdn)
+-   Note: this is loading MathJax from a [content delivery network](#g:cdn)
     -   Means the math won't render if you are offline
     -   You can install MathJax locally, but that's out of the scope of this lesson
 -   Now mark the inline LaTeX in the body of your page with `$$...$$` markers

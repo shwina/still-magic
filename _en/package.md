@@ -137,7 +137,7 @@ tdda>=1.0
 -   Next step: put the two functions in their own files underneath a `zipf` package
     -   Would probably keep them in the same file in a real project, because they're small and closely related
     -   But this will illustrate the key ideas
--   A [package](../gloss/#g:package) is a directory that contains a file called `__init__.py`, and may contain other files or sub-directories containing files
+-   A [package](#g:package) is a directory that contains a file called `__init__.py`, and may contain other files or sub-directories containing files
     -   `__init__.py` can contain useful code
     -   Or it can be empty, but it has to be there to tell Python that this directory is a package
 -   Files and directories are:
@@ -279,7 +279,7 @@ drwxr-xr-x  0 standage staff       0 20 Aug 15:36 zipf-0.1/zipf.egg-info/
 -   But *don't* want to damage the packages we already have installed
 -   And may not have permission to write into the directory that contains system-wide packages
     -   E.g., on a cluster
--   Solution: use a [virtual environment](../gloss/#g:virtual-environment)
+-   Solution: use a [virtual environment](#g:virtual-environment)
 -   `pip install virtualenv`
 -   `virtualenv test`
     -   Creates a new directory called `test`

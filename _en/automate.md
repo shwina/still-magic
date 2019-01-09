@@ -84,7 +84,7 @@ we really want to avoid doing unnecessary work.
 
 What we want is a way to describe which files depend on which other files
 and how to generate or update a file when necessary.
-This is the job of a [build tool](../gloss/#g:build-tool).
+This is the job of a [build tool](#g:build-tool).
 As the name suggests,
 a build tool's job is to build new files out of old ones.
 The most widely used build tool,
@@ -112,11 +112,11 @@ and on [Jonathan Dursi][dursi-jonathan]'s [introduction to pattern rules][dursi-
 
 Make is based on three key ideas:
 
-1.  The operating system automatically records a [timestamp](../gloss/#g:timestamp)
+1.  The operating system automatically records a [timestamp](#g:timestamp)
     every time a file is changed.
     By checking this,
     Make can tell whether files are newer or older than other files.
-2.  A programmer writes a [Makefile](../gloss/#g:makefile)
+2.  A programmer writes a [Makefile](#g:makefile)
     to tell Make how files depend on each other.
     For example,
     the Makefile could say that `results/moby-dick.csv` depends on `data/moby-dick.txt`,
@@ -140,23 +140,23 @@ results/moby-dick.csv : data/moby-dick.txt
 
 The `#` character starts a comment,
 which runs to the end of a line (just as it does in Python or R).
-`results/moby-dick.csv` is the [target](../gloss/#g:make-target) of a [rule](../gloss/#g:make-rule),
+`results/moby-dick.csv` is the [target](#g:make-target) of a [rule](#g:make-rule),
 i.e., something that may need to be created or updated.
 Every rule in a Makefile has one or more targets,
 and must be written flush against the left margin.
 
-`data/moby-dick.txt` is a [prerequisite](../gloss/#g:make-prerequisite) in that rule,
+`data/moby-dick.txt` is a [prerequisite](#g:make-prerequisite) in that rule,
 i.e.,
 something that the garget of the rule depends on.
 A single colon separates the target from its prerequisites,
 and a rule can have any number of prerequisites---we'll see examples soon.
 
 The indented line that uses Python to run `bin/countwords.py`
-is the rule's [action](../gloss/#g:make-action).
+is the rule's [action](#g:make-action).
 It creates or updates the target when it is out of date.
 A rule can have any number of actions,
 but they *must* be indented by a single tab character.
-Notice that the output of `bin/countwords.py` is [redirected](../gloss/#g:redirection) using `>`
+Notice that the output of `bin/countwords.py` is [redirected](#g:redirection) using `>`
 to create the output file:
 we will look [later](../configure/) at modifying the script
 so that it can take the name of an output file as an argument.
@@ -184,7 +184,7 @@ one of three things will happen:
 In the first two cases,
 Make will show the command it runs,
 along with anything the command prints to the screen
-via [standard output](../gloss/#g:stdout) or [standard error](../gloss/#g:stderr).
+via [standard output](#g:stdout) or [standard error](#g:stderr).
 In this case,
 there is no screen output,
 so we only see the command.
@@ -241,7 +241,7 @@ but in a lesson like this,
 which includes many example Makefiles,
 it comes in handy.
 
-Using `-f` doesn't change our [working directory](../gloss/#g:working-directory).
+Using `-f` doesn't change our [working directory](#g:working-directory).
 If, for example, we are in `/home/gvwilson/still-magic` and run `make -f src/automate/single-rule.mk`,
 our working directory remains `/home/gvwilson/still-magic`.
 This means that Make will look for the rule's prerequisite in `/home/gvwilson/still-magic/data/moby-dick.txt`,
@@ -280,7 +280,7 @@ make: `results/moby-dick.csv' is up to date.
 
 Nothing happens because by default Make only attempts to update
 the first target it finds in the Makefile,
-which is called the [default target](../gloss/#g:default-target).
+which is called the [default target](#g:default-target).
 To update something else,
 we need to tell Make we want it:
 
@@ -296,7 +296,7 @@ python bin/countwords.py data/jane-eyre.txt > results/jane-eyre.csv
 
 ## How can I get rid of temporary files that I don't need? {#s:automate-phony}
 
-A [phony target](../gloss/#g:phony-target) in a Makefile
+A [phony target](#g:phony-target) in a Makefile
 is one that doesn't correspond to any files
 and doesn't have any prerequisites.
 Phony targets are just a way to save useful commands in a Makefile,
@@ -406,7 +406,7 @@ python bin/countwords.py data/jane-eyre.txt > results/jane-eyre.csv
 
 The name of our script now appears four times in our Makefile,
 which will make for a lot of typing if and when we decide to move it or rename it.
-We can fix that by defining a [variable](../gloss/#g:make-variable) at the top of our file
+We can fix that by defining a [variable](#g:make-variable) at the top of our file
 to refer to the script,
 then using that variable in our rules:
 
@@ -478,7 +478,7 @@ If we run Make now,
 it sees that `all` is only "up to date" if the two CSV files are up to date,
 so it looks for a rule for each and runs each of those rules.
 
-We can draw the prerequisites defined in the Makefile as a [dependency graph](../gloss/#g:dependency-graph),
+We can draw the prerequisites defined in the Makefile as a [dependency graph](#g:dependency-graph),
 with arrows showing what each target depends on.
 
 FIXME: dependency graph
@@ -486,7 +486,7 @@ FIXME: dependency graph
 Note that the Makefile doesn't define the order
 in which `results/moby-dick.csv` and `results/jane-eyre.csv` are updated,
 so Make can rebuild them in whatever order it wants.
-This is called [declarative programming](../gloss/#g:declarative-programming):
+This is called [declarative programming](#g:declarative-programming):
 we declare what outcome we want,
 and the program figures out how to achieve it.
 
@@ -498,7 +498,7 @@ but any time we find ourselves duplicating code,
 there's almost certainly a way to write a general rule.
 In order to create these,
 though,
-we first need to learn about [automatic variables](../gloss/#g:automatic-variable).
+we first need to learn about [automatic variables](#g:automatic-variable).
 
 The first step is to use the very cryptic expression `$@` in the rule's action
 to mean "the target of the rule".
@@ -574,7 +574,7 @@ results/jane-eyre.csv : data/jane-eyre.txt ${COUNT}
 And yes,
 `$< > $@` is hard to read,
 even with practice,
-and `< $<` (reading the first prerequisite from [standard input](../gloss/#g:stdin))
+and `< $<` (reading the first prerequisite from [standard input](#g:stdin))
 is even harder.
 Using [an editor that does syntax highlighting](../tools/) helps,
 and if you are ever designing software for other people to use,
@@ -583,8 +583,8 @@ remember this case and don't do it.
 ## How can I write one general rule to update many files in the same way? {#s:automate-pattern}
 
 We can now replace all the rules for generating results files
-with one [pattern rule](../gloss/#g:pattern-rule)
-that uses `%` as a [wildcard](../gloss/#g:wildcard).
+with one [pattern rule](#g:pattern-rule)
+that uses `%` as a [wildcard](#g:wildcard).
 Whatever part of a filename `%` matches in the target,
 it must also match in the prerequisites,
 so the single rule:
@@ -684,7 +684,7 @@ and Make won't realize that we want to generate it.
 
 What we really want to do is generate the list of results files
 from the list of books in the `data/` directory.
-We can use a [function](../gloss/#g:make-function) to do this.
+We can use a [function](#g:make-function) to do this.
 The syntax is a little odd,
 because functions were added to Make long after it was first written,
 but at least they have readable names.
@@ -765,7 +765,7 @@ The first argument is what to look for:
 in this case,
 a text file in the `raw` directory.
 As in a pattern rule,
-we use `%` to match the [stem](../gloss/#g:filename-stem) of the file's name,
+we use `%` to match the [stem](#g:filename-stem) of the file's name,
 which is the part we want to keep.
 
 The second argument is the replacement we want.

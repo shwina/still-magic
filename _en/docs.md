@@ -26,7 +26,7 @@ keypoints:
 
 ## How Can I Embed Documentation for My Code in the Code Itself? {#s:docs-docstrings}
 
--   Instead of using comments for this, use [docstrings](../gloss/#g:docstring) (short for "documentation string")
+-   Instead of using comments for this, use [docstrings](#g:docstring) (short for "documentation string")
     -   A string that is created at the start of a file or function, but not assigned to a variable
     -   Python automatically attaches this to the file (when it is loaded as a library) or to the function
     -   Available as `module.__doc__` or `function.__doc__`
@@ -101,12 +101,12 @@ help(trim)
     -   Formatting is a bit garish
 
 -   Can use a more sophisticated tool (i.e., more powerful but also more complicated) called [Sphinx][sphinx]
-    -   Reads a superset of Markdown called [reStructredText](../gloss/#g:restructured-text)
+    -   Reads a superset of Markdown called [reStructredText](#g:restructured-text)
     -   Generates cross-indexed documentation that is more nicely formatted
 -   Used by [ReadTheDocs][readthedocs]
     -   Extracts and formats documentation from GitHub repositories (and other places)
     -   Automatically regenerates documentation every time there's a change
-    -   An example of [continuous integration](../gloss/#g:continuous-integration)
+    -   An example of [continuous integration](#g:continuous-integration)
     -   And it's free
     -   But out of the scope of this lesson
 

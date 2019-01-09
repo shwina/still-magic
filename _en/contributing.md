@@ -57,7 +57,8 @@ title: "Contributing"
     If you want to cite multiple items at once,
     put them together like `[Name1900,Enam2000](#BIB)`.
 
--   Use `../gloss/#g:key` as a URL when referring to a glossary item by key.
+-   Use `#g:key` as a URL when referring to a glossary item by key,
+    and JavaScript will patch this up too.
 
 -   If you need to embed a one-line LaTeX command in a Markdown file and have it passed through,
     format it as an HTML comment with a double equals sign and then the command.

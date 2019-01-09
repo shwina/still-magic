@@ -20,7 +20,7 @@ keypoints:
 -   Small pieces in predictable places are easier to recombine than large chunks that have to be re-read
 -   Organizing software into installable packages is more than just convention
     -   Certain things have to be in certain places in order for Python to find them
--   Using [virtual environments](../gloss/#g:virtual-environment) allows you to work on many projects at once without tripping over yourself
+-   Using [virtual environments](#g:virtual-environment) allows you to work on many projects at once without tripping over yourself
     -   Slowly being superceded by more general solutions like [Docker][docker], but still the easiest solution for most of us
 
 ## What Are Noble's Rules? {#s:structure-noble}
@@ -40,7 +40,7 @@ keypoints:
 -   Filenames should be easy to match consistently with shell wildcards
     -   E.g., `species-organ-treatment.csv`, like `human-kidney-cm200.csv`
     -   Allows `human-*-cm200.csv` to match all human organs, or `*-kidney-*.csv` to match all kidney data
-    -   Don't worry about long directory names: [tab completion](../gloss/#g:tab-completion) means you only have to type them once
+    -   Don't worry about long directory names: [tab completion](#g:tab-completion) means you only have to type them once
 
 <figure id="f:structure-layout"> <figcaption>Project Layout</figcaption> <img src="../../figures/noble.svg"/> </figure>
 

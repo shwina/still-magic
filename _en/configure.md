@@ -32,7 +32,7 @@ The modern Unix convention is to provide four levels of configuration:
 3.  A job-specific file with settings for a specific run.
 4.  Command-line options to change things that commonly change.
 
-This is sometimes called [overlay configuration](../gloss/#g:overlay-configuration)
+This is sometimes called [overlay configuration](#g:overlay-configuration)
 because each level overrides the ones above it:
 the user's configuration file overrides the system settings,
 the job configuration overrides the user's defaults,
@@ -44,7 +44,7 @@ Modern Python programs use the `argparse` library for handling command-line argu
 but the older and smipler `getopt` library will illustrate the core ideas,
 so we will use it.
 
-`getopt` works by matching a specification of what [flags](../gloss/#g:flag) are allowed
+`getopt` works by matching a specification of what [flags](#g:flag) are allowed
 against a list of actual command-line arguments.
 In simplest form,
 the spec is string listing all the single-letter flags,
@@ -100,12 +100,12 @@ print('Log file is {} and quiet is {}'.format(logfile, quiet))
 Log file is /tmp/log.txt and quiet is True
 ```
 
-This pattern is called [set and override](../gloss/#g:set-and-override),
+This pattern is called [set and override](#g:set-and-override),
 and makes programs easier to understand
 by putting all of the default settings in one place.
 Since we will often want to pass those settings into functions that do the actual work,
-it's very common to put the entire configuration in a [dictionary](../gloss/#g:dictionary)
-so that we have a single [configuration object](../gloss/#g:configuration-object) to pass around.
+it's very common to put the entire configuration in a [dictionary](#g:dictionary)
+so that we have a single [configuration object](#g:configuration-object) to pass around.
 It's also common to check that some configuration values aren't accidentally being set twice.
 After rearranging our code a little,
 we get this:
@@ -150,7 +150,7 @@ Quiet True
 Extras ['first.txt']
 ```
 
-We really shouldn't use [`assert`](../gloss/#g:assertion) to handle errors here;
+We really shouldn't use [`assert`](#g:assertion) to handle errors here;
 we'll take a look [later](../logging/) at a better approach.
 
 ## What do I do when I run out of memorable single-letter flags? {#s:configure-long}
@@ -206,7 +206,7 @@ One possibility is to write the configuration as a Python data structure
 and then load it as if it was a library.
 This is clever,
 but it's hard for tools in other languages to process.
-Programers are also fond of [JSON](../gloss/#g:json),
+Programers are also fond of [JSON](#g:json),
 which is a subset of the syntax that JavaScript uses for data structures,
 but that involves a lot of curly braces.
 A third option is the [Windows INI format][ini-format],
@@ -224,7 +224,7 @@ key_4=value_4
 
 INI files are simple to read and write,
 but the format is slowly falling out of use.
-What seems to be replacing it is [YAML](../gloss/#g:yaml),
+What seems to be replacing it is [YAML](#g:yaml),
 which stands for "Yet Another Markup Language".
 Since YAML is used in [GitHub Pages](../ghp/),
 and (unlike JSON) allows comments,

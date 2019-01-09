@@ -28,7 +28,7 @@ but removing them or commenting them out,
 only to add them again,
 is tedious---especially when the software is in production.
 
-A better approach is to use a [logging framework](../gloss/#g:logging-framework),
+A better approach is to use a [logging framework](#g:logging-framework),
 such as Python's `logging` library.
 This lets you leave your debugging statements in your code
 and turn them on or off at will.
@@ -72,7 +72,7 @@ Each of these has a corresponding function:
 we can use `logging.debug`, `logging.info`, etc. to write messages at these levels.
 By default,
 only `WARNING` and above are displayed;
-messages appear on [standard error](../gloss/#g:stderr) so that the flow of data in pipes isn't affected.
+messages appear on [standard error](#g:stderr) so that the flow of data in pipes isn't affected.
 The source of the message appears as well:
 by default, the source is called "root" for reasons that will become clear later.
 Thus,
@@ -119,7 +119,7 @@ CRITICAL:root:Something went seriously wrong.
 ```
 
 By default,
-`basicConfig` re-opens the log file in [append mode](../gloss/#g:append-mode);
+`basicConfig` re-opens the log file in [append mode](#g:append-mode);
 we can use `filemode='w'` to overwrite the existing log data.
 This is useful during debugging,
 but we should think twice before doing in production,
@@ -162,7 +162,7 @@ By default,
 the name of the logger (we have only seen `root` so far)
 and the message.
 We can put whatever we want in the message,
-but `logging` also allows us to specify a [format string](../gloss/#g:format-string)
+but `logging` also allows us to specify a [format string](#g:format-string)
 using the conventions of an older form of string formatting.
 The general form is `%(NAME)s` to insert a named value as a string;
 some of the names supported are:
@@ -173,7 +173,7 @@ some of the names supported are:
 
 As the example below shows,
 we can also change the format used for displaying dates.
-We should *always* use [ISO date format](../gloss/#g:iso-date-format):
+We should *always* use [ISO date format](#g:iso-date-format):
 it is unambiguous,
 easy for other programs to parse,
 easy to sort:
@@ -325,10 +325,10 @@ One of the things this shows,
 by the way,
 is that Unix doesn't necessarily pass text from program to program one line at a time.
 Instead,
-it usually [buffers](../gloss/#g:buffer) input and output.
+it usually [buffers](#g:buffer) input and output.
 
 Libraries like `logging` can send messages to many destinations:
-[rotating files](../gloss/#g:rotating-file) so that the system always has messages from the last few hours
+[rotating files](#g:rotating-file) so that the system always has messages from the last few hours
 but doesn't fill up the disk,
 for example,
 or a centralized logging server of some kind that collates logs from many different systems.

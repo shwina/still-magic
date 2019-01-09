@@ -88,4 +88,5 @@ exclude:
 - README.md
 - bin
 - node_modules
+- src
 - tex

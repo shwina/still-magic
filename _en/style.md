@@ -20,18 +20,19 @@ keypoints:
 -   "Use `**kwargs` to define a catch-all parameter for functions taking a variable number of named arguments."
 ---
 
+-   Text with *meaningless* **differences** takes longer to read than text without
+    because our brains think every difference might be significant
+-   Being consistent therefore reduces [cognitive load](#g:cognitive-load),
+    which in turn helps us work faster and make fewer errors
+
 > Nothing in programming makes sense except in the light of human psychology.
 >
 > --- Greg Wilson (after [Dobz1973](#BIB))
 
--   Text with *meaningless* **differences** takes longer to read than text without
-    because our brains think every difference might be significant
--   Being consistent therefore reduces [cognitive load](../gloss/#g:cognitive-load),
-    which in turn helps us work faster and make fewer errors
 -   This lesson explores two kinds of consistency:
     -   How to format program text
     -   How to reorganize code systematically when the time comes to make changes
--   Consistency helps with [chunking](../gloss/#g:chunking)
+-   Consistency helps with [chunking](#g:chunking)
 -   Always remember [Orwell's Sixth Rule][orwells-rules]:
     "Break any of these rules sooner than saying anything outright barbarous."
 
@@ -39,7 +40,7 @@ keypoints:
 
 -   Python has a standard style called [PEP 8][pep-8]
 -   And a tool called `pep8` that checks code and reports violations
-    -   Tools of this kind are called [linters](../gloss/#g:linter), after an early tool called `[lint][lint]`
+    -   Tools of this kind are called [linters](#g:linter), after an early tool called `[lint][lint]`
 -   Indent 4 spaces, and always use spaces instead of tabs
 -   Do *not* put spaces inside parentheses, i.e., don't use `( 1+2 )`
     -   This applies to function calls as well
@@ -60,7 +61,7 @@ keypoints:
 -   A few other rules (some borrowed from [Jenny Bryan][bryan-jenny]'s "[Code Smells and Feels][code-smells-and-feels]")
     -   Do not comment and uncomment sections of code to change behavior
     -   Keep functions short (no more than a page or three levels of control flow)
-    -   Put early exits or decisions at the top of the function ([guard clause](../gloss/#g:guard-clause))
+    -   Put early exits or decisions at the top of the function ([guard clause](#g:guard-clause))
     -   Prefer `if` to `else`
 
 ## How Can I Specify Default Values for My Functions' Parameters? {#s:style-defaults}

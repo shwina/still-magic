@@ -28,7 +28,7 @@ but the software is only a means to an end.
 But just as some astronomers spend their entire careers designing better telescopes,
 some researchers choose to spend their time building software
 that will primarily be used by their colleagues.
-People who do this are called [research software engineers](../gloss/#g:rse) (RSEs),
+People who do this are called [research software engineers](#g:rse) (RSEs),
 and the aim of these lessons is to help you get ready for this role---to go from
 writing code on your own, for your own use,
 to working in a small team creating tools to help your entire field advance.
@@ -58,9 +58,9 @@ you will quickly reach a point where you wish you had.
 
 In order to answer the question posed in this section's title,
 we need to distinguish between three key ideas.
-The first is [open science](../gloss/#g:open-science),
+The first is [open science](#g:open-science),
 which aims to make research methods and results available for everyone to read and re-use.
-The second is [reproducible research](../gloss/#g:reproducible-research),
+The second is [reproducible research](#g:reproducible-research),
 which means that anyone with access to the raw materials can easily reproduce the results.
 Openness and reproducibility are closely related,
 but are *not* the same thing:
@@ -83,16 +83,16 @@ even Fortran-77 can thrive
 (though of course good tooling and packaging can lower costs and barriers to entry).
 Conversely,
 it doesn't matter whether a library has automated tests and is properly packaged
-if potential users suffer from [Not Invented Here](../gloss/#g:not-invented-here) syndrome.
+if potential users suffer from [Not Invented Here](#g:not-invented-here) syndrome.
 More importantly,
 if the software is being maintained by a couple of post-docs
 who are being paid a fraction of what they could earn in industry,
 and who have no realistic hope of promotion because their field looks down on tool building,
 those people will eventually move on
-and their software will start to suffer from [bit rot](../gloss/#g:bit-rot).
+and their software will start to suffer from [bit rot](#g:bit-rot).
 
 What ties these three ideas together is the notion of
-[computational competence](../gloss/#g:computational-competence),
+[computational competence](#g:computational-competence),
 which is the the programming equivalent of good laboratory skills.
 Software is just another kind of lab equipment;
 just as an archaeologist should know how to prepare and catalog an artefact,
@@ -102,7 +102,7 @@ without staying up until dawn.
 
 > #### Why "Computational Competence"?
 >
-> The term [computational thinking](../gloss/#g:computational-thinking)
+> The term [computational thinking](#g:computational-thinking)
 > has been widely used since [Wing2006](#BIB) introduced it a decade ago.
 > It has also been used in such a wide variety of ways
 > that no one really knows what it means.
@@ -130,7 +130,7 @@ This is almost unheard of in practice
 but that doesn't stop people using it as a boogeyman.
 
 Other people are afraid of looking foolish or incompetent by sharing code that might contain bugs.
-This isn't just [impostor syndrome](../gloss/#g:impostor-syndrome):
+This isn't just [impostor syndrome](#g:impostor-syndrome):
 members of marginalized groups are frequently judged more harshly than others (FIXME: CITE).
 
 ## What will this book accomplish? {#s:intro-coverage}

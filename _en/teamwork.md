@@ -285,7 +285,7 @@ Petra
     Otherwise,
     for every step you move forward,
     the project's goalposts will recede by two.
-    This is called [feature creep](../gloss/#g:feature-creep),
+    This is called [feature creep](#g:feature-creep),
     and has ruined many projects that might otherwise have delivered something small but useful.
 
 Raj
@@ -441,7 +441,7 @@ your supervisor will likely be left with the impression that the whole team is d
 and nothing will improve.
 
 One technique your supervisor may ask you to use in a meeting like this
-is [active listening](../gloss/#g:active-listening).
+is [active listening](#g:active-listening).
 As soon as one person makes a point,
 the person on the opposite side of the issue explains it back to them,
 as in, "So what I think Igor is saying is..."

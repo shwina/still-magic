@@ -26,7 +26,7 @@ This course are the second part of [Merely Useful][config-organization]:
 2.  This part,
     [Still Magic][config-website],
     is more advanced material for people who are building research software for others to use
-    or find themselves doing some [data engineering](./gloss/#g:data-engineering).
+    or find themselves doing some [data engineering](#g:data-engineering).
 3.  Finally,
     [Set On Fire][set-on-fire]
     is intended for people running larger projects with external collaborators.
