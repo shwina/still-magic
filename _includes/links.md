@@ -52,12 +52,14 @@ definitions if that's done.
 
 [huff-katy]: http://katyhuff.github.io/
 [huff-testing]: https://github.com/katyhuff/python-testing
+[hugo]: https://gohugo.io/
 
 [ini-format]: https://en.wikipedia.org/wiki/INI_file
 [insight]: https://www.insightdatascience.com/
 
 [jekyll]: https://jekyllrb.com/
 [joss]: https://joss.theoj.org/
+[js-vs-ds]: https://software-tools-in-javascript.github.io/js-vs-ds/
 [jupyter]: http://jupyter.org/
 
 [kernighan-brian]: https://en.wikipedia.org/wiki/Brian_Kernighan
@@ -95,7 +97,6 @@ definitions if that's done.
 [readthedocs]: https://docs.readthedocs.io/en/latest/
 [requests]: http://docs.python-requests.org
 
-[set-on-fire]: https://merely-useful.github.io/set-on-fire/
 [setuptools]: https://setuptools.readthedocs.io/
 [seven-ways]: http://blog.jonudell.net/2011/01/24/seven-ways-to-think-like-the-web/
 [shapiro-wilk]: https://en.wikipedia.org/wiki/Shapiro%E2%80%93Wilk_test

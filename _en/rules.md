@@ -8,5 +8,6 @@ title: "The Rules"
 3. While the hand makes the tool, the tool shapes the hand.
 4. Nothing in software development makes sense except in light of human psychology.
 5. If you need to write a parser, you've done something wrong.
+6. Break any of these rules rather than doing something awkward.
 
 {% include links.md %}

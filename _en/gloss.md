@@ -6,6 +6,9 @@ title: "Glossary"
 **Absolute error**{:#g:absolute-error}
 :   FIXME
 
+**Absolute URL**{:#g:absolute-url}
+:   FIXME
+
 **Accuracy**{:#g:accuracy}
 :   FIXME
 
@@ -273,6 +276,9 @@ title: "Glossary"
 **Relative error**{:#g:relative-error}
 :   FIXME
 
+**Relative URL**{:#g:relative-url}
+:   FIXME
+
 **Representation State Transfer**{:#g:rest} (REST)
 :   FIXME
 
@@ -407,6 +413,6 @@ title: "Glossary"
 :   FIXME
 
 **YAML**{:#g:yaml}
-:   FIXME
+:   FIXME [site][yaml]
 
 {% include links.md %}

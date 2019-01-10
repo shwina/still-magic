@@ -80,9 +80,9 @@
 -   `./_en/`: English-language collection of Markdown files.
 -   `./_includes/`: inclusions
     -   `./_includes/contributing.md`: how to contribute (included in several places).
-    -   `./_includes/css.html`: CSS used in HTML files.
     -   `./_includes/disclaimer.html`: temporary disclaimer about files being under development.
-    -   `./_includes/js-footer.html`: JavaScript inclusions in page footers.
+    -   `./_includes/foot.html`: everything needed in the foot of the page.
+    -   `./_includes/head.html`: everything needed in the head of the page that doesn't depend on configuration variables.
     -   `./_includes/links.md`: table of Markdown-formatted links.
     -   `./_includes/listblock.html`: displays a point-form list of lesson metadata (e.g., questions or key points).
     -   `./_includes/summary.html`: summarizes metadata from all lessons (e.g., creates a page of learning objectives).

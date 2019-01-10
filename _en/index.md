@@ -17,19 +17,14 @@ these lessons will help you take your next steps so that:
 -   you and the people using your results can be confident that they're correct; and
 -   re-using your software is easier than rewriting it.
 
-This course are the second part of [Merely Useful][config-organization]:
-
-1.  The first part,
-    [One Extra Fact][one-extra-fact]
-    covers what every researcher ought to know about the Unix shell, version control with Git,
-    and programming in either R or Python.
-2.  This part,
-    [Still Magic][config-website],
-    is more advanced material for people who are building research software for others to use
-    or find themselves doing some [data engineering](#g:data-engineering).
-3.  Finally,
-    [Set On Fire][set-on-fire]
-    is intended for people running larger projects with external collaborators.
+This course is the second part of [Merely Useful][config-organization].
+The first part,
+[One Extra Fact][one-extra-fact]
+covers what every researcher ought to know about the Unix shell, version control with Git,
+and programming in either R or Python.
+The two courses cannot teach you everything you need to know,
+but we hope they will turn some unknown unknowns into known unknowns
+and help you figure out what you ought to learn about next.
 
 ## Who Are These Lessons For? {#s:index-personas}
 

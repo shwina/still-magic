@@ -1,7 +1,6 @@
 ---
 permalink: "/en/ghp/"
 title: "Using GitHub Pages"
-undone: true
 questions:
 -   "How can I create a static website for my work?"
 objectives:
@@ -365,72 +364,81 @@ that will set background colors, fonts, and page layouts:
 use one of GitHub's defaults unless you know a lot about graphic design
 and want to spend hours fiddling with [CSS](#g:css).
 
-## How Can I Preview Pages Locally? {#s:ghp-preview}
+## How can I preview pages locally? {#s:ghp-preview}
 
--   Pushing half-finished work to the web for everyone to see is a bit unprofessional
--   To preview work locally:
-    -   Install Jekyll
-    -   Go into the `docs` directory
-    -   Run `jekyll serve` (can't do it from the root because that's a GitHub thing)
--   Point your browser at <https://localhost:4000>
-    -   `localhost` means "this machine"
-    -   `:4000` means port 4000 (instead of the usual ports used by web servers)
--   If there are missing files, you'll see an error message in the terminal window when you try to access them
--   Have to be careful about paths to files
-    -   The home page of your project is `/index.html` when you're running locally
-    -   But `https://USER.github.io/PROJECT/index.html` when you're running on GitHub
-    -   Which means the path below the domain is `/PROJECT/index.html`
-    -   So you cannot use something like `/images/profile.png` as an image URL,
-        because that won't resolve
--   Use relative URLs wherever you can
-    -   E.g., `../images/profile.png`
--   But what about your templates?
-    -   Want to use the same template for pages at all levels
--   Use a Jekyll [filter](#g:jekyll-filter)
-    -   Double curly brackets to trigger evalution by Jekyll
-    -   The absolute path for the link
-    -   A pipe symbol
-    -   The `relative_url` function name
+Pushing half-finished work to the web for everyone to see is a bit unprofessional.
+To preview your work locally,
+you will have to:
 
-```
-<img src="{% raw %}{{'/images/profile.png' | relative_url}}{% endraw %}" />
-```
+1.  Install [Jekyll][jekyll].
+2.  Go into the `docs` directory of your project.
+3.  Run `jekyll serve` to build the site and run a little web server.
+4.  Open `https://localhost:4000` in your browser.
+    (`localhost` means "this machine",
+    and `4000` means "port 4000".)
 
--   or:
+As you move around the preview of your site in the browser,
+keep an eye on the shell window where you ran `jekyll serve`.
+If you try to open a file that doesn't exist,
+you'll see an error message.
 
-```
-![My Profile Picture]({% raw %}{{'/images/profile.png' | relative_url}}{% endraw %})
-```
+## How can I publish pages myself instead of relying on GitHub? {#s:ghp-self-pub}
 
--   There are lots of other filters, like `absolute_url`
+Jekyll is very limited for research publishing:
+it doesn't number sections or translate section cross-references,
+and it doesn't handle bibliographic citations.
+If you need any of these,
+the best approach is to use something other than Jekyll to build the site yourself
+and then commit the generated files to version control.
+A typical workflow is:
 
-## How Can I Publish Pages Myself Instead of Relying on GitHub? {#s:ghp-self-pub}
+1.  Store source in a directory other than `docs` in the `master` branch of your repository.
+2.  Generate the HTML pages you want using whatever tool you want and put them in the `docs` directory.
+    (Make sure the generated files *don't* have triple-dash YAML headers
+    so that Jekyll doesn't try to translate them a second time.)
+3.  Commit the generated files to Git and push to your GitHub site.
 
--   Jekyll is very limited for research publishing
-    -   Doesn't number sections or translate section cross-references
-    -   Doesn't handle bibliographic citations
--   The solution is to use something else
-    -   Store source in a directory other than `docs` in your `master` branch
-    -   Generate the files you want using whatever tool you want and put them in `docs`
-    -   Make sure they *don't* have triple-dash YAML headers so that Jekyll doesn't try to translate them a second time
-    -   Commit and push
-    -   This means you're storing generated files in your repository, which is generally bad practice
-    -   But you do what you have to do...
--   [Pandoc][pandoc] is a widely-used format-to-format conversion tool
-    -   Turn HTML into Word into Markdown into LaTeX into...
-    -   Uses its own superset of Markdown, but can be told to conform to GFM
-    -   Handles bibliographic citations and other things that GFM doesn't
--   [R Markdown][r-markdown] and [Jupyter][jupyter] can both generate static websites that you can commit to `docs`
--   Run `jekyll serve` in the `docs` folder to preview
+<!-- == \noindent -->
+This means you're storing generated files in your repository,
+which is generally considered bad practice,
+but we should always [break rules rather than doing something awkward](../rules/).
 
-## How Can I Include Math in Web Pages? {#s:ghp-math}
+There are a *lot* of tools for generating static websites,
+[Sphinx][sphinx] and [Hugo][hugo] being only two of the most popular.
+[Pandoc][pandoc] is a widely-used general-purpose format-to-format conversion tool
+that can turn HTML into Word into Markdown into LaTeX into many other things.
+It uses its own superset of Markdown,
+but can be told to conform to GitHub Flavored Markdown.
+It also handles bibliographic citations and other things that GFM doesn't.
+For research and data analysis,
+though,
+the best choices these days are [R Markdown][r-markdown] and [Jupyter][jupyter],
+both of which can generate static websites that you can commit to `docs`.
+It's very common to use a [Makefile](../automate) to automate this,
+and have `make site` run `ipython nbconvert` or `knit` on any files that need to be updated.
 
--   LaTeX is widely used for typesetting math
--   [MathJax][mathjax] is a JavaScript library that parses LaTeX and renders it in the browser
--   Steps are:
-    1.  Tell the browser to load the JavaScript library when it loads your page
-    2.  Mark the sections of your page that MathJax is to translate
--   Loading the library:
+## How can I include math in web pages? {#s:ghp-math}
+
+Ironically,
+while HTML was created by a scientist,
+it has never been very good at displaying equations.
+The best solution today is a tool called [MathJax][mathjax],
+which is a JavaScript library that transforms expressions written in [LaTeX][latex]'s mathematical notation
+into whatever the browser will support.
+To use it,
+we have to:
+
+1.  Tell the browser to load the JavaScript library when it loads our page.
+2.  Mark the sections of our page that MathJax is to translate.
+
+To load the library,
+we include a `script` tag in the `head` of our page.
+The `src` attribute of the `script` tag tells the browser what to load;
+everything after the `?` in the URL is configuration for MathJax.
+(In this case, we're telling it exactly which style of notation we want to use.)
+Finally,
+the word `async` means "don't hold up loading, but run the script as soon as it's available";
+see [this tutorial][js-vs-ds] if you really want to learn more.
 
 ```
 <html>
@@ -443,35 +451,146 @@ and want to spend hours fiddling with [CSS](#g:css).
 </html>
 ```
 
--   Break it down
-    -   Use the `script` tag inside the `head` of a page to tell the browser to load JavaScript
-    -   The `src` attribute tells the browser what to load
-    -   Everything after the `?` is configuration for MathJax
-    -   The word `async` means "don't hold up loading, but run the script as soon as it's available"
-    -   Things like this are why we use page templates...
--   Note: this is loading MathJax from a [content delivery network](#g:cdn)
-    -   Means the math won't render if you are offline
-    -   You can install MathJax locally, but that's out of the scope of this lesson
--   Now mark the inline LaTeX in the body of your page with `$$...$$` markers
-    -   Works in both Markdown and HTML
+<!-- == \noindent -->
+One thing to note is that the sample HTML above is loading MathJax from a [content delivery network](#g:cdn),
+which means that the math won't render if we are offline.
+We can install MathJax locally,
+but that's out of the scope of this lesson.
+
+Our other task is to tell MathJax which parts of our page to translate.
+To do this,
+we mark the inline LaTeX in the body of our page with `$$...$$` markers
+(i.e., with a double dollar sign at the start and end).
+This works in both Markdown and HTML,
+so that:
 
 ```
 The circle is defined by $$x^2 + y^2 = \mu$$.
 ```
 
--   Produces "The circle is defined by $$x^2 + y^2 = \mu$$."
--   Use double dollar signs on lines of their own to generate block equations
+produces "The circle is defined by $$x^2 + y^2 = \mu$$."
+We can also use double dollar signs on lines of their own to generate block equations:
 
 ```
 $$ r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}} $$
 ```
 
--   Output is:
+<!-- == \noindent -->
+produces:
 
-$$ r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}} $$
+$$
+r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}}
+$$
+
+Here are just a few of the things MathJax can do:
+
+| Item        | Source                      | Rendered                  |
+| ----------- | --------------------------- | ------------------------- |
+| Symbol      | `$$\alpha$$`                | $$\alpha$$                |
+| Superscript | `$$a^2$$`                   | $$a^2$$                   |
+| Subscript   | `$$x_i$$`                   | $$x_i$$                   |
+| Vector      | `$$\hat{x} < \vec{x}$$`     | $$\hat{x} < \vec{x}$$     |
+| Fractions   | `$$\frac{x - y}{x + y}$$`   | $$\frac{x - y}{x + y}$$   |
+| Roots       | `$$\sqrt[3]{x / y}$$`       | $$\sqrt[3]{x / y}$$       |
+| Sums        | `$$\sum_{i=0}^\infty i^2$$` | $$\sum_{i=0}^\infty i^2$$ |
+| Integrals   | `$$\int_{i=0}^\infty i^2$$` | $$\int_{i=0}^\infty i^2$$ |
+
+## How can I avoid duplication in my pages? {#s:ghp-inclusions}
+
+In order to enable MathJax in a page,
+we need to include this line in the page's `head` element:
+
+```
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
+```
+
+If all our pages use the same template,
+it's easy enough to put this line in that template.
+If we have several templates,
+though---one for pages, one for blog posts, and one for papers---we
+would have to duplicate the line in each.
+Duplication always makes maintenance more difficult,
+so Jekyll allows us to put commonly-used bits of text in separate files.
+Even if a snippet of text is only used one place,
+putting it in its own file can make the site's design easier to understand,
+just as putting code in a function can make a program easier to read
+even if that function is only called once.
+
+To do this,
+we create a directory called `_includes` (with a leading underscore)
+and put the text we want to include in a file in that directory.
+We then use {% raw %}{% include filename %}{% endraw %} to include it.
+For example,
+we can create a file called `_includes/footer.html` that contains this:
+
+```html
+<footer>
+  <p>Copyright 2019 {{site.author}} | Made available under the Creative Commons - Attribution 4.0 License</p>
+</footer>
+```
+
+<!-- == \noindent -->
+and then include that in our template with:
+
+```html
+<html>
+  {% raw %}{% include header.html %}{% endraw %}
+  <body>
+  {% raw %}{{content}}{% endraw %}
+  {% raw %}{% include footer.html %}{% endraw %}
+</html>
+```
+
+## How can I make paths to images and other files work everywhere? {#s:ghp-paths}
+
+One thing you have to be careful about when building sites this way is the paths to files.
+The home page of your project is `/index.html` when you're running locally,
+but `https://USER.github.io/PROJECT/index.html` when you're running on GitHub,
+i.e., the path below the domain is `/PROJECT/index.html`.
+This means that you cannot use something like `/images/profile.png` as an image URL in a page,
+because when you're running on GitHub Pages,
+the actual path will be `/PROJECT/images/profile.png`.
+
+The solution is to use [relative URLs](#g:relative-url)
+instead of [absolute URLs](#g:absolute-url) where you can,
+i.e., use `../images/profile.png`.
+This is fine until you URLs in your templates and want to put pages at different levels of your directory hierarchy.
+For example,
+you may want to include the Creative Commons logo in the footer of every page,
+one of which might be `index.html` and another `reports/quarterly.html`.
+If you use `../images/creative-commons.png` in the template,
+that will work in `reports/quarterly.html` but not in `index.html`;
+if you use `./images/creative-commons.png` (with `.` instead of `..`),
+it will work in `index.html` but not in pages that are one level down.
+
+The solution is to use a Jekyll [filter](#g:jekyll-filter),
+which is simply a small function that transforms the value you give it into some other value.
+The syntax is shown below:
+
+-   Double curly brackets to trigger evalution by Jekyll.
+-   The absolute path for the link (in quotes).
+-   A pipe symbol (just as you would use in the shell).
+-   The name of the filter function (in this case, `relative_url`).
+
+```
+<img src="{% raw %}{{'/images/profile.png' | relative_url}}{% endraw %}" />
+```
+
+<!-- == \noindent -->
+As its name suggests,
+`relative_url` takes an absolute path from the root of the project
+and transforms it into a relative path from the page that's being generated.
+There are lots of other filters:
+`absolute_url` to create an absolute path to a file,
+`date` to format dates in various ways,
+and so on.
 
 ## Summary {#s:ghp-summary}
 
 FIXME: create concept map for GitHub Pages
+
+## Exercises {#s:ghp-exercises}
+
+FIXME: exercises for GitHub Pages.
 
 {% include links.md %}
