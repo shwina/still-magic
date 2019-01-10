@@ -1,10 +1,10 @@
 *.aux
 *.bbl
 *.blg
+*.egg-info
 *.log
 *.out
 *.toc
-*.egg-info
 *~
 .coverage
 .jekyll-metadata
@@ -13,6 +13,6 @@ __pycache__
 _site
 dist
 htmlcov
-results/*.csv
+project/results/*.*
 tex/*/*.pdf
 tex/*/all.tex

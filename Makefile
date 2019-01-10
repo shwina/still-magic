@@ -20,7 +20,7 @@ BIB_MD=${DIR_MD}/bib.md
 DIR_HTML=_site/${lang}
 PAGES_HTML=${DIR_HTML}/index.html $(patsubst ${DIR_MD}/%.md,${DIR_HTML}/%/index.html,$(filter-out ${DIR_MD}/index.md,${PAGES_MD}))
 DIR_TEX=tex/${lang}
-BIB_TEX=${DIR_TEX}/${STEM}.bib
+BIB_TEX=${DIR_TEX}/book.bib
 ALL_TEX=${DIR_TEX}/all.tex
 BOOK_PDF=${DIR_TEX}/${STEM}.pdf
 
@@ -50,8 +50,8 @@ bib : ${BIB_MD}
 # Regenerate PDF once 'all.tex' has been created.
 ${BOOK_PDF} : ${ALL_TEX}
 	cd ${DIR_TEX} \
-	&& ${LATEX} ${STEM} \
-	&& ${LATEX} ${STEM}
+	&& ${LATEX} -jobname=${STEM} book \
+	&& ${LATEX} -jobname=${STEM} book
 
 # Create the unified LaTeX file (separate target to simplify testing).
 # + 'sed' to pull glossary entry IDs out into '==g==' blocks (because Pandoc throws them away).
@@ -90,7 +90,7 @@ ${ALL_TEX} : ${PAGES_HTML} Makefile
 	| sed -E -e 's!\.svg}!\.pdf}!' \
 	| sed -E -e 's!==b==([^=]+)==b==([^=]+)==b==!\\hypertarget{\1}{\2}\\label{\1}!' \
 	| sed -E -e 's!==g==([^=]+)==g==([^=]+)==g==!\\hypertarget{\1}{\2}\\label{\1}!' \
-	| ${PYTHON} tools/cites.py \
+	| ${PYTHON} bin/cites.py \
 	| sed -E -e 's!\\begin{quote}!\\begin{quote}\\setlength{\\parindent}{0pt}!' \
 	| sed -E -e 's!\\section!\\chapter!' \
 	| sed -E -e 's!\\subsection!\\section!' \
@@ -104,7 +104,7 @@ ${PAGES_HTML} : ${PAGES_MD}
 
 # Create the bibliography Markdown file from the BibTeX file.
 ${BIB_MD} : ${BIB_TEX}
-	tools/bib2md.py ${lang} < ${DIR_TEX}/${STEM}.bib > ${DIR_MD}/bib.md
+	bin/bib2md.py ${lang} < ${DIR_TEX}/${STEM}.bib > ${DIR_MD}/bib.md
 
 ## ----------------------------------------
 
@@ -119,33 +119,33 @@ check :
 
 ## checkcites  : list all missing or unused bibliography entries.
 checkcites : ${BIB_MD}
-	@tools/checkcites.py ${DIR_MD}/bib.md ${PAGES_MD}
+	@bin/checkcites.py ${DIR_MD}/bib.md ${PAGES_MD}
 
 ## checkfigs   : list all missing or unused figures.
 checkfigs :
-	@tools/checkfigs.py figures ${PAGES_MD}
+	@bin/checkfigs.py figures ${PAGES_MD}
 
 ## checkgloss  : check that all glossary entries are defined and used.
 checkgloss :
-	@tools/checkgloss.py ${PAGES_MD}
+	@bin/checkgloss.py ${PAGES_MD}
 
 ## checklinks  : check that all links are defined and used.
 checklinks :
-	@tools/checklinks.py _config.yml _includes/links.md ${PAGES_MD} _includes/contributing.md
+	@bin/checklinks.py _config.yml _includes/links.md ${PAGES_MD} _includes/contributing.md
 
 ## checksrc    : check source file inclusion references.
 checksrc :
-	@tools/checksrc.py src ${PAGES_MD}
+	@bin/checksrc.py src ${PAGES_MD}
 
 ## checktoc    : check consistency of tables of contents.
 checktoc :
-	@tools/checktoc.py _config.yml ${PAGES_MD}
+	@bin/checktoc.py _config.yml ${PAGES_MD}
 
 ## ----------------------------------------
 
 ## spelling    : compare words against saved list.
 spelling :
-	@cat ${PAGES_MD} | tools/uncode.py | aspell list | sort | uniq | comm -2 -3 - .words
+	@cat ${PAGES_MD} | bin/uncode.py | aspell list | sort | uniq | comm -2 -3 - .words
 
 ## undone      : which files have not yet been done?
 undone :
@@ -159,7 +159,7 @@ words :
 
 ## clean       : clean up junk files.
 clean :
-	@rm -r -f _site dist tools/__pycache__
+	@rm -r -f _site dist bin/__pycache__
 	@rm -r -f tex/*/all.tex tex/*/*.aux tex/*/*.bbl tex/*/*.blg tex/*/*.log tex/*/*.out tex/*/*.toc
 	@find . -name '*~' -delete
 	@find . -name .DS_Store -prune -delete
