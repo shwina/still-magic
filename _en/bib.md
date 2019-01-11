@@ -5,6 +5,8 @@ title: "Bibliography"
 
 **Auro2018**{:#b:Auro2018}: Valerie Aurora, Mary Gardiner, and Annalee Flower Horne: *How to Respond to Code of Conduct Reports*. Frame Shift Consulting, 2018, <https://frameshiftconsulting.com/code-of-conduct-book/>. *A practical step-by-step guide to handling code of conduct issues.*
 
+**Bacc2013**{:#b:Bacc2013}: Alberto Bacchelli and Christian Bird: "Expectations, Outcomes, and Challenges of Modern Code Review". *Proc.\ International Conference on Software Engineering*, May 2013. *FIXME*
+
 **Beni2017**{:#b:Beni2017}: Gal Beniamini, Sarah Gingichashvili, Alon Klein Orbach, and Dror G. Feitelson: "Meaningful Identifier Names: The Case of Single-Letter Variables". *Proc.\ 2017 International Conference on Program Comprehension (ICPC'17)*, May 2017, <https://doi.org/10.1109/icpc.2017.18>. *Reports that use of single-letter variable names doesn't affect ability to modify code, and that some single-letter variable names have implicit types and meanings.*
 
 **Boll2014**{:#b:Boll2014}: David Bollier: *Think Like a Commoner: A Short Introduction to the Life of the Commons*. New Society Publishers, 2014, <https://isbndb.com/book/0865717680>. *A short introduction to a widely-used model of governance.*
@@ -15,6 +17,8 @@ title: "Bibliography"
 
 **Brow2007**{:#b:Brow2007}: Michael Jacoby Brown: *Building Powerful Community Organizations: A Personal Guide to Creating Groups that Can Solve Problems and Change the World*. Long Haul Press, 2007. *A practical guide to creating effective organizations in and for communities.*
 
+**Cohe2010**{:#b:Cohe2010}: Jason Cohen: "Modern Code Review", in*Making Software*. O'Reilly, 2010. *FIXME*
+
 **Csik1991**{:#b:Csik1991}: Mihaly Csikszentmihalyi: *Flow: The Psychology of Optimal Experience*. Harper Perennial Modern Classics, 2008. *FIXME*
 
 **Pere2013**{:#b:Pere2013}: Santiago Perez De Rosso and Daniel Jackson: "What's Wrong With Git?". *Proc.\ 2013 ACM International Symposium on New Ideas, New Paradigms, and Reflections on Programming and Software (Onward!'13)*, 2013. *The first in a series exploring what's wrong with Git.*
@@ -22,6 +26,10 @@ title: "Bibliography"
 **Pere2016**{:#b:Pere2016}: Santiago Perez De Rosso and Daniel Jackson: "Purposes, Concepts, Misfits, and a Redesign of Git". *Proc.\ 2016 ACM SIGPLAN International Conference on Object-Oriented Programming,  Systems, Languages, and Applications (OOPSLA'2016)*, 2016. *The second in a series exploring what's wrong with Git.*
 
 **Dobz1973**{:#b:Dobz1973}: Theodosius Dobzhansky: "Nothing in biology makes sense except in the light of evolution". *The American Biology Teacher*, Mar 1973, <https://en.wikipedia.org/wiki/Nothing_in_Biology_Makes_Sense_Except_in_the_Light_of_Evolution>. *A forceful statement of the central unifying theme of modern biology.*
+
+**Faga1976**{:#b:Faga1976}: Michael E. Fagan: "Design and Code Inspections to Reduce Errors in Program Development". *IBM Systems Journal*, 15(3), 1976. *FIXME*
+
+**Faga1986**{:#b:Faga1986}: Michael E. Fagan: "Advances in Software Inspections". *IEEE Transactions on Software Engineering*, 12(7), July 1986. *FIXME*
 
 **Fucc2016**{:#b:Fucc2016}: Davide Fucci, Giuseppe Scanniello, Simone Romano, Martin Shepperd, Boyce Sigweni, Fernando Uyaguari, Burak Turhan, Natalia Juristo, and Markku Oivo: "An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach". *Proc.\ 10th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'16)*, 2016, <https://doi.org/10.1145/2961111.2962592>. *The latest in a long line to find that test-driven development (TDD) has little or no impact on development time or code quality.*
 
@@ -51,7 +59,11 @@ title: "Bibliography"
 
 **Nobl2009**{:#b:Nobl2009}: William Stafford Noble: "A Quick Guide to Organizing Computational Biology Projects". *PLoS Computational Biology*, 5(7), Jul 2009, <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424>. *How to organize a small to medium-sized bioinformatics project.*
 
+**Petr2014**{:#b:Petr2014}: Marian Petre and Greg Wilson: "Code Review For and By Scientists". *Proc.\ Second Workshop on Sustainable Software for Science: Practice and Experience*, 2014. *FIXME*
+
 **Robi2005**{:#b:Robi2005}: Evan Robinson: "Why Crunch Mode Doesn't Work: 6 Lessons". <http://www.igda.org/articles/erobinson_crunch.php>2005. *Summarizes research on the effects of overwork and sleep deprivation.*
+
+**Sega2005**{:#b:Sega2005}: Judith Segal: "When Software Engineers Met Research Scientists: A Case Study". *Empirical Software Engineering*, 10(4), 2005. *FIXME*
 
 **Smit2011**{:#b:Smit2011}: Peter Smith: *Software Build Systems: Principles and Experience*. Addison-Wesley Professional, 2011. *A thorough, readable exploration of how software build systems and tools work.*
 
