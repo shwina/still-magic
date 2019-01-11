@@ -31,13 +31,9 @@ title: "Bibliography"
 
 **Hadd2010**{:#b:Hadd2010}: Steven Haddock and Casey Dunn: *Practical Computing for Biologists*. Sinauer Associates, 2010. *FIXME*
 
-**Hart2016**{:#b:Hart2016}: Edmund M. Hart, Pauline Barmby, David LeBauer, François Michonneau, Sarah Mount, Patrick Mulrooney, Timothée Poisot, Kara H. Woo, Naupaka B. Zimmerman, and Jeffrey W. Hollister: "Ten Simple Rules for Digital Data Storage". *PLOS Computational Biology*, 12(10), Oct 2016, <https://doi.org/10.1371/journal.pcbi.1005097>. *FIXME*
-
 **Hekm2017**{:#b:Hekm2017}: David R. Hekman, Stefanie K. Johnson, Maw-Der Foo, and Wei Yang: "Does Diversity-Valuing Behavior Result in Diminished Performance Ratings for Non-White and Female Leaders?". *Academy of Management Journal*, 60(2), Apr 2017, <https://doi.org/10.5465/amj.2014.0538>. *FIXME*
 
 **Hock2004**{:#b:Hock2004}: Roger R. Hock: *Forty Studies that Changed Psychology*. Prentice Hall, 2004. *FIXME*
-
-**Kaps2006**{:#b:Kaps2006}: Cory Kapser and Michael Godfrey: ""Cloning Considered Harmful" Considered Harmful". *2006 13th Working Conference on Reverse Engineering*, 2006, <https://doi.org/10.1109/wcre.2006.1>. *Reports empirical research showing that code clones are sometimes beneficial.*
 
 **Kern1978**{:#b:Kern1978}: Brian W. Kernighan and P. J. Plauger: *The Elements of Programming Style*. McGraw-Hill, 1978, <https://isbndb.com/book/0070342075>. *An influential early book on how (rather than what) to program.*
 
@@ -46,10 +42,6 @@ title: "Bibliography"
 **Kern1983**{:#b:Kern1983}: Brian W. Kernighan and Rob Pike: *The Unix Programming Environment*. Prentice-Hall, 1983, <https://isbndb.com/book/013937681X>. *An influential early description of Unix.*
 
 **Kern1988**{:#b:Kern1988}: Brian W. Kernighan and Dennis M. Ritchie: *The C Programming Language*. Prentice-Hall, 1988, <https://isbndb.com/book/0131103628>. *The book that made C a popular programming language.*
-
-**Klep2017**{:#b:Klep2017}: Martin Kleppmann: *Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems*. O'Reilly Media, 2017, <https://dataintensive.net/>. *FIXME*
-
-**List2017**{:#b:List2017}: Markus List, Peter Ebert, and Felipe Albrecht: "Ten Simple Rules for Developing Usable Software in Computational Biology". *PLOS Computational Biology*, 13(1), Jan 2017, <https://doi.org/10.1371/journal.pcbi.1005265>. *FIXME*
 
 **Lyon2018**{:#b:Lyon2018}: Dan Lyons: *Lab Rats: How Silicon Valley Made Work Miserable for the Rest of Us*. Hachette Books, 2018. *FIXME*
 
@@ -60,8 +52,6 @@ title: "Bibliography"
 **Nobl2009**{:#b:Nobl2009}: William Stafford Noble: "A Quick Guide to Organizing Computational Biology Projects". *PLoS Computational Biology*, 5(7), Jul 2009, <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424>. *How to organize a small to medium-sized bioinformatics project.*
 
 **Robi2005**{:#b:Robi2005}: Evan Robinson: "Why Crunch Mode Doesn't Work: 6 Lessons". <http://www.igda.org/articles/erobinson_crunch.php>2005. *Summarizes research on the effects of overwork and sleep deprivation.*
-
-**Saja2006**{:#b:Saja2006}: Jorma Sajaniemi, Mordechai Ben-Ari, Pauli Byckling, Petri Gerdt, and Yevgeniya Kulikova: "Roles of Variables in Three Programming Paradigms". *Computer Science Education*, 16(4), Dec 2006, <https://doi.org/10.1080/08993400600874584>. *A detailed look at the authors' work on roles of variables.*
 
 **Smit2011**{:#b:Smit2011}: Peter Smith: *Software Build Systems: Principles and Experience*. Addison-Wesley Professional, 2011. *A thorough, readable exploration of how software build systems and tools work.*
 
