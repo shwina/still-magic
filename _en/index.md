@@ -17,7 +17,8 @@ these lessons will help you take your next steps so that:
 -   you and the people using your results can be confident that they're correct; and
 -   re-using your software is easier than rewriting it.
 
-This course is the second part of [Merely Useful][config-organization].
+This course is the second part of [Merely Useful][config-organization],
+and all material is [available online][config-website].
 The first part,
 [One Extra Fact][one-extra-fact]
 covers what every researcher ought to know about the Unix shell, version control with Git,

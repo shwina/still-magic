@@ -42,6 +42,9 @@ title: "Glossary"
 **Bit rot**{:#g:bit-rot}
 :   FIXME
 
+**Branch-per-feature workflow**{:#g:branch-per-feature-workflow}
+:   [branch-per-feature][branch-per-feature]
+
 **Buffer**{:#g:buffer}
 :   FIXME
 
@@ -64,6 +67,9 @@ title: "Glossary"
 :   FIXME
 
 **Computational competence**{:#g:computational-competence}
+:   FIXME
+
+**Computational stylometry**{:#g:computational-stylometry}
 :   FIXME
 
 **Computational thinking**{:#g:computational-thinking}
@@ -178,6 +184,9 @@ title: "Glossary"
 :   FIXME
 
 **Iteration**{:#g:iteration} (in software development)
+:   FIXME
+
+**Jenny**{:#g:jenny} (a repository)
 :   FIXME
 
 **JSON**{:#g:json}

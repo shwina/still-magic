@@ -49,6 +49,7 @@ definitions if that's done.
 [go-fair]: https://www.go-fair.org/fair-principles/
 [google-docs]: https://en.wikipedia.org/wiki/Google_Docs,_Sheets,_and_Slides
 [gustavsen-julia]: http://www.juliagustavsen.com/
+[gutenberg]: https://www.gutenberg.org/
 
 [huff-katy]: http://katyhuff.github.io/
 [huff-testing]: https://github.com/katyhuff/python-testing

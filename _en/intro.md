@@ -28,13 +28,14 @@ but the software is only a means to an end.
 But just as some astronomers spend their entire careers designing better telescopes,
 some researchers choose to spend their time building software
 that will primarily be used by their colleagues.
-People who do this are called [research software engineers](#g:rse) (RSEs),
-and the aim of these lessons is to help you get ready for this role---to go from
+People who do this may be called [research software engineers](#g:rse) (RSEs)
+or [data engineers](#g:data-engineering),
+and the aim of these lessons is to help you get ready for these roles---to go from
 writing code on your own, for your own use,
 to working in a small team creating tools to help your entire field advance.
 
-One of the many challenges RSEs face is
-to find the appropriate mix of tools and methods for each problem they tackle.
+One of the many challenges you will face is
+to find the appropriate mix of tools and methods for each problem you have to solve.
 If you want to reformat a handful of text files so that your program can read them in,
 you shouldn't bother writing a comprehensive test suite or setting up automated builds.
 On the other hand,
@@ -42,19 +43,12 @@ if you *don't* do this,
 and that "handful of text files" turns into a pile,
 and then a mountain,
 you will quickly reach a point where you wish you had.
+We hope this training will help you understand what challenges have already been solved
+and where to find those solutions
+so that when you need them,
+you'll be able to find them.
 
-> #### You're Not Alone
->
-> RSEs aren't the only people who have to find this balance.
-> Lots of game developers start by writing small apps on their own.
-> Their goal is to make something good enough to ship,
-> not to build a machine that can crank out one game after another.
-> At the other end of the spectrum,
-> a handful of large companies spend tens or hundreds of person-years creating blockbuster games.
-> The processes and infrastructure that would smother a small independent team
-> are absolutely vital to those larger organizations.
-
-## What should research software engineers try to accomplish? {#s:intro-goals}
+## What does "done" look like? {#s:intro-goals}
 
 In order to answer the question posed in this section's title,
 we need to distinguish between three key ideas.
@@ -164,45 +158,92 @@ You will know you're done when:
 3.  Small changes and extensions are easy
     so that your software can grow as your problems and questions evolve.
 
-## What will we use as running example? {#s:intro-example}
+## What will we use as running examples? {#s:intro-example}
 
-[Zipf's Law][zipfs-law] states that frequency of a word is inversely proportional to rank,
+In order to make this material as accessible as possible,
+we will use two text processing problems as running examples.
+The first is an exploration of [Zipf's Law][zipfs-law],
+which states that frequency of a word is inversely proportional to rank,
 i.e.,
 that the second most common word in some text
 occurs half as often as most common,
 the third most common occurs a third as often,
 and so on.
 We will write some simple software to test a corpus of text against this rule.
-The files we will use are in the `data/` directory,
+The files we will use are taken from the [Project Gutenberg][gutenberg]
 and contain this many words:
 
-| Title                          | Words  |
-| ------------------------------ | ------ |
-| common-sense.txt               |  24999 |
-| jane-eyre.txt                  | 188455 |
-| life-of-frederick-douglass.txt |  43789 |
-| moby-dick.txt                  | 215830 |
-| sense-and-sensibility.txt      | 121590 |
-| time-machine.txt               |  35524 |
+| Book                            | Words  |
+| ------------------------------- | -----: |
+| anne-of-green-gables.txt        | 105642 |
+| common-sense.txt                |  24999 |
+| count-of-monte-cristo.txt       | 464226 |
+| dracula.txt                     | 164424 |
+| emma.txt                        | 160458 |
+| ethan-frome.txt                 |  37732 |
+| frankenstein.txt                |  78098 |
+| jane-eyre.txt                   | 188455 |
+| life-of-frederick-douglass.txt  |  43789 |
+| moby-dick.txt                   | 215830 |
+| mysterious-affair-at-styles.txt |  59604 |
+| pride-and-prejudice.txt         | 124974 |
+| sense-and-sensibility.txt       | 121590 |
+| sherlock-holmes.txt             | 107533 |
+| time-machine.txt                |  35524 |
+| treasure-island.txt             |  71616 |
 
-This is how often the ten most common words appear in this corpus as a whole:
+This is how often the most common words appear in this corpus as a whole:
 
 | Word | Count |
-| ---- | ----- |
-| the  | 33499 |
-| and  | 20318 |
-| of   | 18978 |
-| to   | 17135 |
-| a    | 13678 |
-| I    | 13466 |
-| in   | 10880 |
-| it   | 7712  |
-| was  | 7377  |
-| that | 7218  |
+| ---- | ----: |
+| the  | 97278 |
+| and  | 59385 |
+| to   | 56028 |
+| of   | 55190 |
+| I    | 45680 |
+| a    | 40483 |
+| in   | 30030 |
+| was  | 24512 |
+| that | 24386 |
+| you  | 22123 |
+| it   | 21420 |
 
-The frequencies aren't an exact match---we would expect about 16,750 occurrences of "and", for example---but
+The frequencies aren't an exact match---we would expect about 48,600 occurrences of "and", for example---but
 there certainly seems to be a decay curve of some kind.
 We'll look more closely at this data as we go along.
+
+The second project is a simple form of [computational stylometry](#g:computational-stylometry).
+Different writers have different styles;
+can a computer detect those differences,
+and if so,
+can it determine who the likely author of a text actually was?
+Computational stylometry has been used to explore
+which parts of Shakespeare's plays might have been written by other people,
+which presidential tweets were composed by other people,
+and who wrote incriminating emails in several high-profile legal cases.
+
+The authors of our books are listed below.
+Three of them were purportedly written by Jane Austen;
+we will see if the similarity measures we develop show that.
+
+| Author                      | Book                            |
+| ----------------------------| ------------------------------- |
+| Jane Austen                 | emma.txt                        |
+| Jane Austen                 | pride-and-prejudice.txt         |
+| Jane Austen                 | sense-and-sensibility.txt       |
+| Charlotte Brontë            | jane-eyre.txt                   |
+| Agatha Christie             | mysterious-affair-at-styles.txt |
+| Frederick Douglass          | life-of-frederick-douglass.txt  |
+| Arthur Conan Doyle          | sherlock-holmes.txt             |
+| Alexandre Dumas             | count-of-monte-cristo.txt       |
+| Herman Melville             | moby-dick.txt                   |
+| Lucy Maud Montgomery        | anne-of-green-gables.txt        |
+| Thomas Paine                | common-sense.txt                |
+| Mary Wollstonecraft Shelley | frankenstein.txt                |
+| Robert Louis Stevenson      | treasure-island.txt             |
+| Bram Stoker                 | dracula.txt                     |
+| H. G. Wells                 | time-machine.txt                |
+| Edith Wharton               | ethan-frome.txt                 |
 
 ## Acknowledgments {#s:intro-ack}
 

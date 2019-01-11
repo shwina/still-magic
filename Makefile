@@ -104,7 +104,7 @@ ${PAGES_HTML} : ${PAGES_MD}
 
 # Create the bibliography Markdown file from the BibTeX file.
 ${BIB_MD} : ${BIB_TEX}
-	bin/bib2md.py ${lang} < ${DIR_TEX}/${STEM}.bib > ${DIR_MD}/bib.md
+	bin/bib2md.py ${lang} < ${DIR_TEX}/book.bib > ${DIR_MD}/bib.md
 
 ## ----------------------------------------
 

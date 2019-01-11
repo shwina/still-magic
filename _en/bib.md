@@ -17,6 +17,10 @@ title: "Bibliography"
 
 **Csik1991**{:#b:Csik1991}: Mihaly Csikszentmihalyi: *Flow: The Psychology of Optimal Experience*. Harper Perennial Modern Classics, 2008. *FIXME*
 
+**Pere2013**{:#b:Pere2013}: Santiago Perez De Rosso and Daniel Jackson: "What's Wrong With Git?". *Proc.\ 2013 ACM International Symposium on New Ideas, New Paradigms, and Reflections on Programming and Software (Onward!'13)*, 2013. *The first in a series exploring what's wrong with Git.*
+
+**Pere2016**{:#b:Pere2016}: Santiago Perez De Rosso and Daniel Jackson: "Purposes, Concepts, Misfits, and a Redesign of Git". *Proc.\ 2016 ACM SIGPLAN International Conference on Object-Oriented Programming,  Systems, Languages, and Applications (OOPSLA'2016)*, 2016. *The second in a series exploring what's wrong with Git.*
+
 **Dobz1973**{:#b:Dobz1973}: Theodosius Dobzhansky: "Nothing in biology makes sense except in the light of evolution". *The American Biology Teacher*, Mar 1973, <https://en.wikipedia.org/wiki/Nothing_in_Biology_Makes_Sense_Except_in_the_Light_of_Evolution>. *A forceful statement of the central unifying theme of modern biology.*
 
 **Fucc2016**{:#b:Fucc2016}: Davide Fucci, Giuseppe Scanniello, Simone Romano, Martin Shepperd, Boyce Sigweni, Fernando Uyaguari, Burak Turhan, Natalia Juristo, and Markku Oivo: "An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach". *Proc.\ 10th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'16)*, 2016, <https://doi.org/10.1145/2961111.2962592>. *The latest in a long line to find that test-driven development (TDD) has little or no impact on development time or code quality.*
