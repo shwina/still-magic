@@ -247,7 +247,7 @@ our working directory remains `/home/gvwilson/still-magic`.
 This means that Make will look for the rule's prerequisite in `/home/gvwilson/still-magic/data/moby-dick.txt`,
 not in `/home/gvwilson/still-magic/src/automate/data/moby-dick.txt`.
 
-FIXME: diagram
+FIXME: figure
 
 ## How can I update multiple files when their prerequisites change? {#s:automate-extend}
 
@@ -481,7 +481,7 @@ so it looks for a rule for each and runs each of those rules.
 We can draw the prerequisites defined in the Makefile as a [dependency graph](#g:dependency-graph),
 with arrows showing what each target depends on.
 
-FIXME: dependency graph
+FIXME: figure
 
 Note that the Makefile doesn't define the order
 in which `results/moby-dick.csv` and `results/jane-eyre.csv` are updated,

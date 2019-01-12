@@ -112,52 +112,138 @@ and four others that I've created from `master` to remind myself to fix a glossa
 to rewrite the description in `README.md` of how to generate a PDF of these notes,
 and so on.
 I am essentially using branches as a to-do list,
-which is no more expensive than typing a brief note about the feature into a text file
+which takes no more time than typing a brief note about the feature into a text file
 or writing it in a lab notebook,
-and much easier to share.
+and is much easier to track.
+We will look [later](../backlog/) at better ways to manage this.
 
-## What *is* a feature? {#s:branches-thinking}
+## How can I switch between branches when work is only partly done? {#s:branches-switching}
 
-But what is a "feature", exactly?
-What's large enough to merit creation of a new branch?
-On small projects,
-with or without collaborators,
-I try to follow these rules?
+So what happens if we are in the middle of making changes on branch X
+and realize that we need to do some reorganizing that has nothing to do with
+the feature we're currently working on?
+The easy answer is to commit our half-finished work,
+switch branches,
+do the other task,
+and then switch back.
+However,
+that workflow leaves a lot of commits in our history corresponding to half-done work,
+and ideally we want every commit to move the system from one useful state to another.
+And if we make a dozen commits while working on a feature and then merge that branch into `master`,
+the overall history of the project can become very difficult to read.
 
-1.  Anything cosmetic that is only one or two lines long can be done in `master` and committed right away.
-    "Cosmetic" means changes to comments or documentation:
-    nothing that affects how code runs---not even a simple variable renaming---is done this way,
-    because experience has taught that things that aren't supposed to often do.
+There is a command called `git stash` that will temporarily save work on a branch.
+I recommend not using it,
+since it creates yet another place where valuable information might be stored (or forgotten).
+Instead,
+commit changes in the branch as you work,
+then squash those commits into one single comprehensible commit
+using the command `git rebase` (discussed in [the next section](#s:branches-rebase)).
+After squashing,
+you can merge that single large (meaningful) commit into `master`.
 
-2.  A pure addition that doesn't change anything else is a feature and goes into a branch.
-    For example,
-    if you run a new analysis and save the results,
-    that should be done on its own branch
-    because it might take several tries to get the analysis to run,
-    and you might interrupt yourself several times to fix things that you've discovered aren't working.
+Like many things involving Git,
+this is easier to understand with a diagram.
+Suppose we have created a branch to work on a feature:
 
-3.  Every change to code that someone might want to undo later in one step gets done as a feature.
-    For example,
-    if a parameter is added to a function,
-    every call to the function has to be updated;
-    since neither alteration makes sense without the other,
-    it's considered a single feature and should be done in one branch.
+FIXME: figure
 
-The hardest thing about using a branch-per-feature workflow is actually doing it for small changes.
-As the first point in the list above suggests,
-most people are pragmatic about this on small projects;
-on large ones,
-where dozens of people might be committing,
-even the smallest and most innocuous change needs to be in its own branch
-so that it can be reviewed (which we discuss below).
+<!-- == \noindent -->
+We make several small changes,
+then realize we need to fix something else,
+so we commit those changes:
 
-The other thing that's hard to do with a branch-per-feature workflow is a major code reorganization.
-If many files are being moved, renamed, and altered in order to restructure the project,
-merging branches where those changes *haven't* been made can be tedious and error-prone.
-The solution is to not get into this situation:
-as we'll discuss later,
-[refactoring](../refactor/) should be done in many small steps,
-not one big one.
+FIXME: figure
+
+<!-- == \noindent -->
+switch to `master`, and create a new branch to do the other work.
+This happens several times,
+eventually leaving the repository in this state:
+
+FIXME: figure
+
+<!-- == \noindent -->
+If we were to merge now,
+four commits would wind up in the history of the `master` branch.
+Instead,
+we squash those four commits into one:
+
+FIXME: figure
+
+<!-- == \noindent -->
+and then merge that:
+
+FIXME: figure
+
+## How can I keep my project's history clean when working on many branches? {#s:branches-rebase}
+
+The workflow described above depends on [rebasing](#g:rebase),
+which means moving or combining some commits from one branch to another.
+`git rebase` is a powerful command:
+it can replay changes made in one branch on top of changes made to another:
+
+FIXME: figure
+
+<!-- == \noindent -->
+or collapse several consecutive commits into a single commit,
+as we saw in the [previous section](#s:branches-switching).
+We will only use it for the latter ability.
+
+The command we want is `git rebase -i BASE`,
+where `BASE` is the most recent commit *before* the sequence to be compressed
+(i.e., the one that everything else will be based on).
+Even after several years,
+I find this confusing,
+and frequently ask `git rebase` to start with the first commit that I want changed
+rather than the last one that I don't.
+
+When we run `git rebase -i`,
+it brings up a display of recent commits
+in the same editor we would use for writing commit messages:
+
+FIXME: figure
+
+The help text in this display tells us what we can do;
+I *always* choose to `pick` the first commit and `squash` the rest.
+When we save this file,
+Git immediately launches the editor again to show us
+the combination of recent changes and messages:
+
+FIXME: figure
+
+<!-- == \noindent -->
+We can now edit this text to create a commit message for the unified commit.
+After we have done this,
+`git log` will only show us this single commit,
+because it's the only one left in our history:
+
+FIXME: figure
+
+`git rebase` is a complex command,
+and if we have merged changes from other branches into the branch we're rebasing,
+Git can become confused
+(or rather, it can confuse us).
+A good rule to follow is,
+"Don't rebase branches that are shared with other people."
+I will frequently do all the work required for a feature and rebase,
+and then merge in recent changes from `master` and merge back to `master`:
+
+FIXME: figure
+
+What if you have pushed a branch to GitHub (or elsewhere)
+and then combine the commits to change its history
+as shown below:
+
+FIXME: figure
+
+<!-- == \noindent -->
+In this case,
+Git realizes that your merge would lose information and prevents the operation from going through.
+You can use `git push --force` to overwrite the remote history,
+but this is usually a sign that you should have done something differently a while back.
+Remember,
+`git push --force` will also overwrite any work that other people have pushed to the repository,
+so it's a good way to end friendships.
 
 ## How can I make it easy for people to review my work before I merge it? {#s:branches-pull-request}
 
@@ -211,62 +297,83 @@ is that you have to use a typesetting language rather than a [WYSIWYG](#g:wysiwy
 because the programmers who created Git and other version control systems
 still don't support anything that couldn't be put on a punchcard in 1965.
 
-## How can I switch between branches when work is only partly done? {#s:branches-switching}
+## What *is* a feature? {#s:branches-thinking}
 
--   Don't do several things in one branch
--   Commit work (don't use `git stash`)
--   Do the other thing
--   Squash the history (described below)
--   Merge to `master`
--   Merge from master to the original branch
+But what is a "feature", exactly?
+What's large enough to merit creation of a new branch?
+On small projects,
+with or without collaborators,
+I try to follow these rules?
 
-## How Can I Keep My Project's History Clean When Working on Many Branches? {#s:branches-rebase}
+1.  Anything cosmetic that is only one or two lines long can be done in `master` and committed right away.
+    "Cosmetic" means changes to comments or documentation:
+    nothing that affects how code runs---not even a simple variable renaming---is done this way,
+    because experience has taught that things that aren't supposed to often do.
 
--   [Rebasing](#g:rebase) means moving or combining some commits from one branch to another
-    -   Replay changes on one branch on top of changes made to another
-    -   And/or collapse several consecutive commits into a single commit
-    -   We will just use the latter ability
--   `git rebase -i BASE`
-    -   `BASE` is the most recent commit *before* the sequence to be compressed
-    -   Which is always confusing
--   Brings up a display of recent commits
-    -   `pick` the first and `squash` the rest
-    -   Then see the combination of recent changes and messages
-    -   Edit to combine into one
--   Why go to this trouble?
-    -   Because you may have done a commit, switched branches to work on something else, and then come back
-    -   (You could use `git stash`, but that just makes life even more confusing)
-    -   Or it may have taken you several tries to get something right
-    -   Either way, only want one change in the final log in order to make undo and comprehension easier
--   What if you have pushed a branch to GitHub (or elsewhere) and then combine the commits to change its history?
-    -   Use `git push --force` to overwrite the remote history
-    -   This is a sign that you should have done something differently a while back
-    -   "It's tough to make predictions, especially about the future" - Yogi Berra
--   Don't rebase branches that are shared with other people
-    -   Creating a pull request from a branch effectively makes that branch shared
+2.  A pure addition that doesn't change anything else is a feature and goes into a branch.
+    For example,
+    if you run a new analysis and save the results,
+    that should be done on its own branch
+    because it might take several tries to get the analysis to run,
+    and you might interrupt yourself several times to fix things that you've discovered aren't working.
 
-## How Can I Label Specific Versions of My Work? {#s:branches-tag}
+3.  Every change to code that someone might want to undo later in one step gets done as a feature.
+    For example,
+    if a parameter is added to a function,
+    every call to the function has to be updated;
+    since neither alteration makes sense without the other,
+    it's considered a single feature and should be done in one branch.
 
--   A [tag](#g:git-tag) is a permanent label on a particular state of the repository
-    -   Theoretically redundant, since the [commit hash](#g:commit-hash) identifies that state as well
-    -   But commit hashes are (deliberately) random and therefore hard to remember or find
--   Use [annotated tags](#g:annotated-tag) to mark every major event in the project's history
-    -   Annotated because they allow a message, just like a commit
--   Software projects use [semantic versioning](#g:semantic-versioning) for software releases
-    -   `major.minor.patch`
-    -   Increment `major` every time there's an incompatible externally-visible change
-    -   Increment `minor` when adding functionality without breaking any existing code
-    -   Increment `patch` for bug fixes that don't add any new features ("now works as previously documented")
--   Research projects often use `report-date-event` instead of semantic versioning
-    -   E.g., `jse-2018-06-23-response` or `pediatrics-2018-08-15-summary`
-    -   Do not tempt fate by calling something `-final`
--   For simple projects, only tag the master branch
-    -   Because everything that is finished is merged to master
--   Larger software projects may create a branch for each released version and do minor or patch updates on that branch
-    -   Outside the scope of this lesson
+The hardest thing about using a branch-per-feature workflow is actually doing it for small changes.
+As the first point in the list above suggests,
+most people are pragmatic about this on small projects;
+on large ones,
+where dozens of people might be committing,
+even the smallest and most innocuous change needs to be in its own branch
+so that it can be reviewed (which we discuss below).
+
+The other thing that's hard to do with a branch-per-feature workflow is a major code reorganization.
+If many files are being moved, renamed, and altered in order to restructure the project,
+merging branches where those changes *haven't* been made can be tedious and error-prone.
+The solution is to not get into this situation:
+as we'll discuss later,
+[refactoring](../refactor/) should be done in many small steps,
+not one big one.
+
+## How can I label specific versions of my work? {#s:branches-tag}
+
+A [tag](#g:git-tag) is a permanent label on a particular state of the repository.
+Tags are theoretically redundant,
+since the [commit hash](#g:commit-hash) identifies that state as well,
+but commit hashes are (deliberately) random and therefore hard to remember or find.
+
+Experienced developers Use [annotated tags](#g:annotated-tag)
+to mark every major event in the project's history.
+These tags are called "annotated" because they allow their creator to specify a message,
+just like a commit.
+Research projects often use `report-date-event` for tag names,
+such as `jse-2018-06-23-response` or `pediatrics-2018-08-15-summary`.
+If you do this,
+please don't tempt fate by calling something `-final`.
+
+Most software projects use [semantic versioning](#g:semantic-versioning) for software releases,
+which produces three-part version numbers `major.minor.patch`:
+
+-   Increment `major` every time there's an incompatible externally-visible change.
+-   Increment `minor` when adding functionality without breaking any existing code.
+-   Increment `patch` for bug fixes that don't add any new features ("now works as previously documented").
+
+Simple projects only tag the `master` branch
+because everything that is finished is merged to `master`.
+Larger software projects may create a branch for each released version and do minor or patch updates on that branch,
+but this outside the scope of this lesson.
 
 ## Summary {#s:branches-summary}
 
 FIXME: create concept map for workflow
+
+## Exercises {#s:branches-exercises}
+
+FIXME: exercises for branching
 
 {% include links.md %}

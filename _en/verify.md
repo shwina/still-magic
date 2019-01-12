@@ -53,7 +53,6 @@ keypoints:
 -   To illustrate the problems with floating point, we'll use a much dumber representation.
     -   Only use 5 bits: 3 for the magnitude and 2 for the exponent
     -   Don't worry about fractions or signs
-    -   FIXME: <https://www.johndcook.com/blog/2018/04/15/eight-bit-floating-point/>
 -   Here are the possible values (in decimal) that we can represent this way
     -   For example, the decimal values 48 is binary 110 times 2 to the binary 11 power.
     -   Which is 6 times 2 to the third...
