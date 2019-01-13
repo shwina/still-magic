@@ -21,8 +21,8 @@ const stripeTables = () => {
     .forEach(t => t.classList.add('table', 'table-striped'))
 }
 
-// Fix glossary citation URLs.
-const fixGlossCites = () => {
+// Fix glossary reference URLs.
+const fixGlossRefs = () => {
   const pageIsRoot = document.currentScript.getAttribute('ROOT') != ''
   const bibStem = pageIsRoot ? './gloss/' : '../gloss/'
   Array.from(document.querySelectorAll('a'))
@@ -33,7 +33,7 @@ const fixGlossCites = () => {
 }
 
 // Convert bibliography citation links.
-const fixBibCites = () => {
+const fixBibRefs = () => {
   const pageIsRoot = document.currentScript.getAttribute('ROOT') != ''
   const bibStem = pageIsRoot ? './bib/#b:' : '../bib/#b:'
   Array.from(document.querySelectorAll('a'))
@@ -54,6 +54,6 @@ const fixBibCites = () => {
 (function(){
   makeTableOfContents()
   stripeTables()
-  fixBibCites()
-  fixGlossCites()
+  fixBibRefs()
+  fixGlossRefs()
 })()
