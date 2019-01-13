@@ -15,6 +15,7 @@ definitions if that's done.
 
 [ally-skills]: https://frameshiftconsulting.com/ally-skills-workshop/
 
+[bibtex]: http://www.bibtex.org/
 [branch-per-feature]: https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
 [bryan-jenny]: https://jennybryan.org/
 [build-tools]: https://en.wikipedia.org/wiki/List_of_build_automation_software
@@ -125,6 +126,8 @@ definitions if that's done.
 
 [wikipedia-iso-country]: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3
 [wilson-greg]: http://third-bit.com
+[womens-pockets]: https://pudding.cool/2018/08/pockets/
+[womens-pockets-data]: https://github.com/the-pudding/data/blob/master/pockets/README.md
 
 [xkcd-duty-calls]: https://xkcd.com/386/
 

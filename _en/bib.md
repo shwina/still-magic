@@ -67,6 +67,8 @@ title: "Bibliography"
 
 **Smit2011**{:#b:Smit2011}: Peter Smith: *Software Build Systems: Principles and Experience*. Addison-Wesley Professional, 2011. *A thorough, readable exploration of how software build systems and tools work.*
 
+**Stei2014**{:#b:Stei2014}: Igor Steinmacher, Igor Scaliante Wiese, Tayana Conte, Marco Aurélio Gerosa, and David Redmiles: "The Hard Life of Open Source Software Project Newcomers". *Proc.\ 7th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE/14)*, 2014. *FIXME*
+
 **Tasc2017**{:#b:Tasc2017}: Morgan Taschuk and Greg Wilson: "Ten Simple Rules for Making Research Software More Robust". *PLoS Computational Biology*, 13(4), Apr 2017, <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005412>. *A short guide to making research software usable by other people.*
 
 **Wick2014**{:#b:Wick2014}: Hadley Wickham: "Tidy Data". *Journal of Statistical Software*, 59(10), 2014, <https://doi.org/10.18637/jss.v059.i10>. *The defining paper on tidy data.*

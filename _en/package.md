@@ -13,7 +13,9 @@ keypoints:
 -   "Use `pip` to create a distributable package containing your project's software, documentation, and data."
 ---
 
-> Another response of the wizards, when faced with a new and unique situation, was to look through their libraries to see if it had ever happened before.
+> Another response of the wizards,
+> when faced with a new and unique situation,
+> was to look through their libraries to see if it had ever happened before.
 > This was...a good survival trait.
 > It meant that in times of danger you spent the day sitting very quietly in a building with very thick walls.
 >
@@ -280,6 +282,8 @@ drwxr-xr-x  0 standage staff       0 20 Aug 15:36 zipf-0.1/zipf.egg-info/
 -   And may not have permission to write into the directory that contains system-wide packages
     -   E.g., on a cluster
 -   Solution: use a [virtual environment](#g:virtual-environment)
+    -   Slowly being superceded by more general solutions like [Docker][docker],
+        but still the easiest solution for most of us
 -   `pip install virtualenv`
 -   `virtualenv test`
     -   Creates a new directory called `test`

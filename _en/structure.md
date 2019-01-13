@@ -1,59 +1,237 @@
 ---
 permalink: "/en/structure/"
 title: "Project Structure"
-undone: true
 questions:
 -   "How should I organize the files and directories in my project?"
 objectives:
 -   "Describe and justify Noble's Rules for organizing projects."
 -   "Explain the purpose of README, LICENSE, CONDUCT, and CITATION files."
 keypoints:
--   "Put source code for compilation in `src/`, runnable code in `bin/`, raw data in `data/`, results in `results/`, and documentation and manuscripts in `doc/`."
--   "Use file and directory names that are easy to match and include dates for the level under `data/` and `results/`."
+-   "Put source code for compilation in `./src/`."
+-   "Put runnable code in `./bin/`."
+-   "Put raw data in `./data/`."
+-   "Put results in `./results/`."
+-   "Put documentation and manuscripts in `./doc/`."
+-   "Use file and directory names that are easy to match and include dates for the level under `./data/` and `./results/`."
 -   "Create README, LICENSE, CONDUCT, and CITATION files in the root directory of the project."
 ---
 
--   Project organization is like a diet
-    -   There is no such thing as "no diet", just a good one or a bad one
-    -   Similarly, there is no such thing as "no project organization"
-    -   Your project is either organized *well* or organized *poorly*
--   Small pieces in predictable places are easier to recombine than large chunks that have to be re-read
--   Organizing software into installable packages is more than just convention
-    -   Certain things have to be in certain places in order for Python to find them
--   Using [virtual environments](#g:virtual-environment) allows you to work on many projects at once without tripping over yourself
-    -   Slowly being superceded by more general solutions like [Docker][docker], but still the easiest solution for most of us
+Project organization is like a diet:
+there is no such thing as "no diet",
+just a good one or a bad one.
+Similarly, there is no such thing as "no project organization":
+your project is either organized well or poorly.
+As with [coding style](../style/),
+small pieces in predictable places with readable names are easier to find and use
+than large chunks that vary from project to project
+and have names like `stuff`.
 
-## What Are Noble's Rules? {#s:structure-noble}
+## What are Noble's Rules? {#s:structure-noble}
 
--   From [Nobl2009](#BIB)
--   Top level is logical, next level is chronological
-    -   Source code in `src/` (short for "source")
-        -   Source for C/C++ and the like go here
-    -   Compiled programs in `bin/` (short for "binary", meaning "not text")
-        -   Executables for C/C++ programs go here (but not under version control)
-        -   Shell scripts and Python or R programs go here (but under version control, which can be confusing)
-    -   Raw data in `data/`
-        -   If it's too large, use `data/` to store data references
-    -   Results in `results/`
-    -   Documentation and manuscripts in `doc/`
--   Directory names under `data/` and `results/` are `YYYY-MM-DD` so that they can be sorted chronologically
--   Filenames should be easy to match consistently with shell wildcards
-    -   E.g., `species-organ-treatment.csv`, like `human-kidney-cm200.csv`
-    -   Allows `human-*-cm200.csv` to match all human organs, or `*-kidney-*.csv` to match all kidney data
-    -   Don't worry about long directory names: [tab completion](#g:tab-completion) means you only have to type them once
+[Nobl2009](#BIB) described a way to organize small bioinformatics projects
+that is equally useful for other kinds of research computing.
+Each project is put in a separate Git repository,
+and the directories in the root of this repository are organized according to purpose.
+The original specification included five top-level directories:
+
+-   The `./src/` directory (short for "source") holds source code
+    for programs written in languages like C or C++ that need to be compiled.
+    Many projects don't have this directory
+    because all of their code is written in langauges that don't need compilation.
+-   Runnable programs go in `./bin/` (an old Unix abbreviation for "binary", meaning "not text").
+    This includes the compiled and runnable versions of C and C++ programs,
+    and also shell scripts,
+    Python or R programs,
+    and everything else that can be executed.
+-   Raw data goes in in `./data/` and is never modified after being stored.
+-   Results are put in `./results/`.
+    This includes cleaned-up data,
+    figures,
+    and everything else that can be rebuilt using what's in `./bin/` and `./data/`.
+    If intermediate results can be re-created quickly and easily,
+    they might not be stored in version control,
+    but anything that is included in a manuscript should be here.
+-   Finally,
+    documentation and manuscripts go in `./doc/`.
+
+The figure below shows this layout for a project called `g-trans`:
 
 <figure id="f:structure-layout"> <figcaption>Project Layout</figcaption> <img src="../../figures/noble.svg"/> </figure>
 
--   A few files Noble didn't mention that have become conventional
-    -   `README`: one-paragraph description of the project
-    -   `LICENSE`: the project's license
-    -   `CONDUCT`: its code of conduct (discussed below)
-    -   `CITATION`: how the work should be cited
-        -  May have a separate `CONTRIBUTORS` file, or list contributors in `CITATION`
-    -   These files may be plain text or Markdown, or have no suffix at all, but please use the principal names as given
+<!-- == \noindent -->
+A few things to notice are:
+
+-   The documentation for the `regulate` script appears in the root of `./doc/`,
+    while the paper for JCMB is stored in a sub-directory,
+    since it contains several files.
+-   The `./src/` directory contains a [Makefile](../automate/) to re-build the `regulate` program.
+    Some projects put the Makefile in the root directory,
+    reasoning that since it affects both `./src/` and `./bin/`,
+    it belongs above them both rather than in either one.
+-   There are several sub-directories underneath `./data/` and `./results/`,
+    which we will discuss in [the next section](#s:structure-filenames).
+    Each of the sub-directories in `./results/` has its own Makefile,
+    which will re-create the contents of that directory.
+
+## How should files and sub-directories be named? {#s:structure-filenames}
+
+While the directories in the top level of each project are organized by purpose.
+the directories within `./data/` and `./results/` are organized chronologically
+so that it's easy to see when data was gathered
+and when results were generated.
+These directories all have names in [ISO date format](#g:iso-date-format) like `YYYY-MM-DD`
+to make it easy to sort them chronologically.
+This naming is particularly helpful when data and results are used in several reports.
+
+At all levels,
+filenames should be easy to match with simple shell wildcards.
+For example,
+a project might use <code><em>species</em>-<em>organ</em>-<em>treatment</em>.csv</code>
+as a file-naming convention,
+giving filenames like `human-kidney-cm200.csv`.
+This allows `human-*-cm200.csv` to match all human organs
+or `*-kidney-*.csv` to match all kidney data.
+It does produce long filenames,
+but [tab completion](#g:tab-completion) means you only have to type them once.
+Long filenames are just as easy to match in programs:
+Python's `glob` and R's `Sys.glob` will both take a pattern and return a list of matching filenames.
+
+## How should I manage a mix of compiled programs and scripts? {#s:structure-scripts}
+
+Noble's Rules puts everything runnable in a single directory called `./bin/`.
+That makes things easy to find,
+but most software engineers would say that only the source code for programs should be in version control,
+not the output of the compiler.
+There are three ways to handle this:
+
+1.  Put the compiled program under version control.
+    In theory this makes research more [reproducible](#g:reproducible-research),
+    since anyone who wants to re-run the analysis can be sure they're using exactly the same program as the author,
+    but in practice,
+    many "compiled" programs load libraries dynamically,
+    so their results can still be affected by changes to their environment.
+    Putting the compiled programs in version control *does* make it easier for people to re-run analyses,
+    though,
+    since they don't need to be able to compile things themselves.
+
+2.  Put everything in `./bin/`,
+    then edit `.gitignore` to tell Git to ignore the compiled programs.
+    This keeps everything runnable in one place,
+    but requires a little bit of extra bookkeeping.
+
+3.  Put compiled programs in `./bin/` and everything that doesn't require compilation in `./scripts/`.
+    This makes management simpler (just ignore everything in `./bin/`),
+    but means there are two places where runnable programs might live.
+
+I usually go with the third option,
+but they're all good as long as you are consistent between projects
+and [document your rule](#s:structure-boilerplate).
+
+## Should I separate documentation from manuscripts? {#s:structure-docs}
+
+Noble's Rules place documentation and manuscripts in `./docs/`.
+As with compiled programs and scripts,
+some people separate these,
+so that (for example) `./docs/` has the project's website and the documentation for its software,
+while `./reports/` has one sub-directory for each paper, thesis chapter, or other manuscript.
+As more researchers [work in the open](#g:open-science),
+and as tools like [R Markdown][r-markdown] and the [Jupyter Notebook][jupyter]
+blur the distinction between software, documentation, and reports,
+separating the two makes less sense.
+
+## How should I handle data can't be stored in version control? {#s:structure-big-data}
+
+Small datasets that don't contain sensitive information can and should be stored in version control.
+As a rule of thumb,
+anything that you would send in an email attachment is probably small enough to be put into Git,
+while anything that might reveal someone's identity when combined with other data sets should not be.
+
+If data is large or sensitive,
+there should still be something in `./data/` to show its existence,
+and that "something" should be easy for programs to read.
+One option is a CSV file whose columns are:
+
+-   the name of the dataset,
+-   its URL or other unique identifier,
+-   the date it was last checked, and
+-   its size (so that users will have some idea of how much work is involved in processing it).
+
+Another option is to have one file per dataset,
+so that instead of reading `human_genome.bam`,
+the program reads `human_genome.yml` and then uses the `url` key in that file to find the data it actually wants.
+If your data is complicated,
+you may also want to include a `README.md` file in `./data/` modelled on the one that accompanies
+The Pudding article "[Women's Pockets are Inferior][womens-pockets]",
+which you can find [here][womens-pockets-data].
+
+## What other files should every project contain? {#s:structure-boilerplate}
+
+Most projects' repositories contain a few files that weren't mentioned in Noble's paper,
+but which have become conventional in open source projects.
+All of these files may be plain text or Markdown,
+and may have a `.txt` or `.md` suffix (or no suffix at all),
+but please use the principal names given,
+in all caps,
+since a growing number of tools expect them.
+
+-   `README`:
+    the project's title and a one-paragraph description of its purpose or content.
+    This file is displayed by GitHub Pages as the project's home page.
+
+-   `LICENSE`:
+    the project's license (discussed in [the next lesson](../inclusive/#s:inclusive-license)).
+
+-   `CONDUCT`:
+    its code of conduct
+    (also discussed in [the next lesson](../inclusive/#s:inclusive-conduct)).
+
+-   `CITATION`:
+    how the work should be cited.
+    This file usually contains a plain text citation,
+    and may also include entries formatted for various bibliographic systems like [BibTeX][bibtex].
+    Some projects also have a separate `CONTRIBUTORS` file listing everyone who has contributed to it,
+    while others include this as a section in `CITATION`.
+
+If setting up the project or contributing to it are complex,
+there may also be a file called `BUILD` that explains how to install the required software,
+the formatting conventions for new data entries,
+and so on.
+These instructions can also be included as a section in `README`.
+Whichever convention is used,
+remember that the easier it is for people to get set up and contribute,
+the more likely they are to do so [Stei2014](#BIB).
+
+## What *is* a project? {#s:structure-thinking}
+
+Like [features](../branches/#s:branches-thinking),
+what exactly constitutes a "project" requires a bit of judgment,
+and different people will make different decisions.
+Some common criteria are one project per publication,
+one project per deliverable piece of software,
+or one project per team.
+The first tends to be too small:
+a good data set will result in several reports,
+and the goal of some projects is to produce a steady stream of reports (such as monthly forecasts).
+The second is a good fit for software engineering projects
+whose primary aim is to produce tools rather than results,
+but is inappropriate for most data analysis work.
+The third tends to be too large:
+a team of half a dozen people may work on many different things at once,
+and a repository that holds them all quickly looks like someone's basement.
+
+The best rule of thumb I have found for deciding what is and isn't a project
+is to ask what you have meetings about.
+If the same set of people need to get together on a regular basis to talk about something,
+that "something" probably deserves its own repository.
+And if the list of people changes slowly over time but the meetings continue,
+that's an even stronger sign.
 
 ## Summary {#s:structure-summary}
 
 FIXME: create concept map for project structure
+
+## Exercises {#s:structure-exercises}
+
+FIXME: exercises for structure chapter.
 
 {% include links.md %}
