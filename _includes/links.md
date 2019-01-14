@@ -104,6 +104,7 @@ definitions if that's done.
 [snakemake]: https://snakemake.readthedocs.io/
 [sphinx]: http://www.sphinx-doc.org/en/master/
 [srinath-ashwin]: https://ccit.clemson.edu/research/researcher-profiles/ashwin-srinath/
+[stack-overflow]: https://stackoverflow.com/
 [standage-daniel]: https://standage.github.io/
 [swc]: http://software-carpentry.org
 [swc-git]: https://swcarpentry.github.io/git-novice/

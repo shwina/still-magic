@@ -24,7 +24,7 @@ title: "Glossary"
 **Analysis and estimation**{:#g:ae}
 :   FIXME
 
-**Annotated tag**{:#g:annotated-tag}
+**Annotated tag**{:#g:annotated-tag} (in version control)
 :   FIXME
 
 **Append mode**{:#g:append-mode}
@@ -37,6 +37,9 @@ title: "Glossary"
 :   FIXME
 
 **Automatic variable**{:#g:automatic-variable}
+:   FIXME
+
+**Backlog**{:#g:backlog}
 :   FIXME
 
 **Bit rot**{:#g:bit-rot}
@@ -61,6 +64,9 @@ title: "Glossary"
 :   FIXME
 
 **Commit hash**{:#g:commit-hash}
+:   FIXME
+
+**Commit message**{:#g:commit-message}
 :   FIXME
 
 **Commons**{:#g:commons}
@@ -198,6 +204,9 @@ title: "Glossary"
 **JSON**{:#g:json}
 :   FIXME
 
+**Label**{:#g:issue-label} (in issue tracker)
+:   FIXME
+
 **Linter**{:#g:linter}
 :   FIXME
 
@@ -300,6 +309,9 @@ title: "Glossary"
 **Reproducible research**{:#g:reproducible-research}:
 :   FIXME
 
+**Reproducible example**{:#g:reprex} (reprex):
+:   FIXME
+
 **Research software engineer**{:#g:rse} (RSE):
 :   FIXME
 
@@ -354,7 +366,7 @@ title: "Glossary"
 **Tab completion**{:#g:tab-completion}
 :   FIXME
 
-**Tag**{:#g:git-tag}
+**Tag**{:#g:git-tag} (in version control)
 :   FIXME
 
 **Target**{:#g:make-target} (in Make)
@@ -392,6 +404,9 @@ title: "Glossary"
 :   FIXME
 
 **Tolerance**{:#g:tolerance}
+:   FIXME
+
+**Triage**{:#g:triage}
 :   FIXME
 
 **Typesetting language**{:#g:typesetting-language}

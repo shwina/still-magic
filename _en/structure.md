@@ -56,7 +56,7 @@ The original specification included five top-level directories:
 
 The figure below shows this layout for a project called `g-trans`:
 
-<figure id="f:structure-layout"> <figcaption>Project Layout</figcaption> <img src="../../figures/noble.svg"/> </figure>
+<figure id="f:structure-noble"> <figcaption>Project Layout</figcaption> <img src="../../figures/structure-noble.svg"/> </figure>
 
 <!-- == \noindent -->
 A few things to notice are:

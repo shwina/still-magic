@@ -9,6 +9,8 @@ title: "Bibliography"
 
 **Beni2017**{:#b:Beni2017}: Gal Beniamini, Sarah Gingichashvili, Alon Klein Orbach, and Dror G. Feitelson: "Meaningful Identifier Names: The Case of Single-Letter Variables". *Proc.\ 2017 International Conference on Program Comprehension (ICPC'17)*, May 2017, <https://doi.org/10.1109/icpc.2017.18>. *Reports that use of single-letter variable names doesn't affect ability to modify code, and that some single-letter variable names have implicit types and meanings.*
 
+**Bett2008**{:#b:Bett2008}: Nicolas Bettenburg, Sascha Just, Adrian Schröter, Cathrin Weiss, Rahul Premraj, and Thomas Zimmermann: "What makes a good bug report?". *Proc.\ 16th ACM SIGSOFT International Symposium on Foundations of Software Engineering - (SIGSOFT'08/FSE'16)*, 2008. *Reports a survey of developers on what makes for a good bug report.*
+
 **Boll2014**{:#b:Boll2014}: David Bollier: *Think Like a Commoner: A Short Introduction to the Life of the Commons*. New Society Publishers, 2014, <https://isbndb.com/book/0865717680>. *A short introduction to a widely-used model of governance.*
 
 **Bran1995**{:#b:Bran1995}: Stewart Brand: *How Buildings Learn: What Happens After They're Built*. Penguin USA, 1995. *FIXME*
