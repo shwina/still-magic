@@ -468,8 +468,13 @@ so that:
 The circle is defined by $$x^2 + y^2 = \mu$$.
 ```
 
+<div markdown="1" replacement="mathjax-1.tex">
+
+<!-- == \noindent -->
 produces "The circle is defined by $$x^2 + y^2 = \mu$$."
 We can also use double dollar signs on lines of their own to generate block equations:
+
+</div>
 
 ```
 $$ r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}} $$
@@ -478,11 +483,17 @@ $$ r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}} $$
 <!-- == \noindent -->
 produces:
 
+<div markdown="1" replacement="mathjax-2.tex">
+
 $$
 r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}}
 $$
 
+</div>
+
 Here are just a few of the things MathJax can do:
+
+<div markdown="1" replacement="mathjax-3.tex">
 
 | Item        | Source                      | Rendered                  |
 | ----------- | --------------------------- | ------------------------- |
@@ -494,6 +505,8 @@ Here are just a few of the things MathJax can do:
 | Roots       | `$$\sqrt[3]{x / y}$$`       | $$\sqrt[3]{x / y}$$       |
 | Sums        | `$$\sum_{i=0}^\infty i^2$$` | $$\sum_{i=0}^\infty i^2$$ |
 | Integrals   | `$$\int_{i=0}^\infty i^2$$` | $$\int_{i=0}^\infty i^2$$ |
+
+</div>
 
 ## How can I avoid duplication in my pages? {#s:ghp-inclusions}
 

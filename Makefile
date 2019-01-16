@@ -72,6 +72,7 @@ ${BOOK_PDF} : ${ALL_TEX}
 # - 'sed' (twice) to convert 'verbatim' environments
 ${ALL_TEX} : ${PAGES_HTML} Makefile
 	node js/stitch.js _config.yml _site ${lang} \
+	| ${PYTHON} bin/replacement.py --pre \
 	| sed -E -e 's!<strong id="(g:[^"]+)">([^<]+)</strong>!<strong>==g==\1==g==\2==g==</strong>!' \
 	| sed -E -e 's!<strong id="(b:[^"]+)">([^<]+)</strong>!<strong>==b==\1==b==\2==b==</strong>!' \
 	| sed -E -e 's!<figure +id="(.+)"> *<img +src="(.+)"> *<figcaption>(.+)</figcaption> *</figure>!==f==\1==\2==\3==!' \
@@ -96,6 +97,7 @@ ${ALL_TEX} : ${PAGES_HTML} Makefile
 	| sed -E -e 's!\\subsection!\\section!' \
 	| sed -E -e 's!\\subsubsection!\\subsection!' \
 	| sed -E -e 's!\\texttt\{\\n\}!\\texttt\{\\textbackslash n\}!g' \
+	| ${PYTHON} bin/replacement.py --post _includes \
 	> ${ALL_TEX}
 
 # Create all the HTML pages once the Markdown files are up to date.
@@ -105,6 +107,9 @@ ${PAGES_HTML} : ${PAGES_MD}
 # Create the bibliography Markdown file from the BibTeX file.
 ${BIB_MD} : ${BIB_TEX}
 	bin/bib2md.py ${lang} < ${DIR_TEX}/book.bib > ${DIR_MD}/bib.md
+
+# Dependencies with HTML file inclusions.
+${DIR_HTML}/ghp/index.html : _includes/mathjax-1.tex _includes/mathjax-2.tex _includes/mathjax-3.tex
 
 ## ----------------------------------------
 
