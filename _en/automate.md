@@ -926,7 +926,7 @@ but this is a good start.
 
 ## Summary {#s:automate-summary}
 
-<figure id="f:automate-concept"> <figcaption>Make Concept Map</figcaption> <img src="../../figures/automate-concept.svg"/> </figure>
+<figure id="f:automate-concept"> <figcaption>Automation Concept Map</figcaption> <img src="../../figures/automate-concept.svg"/> </figure>
 
 -   [Smit2011](#BIB) describes the design and implementation of several build tools in detail.
 

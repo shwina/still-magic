@@ -942,7 +942,7 @@ By automating this process, blogging tools help us focus attention on things tha
 
 ## Exercises {#s:syndicate-summary}
 
-FIXME: summarize with concept map
+<figure id="f:syndicate-concept"> <figcaption>Syndication Concept Map</figcaption> <img src="../../figures/syndicate-concept.svg"/> </figure>
 
 ## Exercises {#s:syndicate-exercises}
 
