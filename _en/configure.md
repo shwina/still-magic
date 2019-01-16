@@ -441,7 +441,7 @@ we'll have to guess what options mean.
 Many tool also allow longer command-line options to control everything to support scripting
     -   Out of scope of this lesson
 
-FIXME: create concept map for configuration
+<figure id="f:configure-concept"> <figcaption>Configuration Concept Map</figcaption> <img src="../../figures/configure-concept.svg"/> </figure>
 
 ## Exercises {#s:workflow-exercises}
 
