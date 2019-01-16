@@ -73,24 +73,24 @@ ${BOOK_PDF} : ${ALL_TEX}
 ${ALL_TEX} : ${PAGES_HTML} Makefile
 	node js/stitch.js _config.yml _site ${lang} \
 	| ${PYTHON} bin/replacement.py --pre \
-	| sed -E -e 's!<strong id="(g:[^"]+)">([^<]+)</strong>!<strong>==g==\1==g==\2==g==</strong>!' \
-	| sed -E -e 's!<strong id="(b:[^"]+)">([^<]+)</strong>!<strong>==b==\1==b==\2==b==</strong>!' \
-	| sed -E -e 's!<figure +id="(.+)"> *<img +src="(.+)"> *<figcaption>(.+)</figcaption> *</figure>!==f==\1==\2==\3==!' \
-	| sed -E -e 's/<!-- +== +(.+) +-->/==c==\1==/' \
-	| sed -E -e 's!(<div.+class="language-([^ ]+))!==l==\2==\1!' \
+	| sed -E -e 's!<strong id="(g:[^"]+)">([^<]+)</strong>!<strong>==glossary==\1==\2==</strong>!' \
+	| sed -E -e 's!<strong id="(b:[^"]+)">([^<]+)</strong>!<strong>==citation==\1==\2==</strong>!' \
+	| sed -E -e 's!<figure +id="(.+)"> *<img +src="(.+)"> *<figcaption>(.+)</figcaption> *</figure>!==figure==\1==\2==\3==!' \
+	| sed -E -e 's/<!-- +== +(.+) +-->/==command==\1==/' \
+	| sed -E -e 's!(<div.+class="language-([^ ]+))!==language==\2==\1!' \
 	| ${PANDOC} --wrap=preserve -f html -t latex -o - \
 	| tail -n +6 \
-	| sed -E -e '/==l==.+==/{N;N;s/\n/ /g;}' \
-	| sed -E -e 's!==l==(css)== *\\begin\{verbatim\}!\\begin{lstlisting}!' \
-	| sed -E -e 's!==l==(text)== *\\begin\{verbatim\}!\\begin{lstlisting}[backgroundcolor=\\color{verylightgray}]!' \
-	| sed -E -e 's!==l==([^=]+)== *\\begin\{verbatim\}!\\begin{lstlisting}[language=\1]!' \
+	| sed -E -e '/==language==.+==/{N;N;s/\n/ /g;}' \
+	| sed -E -e 's!==language==(css)== *\\begin\{verbatim\}!\\begin{lstlisting}!' \
+	| sed -E -e 's!==language==(text)== *\\begin\{verbatim\}!\\begin{lstlisting}[backgroundcolor=\\color{verylightgray}]!' \
+	| sed -E -e 's!==language==([^=]+)== *\\begin\{verbatim\}!\\begin{lstlisting}[language=\1]!' \
 	| sed -E -e 's!\\begin{verbatim}!\\begin{lstlisting}!' \
 	| sed -E -e 's!\\end{verbatim}!\\end{lstlisting}!' \
-	| sed -E -e '/==c==.+==/{N;s/\n/ /;}' -e 's!==c==(.+)==!\1!' -e s'!\\textbackslash{}!\\!' \
-	| sed -E -e 's!==f==([^=]+)==([^=]+)==([^=]+)==!\\begin{figure}[H]\\label{\1}\\centering\\includegraphics{\2}\\caption{\3}\\end{figure}!' \
+	| sed -E -e '/==command==.+==/{N;s/\n/ /;}' -e 's!==command==(.+)==!\1!' -e s'!\\textbackslash{}!\\!' \
+	| sed -E -e 's!==figure==([^=]+)==([^=]+)==([^=]+)==!\\begin{figure}[H]\\label{\1}\\centering\\includegraphics{\2}\\caption{\3}\\end{figure}!' \
 	| sed -E -e 's!\.svg}!\.pdf}!' \
-	| sed -E -e 's!==b==([^=]+)==b==([^=]+)==b==!\\hypertarget{\1}{\2}\\label{\1}!' \
-	| sed -E -e 's!==g==([^=]+)==g==([^=]+)==g==!\\hypertarget{\1}{\2}\\label{\1}!' \
+	| sed -E -e 's!==citation==([^=]+)==([^=]+)==!\\hypertarget{\1}{\2}\\label{\1}!' \
+	| sed -E -e 's!==glossary==([^=]+)==([^=]+)==!\\hypertarget{\1}{\2}\\label{\1}!' \
 	| ${PYTHON} bin/cites.py \
 	| sed -E -e 's!\\begin{quote}!\\begin{quote}\\setlength{\\parindent}{0pt}!' \
 	| sed -E -e 's!\\section!\\chapter!' \
