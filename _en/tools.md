@@ -191,4 +191,8 @@ plugins. (Having to agree on *which* IDE to use may be another reason
 why some programmers resist adopting any IDE at all, since they
 require even more investment to master than editors.)
 
+FIXME: add profiling.
+
+FIXME: add cron or equivalents.
+
 {% include links.md %}

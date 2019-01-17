@@ -19,8 +19,8 @@ keypoints:
 -   "A project is 'done' when stakeholders can be reasonably sure the results are correct and the software can be understood, run, and extended by people other than the original authors without heroic effort."
 ---
 
-Most books and courses about software engineering are aimed at product developers,
-but research programming has different aims and needs.
+Most books and courses about software engineering are aimed at product development,
+but research has different aims and needs.
 A research programmer's goal is to answer a question;
 she might build software in order to do that,
 but the software is only a means to an end.

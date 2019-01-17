@@ -5,7 +5,7 @@ title: "Design Notes"
 
 ## Brainstorming
 
-1.  What questions will this course answer?
+1.  What questions will this guide answer?
     -   How can I write code that is readable, testable, and maintainable?
     -   How should I organize and share my software, data, and results?
     -   How can I make my work more efficient and reproducible?
@@ -67,9 +67,9 @@ title: "Design Notes"
     -   Unix shell: paths, editing/renaming/deleting files, wildcards, redirection, pipes and filters, shell scripts
     -   Git: add/commit, log, merge, resolving conflicts, push, pull
     -   The core [Data Carpentry][dc] and [Software Carpentry][swc] lessons cover these topics,
-        as does the [prerequisite course][one-extra-fact] in this series
+        as does the [first guide][one-extra-fact] in this series
 1.  What *won't* be covered?
-    -   Statistics: not the focus of this course.
+    -   Statistics: not the focus of this guide.
     -   Higher-order functions and object-oriented programming: higher-level programming isn't the focus of this material.
     -   Building `conda` packages: basic ideas are illustrated by `pip`.
     -   Performance profiling: useful but not crucial (will be briefly mentioned when discussing coverage).
