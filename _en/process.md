@@ -141,12 +141,10 @@ And finally,
 most people are less likely to check Facebook every five minutes if someone else is working with them...
 
 As well as pair programming, most agile teams use two other practices.
-The first,
-called [test-driven development](#g:tdd) (TDD),
-is the practice of writing unit tests *before* writing application code;
-we'll talk about it [later](../testability).
-
-Another practice agile teams use is [continuous integration](#ci).
+The first, [test-driven development](#g:tdd) (TDD),
+is the practice of writing unit tests *before* writing application code,
+and was discussed [earlier](../unit/).
+The second is [continuous integration](#g:continuous-integration).
 Every time someone commits code to the version control repository,
 an automated process checks out a clean copy of the code,
 builds it,
@@ -244,7 +242,7 @@ the team has had a weekend to catch its collective breath
 and is ready to start work once again.
 (If people are so burned out from the previous round of work
 that they need a whole week to recover,
-go back and re-read [the discussion of crunch mode](../crunch-mode).)
+go back and re-read [the discussion of crunch mode](../pacing/).)
 At this point,
 the product manager divides up the list of desired features
 and assigns a few to each developer.
@@ -381,7 +379,7 @@ Ignore the problem.
 
 Work longer hours.
 :   This is also very popular,
-    but [as we have seen](../crunch-mode),
+    but [as we have seen](../pacing/),
     it is self-defeating.
 
 Enlarge the team.
@@ -417,7 +415,7 @@ now spill off the end of your ten-week window.
 That's OK;
 it's a shame you won't get to them,
 but at least you can start taking action now
-rather than [trying to recover from a disaster](../disasters).
+rather than trying to recover from a disaster.
 
 People will thank you for this.
 "I'm sorry, we're not going to have the frobnosticator for May 1"

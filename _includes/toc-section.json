@@ -1,0 +1,27 @@
+{%- comment -%}
+Select the entire collection for the language from "_config.yml".  We include
+"um" as a dummy collection to show how to use "elsif" to select a second one.
+{%- endcomment -%}
+{%- if include.language == 'en' -%}
+  {%- assign chapters = site.en -%}
+{%- elsif include.language == 'um' -%}
+  {%- assign chapters = site.um -%}
+{%- endif -%}
+
+{%- comment -%}Construct a prefix that matches the permalinks for this language, such as "/en/". {%- endcomment -%}
+{%- assign prefix = '/' | append: include.language | append: '/' -%}
+
+  {%- comment -%}Search to find pages (because Jekyll does not support lookup by key).{%- endcomment -%}
+  {%- for lesson in include.coll -%}
+  {%- assign outer = forloop.index -%}
+  {%- for item in chapters -%}
+    {%- assign key = item.permalink | replace: prefix, '/' -%}
+    {%- comment -%}If they match...{%- endcomment -%}
+    {%- if lesson == key -%}
+  "{{lesson}}": {"title": "{{item.title}}", "index": {{outer}}, "type": "{{include.type}}"}
+      {%- break -%}
+    {%- endif -%}
+  {%- endfor -%}
+{% unless forloop.last %},
+{% endunless %}
+{%- endfor -%}

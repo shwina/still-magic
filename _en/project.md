@@ -1,5 +1,5 @@
 ---
-permalink: "/en/structure/"
+permalink: "/en/project/"
 title: "Project Structure"
 questions:
 -   "How should I organize the files and directories in my project?"
@@ -26,7 +26,7 @@ small pieces in predictable places with readable names are easier to find and us
 than large chunks that vary from project to project
 and have names like `stuff`.
 
-## What are Noble's Rules? {#s:structure-noble}
+## What are Noble's Rules? {#s:project-noble}
 
 [Nobl2009](#BIB) described a way to organize small bioinformatics projects
 that is equally useful for other kinds of research computing.
@@ -56,7 +56,7 @@ The original specification included five top-level directories:
 
 The figure below shows this layout for a project called `g-trans`:
 
-<figure id="f:structure-noble"> <figcaption>Project Layout</figcaption> <img src="../../figures/structure-noble.svg"/> </figure>
+<figure id="f:project-noble"> <figcaption>Project Layout</figcaption> <img src="../../figures/project-noble.svg"/> </figure>
 
 <!-- == \noindent -->
 A few things to notice are:
@@ -69,11 +69,11 @@ A few things to notice are:
     reasoning that since it affects both `./src/` and `./bin/`,
     it belongs above them both rather than in either one.
 -   There are several sub-directories underneath `./data/` and `./results/`,
-    which we will discuss in [the next section](#s:structure-filenames).
+    which we will discuss in [the next section](#s:project-filenames).
     Each of the sub-directories in `./results/` has its own Makefile,
     which will re-create the contents of that directory.
 
-## How should files and sub-directories be named? {#s:structure-filenames}
+## How should files and sub-directories be named? {#s:project-filenames}
 
 While the directories in the top level of each project are organized by purpose.
 the directories within `./data/` and `./results/` are organized chronologically
@@ -96,7 +96,7 @@ but [tab completion](#g:tab-completion) means you only have to type them once.
 Long filenames are just as easy to match in programs:
 Python's `glob` and R's `Sys.glob` will both take a pattern and return a list of matching filenames.
 
-## How should I manage a mix of compiled programs and scripts? {#s:structure-scripts}
+## How should I manage a mix of compiled programs and scripts? {#s:project-scripts}
 
 Noble's Rules puts everything runnable in a single directory called `./bin/`.
 That makes things easy to find,
@@ -125,9 +125,9 @@ There are three ways to handle this:
 
 I usually go with the third option,
 but they're all good as long as you are consistent between projects
-and [document your rule](#s:structure-boilerplate).
+and [document your rule](#s:project-boilerplate).
 
-## Should I separate documentation from manuscripts? {#s:structure-docs}
+## Should I separate documentation from manuscripts? {#s:project-docs}
 
 Noble's Rules place documentation and manuscripts in `./docs/`.
 As with compiled programs and scripts,
@@ -139,7 +139,7 @@ and as tools like [R Markdown][r-markdown] and the [Jupyter Notebook][jupyter]
 blur the distinction between software, documentation, and reports,
 separating the two makes less sense.
 
-## How should I handle data can't be stored in version control? {#s:structure-big-data}
+## How should I handle data can't be stored in version control? {#s:project-big-data}
 
 Small datasets that don't contain sensitive information can and should be stored in version control.
 As a rule of thumb,
@@ -164,7 +164,7 @@ you may also want to include a `README.md` file in `./data/` modelled on the one
 The Pudding article "[Women's Pockets are Inferior][womens-pockets]",
 which you can find [here][womens-pockets-data].
 
-## What other files should every project contain? {#s:structure-boilerplate}
+## What other files should every project contain? {#s:project-boilerplate}
 
 Most projects' repositories contain a few files that weren't mentioned in Noble's paper,
 but which have become conventional in open source projects.
@@ -179,11 +179,11 @@ since a growing number of tools expect them.
     This file is displayed by GitHub Pages as the project's home page.
 
 -   `LICENSE`:
-    the project's license (discussed in [the next lesson](../inclusive/#s:inclusive-license)).
+    the project's license (discussed in [the next lesson](../inclusive/)).
 
 -   `CONDUCT`:
     its code of conduct
-    (also discussed in [the next lesson](../inclusive/#s:inclusive-conduct)).
+    (also discussed in [the next lesson](../inclusive/)).
 
 -   `CITATION`:
     how the work should be cited.
@@ -201,9 +201,9 @@ Whichever convention is used,
 remember that the easier it is for people to get set up and contribute,
 the more likely they are to do so [Stei2014](#BIB).
 
-## What *is* a project? {#s:structure-thinking}
+## What *is* a project? {#s:project-thinking}
 
-Like [features](../branches/#s:branches-thinking),
+Like [features](../branches/),
 what exactly constitutes a "project" requires a bit of judgment,
 and different people will make different decisions.
 Some common criteria are one project per publication,
@@ -226,11 +226,11 @@ that "something" probably deserves its own repository.
 And if the list of people changes slowly over time but the meetings continue,
 that's an even stronger sign.
 
-## Summary {#s:structure-summary}
+## Summary {#s:project-summary}
 
 FIXME: create concept map for project structure
 
-## Exercises {#s:structure-exercises}
+## Exercises {#s:project-exercises}
 
 FIXME: exercises for structure chapter.
 

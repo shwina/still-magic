@@ -250,7 +250,7 @@ we will see if the similarity measures we develop show that.
 This book owes its existence to
 the hundreds of researchers I met through [Software Carpentry][carpentries].
 I am also grateful to [Insight Data Science][insight] for sponsoring the early stages of this work,
-to [everyone who has contributed](../citation/#s:citation-contributors),
+to [everyone who has contributed](../citation/),
 and to:
 
 -   *Practical Computing for Biologists* [Hadd2010](#BIB)
@@ -261,12 +261,12 @@ and to:
 
 Before any of that, though,
 four books written by [Brian Kernighan][kernighan-brian] and his colleagues
-forever changed the way I think about programming.
-*[The Elements of Programming Style](./bib/#b:Kern1978)*,
-*[The C Programming Language](./bib/#b:Kern1988)*,
-*[The Unix Programming Environment](./bib/#b:Kern1983)*,
-and above all,
-*[Software Tools in Pascal](./bib/#b:Kern1981)*
+forever changed the way I think about programming
+[Kern1978,Kern1988,Kern1983,Kern1981](#BIB).
+*The Elements of Programming Style*,
+*The C Programming Language*,
+*The Unix Programming Environment*,
+and *Software Tools in Pascal*
 didn't just show my generation how to write software we could be proud of:
 they also showed us that books about programming could be a pleasure to read.
 ## Acknowledgments {#s:index-acknowledgments}

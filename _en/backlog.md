@@ -163,7 +163,7 @@ their purpose is to help [triage](#g:triage),
 which is the process of deciding what is going to be worked on in what order.
 
 In a large project,
-this is the responsibility of the [product manager](../process/#s:process-product);
+this is the responsibility of the [product manager](../process/);
 in a small one,
 it's common for the project's lead to decide this,
 or for project members to use up-votes and down-votes on an issue
