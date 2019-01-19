@@ -12,7 +12,7 @@ Display a section of the table of contents.
 <ol class="{{include.class}}">
   {% comment %}Construct a prefix that matches the permalinks for this language, such as "/en/". {% endcomment %}
   {% assign prefix = '/' | append: include.language | append: '/' %}
-  {% comment %}Search the section of table of contents to find this page (because Jekyll doesn't supported lookup by key).{% endcomment %}
+  {% comment %}Search the section of table of contents to find this page (because Jekyll does not support lookup by key).{% endcomment %}
   {%- for toc_entry in include.toc -%}
     {%- for item in include.coll -%}
       {% assign key = item.permalink | replace: prefix, '/' %}
