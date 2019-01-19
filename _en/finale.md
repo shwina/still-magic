@@ -1,5 +1,4 @@
 ---
-permalink: "/en/finale/"
 title: "Finale"
 undone: true
 questions:

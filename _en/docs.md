@@ -1,5 +1,4 @@
 ---
-permalink: "/en/docs/"
 title: "Documenting Code"
 undone: true
 questions:

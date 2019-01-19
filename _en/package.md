@@ -1,5 +1,4 @@
 ---
-permalink: "/en/package/"
 title: "Packaging"
 undone: true
 questions:

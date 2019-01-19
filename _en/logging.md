@@ -1,5 +1,4 @@
 ---
-permalink: "/en/logging/"
 title: "Logging"
 questions:
 -   "How should I keep track of what I actually did?"

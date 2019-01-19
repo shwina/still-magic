@@ -1,5 +1,4 @@
 ---
-permalink: "/en/unit/"
 title: "Unit Testing"
 undone: true
 questions:

@@ -1,5 +1,4 @@
 ---
-permalink: "/en/syndicate/"
 title: "Syndicating Data"
 questions:
 - "FIXME"

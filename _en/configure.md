@@ -1,5 +1,4 @@
 ---
-permalink: "/en/configure/"
 title: "Configuring Software"
 questions:
 -   "How can I make it easy for users to configure software?"

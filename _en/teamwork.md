@@ -1,5 +1,4 @@
 ---
-permalink: "/en/teamwork/"
 title: "Teamwork"
 questions:
 -   "FIXME"

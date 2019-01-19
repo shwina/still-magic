@@ -12,44 +12,44 @@ isbn: "000-0-0000000-0-0"
 # Order for table of contents.
 toc:
   lessons:
-  - /intro/
-  - /automate/
-  - /syndicate/
-  - /interlude-01/
-  - /configure/
-  - /interlude-02/
-  - /logging/
-  - /unit/
-  - /verify/
-  - /ghp/
-  - /branches/
-  - /backlog/
-  - /review/
-  - /process/
-  - /integrate/
-  - /tools/
-  - /style/
-  - /refactor/
-  - /docs/
-  - /project/
-  - /inclusive/
-  - /package/
-  - /publish/
-  - /teamwork/
-  - /pacing/
-  - /finale/
+  - intro
+  - automate
+  - syndicate
+  - interlude-01
+  - configure
+  - interlude-02
+  - logging
+  - unit
+  - verify
+  - ghp
+  - branches
+  - backlog
+  - review
+  - process
+  - integrate
+  - tools
+  - style
+  - refactor
+  - docs
+  - project
+  - inclusive
+  - package
+  - publish
+  - teamwork
+  - pacing
+  - finale
   bib:
-  - /bib/
+  - bib
   extras:
-  - /license/
-  - /conduct/
-  - /citation/
-  - /contributing/
-  - /gloss/
-  - /objectives/
-  - /keypoints/
-  - /rules/
-  - /design/
+  - license
+  - conduct
+  - citation
+  - contributing
+  - gloss
+  - objectives
+  - keypoints
+  - rules
+  - design
 
 # Tell Jekyll that "en" is a collection (whose files are found in "_en").  This
 # is what allows us to loop over files in various inclusions.  We use "en" to
@@ -57,6 +57,7 @@ toc:
 collections:
   en:
     output: true
+    permalink: /:collection/:title/
 
 # Specify the use of the "lesson" template for elements of the "en" collection.
 defaults:
@@ -89,6 +90,9 @@ exclude:
 - Makefile
 - README.md
 - bin
+- etc
+- misc
 - node_modules
+- requirements.txt
 - src
 - tex

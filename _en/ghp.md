@@ -1,5 +1,4 @@
 ---
-permalink: "/en/ghp/"
 title: "Using GitHub Pages"
 questions:
 -   "How can I create a static website for my work?"

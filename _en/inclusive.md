@@ -1,5 +1,4 @@
 ---
-permalink: "/en/inclusive/"
 title: "Including Everyone"
 undone: true
 questions:

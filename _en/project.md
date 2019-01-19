@@ -1,5 +1,4 @@
 ---
-permalink: "/en/project/"
 title: "Project Structure"
 questions:
 -   "How should I organize the files and directories in my project?"

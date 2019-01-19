@@ -1,5 +1,4 @@
 ---
-permalink: "/en/automate/"
 title: "Automating Analyses"
 questions:
 -   "How can I make my analyses easier to reproduce?"

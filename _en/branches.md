@@ -1,5 +1,4 @@
 ---
-permalink: "/en/branches/"
 title: "A Branching Workflow"
 undone: true
 questions:

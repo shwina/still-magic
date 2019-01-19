@@ -1,5 +1,4 @@
 ---
-permalink: "/en/interlude-02/"
 title: "Interlude: Almost Ready"
 ---
 

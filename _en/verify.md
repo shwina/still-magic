@@ -1,5 +1,4 @@
 ---
-permalink: "/en/verify/"
 title: "Verification"
 undone: true
 questions:
