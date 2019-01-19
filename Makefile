@@ -115,36 +115,36 @@ ${DIR_HTML}/ghp/index.html : _includes/mathjax-1.tex _includes/mathjax-2.tex _in
 
 ## check       : check everything.
 check :
-	@make lang=${lang} checkcites
-	@make lang=${lang} checkfigs
-	@make lang=${lang} checkgloss
-	@make lang=${lang} checklinks
-	@make lang=${lang} checksrc
-	@make lang=${lang} checktoc
+	@make lang=${lang} check_cites
+	@make lang=${lang} check_figs
+	@make lang=${lang} check_gloss
+	@make lang=${lang} check_links
+	@make lang=${lang} check_src
+	@make lang=${lang} check_toc
 
-## checkcites  : list all missing or unused bibliography entries.
-checkcites : ${BIB_MD}
-	@bin/checkcites.py ${DIR_MD}/bib.md ${PAGES_MD}
+## check_cites : list all missing or unused bibliography entries.
+check_cites : ${BIB_MD}
+	@bin/check_cites.py ${DIR_MD}/bib.md ${PAGES_MD}
 
-## checkfigs   : list all missing or unused figures.
-checkfigs :
-	@bin/checkfigs.py figures ${PAGES_MD}
+## check_figs  : list all missing or unused figures.
+check_figs :
+	@bin/check_figs.py figures ${PAGES_MD}
 
-## checkgloss  : check that all glossary entries are defined and used.
-checkgloss :
-	@bin/checkgloss.py ${PAGES_MD}
+## check_gloss : check that all glossary entries are defined and used.
+check_gloss :
+	@bin/check_gloss.py ${PAGES_MD}
 
-## checklinks  : check that all links are defined and used.
-checklinks :
-	@bin/checklinks.py _config.yml _includes/links.md ${PAGES_MD} _includes/contributing.md
+## check_links : check that all external links are defined and used.
+check_links :
+	@bin/check_links.py _config.yml _includes/links.md ${PAGES_MD} _includes/contributing.md
 
-## checksrc    : check source file inclusion references.
-checksrc :
-	@bin/checksrc.py src ${PAGES_MD}
+## check_src   : check source file inclusion references.
+check_src :
+	@bin/check_src.py src ${PAGES_MD}
 
-## checktoc    : check consistency of tables of contents.
-checktoc :
-	@bin/checktoc.py _config.yml ${PAGES_MD}
+## check_toc   : check consistency of tables of contents.
+check_toc :
+	@bin/check_toc.py _config.yml ${PAGES_MD}
 
 ## ----------------------------------------
 
