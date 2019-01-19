@@ -249,7 +249,7 @@ we will see if the similarity measures we develop show that.
 This book owes its existence to
 the hundreds of researchers I met through [Software Carpentry][carpentries].
 I am also grateful to [Insight Data Science][insight] for sponsoring the early stages of this work,
-to [everyone who has contributed](../citation/),
+to everyone who has contributed ([CHAPTER](../citation/)),
 and to:
 
 -   *Practical Computing for Biologists* [Hadd2010](#BIB)

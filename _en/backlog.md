@@ -97,7 +97,8 @@ and the more likely the response will actually address the issue [Bett2008](#BIB
     the operating system you were running on,
     and anything else that might affect behavior.
 6.  Describe each problem separately so that each one can be tackled on its own.
-    (This parallels the rule about [creating a branch in version control for each bug fix or feature](../branches/).)
+    (This parallels the rule about creating a branch in version control for each bug fix or feature
+    discussed in [CHAPTER](../branches/).)
 
 Here's an example of a well-written bug report with all of the fields mentioned above:
 
@@ -162,7 +163,7 @@ their purpose is to help [triage](#g:triage),
 which is the process of deciding what is going to be worked on in what order.
 
 In a large project,
-this is the responsibility of the [product manager](../process/);
+this is the responsibility of the product manager ([CHAPTER](../process/));
 in a small one,
 it's common for the project's lead to decide this,
 or for project members to use up-votes and down-votes on an issue

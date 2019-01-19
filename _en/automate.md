@@ -29,7 +29,7 @@ keypoints:
 -   "Specially-formatted comments can be used to make Makefiles self-documenting."
 ---
 
-As [the introduction said](../intro/),
+As [CHAPTER](../intro/) said,
 Zipf's Law states that the second most common word in a body of text
 appears half as often as the most common,
 the third most common appears a third as often,
@@ -157,7 +157,7 @@ A rule can have any number of actions,
 but they *must* be indented by a single tab character.
 Notice that the output of `bin/countwords.py` is [redirected](#g:redirection) using `>`
 to create the output file:
-we will look [later](../configure/) at modifying the script
+we will look at modifying the script in [CHAPTER](../configure/)
 so that it can take the name of an output file as an argument.
 
 Together,
@@ -359,7 +359,7 @@ by putting this in the Makefile:
 
 I usually declare all of my phony targets together near the top of the file.
 Other people put the `.PHONY` declarations right before the rules they refer to.
-As with most other rules about [programming style](../style/),
+As with most other rules about programming style ([CHAPTER](../style/)),
 consistency matters more than exactly what you do.
 
 ## How can I make a target depend on several prerequisites? {#s:automate-multi}
@@ -575,7 +575,7 @@ And yes,
 even with practice,
 and `< $<` (reading the first prerequisite from [standard input](#g:stdin))
 is even harder.
-Using [an editor that does syntax highlighting](../tools/) helps,
+Using an editor that does syntax highlighting helps ([CHAPTER](../tools/)),
 and if you are ever designing software for other people to use,
 remember this case and don't do it.
 
@@ -816,7 +816,7 @@ python bin/countwords.py data/time-machine.txt > results/time-machine.csv
 
 Our workflow is now just two steps:
 add a data file and run Make.
-As we'll see [later](../integrate/),
+As we'll see in [CHAPTER](../integrate/),
 we can even automate the second half in some cases,
 but this is still a big improvement over running things manually,
 particularly as we start to add more steps
@@ -853,7 +853,7 @@ the same information appears in both the comments on rules and the help,
 which means that authors have to remember to update the help when adding or changing rules.
 
 A better approach,
-which we will explore in more depth [later](../docs/),
+which we will explore in more depth in [CHAPTER](../docs/),
 is to have people format some comments in a special way
 and then extract and display those comments when asked for help.
 We'll use `##` (a double comment marker) to indicate the lines we want displayed

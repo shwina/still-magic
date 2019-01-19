@@ -114,7 +114,7 @@ I am essentially using branches as a to-do list,
 which takes no more time than typing a brief note about the feature into a text file
 or writing it in a lab notebook,
 and is much easier to track.
-We will look [later](../backlog/) at better ways to manage this.
+[CHAPTER](../backlog/) will look at better ways to manage this.
 
 ## How can I switch between branches when work is only partly done? {#s:branches-switching}
 
@@ -249,7 +249,7 @@ so it's a good way to end friendships.
 The biggest benefit of having a second person work on a programming project
 is not getting twice as much code written,
 but having a second pair of eyes look at the software.
-We'll discuss how to do code review [later](../review/),
+[CHAPTER](../review/) will discuss how to do code review,
 but a good first step depends on using a branch-per-feature workflow.
 
 In order for someone to review your change,
@@ -335,8 +335,8 @@ The other thing that's hard to do with a branch-per-feature workflow is a major 
 If many files are being moved, renamed, and altered in order to restructure the project,
 merging branches where those changes *haven't* been made can be tedious and error-prone.
 The solution is to not get into this situation:
-as we'll discuss later,
-[refactoring](../refactor/) should be done in many small steps,
+as [CHAPTER](../refactor/) says,
+code should be reorganized in many small steps,
 not one big one.
 
 ## How can I label specific versions of my work? {#s:branches-tag}

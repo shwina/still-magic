@@ -6,7 +6,7 @@ permalink: "/en/toc.json"
 {
 {% include toc-section.json coll=site.toc.lessons language=page.language type="number" %}
 ,
-"/bib/": {"title": "Bibliography", "index": null, "type": "bib"}
+"bib": {"title": "Bibliography", "index": null, "type": "bib"}
 ,
 {% include toc-section.json coll=site.toc.extras language=page.language type="letter" %}
 {%- comment -%}Closing curly brace around JSON.{% endcomment %}

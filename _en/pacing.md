@@ -73,7 +73,6 @@ To quote Robinson:
 >
 > But, somehow, Silicon Valley didn't get the memo...
 
-I mentioned in [the introduction](../) that
 I worked for a data visualization startup in the mid-1990s.
 Three months before our first release,
 the head of development "asked" us to start coming in on Saturdays.
@@ -222,7 +221,7 @@ which means you'd better tackle the first piece two weeks before the deadline.
 And since breaking large tasks down into small ones takes time,
 don't be embarrassed by having "plan XYZ" as a task in your list.
 Remember,
-[a week of hard work can sometimes save you an hour of thought](../rules/).
+a week of hard work can sometimes save you an hour of thought ([CHAPTER](../rules/)).
 
 The point of all this organization and preparation is
 to get yourself into the most productive mental state possible.
@@ -254,8 +253,8 @@ However,
 it would be harder on instructors,
 and some things need time to digest.
 Similarly,
-companies may know that [meetings](../teamwork/) distract from work
-as often as they move it forward,
+companies may know that meetings distract from work
+as often as they move it forward ([CHAPTER](../teamwork/)),
 but some things really do need to be discussed.
 
 I find I'm most productive when I do three back-to-back sprints on one project in the morning,
@@ -389,7 +388,7 @@ you'll start laughing once in a while.
 
 ## Summary {#s:pacing-summary}
 
-[Nothing in software development makes sense except in light of human psychology](../rules/).
+Nothing in software development makes sense except in light of human psychology ([CHAPTER](../rules/)).
 If you want to understand how to get more done in less time and with less pain,
 these books may help:
 
