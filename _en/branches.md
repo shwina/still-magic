@@ -1,7 +1,6 @@
 ---
 permalink: "/en/branches/"
 title: "A Branching Workflow"
-undone: true
 questions:
 -   "How can a growing number of people coordinate work on a single project?"
 objectives:
