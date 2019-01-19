@@ -854,7 +854,7 @@ the same information appears in both the comments on rules and the help,
 which means that authors have to remember to update the help when adding or changing rules.
 
 A better approach,
-which we will explore in more depth [later](../docs/),
+which we will explore in more depth [later](../style/),
 is to have people format some comments in a special way
 and then extract and display those comments when asked for help.
 We'll use `##` (a double comment marker) to indicate the lines we want displayed
