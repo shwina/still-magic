@@ -140,9 +140,9 @@ And finally,
 most people are less likely to check Facebook every five minutes if someone else is working with them...
 
 As well as pair programming, most agile teams use two other practices.
-The first, [test-driven development](#g:tdd) (TDD),
-is the practice of writing unit tests *before* writing application code,
-and was discussed [earlier](../unit/).
+[Test-driven development](#g:tdd) (TDD),
+discussed in [CHAPTER](../unit/),
+is the practice of writing unit tests *before* writing application code.
 The second is [continuous integration](#g:continuous-integration).
 Every time someone commits code to the version control repository,
 an automated process checks out a clean copy of the code,
@@ -152,7 +152,7 @@ and posts the results somewhere for the whole team to see.
 If any of the tests fail,
 the continuous integration system notifies people by sending out email or texting them.
 
-We will explain how to implement continuous integration in [its own section](../integrate/).
+We will explain how to implement continuous integration in [CHAPTER](../integrate/).
 From a developer's point of view,
 its key benefit is that it ensures the project is always in a runnable state.
 This may not seem important if you don't have to hand it in until next week,
@@ -241,7 +241,7 @@ the team has had a weekend to catch its collective breath
 and is ready to start work once again.
 (If people are so burned out from the previous round of work
 that they need a whole week to recover,
-go back and re-read [the discussion of crunch mode](../pacing/).)
+read the discussion of crunch mode in [CHAPTER](../pacing/).)
 At this point,
 the product manager divides up the list of desired features
 and assigns a few to each developer.
@@ -378,7 +378,7 @@ Ignore the problem.
 
 Work longer hours.
 :   This is also very popular,
-    but [as we have seen](../pacing/),
+    but as [CHAPTER](../pacing/) explains,
     it is self-defeating.
 
 Enlarge the team.

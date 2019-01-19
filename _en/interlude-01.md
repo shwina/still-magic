@@ -3,7 +3,7 @@ title: "Interlude: Testing"
 ---
 
 *I really want to talk about testing now,
-because once you have [automated your workflow](../automate/),
+because once you have automated your workflow,
 you can re-run your tests every time you make a change.
 Few things will do more for your productivity,
 but after trying for two decades to persuade researchers to write tests,

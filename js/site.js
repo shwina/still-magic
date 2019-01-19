@@ -49,6 +49,39 @@ const fixBibRefs = () => {
     })
 }
 
+// Convert chapter references.
+const fixCrossRefs = () => {
+  const pageIsRoot = document.currentScript.getAttribute('ROOT') != ''
+  const pathToRoot = pageIsRoot ? './' : '../'
+  const pathToFile = pathToRoot + 'toc.json'
+  fetch(pathToFile)
+    .then(response => response.json())
+    .then(crossref => {
+      const main = document.querySelector('div.main')
+      if (! main) {
+        return
+      }
+      Array.from(main.querySelectorAll('a'))
+        .filter(e => {
+          return e.innerHTML === 'CHAPTER'
+        })
+        .forEach(e => {
+          const slug = e.getAttribute('href').split('/')[1]
+          const entry = crossref[slug]
+          var text = 'Unknown Reference'
+          if (entry.type === 'number') {
+            text = `Chapter ${entry.index}`
+          } else if (entry.type === 'letter') {
+            const letters = '_ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+            text = `Appendix ${letters[entry.index]}`
+          } else if (entry.type === 'bib') {
+            text = 'Bibliography'
+          }
+          e.innerHTML = text
+        })
+    })
+}
+
 // Perform transformations on load (which is why this script is included at the
 // bottom of the page).
 (function(){
@@ -56,4 +89,5 @@ const fixBibRefs = () => {
   stripeTables()
   fixBibRefs()
   fixGlossRefs()
+  fixCrossRefs()
 })()

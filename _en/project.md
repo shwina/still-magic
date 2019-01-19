@@ -20,7 +20,7 @@ there is no such thing as "no diet",
 just a good one or a bad one.
 Similarly, there is no such thing as "no project organization":
 your project is either organized well or poorly.
-As with [coding style](../style/),
+As with coding style ([CHAPTER](../style/)),
 small pieces in predictable places with readable names are easier to find and use
 than large chunks that vary from project to project
 and have names like `stuff`.
@@ -63,7 +63,7 @@ A few things to notice are:
 -   The documentation for the `regulate` script appears in the root of `./doc/`,
     while the paper for JCMB is stored in a sub-directory,
     since it contains several files.
--   The `./src/` directory contains a [Makefile](../automate/) to re-build the `regulate` program.
+-   The `./src/` directory contains a Makefile to re-build the `regulate` program ([CHAPTER](../automate/)).
     Some projects put the Makefile in the root directory,
     reasoning that since it affects both `./src/` and `./bin/`,
     it belongs above them both rather than in either one.
@@ -178,11 +178,11 @@ since a growing number of tools expect them.
     This file is displayed by GitHub Pages as the project's home page.
 
 -   `LICENSE`:
-    the project's license (discussed in [the next lesson](../inclusive/)).
+    the project's license (discussed in [CHAPTER](../inclusive/)).
 
 -   `CONDUCT`:
     its code of conduct
-    (also discussed in [the next lesson](../inclusive/)).
+    (also discussed in [CHAPTER](../inclusive/)).
 
 -   `CITATION`:
     how the work should be cited.
@@ -202,7 +202,7 @@ the more likely they are to do so [Stei2014](#BIB).
 
 ## What *is* a project? {#s:project-thinking}
 
-Like [features](../branches/),
+Like features ([CHAPTER](../branches/)),
 what exactly constitutes a "project" requires a bit of judgment,
 and different people will make different decisions.
 Some common criteria are one project per publication,
