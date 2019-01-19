@@ -30,7 +30,7 @@ keypoints:
 -   "Specially-formatted comments can be used to make Makefiles self-documenting."
 ---
 
-As [the introduction said](../intro/#s:intro-example),
+As [the introduction said](../intro/),
 Zipf's Law states that the second most common word in a body of text
 appears half as often as the most common,
 the third most common appears a third as often,
