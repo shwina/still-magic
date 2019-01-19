@@ -1,5 +1,4 @@
 ---
-permalink: "/en/review/"
 title: "Code Review"
 undone: true
 questions:

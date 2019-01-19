@@ -1,5 +1,4 @@
 ---
-permalink: "/en/integrate/"
 title: "Continuous Integration"
 undone: true
 questions:

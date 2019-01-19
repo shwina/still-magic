@@ -1,5 +1,4 @@
 ---
-permalink: "/en/tools/"
 title: "Other Tools"
 undone: true
 questions:

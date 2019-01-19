@@ -1,5 +1,4 @@
 ---
-permalink: "/en/intro/"
 title: "Introduction"
 questions:
 -   "What is the difference between open, reproducible, and sustainable?"

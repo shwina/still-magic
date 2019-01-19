@@ -1,5 +1,4 @@
 ---
-permalink: "/en/publish/"
 title: "Publishing"
 undone: true
 questions:

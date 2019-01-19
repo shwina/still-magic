@@ -1,5 +1,4 @@
 ---
-permalink: "/en/process/"
 title: "Development Process"
 questions:
 - "How can a team develop software systematically?"

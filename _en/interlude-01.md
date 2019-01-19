@@ -1,5 +1,4 @@
 ---
-permalink: "/en/interlude-01/"
 title: "Interlude: Testing"
 ---
 

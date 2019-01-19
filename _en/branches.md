@@ -1,5 +1,4 @@
 ---
-permalink: "/en/branches/"
 title: "A Branching Workflow"
 questions:
 -   "How can a growing number of people coordinate work on a single project?"

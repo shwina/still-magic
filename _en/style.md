@@ -1,5 +1,4 @@
 ---
-permalink: "/en/style/"
 title: "Programming Style"
 undone: true
 questions:

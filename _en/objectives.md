@@ -1,5 +1,4 @@
 ---
-permalink: "/en/objectives/"
 title: "Learning Objectives"
 ---
 

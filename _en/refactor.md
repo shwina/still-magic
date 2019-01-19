@@ -1,5 +1,4 @@
 ---
-permalink: "/en/refactor/"
 title: "Refactoring"
 undone: true
 questions:

@@ -1,5 +1,4 @@
 ---
-permalink: "/en/contributing/"
 title: "Contributing"
 ---
 

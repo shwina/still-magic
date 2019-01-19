@@ -1,5 +1,4 @@
 ---
-permalink: "/en/rules/"
 title: "The Rules"
 ---
 
