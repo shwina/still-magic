@@ -35,6 +35,13 @@ title: "Glossary"
 **Assertion**{:#g:assertion}
 :   FIXME
 
+**Authentic task**{:#g:authentic-task}
+:   A task which contains important elements of things that learners would do in
+    real (non-classroom situations). To be authentic, a task should require
+    learners to construct their own answers rather than choose between provided
+    answers, and to work with the same tools and data they would use in real
+    life.
+
 **Automatic variable**{:#g:automatic-variable}
 :   FIXME
 
@@ -56,9 +63,6 @@ title: "Glossary"
 **Cascading Style Sheets**{:#g:css} (CSS)
 :   FIXME
 
-**Chunking**{:#g:chunking}
-:   FIXME
-
 **Cognitive load**{:#g:cognitive-load}
 :   FIXME
 
@@ -70,6 +74,10 @@ title: "Glossary"
 
 **Commons**{:#g:commons}
 :   FIXME
+
+**Competent practitioner**{:#g:competent-practitioner}
+:   Someone who can do normal tasks with normal effort under normal
+    circumstances.  See also [novice](#g:novice) and [expert](#g:expert).
 
 **Computational competence**{:#g:computational-competence}
 :   FIXME
@@ -134,8 +142,19 @@ title: "Glossary"
 **Exit status**{:#g:exit-status}
 :   FIXME
 
+**Expert**{:#g:expert}
+:   Someone who can diagnose and handle unusual situations, knows when the usual
+    rules do not apply, and tends to recognize solutions rather than reasoning
+    to them. See also [competent practitioner](#g:competent-practitioner) and
+    [novice](#g:novice).
+
 **Exponent**{:#g:exponent}
 :   FIXME
+
+**False beginner**{:#g:false-beginner}
+:   Someone who has studied a language before but is learning it again. False
+    beginners start at the same point as true beginners (i.e., a pre-test will
+    show the same proficiency) but can move much more quickly.
 
 **Feature boxing**{:#g:feature-boxing}
 :   FIXME
@@ -221,6 +240,10 @@ title: "Glossary"
 **Mantissa**{:#g:mantissa}
 :   FIXME
 
+**Mental model**{:#g:mental-model}
+:   A simplified representation of the key elements and relationships of some
+    problem domain that is good enough to support problem solving.
+
 **Metadata**{:#g:metadata}
 :   FIXME
 
@@ -229,6 +252,10 @@ title: "Glossary"
 
 **Not Invented Here**{:#g:not-invented-here} (NIH)
 :   FIXME
+
+**Novice**{:#g:novice}
+:   Someone who has not yet built a usable mental model of a domain. See also
+    [competent practitioner](#g:competent-practitioner) and [expert](#g:expert).
 
 **Object-oriented programming**{:#g:oop}
 :   FIXME

@@ -148,7 +148,7 @@ A small project should always use these four labels:
 <!-- == \noindent -->
 It might also use:
 
--   *Question*: how is something supposed to work (discussed in [the first section](#s:backlog-issues)).
+-   *Question*: how is something supposed to work (discussed [earlier](#s:backlog-issues)).
 -   *Suitable for Newcomer* or *Beginner-Friendly*:
     to identify an easy starting point for someone who has just joined the project.
     If you help potential new contributors find places to start,

@@ -384,8 +384,9 @@ you'll see an error message.
 ## How can I publish pages myself instead of relying on GitHub? {#s:ghp-self-pub}
 
 Jekyll is very limited for research publishing:
-it doesn't number sections or translate section cross-references,
-and it doesn't handle bibliographic citations.
+it doesn't number sections,
+do cross-referencing,
+or handle bibliographic citations.
 If you need any of these,
 the best approach is to use something other than Jekyll to build the site yourself
 and then commit the generated files to version control.

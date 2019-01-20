@@ -7,7 +7,6 @@ file is a Markdown file because Jekyll doesn't expand the link
 definitions if that's done.
 {% endcomment %}
 
-[climate-api]: http://data.worldbank.org/developers/climate-data-api
 [config-email]: mailto:{{site.email}}
 [config-organization]: {{site.organization}}
 [config-repo]: {{site.repo}}
@@ -23,8 +22,10 @@ definitions if that's done.
 [capes-gerard]: https://github.com/gcapes
 [captain-awkward]: https://captainawkward.com/
 [carpentries]: https://carpentries.org/
+[caulfield-chorus]: https://hapgood.us/2016/05/13/choral-explanations/
 [charles-rules]: http://geekfeminism.wikia.com/wiki/Charles%27_Rules_of_Argument
 [choose-license]: http://choosealicense.com/
+[climate-api]: http://data.worldbank.org/developers/climate-data-api
 [code-smells-and-feels]: https://github.com/jennybc/code-smells-and-feels
 [covenant]: https://www.contributor-covenant.org
 [creative-commons]: https://creativecommons.org/
