@@ -814,7 +814,7 @@ and then check that the right output file has been created.
 We are bound to have the country codes anyway (having used them to look up our data),
 so this should seem natural to our users.
 
-## How can I make it easy for other people to *find* my data: {#s:syndicate-findable}
+## How can I make it easy for other people to find my data? {#s:syndicate-findable}
 
 It's not enough to tell people what the rule is for creating filenames,
 since that doesn't tell them what data sets we've actually generated.

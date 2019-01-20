@@ -208,6 +208,13 @@ but it's out of the scope of this lesson.
 
 ## How Can I Create a Useful FAQ? {#s:docs-faq}
 
+https://www.airsquare.com/blog/index.cfm/article/10-tips-for-writing-the-perfect-faq
+
+- Use "I"
+- Use question words (how/what/when/where)
+- Keep each item short
+- Allow multiple explanations (choral)
+
 ## What can my documentation tell me about the structure of my code? {#s:docs-infer}
 
 FIXME
