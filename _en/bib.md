@@ -1,4 +1,5 @@
 ---
+permalink: "/en/bib/"
 title: "Bibliography"
 ---
 
@@ -20,11 +21,11 @@ title: "Bibliography"
 
 **Cohe2010**{:#b:Cohe2010}: Jason Cohen: "Modern Code Review", in*Making Software*. O'Reilly, 2010. *FIXME*
 
+**Cone2016**{:#b:Cone2016}: Rob Conery: *The Imposter's Handbook*. Big Machine, Inc., 2016. *FIXME*
+
 **Csik1991**{:#b:Csik1991}: Mihaly Csikszentmihalyi: *Flow: The Psychology of Optimal Experience*. Harper Perennial Modern Classics, 2008. *FIXME*
 
-**Pere2013**{:#b:Pere2013}: Santiago Perez De Rosso and Daniel Jackson: "What's Wrong With Git?". *Proc.\ 2013 ACM International Symposium on New Ideas, New Paradigms, and Reflections on Programming and Software (Onward!'13)*, 2013. *The first in a series exploring what's wrong with Git.*
-
-**Pere2016**{:#b:Pere2016}: Santiago Perez De Rosso and Daniel Jackson: "Purposes, Concepts, Misfits, and a Redesign of Git". *Proc.\ 2016 ACM SIGPLAN International Conference on Object-Oriented Programming,  Systems, Languages, and Applications (OOPSLA'2016)*, 2016. *The second in a series exploring what's wrong with Git.*
+**Denn2017**{:#b:Denn2017}: Peter J. Denning: "Remaining Trouble Spots with Computational Thinking". *Communications of the ACM*, 60(6), May 2017. *FIXME*
 
 **Dobz1973**{:#b:Dobz1973}: Theodosius Dobzhansky: "Nothing in biology makes sense except in the light of evolution". *The American Biology Teacher*, Mar 1973, <https://en.wikipedia.org/wiki/Nothing_in_Biology_Makes_Sense_Except_in_the_Light_of_Evolution>. *A forceful statement of the central unifying theme of modern biology.*
 
@@ -33,6 +34,8 @@ title: "Bibliography"
 **Faga1986**{:#b:Faga1986}: Michael E. Fagan: "Advances in Software Inspections". *IEEE Transactions on Software Engineering*, 12(7), July 1986. *FIXME*
 
 **Fucc2016**{:#b:Fucc2016}: Davide Fucci, Giuseppe Scanniello, Simone Romano, Martin Shepperd, Boyce Sigweni, Fernando Uyaguari, Burak Turhan, Natalia Juristo, and Markku Oivo: "An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach". *Proc.\ 10th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'16)*, 2016, <https://doi.org/10.1145/2961111.2962592>. *The latest in a long line to find that test-driven development (TDD) has little or no impact on development time or code quality.*
+
+**Fucc2017**{:#b:Fucc2017}: Davide Fucci, Hakan Erdogmus, Burak Turhan, Markku Oivo, and Natalia Juristo: "A Dissection of the Test-Driven Development Process: Does It Really Matter to Test-First or to Test-Last?". *IEEE Transactions on Software Engineering*, 43(7), Jul 2017. *FIXME*
 
 **Gawa2007**{:#b:Gawa2007}: Atul Gawande: "The Checklist". *The New Yorker*, Dec 2007, <https://www.newyorker.com/magazine/2007/12/10/the-checklist>. *Describes the life-saving effects of simple checklists.*
 
@@ -56,9 +59,19 @@ title: "Bibliography"
 
 **Mak2006**{:#b:Mak2006}: Ronald Mak: *The Martian Principles*. Wiley, 2006. *A short, enjoyable guide to software architecture from someone whose code had to deal with Mars.*
 
+**Mill1956**{:#b:Mill1956}: George A. Miller: "The Magical Number Seven, Plus or Minus Two: Some Limits on Our Capacity for Processing Information". *Psychological Review*, 63(2), 1956. *FIXME*
+
 **Mori2012**{:#b:Mori2012}: Andrew Morin and Jennifer Urban AND Piotr Sliz: "A Quick Guide to Software Licensing for the Scientist-Programmer". *PLOS Computational Biology*, 8(7), Jul 2012, <https://doi.org/10.1371/journal.pcbi.1002598>. *A short introduction to software licensing for non-specialists.*
 
+**Nath2003**{:#b:Nath2003}: Mitchell J. Nathan and Anthony Petrosino: "Expert Blind Spot Among Preservice Teachers". *American Educational Research Journal*, 40(4), Jan 2003. *FIXME*
+
 **Nobl2009**{:#b:Nobl2009}: William Stafford Noble: "A Quick Guide to Organizing Computational Biology Projects". *PLoS Computational Biology*, 5(7), Jul 2009, <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424>. *How to organize a small to medium-sized bioinformatics project.*
+
+**Pea1986**{:#b:Pea1986}: Roy D. Pea: "Language-Independent Conceptual ``Bugs'' in Novice Programming". *Journal of Educational Computing Research*, 2(1), Feb 1986. *FIXME*
+
+**Pere2013**{:#b:Pere2013}: Santiago Perez De Rosso and Daniel Jackson: "What's Wrong With Git?". *Proc.\ 2013 ACM International Symposium on New Ideas, New Paradigms, and Reflections on Programming and Software (Onward!'13)*, 2013. *The first in a series exploring what's wrong with Git.*
+
+**Pere2016**{:#b:Pere2016}: Santiago Perez De Rosso and Daniel Jackson: "Purposes, Concepts, Misfits, and a Redesign of Git". *Proc.\ 2016 ACM SIGPLAN International Conference on Object-Oriented Programming,  Systems, Languages, and Applications (OOPSLA'2016)*, 2016. *The second in a series exploring what's wrong with Git.*
 
 **Petr2014**{:#b:Petr2014}: Marian Petre and Greg Wilson: "Code Review For and By Scientists". *Proc.\ Second Workshop on Sustainable Software for Science: Practice and Experience*, 2014. *FIXME*
 
@@ -71,6 +84,12 @@ title: "Bibliography"
 **Stei2014**{:#b:Stei2014}: Igor Steinmacher, Igor Scaliante Wiese, Tayana Conte, Marco Aurélio Gerosa, and David Redmiles: "The Hard Life of Open Source Software Project Newcomers". *Proc.\ 7th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE/14)*, 2014. *FIXME*
 
 **Tasc2017**{:#b:Tasc2017}: Morgan Taschuk and Greg Wilson: "Ten Simple Rules for Making Research Software More Robust". *PLoS Computational Biology*, 13(4), Apr 2017, <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005412>. *A short guide to making research software usable by other people.*
+
+**Udel2011**{:#b:Udel2011}: Jon Udell: "Seven Ways to Think Like the Web". <http://blog.jonudell.net/2011/01/24/seven-ways-to-think-like-the-web/>2011. *FIXME*
+
+**Wald1994**{:#b:Wald1994}: Jim Waldo, Geoff Wyant, Ann Wollrath, and Sam Kendall: "A Note on Distributed Computing". IEEE Micro, 1994. *FIXME*
+
+**Whit1958**{:#b:Whit1958}: Alfred North Whitehead: *An Introduction to Mathematics*. Oxford University Press, 1958. *FIXME*
 
 **Wick2014**{:#b:Wick2014}: Hadley Wickham: "Tidy Data". *Journal of Statistical Software*, 59(10), 2014, <https://doi.org/10.18637/jss.v059.i10>. *The defining paper on tidy data.*
 

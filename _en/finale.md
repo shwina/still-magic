@@ -1,195 +1,235 @@
 ---
 title: "Finale"
-undone: true
 questions:
--   "What does it all mean?"
--   "Where do we go next?"
+-   "What have we learned?"
 objectives:
--   "Explain eight rules for thinking like a programmer."
--   "Describe the next steps in a research programmer's development."
+-   "Explain ten rules for thinking like a programmer."
 keypoints:
--   "It's all just data."
--   "Data doesn't mean anything on its own: it has to be interpreted."
--   "Programming is about creating and composing abstractions."
--   "Models are for computers, and views are for people."
--   "Slowing down makes us go faster."
--   "Better algorithms are better than better hardware."
--   "The tool shapes the hand."
--   "No human interpretation of data is neutral."
+-   Programs are data.
+-   Computers don't understand anything.
+-   Programming is about creating and combining abstractions.
+-   Every redundancy in software is an abstraction trying to be born.
+-   Create models for computers and views for human beings.
+-   Paranoia makes us productive.
+-   Things that don't change are easier to understand than things that do.
+-   Better algorithms are better than better hardware.
+-   Distributed is different.
+-   Privacy, security, fairness, and responsibility can't be added after the fact.
 ---
 
-Jon Udell's essay "[Seven Ways to Think Like the Web][seven-ways]" completely
-changed the way I think about what the Internet is for and how we ought to use
-it.  I tried to sum up the big ideas of an earlier incarnation of [Software
-Carpentry][swc] in response; after some updates, the list is:
+Ever since [Wing2006](#BIB) introduced the term "computational thinking" in 2006,
+computer scientists and educators have debated what exactly it means [Denn2017](#BIB).
+What isn't debated is the fact that
+programmers tend to think about problems in ways inspired by programming.
+This paper describes ten of those ways
+which may help people in other domains see their own problems with fresh eyes.
 
-1. It's all just data.
-2. Data doesn't mean anything on its own: it has to be interpreted.
-3. Programming is about creating and composing abstractions.
-4. Models are for computers, and views are for people.
-5. Slowing down makes us go faster.
-6. Better algorithms are better than better hardware.
-7. The tool shapes the hand.
-8. No human interpretation of data is neutral.
+*An early version of this paper was inspired by Jon Udell's essay
+"Seven Ways to Think Like the Web" [Udel2011](#BIB).*
 
-First, and most importantly, **it's all just data**.  Shopping lists, email,
-pictures of far-off galaxies: inside the computer, they're all just ones and
-zeroes.  Even programs are just data: in fact, this is the key insight that all
-of modern computing is built on.  The source code for a program is just a bunch
-of text files, no different from a thesis.  Once that text is compiled or loaded
-into memory, it's just bytes too, and pushing those bytes around is no different
-from correcting a typo in an address list or changing the color of a pixel in an
-image file.  If you understand this---if you understand that programs are just
-another kind of data---then every bit of programming you do will be easier.
+## 1. Programs are data.
 
-The second idea is a complement to the first.  **Data doesn't mean anything on
-its own---it has to be interpreted**.  01100100011000010111100001100001
-simultaneously represents the word "data", the integer 1,684,108,385, the
-floating-point number 1.6635613602263159e+22, a bluish-gray pixel that's
-slightly transparent, a medium-loud sound sample with slightly higher volume in
-the left channel, or an instruction to add the value of register 100 to a
-location in memory that is 97 bytes past the address currently stored in
-register 116.
+The key insight that all of modern computing is built on is that
+programs are just another kind of data. Source code is text, no
+different from a thesis or a poem; it can be searched with the same
+tools used to search other kinds of documents, and new text (such as
+documentation) can be generated from old.
 
-The reason for this is that machines don't understand; they obey.  If
-you look at this image, you can't help but see the word "data":
+More importantly, once a program is loaded into memory its instructions
+are just bytes, no different in principle or practice from those used to
+represent the pixels in an image or the numbers in a vector field. Those
+blocks of instructions can be stored in data structures, passed to
+functions, or altered on the fly, just like other data. Almost all
+advanced programming techniques depend on this fact, from function
+pointers in C and callbacks in JavaScript to decorators in Python and
+lazy evaluation in R.
+
+## 2. Computers don't understand anything.
+
+Computers don't understand: they only obey instructions that make them
+appear to. If a person looks at this image, they see the word "data":
 
 <figure id="f:finale-data"> <figcaption>The Word "Data"</figcaption> <img src="../../figures/finale-data.png"/> </figure>
 
-A machine doesn't; it doesn't even see four blobs of blue pixels on a gray
-background, because it doesn't "see" anything.  The computer stores this image,
-and a program, as bits in memory.  If those bits happen to correspond to
-instructions for the computer's CPU, and if those instructions happen to make up
-a program for detecting shapes in images and matching those shapes with letters
-in the alphabet, then the computer may very well output "data", but *it doesn't
-understand*.  Calling a variable "temperature" doesn't mean the computer will
-store a temperature in it---it would do exactly the same thing if the variable was
-called "pressure" or "frankenstein" or "a7".
+A machine doesn't; it doesn't even see four blobs of blue pixels on a
+gray background, because it doesn't "see" anything. Equally, calling a
+variable "temperature" doesn't mean the computer will store a
+temperature in it---it would do exactly the same thing if the variable was
+called "pressure" or "frankenstein" or "a7". This may seem obvious once
+you have written a few programs, but thirty years after [Pea1986](#BIB) first
+called it the "superbug", believing that the computer will somehow
+understand intent remains a common error.
 
-This brings us to the third idea: **programming is about creating and composing
-abstractions**.  Our brains can only keep track of a few things at once, so if
-we want to understand something, we have to stuff the details into boxes and put
-labels on them like "find the maximum" or "patient record".
+## 3. Programming is about creating and combining abstractions.
 
-One key to making abstraction work is to separate *interface* from
-*implementation*.  An interface is what something knows how to do: the questions
-it can answer, or the operations it can carry out. Its implementation is how it
-does those things: what data it stores, what algorithms it uses, and so on.
-There can be dozens of ways to implement a particular interface; if we do our
-work well, we shouldn't have to care about the implementation until something
-goes wrong or we need to improve its performance.  "Spare me the details" may be
-rude in real life, but it's essential in programming.
+Computers don't have to understand instructions in order to execute
+them, but we do in order to create them (and fix them afterward). Since
+our working memory can only juggle a handful of things at once
+[Mill1956](#BIB), we have to create abstractions so that our representations
+of problems will fit into hardware whose performance doubles over
+millions of years rather than every eighteen months.
 
-Another key to making abstraction work is to always choose clarity over
-cleverness.  As Brian Kernighan once said, "...debugging is twice as hard as
-writing a program in the first place.  So if you are as clever as you can be
-when you write it, how will you ever debug it?"  Programs are among the most
-complex things human beings have ever created; it may be tempting to use little
-tricks here and there to make them smaller or faster, but somebody (maybe you)
-is going to have to figure it out again later, and really, nobody likes being
-tricked.
+The key to making workable abstractions is to separate "what" from
+"how", or in computing terms, to separate *interface* and
+*implementation*. An interface is what something knows how to do; its
+implementation is how it does those things. There can be dozens of
+different implementations of a single interface: if we do our work well,
+we shouldn't have to care about the differences between them until
+something goes wrong or we need to improve its performance.
 
-One implication of the abstraction principle is important enough to be our
-fourth principle in its own right: **models are for computers, and views are for
-people**.  A model is a representation of something that is easy for a computer
-to operate on; a view is a way of displaying part or all of that model that
-human beings can understand.  For example, an HTML document consists of elements
-with attributes that contain other elements or blocks of raw text:
+## 4. Every redundancy in software is an abstraction trying to be born.
+
+The history of programming is in part the history of people noticing
+patterns and then making it easier for programmers to use them. Does
+your program repeatedly search an array to find the largest and smallest
+values? Write a function called `bounds`. Does it repeatedly search
+arbitrary data structures to find values that meet certain criteria?
+Write a generator that returns values one by one and another function
+that filters those according to some criteria.
+
+The problem with eliminating redundancy is that it can make software
+denser, which in turn makes it harder for non-specialists to understand.
+Like mathematics and modern art, it can take years of training for
+someone to reach the point where they can see how beautiful something
+is.
+
+The other problem with patterns is that they can lead to expert blind
+spot [Nath2003](#BIB). Once experts have internalized patterns, they are
+often unable to remember that they ever saw the world any other way, or
+to see the world afresh through novice eyes. As a result, they are prone
+to say, "It's obvious," and then follow it with incomprehensible jargon.
+
+## 5. Create models for computers and views for human beings.
+
+One consequence of the second and third rules is important enough to be
+a rule in its own right: we should create models for computers and views
+for human beings. A *model* is a precise, detailed representation of
+information that is easy for a computer to operate on; a *view* is a way
+of displaying information that human beings can easily understand and
+interact with. For example, an HTML page is represented in memory as a
+data structure containing nodes for elements like headings and
+paragraphs, which can in turn contain a mix of other nodes or text:
 
 <figure id="f:finale-modelview"> <figcaption>Model-View Separation</figcaption> <img src="../../figures/finale-modelview.png"/> </figure>
 
-That model can be rendered in a browser, turned into speech for someone who is
-visually impaired, or displayed as text using angle brackets, quotes, and some
-indentation.  None of these *is* the model: they're all views that make the
-model's content accessible to human beings in different contexts.  The model
-itself isn't just easier for the computer to work with: it's essential, since as
-we said before, the computer can't "see" the views that we create for human
-beings.
+That model can be rendered in a browser, turned into speech, or
+displayed as text using angle brackets. None of these *is* the model:
+they're all views that make the information in the model comprehensible
+in different ways.
 
-Turning one of those views back into a model is hard: parsing the textual
-representation of HTML takes thousands of lines of code, and doing OCR or speech
-recognition to translate the rendered page or its spoken equivalent can take
-millions.  What big idea number four implies, therefore, is that *structured
-data is better than unstructured data*.  The tags and attributes in the textual
-representation of an HTML page are there because without it, the computer can't
-tell whether something is in italics because it's being emphasized or because
-it's the title of a book.  To borrow an example from Jon Udell, a PDF with a
-cartoon whose caption says, "The knitting circle meets on the second Tuesday of
-every month" is a lot easier for human beings to understand than a blob of
-iCal-formatted text, but the second is much easier for the computer.
+Turning a model into a view is hard, but turning a view back into a
+model is harder. For example, parsing the textual representation of HTML
+takes thousands of lines of code, but doing OCR or speech recognition to
+translate a rendered page or its spoken equivalent back into nodes and
+text can take millions. Ironically, the same programmers who insist on
+this separation in software they build for the rest of humanity have
+been remarkably resistant to the idea of adopting any kind of model-view
+separation in programming itself.
 
-We said earlier that we only want to care about how something is implemented
-when things go wrong or when we need to improve its performance.  Big idea
-number five is about things going wrong, and can be summed up by saying that
-**slowing down makes us go faster**.  The best way---in fact, the only way---to
-improve productivity is to improve quality, and this starts before we write the
-first line of code.  "I want to count all the stars in this photograph" is easy
-to say, but what does it actually *mean*?  What constitutes a star?  When do you
-decide that a lumpy blob of pixels is two stars rather than one, or three
-instead of two?  Every program embodies decisions about questions like these,
-even if you don't realize that there was a question and that you made a choice.
-The sooner we worry about this, the less time we'll waste building the wrong
-thing.
+## 6. Paranoia makes us productive.
 
-Of course, we don't stop worrying once we've typed our code in.  We check that
-data is formatted properly to protect ourselves against "garbage in, garbage
-out".  We put checks in our code to make sure that parameters are sensible, data
-structures consistent, files aren't empty, and so on.  And we write tests, and
-use a build system, to catch errors as soon as possible.  This might feel like
-it's slowing us down at first, but study after study has shown that it works.
+"I want to count the cells in this photograph" is easy to say, but what
+does it actually mean? What constitutes a cell? When do you decide that
+a lumpy blob of pixels is two cells rather than one, or three instead of
+two? Every program embodies decisions like these; the sooner these
+decisions are made explicit and the earlier they're checked, the more
+productive we will be. The precise order of steps doesn't seem to
+matter: we can write tests, then write software to make those tests
+pass, or write the program first and then test it. What *does* matter is
+alternating development and testing in short interleaved bursts
+[Fucc2017](#BIB).
 
-One of the best ways to apply this principle, by the way, is to automate
-everything.  As Alfred North Whitehead said, "Civilization advances by extending
-the number of important operations which we can perform without thinking about
-them."  We don't just write programs because we want to do things quickly: we
-write them because we don't want to do some things ever again.  Version control
-systems keep track of our work for us; spreadsheets update graphs and summary
-statistics whenever a single value changes, and so on.  Every time we automate a
-task, we reduce the chances of getting it wrong the next time, and have more
-time to think about things that machines *can't* do for us.  And it's not just a
-one-time saving: if we automate things well, that extra time is ours over and
-over again.
+Of course, we don't stop worrying once we've typed our code in. We check
+that data is formatted properly to protect ourselves against "garbage
+in, garbage out". We put checks in our code to make sure that parameters
+are sensible, data structures consistent, files aren't empty, and so on.
+This is called *defensive programming*, and one of the signs of a mature
+programmer is a high density of assertions and other self-checks in her
+code. It is harder to do this in research software than in most
+commercial software because (almost by definition) we don't know what
+the right answer *is* in research software, which makes it difficult to
+check that we're getting it.
 
-Big idea number six is that we can think about how fast the algorithms embodied
-in programs are, and that **better algorithms are better than better hardware**.
-One of the greatest mathematical advances of the Twentieth Century was the idea
-of *algorithmic complexity*, and its practical implications shape everything we
-do with computers, whether we realize it or not.  The basic idea is that we can
-estimate how many operations an algorithm will do, or how much memory it
-requires, as a function of the size of the problem we're trying to solve.  It
-turns out that some algorithms slow down gently as their inputs get larger,
-while others slow down so much that even if the whole universe was one large
-computer, it couldn't solve any problem big enough to be interesting.  Faster
-chips help---a lot---but the real key to speed is to focus on what we're doing,
-not what we're doing it with.
+## 7. Things that don't change are easier to understand than things that do.
 
-But algorithms are nothing without data structures to operate on, just as data
-structures are pointless without algorithms to manipulate them.  That's why the
-two topics are usually taught together: arrays with loops, trees with recursion,
-and so on.  Knowing the syntax of this language or the API of that library is
-useful, but good programmers know their data structures and algorithms the way a
-plumber knows pipes or a musician knows scales.
+Programmers use the words *mutable* and *immutable* to refer to things
+that can be modified after they are created and things that cannot.
+Immutable things are easier to understand because you don't have to
+re-trace their history in order to understand their state. However,
+immutable data can be less efficient than mutable data: for example,
+it's very expensive to make a copy of an entire multi-megabyte image
+just because we want to change one pixel.
 
-Thinking about pipes and scales bring us to something that artisans have known
-for thousands of years: **the tool shapes the hand**.  Building software changes
-how you use software; making computers do new things changes your understanding
-of what computers can do.  That's why any course about computational thinking
-should ask you to write software: however frustrating it may sometimes be, it's
-the only way to teach you what software can do.
+Older programming languages like C and Fortran allowed most data to be
+mutable because computer time was expensive. This led to many
+hard-to-find bugs, so newer languages either make data immutable or
+automatically copy data when asked to make changes in order to give the
+appearance of immutability.
 
-The eighth and final idea is probably the most important.  While computers don't
-have points of view, human beings do, which means that **no human interpretation
-of data is neutral**.  If the last few years have taught us anything, it's that
-there's no such thing as a "purely technical" decision.  Every decision about
-what data to collect, who to share it with, how to analyze it, what thresholds
-to consider "significant", and how to use the results of those analyses
-necessarily and unavoidably serves someone's interests.  Many programmers try to
-ignore this; many others pretend that there are purely technical solutions to
-it, because if the problem is technical, they only have to change their code,
-but if the problem is human, they might have to change themselves.
+One special case of this rule is automating workflows. As [Whit1958](#BIB)
+said, "Civilization advances by extending the number of important
+operations which we can perform without thinking about them." Every time
+we automate a task---i.e., make its steps immutable---we reduce the chances
+of getting it wrong the next time, and have more time to think about
+things that machines *can't* do for us.
 
-## Where to Go Next {#s:finale-next}
+## 8. Better algorithms are better than better hardware.
 
-FIXME: links to other resources
+One of the greatest mathematical advances of the Twentieth Century was
+the idea of *algorithmic complexity*. The key insight is that the
+running time or memory requirements of an algorithm grow in a
+predictable way as a function of the size of the problem we are trying
+to solve [Cone2016](#BIB). Some algorithms slow down gently as their inputs
+get larger, but others slow down so much that even if the whole universe
+was one large computer, it couldn't solve any interesting problem.
+Faster chips are therefore very welcome, but the real key to speed is to
+focus on how we're doing things.
+
+## 9. Distributed is different.
+
+Distributed computing is intrinsically different from running a program
+on a single machine [Wald1994](#BIB). On a single computer, we can usually
+pretend that nobody else is modifying the data while we're trying to use
+it. Once our data is distributed, that simplification breaks down, and
+we have to worry about things like someone else adding records to the
+database between the time we ask how many there are and the time we
+start processing them.
+
+Similarly, we can pretend that a program running on a single computer
+either works or doesn't. When that same program is accessing remote
+resources, we have to worry about whether a long delay means that
+something has failed, or whether it's just being slow. Many attempts
+have been made to paper over these differences, but all have failed in
+the large. As a result, the future of programming is about how we deal
+with this---a statement that has been true since the 1980s
+
+## 10. Privacy, security, fairness, and responsibility can't be added after the fact.
+
+Our final rule may be the most important of all. As the last few years
+have shown, collecting and interpreting data is never a neutral
+activity: who we share data with, how we classify it, and most
+importantly, who gets to decide these things are all political decisions
+with ever-increasing impact, and we are past the point where we can
+pretend otherwise.
+
+Attempts to add privacy, security, and fairness to systems after they
+have been built and deployed have repeatedly failed. The other "future
+of programming" is therefore to take digital health as seriously as
+physical health, and to make those responsible for it as accountable as
+those responsible for other aspects of our wellbeing.
+
+## Summary {#s:finale-summary}
+
+Artisans have known for centuries that the tool shapes the hand.
+If computers are tools for thinking with,
+then it shouldn't surprise us that writing software shapes the minds of those who do it.
+The ten rules listed above are just a few reflections of this;
+we hope that they,
+and the skills and tools taught in these lessons,
+will help you see the world in new ways.
+
+## Exercises {#s:finale-exercises}
+
+FIXME: exercise for finale
 
 {% include links.md %}

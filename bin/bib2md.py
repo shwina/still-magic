@@ -104,6 +104,13 @@ def _howpublished(entry):
     return _c(how)
 
     
+def _institution(entry):
+    '''
+    Format the institution that published a tech report.
+    '''
+    return _c(entry['institution'])
+
+    
 def _journal(entry):
     '''
     Format a journal title.
@@ -165,7 +172,8 @@ HANDLERS = {
     'comment' : [],
     'incollection' : [_key, ': ', _authors, ': ', _papertitle, ', in', _booktitle, '. ', _publisher, (', ', _details), (', ', _link), '. ', _note],
     'inproceedings' : [_key, ': ', _authors, ': ', _papertitle, '. ', _booktitle, (', ', _details), (', ', _link), '. ', _note],
-    'misc' : [_key, ': ', _authors, ': ', _papertitle, '. ', _howpublished, _details, (', ', _link), '. ', _note]
+    'misc' : [_key, ': ', _authors, ': ', _papertitle, '. ', _howpublished, _details, (', ', _link), '. ', _note],
+    'techreport' : [_key, ': ', _authors, ': ', _papertitle, '. ', _institution, (', ', _details), '. ', _note]
 }
 
 def main(language):

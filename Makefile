@@ -106,7 +106,7 @@ ${PAGES_HTML} : ${PAGES_MD}
 	${JEKYLL} build
 
 # Create the bibliography Markdown file from the BibTeX file.
-${BIB_MD} : ${BIB_TEX}
+${BIB_MD} : ${BIB_TEX} bin/bib2md.py
 	bin/bib2md.py ${lang} < ${DIR_TEX}/book.bib > ${DIR_MD}/bib.md
 
 # Dependencies with HTML file inclusions.
