@@ -37,15 +37,17 @@ def readDefs(filename):
 
 
 def readRefs(filenames):
+    codePat = re.compile(r'```.+?```', re.DOTALL)
     linkPat = re.compile(r'\[[^\]]+\]\[([^\]]+)\]')
-    internalPat = re.compile(r'\[[^\]]+\]\(\.\.?/([^)]+)\)')
+    internalPat = re.compile(r'\[[^\]]+\]\(\.\.?/([^/)]+)[^)]*\)')
     links = set()
     internals = set()
     for f in filenames:
         with open(f, 'r') as reader:
-            data = reader.read()
-            links |= set(linkPat.findall(data))
-            internals |= set([x.rstrip('/') for x in internalPat.findall(data)])
+            raw = reader.read()
+            cooked = codePat.sub('', raw)
+            links |= set(linkPat.findall(cooked))
+            internals |= set(internalPat.findall(cooked))
     return links, internals
 
 

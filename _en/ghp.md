@@ -165,11 +165,13 @@ The first puts the displayed text in square brackets and the URL in parentheses:
 Please see [our website](http://example.com) for more information.
 ```
 
-It's generally considered better style to use a symbolic name for the link in the text
-in square brackets, `[like this][website]`,
-and then put a definition for the link name at the bottom of the file:
+It's generally considered better style to use a memorable name for the link
+in square brackets in the text
+and then define that link at the bottom of the file:
 
 ```
+Create links [like this][website] to ensure consistency.
+
 [website]: http://example.com
 ```
 
