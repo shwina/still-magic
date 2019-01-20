@@ -15,7 +15,7 @@ keypoints:
 - "The primary responsibility of a project manager is to create and maintain a schedule."
 ---
 
-A [software development process](#s:dev-process) is
+A [software development process](#g:dev-process) is
 the steps a team goes through to create, deliver, and maintain software.
 Broadly speaking,
 software development processes can be divided into three groups:

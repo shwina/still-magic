@@ -38,7 +38,7 @@ FIXME: [Dobz1973](#BIB)
     -   A good programming editor will auto-complete names, so you don't have to do much typing
 -   However, short variable names for temporaries and loop variables are OK [Beni2017](#BIB)
 -   Order within file should be:
-    -   Docstring ([s:style](#CHAPTER))
+    -   Docstring ([CHAPTER](../style/))
     -   Imports
     -   Constants
     -   Functions (highest level first)
@@ -143,14 +143,14 @@ def settings(user_id, **settings):
 jenny {'lang': 'R', 'country': 'CA'}
 ```
 
-## Summary {#s:docs-summary}
+## Summary {#s:style-summary}
 
-FIXME: create concept map for docs
+FIXME: create concept map for style.
 
 FIXME: [Orwell's Rules][orwells-rules]
 
-## Exercises {#s:docs-exercises}
+## Exercises {#s:style-exercises}
 
-FIXME: create concept map for docs
+FIXME: create concept map for style.
 
 {% include links.md %}

@@ -468,7 +468,7 @@ so that:
 The circle is defined by $$x^2 + y^2 = \mu$$.
 ```
 
-<div markdown="1" replacement="mathjax-1.tex">
+<div markdown="1" replacement="ghp/mathjax-1.tex">
 
 <!-- == \noindent -->
 produces "The circle is defined by $$x^2 + y^2 = \mu$$."
@@ -483,7 +483,7 @@ $$ r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}} $$
 <!-- == \noindent -->
 produces:
 
-<div markdown="1" replacement="mathjax-2.tex">
+<div markdown="1" replacement="ghp/mathjax-2.tex">
 
 $$
 r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}}
@@ -493,7 +493,7 @@ $$
 
 Here are just a few of the things MathJax can do:
 
-<div markdown="1" replacement="mathjax-3.tex">
+<div markdown="1" replacement="ghp/mathjax-3.tex">
 
 | Item        | Source                      | Rendered                  |
 | ----------- | --------------------------- | ------------------------- |

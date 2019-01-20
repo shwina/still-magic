@@ -97,6 +97,7 @@ ${ALL_TEX} : ${PAGES_HTML} Makefile
 	| sed -E -e 's!\\subsection!\\section!' \
 	| sed -E -e 's!\\subsubsection!\\subsection!' \
 	| sed -E -e 's!\\texttt\{\\n\}!\\texttt\{\\textbackslash n\}!g' \
+	| sed -E -e 's!\\protect\\hyperlink\{([^}]+)\}\{CHAPTER\}!Chapter~\\ref{\1}!g' \
 	| ${PYTHON} bin/replacement.py --post _includes \
 	> ${ALL_TEX}
 
@@ -109,7 +110,7 @@ ${BIB_MD} : ${BIB_TEX}
 	bin/bib2md.py ${lang} < ${DIR_TEX}/book.bib > ${DIR_MD}/bib.md
 
 # Dependencies with HTML file inclusions.
-${DIR_HTML}/ghp/index.html : _includes/mathjax-1.tex _includes/mathjax-2.tex _includes/mathjax-3.tex
+${DIR_HTML}/%/index.html : $(wildcard _includes/%/*.*)
 
 ## ----------------------------------------
 

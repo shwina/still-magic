@@ -368,6 +368,9 @@ title: "Glossary"
 **Silent failure**{:#g:silent-failure}
 :   FIXME
 
+**Software development process**{:#g:dev-process}
+:   FIXME
+
 **Stand-up meeting**{:#g:stand-up-meeting}
 :   FIXME
 

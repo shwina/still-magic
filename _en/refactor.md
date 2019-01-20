@@ -264,7 +264,7 @@ def count_vowels_and_consonants(text):
 ## Create Lookup Table {#s:refactoring-lookup}
 
 -   Easier to understand (and therefore maintain) lookup tables than complicated conditionals
-    -   An example of [declarative programming](#g:declarative-programming) (see [s:automate](#CHAPTER))
+    -   An example of [declarative programming](#g:declarative-programming) (see [CHAPTER](../automate/))
 
 ```python
 # BEFORE

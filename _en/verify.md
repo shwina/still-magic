@@ -289,7 +289,7 @@ def test_fit_last_too_large():
     -   Have every tool append information to a log
     -   Have another tool check that log file after the run is over
     -   Logging and then checking makes it easy to compare values between pipeline stages
-    -   [s:logging](#CHAPTER) shows how to do logging
+    -   [CHAPTER](../logging/) shows how to do logging
 -   Common tests
     -   Same number of output records as input records
     -   Or fewer output records than input records if you're aggregating
