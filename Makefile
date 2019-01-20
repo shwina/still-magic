@@ -159,7 +159,8 @@ undone :
 
 ## words       : count words in finished files.
 words :
-	@wc -w $$(fgrep -L 'undone: true' _en/*.md) | sort -n -r
+	@for filename in $$(fgrep -L 'undone: true' ${PAGES_MD}); do printf '%6d %s\n' $$(cat $$filename | bin/uncode.py | wc -w) $$filename; done | sort -n -r
+	@printf '%6d %s\n' $$(cat ${PAGES_MD} | bin/uncode.py | wc -w) 'total'
 
 ## ----------------------------------------
 
