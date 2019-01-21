@@ -1,6 +1,5 @@
 ---
-title: "Programming Style"
-undone: true
+title: "Documentation"
 questions:
 -   "What kind of documentation should I write and where should I put it?"
 objectives:
@@ -27,7 +26,143 @@ This lesson will explore who we should write documentation for,
 what we should write for them,
 and where it should go.
 
-## What should I document for whom? {#s:style-what}
+## How can I write useful error messages? {#s:docs-error-messages}
+
+This is not a helpful error message:
+
+<figure id="f:docs-error-message"> <figcaption>Error Message</figcaption> <img src="../../figures/docs-error-message.png"/> </figure>
+
+<!-- == \noindent -->
+Neither is this:
+
+```text
+System.InvalidOperationException: Nullable object must have a value.
+```
+
+<!-- == \noindent -->
+or this:
+
+```text
+I tried really hard but was unable to complete your request.
+You probably need to talk to a human - have you tried calling Dave?
+```
+
+Error messages are often the first thing people actually read about a piece of software
+(or possibly the second if they had to install it themsleves),
+so they should therefore be the most carefully written documentation for that software.
+A quick web search for "writing good error messages" turns up hundreds of hits,
+but recommendations are often more like gripes than solid guidelines
+and are usually not backed up by evidence.
+What research there is [Trav2010,Beck2016](#BIB) gives us the following rules:
+
+1.  Do not tell the user what the program did that caused the problem,
+    but what the user did.
+    Putting it another way,
+    the message shouldn't state the effect of the error,
+    it should state the cause.   
+
+2.  Be spatially correct,
+    i.e.,
+    point at the actual location of the error.
+    Few things are as frustrating as being pointed at line 28
+    when the problem is really on line 35.
+
+3.  Do not provide tips or potential solutions.
+    In most languages it is not possible to determine what the actual error is from the message with 100% certainty.
+    Therefore it is better to give an as-specific-as-possible message on what went wrong without offering guidance on fixing it.
+    Tips and hints could be provided by a different tool,
+    but they should be based on the error message and not part of it.
+
+4.  Be as specific as possible without ever being (or seeming) wrong:
+    from a user's point of view,
+    "file not found" is very different from "don't have permissions to open file" or "file is empty".
+
+5.  Write for your audience's level of understanding.
+    For example, error messages should never use programming terms more advanced than
+    those you would use to describe the code the user wrote.
+
+6.  Do not blame the user, and do not use words like fatal, illegal, etc.
+    The former can frustrate---in many cases, "user error" actually isn't---and
+    the latter can make people worry that the program has damaged their data,
+    their computer,
+    or their reputation.
+
+7.  Do not try to make the computer sound like a human being.
+    In particular, avoid humor:
+    very few jokes are funny on the dozenth re-telling,
+    and most users are going to see error messages at least that often.
+
+8.  Use a consistent vocabulary.
+    This rule can be hard to enforce when error messages are written by several different people,
+    but putting them all in one module makes review easier.
+
+That last suggestion deserves a little elaboration.
+Most people write error messages directly in their code:
+
+```python
+try:
+    # ...do something complicated...
+except OSError as e:
+    print('Unable to find or read file {}'.format(filename))
+    sys.exit(1)
+```
+
+<!-- == \noindent -->
+A better approach for large projects is to put all of the error messages in a catalog:
+
+```python
+ERROR_MESSAGES = {
+    'cannot_read_file' : 'Unable to find or read file {}',
+    'config_corrupted' : 'Configuration file {} corrupted',
+    # ...more error messages...
+}
+```
+
+<!-- == \noindent -->
+and then only use messages from that catalog:
+
+```python
+from error_messages import ERROR_MESSAGES
+
+try:
+    # ...do something complicated...
+except OSError as e:
+    print(ERROR_MESSAGES['cannot_read_file'].format(filename))
+    sys.exit(1)
+```
+
+<!-- == \noindent -->
+Doing this makes it much easier to ensure that messages are consistent.
+It also makes it much easier to give messages in the user's preferred language:
+
+
+```python
+ERROR_MESSAGES = {
+    'en' : {
+        'cannot_read_file' : 'Unable to find or read file {}',
+        'config_corrupted' : 'Configuration file {} corrupted',
+        # ...more error messages in English...
+    },
+    'fr' : {
+        'cannot_read_file' : 'Impossible d'accéder au fichier {}',
+        'config_corrupted' : 'Fichier de configuration {} corrompu',
+        # ...more error messages in French...
+    }
+    # ...other languages...
+}
+```
+
+<!-- == \noindent -->
+The error report is then looked up as:
+
+```python
+ERROR_MESSAGES[user_language]['cannot_read_file']
+```
+
+<!-- == \noindent -->
+where `user_language` is a two-letter code for the user's preferred language.
+
+## What should I document for whom? {#s:docs-what}
 
 There are three kinds of people in any domain:
 [novices](#g:novice), [competent practitioners](#g:competent-practitioner), and [experts](#g:expert) [Wils2018](#BIB).
@@ -62,10 +197,13 @@ is therefore to decide which of these needs you are trying to meet.
 Tutorials like this one should be long-form prose that contain code samples and diagrams.
 They should use [authentic tasks](#g:authentic-task) to motivate ideas,
 i.e.,
-show people things they might actually want to do
-rather than printing out prime numbers or having function `foo` call function `bar`.
+show people things they actually want to do rather than printing the numbers from 1 to 10,
+and should include regular check-ins
+so that learners and instructors alike can tell if they're making progress.
+If you would like to know more about creating tutorials,
+please see [Wils2018](#BIB).
 
-Guided tours like this will help novices build a mental model,
+Tutorials help novices build a mental model,
 but competent practitioners and experts will be frustrated by their slow pace and low information density.
 They will want single-point solutions to specific problems like
 how to find cells in a spreadsheet that contain a certain string
@@ -88,13 +226,12 @@ we would satisfy these needs with a [chorus of explanations][caulfield-chorus],
 some long and detailed,
 others short and to the point.
 In our world, though,
-time and resources are limited.
-The rest of this section will therefore concentrate on
-how to create a reference guide and an FAQ for a software package.
-If you would like to know more about creating tutorials,
-please see [Wils2018](#BIB).
+time and resources are limited,
+so all but the most popular packages must make do with single explanations.
+The rest of this section will therefore look at
+how to create reference guides and FAQs.
 
-## Where should I put documentation for my code? {#s:style-docstrings}
+## How should I write documentation for code? {#s:docs-docstrings}
 
 Instead of writing comments to document code,
 Python encourages us to write [docstrings](#g:docstring)
@@ -206,32 +343,148 @@ the other is that it automatically regenerates that documentation every time the
 It's a great service,
 but it's out of the scope of this lesson.
 
-## How Can I Create a Useful FAQ? {#s:docs-faq}
+To learn more about documenting Python code,
+see [this tutorial][mertz-documentation] by James Mertz.
 
-https://www.airsquare.com/blog/index.cfm/article/10-tips-for-writing-the-perfect-faq
+## What should I document? {#s:docs-infer}
 
-- Use "I"
-- Use question words (how/what/when/where)
-- Keep each item short
-- Allow multiple explanations (choral)
+The answer to the question in this section's title depends on what stage of development you are in.
+If you are doing [exploratory programming](#g:exploratory-programming),
+a short docstring to remind yourself of each function's purpose is good enough.
+(In fact, it's probably better than what most people do.)
+That one- or two-liner should begin with an active verb and describe either
+how inputs are turned into outputs,
+or what side effects the function has;
+as we discuss below,
+if you need to describe both,
+you should probably rewrite your function.
 
-## What can my documentation tell me about the structure of my code? {#s:docs-infer}
+An active verb is something like "extract", "normalize", or "find".
+For example,
+these are all good one-line docstrings:
 
-FIXME
+-   "Create a list of current ages from a list of birth dates."
+-   "Clip signals to lie in [0...1]."
+-   "Reduce the red component of each pixel."
 
-A more reasonable guideline is therefore,
-"If you need to document something in the middle of a function, put it in a separate function."
-Once you've done that,
-explain the overall purpose of the code in that file,
-how each function in the file helps achieve that goal,
-and anything else that would puzzle your younger self.
+You can tell your one-liners are useful if you can read them aloud in the order the functions are called
+in place of the function's name and parameters.
+
+Once you start writing code for other people---including yourself three months from now---your
+docstrings should describe:
+
+1.  The name and purpose of every public class, function, and constant in your code.
+2.  The name, purpose, and default value (if any) of every parameter to every function.
+3.  Any side effects the function has (discussed in [the next section](#s:docs-learn)).
+4.  The type of value returned by every function.
+5.  What exceptions those functions can raise and when.
+
+The word "public" in the first rule is important.
+You don't have to write full documentation for helper functions
+that are only used inside your package and aren't meant to be called by users,
+but these should still have at least a comment explaining their purpose.
+You also don't have to document unit testing functions:
+as discussed in [CHAPTER](../unit/),
+these should have long names that describe what they're checking
+so that failure reports are easy to scan.
+
+## How can I create a useful FAQ? {#s:docs-faq}
+
+An [FAQ](#g:faq) is a list of frequently-asked questions and corresponding answers.
+A good FAQ uses the terms and concepts that people bring to the software
+rather than the vocabulary of its authors;
+putting it another way,
+the questions should be things that people might search for online,
+and the answers should give them enough information to solve their problem.
+
+Creating and maintaining a FAQ is a lot of work,
+and unless the community is large and active,
+a lot of that effort may turn out to be wasted,
+because it's hard for the authors or maintainers of a piece of software
+to anticipate what newcomers will be mystified by.
+A better approach is to leverage sites like [Stack Overflow][stack-overflow],
+which is where most programmers are going to look for answers anyway:
+
+1.  Post every question that someone actually asks you,
+    whether it's online, by email, or in person.
+    Be sure to include the name of the software package in the question
+    so that it's findable.
+2.  Answer the question,
+    making sure to mention which version of the software you're talking about
+    (so that people can easily spot and discard stale answers in the future).
+
+<!-- == \noindent -->
+With a bit of work,
+the [Stack Exchange Data Explorer][stack-exchange-data-explorer]
+can be used to download questions and answers about your software
+if you want to put them all in an offline guide.
+You can also use [Stack Printer][stack-printer] for this;
+for example, the URL
+<http://www.stackprinter.com/topvoted?service=stackoverflow&tagged=rstudio>
+will bring up a paged view of top-voted questions about RStudio.
+
+[Stack Overflow][stack-overflow]'s guide to [asking a good question][stack-overflow-good-question]
+has been refined over many years,
+and is a good guide for any project:
+
+Write the most specific title you can.
+:   "Why does division sometimes give a different result in Python 2.7 and Python 3.5?"
+    is much better than, "Help! Math in Python!!"
+
+Give context before giving sample code.
+:   A few sentences to explain what you're trying to do and why
+    will help people determine if their question is a close match to yours or not.
+
+Provide a minimal reprex.
+:   [CHAPTER](../backlog/) explained the value of a [reproducible example](#g:reprex) (reprex),
+    and why reprexes should be as short as possible.
+    Readers will have a much easier time figuring out if this question and its answers are for them
+    if they can see *and understand* a few lines of code.
+
+Tag, tag, tag.
+:   Keywords make everything more findable,
+    from scientific papers and left-handed musical instruments
+    to solutions for programming problems.
+
+Use "I" and question words (how/what/when/where/why).
+:   The section headings in these lessons follow this rule for the same reason that questions in a FAQ should:
+    writing this way forces you to think more clearly about
+    what someone might actually be thinking when they need help.
+
+Keep each item short.
+:   The "minimal manual" approach to instructional design [Carr2014](#BIB)
+    breaks everything down into single-page steps,
+    with half of that page devoted to troubleshooting.
+    This may feel like baby steps to the person doing the writing,
+    but is often as much as a person searching and reading can handle.
+    It also helps writers realize just how much implicit knowledge they are assuming.
+
+Allow for a chorus of explanations.
+:   As discussed [earlier](#s:docs-what),
+    users are all different from one another,
+    and are therefore best served by a chorus of explanations.
+    Do not be afraid of providing multiple explanations to a single question
+    that suggest different approaches
+    or are written for different prior levels of understanding.
 
 ## Summary {#s:docs-summary}
+
+> How can I tell you what I think till I see what I say?
+>
+> -- E.M. Forster
+
+Writing documentation will sometimes give you ideas about how to improve the code.
+For example,
+if you need to document something in the middle of a function,
+you should probably put it in a separate function.
+Similarly,
+if you have to use the word "and" more than once to describe what a function does,
+your documentation is probably telling you that the function is trying to do too many things.
 
 FIXME: create concept map for docs
 
 ## Exercises {#s:docs-exercises}
 
-FIXME: create concept map for docs
+FIXME: create exercises for docs
 
 {% include links.md %}

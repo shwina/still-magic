@@ -8,6 +8,7 @@ Please cite this work as:
 
 ## Contributors {#s:citation-contributors}
 
+-   [Bruce Becker][becker-bruce]
 -   [Gerard Capes][capes-gerard]
 -   [Julia Gustavsen][gustavsen-julia]
 -   [Katy Huff][huff-katy]

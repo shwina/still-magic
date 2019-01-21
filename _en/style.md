@@ -26,6 +26,7 @@ FIXME: [Dobz1973](#BIB)
 -   Python has a standard style called [PEP 8][pep-8]
 -   And a tool called `pep8` that checks code and reports violations
     -   Tools of this kind are called [linters](#g:linter), after an early tool called `[lint][lint]`
+    -   FIXME: PyLint
 -   Indent 4 spaces, and always use spaces instead of tabs
 -   Do *not* put spaces inside parentheses, i.e., don't use `( 1+2 )`
     -   This applies to function calls as well
@@ -50,6 +51,16 @@ FIXME: [Dobz1973](#BIB)
     -   Prefer `if` to `else`
 
 ## How Can I Specify Default Values for My Functions' Parameters? {#s:style-defaults}
+
+[Working memory](#g:working-memory) can only hold a few items at once:
+initial estimates in the 1950s put the number at 7 plus or minus 2 [Mill1956](#BIB),
+and more recent estimates put it as low as 4 or 5.
+If your function requires two dozen parameters,
+the odds are very good that users will frequently forget them
+or put them in the wrong order.
+One solution is to give parameters default values ([CHAPTER](../style/));
+another is to bundle them together so that (for example)
+people pass three `point` objects instead of nine separate `x`, `y`, and `z` values.
 
 -   Give users control over everything *and* the ability to ignore details
 -   Example: testing tolerance for image comparison
@@ -142,6 +153,20 @@ def settings(user_id, **settings):
 >>> settings('jenny', country='CA', lang='R')
 jenny {'lang': 'R', 'country': 'CA'}
 ```
+
+## How and Why Can I Make It Easy to Chain Function Calls Together? {#s:style-chain}
+
+FIXME: method chaining
+
+Functions are easier to understand if they don't have any [side effects](#g:side-effect),
+i.e.,
+if they don't modify their inputs or any global variables.
+But sometimes this is necessary:
+a function might set a flag to control the logging level ([CHAPTER](../logging/)),
+update a database record,
+or modify an image in place rather than make a copy for performance reasons.
+In cases like these,
+it's helpful if the function returns the object that was modified...
 
 ## Summary {#s:style-summary}
 

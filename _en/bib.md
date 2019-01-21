@@ -7,6 +7,8 @@ title: "Bibliography"
 
 **Bacc2013**{:#b:Bacc2013}: Alberto Bacchelli and Christian Bird: "Expectations, Outcomes, and Challenges of Modern Code Review". *Proc.\ International Conference on Software Engineering*, May 2013. *FIXME*
 
+**Beck2016**{:#b:Beck2016}: Brett A. Becker, Graham Glanville, Ricardo Iwashima, Claire McDonnell, Kyle Goslin, and Catherine Mooney: "Effective Compiler Error Message Enhancement for Novice Programming Students". *Computer Science Education*, 26(2-3), Jul 2016, <https://doi.org/10.1080/08993408.2016.1225464>. *Reports that improved error messages helped novices learn faster.*
+
 **Beni2017**{:#b:Beni2017}: Gal Beniamini, Sarah Gingichashvili, Alon Klein Orbach, and Dror G. Feitelson: "Meaningful Identifier Names: The Case of Single-Letter Variables". *Proc.\ 2017 International Conference on Program Comprehension (ICPC'17)*, May 2017, <https://doi.org/10.1109/icpc.2017.18>. *Reports that use of single-letter variable names doesn't affect ability to modify code, and that some single-letter variable names have implicit types and meanings.*
 
 **Bett2008**{:#b:Bett2008}: Nicolas Bettenburg, Sascha Just, Adrian Schröter, Cathrin Weiss, Rahul Premraj, and Thomas Zimmermann: "What makes a good bug report?". *Proc.\ 16th ACM SIGSOFT International Symposium on Foundations of Software Engineering - (SIGSOFT'08/FSE'16)*, 2008. *Reports a survey of developers on what makes for a good bug report.*
@@ -84,6 +86,8 @@ title: "Bibliography"
 **Stei2014**{:#b:Stei2014}: Igor Steinmacher, Igor Scaliante Wiese, Tayana Conte, Marco Aurélio Gerosa, and David Redmiles: "The Hard Life of Open Source Software Project Newcomers". *Proc.\ 7th International Workshop on Cooperative and Human Aspects of Software Engineering (CHASE/14)*, 2014. *FIXME*
 
 **Tasc2017**{:#b:Tasc2017}: Morgan Taschuk and Greg Wilson: "Ten Simple Rules for Making Research Software More Robust". *PLoS Computational Biology*, 13(4), Apr 2017, <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005412>. *A short guide to making research software usable by other people.*
+
+**Trav2010**{:#b:Trav2010}: V. Javier Traver: "On Compiler Error Messages: What TheySayand What TheyMean". *Advances in Human-Computer Interaction*, 2010, 2010. *FIXME*
 
 **Udel2011**{:#b:Udel2011}: Jon Udell: "Seven Ways to Think Like the Web". <http://blog.jonudell.net/2011/01/24/seven-ways-to-think-like-the-web/>2011. *FIXME*
 

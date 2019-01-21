@@ -148,6 +148,9 @@ title: "Glossary"
     to them. See also [competent practitioner](#g:competent-practitioner) and
     [novice](#g:novice).
 
+**Exploratory programming**{:#g:exploratory-programming}
+:   FIXME
+
 **Exponent**{:#g:exponent}
 :   FIXME
 
@@ -155,6 +158,9 @@ title: "Glossary"
 :   Someone who has studied a language before but is learning it again. False
     beginners start at the same point as true beginners (i.e., a pre-test will
     show the same proficiency) but can move much more quickly.
+
+**Frequently Asked Questions**{:#g:faq} (FAQ)
+:   FIXME
 
 **Feature boxing**{:#g:feature-boxing}
 :   FIXME
@@ -359,6 +365,9 @@ title: "Glossary"
 **Short circuit**{:#g:short-circuit}
 :   FIXME
 
+**Side effect**{:#g:side-effect}
+:   FIXME
+
 **Sign**{:#g:sign}
 :   FIXME
 
@@ -466,6 +475,9 @@ title: "Glossary"
 :   FIXME
 
 **Working directory**{:#g:working-directory}
+:   FIXME
+
+**Working memory**{:#g:working-memory}
 :   FIXME
 
 **Wrapper**{:#g:wrapper}:

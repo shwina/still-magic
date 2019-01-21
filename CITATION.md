@@ -8,6 +8,7 @@ Please cite this work as:
 
 ## Contributors
 
+-   Bruce Becker
 -   Gerard Capes
 -   Julia Gustavsen
 -   Katy Huff

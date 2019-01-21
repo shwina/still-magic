@@ -14,6 +14,7 @@ definitions if that's done.
 
 [ally-skills]: https://frameshiftconsulting.com/ally-skills-workshop/
 
+[becker-bruce]: https://www.brettbecker.com/
 [bibtex]: http://www.bibtex.org/
 [branch-per-feature]: https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
 [bryan-jenny]: https://jennybryan.org/
@@ -74,6 +75,7 @@ definitions if that's done.
 [make]: https://www.gnu.org/software/make/
 [markdown]: https://en.wikipedia.org/wiki/Markdown
 [mathjax]: https://www.mathjax.org/
+[mertz-documentation]: https://realpython.com/documenting-python-code/
 [model-coc]: http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy
 [ms-word]: https://en.wikipedia.org/wiki/Microsoft_Word
 
@@ -104,7 +106,10 @@ definitions if that's done.
 [snakemake]: https://snakemake.readthedocs.io/
 [sphinx]: http://www.sphinx-doc.org/en/master/
 [srinath-ashwin]: https://ccit.clemson.edu/research/researcher-profiles/ashwin-srinath/
+[stack-exchange-data-explorer]: https://data.stackexchange.com/
+[stack-overflow-good-question]: https://stackoverflow.com/help/how-to-ask
 [stack-overflow]: https://stackoverflow.com/
+[stack-printer]: http://www.stackprinter.com/
 [standage-daniel]: https://standage.github.io/
 [swc]: http://software-carpentry.org
 [swc-git]: https://swcarpentry.github.io/git-novice/
