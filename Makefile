@@ -115,7 +115,7 @@ ${DIR_HTML}/%/index.html : $(wildcard _includes/%/*.*)
 ## ----------------------------------------
 
 ## check       : check everything.
-check :
+check : ${BIB_MD}
 	@make lang=${lang} check_cites
 	@make lang=${lang} check_figs
 	@make lang=${lang} check_gloss

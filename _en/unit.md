@@ -23,65 +23,130 @@ keypoints:
 -   "Use a coverage tool to check how well tests have exercised code."
 ---
 
--   [Term frequency-inverse document frequency][tf-idf] (TF-IDF) is a way to determine how relevant a document is in a search
-    -   Term frequency: (# occurrences of word) / (# words in document)
-    -   Inverse document frequency: (# documents) / (# documents in which word occurs)
-    -   If a word is very common in one document, but absent in others, TF-IDF is high for that (word, document) pair
-    -   If a word is common in all documents, or if a word is rare in a document, TF-IDF is lower
--   Depends on counting words in a document
-    -   While ignoring leading/trailing punctuation
-    -   Except for words like "Ph.D."
-    -   And what to do about hyphenation?
--   Goals for testing:
-    -   Make it easy for people to write tests (because otherwise they won't do it)
-    -   Run a set of tests
-    -   Report which ones have failed
-    -   Give some idea of where or why they failed (to help debugging)
-    -   Give some idea of whether any results have changed since the last run
-    -   Give people a clear idea of what our definition of correct and our [tolerances](#g:tolerance) are
--   This introduction is based in part on [Testing and Continuous Integration with Python][huff-testing] by [Katy Huff][huff-katy]
+[Term frequency-inverse document frequency][tf-idf] (TF-IDF)
+is a way to determine how relevant a document is in a search.
+A term's frequency is how often it occurs in a document *d* divided by the number of words in that document;
+inverse document frequency is the ratio of the total number of documents
+to the number of documents in which the word occurs:
 
-## What Does a Systematic Software Testing Framework Look Like? {#s:unit-own}
+$$
+\tau_w = \frac{n_w(d) / n_*(d)}{D / D_w}
+$$
 
--   A test that checks one thing is called a [unit test](#g:unit-test)
--   A tool that finds and runs unit tests and reports their results is called a [test runner](#g:test-runner)
--   A single test can have one of three outcomes:
-    -   Pass: everything worked as expected
-    -   Fail: something went wrong in the software being tested
-    -   Error: something went wrong in the test itself (so we don't know anything about the software being tested)
--   A [fixture](#g:fixture) is what the test is run on, e.g., the input data
--   Good tests are independent
-    -   Should produce the same results no matter what order they are run in
-    -   Which means that each test starts from a freshly-generated fixture rather than using the output of previous tests
-    -   Otherwise a failure in one test can cause false positives or false negatives in subsequent tests
--   Roll our own
+<!-- == \noindent -->
+If a word is very common in one document, but absent in others, TF-IDF is high for that (word, document) pair.
+If a word is common in all documents, or if a word is rare in a document, TF-IDF is lower.
+This simple measure can therefore be used to rank documents' relevance with respect to that term.
 
-```python
-TESTS = [
-   ['word', {'word' : 1}],
-   ['word word', {'word' : 2}],
-   ['another word', {'another' : 1, 'word' : 1}],
-   ["anothers' word", {'anothers' : 1, 'word' : 1}]
-]
+Calculating TF-IDF depends on counting words in a document...
+while ignoring leading/trailing punctuation...
+except for words like "Ph.D."
+And then there's the question of hyphenation,
+which can either signal a multi-part word or a line break,
+unless of course it indicates that a multi-part happened to land at the end of a line.
+In short,
+this relatively simple description can be implemented in many subtly different ways,
+many of which are wrong.
+In order to tell which one we've actually built and whether we've built it correctly,
+we need to write some tests.
+This lesson therefore introduces some key ideas and tools,
+drawn in part from [Testing and Continuous Integration with Python][huff-testing] by [Katy Huff][huff-katy].
 
-pass = fail = error = 0
-for (fixture, expected) in TESTS:
-    try:
-        actual = count_words(fixture)
-        if actual == expected:
-            pass += 1
-        else:
-            fail += 1
-    except:
-        error += 1
-print('pass {} fail {} error {}'.format(pass, fail, error))
+## What are realistic goals for testing? {#s:unit-goals}
+
+Any discussion of software and correctness has to start with two ideas.
+The first is that no amount of testing can ever prove that a piece of code is correct.
+A function that takes three arguments,
+each of which can have a hundred different values,
+theoretically needs a million tests.
+Even if we were to write them,
+how would we check that the values we're testing against are correct?
+And how would we tell that we had typed in those comparison values correctly,
+or that we were using the right equality checks in our code, or---the list goes on and on.
+
+The second big idea is that the real situation is far less dire.
+Suppose we want to test a function that returns the sign of a number.
+If it works for the number 3,
+it will almost certainly work for 4,
+and for 5,
+and so on.
+In fact, there are only a handful of cases that we actually need to test:
+
+| Value    | Expected | Reason                              |
+| -------- | -------- | ----------------------------------- |
+| `-Inf`   | -1       | Only value of its kind              |
+| `Inf`    | 1        | Only value of its kind              |
+| `NaN`    | NaN      | Only value of its kind              |
+| `-5`     | -1       | Or some other negative number6      |
+| `0`      | 0        | The only value that has a sign of 0 |
+| `127489` | 1        | Or some other positive number       |
+
+As this table shows,
+we can divide test inputs into equivalence classes and check one member of each.
+Yes, there's a chance that we'll miss something---that the code we're testing will behave differently
+for values we have put in the same class---but
+this approach reduces the number of tests we have to write
+*and* makes it easier for the next person reading our code to understand what it does.
+
+## What does a systematic software testing framework look like? {#s:unit-systematic}
+
+A framework for software testing has to:
+
+-   make it easy for people to write tests (because otherwise they won't do it);
+-   run a set of tests;
+-   report which ones have failed;
+-   give some idea of where or why they failed (to help debugging); and
+-   give some idea of whether any results have changed since the last run.
+
+Any single test can have one of three results:
+
+-   [success](#g:test-success), meaning that the test passed correctly;
+-   [failure](#g:test-failure), meaning that the software being tested didn't do what it was supposed to; or
+-   [error](#g:test-error), meaning that the test itself failed (in which case, we don't know anything about the software being tested).
+
+A [unit test](#g:unit-test) is a function that runs some code and produces one of these three results.
+The input data to the unit test is called the [fixture](#g:fixture);
+we tell if the test passed or not by comparing the [actual output](#g:actual-output) to the [expected output](#g:expected-output).
+For example, here's a very badly written version of `numSign` and an equally badly written pair of tests for it:
+
+```r
+numSign <- function(x) {
+  if (x > 0) {
+    1
+  } else {
+    -1
+  }
+}
+
+stopifnot(numSign(1) == 1)
+stopifnot(numSign(-Inf) == -1)
+stopifnot(numSign(NULL) == 0)
 ```
 
--   This works
--   But what if test fixtures take several lines to construct?
--   Or checking result is complex?
--   Or we have tests split across multiple files?
--   Or...
+Here, the fixtures are 1, `NULL`, and `-Inf`,
+and the corresponding expected outputs are 1, 0, and -1.
+These tests are badly written for two reasons:
+
+1.  Execution halts at the first failed test,
+    which means we get less information than we could about the state of the system we're testing.
+2.  Each test prints its output to the screen:
+    there is no overall summary and no easy way to tell which test produced which result.
+    This isn't a problem when there are only three tests,
+    but experience shows that if the output isn't comprehensible at a glance,
+    developers will stop paying attention to it.
+
+One other mistake that's often made in testing is making tests depend on each other.
+Good tests are independent:
+they should produce the same results no matter what other tests are run in what order,
+so that a failure in an early tests doesn't cause a later test to fail when it should pass
+or pass when it should fail.
+This means that every test should start from a freshly-generated fixture
+rather than using the output of previous tests.
+
+A [test framework](#g:test-framework) is a library that provides us with functions that help us write tests,
+and includes a [test runner](#g:test-runner) that will find tests,
+execute them,
+and report both individual results that require attention and a summary of overall results.
 
 ## How Can I Use a Standard Software Testing Framework? {#s:unit-pytest}
 
@@ -426,6 +491,8 @@ demo_coverage.py      16      1    94%
 </table>
 
 ## Summary {#s:unit-summary}
+
+FIXME: [tolerance](#g:tolerance)
 
 -   [Test-driven development](#g:tdd) (TDD)
     -   Write a handful of tests that don't even run because the code they

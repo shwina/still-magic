@@ -14,6 +14,9 @@ title: "Glossary"
 **Action**{:#g:make-action} (in Make)
 :   FIXME
 
+**Actual output**{:#g:actual-output} (of a test)
+:   FIXME
+
 **Active listening**{:#g:active-listening}
 :   FIXME
 
@@ -136,10 +139,16 @@ title: "Glossary"
 **Digital Object Identifier**{:#g:doi} (DOI)
 :   FIXME
 
+**Error**{:#g:test-error} (result from a unit test)
+:   FIXME
+
 **Escape sequence**{:#g:escape-sequence}
 :   FIXME
 
 **Exit status**{:#g:exit-status}
+:   FIXME
+
+**Expected output**{:#g:expected-output} (of a test)
 :   FIXME
 
 **Expert**{:#g:expert}
@@ -152,6 +161,9 @@ title: "Glossary"
 :   FIXME
 
 **Exponent**{:#g:exponent}
+:   FIXME
+
+**Failure**{:#g:test-failure} (result from a unit test)
 :   FIXME
 
 **False beginner**{:#g:false-beginner}
@@ -398,6 +410,9 @@ title: "Glossary"
 **Sturdy development**{:#g:sturdy}
 :   FIXME
 
+**Success**{:#g:test-success} (result from a unit test)
+:   FIXME
+
 **Sustainability**{:#g:sustainability}
 :   FIXME
 
@@ -420,6 +435,9 @@ title: "Glossary"
 :   FIXME
 
 **Test-driven development**{:#g:tdd}
+:   FIXME
+
+**Test framework**{:#g:test-framework}
 :   FIXME
 
 **Test runner**{:#g:test-runner}

@@ -21,6 +21,8 @@ title: "Bibliography"
 
 **Brow2007**{:#b:Brow2007}: Michael Jacoby Brown: *Building Powerful Community Organizations: A Personal Guide to Creating Groups that Can Solve Problems and Change the World*. Long Haul Press, 2007. *A practical guide to creating effective organizations in and for communities.*
 
+**Carr2014**{:#b:Carr2014}: John Carroll: "Creating Minimalist Instruction". *International Journal of Designs for Learning*, 5(2), Nov 2014, <https://doi.org/10.14434/ijdl.v5i2.12887>. *A look back on the author's work on minimalist instruction.*
+
 **Cohe2010**{:#b:Cohe2010}: Jason Cohen: "Modern Code Review", in*Making Software*. O'Reilly, 2010. *FIXME*
 
 **Cone2016**{:#b:Cone2016}: Rob Conery: *The Imposter's Handbook*. Big Machine, Inc., 2016. *FIXME*
