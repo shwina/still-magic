@@ -40,7 +40,7 @@ and the command-line options overrides that.
 ## How can I handle command-line flags consistently? {#s:configure-cmdline}
 
 Modern Python programs use the `argparse` library for handling command-line arguments,
-but the older and smipler `getopt` library will illustrate the core ideas,
+but the older and simpler `getopt` library will illustrate the core ideas,
 so we will use it.
 
 `getopt` works by matching a specification of what [flags](#g:flag) are allowed
@@ -193,7 +193,7 @@ Controlling programs from the command line is useful,
 but complex programs can have many different configuration options,
 and it's very useful to be able to save settings in a file for later reference
 (and reproducibility).
-Emabling a program to read its configuration from a file
+Enabling a program to read its configuration from a file
 also allows users to set values once and then not worry about them,
 which is particularly useful when they're installing the software on their own computer
 and want to put temporary files in a different location

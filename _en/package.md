@@ -288,9 +288,9 @@ drwxr-xr-x  0 pterry staff       0 20 Aug 15:36 zipf-0.1/zipf.egg-info/
     -   Creates a new directory called `test`
     -   That directory contains `bin`, `lib`, and so on
     -   `test/bin/python` checks for packages in `test/lib` *before* checking the system-wide install
--   Switch to the envrionment with `source test/bin/activate`
+-   Switch to the environment with `source test/bin/activate`
     -   `source` is a Unix shell command meaning "run all the commands from a file in this currently-active shell"
-    -   Just typing `test/bin/activate` on its own would run those commans in a sub-shell
+    -   Just typing `test/bin/activate` on its own would run those commands in a sub-shell
 -   Can switch back to default with `deactivate`
 -   Common to create `$HOME/envs` to store all environments
 -   Note how every command now displays `(test)` when that virtual environment is active

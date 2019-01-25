@@ -29,7 +29,7 @@ They *can* allow restyling if authors are careful to apply named styles
 instead of just changing the font and making something bold,
 but most people don't to this
 because it's extra work up front for an uncertain downstream payoff.
-It's had to automatically regenerate reports as data chages
+It's had to automatically regenerate reports as data changes
 (although again it's possible, just not taken advantage of),
 and most importantly,
 it's hard to coordinate the work of multiple contributors
@@ -91,7 +91,7 @@ Tables, for example:
 lots of people wanted tables.
 And footnotes,
 and images,
-and on and on until eventually Markdwon became just as complex as HTML
+and on and on until eventually Markdown became just as complex as HTML
 but much less regular,
 once again proving that using an arbitrary collection of syntax rules for simple things
 makes complicated things harder to do.
@@ -582,7 +582,7 @@ The solution is to use a Jekyll [filter](#g:jekyll-filter),
 which is simply a small function that transforms the value you give it into some other value.
 The syntax is shown below:
 
--   Double curly brackets to trigger evalution by Jekyll.
+-   Double curly brackets to trigger evaluation by Jekyll.
 -   The absolute path for the link (in quotes).
 -   A pipe symbol (just as you would use in the shell).
 -   The name of the filter function (in this case, `relative_url`).

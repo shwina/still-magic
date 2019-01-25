@@ -18,7 +18,7 @@ Despite this,
 it still isn't common in research software development,
 in part because it isn't part of the culture [Sega2005](#BIB),
 but also because code review is mostly useful
-when the reviewers understand the problem domain well enough to comment on algorithmis and design choices
+when the reviewers understand the problem domain well enough to comment on algorithms and design choices
 rather than indentation and variable naming,
 and the number of people who can do that for a research project is typically very small---sometimes
 as small as one [Petr2014](#BIB).

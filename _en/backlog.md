@@ -16,7 +16,7 @@ keypoints:
 Version control tells us where we've been;
 [issues](#g:issue) tells us where we're going.
 Issue tracking tools are often called ticketing systems or bug trackers
-because they were created to keep track of work that nees to be done and bugs that needed fixing.
+because they were created to keep track of work that needs to be done and bugs that needed fixing.
 However,
 they can be used to manage any kind of work
 and are often a convenient way to manage discussions as well.
@@ -60,7 +60,7 @@ people create three kinds of issues:
 
 2.  *Feature requests* (for software packages)
     or *tasks* (for projects).
-    These issues are the other kind of [work backlog](#g:backlog) in a proect:
+    These issues are the other kind of [work backlog](#g:backlog) in a project:
     not "what needs to be fixed" but "what do we want to do next".
 
 3.  *Questions*.

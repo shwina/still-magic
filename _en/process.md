@@ -271,7 +271,7 @@ and so on.
 
 So now it's Monday morning again.
 Three weeks have gone by and all the A&E's are done.
-When the time estimates are totaled,
+When the time estimates are totalled,
 they come to 700 developer-days.
 Unfortunately, there are only 240 available:
 the size of the team is fixed,

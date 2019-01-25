@@ -12,19 +12,19 @@ from util import report, usage
 TITLE = 'Figures'
 
 
-def main(figDir, filenames):
-    available = listFigures(figDir)
-    required = findReferences(filenames)
+def main(figure_dir, filenames):
+    available = list_figures(figure_dir)
+    required = find_references(filenames)
     report(TITLE, 'unused', subtract(available, required))
     report(TITLE, 'undefined', required - available)
 
 
-def listFigures(figDir):
+def list_figures(figure_dir):
     ignore = lambda x: x.endswith('.xml')
-    return set([x for x in os.listdir(figDir) if not ignore(x)])
+    return set([x for x in os.listdir(figure_dir) if not ignore(x)])
 
 
-def findReferences(filenames):
+def find_references(filenames):
     pat = re.compile(r'<img\s+src=".+/figures/([^"]+)"')
     result = set()
     for f in filenames:
@@ -35,18 +35,18 @@ def findReferences(filenames):
 
 
 def subtract(available, required):
-    makeStem = lambda x: x.split('.')[0]
+    make_stem = lambda x: x.split('.')[0]
     stemmed = {}
     for filename in available:
-        stem = makeStem(filename)
+        stem = make_stem(filename)
         if stem in stemmed:
             stemmed[stem].add(filename)
         else:
             stemmed[stem] = {filename}
     result = available.copy()
-    for reqName in required:
-        if reqName in result:
-            stem = makeStem(reqName)
+    for req_name in required:
+        if req_name in result:
+            stem = make_stem(req_name)
             for availName in stemmed[stem]:
                 result.remove(availName)
     return result

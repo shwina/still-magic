@@ -36,7 +36,7 @@ The original specification included five top-level directories:
 -   The `./src/` directory (short for "source") holds source code
     for programs written in languages like C or C++ that need to be compiled.
     Many projects don't have this directory
-    because all of their code is written in langauges that don't need compilation.
+    because all of their code is written in languages that don't need compilation.
 -   Runnable programs go in `./bin/` (an old Unix abbreviation for "binary", meaning "not text").
     This includes the compiled and runnable versions of C and C++ programs,
     and also shell scripts,

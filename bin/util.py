@@ -6,9 +6,9 @@ import sys
 import yaml
 
 
-def readToc(configPath):
+def get_toc_slugs(config_path):
     '''Read the table of contents, returning a set of slugs.'''
-    with open(configPath, 'r') as reader:
+    with open(config_path, 'r') as reader:
         config = yaml.load(reader)
     toc = config['toc']
     return {x.strip('/') for x in set(toc['lessons']) | set(toc['bib']) | set(toc['extras'])}

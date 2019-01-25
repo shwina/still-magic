@@ -146,7 +146,7 @@ and must be written flush against the left margin.
 
 `data/moby-dick.txt` is a [prerequisite](#g:make-prerequisite) in that rule,
 i.e.,
-something that the garget of the rule depends on.
+something that the target of the rule depends on.
 A single colon separates the target from its prerequisites,
 and a rule can have any number of prerequisites---we'll see examples soon.
 

@@ -48,7 +48,7 @@ You probably need to talk to a human - have you tried calling Dave?
 ```
 
 Error messages are often the first thing people actually read about a piece of software
-(or possibly the second if they had to install it themsleves),
+(or possibly the second if they had to install it themselves),
 so they should therefore be the most carefully written documentation for that software.
 A quick web search for "writing good error messages" turns up hundreds of hits,
 but recommendations are often more like gripes than solid guidelines

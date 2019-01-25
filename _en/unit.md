@@ -240,7 +240,7 @@ which we will explore in the sections that follow.
 
 Many errors in production systems happen because people don't test their error handling code.
 [Yuan2014](#BIB) found that almost all (92%) of catastrophic system failures
-were the result of incorrect handling of non-fatal errors explicitly signaled in software,
+were the result of incorrect handling of non-fatal errors explicitly signalled in software,
 and that in 58% of the catastrophic failures,
 the underlying faults could easily have been detected through simple testing of error handling code.
 Our tests should therefore check that the software fails as it's supposed to
@@ -589,7 +589,7 @@ FIXME: [tolerance](#g:tolerance)
 
 FIXME: create concept map for unit testing
 
-## Eercises {#s:unit-exercises}
+## Exercises {#s:unit-exercises}
 
 FIXME: exercises for unit testing
 

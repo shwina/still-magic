@@ -13,7 +13,7 @@ keypoints:
 -   "Use `logging` instead of `print` to report program activity."
 -   "Separate  messages into `DEBUG`, `INFO`, `WARNING`, `ERROR`, and `CRITICAL` levels."
 -   "Use `logging.basicConfig` to define basic logging parameters."
--   "Always provide timestamps using YYYY-MM-DDTHH:MM:SS format."
+-   "Always provide timestamps using YYYY-MM-DDTTHH:MM:SS format."
 -   "Use standard input and standard output for normal input and output, and send log messages to a file."
 -   "Use `tail -f` to monitor log files."
 ---
@@ -157,7 +157,7 @@ but they are widely used.
 ## How can I change the format of my log messages? {#s:logging-format}
 
 By default,
-`logging` producess messages with the name of the level (such as `WARNING`),
+`logging` produces messages with the name of the level (such as `WARNING`),
 the name of the logger (we have only seen `root` so far)
 and the message.
 We can put whatever we want in the message,
@@ -332,7 +332,7 @@ but doesn't fill up the disk,
 for example,
 or a centralized logging server of some kind that collates logs from many different systems.
 You probably don't need any of these,
-but the data engineers and system administraotrs who eventually have to install and maintain your programs
+but the data engineers and system administrators who eventually have to install and maintain your programs
 will be very grateful that you used `logging`,
 because then they can set it up the way they want with very little work.
 

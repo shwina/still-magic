@@ -114,9 +114,9 @@ archive :
     3.  Metadata clearly and explicitly includes the identifier of the data it describes
     4.  (Meta)data is registered or indexed in a searchable resource (FIXME: such as?)
 -   Accessible: you can't use data if you don't have access to it (which means a way to authenticate, and having permission)
-    1.  (Meta)data is retrievable by its identifier using a standardised communications protocol
+    1.  (Meta)data is retrievable by its identifier using a standardized communications protocol
         -   The protocol is open, free, and universally implementable
-        -   The protocol allows for an authentication and authorisation procedure if necessary
+        -   The protocol allows for an authentication and authorization procedure if necessary
     2.  Metadata is accessible even when the data is no longer available
 -   Interoperable: data usually needs to be integrated with other data, which means that tools need to be able to process it
     1.  (Meta)data uses a formal, accessible, shared, and broadly applicable language for knowledge representation

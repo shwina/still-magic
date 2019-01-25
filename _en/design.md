@@ -58,7 +58,7 @@ title: "Design Notes"
     -   Taschuk's Rules for robust software [Tasc2017](#BIB).
     -   Creative Commons and MIT licenses for data, reports, and software.
     -   The Contributor Covenant as a code of conduct.
-    -   `pip` for package creationg and installation.
+    -   `pip` for package creation and installation.
     -   `virtualenv` for environment management.
     -   `pydoc` for documentation generation.
 1.  What do learners already need to know?

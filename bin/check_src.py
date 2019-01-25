@@ -14,23 +14,23 @@ MENTIONS = re.compile(r'{:\s+title="([^"]+)"}')
 TITLE = 'Source Files'
 
 
-def main(srcDir, filenames):
-    actual = findFiles(srcDir)
-    expected = findMentions(filenames)
+def main(src_dir, filenames):
+    actual = find_files(src_dir)
+    expected = find_mentions(filenames)
     report(TITLE, 'unused', actual - expected)
     report(TITLE, 'missing', expected - actual)
 
 
-def findFiles(srcDir):
-    prefixLen = len(srcDir + '/')
-    unprefix = lambda x: x[prefixLen:]
+def find_files(src_dir):
+    prefix_len = len(src_dir + '/')
+    unprefix = lambda x: x[prefix_len:]
     ignore = lambda x: x.endswith('~') or ('__pycache__' in x)
     return set([unprefix(x)
-                for x in glob.iglob('{}/**/*.*'.format(srcDir), recursive=True)
+                for x in glob.iglob('{}/**/*.*'.format(src_dir), recursive=True)
                 if not ignore(x)])
 
 
-def findMentions(filenames):
+def find_mentions(filenames):
     result = set()
     for fn in filenames:
         with open(fn, 'r') as reader:
@@ -40,6 +40,6 @@ def findMentions(filenames):
 
 if __name__ == '__main__':
     if len(sys.argv) < 3:
-        usage('checksrc.py srcDir filename [filename...]')
+        usage('checksrc.py src_dir filename [filename...]')
     main(sys.argv[1], sys.argv[2:])
 

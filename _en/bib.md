@@ -65,7 +65,7 @@ title: "Bibliography"
 
 **Mill1956**{:#b:Mill1956}: George A. Miller: "The Magical Number Seven, Plus or Minus Two: Some Limits on Our Capacity for Processing Information". *Psychological Review*, 63(2), 1956. *FIXME*
 
-**Mori2012**{:#b:Mori2012}: Andrew Morin and Jennifer Urban AND Piotr Sliz: "A Quick Guide to Software Licensing for the Scientist-Programmer". *PLOS Computational Biology*, 8(7), Jul 2012, <https://doi.org/10.1371/journal.pcbi.1002598>. *A short introduction to software licensing for non-specialists.*
+**Mori2012**{:#b:Mori2012}: Andrew Morin and Jennifer Urban AND Piotr Sliz: "A Quick Guide to Software Licensing for the Scientist-Programmer". *PLoS Computational Biology*, 8(7), Jul 2012, <https://doi.org/10.1371/journal.pcbi.1002598>. *A short introduction to software licensing for non-specialists.*
 
 **Nath2003**{:#b:Nath2003}: Mitchell J. Nathan and Anthony Petrosino: "Expert Blind Spot Among Preservice Teachers". *American Educational Research Journal*, 40(4), Jan 2003. *FIXME*
 
@@ -89,7 +89,7 @@ title: "Bibliography"
 
 **Tasc2017**{:#b:Tasc2017}: Morgan Taschuk and Greg Wilson: "Ten Simple Rules for Making Research Software More Robust". *PLoS Computational Biology*, 13(4), Apr 2017, <http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005412>. *A short guide to making research software usable by other people.*
 
-**Trav2010**{:#b:Trav2010}: V. Javier Traver: "On Compiler Error Messages: What TheySayand What TheyMean". *Advances in Human-Computer Interaction*, 2010, 2010. *FIXME*
+**Trav2010**{:#b:Trav2010}: V. Javier Traver: "On Compiler Error Messages: What They Say and What They Mean". *Advances in Human-Computer Interaction*, 2010, 2010. *FIXME*
 
 **Udel2011**{:#b:Udel2011}: Jon Udell: "Seven Ways to Think Like the Web". <http://blog.jonudell.net/2011/01/24/seven-ways-to-think-like-the-web/>2011. *FIXME*
 

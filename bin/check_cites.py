@@ -12,34 +12,34 @@ from util import report, usage
 TITLE = 'Citations'
 
 
-def main(bibFile, sourceFiles):
-    defined = getKeys(bibFile)
-    used = getRefs(sourceFiles)
+def main(bib_file, source_files):
+    defined = get_keys(bib_file)
+    used = get_refs(source_files)
     report(TITLE, 'unused', defined - used)
     report(TITLE, 'undefined', used - defined)
 
 
-def getKeys(filename):
+def get_keys(filename):
     pat = re.compile(r'{:#b:([^}]+)}')
     data = open(filename, 'r').read()
     keys = pat.findall(data)
     return set(keys)
 
 
-def getRefs(filenames):
-    keyPat = re.compile(r'\[([^\]]+)\]\(#BIB\)')
-    titlePat = re.compile(r'/bib/#b:([^\)]+)')
+def get_refs(filenames):
+    key_pat = re.compile(r'\[([^\]]+)\]\(#BIB\)')
+    title_pat = re.compile(r'/bib/#b:([^\)]+)')
     result = set()
     for f in filenames:
         with open(f, 'r') as reader:
             data = reader.read()
-            cites = [x.split(',') for x in keyPat.findall(data)]
+            cites = [x.split(',') for x in key_pat.findall(data)]
             result |= set([key for sublist in cites for key in sublist])
-            result |= set(titlePat.findall(data))
+            result |= set(title_pat.findall(data))
     return result
 
 
 if __name__ == '__main__':
     if len(sys.argv) < 3:
-        usage('checkcites.py bibFile sourceFile [sourceFile ...]')
+        usage('checkcites.py bib_file source_file [source_file ...]')
     main(sys.argv[1], sys.argv[2:])

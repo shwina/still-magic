@@ -91,7 +91,7 @@ No technology.
     If this is too stressful,
     let participants hang on to their electronic pacifiers but turn off the network
     so that they really *are* using them just to take notes or check the agenda.
-    The one exception is accessiblity needs:
+    The one exception is accessibility needs:
     if someone needs their phone, their laptop, or some other aid
     in order to take part in the meeting,
     nobody has a right to tell them "no".

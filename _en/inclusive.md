@@ -55,7 +55,7 @@ keypoints:
     -   Legalese is a highly technical language, and words don't mean what you think they mean
 -   A few licenses are by far the most popular
     -   Choosing a common license makes project more intelligible
-    -   [Open Source Inititative][osi-license-list] license list
+    -   [Open Source Initiative][osi-license-list] license list
     -   [choosealicense.com][choose-license] will help you find a license that suits your needs
 -   Considerations:
     1.  Do you want to license the code at all?
@@ -109,7 +109,7 @@ keypoints:
         long experience suggests that articulating it clearly and concisely reduces problems caused by have different expectations
     -   You don't expect to have a fire, but every large building or event should have a fire safety plan
 -   Welcomes newcomers specifically, which can help grow your project and encourage user feedback
-    -   Particularly important for people from marginalized groups, who hae probably experienced harassment or unwelcoming behavior before
+    -   Particularly important for people from marginalized groups, who have probably experienced harassment or unwelcoming behavior before
     -   Having a CoC signals that your project is trying to be a better place than YouTube, Twitter, and other cesspools
 -   It delineates responsibilities within the project and provides specific points of contact in case of misconduct or harassment,
     as well as specifying the process to be followed in these cases

@@ -818,7 +818,7 @@ so this should seem natural to our users.
 
 It's not enough to tell people what the rule is for creating filenames,
 since that doesn't tell them what data sets we've actually generated.
-The final step in this lesson is therefoore
+The final step in this lesson is therefore
 to make the data we generate findable
 by creating an [index](#g:index) to tell people what files exist.
 Here's the format we will use:

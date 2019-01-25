@@ -6,23 +6,23 @@ Check for unused and undefined links.
 
 import sys
 import re
-from util import readToc, report, usage
+from util import get_toc_slugs, report, usage
 
 
 LINKS_TITLE = 'Links'
 INTERNAL_TITLE = 'Internal References'
 
 
-def main(configFile, linksFile, sourceFiles):
-    toc = readToc(configFile)
-    defs = readDefs(linksFile)
-    linkRefs, internalRefs = readRefs(sourceFiles)
-    report(LINKS_TITLE, 'unused', defs - linkRefs)
-    report(LINKS_TITLE, 'undefined', linkRefs - defs)
-    report(INTERNAL_TITLE, 'undefined', internalRefs - toc)
+def main(config_file, links_file, source_files):
+    toc = get_toc_slugs(config_file)
+    defs = read_defs(links_file)
+    link_refs, internal_refs = read_refs(source_files)
+    report(LINKS_TITLE, 'unused', defs - link_refs)
+    report(LINKS_TITLE, 'undefined', link_refs - defs)
+    report(INTERNAL_TITLE, 'undefined', internal_refs - toc)
 
 
-def readDefs(filename):
+def read_defs(filename):
     pat = re.compile(r'\[(.+)\]:\s+.+')
     result = set()
     with open(filename, 'r') as reader:
@@ -36,22 +36,22 @@ def readDefs(filename):
     return result
 
 
-def readRefs(filenames):
-    codePat = re.compile(r'```.+?```', re.DOTALL)
-    linkPat = re.compile(r'\[[^\]]+\]\[([^\]]+)\]')
-    internalPat = re.compile(r'\[[^\]]+\]\(\.\.?/([^/)]+)[^)]*\)')
+def read_refs(filenames):
+    code_pat = re.compile(r'```.+?```', re.DOTALL)
+    link_pat = re.compile(r'\[[^\]]+\]\[([^\]]+)\]')
+    internal_pat = re.compile(r'\[[^\]]+\]\(\.\.?/([^/)]+)[^)]*\)')
     links = set()
     internals = set()
     for f in filenames:
         with open(f, 'r') as reader:
             raw = reader.read()
-            cooked = codePat.sub('', raw)
-            links |= set(linkPat.findall(cooked))
-            internals |= set(internalPat.findall(cooked))
+            cooked = code_pat.sub('', raw)
+            links |= set(link_pat.findall(cooked))
+            internals |= set(internal_pat.findall(cooked))
     return links, internals
 
 
 if __name__ == '__main__':
     if len(sys.argv) < 3:
-        usage('checklinks.py configFile linksFile [filename ...]')
+        usage('checklinks.py config_file links_file [filename ...]')
     main(sys.argv[1], sys.argv[2], sys.argv[3:])

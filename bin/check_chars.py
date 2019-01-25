@@ -5,6 +5,7 @@ Check for non-7-bit characters in files.
 '''
 
 import sys
+from util import usage
 
 
 def main(filenames):
@@ -25,4 +26,6 @@ def check(filename, reader):
 
 
 if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        usage('check_chars.py source_file [source_file ...]')
     main(sys.argv[1:])
