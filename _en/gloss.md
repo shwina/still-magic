@@ -323,6 +323,9 @@ title: "Glossary"
 **Project manager**{:#g:project-manager}
 :   FIXME
 
+**Pseudorandom number generator**{:#g:prng} (PRNG)
+:   FIXME
+
 **Public domain license**{:#g:cc-0} (CC-0)
 :   FIXME
 
@@ -366,6 +369,9 @@ title: "Glossary"
 :   FIXME
 
 **Rule**{:#g:make-rule} (in Make)
+:   FIXME
+
+**Seed**{:#g:prng-seed} (for pseudorandom number generator)
 :   FIXME
 
 **Semantic versioning**{:#g:semantic-versioning}
@@ -429,9 +435,6 @@ title: "Glossary"
 :   FIXME
 
 **Test coverage**{:#g:test-coverage}
-:   FIXME
-
-**Test double**{:#g:test-double}
 :   FIXME
 
 **Test-driven development**{:#g:tdd}

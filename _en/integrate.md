@@ -60,7 +60,7 @@ print('Hello, continuous')
 
 -   Note the first line
     -   `#!` means "use the following program to run this script instead of Bash"
-    -   So `#!/Users/standage/anaconda3/bin/python` woul run a particular version of Python
+    -   So `#!/Users/pterry/anaconda3/bin/python` woul run a particular version of Python
     -   But `/usr/bin/env some_program_name` finds the program you want
     -   So if Python is installed somewhere else, this still works
 -   Every time a commit is made to this branch, Travis will:

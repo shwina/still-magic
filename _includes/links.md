@@ -95,6 +95,7 @@ definitions if that's done.
 [producing-oss]: https://producingoss.com/
 [pypi]: https://pypi.org/
 [python-102]: https://python-102.readthedocs.io/
+[pytest]: http://pytest.org/
 [pytest-mpl]: https://github.com/matplotlib/pytest-mpl
 
 [r-markdown]: https://rmarkdown.rstudio.com/

@@ -143,15 +143,24 @@ or pass when it should fail.
 This means that every test should start from a freshly-generated fixture
 rather than using the output of previous tests.
 
+## How Can I manage tests systematically? {#s:unit-pytest}
+
 A [test framework](#g:test-framework) is a library that provides us with functions that help us write tests,
 and includes a [test runner](#g:test-runner) that will find tests,
 execute them,
 and report both individual results that require attention and a summary of overall results.
 
-## How Can I Use a Standard Software Testing Framework? {#s:unit-pytest}
+There are many test frameworks for Python.
+One of the most popular is [pytest][pytest],
+which structures tests according to three simple rules:
 
--   Instead, put each input-output pair in a function in `test_count.py`
--   Use `assert` to check that the output is correct
+1.  All tests are put in files whose names begin with `test_`.
+2.  Each test is a function whose name also begins with `test_`.
+3.  Test functions use `assert` to check that results are as expected.
+
+<!-- == \noindent -->
+For example,
+we could test the `count_words` function by putting the following code in `test_count.py`:
 
 ```python
 from tf_idf import count_word
@@ -168,20 +177,32 @@ def test_two_words():
 def test_trailing_punctuation():
    assert count_words("anothers' word") == {'anothers' : 1, 'word' : 1}
 ```
+{: title="unit/test_count.py"}
 
--   Note the absence of an error message in the `assert`
-    -   Name of test function is included in the output if the test fails
-    -   That name should be all the documentation we need
-    -   If the test is so complicated that more is needed, write a simpler test
--   Run from the command line
+The fixture in the last test is the string `"anothers' word"`,
+and the expected result is the dictionary `{'anothers' : 1, 'word' : 1}`.
+Note that the `assert` statement doesn't include an error message;
+pytest will include the name of test function in its output if the test fails,
+and that name should be all the documentation we need.
+(If the test is so complicated that more is needed,
+we should probably write a simpler test.)
 
-```
+We can run our tests from the shell with a single command:
+
+```shell
 $ pytest
 ```
-```
+
+<!-- == \noindent -->
+As it runs tests,
+pytest prints `.` for each one that passes and `F` for each one that fails.
+After all of the tests have been run,
+it prints a summary of the failures:
+
+```text
 ============================= test session starts ==============================
 platform darwin -- Python 3.6.5, pytest-3.5.1, py-1.5.3, pluggy-0.6.0
-rootdir: /Users/standage/still-magic/src/unit, inifile:
+rootdir: /Users/pterry/still-magic/src/unit, inifile:
 plugins: remotedata-0.2.1, openfiles-0.3.0, doctestplus-0.1.3, arraydiff-0.2
 collected 4 items
 
@@ -204,26 +225,30 @@ test_count.py:13: AssertionError
 ====================== 1 failed, 3 passed in 0.05 seconds ======================
 ```
 
--   Searches for all files named `test_*.py` or `*_test.py` in the current directory and its sub-directories
-    -   Can use command-line options to narrow the search, e.g., `pytest test_count.py`
--   Runs all functions in those files whose names start with `test_`
--   Records pass/fail/error counts
--   Gives us a nicely-formatted report
--   Works the same way for everyone, so we can test without having think about *how* (only about *what*)
-    -   Although fitting tests into this framework sometimes requires some tricks
+pytest searches for all files named `test_*.py` or `*_test.py` in the current directory and its sub-directories.
+We can use command-line options to narrow the search:
+for example, `pytest test_count.py` runs only the tests in `test_count.py`.
+It automatically records and reports pass/fail/error counts and gives us a nicely-formatted report,
+but most importantly,
+it works the same way for everyone,
+so we can test without having think about *how* (only about *what*).
+That said,
+fitting tests into this framework sometimes requires a few tricks,
+which we will explore in the sections that follow.
 
-## How Can I Tell If My Software Failed As It Was Supposed To? {#s:unit-exception}
+## How can I tell if my software failed as it was supposed to? {#s:unit-exception}
 
--   Did the call fail as it was supposed to, i.e., raise the right kind of exception?
-    -   If not, system could produce a [silent error](#g:silent-error)
--   Many errors in production systems happen because people don't test their error handling code [Yuan2014](#BIB)
-    -   Almost all (92%) of the catastrophic system failures are the result of
-        incorrect handling of non-fatal errors explicitly signaled in software.
-    -   In 58% of the catastrophic failures, the underlying faults could easily have
-        been detected through simple testing of error handling code.
-    -   A majority (77%) of the failures require more than one input event to manifest, but
-        most of the failures (90%) require no more than 3.
--   Can check manually:
+Many errors in production systems happen because people don't test their error handling code.
+[Yuan2014](#BIB) found that almost all (92%) of catastrophic system failures
+were the result of incorrect handling of non-fatal errors explicitly signaled in software,
+and that in 58% of the catastrophic failures,
+the underlying faults could easily have been detected through simple testing of error handling code.
+Our tests should therefore check that the software fails as it's supposed to
+and when it's supposed to;
+if it doesn't,
+we run the risk of a [silent error](#g:silent-error).
+
+We can check for exceptions manually using this pattern:
 
 ```python
 # Expect count_words to raise ValueError for empty input.
@@ -234,9 +259,28 @@ def test_text_not_empty():
     except ValueError:
         pass
 ```
+{: title="unit/test_exception_manual.py"}
 
--   Better: `pytest` provides a [context manager](#g:context-manager) to handle tests for exceptions
-    -   Uses Python's `with` keyword to create something for a particular scope
+<!-- == \noindent -->
+This code runs the test (i.e., calls `count_words`)
+and then fails on purpose if execution reaches the next line.
+If the right kind of exception is raised,
+on the other hand,
+it does nothing.
+(We'll take a look in the exercises at how to improve this
+to catch the case where the wrong kind of exception is raised.)
+
+This pattern works,
+but it violates our first rule of testing:
+if writing tests is clumsy,
+developers won't do it.
+To make life easier,
+`pytest` provides a [context manager](#g:context-manager) called `pytest.raises` to handle tests for exceptions.
+A context manager creates an object that lives exactly as long as a block of code,
+and which can do setup and cleanup actions at the start and end of that block.
+We can use `pytest.raises` with Python's `with` keyword
+to say that we expect a particular exception to be raised in that code block,
+and should report an error if one isn't raised:
 
 ```python
 import pytest
@@ -245,6 +289,7 @@ def test_text_not_empty():
     with pytest.raises(ValueError):
         count_words('')
 ```
+{: title="unit/test_exception_with.py"}
 ```
 ============================= test session starts ==============================
 platform darwin -- Python 3.6.5, pytest-3.5.1, py-1.5.3, pluggy-0.6.0
@@ -266,24 +311,45 @@ test_exception.py:6: Failed
 =========================== 1 failed in 0.04 seconds ===========================
 ```
 
--   Clearly, we have some work to do...
+<!-- == \noindent -->
+The output tells us that `count_words` doesn't raise an exception when given an empty string,
+so we should either decide that the count in this case is zero,
+or go back and fix our function.
 
-## How Can I Test Software That is Random or Unpredictable? {#s:unit-random}
+## How can I test software that includes randomness? {#s:unit-random}
 
--   Testing random numbers
-    -   Rely on the fact that they aren't actually random
-    -   *Always* specify the RNG seed
-    -   And *always* record it
--   Current dates and time count as randomness
-    -   Write your own function
-    -   Replace it with another for testing purposes
-    -   The replacement is called a [test double](#g:test-double)
-        -   Or a mock, or a stub, or... terminology is very inconsistent
-    -   Or provide a way to change one function's behavior
--   First version using the latter strategy
+Data scientists use a lot of random numbers;
+testing code that relies on them makes use of the fact that they aren't actually random.
+A [pseudorandom number generator](#g:prng) (PRNG) uses a complex algorithm
+to create a stream of values that have all the properties of a truly random sequence.
+A key feature of PRNGs is that they can be initialized with a [seed](#g:prng-seed),
+and that given the same seed,
+the PRNG will always produce the same sequence of values.
+If you want your work to be reproducible,
+you should always seed your PRNG,
+and always record the seed somewhere so that you can re-run exactly the same calculations.
+
+Pseudorandom numbers aren't the only unpredictable things in programs.
+If you rely on the current date and time,
+that counts as "randomness" as well.
+For example,
+suppose you want to test that a function correctly counts
+the number of dates between the start of the year and the current date.
+As time goes by,
+the correct answer will change,
+so how can you write a reusable function?
+
+The answer is to write a wrapper for the function in question
+that either calls the actual function or does what you need for testing,
+and then to use that wrapper, and *only* that wrapper,
+everywhere in your program.
+The example below uses this approach:
+if the value `TESTING_DATE` has been set,
+`weeks_since_01` returns the number of weeks from `start` to that date,
+and if not,
+it returns the number of weeks from `start to the current (unpredictable) date:
 
 ```python
-# tf_idf.py
 import datetime
 
 DAYS_PER_WEEK = 7
@@ -295,44 +361,56 @@ def weeks_since_01(start):
         current = datetime.date.today()
     return round((current - start).days / DAYS_PER_WEEK)
 ```
+{: title="unit/wrappers.py"}
 
--   Test it
+<!-- == \noindent -->
+If this code is in a file called `wrappers.py`,
+we would use it like this:
+
+```python
+print('current', wrappers.weeks_since_01(datetime.date(2018, 8, 1)))
+wrappers.TESTING_DATE = datetime.date(2018, 8, 30)
+print('fixed', wrappers.weeks_since_01(datetime.date(2018, 8, 1)))
+```
+{: title="unit/demo_test_weeks.py"}
+```text
+current 25
+fixed 4
+```
+
+A cleaner approach is to make the test control an [attribute](#g:function-attribute) of the function.
+(Remember,
+functions are objects in memory like anything else,
+so we can attach other data to them.)
+Using this approach allows us to import the function on its own as a self-contained unit,
+and avoids making those functions depend on externally-defined (global) variables.
+The method works because the body of a function isn't executed as the function is defined,
+so it's OK to refer to values that are added afterward.
+
+Here's what defining a wrapper function looks like:
+
+```python
+def weeks_since_02(start):
+    current = weeks_since_02.testing_date
+    if current is None:
+        current = datetime.date.today()
+    return round((current - start).days / DAYS_PER_WEEK)
+weeks_since_02.testing_date = None
+```{: title="unit/wrappers.py"}
+
+<!-- == \noindent -->
+and here's how we would use it:
 
 ```python
 # demo_test_weeks.py
-import datetime
-import tf_idf
-
-print('first', tf_idf.weeks_since_01(datetime.date(2018, 8, 1)))
-tf_idf.TESTING_DATE = datetime.date(2018, 8, 30)
-print('second', tf_idf.weeks_since_01(datetime.date(2018, 8, 1)))
-```
-```
-$ date
-Wed 15 Aug 2018 15:14:52 EDT
-$ python demo_test_weeks.py
-first 2
-second 4
-```
-
--   Cleaner approach: make the test control an [attribute](#g:function-attribute) of the function
-    -   Works because body of function isn't executed as the function is defined
-    -   So it's OK to refer to values that are added afterward
--   Advantage: can import the function alone, since the extra value is attached to it
-
-```python
-# demo_test_weeks.py
-import datetime
-from tf_idf import weeks_since_02
-
 print('first', weeks_since_02(datetime.date(2018, 8, 1)))
 weeks_since_02.testing_date = datetime.date(2018, 8, 30)
 print('second', weeks_since_02(datetime.date(2018, 8, 1)))
 ```
-```
-$ python demo_test_weeks.py
-first 2
-second 4
+{: title="unit/demo_test_weeks.py"}
+```text
+current 25
+fixed 4
 ```
 
 ## How Can I Test Software That Does File I/O? {#s:unit-io}
@@ -510,5 +588,11 @@ FIXME: [tolerance](#g:tolerance)
     -   But many productive programmers believe in it, so maybe we're measuring the wrong things...
 
 FIXME: create concept map for unit testing
+
+## Eercises {#s:unit-exercises}
+
+FIXME: exercises for unit testing
+
+-   Modify explicit exception testing code to handle the wrong kind of exception.
 
 {% include links.md %}

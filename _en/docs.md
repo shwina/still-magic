@@ -317,7 +317,7 @@ FUNCTIONS
             AssertionError: if 'low' is greater than 'high'.
 
 FILE
-    /Users/standage/magic/bin/trim.py
+    /Users/pterry/magic/bin/trim.py
 ```
 {: title="docs/trim.txt"}
 

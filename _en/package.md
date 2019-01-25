@@ -257,18 +257,18 @@ removing 'zipf-0.1' (and everything under it)
 
 ```
 $ tar ztvf dist/zipf-0.1.tar.gz 
-drwxr-xr-x  0 standage staff       0 20 Aug 15:36 zipf-0.1/
--rw-r--r--  0 standage staff     180 20 Aug 15:36 zipf-0.1/PKG-INFO
--rw-r--r--  0 standage staff      38 20 Aug 15:36 zipf-0.1/setup.cfg
--rw-r--r--  0 standage staff     145 20 Aug 13:40 zipf-0.1/setup.py
-drwxr-xr-x  0 standage staff       0 20 Aug 15:36 zipf-0.1/zipf/
--rw-r--r--  0 standage staff     317 20 Aug 13:34 zipf-0.1/zipf/__init__.py
--rw-r--r--  0 standage staff     163 20 Aug 13:34 zipf-0.1/zipf/generate.py
-drwxr-xr-x  0 standage staff       0 20 Aug 15:36 zipf-0.1/zipf.egg-info/
--rw-r--r--  0 standage staff       1 20 Aug 15:36 zipf-0.1/zipf.egg-info/dependency_links.txt
--rw-r--r--  0 standage staff     180 20 Aug 15:36 zipf-0.1/zipf.egg-info/PKG-INFO
--rw-r--r--  0 standage staff     154 20 Aug 15:36 zipf-0.1/zipf.egg-info/SOURCES.txt
--rw-r--r--  0 standage staff       5 20 Aug 15:36 zipf-0.1/zipf.egg-info/top_level.txt
+drwxr-xr-x  0 pterry staff       0 20 Aug 15:36 zipf-0.1/
+-rw-r--r--  0 pterry staff     180 20 Aug 15:36 zipf-0.1/PKG-INFO
+-rw-r--r--  0 pterry staff      38 20 Aug 15:36 zipf-0.1/setup.cfg
+-rw-r--r--  0 pterry staff     145 20 Aug 13:40 zipf-0.1/setup.py
+drwxr-xr-x  0 pterry staff       0 20 Aug 15:36 zipf-0.1/zipf/
+-rw-r--r--  0 pterry staff     317 20 Aug 13:34 zipf-0.1/zipf/__init__.py
+-rw-r--r--  0 pterry staff     163 20 Aug 13:34 zipf-0.1/zipf/generate.py
+drwxr-xr-x  0 pterry staff       0 20 Aug 15:36 zipf-0.1/zipf.egg-info/
+-rw-r--r--  0 pterry staff       1 20 Aug 15:36 zipf-0.1/zipf.egg-info/dependency_links.txt
+-rw-r--r--  0 pterry staff     180 20 Aug 15:36 zipf-0.1/zipf.egg-info/PKG-INFO
+-rw-r--r--  0 pterry staff     154 20 Aug 15:36 zipf-0.1/zipf.egg-info/SOURCES.txt
+-rw-r--r--  0 pterry staff       5 20 Aug 15:36 zipf-0.1/zipf.egg-info/top_level.txt
 ```
 
 -   Next step is to test installation...
@@ -300,27 +300,27 @@ $ cd ~
 $ mkdir envs
 
 $ which python
-/Users/standage/anaconda3/bin/python
+/Users/pterry/anaconda3/bin/python
 
 $ virtualenv envs/test
-Using base prefix '/Users/standage/anaconda3'
-New python executable in /Users/standage/envs/test/bin/python
+Using base prefix '/Users/pterry/anaconda3'
+New python executable in /Users/pterry/envs/test/bin/python
 Installing setuptools, pip, wheel...done.
 
 $ which python
-/Users/standage/anaconda3/bin/python
+/Users/pterry/anaconda3/bin/python
 
 $ source envs/test/bin/activate
 (test) 
 
 $ which python
-/Users/standage/envs/test/bin/python
+/Users/pterry/envs/test/bin/python
 (test)
 
 $ deactivate
 
 $ which python
-/Users/standage/anaconda3/bin/python
+/Users/pterry/anaconda3/bin/python
 ```
 
 -   Now test installation
@@ -344,8 +344,8 @@ $ python
 $ pip uninstall zipf
 Uninstalling zipf-0.1:
   Would remove:
-    /Users/standage/envs/test/lib/python3.6/site-packages/zipf-0.1.dist-info/*
-    /Users/standage/envs/test/lib/python3.6/site-packages/zipf/*
+    /Users/pterry/envs/test/lib/python3.6/site-packages/zipf-0.1.dist-info/*
+    /Users/pterry/envs/test/lib/python3.6/site-packages/zipf/*
 Proceed (y/n)? y
   Successfully uninstalled zipf-0.1
 (test)
