@@ -1,6 +1,5 @@
 ---
 title: "Unit Testing"
-undone: true
 questions:
 -   "How should I write tests for my software?"
 -   "How can I tell how much testing I've actually done?"
@@ -413,11 +412,26 @@ current 25
 fixed 4
 ```
 
-## How Can I Test Software That Does File I/O? {#s:unit-io}
+## How can I test software that does I/O? {#s:unit-io}
 
--   Reading from external files isn't so bad, but writing to temporary files is awkward
-    -   Scraps need to be re-read for testing and then cleaned up
--   Use `StringIO`
+A lot of early books on unit testing said that tests shouldn't rely on external files,
+both because file I/O was slow and because those files could easily get lost.
+Neither stricture applies today:
+file I/O is much faster than it was in the 1990s,
+and if files of test data are stored in version control,
+they're no more likely to be lost than the source code.
+
+That said,
+it's often easier to read unit tests if the "files" used as fixtures
+are included right next to the tests,
+and it's easier to test *output* if the "files" that are created only ever live in memory:
+temporary output files can always be cleaned up after tests complete,
+but it's one extra burden on test authors.
+
+A good way to avoid all of these problems is to treat strings in memory as if they were files,
+which is what Python's `StringIO` module does.
+A `StringIO` object has the same methods as a file object,
+but reads and writes text in memory instead of bytes on disk:
 
 ```python
 from io import StringIO
@@ -427,14 +441,15 @@ for word in 'first second third'.split():
     writer.write('{}\n'.format(word))
 print(writer.getvalue())
 ```
-```
+{: title="unit/stringio_example.py"}
+```text
 first
 second
 third
 ```
 
--   And for input
-    -   Note: line includes trailing newline
+`StringIO` objects can also be initialized with some data that a program can read.
+(Notice that the lengths reported below include the newline character at the end of each line.)
 
 ```python
 DATA = '''first
@@ -444,37 +459,64 @@ third'''
 for line in StringIO(DATA):
     print(len(line))
 ```
-```
+{: title="unit/stringio_example.py"}
+```text
 6
 7
 5
 ```
 
--   It's common to have a function open a file, read its contents, and return the result
--   But this is hard to test, since there's no easy way to substitute a `StringIO`
--   Reorganize software so that file opening is done separately from reading/writing
-    -   Good practice anyway for handling `stdin` and `stdout` in command-line tools, which don't need to be opened
+In order to use `StringIO` in tests,
+we may need to refactor our code a bit ([CHAPTER](../refactor/)).
+It's common to have a function open a file,
+read its contents,
+and return the result like this:
 
 ```python
-# BEFORE
 def main(infile, outfile):
     with open(infile, 'r') as reader:
         with open(outfile, 'w') as writer:
-            process(infile, outfile)
+            # ...read from reader and write to writer...
 ```
+
+<!-- == \noindent -->
+However,
+this `main` function is hard to test,
+since there's no easy way to substitute a `StringIO` for the file inside that function.
+What we can do is reorganize the software so that file opening is done separately from reading and writing.
+This is good practice anyway for handling `stdin` and `stdout` in command-line tools,
+which don't need to be opened:
+
 ```python
-# AFTER
 def main(infile, outfile):
-    reader = stdin if infile == '-' else open(infile, 'r')
-    writer = stdout if outfile == '-' else open(outfile, 'w')
+    if infile == '-':
+        reader = stdin
+    else:
+        reader = open(infile, 'r')
+    if outfile == '-':
+        writer = stdout
+    else:
+        writer = open(outfile, 'r')
+
     process(reader, writer)
-    if infile == '-': reader.close()
-    if outfile == '-': writer.close()
+
+    if infile == '-':
+        reader.close()
+    if outfile == '-':
+        writer.close()
+
+def process(reader, writer):
+    # ...read from reader and write to writer...
 ```
 
-## How Can I Tell Which Parts of My Software Have and Have Not Been Tested? {#s:unit-coverage}
+<!-- == \noindent -->
+After moving the reading and writing into `process`,
+we can easily pass in a couple of `StringIO` objects for testing.
 
--   Which lines are and aren't being executed?
+## How can I tell which parts of my software have (not) been tested? {#s:unit-coverage}
+
+Take a moment to study the code shown below.
+Can you tell which lines are and aren't being executed?
 
 ```python
 def first(left, right):
@@ -498,94 +540,68 @@ def main():
 if __name__ == '__main__':
     main()
 ```
+{: title="unit/demo_coverage.py"}
 
--   [Coverage](#g:coverage) measures which parts of program are(n't) executed
-    -   In principle, keep a list of Booleans, one per line
-    -   Each time the line is executed, set the flag to `True`
-    -   At the end, report `True` and `False` per line, percentages, etc.
--   Easy (and wrong) to obsess about meeting specific targets for [test coverage](#g:test-coverage)
-    -   But anything that *isn't* tested should be assumed to be wrong
-    -   And drops in coverage often indicate new [technical debt](#g:technical-debt)
--   Use `pip install coverage` to install coverage tool
--   Instead of `python filename.py` use `coverage run filename.py`
-    -   Creates a file called `.coverage`
--   Run `coverage report` to get a summary of the most recent report
+<!-- == \noindent -->
+The answer is probably "no",
+but the second half of the answer should be "that's what computers are for".
+[Coverage](#g:coverage) measures which parts of program are and are not executed.
+In principle,
+a coverage tool keep a list of Booleans, one per line, all of which are initialized to `False`.
+Each time a line is executed,
+the coverage tool sets the corresponding flag to `True`.
+After the program finishes,
+the tool reports which lines have and have not been executed,
+along with summary statistics like the percentage of code executed.
 
+It's easy and wrong to obsess about meeting specific targets for [test coverage](#g:test-coverage).
+However,
+anything that *isn't* tested should be assumed to be wrong,
+and drops in coverage often indicate new [technical debt](#g:technical-debt).
+
+Use `pip install coverage` to install the standard Python coverage tool.
+Once you ahve done that,
+use `coverage run filename.py` instead of `python filename.py` to run your program.
+This creates a file in the current directory called `.coverage`;
+once your program completes,
+you can run `coverage report` to get a summary of the most recent report:
+
+```shell
+$ coverage run demo_coverage.py
 ```
+```text
 Name               Stmts   Miss  Cover
 --------------------------------------
 demo_coverage.py      16      1    94%
 ```
 
--   Use `coverage html` to generate an HTML listing
+If you want the details,
+you can use `coverage html` to generate an HTML listing:
 
-<table>
-  <tr>
-    <td>
-      1<br/>
-      2<br/>
-      3<br/>
-      4<br/>
-      5<br/>
-      6<br/>
-      7<br/>
-      8<br/>
-      9<br/>
-      10<br/>
-      11<br/>
-      12<br/>
-      <span class="coverage">13</span><br/>
-      14<br/>
-      15<br/>
-      16<br/>
-      17<br/>
-      18<br/>
-      19<br/>
-      20
-    </td>
-    <td>
-      def first(left, right):<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;if left &lt; right:<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left, right = right, left<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;while left > right:<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value = second(left, right)<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;left, right = right, int(right/2)<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;return value<br/>
-      <br/>
-      def second(check, balance):<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;if check > 0:<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return balance<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;else:<br/>
-      <span class="coverage">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return 0&nbsp;&nbsp;&nbsp;&nbsp;</span><br/>
-      <br/>
-      def main():<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;final = first(3, 5)<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;print(3, 5, final)<br/>
-      <br/>
-      if _name__ == '__main__':<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;main()
-    </td>
-  </tr>
-</table>
+{% include unit/coverage.html %}
 
 ## Summary {#s:unit-summary}
 
-FIXME: [tolerance](#g:tolerance)
+One practice we haven't described in this section is [test-driven development](#g:tdd) (TDD).
+Rather than writing code and then writing tests,
+many developers believe we should write tests first to help us figure out what the code is supposed to do,
+and then write just enough code to make those tests pass.
+Once the code works,
+we should clean it up and commit it,
+then move on to the next task.
 
--   [Test-driven development](#g:tdd) (TDD)
-    -   Write a handful of tests that don't even run because the code they
-        are supposed to test doesn't exist yet.
-    -   Write just enough code to make those tests pass.
-    -   Clean up what's just been written.
-    -   Commit it to version control.
--   Advocates claim that writing tests first:
-    -   Focuses people's minds on what code is supposed to
-        so that they're not subject to confirmation bias when viewing test results
-    -   Ensures that code actually *is* testable
-    -   Ensures tests are actually written
--   Evidence backing these claims is contradictory
-    -   Empirical studies have not found a strong effect [Fucc2016](#BIB)
-    -   But many productive programmers believe in it, so maybe we're measuring the wrong things...
+TDD's advocates claim that writing tests first
+focuses people's minds on what code is supposed to
+so that they're not subject to confirmation bias when viewing test results.
+They also claim that TDD ensures that code actually *is* testable,
+and that tests are actually written.
+However,
+the evidence backing these claims is contradictory:
+empirical studies have not found a strong effect [Fucc2016](#BIB),
+and at least one study suggests that it may not be the order of testing and coding that matters,
+but whether developers work in short, interleaved bursts [Fucc2017](#BIB).
+Many productive programmers still believe in TDD,
+so it's possible that we are measuring the wrong things.
 
 FIXME: create concept map for unit testing
 

@@ -118,12 +118,12 @@ Make is based on three key ideas:
 2.  A programmer writes a [Makefile](#g:makefile)
     to tell Make how files depend on each other.
     For example,
-    the Makefile could say that `results/moby-dick.csv` depends on `data/moby-dick.txt`,
+    the Makefile could say that `results/moby_dick.csv` depends on `data/moby_dick.txt`,
     or that `plots/aggregate.svg` depends on all of the CSV files in the `results/` directory.
 3.  The Makefile includes shell commands to create or update files that are out of date.
     For example,
     it could include a command to (re-)run `bin/countwords.py`
-    to create `results/moby-dick.csv` from `data/moby-dick.txt`.
+    to create `results/moby_dick.csv` from `data/moby_dick.txt`.
     (Make's use on shell commands is one reason for its longevity,
     since it allows programmers to write tools for updating files
     in whatever language they want.)
@@ -132,19 +132,19 @@ Let's start by creating a file called `Makefile` that contains the following thr
 
 ```make
 # Regenerate results for "Moby Dick"
-results/moby-dick.csv : data/moby-dick.txt
-        python bin/countwords.py data/moby-dick.txt > results/moby-dick.csv
+results/moby_dick.csv : data/moby_dick.txt
+        python bin/countwords.py data/moby_dick.txt > results/moby_dick.csv
 ```
-{: title="automate/single-rule.mk"}
+{: title="automate/single_rule.mk"}
 
 The `#` character starts a comment,
 which runs to the end of a line (just as it does in Python or R).
-`results/moby-dick.csv` is the [target](#g:make-target) of a [rule](#g:make-rule),
+`results/moby_dick.csv` is the [target](#g:make-target) of a [rule](#g:make-rule),
 i.e., something that may need to be created or updated.
 Every rule in a Makefile has one or more targets,
 and must be written flush against the left margin.
 
-`data/moby-dick.txt` is a [prerequisite](#g:make-prerequisite) in that rule,
+`data/moby_dick.txt` is a [prerequisite](#g:make-prerequisite) in that rule,
 i.e.,
 something that the target of the rule depends on.
 A single colon separates the target from its prerequisites,
@@ -161,7 +161,7 @@ we will look at modifying the script in [CHAPTER](../configure/)
 so that it can take the name of an output file as an argument.
 
 Together,
-the three parts of this rule tell Make when and how to re-create `results/moby-dick.csv`.
+the three parts of this rule tell Make when and how to re-create `results/moby_dick.csv`.
 To test that it works,
 run this command in the shell:
 
@@ -173,11 +173,11 @@ Make automatically looks for a file called `Makefile` and checks the rules it co
 In this case,
 one of three things will happen:
 
-1.  Make won't be able to find the file `data/moby-dick.csv`,
+1.  Make won't be able to find the file `data/moby_dick.csv`,
     so it will run the script to create it.
-2.  Make will see that `data/moby-dick.txt` is newer than `results/moby-dick.csv`,
+2.  Make will see that `data/moby_dick.txt` is newer than `results/moby_dick.csv`,
     in which case it will run the script to update the results file.
-3.  Make will see that `results/moby-dick.csv` is newer than its prerequisite,
+3.  Make will see that `results/moby_dick.csv` is newer than its prerequisite,
     so it won't do anything.
 
 In the first two cases,
@@ -209,72 +209,72 @@ We can check this by listing the files with their timestamps,
 ordered by how recently they have been updated:
 
 ```shell
-$ ls -l -t data/moby-dick.txt results/moby-dick.csv
+$ ls -l -t data/moby_dick.txt results/moby_dick.csv
 ```
 ```text
--rw-r--r--  1 gvwilson  staff   219107 31 Dec 08:58 results/moby-dick.csv
--rw-r--r--  1 gvwilson  staff  1276201 31 Dec 08:58 data/moby-dick.txt
+-rw-r--r--  1 gvwilson  staff   219107 31 Dec 08:58 results/moby_dick.csv
+-rw-r--r--  1 gvwilson  staff  1276201 31 Dec 08:58 data/moby_dick.txt
 ```
 
 When Make sees that a target is newer than its prerequisites
 it displays a message like this:
 
 ```text
-make: `results/moby-dick.csv' is up to date.
+make: `results/moby_dick.csv' is up to date.
 ```
 
 To test that Make is actually doing the right thing, we can:
 
-1.  Delete `results/moby-dick.csv` and type `make` again (situation #1).
-2.  Run the command `touch data/moby-dick.txt` to update the timestamp on the source file,
+1.  Delete `results/moby_dick.csv` and type `make` again (situation #1).
+2.  Run the command `touch data/moby_dick.txt` to update the timestamp on the source file,
     then run `make` (situation #2).
 
 ## How can I tell Make where to find rules? {#s:automate-naming}
 
 We don't have to call our file of rules `Makefile`.
 If we want,
-we can rename the file `single-rule.mk`
-and then run it with `make -f single-rule.mk`.
+we can rename the file `single_rule.mk`
+and then run it with `make -f single_rule.mk`.
 Most people don't do this in real projects,
 but in a lesson like this,
 which includes many example Makefiles,
 it comes in handy.
 
 Using `-f` doesn't change our [working directory](#g:working-directory).
-If, for example, we are in `/home/gvwilson/still-magic` and run `make -f src/automate/single-rule.mk`,
+If, for example, we are in `/home/gvwilson/still-magic` and run `make -f src/automate/single_rule.mk`,
 our working directory remains `/home/gvwilson/still-magic`.
-This means that Make will look for the rule's prerequisite in `/home/gvwilson/still-magic/data/moby-dick.txt`,
-not in `/home/gvwilson/still-magic/src/automate/data/moby-dick.txt`.
+This means that Make will look for the rule's prerequisite in `/home/gvwilson/still-magic/data/moby_dick.txt`,
+not in `/home/gvwilson/still-magic/src/automate/data/moby_dick.txt`.
 
 FIXME: figure
 
 ## How can I update multiple files when their prerequisites change? {#s:automate-extend}
 
 Our Makefile isn't particularly exciting so far.
-Let's add another rule to the end and save the result as `double-rule.mk`:
+Let's add another rule to the end and save the result as `double_rule.mk`:
 
 ```make
 # Regenerate results for "Moby Dick"
-results/moby-dick.csv : data/moby-dick.txt
-        python bin/countwords.py data/moby-dick.txt > results/moby-dick.csv
+results/moby_dick.csv : data/moby_dick.txt
+        python bin/countwords.py data/moby_dick.txt > results/moby_dick.csv
 
 # Regenerate results for "Jane Eyre"
-results/jane-eyre.csv : data/jane-eyre.txt
-        python bin/countwords.py data/jane-eyre.txt > results/jane-eyre.csv
+results/jane_eyre.csv : data/jane_eyre.txt
+        python bin/countwords.py data/jane_eyre.txt > results/jane_eyre.csv
 ```
-{: title="automate/double-rule.mk"}
+{: title="automate/double_rule.mk"}
 
 When we ask Make to run this file:
 
 ```shell
-$ make -f double-rule.mk
+$ make -f double_rule.mk
 ```
 
 <!-- == \noindent -->
 we get this rather disappointing message:
 
 ```text
-make: `results/moby-dick.csv' is up to date.
+make: `results/moby_dick.csv' is up to date.
 ```
 
 Nothing happens because by default Make only attempts to update
@@ -284,13 +284,13 @@ To update something else,
 we need to tell Make we want it:
 
 ```shell
-$ make -f double-rule.mk results/jane-eyre.csv
+$ make -f double_rule.mk results/jane_eyre.csv
 ```
 
 This time Make runs:
 
 ```text
-python bin/countwords.py data/jane-eyre.txt > results/jane-eyre.csv
+python bin/countwords.py data/jane_eyre.txt > results/jane_eyre.csv
 ```
 
 ## How can I get rid of temporary files that I don't need? {#s:automate-phony}
@@ -380,25 +380,25 @@ in which each result depends on both the data file and the script:
 .PHONY: clean
 
 # Regenerate results for "Moby Dick"
-results/moby-dick.csv : data/moby-dick.txt bin/countwords.py
-	python bin/countwords.py data/moby-dick.txt > results/moby-dick.csv
+results/moby_dick.csv : data/moby_dick.txt bin/countwords.py
+	python bin/countwords.py data/moby_dick.txt > results/moby_dick.csv
 
 # Regenerate results for "Jane Eyre"
-results/jane-eyre.csv : data/jane-eyre.txt bin/countwords.py
-	python bin/countwords.py data/jane-eyre.txt > results/jane-eyre.csv
+results/jane_eyre.csv : data/jane_eyre.txt bin/countwords.py
+	python bin/countwords.py data/jane_eyre.txt > results/jane_eyre.csv
 
 # ...clean target as before...
 ```
-{: title="automate/depend-on-script.mk"}
+{: title="automate/depend_on_script.mk"}
 
 We can test this by touching the script and then making one or the other result:
 
 ```shell
 $ touch bin/countwords.py
-$ make -f depend-on-script.mk results/jane-eyre.csv
+$ make -f depend_on_script.mk results/jane_eyre.csv
 ```
 ```text
-python bin/countwords.py data/jane-eyre.txt > results/jane-eyre.csv
+python bin/countwords.py data/jane_eyre.txt > results/jane_eyre.csv
 ```
 
 ## How can I reduce the amount of typing I have to do? {:#s:automate-variables}
@@ -415,16 +415,16 @@ then using that variable in our rules:
 COUNT=bin/countwords.py
 
 # Regenerate results for "Moby Dick"
-results/moby-dick.csv : data/moby-dick.txt ${COUNT}
-	python ${COUNT} data/moby-dick.txt > results/moby-dick.csv
+results/moby_dick.csv : data/moby_dick.txt ${COUNT}
+	python ${COUNT} data/moby_dick.txt > results/moby_dick.csv
 
 # Regenerate results for "Jane Eyre"
-results/jane-eyre.csv : data/jane-eyre.txt ${COUNT}
-	python ${COUNT} data/jane-eyre.txt > results/jane-eyre.csv
+results/jane_eyre.csv : data/jane_eyre.txt ${COUNT}
+	python ${COUNT} data/jane_eyre.txt > results/jane_eyre.csv
 
 # ...clean target as before...
 ```
-{: title="automate/define-variable.mk"}
+{: title="automate/define_variable.mk"}
 
 The definition takes the form `NAME=value`.
 By convention,
@@ -448,7 +448,7 @@ We can re-create all the results files with a single command
 by listing multiple targets when we run Make:
 
 ```shell
-$ make results/moby-dick.csv results/jane-eyre.csv
+$ make results/moby_dick.csv results/jane_eyre.csv
 ```
 
 However,
@@ -467,11 +467,11 @@ it makes them a lot easier to find:
 COUNT=bin/countwords.py
 
 # Regenerate all results.
-all : results/moby-dick.csv results/jane-eyre.csv
+all : results/moby_dick.csv results/jane_eyre.csv
 
-# ...rules for moby-dick, jane-eyre, and clean...
+# ...rules for moby_dick, jane_eyre, and clean...
 ```
-{: title="automate/multi-prereq.mk"}
+{: title="automate/multi_prereq.mk"}
 
 If we run Make now,
 it sees that `all` is only "up to date" if the two CSV files are up to date,
@@ -483,7 +483,7 @@ with arrows showing what each target depends on.
 FIXME: figure
 
 Note that the Makefile doesn't define the order
-in which `results/moby-dick.csv` and `results/jane-eyre.csv` are updated,
+in which `results/moby_dick.csv` and `results/jane_eyre.csv` are updated,
 so Make can rebuild them in whatever order it wants.
 This is called [declarative programming](#g:declarative-programming):
 we declare what outcome we want,
@@ -505,20 +505,20 @@ We start with this:
 
 ```make
 # Regenerate results for "Moby Dick"
-results/moby-dick.csv : data/moby-dick.txt
-        python bin/countwords.py data/moby-dick.txt > results/moby-dick.csv
+results/moby_dick.csv : data/moby_dick.txt
+        python bin/countwords.py data/moby_dick.txt > results/moby_dick.csv
 ```
-{: title="automate/single-rule.mk"}
+{: title="automate/single_rule.mk"}
 
 <!-- == \noindent -->
 and turn it into this:
 
 ```make
 # Regenerate results for "Moby Dick"
-results/moby-dick.csv : data/moby-dick.txt
-        python bin/countwords.py data/moby-dick.txt > $@
+results/moby_dick.csv : data/moby_dick.txt
+        python bin/countwords.py data/moby_dick.txt > $@
 ```
-{: title="automate/automatic-variables-wrong.mk"}
+{: title="automate/automatic_variables_wrong.mk"}
 
 <!-- == \noindent -->
 `$@` is an automatic variable:
@@ -533,10 +533,10 @@ which is another automatic variable meaning "all the prerequisites of the curren
 
 ```make
 # Regenerate results for "Jane Eyre"
-results/jane-eyre.csv : data/jane-eyre.txt
+results/jane_eyre.csv : data/jane_eyre.txt
         python bin/countwords.py $^ > $@
 ```
-{: title="automate/automatic-variables-wrong.mk"}
+{: title="automate/automatic_variables_wrong.mk"}
 
 But wait:
 our results files don't just have books as dependencies.
@@ -546,17 +546,17 @@ What happens if we include that in the rule while using automatic variables?
 
 ```
 # Regenerate results for "The Time Machine" - WRONG
-results/time-machine.csv : data/time-machine.txt ${COUNT}
+results/time_machine.csv : data/time_machine.txt ${COUNT}
         python bin/countwords.py $^ > $@
 ```
-{: title="automate/automatic-variables-wrong.mk"}
+{: title="automate/automatic_variables_wrong.mk"}
 
 <!-- == \noindent -->
 This doesn't do the right thing because `$^` includes *all* of the prerequisites,
 so the action tries to process the script as if it were a data file:
 
 ```shell
-python bin/countwords.py data/time-machine.txt bin/countwords.py results/time-machine.csv
+python bin/countwords.py data/time_machine.txt bin/countwords.py results/time_machine.csv
 ```
 
 This situation comes up so often that
@@ -565,10 +565,10 @@ which lets us rewrite our rules like this:
 
 ```
 # Regenerate results for "Janey Eyre"
-results/jane-eyre.csv : data/jane-eyre.txt ${COUNT}
+results/jane_eyre.csv : data/jane_eyre.txt ${COUNT}
         python bin/countwords.py $< > $@
 ```
-{: title="automate/automatic-variables.mk"}
+{: title="automate/automatic_variables.mk"}
 
 And yes,
 `$< > $@` is hard to read,
@@ -592,7 +592,7 @@ so the single rule:
 results/%.csv : data/%.txt ${COUNT}
         python bin/countwords.py $< > $@
 ```
-{: title="automate/pattern-rule.mk"}
+{: title="automate/pattern_rule.mk"}
 
 <!-- == \noindent -->
 will handle *Jane Eyre*, *Moby Dick*, and *The Time Machine*.
@@ -607,7 +607,7 @@ our entire Makefile is reduced to:
 COUNT=bin/countwords.py
 
 # Regenerate all results.
-all : results/moby-dick.csv results/jane-eyre.csv results/time-machine.csv
+all : results/moby_dick.csv results/jane_eyre.csv results/time_machine.csv
 
 # Regenerate result for any book.
 results/%.csv : data/%.txt ${COUNT}
@@ -617,34 +617,34 @@ results/%.csv : data/%.txt ${COUNT}
 clean :
 	rm -f results/*.csv
 ```
-{: title="automate/pattern-rule.mk"}
+{: title="automate/pattern_rule.mk"}
 
 Let's delete all of the results files and re-create them all:
 
 ```shell
-$ make -f pattern-rule.mk clean
+$ make -f pattern_rule.mk clean
 ```
 ```text
 rm -f results/*.csv
 ```
 
 ```shell
-$ make -f pattern-rule.mk all
+$ make -f pattern_rule.mk all
 ```
 ```text
-python bin/countwords.py data/moby-dick.txt > results/moby-dick.csv
-python bin/countwords.py data/jane-eyre.txt > results/jane-eyre.csv
-python bin/countwords.py data/time-machine.txt > results/time-machine.csv
+python bin/countwords.py data/moby_dick.txt > results/moby_dick.csv
+python bin/countwords.py data/jane_eyre.txt > results/jane_eyre.csv
+python bin/countwords.py data/time_machine.txt > results/time_machine.csv
 ```
 
 We can still rebuild individual files:
 
 ```shell
-$ touch data/jane-eyre.txt
-$ make -f pattern-rule.mk results/jane-eyre.csv
+$ touch data/jane_eyre.txt
+$ make -f pattern_rule.mk results/jane_eyre.csv
 ```
 ```text
-python bin/countwords.py data/jane-eyre.txt > results/jane-eyre.csv
+python bin/countwords.py data/jane_eyre.txt > results/jane_eyre.csv
 ```
 
 ## How can I define sets of files automatically? {#s:automate-functions}
@@ -664,7 +664,7 @@ using the same notation we'd use in the shell to match all the CSV files in the 
 ```make
 RESULTS=results/*.csv
 ```
-{: title="automate/filename-wildcard.mk"}
+{: title="automate/filename_wildcard.mk"}
 
 <!-- == \noindent -->
 and then make `all` depend on that:
@@ -673,7 +673,7 @@ and then make `all` depend on that:
 # Regenerate all results.
 all : ${RESULTS}
 ```
-{: title="automate/filename-wildcard.mk"}
+{: title="automate/filename_wildcard.mk"}
 
 This works,
 but only for re-creating files:
@@ -692,7 +692,7 @@ Let's create a variable `DATA` that holds the names of all of our data files:
 ```make
 DATA = $(wildcard data/*.txt)
 ```
-{: title="automate/function-wildcard.mk"}
+{: title="automate/function_wildcard.mk"}
 
 <!-- == \noindent -->
 This calls the function `wildcard` with the argument `data/*.txt`.
@@ -716,18 +716,18 @@ settings :
         echo COUNT: ${COUNT}
         echo DATA: ${DATA}
 ```
-{: title="automate/function-wildcard.mk"}
+{: title="automate/function_wildcard.mk"}
 
 Let's run this:
 
 ```shell
-$ make -f function-wildcard.mk settings
+$ make -f function_wildcard.mk settings
 ```
 ```text
 echo COUNT: bin/countwords.py
 COUNT: bin/countwords.py
-echo DATA: data/common-sense.txt data/jane-eyre.txt data/life-of-frederick-douglass.txt data/moby-dick.txt data/sense-and-sensibility.txt data/time-machine.txt
-DATA: data/common-sense.txt data/jane-eyre.txt data/life-of-frederick-douglass.txt data/moby-dick.txt data/sense-and-sensibility.txt data/time-machine.txt
+echo DATA: data/common_sense.txt data/jane_eyre.txt data/life_of_frederick_douglass.txt data/moby_dick.txt data/sense_and_sensibility.txt data/time_machine.txt
+DATA: data/common_sense.txt data/jane_eyre.txt data/life_of_frederick_douglass.txt data/moby_dick.txt data/sense_and_sensibility.txt data/time_machine.txt
 ```
 
 The output appears twice because Make shows us the command it's going to run before running it.
@@ -739,14 +739,14 @@ settings :
 	@echo COUNT: ${COUNT}
         @echo DATA: ${DATA}
 ```
-{: title="automate/function-wildcard-silent.mk"}
+{: title="automate/function_wildcard_silent.mk"}
 
 ```shell
-$ make -f function-wildcard.mk settings
+$ make -f function_wildcard.mk settings
 ```
 ```text
 COUNT: bin/countwords.py
-DATA: data/common-sense.txt data/jane-eyre.txt data/life-of-frederick-douglass.txt data/moby-dick.txt data/sense-and-sensibility.txt data/time-machine.txt
+DATA: data/common_sense.txt data/jane_eyre.txt data/life_of_frederick_douglass.txt data/moby_dick.txt data/sense_and_sensibility.txt data/time_machine.txt
 ```
 
 We now have the names of our input files,
@@ -787,8 +787,8 @@ $ make -f patsubst.mk settings
 ```
 ```text
 COUNT: bin/countwords.py
-DATA: data/common-sense.txt data/jane-eyre.txt data/life-of-frederick-douglass.txt data/moby-dick.txt data/sense-and-sensibility.txt data/time-machine.txt
-RESULTS: results/common-sense.csv results/jane-eyre.csv results/life-of-frederick-douglass.csv results/moby-dick.csv results/sense-and-sensibility.csv results/time-machine.csv
+DATA: data/common_sense.txt data/jane_eyre.txt data/life_of_frederick_douglass.txt data/moby_dick.txt data/sense_and_sensibility.txt data/time_machine.txt
+RESULTS: results/common_sense.csv results/jane_eyre.csv results/life_of_frederick_douglass.csv results/moby_dick.csv results/sense_and_sensibility.csv results/time_machine.csv
 ```
 
 Excellent:
@@ -806,12 +806,12 @@ rm -f results/*.csv
 $ make -f patsubst.mk all
 ```
 ```text
-python bin/countwords.py data/common-sense.txt > results/common-sense.csv
-python bin/countwords.py data/jane-eyre.txt > results/jane-eyre.csv
-python bin/countwords.py data/life-of-frederick-douglass.txt > results/life-of-frederick-douglass.csv
-python bin/countwords.py data/moby-dick.txt > results/moby-dick.csv
-python bin/countwords.py data/sense-and-sensibility.txt > results/sense-and-sensibility.csv
-python bin/countwords.py data/time-machine.txt > results/time-machine.csv
+python bin/countwords.py data/common_sense.txt > results/common_sense.csv
+python bin/countwords.py data/jane_eyre.txt > results/jane_eyre.csv
+python bin/countwords.py data/life_of_frederick_douglass.txt > results/life_of_frederick_douglass.csv
+python bin/countwords.py data/moby_dick.txt > results/moby_dick.csv
+python bin/countwords.py data/sense_and_sensibility.txt > results/sense_and_sensibility.csv
+python bin/countwords.py data/time_machine.txt > results/time_machine.csv
 ```
 
 Our workflow is now just two steps:
@@ -845,7 +845,7 @@ help :
 	@echo "settings : show the values of all variables."
 	@echo "help : show this message."
 ```
-{: title="automate/makefile-help.mk"}
+{: title="automate/makefile_help.mk"}
 
 This is easy to set up and does the job,
 but once again its redundancy should worry us:
@@ -891,12 +891,12 @@ settings :
 help :
 	@grep '^##' ${MAKEFILE_LIST}
 ```
-{: title="automate/makefile-grep.mk"}
+{: title="automate/makefile_grep.mk"}
 
 Let's test:
 
 ```shell
-$ make -f makefile-grep.mk
+$ make -f makefile_grep.mk
 ```
 ```text
 ## all : regenerate all results.
@@ -925,7 +925,7 @@ but this is a good start.
 
 ## Summary {#s:automate-summary}
 
-<figure id="f:automate-concept"> <figcaption>Automation Concept Map</figcaption> <img src="../../figures/automate-concept.svg"/> </figure>
+<figure id="f:automate-concept"> <figcaption>Automation Concept Map</figcaption> <img src="../../figures/automate_concept.svg"/> </figure>
 
 -   [Smit2011](#BIB) describes the design and implementation of several build tools in detail.
 

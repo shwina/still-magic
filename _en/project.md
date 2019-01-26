@@ -55,7 +55,7 @@ The original specification included five top-level directories:
 
 The figure below shows this layout for a project called `g-trans`:
 
-<figure id="f:project-noble"> <figcaption>Project Layout</figcaption> <img src="../../figures/project-noble.svg"/> </figure>
+<figure id="f:project-noble"> <figcaption>Project Layout</figcaption> <img src="../../figures/project_noble.svg"/> </figure>
 
 <!-- == \noindent -->
 A few things to notice are:
@@ -85,11 +85,11 @@ This naming is particularly helpful when data and results are used in several re
 At all levels,
 filenames should be easy to match with simple shell wildcards.
 For example,
-a project might use <code><em>species</em>-<em>organ</em>-<em>treatment</em>.csv</code>
+a project might use <code><em>species</em>_<em>organ</em>_<em>treatment</em>.csv</code>
 as a file-naming convention,
-giving filenames like `human-kidney-cm200.csv`.
-This allows `human-*-cm200.csv` to match all human organs
-or `*-kidney-*.csv` to match all kidney data.
+giving filenames like `human_kidney_cm200.csv`.
+This allows `human_*_cm200.csv` to match all human organs
+or `*_kidney_*.csv` to match all kidney data.
 It does produce long filenames,
 but [tab completion](#g:tab-completion) means you only have to type them once.
 Long filenames are just as easy to match in programs:

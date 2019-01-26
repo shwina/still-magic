@@ -30,7 +30,7 @@ and where it should go.
 
 This is not a helpful error message:
 
-<figure id="f:docs-error-message"> <figcaption>Error Message</figcaption> <img src="../../figures/docs-error-message.png"/> </figure>
+<figure id="f:docs-error-message"> <figcaption>Error Message</figcaption> <img src="../../figures/docs_error_message.png"/> </figure>
 
 <!-- == \noindent -->
 Neither is this:

@@ -84,7 +84,7 @@ import logging
 logging.warning('This is a warning.')
 logging.info('This is just for information.')
 ```
-{: title="logging/simple-logging.py"}
+{: title="logging/simple_logging.py"}
 ```text
 WARNING:root:This is a warning.
 ```
@@ -108,7 +108,7 @@ logging.warning('This is a warning.')
 logging.error('Something went wrong.')
 logging.critical('Something went seriously wrong.')
 ```
-{: title="logging/configure-logging.py"}
+{: title="logging/configure_logging.py"}
 ```text
 DEBUG:root:This is for debugging.
 INFO:root:This is just for information.
@@ -181,7 +181,7 @@ easy to sort:
 logging.basicConfig(format='%(asctime)s,%(levelname)s,"%(message)s"', datefmt='%Y-%m-%d:%H:%M:%S')
 logging.warning('This is a warning')
 ```
-{: title="logging/message-format.py"}
+{: title="logging/message_format.py"}
 ```text
 2019-01-05:06:16:58,WARNING,"This is a warning"
 ```

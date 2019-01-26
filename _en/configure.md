@@ -69,7 +69,7 @@ options, extras = getopt(args, 'b:q')
 print('options is', options)
 print('extras is', extras)
 ```
-{: title="configure/getopt-simple.py"}
+{: title="configure/getopt_simple.py"}
 ```
 options is [('-q', ''), ('-b', '/tmp/log.txt')]
 extras is ['file1.txt', 'file2.txt']
@@ -94,7 +94,7 @@ for (opt, arg) in options:
         assert False, 'unrecognized option {}'.format(opt)
 print('Log file is {} and quiet is {}'.format(logfile, quiet))
 ```
-{: title="configure/getopt-simple.py"}
+{: title="configure/getopt_simple.py"}
 ```text
 Log file is /tmp/log.txt and quiet is True
 ```
@@ -135,13 +135,13 @@ print('Log file {}'.format(settings['logfile']))
 print('Quiet {}'.format(settings['quiet']))
 print('Extras {}'.format(extras))
 ```
-{: title="configure/getopt-dict.py"}
+{: title="configure/getopt_dict.py"}
 
 <!-- == \noindent -->
 which we can run like this:
 
 ```shell
-$ python getopt-dict.py -q first.txt
+$ python getopt_dict.py -q first.txt
 ```
 ```text
 Log file None
@@ -176,7 +176,7 @@ options, extras = getopt(args, 'b:q', ['logfile=', 'overwrite'])
 print('options is', options)
 print('extras is', extras)
 ```
-{: title="configure/getopt-long.py"}
+{: title="configure/getopt_long.py"}
 ```
 options is [('-q', ''), ('--logfile', '/tmp/log.txt'), ('--overwrite', '')]
 extras is ['file1.txt', 'file2.txt']
@@ -252,7 +252,7 @@ with open('config.yml', 'r') as reader:
     config = yaml.load(reader)
 print(config)
 ```
-{: title="configure/read-config.py"}
+{: title="configure/read_config.py"}
 ```text
 {'logfile': '/tmp/log.txt', 'quiet': False, 'overwrite': False, 'fonts': ['Verdana', 'Serif']}
 ```
@@ -362,7 +362,7 @@ options = getopt_to_dict(options, {'-b': 'logfile', '-q': 'quiet'})
 config = get_full_configuration(config_files, options)
 print(config)
 ```
-{: title="configure/test-config.py"}
+{: title="configure/test_config.py"}
 
 <!-- == \noindent -->
 and this command line:
@@ -440,7 +440,7 @@ we'll have to guess what options mean.
 Many tool also allow longer command-line options to control everything to support scripting
     -   Out of scope of this lesson
 
-<figure id="f:configure-concept"> <figcaption>Configuration Concept Map</figcaption> <img src="../../figures/configure-concept.svg"/> </figure>
+<figure id="f:configure-concept"> <figcaption>Configuration Concept Map</figcaption> <img src="../../figures/configure_concept.svg"/> </figure>
 
 ## Exercises {#s:workflow-exercises}
 

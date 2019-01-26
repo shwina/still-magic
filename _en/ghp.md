@@ -286,7 +286,7 @@ and Jekyll will fill it in:
   </body>
 </html>
 ```
-{: title="ghp/simple-01.html"}
+{: title="ghp/simple_01.html"}
 
 As it processes the page,
 Jekyll copies values from the header into the expanded text wherever `{% raw %}{{page.key}}{% endraw %}` appears,
@@ -307,7 +307,7 @@ suppose we add an `h1` element to our HTML template like this:
   </body>
 </html>
 ```
-{: title="ghp/simple-02.html"}
+{: title="ghp/simple_02.html"}
 
 After Jekyll does its filling in,
 the generated page will be:
@@ -325,7 +325,7 @@ the generated page will be:
   </body>
 </html>
 ```
-{: title="ghp/simple-02-generated.html"}
+{: title="ghp/simple_02_generated.html"}
 
 We can (and should) put data that's common to all pages
 in a file called `_config.yml` in the top leve of the `docs` directory.

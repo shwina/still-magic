@@ -174,22 +174,22 @@ and contain this many words:
 
 | Book                            | Words  |
 | ------------------------------- | -----: |
-| anne-of-green-gables.txt        | 105642 |
-| common-sense.txt                |  24999 |
-| count-of-monte-cristo.txt       | 464226 |
+| anne_of_green_gables.txt        | 105642 |
+| common_sense.txt                |  24999 |
+| count_of_monte_cristo.txt       | 464226 |
 | dracula.txt                     | 164424 |
 | emma.txt                        | 160458 |
-| ethan-frome.txt                 |  37732 |
+| ethan_frome.txt                 |  37732 |
 | frankenstein.txt                |  78098 |
-| jane-eyre.txt                   | 188455 |
-| life-of-frederick-douglass.txt  |  43789 |
-| moby-dick.txt                   | 215830 |
-| mysterious-affair-at-styles.txt |  59604 |
-| pride-and-prejudice.txt         | 124974 |
-| sense-and-sensibility.txt       | 121590 |
-| sherlock-holmes.txt             | 107533 |
-| time-machine.txt                |  35524 |
-| treasure-island.txt             |  71616 |
+| jane_eyre.txt                   | 188455 |
+| life_of_frederick_douglass.txt  |  43789 |
+| moby_dick.txt                   | 215830 |
+| mysterious_affair_at_styles.txt |  59604 |
+| pride_and_prejudice.txt         | 124974 |
+| sense_and_sensibility.txt       | 121590 |
+| sherlock_holmes.txt             | 107533 |
+| time_machine.txt                |  35524 |
+| treasure_island.txt             |  71616 |
 
 This is how often the most common words appear in this corpus as a whole:
 
@@ -228,21 +228,21 @@ we will see if the similarity measures we develop show that.
 | Author                      | Book                            |
 | ----------------------------| ------------------------------- |
 | Jane Austen                 | emma.txt                        |
-| Jane Austen                 | pride-and-prejudice.txt         |
-| Jane Austen                 | sense-and-sensibility.txt       |
-| Charlotte Brontë            | jane-eyre.txt                   |
-| Agatha Christie             | mysterious-affair-at-styles.txt |
-| Frederick Douglass          | life-of-frederick-douglass.txt  |
-| Arthur Conan Doyle          | sherlock-holmes.txt             |
-| Alexandre Dumas             | count-of-monte-cristo.txt       |
-| Herman Melville             | moby-dick.txt                   |
-| Lucy Maud Montgomery        | anne-of-green-gables.txt        |
-| Thomas Paine                | common-sense.txt                |
+| Jane Austen                 | pride_and_prejudice.txt         |
+| Jane Austen                 | sense_and_sensibility.txt       |
+| Charlotte Brontë            | jane_eyre.txt                   |
+| Agatha Christie             | mysterious_affair_at_styles.txt |
+| Frederick Douglass          | life_of_frederick_douglass.txt  |
+| Arthur Conan Doyle          | sherlock_holmes.txt             |
+| Alexandre Dumas             | count_of_monte_cristo.txt       |
+| Herman Melville             | moby_dick.txt                   |
+| Lucy Maud Montgomery        | anne_of_green_gables.txt        |
+| Thomas Paine                | common_sense.txt                |
 | Mary Wollstonecraft Shelley | frankenstein.txt                |
-| Robert Louis Stevenson      | treasure-island.txt             |
+| Robert Louis Stevenson      | treasure_island.txt             |
 | Bram Stoker                 | dracula.txt                     |
-| H. G. Wells                 | time-machine.txt                |
-| Edith Wharton               | ethan-frome.txt                 |
+| H. G. Wells                 | time_machine.txt                |
+| Edith Wharton               | ethan_frome.txt                 |
 
 ## Acknowledgments {#s:intro-ack}
 

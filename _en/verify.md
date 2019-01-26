@@ -15,6 +15,8 @@ keypoints:
 -   "Infer constraints on data and then check that subsequent data sets obey these constraints."
 ---
 
+FIXME: [tolerance](#g:tolerance)
+
 -   Previous lesson explained how to test in general
 -   This lesson focuses on tests specific to data analysis pipelines
     -   Run them when building the pipeline to convince ourselves the code is correct
@@ -95,7 +97,7 @@ keypoints:
 
 -   Here's a clearer view of some of the values our scheme can represent:
 
-<figure id="f:correct-spacing"> <figcaption>Number Spacing</figcaption> <img src="../../figures/number-spacing.png"/> </figure>
+<figure id="f:correct-spacing"> <figcaption>Number Spacing</figcaption> <img src="../../figures/number_spacing.png"/> </figure>
 
 -   There are a lot of values we *can't* store
     -   Can do 8 and 10 but not 9

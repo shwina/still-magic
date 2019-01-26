@@ -71,13 +71,13 @@ print('Hello, continuous')
     -   Report the results at `https://travis-ci.org/USER/REPO`
 -   Summary report tells you what happened
 
-<figure id="f:integrate-summary"> <figcaption>Travis Summary Report</figcaption> <img src="../../figures/travis-summary.png"/> </figure>
+<figure id="f:integrate-summary"> <figcaption>Travis Summary Report</figcaption> <img src="../../figures/travis_summary.png"/> </figure>
 
 -   Detailed log has *lots* of information
     -   397 lines hidden under "Build system information"
     -   Another 23 under "pip install" heading
 
-<figure id="f:integrate-log"> <figcaption>Travis Log</figcaption> <img src="../../figures/travis-log.png"/> </figure>
+<figure id="f:integrate-log"> <figcaption>Travis Log</figcaption> <img src="../../figures/travis_log.png"/> </figure>
 
 -   Most important thing is the test program's [exit status](#g:exit-status)
 -   Exit status of 0 means "nothing went wrong"
@@ -110,20 +110,20 @@ sys.exit(1)
 -   Commit and view
 -   Initially told that the build is queued
 
-<figure id="f:integrate-queued"> <figcaption>Travis Queued</figcaption> <img src="../../figures/travis-queued.png"/> </figure>
+<figure id="f:integrate-queued"> <figcaption>Travis Queued</figcaption> <img src="../../figures/travis_queued.png"/> </figure>
 
 -   Don't need to refresh the page
     -   When the build starts, the page automatically starts updating
     -   And when the build finishes, the summary is red and the log displays this
 
-<figure id="f:integrate-failure"> <figcaption>Travis Failure</figcaption> <img src="../../figures/travis-failure.png"/> </figure>
+<figure id="f:integrate-failure"> <figcaption>Travis Failure</figcaption> <img src="../../figures/travis_failure.png"/> </figure>
 
 ## How Can I Display the Status of a Repostiory? {#s:integrate-display}
 
 -   Display build status on GitHub because that's where most people look
 -   Look at the top of the status page for the build icon
 
-<figure id="f:integrate-build-icon"> <figcaption>Travis Build Icon</figcaption> <img src="../../figures/travis-build-icon.png"/> </figure>
+<figure id="f:integrate-build-icon"> <figcaption>Travis Build Icon</figcaption> <img src="../../figures/travis_build_icon.png"/> </figure>
 
 -   Click on it to bring up a dialog
 -   Select the Markdown you need for the `master` branch
@@ -134,7 +134,7 @@ sys.exit(1)
 -   While we're waiting for the build, take a look at the "Branches" tab
     -   Clicking on a check mark or an X will bring up details of that build on that branch
 
-<figure id="f:integrate-overall"> <figcaption>Travis Overall</figcaption> <img src="../../figures/travis-overall.png"/> </figure>
+<figure id="f:integrate-overall"> <figcaption>Travis Overall</figcaption> <img src="../../figures/travis_overall.png"/> </figure>
 
 -   Sure enough, once the build on `master` completes, the page displays a red X
 -   Modify `.travis.yml` to remove the failing script
@@ -142,7 +142,7 @@ sys.exit(1)
 -   Wait for email to arrive
 -   Go to project on GitHub
 
-<figure id="f:integrate-github-icon"> <figcaption>Travis GitHub Icon</figcaption> <img src="../../figures/travis-github-icon.png"/> </figure>
+<figure id="f:integrate-github-icon"> <figcaption>Travis GitHub Icon</figcaption> <img src="../../figures/travis_github_icon.png"/> </figure>
 
 ## How Can I Automatically Run Tests for My Project When Things Change?  {#s:integrate-tests}
 

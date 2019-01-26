@@ -109,7 +109,7 @@ else:
     print('First 100 characters of data are')
     print(response.text[:100])
 ```
-{: title="syndicate/get-tas-can.py"}
+{: title="syndicate/get_tas_can.py"}
 ```text
 First 100 characters of data are
 year,data
@@ -164,23 +164,23 @@ using standard libraries is only easier if we know that those libraries exist an
 
 Let's try the first approach.
 To begin,
-we create a file called `test-01.csv` that contains the following three lines:
+we create a file called `test_01.csv` that contains the following three lines:
 
 ```text
 1901,12.3
 1902,45.6
 1903,78.9
 ```
-{: title="syndicate/test-01.csv"}
+{: title="syndicate/test_01.csv"}
 
 It's easy to read this file line by line and (for example) report the length of each line:
 
 ```python
-with open('test-01.csv', 'r') as reader:
+with open('test_01.csv', 'r') as reader:
     for line in reader:
         print(len(line))
 ```
-{: title="syndicate/read-csv-01.py"}
+{: title="syndicate/read_csv_01.py"}
 ```text
 10
 10
@@ -190,12 +190,12 @@ with open('test-01.csv', 'r') as reader:
 We can also split each line on commas to turn each one into a list of string fragments:
 
 ```python
-with open('test-01.csv', 'r') as reader:
+with open('test_01.csv', 'r') as reader:
     for line in reader:
         fields = line.split(',')
         print(fields)
 ```
-{: title="syndicate/read-csv-02.py"}
+{: title="syndicate/read_csv_02.py"}
 ```text
 ['1901', '12.3\n']
 ['1902', '45.6\n']
@@ -210,12 +210,12 @@ To get rid of it,
 we should strip leading and trailing whitespace from each line before splitting it on commas:
 
 ```python
-with open('test-01.csv', 'r') as reader:
+with open('test_01.csv', 'r') as reader:
     for line in reader:
         fields = line.strip().split(',')
         print(fields)
 ```
-{: title="syndicate/read-csv-03.py"}
+{: title="syndicate/read_csv_03.py"}
 ```text
 ['1901', '12.3']
 ['1902', '45.6']
@@ -231,12 +231,12 @@ Here's one way to use it:
 ```python
 import csv
 
-with open('test-01.csv', 'r') as raw:
+with open('test_01.csv', 'r') as raw:
     cooked = csv.reader(raw)
     for record in cooked:
         print(record)
 ```
-{: title="syndicate/read-csv-04.py"}
+{: title="syndicate/read_csv_04.py"}
 ```text
 ['1901', '12.3']
 ['1902', '45.6']
@@ -253,13 +253,13 @@ We can equally well give a `csv.reader` a list of strings rather than a file:
 ```python
 import csv
 
-with open('test-01.csv', 'r') as raw:
+with open('test_01.csv', 'r') as raw:
     lines = raw.readlines()
 cooked = csv.reader(lines)
 for record in cooked:
     print(record)
 ```
-{: title="syndicate/read-csv-05.py"}
+{: title="syndicate/read_csv_05.py"}
 ```text
 ['1901', '12.3']
 ['1902', '45.6']
@@ -274,7 +274,7 @@ but look at what happens when we have data like this:
 "Spence, Frances Bilas",1922,2012
 "Teitelbaum,Ruth Lichterman",1924,1986
 ```
-{: title="syndicate/test-02.csv"}
+{: title="syndicate/test_02.csv"}
 
 With simple string splitting, our output is:
 
@@ -315,15 +315,15 @@ We have to break this into lines before giving it to `csv.reader`,
 and we can do that by splitting the string on the same `\n` escape sequence
 we encountered a few moments ago.
 To see how this works,
-let's read `test-01.csv` into memory and split it into pieces:
+let's read `test_01.csv` into memory and split it into pieces:
 
 ```python
-with open('test-01.csv', 'r') as reader:
+with open('test_01.csv', 'r') as reader:
     data = reader.read()
     lines = data.split('\n')
     print(lines)
 ```
-{: title="syndicate/read-csv-06.py"}
+{: title="syndicate/read_csv_06.py"}
 ```text
 ['1901,12.3', '1902,45.6', '1903,78.9', '']
 ```
@@ -343,12 +343,12 @@ print(fields)
 The solution once again is to strip leading and trailing whitespace before splitting:
 
 ```python
-with open('test-01.csv', 'r') as reader:
+with open('test_01.csv', 'r') as reader:
     data = reader.read()
     lines = data.strip().split('\n')
     print(lines)
 ```
-{: title="syndicate/read-csv-07.py"}
+{: title="syndicate/read_csv_07.py"}
 ```text
 ['1901,12.3', '1902,45.6', '1903,78.9']
 ```
@@ -368,7 +368,7 @@ else:
     for record in wrapper:
         print(record)
 ```
-{: title="syndicate/get-tas-can-csv.py"}
+{: title="syndicate/get_tas_can_csv.py"}
 ```text
 ['year', 'data']
 ['1901', '-7.67241907119751']
@@ -397,10 +397,10 @@ else:
         value = float(record[1])
         print(year, value)
 ```
-{: title="syndicate/get-tas-can-convert.py"}
+{: title="syndicate/get_tas_can_convert.py"}
 ```text
 Traceback (most recent call last):
-  File "api-with-naive-converting.py", line 11, in <module>
+  File "api_with_naive_converting.py", line 11, in <module>
     year = int(record[0])
 ValueError: invalid literal for int() with base 10: 'year'
 ```
@@ -433,7 +433,7 @@ else:
             value = float(record[1])
             print(year, value)
 ```
-{: title="syndicate/get-tas-can-clean.py"}
+{: title="syndicate/get_tas_can_clean.py"}
 ```text
 1901 -7.67241907119751
 1902 -7.862711429595947
@@ -472,7 +472,7 @@ def annual_mean_temp(country):
                 results.append([year, value])
         return results
 ```
-{: title="syndicate/get-without-check.py"}
+{: title="syndicate/get_without_check.py"}
 
 This works:
 
@@ -480,7 +480,7 @@ This works:
 canada = annual_mean_temp('CAN')
 print('first three entries for Canada:', canada[:3])
 ```
-{: title="syndicate/get-without-check.py"}
+{: title="syndicate/get_without_check.py"}
 ```text
 first three entries for Canada: [[1901, -7.67241907119751], [1902, -7.862711429595947], [1903, -7.910782814025879]]
 ```
@@ -493,7 +493,7 @@ Look what happens when we pass in an invalid country identifier:
 latveria = annual_mean_temp('LTV')
 print 'first three entries for Latveria:', latveria[:3]
 ```
-{: title="syndicate/get-without-check.py"}
+{: title="syndicate/get_without_check.py"}
 ```text
 first three entries for Latveria: []
 ```
@@ -533,7 +533,7 @@ def annual_mean_temp(country):
 latveria = annual_mean_temp('LTV')
 print('number of records for Latveria:', len(latveria))
 ```
-{: title="syndicate/get-with-minimal-check.py"}
+{: title="syndicate/get_with_minimal_check.py"}
 ```text
 url used is http://climatedataapi.worldbank.org/climateweb/rest/v1/country/cru/tas/year/LTV.csv
 response code: 200
@@ -567,7 +567,7 @@ def annual_mean_temp(country):
                 results.append([year, value])
     return results
 ```
-{: title="syndicate/get-with-check.py"}
+{: title="syndicate/get_with_check.py"}
 
 <!-- == \noindent -->
 and here's a quick check:
@@ -576,7 +576,7 @@ and here's a quick check:
 print('number of records for Canada:', len(annual_mean_temp('CAN')))
 print('number of records for Latveria:', len(annual_mean_temp('LTV')))
 ```
-{: title="syndicate/get-with-check.py"}
+{: title="syndicate/get_with_check.py"}
 
 ```text
 number of records for Canada: 109
@@ -601,7 +601,7 @@ def diff_records(left, right):
         results.append([left_year, difference])
     return results
 ```
-{: title="syndicate/compare-01.py"}
+{: title="syndicate/compare_01.py"}
 
 Here, we're using the number of entries in `left` (which we find with `len(left)`) to control our loop.
 Inside the loop we unpack the left and right years and values from the list entries,
@@ -615,7 +615,7 @@ print('one record:', diff_records([[1900, 1.0]],
 print('two records:', diff_records([[1900, 1.0], [1901, 10.0]],
                                    [[1900, 2.0], [1901, 20.0]]))
 ```
-{: title="syndicate/compare-01.py}
+{: title="syndicate/compare_01.py}
 ```text
 one record: [[1900, -1.0]]
 two records: [[1900, -1.0], [1901, -10.0]]
@@ -631,7 +631,7 @@ print('left is shorter', diff_records([[1900, 1.0]],
 print('right is shorter', diff_records([[1900, 1.0], [1901, 2.0]],
                                        [[1900, 10.0]]))
 ```
-{: title="syndicate/compare-01.py}
+{: title="syndicate/compare_01.py}
 ```text
 IndexError: list index out of rangemis-matched years: [[1900, -1.0]]
 left is shorter [[1900, -9.0]]
@@ -669,7 +669,7 @@ def diff_records(left, right):
         results.append([left_year, difference])
     return results
 ```
-{: title="syndicate/compare-02.py"}
+{: title="syndicate/compare_02.py"}
 
 Do our "good" tests pass?
 
@@ -679,7 +679,7 @@ print('one record:', diff_records([[1900, 1.0]],
 print('two records:', diff_records([[1900, 1.0], [1901, 10.0]],
                                    [[1900, 2.0], [1901, 20.0]]))
 ```
-{: title="syndicate/compare-02.py"}
+{: title="syndicate/compare_02.py"}
 ```text
 one record: [[1900, -1.0]]
 two records: [[1900, -1.0], [1901, -10.0]]
@@ -691,7 +691,7 @@ What about our the three tests that we now expect to fail?
 print('mis-matched years:', diff_records([[1900, 1.0]],
                                          [[1999, 2.0]]))
 ```
-{: title="syndicate/compare-02.py"}
+{: title="syndicate/compare_02.py"}
 ```text
 AssertionError: Record 0 is for different years: 1900 vs 1999mis-matched years:
 ```
@@ -699,7 +699,7 @@ AssertionError: Record 0 is for different years: 1900 vs 1999mis-matched years:
 print('left is shorter', diff_records([[1900, 1.0]],
                                       [[1900, 10.0], [1901, 20.0]]))
 ```
-{: title="syndicate/compare-02.py"}
+{: title="syndicate/compare_02.py"}
 ```text
 AssertionError: Inputs have different lengths. left is shorter
 ```
@@ -707,7 +707,7 @@ AssertionError: Inputs have different lengths. left is shorter
 print('right is shorter', diff_records([[1900, 1.0], [1901, 2.0]],
                                        [[1900, 10.0]]))
 ```
-{: title="syndicate/compare-02.py"}
+{: title="syndicate/compare_02.py"}
 ```text
 AssertionError: Inputs have different lengths. right is shorter
 ```
@@ -737,7 +737,7 @@ def save_records(filename, records):
         writer = csv.writer(raw)
         writer.writerows(records)
 ```
-{: title="syndicate/save-records-01.py"}
+{: title="syndicate/save_records_01.py"}
 
 We use the `csv` library to write data
 for the same reason we use it to read:
@@ -747,7 +747,7 @@ Let's test it:
 ```python
 save_records('temp.csv', [[1, 2], [3, 4]])
 ```
-{: title="syndicate/save-records-01.py"}
+{: title="syndicate/save_records_01.py"}
 
 If we then look in the file `temp.csv`, we find:
 
@@ -780,10 +780,10 @@ but the basic idea stays the same.
 
 As for what we should call it, here we return to the key idea in REST:
 every data set should be identified by a "guessable" URL.
-In our case we'll use a name  like `left-right.csv`,
+In our case we'll use a name  like `left_right.csv`,
 where `left` and `right` are the three-letter codes of the countries whose temperatures we are differencing.
 We can then tell people that if they want to compare Australia and Brazil,
-they should look for `http://the.server.name/~nelle/AUS-BRA.csv`.
+they should look for `http://the.server.name/~nelle/AUS_BRA.csv`.
 (We use upper case to be consistent with the World Bank's API.)
 
 But what's to prevent someone from creating a badly-named (and therefore unfindable) file?
@@ -796,19 +796,19 @@ import csv
 
 def save_records(left, right, records):
     '''Save a list of [year, temp] pairs as CSV.'''
-    filename = left + '-' + right + '.csv'
+    filename = left + '_' + right + '.csv'
     with open(filename, 'w') as raw:
         writer = csv.writer(raw)
         writer.writerows(records)
 ```
-{: title="syndicate/save-records-02.py"}
+{: title="syndicate/save_records_02.py"}
 
 We can now call it like this:
 
 ```python
 save_records('AUS', 'BRA', [[1, 2], [3, 4]])
 ```
-{: title="syndicate/save-records-02.py"}
+{: title="syndicate/save_records_02.py"}
 
 and then check that the right output file has been created.
 We are bound to have the country codes anyway (having used them to look up our data),
@@ -824,10 +824,10 @@ by creating an [index](#g:index) to tell people what files exist.
 Here's the format we will use:
 
 ```text
-2014-05-26,FRA,TCD,FRA-TCD.csv
-2014-05-27,AUS,BRA,AUS-BRA.csv
-2014-05-27,AUS,CAN,AUS-CAN.csv
-2014-05-28,BRA,CAN,BRA-CAN.csv
+2014-05-26,FRA,TCD,FRA_TCD.csv
+2014-05-27,AUS,BRA,AUS_BRA.csv
+2014-05-27,AUS,CAN,AUS_CAN.csv
+2014-05-28,BRA,CAN,BRA_CAN.csv
 ```
 
 The columns are the date the data set was generated,
@@ -856,7 +856,7 @@ def update_index(index_filename, left, right):
     
     # Create new record.
     timestamp = time.strftime('%Y-%m-%d')
-    data_filename = left + '-' + right + '.csv'
+    data_filename = left + '_' + right + '.csv'
     new_record = (timestamp, left, right, data_filename)
     
     # Save.
@@ -865,16 +865,16 @@ def update_index(index_filename, left, right):
         writer = csv.writer(raw)
         writer.writerows(records)
 ```
-{: title="syndicate/make-index.py"}
+{: title="syndicate/make_index.py"}
 
 Let's test it.
 If our index file contains:
 
 ```text
-2014-05-26,FRA,TCD,FRA-TCD.csv
-2014-05-27,AUS,BRA,AUS-BRA.csv
-2014-05-27,AUS,CAN,AUS-CAN.csv
-2014-05-28,BRA,CAN,BRA-CAN.csv
+2014-05-26,FRA,TCD,FRA_TCD.csv
+2014-05-27,AUS,BRA,AUS_BRA.csv
+2014-05-27,AUS,CAN,AUS_CAN.csv
+2014-05-28,BRA,CAN,BRA_CAN.csv
 ```
 
 and we run:
@@ -882,16 +882,16 @@ and we run:
 ```python
 update_index('data/index.csv', 'TCD', 'CAN')
 ```
-{: title="syndicate/make-index.py"}
+{: title="syndicate/make_index.py"}
 
 then our index file now contains:
 
 ```text
-2014-05-26,FRA,TCD,FRA-TCD.csv
-2014-05-27,AUS,BRA,AUS-BRA.csv
-2014-05-27,AUS,CAN,AUS-CAN.csv
-2014-05-28,BRA,CAN,BRA-CAN.csv
-2014-05-29,TCD,CAN,TCD-CAN.csv
+2014-05-26,FRA,TCD,FRA_TCD.csv
+2014-05-27,AUS,BRA,AUS_BRA.csv
+2014-05-27,AUS,CAN,AUS_CAN.csv
+2014-05-28,BRA,CAN,BRA_CAN.csv
+2014-05-29,TCD,CAN,TCD_CAN.csv
 ```
 
 Now that all of this is in place,
@@ -916,7 +916,7 @@ print what_is_available('data/index.csv', 'BRA', '2014-05-27')
 ```
 {: title="syndicate/available.py"}
 ```text
-['AUS-BRA.csv', 'BRA-CAN.csv']
+['AUS_BRA.csv', 'BRA_CAN.csv']
 ```
 
 This may not seem like a breakthrough,
@@ -941,7 +941,7 @@ By automating this process, blogging tools help us focus attention on things tha
 
 ## Exercises {#s:syndicate-summary}
 
-<figure id="f:syndicate-concept"> <figcaption>Syndication Concept Map</figcaption> <img src="../../figures/syndicate-concept.svg"/> </figure>
+<figure id="f:syndicate-concept"> <figcaption>Syndication Concept Map</figcaption> <img src="../../figures/syndicate_concept.svg"/> </figure>
 
 ## Exercises {#s:syndicate-exercises}
 
@@ -964,7 +964,7 @@ Why or why not?
 
 Should `save_records` check that every record in its input has exactly two fields?
 Why or why not?
-What about country codes -
+What about country codes:
 should it contain a list of those that match actual countries
 and check that `left` and `right` are in that list?
 

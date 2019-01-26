@@ -127,7 +127,7 @@ Versions:
 -   `python wordbase.py --version` reports 0.13.1
 -   Using on Windows 10.
 ```
-{: title="backlog/bug-report.txt"}
+{: title="backlog/bug_report.txt"}
 
 ## How can I use labels to organize work? {#s:backlog-label}
 
@@ -206,7 +206,7 @@ and to only allow some people to move them.
 For example,
 the figure below shows a workflow for handling bugs in a medium-sized project:
 
-<figure id="f:backlog-lifecycle"> <figcaption>Issue State Transitions</figcaption> <img src="../../figures/backlog-lifecycle.svg"/> </figure>
+<figure id="f:backlog-lifecycle"> <figcaption>Issue State Transitions</figcaption> <img src="../../figures/backlog_lifecycle.svg"/> </figure>
 
 -   An "Open" issue becomes "Assigned" when someone is made responsible for it.
 -   An "Assigned" issue becomes "Active" when that person starts to work on it.
