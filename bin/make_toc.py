@@ -15,9 +15,9 @@ def main(config_file, source_dir):
         config = yaml.load(reader)
     lessons = config['toc']['lessons']
     extras = config['toc']['extras']
-    keyed = {**dict(zip(lessons, [('Chapter', str(i)) for i in range(1, len(lessons) + 1)])),
-             **dict(zip(extras, [('Appendix', c) for c in ascii_uppercase[:len(extras)]]))}
-    result = {'s:{}'.format(k) : '{} {}'.format(*keyed[k]) for k in keyed}
+    keyed = {**dict(zip(lessons, ['Chapter {}'.format(str(i)) for i in range(1, len(lessons) + 1)])),
+             **dict(zip(extras, ['Appendix {}'.format(c) for c in ascii_uppercase[:len(extras)]]))}
+    result = {'s:{}'.format(k) : (k, keyed[k]) for k in keyed}
     [result.update(process(source_dir, k, keyed[k][1])) for k in keyed]
     print(result)
 
@@ -28,7 +28,7 @@ def process(source_dir, slug, base):
         content = reader.read()
     headings = SECTION_PAT.findall(content)
     numbered = zip(headings, range(1, len(headings) + 1))
-    return {h : 'Section {}.{}'.format(base, i) for (h, i) in numbered}
+    return {h : (slug, 'Section {}.{}'.format(base, i)) for (h, i) in numbered}
 
 
 if __name__ == '__main__':
