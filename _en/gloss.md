@@ -475,7 +475,7 @@ title: "Glossary"
 :   FIXME
 
 **Update operator**{:#g:update-operator}
-:   See [in-place operator](#g:in-place-oeprator).
+:   See [in-place operator](#g:in-place-operator).
 
 **Validation**{:#g:validation}
 :   FIXME
