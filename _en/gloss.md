@@ -380,7 +380,7 @@ title: "Glossary"
 **Set and override**{:#g:set-and-override} (pattern)
 :   FIXME
 
-**Short circuit**{:#g:short-circuit}
+**Short circuit test**{:#g:short-circuit-test}
 :   FIXME
 
 **Side effect**{:#g:side-effect}
@@ -473,6 +473,9 @@ title: "Glossary"
 
 **Unit test**{:#g:unit-test}
 :   FIXME
+
+**Update operator**{:#g:update-operator}
+:   See [in-place operator](#g:in-place-oeprator).
 
 **Validation**{:#g:validation}
 :   FIXME

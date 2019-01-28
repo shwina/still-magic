@@ -2,7 +2,7 @@
 title: "Refactoring"
 undone: true
 questions:
--   "How can I go about reorganizing code when I'm making changes?"
+-   "How can I improve code that already works?"
 objectives:
 -   "Describe at least four common refactorings and correctly apply each."
 keypoints:
@@ -15,141 +15,162 @@ keypoints:
 -   "Use comprehensions instead of loops."
 ---
 
--   [Refactoring](#g:refactor) is changing the structure of code without changing what it does
-    -   Like refactoring an equation
-    -   Because nobody gets it right the first time [Bran1995](#BIB)
--   Most discussions of refactoring focus on [object-oriented programming](#g:oop)
--   But many patterns can and should be used to clean up [procedural](#g:procedural-programming) code
-    -   An example of [design patterns](#g:design-patterns)
+[Refactoring](#g:refactor) means changing the structure of code without changing what it does,
+like refactoring an equation to simplify it.
+It is just as much a part of programming as writing code in the first place:
+nobody gets things right the first time [Bran1995](#BIB),
+and needs or insights can change over time.
 
-## Replace Value With Name {#s:refactoring-replace-value-with-name}
+Most discussions of refactoring focus on [object-oriented programming](#g:oop),
+but many patterns can and should be used to clean up [procedural](#g:procedural-programming) code.
+This lesson describes and motivates some of the most useful patterns;
+These rules are examples of [design patterns](#g:design-patterns):
+general solutions to commonly occurring problems in software design.
+Knowing them and their names will help you create better software,
+and also make it easier for you to communicate with your peers.
 
--   I.e., define a constant
--   Easier to understand when read aloud (which is always a good test)
--   Easier to change
-    -   You don't think you'll have to, but then people want to use your software on Mars [Mak2006](#BIB)
+## How can I avoid repeating values in code? {#s:refactoring-replace-value-with-name}
 
-```python
-# BEFORE
-seconds_elapsed = num_days * 24 * 60 * 60
-```
-```python
-# AFTER
-SECONDS_PER_DAY = 24 * 60 * 60
-...
-seconds_elapsed = num_days * SECONDS_PER_DAY
-```
+Our first and simplest refactoring is called "replace value with name".
+It tells us to replace magic numbers with names,
+i.e., to define constants.
+This can seem ridiculous in simple cases
+(why define and use `inches_per_foot` instead of just writing 12?).
+However,
+what may be obvious to you when you're writing code won't be obvious to the next person,
+particularly if they're working in a different context
+(most of the world uses the metric system and doesn't know how many inches are in a foot).
+It's also a matter of habit:
+if you write numbers without explanation in your code for simple cases,
+you're more likely to do so for complex cases,
+and more likely to regret it afterward.
 
-## Hoist Repeated Calculation Out of Loop {#s:refactoring-hoist-repeated}
+Using names instead of raw values also makes it easier to understand code when you read it aloud,
+which is always a good test of its style.
+Finally,
+a single value defined in one place is much easier to change
+than a bunch of numbers scattered throughout your program.
+You may not think you will have to change it,
+but then people want to use your software on Mars and you discover that constants aren't [Mak2006](#BIB).
 
--   Move something that is being re-calculated inside a loop out of the loop
--   More efficient
--   More readable: makes it clear that the value actually *is* the same
-    -   And by naming the common value, you're signalling its meaning
+{% include refactor/replace_value_with_name.html %}
 
-```python
-# BEFORE
-for sample in all_signals:
-    transform.append(2 * pi * sample / normalize)
-```
-```python
-# AFTER
-scaling = 2 * pi / normalize
-for sample in all_signals:
-    transform.append(sample * scaling)
-```
+## How can I avoid repeating calculations in code? {#s:refactoring-hoist-repeated}
 
-## Replace Repeated Test With Flag {#s:refactoring-repeated-test}
+It's inefficient to calculate the same value over and over again.
+It also makes code less readable:
+if a calculation is inside a loop or a function,
+readers will assume that it might change each time the code is executed.
 
--   Booleans are values and can be assigned
--   Note: do *not* need to compare to `True` or `False`
-    -   `if greater == True` is the same as `if greater`
-    -   `if greater == False` is the same as `if not greater`
+Our second refactoring,
+"hoist repeated calculation out of loop",
+tells us to move the repeated calculation out of the loop or function.
+Doing this signals that its value is always the same.
+And by naming that common value,
+you help readers understand what its purpose is.
 
-```python
-greater = estimate > 0.0
-...other code that possibly changes estimate...
-if greater:
-    ...do something...
-```
+{% include refactor/hoist_repeated_calculation.html %}
 
--   Using a flag instead of repeating the test is therefore like assigning a calculation to a "constant" and using it later
--   Like using a constant, doing this makes intention clearer (these really are the same test) and future changes easier
+## How can I make repeated conditional tests clearer? {#s:refactoring-repeated-test}
 
-```python
-# BEFORE
-def process_data(data, scaling):
-    if len(data) > THRESHOLD:
-        scaling = sqrt(scaling)
-    ...process data to create score...
-    if len(data) > THRESHOLD:
-        score = score ** 2
-```
-```python
-# AFTER
-def process_data(data, scaling):
-    is_large_data = len(data) > THRESHOLD
-    if is_large_data:
-        scaling = sqrt(scaling)
-    ...process data to create score...
-    if is_large_data:
-        score = score ** 2
-```
-
--   If the test needs to change to `>=`, the `AFTER` version is more likely to be right the first time
-
-## Use In-Place Operator {#s:refactoring-in-place}
-
--   An [in-place operator](#g:in-place-operator) does a calculation with two values and overwrites one of those values
--   Instead of `x = x + 1`, write `x += 1`
--   `samples[least_factor_index, max(current_offset, offset_limit)] *= scaling_factor` is much easier to read if the array indexing *isn't* repeated
--   Using in-place operators also makes it clear that a value is being overwritten
-    -    `samples[day-1, hour, minute-1] = samples[day-1, hour, minute+1] + latest_reading` is really, really hard to spot
+Novice programmers frequently write conditional tests like this:
 
 ```python
-# BEFORE
-for least_factor_index in all_factor_indexes:
-    samples[least_factor_index, max(current_offset, offset_limit)] = \
-        samples[least_factor_index, max(current_offset, offset_limit)] * scaling_factor
-```
-```python
-# AFTER
-for least_factor_index in all_factor_indexes:
-    samples[least_factor_index, max(current_offset, offset_limit)] *= scaling_factor
+if (a > b) == True:
+    # ...do something...
 ```
 
-## Place Short Circuits Early {#s:refactoring-short-circuits}
-
--   A [short circuit](#g:short-circuit) test is a quick check to handle a special case
--   Place these near the start of functions to give readers a sense of what the remaining code is there to handle
+<!-- == \noindent -->
+The comparison to `True` is unnecessary because `a > b` is a Boolean value
+that is itself either `True` or `False`.
+Like any other value,
+Booleans can be assigned to variables,
+and those variables can then be used directly in tests:
 
 ```python
-# BEFORE
-def rescale_by_average(values, factors, weights):
-    a = 0.0
-    for (f, w) in zip(factors, weights):
-        a += f * w
-    if a == 0.0:
-        return
-    a /= len(f)
-    if not values:
-        return
-    else:
-        for (i, v) in enumerate(values):
-            values[i] = v / a
+was_greater = estimate > 0.0
+# ...other code that might change estimate...
+if was_greater:
+    # ...do something...
 ```
+
+<!-- == \noindent -->
+This refactoring is called "replace repeated test with flag".
+When it is used,
+there is no need to write `if was_greater == True`:
+that always produces the same result as `if was_greater`.
+Similarly, the equality tests in `if was_greater == False` is redundant:
+the expression can simply be written `if not was_greater`.
+Creating and using a [flag](#g:flag) instead of repeating the test
+is therefore like moving a calculation out of a loop:
+even if that value is only used once,
+it makes our intention clearer---these really are the same test.
+
+{% include refactor/replace_repeated_test_with_flag.html %}
+
+<!-- == \noindent -->
+If it takes many lines of code to process data and create a score,
+and the test then needs to change from `>` to `>=`,
+we're more likely to get the refactored version right the first time,
+since the test only appears in one place and its result is given a name.
+
+## How can I avoid duplicating expressions in assignment statements? {#s:refactoring-in-place}
+
+An [in-place operator](#g:in-place-operator),
+sometimes called an [update operator](#g:update-operator),
+does a calculation with two values
+and overwrites one of the values.
+For example,
+instead of writing:
+
 ```python
-# AFTER
-def rescale_by_average(values, factors, weights):
-    if (not values) or (not factors) or (not weights):
-        return
-    a = 0.0
-    for (f, w) in zip(factors, weights):
-        a += f * w
-    a /= len(f)
-    for (i, v) in enumerate(values):
-        values[i] = v / a
+step = step + 1
 ```
+
+<!-- == \noindent -->
+we can write:
+
+```python
+step += 1
+```
+
+In-place operators save us some typing.
+They also make the intention clearer,
+and most importantly,
+they make it harder to get complex assignments wrong.
+For example:
+
+```python
+samples[least_factor_index, max(current_offset, offset_limit)] *= scaling_factor
+```
+
+<!-- == \noindent -->
+is much easier to read than the equivalent expression:
+
+```python
+samples[least_factor_index, max(current_offset, offset_limit)] = \
+    scaling_factor * samples[least_factor_index, max(current_limit, offset_limit)]
+```
+
+<!-- == \noindent -->
+(The proof of this claim is that you probably didn't notice on first reading
+that the long form uses different expressions to index `samples`
+on the left and right of the assignment.)
+The refactoring "use in-place operator" does what its name suggests:
+converts normal assignments into their briefer equivalents.
+
+{% include refactor/use-in-place-operator.html %}
+
+## How can I make special cases easier to spot? {#s:refactoring-short-circuits}
+
+A [short circuit test](#g:short-circuit-test) is a quick check to handle a special case,
+such as checking the length of a list of values
+and returning `math.nan` for the average if the list is empty.
+"Place short circuits early" tells us to put short-circuit tests near the start of functions
+so that readers can mentally remove special cases from their thinking
+while reading the code that handles the usual case.
+
+{% include refactor/place-short-circuits-early.html %}
 
 ## Default and Override {#s:refactoring-default-override}
 
