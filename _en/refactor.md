@@ -29,7 +29,7 @@ general solutions to commonly occurring problems in software design.
 Knowing them and their names will help you create better software,
 and also make it easier for you to communicate with your peers.
 
-## How can I avoid repeating values in code? {#s:refactoring-replace-value-with-name}
+## How can I avoid repeating values in code? {#s:refactor-replace-value-with-name}
 
 Our first and simplest refactoring is called "replace value with name".
 It tells us to replace magic numbers with names,
@@ -55,7 +55,7 @@ but then people want to use your software on Mars and you discover that constant
 
 {% include refactor/replace_value_with_name.html %}
 
-## How can I avoid repeating calculations in code? {#s:refactoring-hoist-repeated}
+## How can I avoid repeating calculations in code? {#s:refactor-hoist-repeated}
 
 It's inefficient to calculate the same value over and over again.
 It also makes code less readable:
@@ -71,7 +71,7 @@ you help readers understand what its purpose is.
 
 {% include refactor/hoist_repeated_calculation.html %}
 
-## How can I make repeated conditional tests clearer? {#s:refactoring-repeated-test}
+## How can I make repeated conditional tests clearer? {#s:refactor-repeated-test}
 
 Novice programmers frequently write conditional tests like this:
 
@@ -114,7 +114,7 @@ and the test then needs to change from `>` to `>=`,
 we're more likely to get the refactored version right the first time,
 since the test only appears in one place and its result is given a name.
 
-## How can I avoid duplicating expressions in assignment statements? {#s:refactoring-in-place}
+## How can I avoid duplicating expressions in assignment statements? {#s:refactor-in-place}
 
 An [in-place operator](#g:in-place-operator),
 sometimes called an [update operator](#g:update-operator),
@@ -161,7 +161,7 @@ converts normal assignments into their briefer equivalents.
 
 {% include refactor/use-in-place-operator.html %}
 
-## How can I make special cases easier to spot? {#s:refactoring-short-circuits}
+## How can I make special cases easier to spot? {#s:refactor-short-circuits}
 
 A [short circuit test](#g:short-circuit-test) is a quick check to handle a special case,
 such as checking the length of a list of values
@@ -172,163 +172,127 @@ while reading the code that handles the usual case.
 
 {% include refactor/place-short-circuits-early.html %}
 
-## Default and Override {#s:refactoring-default-override}
+A related refactoring pattern is called "default and override".
+To use it,
+find cases where a value is set conditionally;
+assign the default or most common value unconditionally,
+and then override it in a special case.
+The result is fewer lines of code and clearer control flow;
+however,
+it does mean executing two assignments instead of one,
+so it shouldn't be used if the common case is expensive
+(e.g., involves a database lookup or a web request).
 
--   Make default clear by putting it first, unconditionally
--   Then override in special case
--   Means executing two assignments instead of one, but fewer lines of code
+{% include refactor/default-and-override.html %}
 
-```python
-# BEFORE
-if configuration['threshold'] > UPPER_BOUND:
-    scale = 0.8
-else:
-    scale = 1.0
-```
-```python
-# AFTER
-scale = 1.0
-if configuration['threshold'] > UPPER_BOUND:
-    scale = 0.8
-```
-
--   For simple cases, can put onto one line
+In simple cases,
+people will sometimes put the test and assignment on a single line:
 
 ```python
-# SOMETIMES
 scale = 1.0
 if configuration['threshold'] > UPPER_BOUND: scale = 0.8
 ```
 
--   Some programmers prefer to use [conditional expression](#g:conditional-expression)
+<!-- == \noindent -->
+Some programmers take this even further
+and use a [conditional expression](#g:conditional-expression):
 
 ```python
-# BETTER
 scale = 0.8 if configuration['threshold'] > UPPER_BOUND else 1.0
 ```
 
--   However, this puts the default last instead of first, which is unclear
-    -   Can invert the sense of the test, but that's also confusing
+<!-- == \noindent -->
+However,
+this puts the default last instead of first,
+which is less clear.
 
-## Extract Function {#s:refactoring-extract-function}
+## How can I divide code into more comprehensible chunks? {#s:refactor-extract-function}
 
--   Move common operations into functions to reduce amount of code that needs to be read
--   Move complex operations into functions to reduce cognitive load
-    -   Signals that something can be understood separately
--   If you can't think of a plausible name, or if a lot of data has to come *out* of the function,
-    it probably shouldn't be extracted
+Functions were created so that programmers could write common operations and re-use them
+in order to reduce the amount of code that needed to be compiled.
+It turns out that moving complex operations into functions also reduces [cognitive load](#g:cognitive-load):
+by reducing the number of things that have to be understood simultaneously.
 
-```python
-# BEFORE
-def check_neighbors(grid, point):
-    if (0 < point.x) and (point.x < grid.width) and \
-       (0 < point.y) and (point.y < grid.height):
-        ...look at all four neighbors
-```
-```python
-# AFTER
-def check_neighbors(grid, point):
-    if in_interior(grid, point):
-        ...look at all four neighbors...
+{% include refactor/extract-function.html %}
 
-def in_interior(grid, point):
-    ...four tests as above...
-```
+You should always extract functions when code can be used in other contests.
+Even if it can't,
+you should extract functions whenever it makes the function clearer
+when it is read aloud.
+Multi-part conditionals,
+parts of long equations,
+and the bodies of loops are good candidates for extraction;
+if you can't think of a plausible name,
+or if a lot of data has to be passed into the function after it's extracted,
+the code should probably be left where it is.
+Finally,
+it's often helpful to keep using the original variable names as parameter names during refactoring
+to reduce typing.
 
--   Function might be usable in other contexts
-    -   But even if not, it is (again) easier to read aloud
--   Use original variable names as parameter names during refactoring to reduce typing
--   Multi-part conditionals, parts of long equations, and bodies of loops are good candidates for extraction
+## When and how should I combine code into a single function? {#s:refactor-combine-functions}
 
-## Combine Functions {#s:refactoring-combine-functions}
+"Combine functions" is the opposite of "extract function".
+If operations are always done together,
+it can sometimes be be more efficient to do them together,
+and *might* be easier to understand.
+However,
+combining functions often reduces their reusability and readability;
+one sign that functions shouldn't have been combined is
+how often people use the combination and throw some results away.
 
--   Opposite of Extract Function
--   If operations always done together, might be more efficient to combine
--   And *might* be easier to understand
--   But probably decreases reusability
--   And usually makes code harder to maintain
+The fragment below shows how two functions can be combined:
 
-```python
-# BEFORE
-def count_vowels(text):
-    num = 0
-    for char in text:
-        if char in VOWELS:
-            num += 1
-    return num
+{% include refactor/combine-functions.html %}
 
-def count_consonants(text):
-    num = 0
-    for char in text:
-        if char in CONSONANTS:
-            num += 1
-    return num
-```
-```python
-# AFTER
-def count_vowels_and_consonants(text):
-    num_vowels = 0
-    num_consonants = 0
-    for char in text:
-        if char in VOWELS:
-            num_vowels += 1
-        elif char in CONSONANTS:
-            num_consonants += 1
-    return num_vowels, num_consonants
-```
+<!-- == \noindent -->
+One thing you may not notice about the ocmbination is that
+it assumes characters are either vowels or consonants,
+which means it might work differently than separate calls to the two original functions.
+Issues like this are why experienced developers write unit tests ([CHAPTER](../unit/))
+*before* starting to refactor.
 
--   Note that this assumes characters are either vowels or consonants, where the split implementation didn't
-    -   This implementation *could* use two independent tests instead of `elif`
-    -   But you probably didn't notice the change in semantics
--   One sign that functions shouldn't have been combined is how often people use the combination and throw some results away
+## How can I replace code with data? {#s:refactor-lookup}
 
-## Create Lookup Table {#s:refactoring-lookup}
+It is sometimes easier to understand and maintain lookup tables than complicated conditionals,
+so the "create lookup table" refactoring tells us to turn the latter into the former:
 
--   Easier to understand (and therefore maintain) lookup tables than complicated conditionals
-    -   An example of [declarative programming](#g:declarative-programming) (see [CHAPTER](../automate/))
+{% include refactor/create-lookup-table.html %}
+
+The more distinct cases there are,
+the greater the advantage lookup tables have over multi-branch conditionals.
+Those advantages multiply when items can belong to more than one category,
+in which case the table is often best written as a dictionary with items as keys
+and sets of categories as values:
 
 ```python
-# BEFORE
-def count_vowels_and_consonants(text):
-    ...as above...
-```
-```python
-# AFTER
-
-IS_VOWEL = {'a' : 1, 'b' : 0, 'c' : 0, ... }
-IS_CONSONANT = {'a' : 0, 'b' : 1, 'c' : 1, ... }
+LETTERS = {
+    'A' : {'vowel', 'upper_case'},
+    'B' : {'consonant', 'upper_case'},
+    # ...other upper-case letters...
+    'a' : {'vowel', 'lower_case'},
+    'b' : {'consonant', 'lower_case'},
+    # ...other lower-case letters...
+    '+' : {'punctuation'},
+    '@' : {'punctuation'},
+    # ...other punctuation...
+}
 
 def count_vowels_and_consonants(text):
     num_vowels = num_consonants = 0
     for char in text:
-        num_vowels += IS_VOWEL[char]
-        num_consonants += IS_CONSONANT[char]
+        num_vowels += int('vowel' in LETTERS[char])
+        num_consonants += int('consonant' in LETTERS[char])
     return num_vowels, num_consonants
 ```
+{: title="refactor/set_lookup_table.py"}
 
--   Note that this fails for spaces, punctuation, etc.
--   Every lookup table should either:
-    -   Have a value for "none of the above"
-    -   Or raise an error
+<!-- == \noindent -->
+The expressions used to update `num_vowels` and `num_consonants` make use of the fact that
+`in` produces either `True` or `False`,
+which the function `int` converts to either 1 or 0.
+We will explore ways of making this code more readable in the exercises.
 
-```python
-# BETTER
-
-IS_VOWEL = {'a' : 1, 'b' : 0, 'c' : 0, ... }
-IS_CONSONANT = {'a' : 0, 'b' : 1, 'c' : 1, ... }
-
-def count_vowels_and_consonants(text):
-    num_vowels = num_consonants = 0
-    for char in text:
-        num_vowels += IS_VOWEL.get(char, 0)
-        num_consonants += IS_CONSONANT.get(char, 0)
-    return num_vowels, num_consonants
-```
-
--   Note: in this case, could use a set, check for membership, and increment
--   So we should only use lookup tables when weights differ among elements
-
-## Replace Loop With Comprehension {#s:refactoring-comprehension}
+## Replace Loop With Comprehension {#s:refactor-comprehension}
 
 -   Many language features exist to give programmers something to refactor *to*
     -   See a pattern in many contexts
@@ -405,10 +369,14 @@ flattened = [c for w in words for c in w]
 -   This is the direction most modern Python is going, so write comprehensions for new code and refactor wherever you can
 -   And don't be afraid (at least during development) to create temporaries
 
-## Summary {#s:refactoring-summary}
+## Summary {#s:refactor-summary}
 
 -   A good test of code quality: each plausible small change to functionality requires one change in one place
 
 FIXME: create concept map for refactoring
+
+## Exercises {#s:refactor-exercises}
+
+FIXME: make last example of lookup tables easier to read.
 
 {% include links.md %}
