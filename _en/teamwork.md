@@ -10,7 +10,7 @@ keypoints:
 
 FIXME: introduction
 
-## How can we run meetings more efficiently? {#s:meetings-efficient}
+## How can we run meetings more efficiently? {#s:teamwork-efficient}
 
 Most people do meetings poorly:
 they don't have an agenda going in,
@@ -111,7 +111,7 @@ End early.
 :   If your meeting is scheduled for 10:00-11:00,
     aim to end at 10:55 to give people time to get where they need to go next.
 
-## What should we do when the meeting is over? {#s:meetings-after}
+## What should we do when the meeting is over? {#s:teamwork-after}
 
 As soon as the meeting is over, circulate the minutes
 (i.e., emailed them to everyone or post them to a wiki):
@@ -150,7 +150,7 @@ Run all your meetings like this for a month,
 with the goal of making each one a minute shorter than the one before,
 and I promise that you'll build better software.
 
-## How can we keep people from talking too much or too little? {#s:meetings-fair}
+## How can we keep people from talking too much or too little? {#s:teamwork-fair}
 
 Some people are so used to the sound of their own voice that
 they will talk half the time no matter how many other people are in the room.
@@ -184,7 +184,7 @@ It may be completely appropriate for people with more knowledge of a subject
 to speak about it more often in a meeting,
 but it is never appropriate to repeatedly cut people off.)
 
-## How should we run online meetings? {#s:meetings-online}
+## How should we run online meetings? {#s:teamwork-online}
 
 Chelsea Troy's discussion of
 [why online meetings are often frustrating and unproductive][troy-meetings]
@@ -205,7 +205,7 @@ The chair can then select people from the waiting list.
 This practice can be reinforced by having everyone mute themselves,
 and only allowing the moderator to unmute people.
 
-## What sort of people make teamwork hard? {#s:conflict-people}
+## What sort of people make teamwork hard? {#s:teamwork-people}
 
 FIXME: introduction (without Tolstoy)
 

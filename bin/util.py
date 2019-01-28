@@ -11,7 +11,7 @@ def get_toc_slugs(config_path):
     with open(config_path, 'r') as reader:
         config = yaml.load(reader)
     toc = config['toc']
-    return {x.strip('/') for x in set(toc['lessons']) | set(toc['bib']) | set(toc['extras'])}
+    return set(toc['lessons']) | set(toc['bib']) | set(toc['extras'])
 
 
 def report(title, group, values):

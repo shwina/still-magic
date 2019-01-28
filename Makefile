@@ -116,12 +116,17 @@ ${DIR_HTML}/%/index.html : $(wildcard _includes/%/*.*)
 
 ## check       : check everything.
 check : ${BIB_MD}
+	@make lang=${lang} check_anchors
 	@make lang=${lang} check_cites
 	@make lang=${lang} check_figs
 	@make lang=${lang} check_gloss
 	@make lang=${lang} check_links
 	@make lang=${lang} check_src
 	@make lang=${lang} check_toc
+
+## check_anchors : list all incorrectly-formatted H2 anchors.
+check_anchors :
+	@bin/check_anchors.py _config.yml ${DIR_MD}
 
 ## check_cites : list all missing or unused bibliography entries.
 check_cites : ${BIB_MD}

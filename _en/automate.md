@@ -401,7 +401,7 @@ $ make -f depend_on_script.mk results/jane_eyre.csv
 python bin/countwords.py data/jane_eyre.txt > results/jane_eyre.csv
 ```
 
-## How can I reduce the amount of typing I have to do? {:#s:automate-variables}
+## How can I reduce the amount of typing I have to do? {#s:automate-variables}
 
 The name of our script now appears four times in our Makefile,
 which will make for a lot of typing if and when we decide to move it or rename it.

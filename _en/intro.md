@@ -268,7 +268,6 @@ forever changed the way I think about programming
 and *Software Tools in Pascal*
 didn't just show my generation how to write software we could be proud of:
 they also showed us that books about programming could be a pleasure to read.
-## Acknowledgments {#s:index-acknowledgments}
 
 ## Contributing {#s:intro-contrib}
 

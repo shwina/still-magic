@@ -40,7 +40,7 @@ FIXME: [tolerance](#g:tolerance)
 -   Most of the time we calibrate estimates by checking real data, convincing ourselves it's OK, then re-checking whenever an alarm rings
     -   If you change things substantially then the mean absolute error (which is in units of your original problem) will move noticeably
 
-## Why Should I Be Cautious When Using Floating-Point Numbers? {#s:correct-float}
+## Why Should I Be Cautious When Using Floating-Point Numbers? {#s:verify-float}
 
 -   Finding a good representation for floating point numbers is hard.
     -   We cannot represent an infinite number of real values with a finite set of bit patterns
@@ -97,7 +97,7 @@ FIXME: [tolerance](#g:tolerance)
 
 -   Here's a clearer view of some of the values our scheme can represent:
 
-<figure id="f:correct-spacing"> <figcaption>Number Spacing</figcaption> <img src="../../figures/number_spacing.png"/> </figure>
+<figure id="f:verify-spacing"> <figcaption>Number Spacing</figcaption> <img src="../../figures/number_spacing.png"/> </figure>
 
 -   There are a lot of values we *can't* store
     -   Can do 8 and 10 but not 9
@@ -211,7 +211,7 @@ for bound in (1e-15, 1e-16):
 -   You can be precise without being accurate (systematic bias), or accurate without being precise (near the right answer, but without many significant digits)
 -   For human decision making, accuracy is usually more important than precision
 
-## How Can I Test Plots and Other Graphical Results? {#s:correct-plots}
+## How Can I Test Plots and Other Graphical Results? {#s:verify-plots}
 
 -   Testing visualizations is hard
     -   Any change to the dimension of the plot, however small, can change many pixels in a [raster image](#g:raster-image)
@@ -234,7 +234,7 @@ FIXME: example
     -   Although any changes to the library can invalidate all the tests because of layers being introduced, renamed, or removed
 -   The best option is to test the data structures used to generate the plot and then trust the plotting library
 
-## How Can I Test the Steps in a Data Analysis Pipeline During Development? {#s:correct-simple}
+## How Can I Test the Steps in a Data Analysis Pipeline During Development? {#s:verify-simple}
 
 -   Subsampling
     -   Choose random subsets of input data, do analysis, see how close output is to output with full data set
@@ -283,7 +283,7 @@ def test_fit_last_too_large():
     assert not is_zipf(actual)
 ```
 
-## How Can I Check the Steps in a Data Analysis Pipeline in Production? {#s:correct-operational}
+## How Can I Check the Steps in a Data Analysis Pipeline in Production? {#s:verify-operational}
 
 -   [Operational tests](#g:operational-test) are ones that are kept in place during production
     -   Is everything working as it should?
@@ -368,7 +368,7 @@ check = actual.hist(column=3, bins=TEST_BINS)
 assert actual == pytest.approx(reference, rel=TEST_TOLERANCE)
 ```
 
-## How Can I Infer and Check Properties of My Data? {#s:correct-infer}
+## How Can I Infer and Check Properties of My Data? {#s:verify-infer}
 
 -   The [TDDA library][tdda-site] can infer test rules from data
 -   `age <= 100`, `Date` should be sorted ascending, `StartDate <= EndDate`, etc.
@@ -449,7 +449,7 @@ Constraints failing: 15
     -   "Is this dataset similar to the one I tested on?"
 -   Especially useful if the constraint file is put under version control
 
-## Summary {#s:correct-summary}
+## Summary {#s:verify-summary}
 
 FIXME: create concept map for correctness
 

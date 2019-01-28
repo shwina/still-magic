@@ -435,7 +435,7 @@ We need this because how we interpret options will change over time,
 and if you don't know what the version of the program was,
 we'll have to guess what options mean.
 
-## Summary {#s:workflow-summary}
+## Summary {#s:configure-summary}
 
 -   Many tool also allow longer command-line options to control everything to support scripting
     -   Out of scope of this lesson
@@ -445,7 +445,7 @@ we'll have to guess what options mean.
 
 <figure id="f:configure-concept"> <figcaption>Configuration Concept Map</figcaption> <img src="../../figures/configure_concept.svg"/> </figure>
 
-## Exercises {#s:workflow-exercises}
+## Exercises {#s:configure-exercises}
 
 -   FIXME: dump configuration and check.
     -   How to handle lack of order in keys? (answer: use deep equality)
