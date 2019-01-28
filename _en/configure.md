@@ -437,8 +437,11 @@ we'll have to guess what options mean.
 
 ## Summary {#s:workflow-summary}
 
-Many tool also allow longer command-line options to control everything to support scripting
+-   Many tool also allow longer command-line options to control everything to support scripting
     -   Out of scope of this lesson
+-   Every tool acts as if it was the only extra thing your project needed
+    -   So you wind up with lots of configuration files littering your root directory
+    -   Tempting to move them all to `./etc/`, but tools don't know to look there
 
 <figure id="f:configure-concept"> <figcaption>Configuration Concept Map</figcaption> <img src="../../figures/configure_concept.svg"/> </figure>
 
