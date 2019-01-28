@@ -1,6 +1,5 @@
 ---
 title: "Refactoring"
-undone: true
 questions:
 -   "How can I improve code that already works?"
 objectives:
@@ -292,82 +291,45 @@ The expressions used to update `num_vowels` and `num_consonants` make use of the
 which the function `int` converts to either 1 or 0.
 We will explore ways of making this code more readable in the exercises.
 
-## Replace Loop With Comprehension {#s:refactor-comprehension}
+## What can I use instead of explicit loops? {#s:refactor-comprehension}
 
--   Many language features exist to give programmers something to refactor *to*
-    -   See a pattern in many contexts
-    -   Provide syntactic support for it
-    -   Explain in terms of original
--   Comprehensions exist to replace simple loops
+When programmers see a pattern in many different contexts,
+they will often add features to the language to support it.
+Many language features therefore exist to give programmers something to refactor *to*.
 
-```python
-# BEFORE
-result = []
-for num in values:
-    result.append(num * num)
-```
-```python
-# AFTER
-result = [num * num for num in values]
-```
+One such feature is called a [list comprehensions](#g:list-comprehension),
+which can be used in place of a loop that processes one list to create another.
+The word "comprehension" is used in the sense of "comprehensive":
+every element of the original list is processed,
+and in simple cases,
+produces exactly one element in the result.
 
--   Easier to read *for simple calculations*
--   Becomes more complicated to understand with conditionals
+{% include refactor/simple-comprehension.html %}
 
-```python
-# BEFORE
-result = []
-for num in values:
-    if num > 0:
-        result.append(num * num)
-```
-```python
-# AFTER
-result = [num * num for num in values if num > 0]
-```
+List comprehensions can be easier to read than loops for simple calculations,
+but they become more complicated to understand when conditional expressions are included.
+The `if` case isn't too base:
 
--   But `if`-`else` is structured differently
+{% include refactor/comprehension-if.html %}
 
-```python
-# BEFORE
-result = []
-for num in values:
-    if num > 0:
-        result.append(num * num)
-    else:
-        result.append(0)
-```
-```python
-# AFTER
-result = [num * num if num > 0 else 0 for num in values]
-```
+<!-- == \noindent -->
+but `if`-`else` is structured differently in comprehensions than it is in a one-line conditional:
 
--   Cross-product loops are straightforward
+{% include refactor/comprehension-else.html %}
 
-```
-# BEFORE
-result = []
-for left in 'ABC':
-    for right in 'xyz':
-        result.append(left + right)
-```
+Similarly,
+cross-product loops are straightforward
+(for some definition of "straightforward"):
 
-```
-# AFTER
-result = [left + right for left in 'ABC' for right in 'xyz']
-```
+{% include refactor/cross-product-comprehension.html %}
 
--   What's hardest to remember is the equivalent of nested loops where the inner loop depends on the outer
-    -   Order in expression feels inverted
+<!-- == \noindent -->
+but the equivalent of nested loops in which the inner loop depends on the value of the outer loop
+always feels back-to-front:
 
-```
-words = ['first', 'second', 'third']
-flattened = [c for w in words for c in w]
-```
+{% include refactor/nested-comprehension.html %}
 
--   Works for sets, dictionaries, and anything else that can be iterated over
--   This is the direction most modern Python is going, so write comprehensions for new code and refactor wherever you can
--   And don't be afraid (at least during development) to create temporaries
+Python comprehensions work for sets, dictionaries, and anything else that can be iterated over.
 
 ## Summary {#s:refactor-summary}
 

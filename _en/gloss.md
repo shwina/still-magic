@@ -246,6 +246,9 @@ title: "Glossary"
 **Linter**{:#g:linter}
 :   FIXME
 
+**List comprehension**{:#g:list-comprehension}
+:   FIXME
+
 **Logging framework**{:#g:logging-framework}
 :   FIXME
 
