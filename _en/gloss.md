@@ -453,7 +453,7 @@ title: "Glossary"
 :   FIXME
 
 **Tidy data**{:#g:tidy-data}
-:   As defined in [Wick2014](#BIB), tabular data is tidy if:
+:   As defined in {% include cite key="Wick2014" %}, tabular data is tidy if:
     1.  Each variable is in one column.
     2.  Each different observation of that variable is in a different row.
     3.  There is one table for each kind of variable.

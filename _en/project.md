@@ -20,14 +20,14 @@ there is no such thing as "no diet",
 just a good one or a bad one.
 Similarly, there is no such thing as "no project organization":
 your project is either organized well or poorly.
-As with coding style ({% include ref key="s:style" %}),
+As with coding style ({% include xref key="s:style" %}),
 small pieces in predictable places with readable names are easier to find and use
 than large chunks that vary from project to project
 and have names like `stuff`.
 
 ## What are Noble's Rules? {#s:project-noble}
 
-[Nobl2009](#BIB) described a way to organize small bioinformatics projects
+{% include cite key="Nobl2009" %} described a way to organize small bioinformatics projects
 that is equally useful for other kinds of research computing.
 Each project is put in a separate Git repository,
 and the directories in the root of this repository are organized according to purpose.
@@ -63,7 +63,7 @@ A few things to notice are:
 -   The documentation for the `regulate` script appears in the root of `./doc/`,
     while the paper for JCMB is stored in a sub-directory,
     since it contains several files.
--   The `./src/` directory contains a Makefile to re-build the `regulate` program ({% include ref key="s:automate" %}).
+-   The `./src/` directory contains a Makefile to re-build the `regulate` program ({% include xref key="s:automate" %}).
     Some projects put the Makefile in the root directory,
     reasoning that since it affects both `./src/` and `./bin/`,
     it belongs above them both rather than in either one.
@@ -178,11 +178,11 @@ since a growing number of tools expect them.
     This file is displayed by GitHub Pages as the project's home page.
 
 -   `LICENSE`:
-    the project's license (discussed in {% include ref key="s:inclusive" %}).
+    the project's license (discussed in {% include xref key="s:inclusive" %}).
 
 -   `CONDUCT`:
     its code of conduct
-    (also discussed in {% include ref key="s:inclusive" %}).
+    (also discussed in {% include xref key="s:inclusive" %}).
 
 -   `CITATION`:
     how the work should be cited.
@@ -198,11 +198,11 @@ and so on.
 These instructions can also be included as a section in `README`.
 Whichever convention is used,
 remember that the easier it is for people to get set up and contribute,
-the more likely they are to do so [Stei2014](#BIB).
+the more likely they are to do so {% include cite key="Stei2014" %}.
 
 ## What *is* a project? {#s:project-thinking}
 
-Like features ({% include ref key="s:branches" %}),
+Like features ({% include xref key="s:branches" %}),
 what exactly constitutes a "project" requires a bit of judgment,
 and different people will make different decisions.
 Some common criteria are one project per publication,

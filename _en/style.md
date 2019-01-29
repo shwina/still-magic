@@ -19,7 +19,7 @@ keypoints:
 -   "Use `**kwargs` to define a catch-all parameter for functions taking a variable number of named arguments."
 ---
 
-FIXME: [Dobz1973](#BIB)
+FIXME: {% include cite key="Dobz1973" %}
 
 ## What Are the Standard Rules of Good Style for Python Programs? {#s:style-pep8}
 
@@ -37,9 +37,9 @@ FIXME: [Dobz1973](#BIB)
 -   Use two blank links between each function
 -   Avoid abbreviations (which can be hard for non-native speakers to understand)
     -   A good programming editor will auto-complete names, so you don't have to do much typing
--   However, short variable names for temporaries and loop variables are OK [Beni2017](#BIB)
+-   However, short variable names for temporaries and loop variables are OK {% include cite key="Beni2017" %}
 -   Order within file should be:
-    -   Docstring ({% include ref key="s:style" %})
+    -   Docstring ({% include xref key="s:style" %})
     -   Imports
     -   Constants
     -   Functions (highest level first)
@@ -53,12 +53,12 @@ FIXME: [Dobz1973](#BIB)
 ## How Can I Specify Default Values for My Functions' Parameters? {#s:style-defaults}
 
 [Working memory](#g:working-memory) can only hold a few items at once:
-initial estimates in the 1950s put the number at 7 plus or minus 2 [Mill1956](#BIB),
+initial estimates in the 1950s put the number at 7 plus or minus 2 {% include cite key="Mill1956" %},
 and more recent estimates put it as low as 4 or 5.
 If your function requires two dozen parameters,
 the odds are very good that users will frequently forget them
 or put them in the wrong order.
-One solution is to give parameters default values ({% include ref key="s:style" %});
+One solution is to give parameters default values ({% include xref key="s:style" %});
 another is to bundle them together so that (for example)
 people pass three `point` objects instead of nine separate `x`, `y`, and `z` values.
 
@@ -162,7 +162,7 @@ Functions are easier to understand if they don't have any [side effects](#g:side
 i.e.,
 if they don't modify their inputs or any global variables.
 But sometimes this is necessary:
-a function might set a flag to control the logging level ({% include ref key="s:logging" %}),
+a function might set a flag to control the logging level ({% include xref key="s:logging" %}),
 update a database record,
 or modify an image in place rather than make a copy for performance reasons.
 In cases like these,

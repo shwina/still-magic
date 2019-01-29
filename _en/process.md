@@ -141,7 +141,7 @@ most people are less likely to check Facebook every five minutes if someone else
 
 As well as pair programming, most agile teams use two other practices.
 [Test-driven development](#g:tdd) (TDD),
-discussed in {% include ref key="s:unit" %},
+discussed in {% include xref key="s:unit" %},
 is the practice of writing unit tests *before* writing application code.
 The second is [continuous integration](#g:continuous-integration).
 Every time someone commits code to the version control repository,
@@ -152,7 +152,7 @@ and posts the results somewhere for the whole team to see.
 If any of the tests fail,
 the continuous integration system notifies people by sending out email or texting them.
 
-We will explain how to implement continuous integration in {% include ref key="s:integrate" %}.
+We will explain how to implement continuous integration in {% include xref key="s:integrate" %}.
 From a developer's point of view,
 its key benefit is that it ensures the project is always in a runnable state.
 This may not seem important if you don't have to hand it in until next week,
@@ -241,7 +241,7 @@ the team has had a weekend to catch its collective breath
 and is ready to start work once again.
 (If people are so burned out from the previous round of work
 that they need a whole week to recover,
-read the discussion of crunch mode in {% include ref key="s:pacing" %}.)
+read the discussion of crunch mode in {% include xref key="s:pacing" %}.)
 At this point,
 the product manager divides up the list of desired features
 and assigns a few to each developer.
@@ -378,7 +378,7 @@ Ignore the problem.
 
 Work longer hours.
 :   This is also very popular,
-    but as {% include ref key="s:pacing" %} explains,
+    but as {% include xref key="s:pacing" %} explains,
     it is self-defeating.
 
 Enlarge the team.

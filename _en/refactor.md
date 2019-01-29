@@ -17,7 +17,7 @@ keypoints:
 [Refactoring](#g:refactor) means changing the structure of code without changing what it does,
 like refactoring an equation to simplify it.
 It is just as much a part of programming as writing code in the first place:
-nobody gets things right the first time [Bran1995](#BIB),
+nobody gets things right the first time {% include cite key="Bran1995" %},
 and needs or insights can change over time.
 
 Most discussions of refactoring focus on [object-oriented programming](#g:oop),
@@ -50,7 +50,7 @@ Finally,
 a single value defined in one place is much easier to change
 than a bunch of numbers scattered throughout your program.
 You may not think you will have to change it,
-but then people want to use your software on Mars and you discover that constants aren't [Mak2006](#BIB).
+but then people want to use your software on Mars and you discover that constants aren't {% include cite key="Mak2006" %}.
 
 {% include refactor/replace_value_with_name.html %}
 
@@ -247,7 +247,7 @@ The fragment below shows how two functions can be combined:
 One thing you may not notice about the ocmbination is that
 it assumes characters are either vowels or consonants,
 which means it might work differently than separate calls to the two original functions.
-Issues like this are why experienced developers write unit tests ({% include ref key="s:unit" %})
+Issues like this are why experienced developers write unit tests ({% include xref key="s:unit" %})
 *before* starting to refactor.
 
 ## How can I replace code with data? {#s:refactor-lookup}

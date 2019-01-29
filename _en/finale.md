@@ -17,15 +17,15 @@ keypoints:
 -   Privacy, security, fairness, and responsibility can't be added after the fact.
 ---
 
-Ever since [Wing2006](#BIB) introduced the term "computational thinking" in 2006,
-computer scientists and educators have debated what exactly it means [Denn2017](#BIB).
+Ever since {% include cite key="Wing2006" %} introduced the term "computational thinking" in 2006,
+computer scientists and educators have debated what exactly it means {% include cite key="Denn2017" %}.
 What isn't debated is the fact that
 programmers tend to think about problems in ways inspired by programming.
 This paper describes ten of those ways
 which may help people in other domains see their own problems with fresh eyes.
 
 *An early version of this paper was inspired by Jon Udell's essay
-"Seven Ways to Think Like the Web" [Udel2011](#BIB).*
+"Seven Ways to Think Like the Web" {% include cite key="Udel2011" %}.*
 
 ## 1. Programs are data.
 
@@ -56,7 +56,7 @@ gray background, because it doesn't "see" anything. Equally, calling a
 variable "temperature" doesn't mean the computer will store a
 temperature in it---it would do exactly the same thing if the variable was
 called "pressure" or "frankenstein" or "a7". This may seem obvious once
-you have written a few programs, but thirty years after [Pea1986](#BIB) first
+you have written a few programs, but thirty years after {% include cite key="Pea1986" %} first
 called it the "superbug", believing that the computer will somehow
 understand intent remains a common error.
 
@@ -65,7 +65,7 @@ understand intent remains a common error.
 Computers don't have to understand instructions in order to execute
 them, but we do in order to create them (and fix them afterward). Since
 our working memory can only juggle a handful of things at once
-[Mill1956](#BIB), we have to create abstractions so that our representations
+{% include cite key="Mill1956" %}, we have to create abstractions so that our representations
 of problems will fit into hardware whose performance doubles over
 millions of years rather than every eighteen months.
 
@@ -94,7 +94,7 @@ someone to reach the point where they can see how beautiful something
 is.
 
 The other problem with patterns is that they can lead to expert blind
-spot [Nath2003](#BIB). Once experts have internalized patterns, they are
+spot {% include cite key="Nath2003" %}. Once experts have internalized patterns, they are
 often unable to remember that they ever saw the world any other way, or
 to see the world afresh through novice eyes. As a result, they are prone
 to say, "It's obvious," and then follow it with incomprehensible jargon.
@@ -137,7 +137,7 @@ productive we will be. The precise order of steps doesn't seem to
 matter: we can write tests, then write software to make those tests
 pass, or write the program first and then test it. What *does* matter is
 alternating development and testing in short interleaved bursts
-[Fucc2017](#BIB).
+{% include cite key="Fucc2017" %}.
 
 Of course, we don't stop worrying once we've typed our code in. We check
 that data is formatted properly to protect ourselves against "garbage
@@ -166,7 +166,7 @@ hard-to-find bugs, so newer languages either make data immutable or
 automatically copy data when asked to make changes in order to give the
 appearance of immutability.
 
-One special case of this rule is automating workflows. As [Whit1958](#BIB)
+One special case of this rule is automating workflows. As {% include cite key="Whit1958" %}
 said, "Civilization advances by extending the number of important
 operations which we can perform without thinking about them." Every time
 we automate a task---i.e., make its steps immutable---we reduce the chances
@@ -179,7 +179,7 @@ One of the greatest mathematical advances of the Twentieth Century was
 the idea of *algorithmic complexity*. The key insight is that the
 running time or memory requirements of an algorithm grow in a
 predictable way as a function of the size of the problem we are trying
-to solve [Cone2016](#BIB). Some algorithms slow down gently as their inputs
+to solve {% include cite key="Cone2016" %}. Some algorithms slow down gently as their inputs
 get larger, but others slow down so much that even if the whole universe
 was one large computer, it couldn't solve any interesting problem.
 Faster chips are therefore very welcome, but the real key to speed is to
@@ -188,7 +188,7 @@ focus on how we're doing things.
 ## 9. Distributed is different.
 
 Distributed computing is intrinsically different from running a program
-on a single machine [Wald1994](#BIB). On a single computer, we can usually
+on a single machine {% include cite key="Wald1994" %}. On a single computer, we can usually
 pretend that nobody else is modifying the data while we're trying to use
 it. Once our data is distributed, that simplification breaks down, and
 we have to worry about things like someone else adding records to the

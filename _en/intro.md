@@ -96,7 +96,7 @@ without staying up until dawn.
 > #### Why "Computational Competence"?
 >
 > The term [computational thinking](#g:computational-thinking)
-> has been widely used since [Wing2006](#BIB) introduced it a decade ago.
+> has been widely used since {% include cite key="Wing2006" %} introduced it a decade ago.
 > It has also been used in such a wide variety of ways
 > that no one really knows what it means.
 > I therefore prefer to talk about computational competence---about
@@ -249,19 +249,19 @@ we will see if the similarity measures we develop show that.
 This book owes its existence to
 the hundreds of researchers I met through [Software Carpentry][carpentries].
 I am also grateful to [Insight Data Science][insight] for sponsoring the early stages of this work,
-to everyone who has contributed ({% include ref key="s:citation" %}),
+to everyone who has contributed ({% include xref key="s:citation" %}),
 and to:
 
--   *Practical Computing for Biologists* [Hadd2010](#BIB)
--   "A Quick Guide to Organizing Computational Biology Projects" [Nobl2009](#BIB)
--   "Ten Simple Rules for Making Research Software More Robust" [Tasc2017](#BIB)
--   "Best Practices for Scientific Computing" [Wils2014](#BIB)
--   "Good Enough Practices in Scientific Computing" [Wils2017](#BIB)
+-   *Practical Computing for Biologists* {% include cite key="Hadd2010" %}
+-   "A Quick Guide to Organizing Computational Biology Projects" {% include cite key="Nobl2009" %}
+-   "Ten Simple Rules for Making Research Software More Robust" {% include cite key="Tasc2017" %}
+-   "Best Practices for Scientific Computing" {% include cite key="Wils2014" %}
+-   "Good Enough Practices in Scientific Computing" {% include cite key="Wils2017" %}
 
 Before any of that, though,
 four books written by [Brian Kernighan][kernighan-brian] and his colleagues
 forever changed the way I think about programming
-[Kern1978,Kern1988,Kern1983,Kern1981](#BIB).
+{% include cite key="Kern1978,Kern1988,Kern1983,Kern1981" %}.
 *The Elements of Programming Style*,
 *The C Programming Language*,
 *The Unix Programming Environment*,

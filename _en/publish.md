@@ -19,7 +19,7 @@ keypoints:
 -   "Publish your software as you would a paper."
 ---
 
--   Now that we know *how* to publish ({% include ref key="s:ghp" %}), the next questions are *what* and *where*
+-   Now that we know *how* to publish ({% include xref key="s:ghp" %}), the next questions are *what* and *where*
 -   Use the generic term "report" to include research papers, summaries for clients,
     and everything else that is shorter than a book and is going to be read by someone else
     -   "A report is a PDF you would print on your own printer."
@@ -71,8 +71,8 @@ archive :
 ```
 
 -   The configurations and parameters used for that software
-    -   If all parameters are in a configuration file, use that ({% include ref key="s:configure" %})
-    -   Or log all configuration parameters and use `grep` or a script to extract from the logfile ({% include ref key="s:logging" %})
+    -   If all parameters are in a configuration file, use that ({% include xref key="s:configure" %})
+    -   Or log all configuration parameters and use `grep` or a script to extract from the logfile ({% include xref key="s:logging" %})
 
 ## How Can I Identify Myself and My Work in Bibliographies? {#s:publish-identifiers}
 

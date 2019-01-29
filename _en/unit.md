@@ -244,7 +244,7 @@ which we will explore in the sections that follow.
 ## How can I tell if my software failed as it was supposed to? {#s:unit-exception}
 
 Many errors in production systems happen because people don't test their error handling code.
-[Yuan2014](#BIB) found that almost all (92%) of catastrophic system failures
+{% include cite key="Yuan2014" %} found that almost all (92%) of catastrophic system failures
 were the result of incorrect handling of non-fatal errors explicitly signalled in software,
 and that in 58% of the catastrophic failures,
 the underlying faults could easily have been detected through simple testing of error handling code.
@@ -473,7 +473,7 @@ for line in StringIO(DATA):
 ```
 
 In order to use `StringIO` in tests,
-we may need to refactor our code a bit ({% include ref key="s:refactor" %}).
+we may need to refactor our code a bit ({% include xref key="s:refactor" %}).
 It's common to have a function open a file,
 read its contents,
 and return the result like this:
@@ -603,9 +603,9 @@ They also claim that TDD ensures that code actually *is* testable,
 and that tests are actually written.
 However,
 the evidence backing these claims is contradictory:
-empirical studies have not found a strong effect [Fucc2016](#BIB),
+empirical studies have not found a strong effect {% include cite key="Fucc2016" %},
 and at least one study suggests that it may not be the order of testing and coding that matters,
-but whether developers work in short, interleaved bursts [Fucc2017](#BIB).
+but whether developers work in short, interleaved bursts {% include cite key="Fucc2017" %}.
 Many productive programmers still believe in TDD,
 so it's possible that we are measuring the wrong things.
 

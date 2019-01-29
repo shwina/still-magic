@@ -53,7 +53,7 @@ so they should therefore be the most carefully written documentation for that so
 A quick web search for "writing good error messages" turns up hundreds of hits,
 but recommendations are often more like gripes than solid guidelines
 and are usually not backed up by evidence.
-What research there is [Trav2010,Beck2016](#BIB) gives us the following rules:
+What research there is {% include cite key="Trav2010,Beck2016" %} gives us the following rules:
 
 1.  Do not tell the user what the program did that caused the problem,
     but what the user did.
@@ -165,7 +165,7 @@ where `user_language` is a two-letter code for the user's preferred language.
 ## What should I document for whom? {#s:docs-what}
 
 There are three kinds of people in any domain:
-[novices](#g:novice), [competent practitioners](#g:competent-practitioner), and [experts](#g:expert) [Wils2018](#BIB).
+[novices](#g:novice), [competent practitioners](#g:competent-practitioner), and [experts](#g:expert) {% include cite key="Wils2018" %}.
 A novice doesn't yet have a [mental model](#g:mental-model) of the domain;
 they don't know what the key terms are,
 how they relate,
@@ -201,7 +201,7 @@ show people things they actually want to do rather than printing the numbers fro
 and should include regular check-ins
 so that learners and instructors alike can tell if they're making progress.
 If you would like to know more about creating tutorials,
-please see [Wils2018](#BIB).
+please see {% include cite key="Wils2018" %}.
 
 Tutorials help novices build a mental model,
 but competent practitioners and experts will be frustrated by their slow pace and low information density.
@@ -384,7 +384,7 @@ You don't have to write full documentation for helper functions
 that are only used inside your package and aren't meant to be called by users,
 but these should still have at least a comment explaining their purpose.
 You also don't have to document unit testing functions:
-as discussed in {% include ref key="s:unit" %},
+as discussed in {% include xref key="s:unit" %},
 these should have long names that describe what they're checking
 so that failure reports are easy to scan.
 
@@ -436,7 +436,7 @@ Give context before giving sample code.
     will help people determine if their question is a close match to yours or not.
 
 Provide a minimal reprex.
-:   {% include ref key="s:backlog" %} explained the value of a [reproducible example](#g:reprex) (reprex),
+:   {% include xref key="s:backlog" %} explained the value of a [reproducible example](#g:reprex) (reprex),
     and why reprexes should be as short as possible.
     Readers will have a much easier time figuring out if this question and its answers are for them
     if they can see *and understand* a few lines of code.
@@ -452,7 +452,7 @@ Use "I" and question words (how/what/when/where/why).
     what someone might actually be thinking when they need help.
 
 Keep each item short.
-:   The "minimal manual" approach to instructional design [Carr2014](#BIB)
+:   The "minimal manual" approach to instructional design {% include cite key="Carr2014" %}
     breaks everything down into single-page steps,
     with half of that page devoted to troubleshooting.
     This may feel like baby steps to the person doing the writing,

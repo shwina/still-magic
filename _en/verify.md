@@ -46,7 +46,7 @@ FIXME: [tolerance](#g:tolerance)
     -   We cannot represent an infinite number of real values with a finite set of bit patterns
     -   And unlike integers, no matter what values we *do* represent, there will be an infinite number of values between each of them that we can't
 -   The explanation that follows is simplified---possibly over-simplified---to keep it manageable.
-    -   If you want to know more, take half an hour to read [Gold1991](#BIB)
+    -   If you want to know more, take half an hour to read {% include cite key="Gold1991" %}
 -   Floating point numbers are usually represented using [sign](#g:sign), [magnitude](#g:magnitude), and an [exponent](#g:exponent).
 -   In a 32-bit word, the IEEE 754 standard calls for 1 bit of sign,
     23 bits for the magnitude (or [mantissa](#g:mantissa)),
@@ -291,7 +291,7 @@ def test_fit_last_too_large():
     -   Have every tool append information to a log
     -   Have another tool check that log file after the run is over
     -   Logging and then checking makes it easy to compare values between pipeline stages
-    -   {% include ref key="s:logging" %} shows how to do logging
+    -   {% include xref key="s:logging" %} shows how to do logging
 -   Common tests
     -   Same number of output records as input records
     -   Or fewer output records than input records if you're aggregating

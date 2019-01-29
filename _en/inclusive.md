@@ -29,7 +29,7 @@ keypoints:
 -   This one talks about the social structure
 -   Sources:
     -   *[Producing Open Source Software][producing-oss]* describes how good open source software projects are run
-    -   [Boll2014](#BIB) explains what a [commons](#g:commons) is and when it's an appropriate model
+    -   {% include cite key="Boll2014" %} explains what a [commons](#g:commons) is and when it's an appropriate model
 -   Avoid [the tyranny of structurelessness][tyranny-structurelessness]
     -   Every group of people has a power structure
     -   Only question is whether it is formal and accountable,
@@ -42,7 +42,7 @@ keypoints:
     -   And probably hurting your own career
 -   Creative works are automatically eligible for intellectual property (and thus copyright) protection
 -   Every creative work has some sort of license - the only question is whether authors and users know what it is
--   See [Mori2012](#BIB) and [this blog post][vanderplas-licensing] for overviews from a scientist's point of view
+-   See {% include cite key="Mori2012" %} and [this blog post][vanderplas-licensing] for overviews from a scientist's point of view
 -   Every repository (version control or otherwise) should therefore include an explicit license
     -   Usually `LICENSE` or `LICENSE.txt` in root directory
     -   Clearly states under which license(s) the content is being made available
@@ -93,7 +93,7 @@ keypoints:
 
 ## Why Should I Establish a Code of Conduct for My Project? {#s:inclusive-conduct}
 
--   FIXME: [Auro2018](#BIB)
+-   FIXME: {% include cite key="Auro2018" %}
 -   A CoC lays out the expectations for personal interaction in your project
     -   Explicitly communicate standards to which this project holds its participants
     -   Encourages newcomers to engage with the project
@@ -138,7 +138,7 @@ keypoints:
 -   Why be an ally?
     -   Because you can:
         taking action to value diversity results in worse performance ratings for minority and female leaders,
-        while ethnic majority or male leaders who do this aren't penalized [Hekm2017](#BIB)
+        while ethnic majority or male leaders who do this aren't penalized {% include cite key="Hekm2017" %}
     -   Because you have benefited, even if you don't realize it
     -   As soon as you acknowledge that (for example) women are called on less often than men,
         or are less likely to get an interview or a publication given identical work,

@@ -150,11 +150,11 @@ Extras ['first.txt']
 ```
 
 We really shouldn't use [`assert`](#g:assertion) to handle errors here;
-{% include ref key="s:logging" %} will explore a better approach.
+{% include xref key="s:logging" %} will explore a better approach.
 
 ## What do I do when I run out of memorable single-letter flags? {#s:configure-long}
 
-Taschuk's Third Rule says, "Make common operations easy to control." [Tasc2017](#BIB)
+Taschuk's Third Rule says, "Make common operations easy to control." {% include cite key="Tasc2017" %}
 so that users can control everything from a shell script without having to create temporary configuration files.
 However,
 there are only so many single-letter flags available,
@@ -225,7 +225,7 @@ INI files are simple to read and write,
 but the format is slowly falling out of use.
 What seems to be replacing it is [YAML](#g:yaml),
 which stands for "Yet Another Markup Language".
-Since YAML is used in GitHub Pages ({% include ref key="s:ghp" %}),
+Since YAML is used in GitHub Pages ({% include xref key="s:ghp" %}),
 and (unlike JSON) allows comments,
 we'll explore it in this section.
 
@@ -272,7 +272,7 @@ When a file like this is read in Python,
 the result is a dictionary.
 YAML allows nested keys and lists,
 but if you need them,
-you're probably doing something wrong [Xu2015](#BIB):
+you're probably doing something wrong {% include cite key="Xu2015" %}:
 most users never use most configuration options and find their presence confusing.
 
 ## How can I implement overlay configuration? {#s:configure-overlay}

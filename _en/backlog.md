@@ -79,7 +79,7 @@ people create three kinds of issues:
 
 The better the bug report,
 the faster the response,
-and the more likely the response will actually address the issue [Bett2008](#BIB).
+and the more likely the response will actually address the issue {% include cite key="Bett2008" %}.
 
 1.  Make sure the problem actually *is* a bug.
     It's always possible that you have called a function the wrong way
@@ -98,7 +98,7 @@ and the more likely the response will actually address the issue [Bett2008](#BIB
     and anything else that might affect behavior.
 6.  Describe each problem separately so that each one can be tackled on its own.
     (This parallels the rule about creating a branch in version control for each bug fix or feature
-    discussed in {% include ref key="s:branches" %}.)
+    discussed in {% include xref key="s:branches" %}.)
 
 Here's an example of a well-written bug report with all of the fields mentioned above:
 
@@ -152,7 +152,7 @@ It might also use:
 -   *Suitable for Newcomer* or *Beginner-Friendly*:
     to identify an easy starting point for someone who has just joined the project.
     If you help potential new contributors find places to start,
-    they're more likely to do so [Stei2014](#BIB).
+    they're more likely to do so {% include cite key="Stei2014" %}.
 
 ## How can I use labels to prioritize work? {#s:backlog-triage}
 
@@ -163,7 +163,7 @@ their purpose is to help [triage](#g:triage),
 which is the process of deciding what is going to be worked on in what order.
 
 In a large project,
-this is the responsibility of the product manager ({% include ref key="s:process" %});
+this is the responsibility of the product manager ({% include xref key="s:process" %});
 in a small one,
 it's common for the project's lead to decide this,
 or for project members to use up-votes and down-votes on an issue

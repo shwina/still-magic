@@ -41,7 +41,7 @@ this workflow doesn't provide guidance for collaborating with others.
 This lesson introduces a few working practices that will help you do these things.
 Along the way, it shows you how to use some of Git's more advanced capabilities.
 As with everything involving Git,
-the syntax for commands is more complicated than it needs to be [Pere2013,Pere2016](#BIB),
+the syntax for commands is more complicated than it needs to be {% include cite key="Pere2013,Pere2016" %},
 but if used carefully,
 they can make you much more productive.
 
@@ -113,7 +113,7 @@ I am essentially using branches as a to-do list,
 which takes no more time than typing a brief note about the feature into a text file
 or writing it in a lab notebook,
 and is much easier to track.
-{% include ref key="s:backlog" %} will look at better ways to manage this.
+{% include xref key="s:backlog" %} will look at better ways to manage this.
 
 ## How can I switch between branches when work is only partly done? {#s:branches-switching}
 
@@ -248,7 +248,7 @@ so it's a good way to end friendships.
 The biggest benefit of having a second person work on a programming project
 is not getting twice as much code written,
 but having a second pair of eyes look at the software.
-{% include ref key="s:review" %} will discuss how to do code review,
+{% include xref key="s:review" %} will discuss how to do code review,
 but a good first step depends on using a branch-per-feature workflow.
 
 In order for someone to review your change,
@@ -334,7 +334,7 @@ The other thing that's hard to do with a branch-per-feature workflow is a major 
 If many files are being moved, renamed, and altered in order to restructure the project,
 merging branches where those changes *haven't* been made can be tedious and error-prone.
 The solution is to not get into this situation:
-as {% include ref key="s:refactor" %} says,
+as {% include xref key="s:refactor" %} says,
 code should be reorganized in many small steps,
 not one big one.
 
