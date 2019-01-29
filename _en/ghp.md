@@ -403,7 +403,7 @@ A typical workflow is:
 <!-- == \noindent -->
 This means you're storing generated files in your repository,
 which is generally considered bad practice,
-but we should always break rules rather than doing something awkward ([CHAPTER](../rules/)).
+but we should always break rules rather than doing something awkward ({% include ref key="s:rules" %}).
 
 There are a *lot* of tools for generating static websites,
 [Sphinx][sphinx] and [Hugo][hugo] being only two of the most popular.
@@ -416,7 +416,7 @@ For research and data analysis,
 though,
 the best choices these days are [R Markdown][r-markdown] and [Jupyter][jupyter],
 both of which can generate static websites that you can commit to `docs`.
-It's very common to use a Makefile to automate this ([CHAPTER](../automate/)),
+It's very common to use a Makefile to automate this ({% include ref key="s:automate" %}),
 and have `make site` run `ipython nbconvert` or `knit` on any files that need to be updated.
 
 ## How can I include math in web pages? {#s:ghp-math}

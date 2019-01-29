@@ -131,7 +131,7 @@ tdda>=1.0
 ```
 
 -   `pip freeze` will print exact versions of all installed packages
-    -   Save this when producing reports ([CHAPTER](../publish/))
+    -   Save this when producing reports ({% include ref key="s:publish" %})
 
 ## How Can I Create an Installable Python Package? {#s:package-package}
 

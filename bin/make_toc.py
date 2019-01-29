@@ -4,7 +4,9 @@ import sys
 import os
 import re
 import yaml
+import json
 from string import ascii_uppercase
+from util import usage
 
 
 SECTION_PAT = re.compile(r'^##\s+.+\s+\{#(s:.+)\}', re.MULTILINE)
@@ -13,22 +15,38 @@ SECTION_PAT = re.compile(r'^##\s+.+\s+\{#(s:.+)\}', re.MULTILINE)
 def main(config_file, source_dir):
     with open(config_file, 'r') as reader:
         config = yaml.load(reader)
+
+    result = {}
+
     lessons = config['toc']['lessons']
+    for (i, slug) in enumerate(lessons):
+        key = str(i+1)
+        result['s:{}'.format(slug)] = {'slug': slug,
+                                        'toplevel': True,
+                                        'text': 'Chapter {}'.format(key)}
+        process_sections(result, source_dir, slug, key)
+
     extras = config['toc']['extras']
-    keyed = {**dict(zip(lessons, ['Chapter {}'.format(str(i)) for i in range(1, len(lessons) + 1)])),
-             **dict(zip(extras, ['Appendix {}'.format(c) for c in ascii_uppercase[:len(extras)]]))}
-    result = {'s:{}'.format(k) : (k, keyed[k]) for k in keyed}
-    [result.update(process(source_dir, k, keyed[k][1])) for k in keyed]
-    print(result)
+    letters = ascii_uppercase[:len(extras)]
+    for (key, slug) in zip(letters, extras):
+        result['s:{}'.format(slug)] = {'slug': slug,
+                                        'toplevel': True,
+                                        'text': 'Appendix {}'.format(key)}
+        process_sections(result, source_dir, slug, key)
+
+    language = source_dir.lstrip('_')
+    json.dump(result, sys.stdout)
 
 
-def process(source_dir, slug, base):
+def process_sections(result, source_dir, slug, base):
     filename = os.path.join(source_dir, '{}.md'.format(slug))
     with open(filename, 'r') as reader:
         content = reader.read()
     headings = SECTION_PAT.findall(content)
-    numbered = zip(headings, range(1, len(headings) + 1))
-    return {h : (slug, 'Section {}.{}'.format(base, i)) for (h, i) in numbered}
+    for (h, i) in zip(headings, range(1, len(headings) + 1)):
+        result[h] = {'slug': slug,
+                     'toplevel': False,
+                     'text': 'Section {}.{}'.format(base, i)}
 
 
 if __name__ == '__main__':

@@ -48,7 +48,7 @@ script:
     -   `language` tells Travis what language we're using
     -   `python` specifies the version (or versions) of Python to use
     -   `install` tells Travis how to install the software we need for testing
-        -   Have a list of packages in `requirements.txt` for `pip` to use ([CHAPTER](../package/))
+        -   Have a list of packages in `requirements.txt` for `pip` to use ({% include ref key="s:package" %})
     -   `script` tells Travis what to run on our behalf
 -   Create a "test" script that just prints a message
 

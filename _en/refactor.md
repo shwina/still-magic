@@ -247,7 +247,7 @@ The fragment below shows how two functions can be combined:
 One thing you may not notice about the ocmbination is that
 it assumes characters are either vowels or consonants,
 which means it might work differently than separate calls to the two original functions.
-Issues like this are why experienced developers write unit tests ([CHAPTER](../unit/))
+Issues like this are why experienced developers write unit tests ({% include ref key="s:unit" %})
 *before* starting to refactor.
 
 ## How can I replace code with data? {#s:refactor-lookup}

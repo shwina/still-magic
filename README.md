@@ -35,19 +35,25 @@
     -   `root: true` to control formatting properly.
     -   `permalink: "/en/"` (or whatever the language is) to override the default output path defined in `_config.yml`.
 
--   Use pure Jekyll to create HTML for GitHub Pages: do not pre-process and commit generated files.
-    -   Some inclusions loop over the table of contents to match slugs to files because Jekyll doesn't support lookup by key.
-    -   Use the JavaScript in `./js/site.js` to patch up some references, construct per-page table of contents, etc.
-    -   All-in-one HTML version generated dynamically by JavaScript so as not to require pre-commit compilation.
-        -   `all/lang.html` is a placeholder that goes into `_site/lang/all/index.html` (for each language `lang`).
-        -   `./js/stitch.js` runs in this file, loads all the other files dynamically, and stitches them together.
+-   Goal was to use pure Jekyll to create HTML for GitHub Pages without pre-processing and committing generated files.
+    -   Came close but failed.
+    -   Need to regenerate `./_data/toc.json` with table of contents because Jekyll won't extract and list headings within files.
+
+-   Some inclusions loop over the table of contents to match slugs to files because Jekyll doesn't support lookup by key in collections.
+
+-   Use the JavaScript in `./js/site.js` to patch up some references, construct per-page table of contents, etc.
+    -   Now that cross-references are being generated, might as well replace this with compilation step using `./_data`...
+
+-   All-in-one HTML version generated dynamically by JavaScript so as not to require pre-commit compilation.
+    -   `all/lang.html` is a placeholder that goes into `_site/lang/all/index.html` (for each language `lang`).
+    -   `./js/stitch.js` runs in this file, loads all the other files dynamically, and stitches them together.
 
 -   Use Pandoc with pre- and post-processing to convert Markdown to LaTeX to build PDF.
     -   Most of the pre/post-processing uses `sed` directly in `Makefile`.
     -   Easier for newcomers to understand and maintain than a custom Pandoc template.
 
 -   We use a script to regenerate the Markdown bibliography (e.g., `_en/bib.md`) from the BibTeX source (e.g., `tex/en/book.bib`).
-    -   Yeah, this is a server-side compilation step...
+    -   Yeah, this is also a server-side compilation step...
 
 ## Typography
 

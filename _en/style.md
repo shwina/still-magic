@@ -39,7 +39,7 @@ FIXME: [Dobz1973](#BIB)
     -   A good programming editor will auto-complete names, so you don't have to do much typing
 -   However, short variable names for temporaries and loop variables are OK [Beni2017](#BIB)
 -   Order within file should be:
-    -   Docstring ([CHAPTER](../style/))
+    -   Docstring ({% include ref key="s:style" %})
     -   Imports
     -   Constants
     -   Functions (highest level first)
@@ -58,7 +58,7 @@ and more recent estimates put it as low as 4 or 5.
 If your function requires two dozen parameters,
 the odds are very good that users will frequently forget them
 or put them in the wrong order.
-One solution is to give parameters default values ([CHAPTER](../style/));
+One solution is to give parameters default values ({% include ref key="s:style" %});
 another is to bundle them together so that (for example)
 people pass three `point` objects instead of nine separate `x`, `y`, and `z` values.
 
@@ -162,7 +162,7 @@ Functions are easier to understand if they don't have any [side effects](#g:side
 i.e.,
 if they don't modify their inputs or any global variables.
 But sometimes this is necessary:
-a function might set a flag to control the logging level ([CHAPTER](../logging/)),
+a function might set a flag to control the logging level ({% include ref key="s:logging" %}),
 update a database record,
 or modify an image in place rather than make a copy for performance reasons.
 In cases like these,

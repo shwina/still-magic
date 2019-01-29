@@ -193,7 +193,7 @@ CSV is the lowest common denominator of data formats,
 so logging in that format means that we don't have to write a bunch of regular expressions later
 to pull records out of our log.
 Remember
-if you need to write a parser, you've done something wrong ([CHAPTER](../rules/)).
+if you need to write a parser, you've done something wrong ({% include ref key="s:rules" %}).
 
 ## How can I handle multiple reporting sources in one program? {#s:logging-source}
 
@@ -341,7 +341,7 @@ because then they can set it up the way they want with very little work.
 One of the most important things a program can record
 is its configuration---its *entire* configuration,
 so that its operation can be reproduced exactly later on
-([CHAPTER](../configure/)).
+({% include ref key="s:configure" %}).
 Unfortunately,
 the configuration for even a moderately complex program consists of many values,
 and logging frameworks are designed to log one thing at a time.

@@ -139,7 +139,7 @@ Everyone can check what was actually said or promised.
 People can be held accountable at subsequent meetings.
 :   There's no point making lists of questions and action items
     if you don't follow up on them later.
-    If you're using a ticketing system ([CHAPTER](../backlog/)),
+    If you're using a ticketing system ({% include ref key="s:backlog" %}),
     create a ticket for each new question or task right after the meeting
     and update those that are being carried forward.
     That way,
@@ -309,7 +309,7 @@ Sergei
 
 ## How should we handle conflict within the team? {#s:teamwork-conflict}
 
-FIXME: this is not about harassment or abuse---see [CHAPTER](../inclusive/) for that.
+FIXME: this is not about harassment or abuse---see {% include ref key="s:inclusive" %} for that.
 
 You just missed an important deadline,
 and people are unhappy.

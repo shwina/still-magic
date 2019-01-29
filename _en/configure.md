@@ -150,7 +150,7 @@ Extras ['first.txt']
 ```
 
 We really shouldn't use [`assert`](#g:assertion) to handle errors here;
-[CHAPTER](../logging/) will explore a better approach.
+{% include ref key="s:logging" %} will explore a better approach.
 
 ## What do I do when I run out of memorable single-letter flags? {#s:configure-long}
 
@@ -225,7 +225,7 @@ INI files are simple to read and write,
 but the format is slowly falling out of use.
 What seems to be replacing it is [YAML](#g:yaml),
 which stands for "Yet Another Markup Language".
-Since YAML is used in GitHub Pages ([CHAPTER](../ghp/)),
+Since YAML is used in GitHub Pages ({% include ref key="s:ghp" %}),
 and (unlike JSON) allows comments,
 we'll explore it in this section.
 

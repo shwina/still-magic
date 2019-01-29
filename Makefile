@@ -17,6 +17,7 @@ PYTHON=python
 DIR_MD=_${lang}
 PAGES_MD=$(wildcard ${DIR_MD}/*.md)
 BIB_MD=${DIR_MD}/bib.md
+TOC_JSON=_data/toc.json
 DIR_HTML=_site/${lang}
 PAGES_HTML=${DIR_HTML}/index.html $(patsubst ${DIR_MD}/%.md,${DIR_HTML}/%/index.html,$(filter-out ${DIR_MD}/index.md,${PAGES_MD}))
 DIR_TEX=tex/${lang}
@@ -32,11 +33,11 @@ commands :
 	@grep -h -E '^##' ${MAKEFILE_LIST} | sed -e 's/## //g'
 
 ## serve       : run a local server.
-serve :
+serve : ${TOC_JSON}
 	${JEKYLL} serve -I
 
 ## site        : build files but do not run a server.
-site :
+site : ${TOC_JSON}
 	${JEKYLL} build
 
 ## pdf         : generate PDF from LaTeX source.
@@ -44,6 +45,9 @@ pdf : ${BOOK_PDF}
 
 ## bib         : regenerate the Markdown bibliography from the BibTeX file.
 bib : ${BIB_MD}
+
+## toc         : regenerate the table of contents JSON file.
+toc : ${TOC_JSON}
 
 # ----------------------------------------
 
@@ -108,6 +112,10 @@ ${PAGES_HTML} : ${PAGES_MD}
 # Create the bibliography Markdown file from the BibTeX file.
 ${BIB_MD} : ${BIB_TEX} bin/bib2md.py
 	bin/bib2md.py ${lang} < ${DIR_TEX}/book.bib > ${DIR_MD}/bib.md
+
+# Create the JSON table of contents.
+${TOC_JSON} : ${PAGES_MD} bin/make_toc.py
+	bin/make_toc.py _config.yml ${DIR_MD} > ${TOC_JSON}
 
 # Dependencies with HTML file inclusions.
 ${DIR_HTML}/%/index.html : $(wildcard _includes/%/*.*)

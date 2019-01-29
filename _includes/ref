@@ -1,0 +1,6 @@
+{%- comment -%}
+Handle cross-references by looking up key in _data/toc.json.
+Requires input parameter key="s:whatever".
+{%- endcomment -%}
+{%- assign entry = site.data.toc[include.key] -%}
+<a class="xref" href="{% if page.root %}.{% else %}..{% endif %}/{{entry.slug}}/{% unless entry.toplevel %}#{{include.key}}{% endunless %}">{{entry.text}}</a>
