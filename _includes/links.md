@@ -28,6 +28,7 @@ definitions if that's done.
 [choose-license]: http://choosealicense.com/
 [climate-api]: http://data.worldbank.org/developers/climate-data-api
 [code-smells-and-feels]: https://github.com/jennybc/code-smells-and-feels
+[conda]: https://conda.io/
 [covenant]: https://www.contributor-covenant.org
 [creative-commons]: https://creativecommons.org/
 

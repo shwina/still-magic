@@ -48,8 +48,12 @@ this relatively simple description can be implemented in many subtly different w
 many of which are wrong.
 In order to tell which one we've actually built and whether we've built it correctly,
 we need to write some tests.
-This lesson therefore introduces some key ideas and tools,
-drawn in part from [Testing and Continuous Integration with Python][huff-testing] by [Katy Huff][huff-katy].
+This lesson therefore introduces some key ideas and tools.
+
+### Acknowledgments
+
+This material is drawn in part from
+[Testing and Continuous Integration with Python][huff-testing] by [Katy Huff][huff-katy].
 
 ## What are realistic goals for testing? {#s:unit-goals}
 
@@ -160,6 +164,8 @@ which structures tests according to three simple rules:
 <!-- == \noindent -->
 For example,
 we could test the `count_words` function by putting the following code in `test_count.py`:
+
+<!-- {: title="unit/tf_idf.py"} -->
 
 ```python
 from tf_idf import count_word

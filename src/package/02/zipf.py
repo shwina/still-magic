@@ -1,7 +1,8 @@
 import sys
 from pytest import approx
 
-USAGE = '''zipf num [num...]: are the given values a Zipfy?'''
+
+USAGE = '''zipf num [num...]: are the given values Zipfy?'''
 RELATIVE_ERROR = 0.05
 
 
@@ -19,7 +20,6 @@ def is_zipf(hist, rel=RELATIVE_ERROR):
 
 
 if __name__ == '__main__':
-
     if len(sys.argv) == 1:
         print(USAGE)
     else:

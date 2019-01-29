@@ -1,6 +1,5 @@
 ---
 title: "Packaging"
-undone: true
 questions:
 -   "How can I manage the libraries my project relies on?"
 -   "How can I package up my work for others to use?"
@@ -20,18 +19,28 @@ keypoints:
 >
 > -- Terry Pratchett
 
--   A programming language is a way to build and combine software libraries
--   Every widely-used language now has a shared repository for installable packages
--   This lesson shows you how to use Python's tools
--   Based in part on [Python 102][python-102] by [Ashwin Srinath][srinath-ashwin]
+The more software you write,
+the more you realize that a programming language is a way to build and combine software libraries.
+Every widely-used language now has an online repository
+from which people can download and install those libraries.
+This lesson shows you how to use Python's tools to create and share libraries of your own.
 
-## How Can I Turn a Set of Python Source Files Into a Module? {#s:package-modules}
+### Acknowledgments
 
--   Any Python source file can be imported
-    -   Statements are executed as the file is loaded
-    -   Variables defined in the file are then available as `module.name`
-    -   This is why Python files should be named using pothole\_case instead of kebab-case
--   Example: put constant and two functions used in Zipf's Law study in `zipf.py`
+This material is based in part on [Python 102][python-102] by [Ashwin Srinath][srinath-ashwin].
+
+## How can I turn a set of Python source files into a module? {#s:package-modules}
+
+Any Python source file can be imported by any other.
+When a file is imported,
+the statements in it are executed as it loads.
+Variables defined in the file are then available as `module.name`.
+(This is why Python files should be named using `pothole_case` instead of `kebab-case`:
+an expression like `import some-thing` isn't allowed
+because `some-thing` isn't a legal variable name.)
+
+As an example,
+we can put a constant and two functions used in our Zipf's Law study in a file called `zipf.py`:
 
 ```python
 from pytest import approx
@@ -52,8 +61,12 @@ def is_zipf(hist, rel=RELATIVE_ERROR):
     perfect = make_zipf(len(hist))
     return scaled == approx(perfect, rel=rel)
 ```
+{: title="package/01/zipf.py"}
 
--   Can now `import zipf`, `from zipf import is_zipf`, etc.
+<!-- == \noindent -->
+and then use `import zipf`,
+`from zipf import is_zipf`,
+and so on:
 
 ```python
 from zipf import make_zipf, is_zipf
@@ -64,40 +77,60 @@ generated[-1] *= 2
 print('passes test with default tolerance: {}'.format(is_zipf(generated)))
 print('passes test with tolerance of 1.0: {}'.format(is_zipf(generated, rel=1.0)))
 ```
-```
+{: title="package/01/use.py"}
+
+Running this program produces the following output:
+
+```text
 generated distribution: [1.0, 0.5, 0.3333333333333333, 0.25, 0.2]
 passes test with default tolerance: False
 passes test with tolerance of 1.0: True
 ```
 
--   Running this program creates a sub-directory called `__pycache__`
-    -   Holds the compiled version of the imported files
-    -   Almost always put `__pycache__` in `.gitignore`
--   When `import` executes, it checks in order:
-    -   Is this module already in memory?
-    -   Is the cached compiled version younger than the source file?
--   What if we want to be able to import *and* to be able to run as a program?
-    -   Python creates a variable called `__name__` in each module
-    -   If the module is the main program, that variable is assigned the string `'__main__'`
-    -   Otherwise, it has the module's name
+<!-- == \noindent -->
+It also creates a sub-directory called `__pycache__`
+that holds the compiled versions of the imported files.
+The next time Python imports `zipf`,
+it checks the timestamp on `zipf.py` and the timestamp on the corresponding file in `__pycache__`.
+If the latter is more recent,
+Python doesn't bother to recompile the file:
+it just loads the bytes in the cached version and uses those.
+To avoid confusing it,
+we (almost) always put `__pycache__` in `.gitignore`.
+
+## How can I control what is executed during import and what isn't? {#s:package-import}
+
+Sometimes it's handy to be able to import code and also run it as a program.
+For example,
+we may have a file full of useful functions for extracting keywords from text
+that we want to be able to use in other programs,
+but also want to be able to run `keywords somefile.txt` to get a listing.
+
+To help us do this (and other things we'll see later),
+Python automatically creates a variable called `__name__` in each module.
+If the module is the main program,
+that variable is assigned the string `'__main__'`.
+Otherwise, it is assigned the module's name.
+Using this leads to modules like this:
 
 ```python
 import sys
 from pytest import approx
 
-USAGE = '''zipf num [num...]: are the given values a Zipfy?'''
+
+USAGE = '''zipf num [num...]: are the given values Zipfy?'''
 RELATIVE_ERROR = 0.05
 
 
 def make_zipf(length):
     ...as before...
 
+
 def is_zipf(hist, rel=RELATIVE_ERROR):
     ...as before...
 
 
 if __name__ == '__main__':
-
     if len(sys.argv) == 1:
         print(USAGE)
     else:
@@ -106,63 +139,115 @@ if __name__ == '__main__':
         print('{}: {}'.format(result, values))
     sys.exit(0)
 ```
+{: title="package/02/zipf.py"}
 
--   Code guarded by `if __name__ == '__main__'` isn't executed when file loaded by something else
--   Can test by re-running `use.py`
-    -   The usage message doesn't appear, which means the main block wasn't executed, which is what we want
-    -   So now we can go back and put its content in a function and call that function, because we are good people
+<!-- {: title="package/02/use.py"} -->
 
-## How Can I Install a Python Package? {#s:package-install}
+Here,
+the code guarded by `if __name__ == '__main__'` isn't executed when the file loaded by something else.
+We can test this by re-running `use.py` as before:
+the usage message doesn't appear,
+which means the main block wasn't executed,
+which is what we want.
 
--   `pip install package`
-    -   Checks to see if the package is already installed (or needs to be upgraded)
-    -   Downloads from [PyPI][pypi] (the Python Package Index)
-    -   Unpacks and installs
--   May require admin privileges to write files, depending on where Python is installed
--   `pip install -r filename` will install dependencies listed in a file
-    -   File is conventionally called `requirements.txt` and placed in the project's root directory
--   Can be just a list of package names
--   Or specify exact versions, minimum versions, etc.
+## How can I install a Python package? {#s:package-install}
 
-```
+The most common way to install Python packages is to use a tool called `pip`.
+The command <code>pip install <em>package</em></code>
+checks to see if the package is already installed (or needs to be upgraded);
+if so,
+it downloads the package from [PyPI][pypi] (the Python Package Index),
+unpacks it,
+and installs it.
+Depending on where Python is installed,
+completing that installation may require administrative privileges;
+for example,
+if Python is installed in `/usr/bin/python`,
+you may need to run `sudo` to overwrite previously-installed libraries.
+*This is a bad idea*,
+since system tools may depend on particular versions of those packages,
+and may break if you overwrite them.
+{% include ref key="s:package-virtualenv" %} shows how to avoid these problems.
+
+Since a project may depend on many packages,
+developers frequently put a list of those dependencies in a file called `requirements.txt`.
+`pip install -r requirements.txt` will then install the dependencies listed in that file.
+(The file can be called anything,
+but everyone uses `requirements.txt`,
+so you should too.)
+This file can just list package names,
+or it can specify exact versions, minimum versions, etc.:
+
+```text
 request
 scipy==1.1.0
 tdda>=1.0
 ```
 
--   `pip freeze` will print exact versions of all installed packages
-    -   Save this when producing reports ({% include ref key="s:publish" %})
+If you want to create a file like this,
+`pip freeze` will print the exact versions of all installed packages.
+You usually won't use this directly in `requirements.txt`,
+since your project probably doesn't depend on all of the listed files,
+but it's a good practice to save this in version control when producing reports
+so that you can reproduce your results later
+({% include ref key="s:publish" %}).
 
-## How Can I Create an Installable Python Package? {#s:package-package}
+## How can I create an installable Python package? {#s:package-package}
 
--   Next step: put the two functions in their own files underneath a `zipf` package
-    -   Would probably keep them in the same file in a real project, because they're small and closely related
-    -   But this will illustrate the key ideas
--   A [package](#g:package) is a directory that contains a file called `__init__.py`, and may contain other files or sub-directories containing files
-    -   `__init__.py` can contain useful code
-    -   Or it can be empty, but it has to be there to tell Python that this directory is a package
--   Files and directories are:
+Packages have to come from somewhere,
+and that "somewhere" is mostly developers like you.
+Creating a Python package is fairly straightforward,
+and mostly comes down to having the right directory structure.
 
-```
+A [package](#g:package) is a directory that contains a file called `__init__.py`,
+and may contain other files or sub-directories containing files.
+`__init__.py` can contain useful code or be empty,
+but either way,
+it has to be there to tell Python that the directory is a package.
+For our Zipf example,
+we can reorganize our files as follows:
+
+```text
 +- use.py
 +- zipf
     +- __init__.py
 ```
 
--   `zipf/__init__.py` contains the functions and `RELATIVE_ERROR`
--   Import and use as before
-    -   The `__pycache__` directory is created inside `zipf`
+<!-- {: title="package/03/use.py"} -->
+<!-- {: title="package/03/zipf/__init__.py"} -->
 
--   Now split code between two files to show how that works
-    -   Put the generator in `zipf/generate.py`
-    -   `__init__.py` must now import that
-    -   But can do so using `from . import ...` (where "." means the same thing it does in the Unix shell)
-    -   Client code now uses `zipf.generate.make_zipf`
+<!-- == \noindent -->
+`zipf/__init__.py` contains `RELATIVE_ERROR` and the functions we've seen before.
+`use.py` doesn't change---in particular,
+it can still use `import zipf` or `from zipf import is_zipf`
+even though there isn't a file called `zipf.py` any longer.
+When we run `use.py`,
+it loads `zipf/__init__.py` when `import zipf` executes
+and creates a `__pycache__` directory inside `zipf`.
+
+## How can I manage the source code of large packages? {#s:package-large}
+
+As our package grows,
+we should split its source code into multiple files.
+To show how this works,
+we can put the Zipf generator in `zipf/generate.py`:
+
+```python
+def make_zipf(length):
+    assert length > 0, 'Zipf distribution must have at least one element'
+    result = [1/(1 + i) for i in range(length)]
+    return result
+```
+{: title="package/04/zipf/generate.py"}
+
+<!-- == \noindent -->
+and then import that file in `__init__.py`.
 
 ```python
 import sys
 from pytest import approx
 from . import generate
+
 
 RELATIVE_ERROR = 0.05
 
@@ -173,6 +258,15 @@ def is_zipf(hist, rel=RELATIVE_ERROR):
     perfect = generate.make_zipf(len(hist))
     return scaled == approx(perfect, rel=rel)
 ```
+{: title="package/04/zipf/__init__.py"}
+
+We write that import as `from . import generate` to make sure that
+we will get the `generate.py` file in the same directory as `__init__.py`
+(the `.` means "current directory", just as it does in the Unix shell).
+
+When we arrange our code like this,
+the code that *uses* the library must refer to `zipf.generate.make_zipf`:
+
 ```python
 import zipf
 
@@ -182,18 +276,25 @@ generated[-1] *= 2
 print('passes test with default tolerance: {}'.format(zipf.is_zipf(generated)))
 print('passes test with tolerance of 1.0: {}'.format(zipf.is_zipf(generated, rel=1.0)))
 ```
+{: title="package/04/use.py"}
 
-## How Can I Distribute Software Packages That I Have Created? {#s:package-distribute}
+## How can I distribute software packages that I have created? {#s:package-distribute}
 
--   Yes, people can clone your repository and copy files from that
--   But it's much friendlier to create something they can install
--   Unfortunately, Python has several ways to do this
--   We will show [setuptools][setuptools], which is the tried-and-true approach
-    -   `conda` is the modern does-everything solution, but has larger startup overhead
--   Create a file in the directory *above* the root directory of the package called `setup.py`
-    -   Must be called exactly that
+People can always get your package by cloning your repository and copying files from that
+(assuming your repository is accessible,
+which is should be for published research),
+but it's much friendlier to create something they can install.
+For historical reasons,
+Python has several ways to do this.
+We will show how to use [setuptools][setuptools],
+which is the lowest common denominator;
+[conda][conda] is a modern does-everything solution,
+but has larger startup overhead.
 
-```
+To use `setuptools`,
+we must create a file called `setup.py` in the directory *above* the root directory of the package:
+
+```text
 +- setup.py
 +- use.py
 +- zipf
@@ -201,8 +302,9 @@ print('passes test with tolerance of 1.0: {}'.format(zipf.is_zipf(generated, rel
     +- generate.py
 ```
 
-
--   Add exactly and only these lines
+<!-- == \noindent -->
+The file `setup.py` must have exactly that name,
+and must contain these lines:
 
 ```
 from setuptools import setup, find_packages
@@ -214,12 +316,26 @@ setup(
     packages=find_packages()
 )
 ```
+{: title="package/05/setup.py"}
 
--   `find_packages` returns a list of things worth packaging
--   Run `python setup.py sdist` to create a source distribution
+<!-- {: title="package/05/use.py"} -->
+<!-- {: title="package/05/zipf/__init__.py"} -->
+<!-- {: title="package/05/zipf/generate.py"} -->
 
-```
+<!-- == \noindent -->
+The `name`, `version`, and `author` parameters to `setup` are self-explanatory;
+you should modify the values assigned to them for your package;
+the function `find_packages` returns a list of things worth packaging.
+
+Once you have created this file,
+you can run `python setup.py sdist` to create your package.
+The verb `sdist` stands for "source distribution",
+meaning that the source of the Python files is included in the package:
+
+```shell
 $ python setup.py sdist
+```
+```text
 running sdist
 running egg_info
 creating zipf.egg-info
@@ -253,10 +369,15 @@ Creating tar archive
 removing 'zipf-0.1' (and everything under it)
 ```
 
--   Creates `dist/zipf-0.1.tar.gz`
+<!-- == \noindent -->
+We will look at how to clean up the warnings about `README.md`, `url`, and `author_email` in the exercises.
 
+`python setup.py sdist` creates a compressed file `dist/zipf-0.1.tar.gz` that contains the following:
+
+```shell
+$ tar ztvf dist/zipf-0.1.tar.gz
 ```
-$ tar ztvf dist/zipf-0.1.tar.gz 
+```text
 drwxr-xr-x  0 pterry staff       0 20 Aug 15:36 zipf-0.1/
 -rw-r--r--  0 pterry staff     180 20 Aug 15:36 zipf-0.1/PKG-INFO
 -rw-r--r--  0 pterry staff      38 20 Aug 15:36 zipf-0.1/setup.cfg
@@ -271,77 +392,170 @@ drwxr-xr-x  0 pterry staff       0 20 Aug 15:36 zipf-0.1/zipf.egg-info/
 -rw-r--r--  0 pterry staff       5 20 Aug 15:36 zipf-0.1/zipf.egg-info/top_level.txt
 ```
 
--   Next step is to test installation...
--   ...but first we should clean up the warnings about `README.md`, `url`, and `author_email`
+<!-- == \noindent -->
+The source files `__init__.py` and `generate.py` are in there,
+along with the odds and ends that `pip` will need to install this package properly when the time comes.
 
-## How Can I Manage the Packages My Projects Need? {#s:package-virtualenv}
+## How can I manage the packages my projects need? {#s:package-virtualenv}
 
--   Want to test the package we just created
--   But *don't* want to damage the packages we already have installed
--   And may not have permission to write into the directory that contains system-wide packages
-    -   E.g., on a cluster
--   Solution: use a [virtual environment](#g:virtual-environment)
-    -   Slowly being superceded by more general solutions like [Docker][docker],
-        but still the easiest solution for most of us
--   `pip install virtualenv`
--   `virtualenv test`
-    -   Creates a new directory called `test`
-    -   That directory contains `bin`, `lib`, and so on
-    -   `test/bin/python` checks for packages in `test/lib` *before* checking the system-wide install
--   Switch to the environment with `source test/bin/activate`
-    -   `source` is a Unix shell command meaning "run all the commands from a file in this currently-active shell"
-    -   Just typing `test/bin/activate` on its own would run those commands in a sub-shell
--   Can switch back to default with `deactivate`
--   Common to create `$HOME/envs` to store all environments
--   Note how every command now displays `(test)` when that virtual environment is active
+We want to test the package we just created,
+but we *don't* want to affect the packages we already have installed,
+and as noted earlier,
+we may not have permission to write into the directory that contains system-wide packages.
+(For example, we may be testing something out on a cluster shared by our whole department.)
+The solution is to use a [virtual environment](#g:virtual-environment).
+These are slowly being superceded by more general solutions like [Docker][docker],
+but they are still the easiest solution for most of us.
 
+A virtual environment is a layer on top of an existing Python installation.
+Whenever Python needs to find a library,
+it looks in the virtual environment first.
+If it can satisfy its needs there, it's done;
+otherwise,
+it looks in the underlying environment.
+This gives us a place to install packages that only some projects need,
+or that are still under development,
+without affecting the main installation.
+
+FIXME: figure
+
+We can create and manage virtual environments using a tool called `virtualenv`.
+To install it,
+run `pip install virtualenv`.
+Once we have done that,
+we can create a new virtual environment called `test` by running:
+
+```shell
+$ virtualenv test
 ```
+```text
+Using base prefix '/Users/pterry/anaconda3'
+New python executable in /Users/pterry/test/bin/python
+Installing setuptools, pip, wheel...
+done.
+```
+
+<!-- == \noindent -->
+`virtualenv` creates a new directory called `test`,
+which contains sub-directories called `bin`, `lib`, and so on---everything
+needed for a minimal Python installation.
+Crucially,
+`test/bin/python` checks for packages in `test/lib` *before* checking the system-wide install.
+
+We can switch to the `test` environment by running:
+
+```shell
+$ source test/bin/activate
+```
+
+<!-- == \noindent -->
+`source` is a Unix shell command meaning "run all the commands from a file in this currently-active shell".
+We use it because typing `test/bin/activate` on its own would run those commands in a sub-shell,
+which would have no effect on the shell we're in.
+Once we have done this,
+we're running the Python interpreter in `test/bin`:
+
+```shell
+$ which python
+```
+```text
+/Users/pterry/test/bin/python
+```
+
+We can now install packages to our heart's delight.
+Everything we install will go under `test`,
+and won't affect the underlying Python installation.
+When we're done,
+we can switch back to the default environment with `deactivate`.
+(We don't need to `source` this.)
+
+Most developers create a directory called `~/envs`
+(i.e., a directory called `envs` directly below their home directory)
+to store their virtual environments:
+
+```shell
 $ cd ~
 $ mkdir envs
-
 $ which python
+```
+```text
 /Users/pterry/anaconda3/bin/python
-
+```
+```shell
 $ virtualenv envs/test
+```
+```text
 Using base prefix '/Users/pterry/anaconda3'
 New python executable in /Users/pterry/envs/test/bin/python
 Installing setuptools, pip, wheel...done.
-
+```
+```shell
 $ which python
+```
+```text
 /Users/pterry/anaconda3/bin/python
-
+```
+```shell
 $ source envs/test/bin/activate
-(test) 
-
+```
+```text
+(test)
+```
+```shell
 $ which python
+```
+```text
 /Users/pterry/envs/test/bin/python
 (test)
-
+```
+```shell
 $ deactivate
-
+```
+```shell
 $ which python
+```
+```text
 /Users/pterry/anaconda3/bin/python
 ```
 
--   Now test installation
+Notice how every command now displays `(test)` when that virtual environment is active.
+Between Git branches and virtual environments,
+it can be very easy to lose track of what exactly you're working on and with.
+Having prompts like this can make it a little less confusing;
+using virtual environment names that match the names of your projects
+(and branches, if you're testing different environments on different branches)
+quickly becomes essential.
 
+## How can I test package installation? {#s:package-test-install}
+
+Now that we have a virtual environment set up,
+we can test the installation of our Zipf package:
+
+```shell
+$ pip install ./src/package/05/dist/zipf-0.1.tar.gz
 ```
-$ pip install ./src/package/05/dist/zipf-0.1.tar.gz 
+```text
 Processing ./src/package/05/dist/zipf-0.1.tar.gz
 Building wheels for collected packages: zipf
   Running setup.py bdist_wheel for zipf ... done
-  Stored in directory: /Users/stanage/Library/Caches/pip/wheels/6b/de/80/d72bb0d6e7c65b6e413f0cf10f04b4bbccb329767853fe1644
+  Stored in directory: /Users/pterry/Library/Caches/pip/wheels/6b/de/80/d72bb0d6e7c65b6e413f0cf10f04b4bbccb329767853fe1644
 Successfully built zipf
 Installing collected packages: zipf
 Successfully installed zipf-0.1
 (test)
-
+```
+```shell
 $ python
 >>> import zipf
 >>> zipf.RELATIVE_ERROR
+```
+```text
 0.05
-
+```
+```shell
 $ pip uninstall zipf
+```
+```text
 Uninstalling zipf-0.1:
   Would remove:
     /Users/pterry/envs/test/lib/python3.6/site-packages/zipf-0.1.dist-info/*
@@ -351,13 +565,17 @@ Proceed (y/n)? y
 (test)
 ```
 
--   One environment per project, one project per environment
--   Uses more disk space than absolutely necessary...
--   ...but less than most of your data sets...
--   ...and saves a *lot* of pain
+Again,
+one environment per project and one project per environment might use more disk space than is absolutely necessary,
+but it will still be less than most of your data sets,
+and will save a lot of debugging.
 
 ## Summary {#s:package-summary}
 
 FIXME: create concept map for packages
+
+## Exercises {#s:package-exercises}
+
+-   FIXME: clean up warning messages from `python setup.py sdist`
 
 {% include links.md %}
