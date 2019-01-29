@@ -29,7 +29,7 @@ keypoints:
 -   "Specially-formatted comments can be used to make Makefiles self-documenting."
 ---
 
-As {% include xref key="s:intro" %} said,
+As {% include x key="s:intro" %} said,
 Zipf's Law states that the second most common word in a body of text
 appears half as often as the most common,
 the third most common appears a third as often,
@@ -83,7 +83,7 @@ we really want to avoid doing unnecessary work.
 
 What we want is a way to describe which files depend on which other files
 and how to generate or update a file when necessary.
-This is the job of a [build tool](#g:build-tool).
+This is the job of a {% include g key="g:build-tool" text="build tool" %}.
 As the name suggests,
 a build tool's job is to build new files out of old ones.
 The most widely used build tool,
@@ -111,11 +111,11 @@ and on [Jonathan Dursi][dursi-jonathan]'s [introduction to pattern rules][dursi-
 
 Make is based on three key ideas:
 
-1.  The operating system automatically records a [timestamp](#g:timestamp)
+1.  The operating system automatically records a {% include g key="g:timestamp" text="timestamp" %}
     every time a file is changed.
     By checking this,
     Make can tell whether files are newer or older than other files.
-2.  A programmer writes a [Makefile](#g:makefile)
+2.  A programmer writes a {% include g key="g:makefile" text="Makefile" %}
     to tell Make how files depend on each other.
     For example,
     the Makefile could say that `results/moby_dick.csv` depends on `data/moby_dick.txt`,
@@ -139,25 +139,25 @@ results/moby_dick.csv : data/moby_dick.txt
 
 The `#` character starts a comment,
 which runs to the end of a line (just as it does in Python or R).
-`results/moby_dick.csv` is the [target](#g:make-target) of a [rule](#g:make-rule),
+`results/moby_dick.csv` is the {% include g key="g:make-target" text="target" %} of a {% include g key="g:make-rule" text="rule" %},
 i.e., something that may need to be created or updated.
 Every rule in a Makefile has one or more targets,
 and must be written flush against the left margin.
 
-`data/moby_dick.txt` is a [prerequisite](#g:make-prerequisite) in that rule,
+`data/moby_dick.txt` is a {% include g key="g:make-prerequisite" text="prerequisite" %} in that rule,
 i.e.,
 something that the target of the rule depends on.
 A single colon separates the target from its prerequisites,
 and a rule can have any number of prerequisites---we'll see examples soon.
 
 The indented line that uses Python to run `bin/countwords.py`
-is the rule's [action](#g:make-action).
+is the rule's {% include g key="g:make-action" text="action" %}.
 It creates or updates the target when it is out of date.
 A rule can have any number of actions,
 but they *must* be indented by a single tab character.
-Notice that the output of `bin/countwords.py` is [redirected](#g:redirection) using `>`
+Notice that the output of `bin/countwords.py` is {% include g key="g:redirection" text="redirected" %} using `>`
 to create the output file:
-we will look at modifying the script in {% include xref key="s:configure" %}
+we will look at modifying the script in {% include x key="s:configure" %}
 so that it can take the name of an output file as an argument.
 
 Together,
@@ -183,7 +183,7 @@ one of three things will happen:
 In the first two cases,
 Make will show the command it runs,
 along with anything the command prints to the screen
-via [standard output](#g:stdout) or [standard error](#g:stderr).
+via {% include g key="g:stdout" text="standard output" %} or {% include g key="g:stderr" text="standard error" %}.
 In this case,
 there is no screen output,
 so we only see the command.
@@ -240,7 +240,7 @@ but in a lesson like this,
 which includes many example Makefiles,
 it comes in handy.
 
-Using `-f` doesn't change our [working directory](#g:working-directory).
+Using `-f` doesn't change our {% include g key="g:working-directory" text="working directory" %}.
 If, for example, we are in `/home/gvwilson/still-magic` and run `make -f src/automate/single_rule.mk`,
 our working directory remains `/home/gvwilson/still-magic`.
 This means that Make will look for the rule's prerequisite in `/home/gvwilson/still-magic/data/moby_dick.txt`,
@@ -279,7 +279,7 @@ make: `results/moby_dick.csv' is up to date.
 
 Nothing happens because by default Make only attempts to update
 the first target it finds in the Makefile,
-which is called the [default target](#g:default-target).
+which is called the {% include g key="g:default-target" text="default target" %}.
 To update something else,
 we need to tell Make we want it:
 
@@ -295,7 +295,7 @@ python bin/countwords.py data/jane_eyre.txt > results/jane_eyre.csv
 
 ## How can I get rid of temporary files that I don't need? {#s:automate-phony}
 
-A [phony target](#g:phony-target) in a Makefile
+A {% include g key="g:phony-target" text="phony target" %} in a Makefile
 is one that doesn't correspond to any files
 and doesn't have any prerequisites.
 Phony targets are just a way to save useful commands in a Makefile,
@@ -359,7 +359,7 @@ by putting this in the Makefile:
 
 I usually declare all of my phony targets together near the top of the file.
 Other people put the `.PHONY` declarations right before the rules they refer to.
-As with most other rules about programming style ({% include xref key="s:style" %}),
+As with most other rules about programming style ({% include x key="s:style" %}),
 consistency matters more than exactly what you do.
 
 ## How can I make a target depend on several prerequisites? {#s:automate-multi}
@@ -405,7 +405,7 @@ python bin/countwords.py data/jane_eyre.txt > results/jane_eyre.csv
 
 The name of our script now appears four times in our Makefile,
 which will make for a lot of typing if and when we decide to move it or rename it.
-We can fix that by defining a [variable](#g:make-variable) at the top of our file
+We can fix that by defining a {% include g key="g:make-variable" text="variable" %} at the top of our file
 to refer to the script,
 then using that variable in our rules:
 
@@ -477,7 +477,7 @@ If we run Make now,
 it sees that `all` is only "up to date" if the two CSV files are up to date,
 so it looks for a rule for each and runs each of those rules.
 
-We can draw the prerequisites defined in the Makefile as a [dependency graph](#g:dependency-graph),
+We can draw the prerequisites defined in the Makefile as a {% include g key="g:dependency-graph" text="dependency graph" %},
 with arrows showing what each target depends on.
 
 FIXME: figure
@@ -485,7 +485,7 @@ FIXME: figure
 Note that the Makefile doesn't define the order
 in which `results/moby_dick.csv` and `results/jane_eyre.csv` are updated,
 so Make can rebuild them in whatever order it wants.
-This is called [declarative programming](#g:declarative-programming):
+This is called {% include g key="g:declarative-programming" text="declarative programming" %}:
 we declare what outcome we want,
 and the program figures out how to achieve it.
 
@@ -497,7 +497,7 @@ but any time we find ourselves duplicating code,
 there's almost certainly a way to write a general rule.
 In order to create these,
 though,
-we first need to learn about [automatic variables](#g:automatic-variable).
+we first need to learn about {% include g key="g:automatic-variable" text="automatic variables" %}.
 
 The first step is to use the very cryptic expression `$@` in the rule's action
 to mean "the target of the rule".
@@ -573,17 +573,17 @@ results/jane_eyre.csv : data/jane_eyre.txt ${COUNT}
 And yes,
 `$< > $@` is hard to read,
 even with practice,
-and `< $<` (reading the first prerequisite from [standard input](#g:stdin))
+and `< $<` (reading the first prerequisite from {% include g key="g:stdin" text="standard input" %})
 is even harder.
-Using an editor that does syntax highlighting helps ({% include xref key="s:tools" %}),
+Using an editor that does syntax highlighting helps ({% include x key="s:tools" %}),
 and if you are ever designing software for other people to use,
 remember this case and don't do it.
 
 ## How can I write one general rule to update many files in the same way? {#s:automate-pattern}
 
 We can now replace all the rules for generating results files
-with one [pattern rule](#g:pattern-rule)
-that uses `%` as a [wildcard](#g:wildcard).
+with one {% include g key="g:pattern-rule" text="pattern rule" %}
+that uses `%` as a {% include g key="g:wildcard" text="wildcard" %}.
 Whatever part of a filename `%` matches in the target,
 it must also match in the prerequisites,
 so the single rule:
@@ -683,7 +683,7 @@ and Make won't realize that we want to generate it.
 
 What we really want to do is generate the list of results files
 from the list of books in the `data/` directory.
-We can use a [function](#g:make-function) to do this.
+We can use a {% include g key="g:make-function" text="function" %} to do this.
 The syntax is a little odd,
 because functions were added to Make long after it was first written,
 but at least they have readable names.
@@ -764,7 +764,7 @@ The first argument is what to look for:
 in this case,
 a text file in the `raw` directory.
 As in a pattern rule,
-we use `%` to match the [stem](#g:filename-stem) of the file's name,
+we use `%` to match the {% include g key="g:filename-stem" text="stem" %} of the file's name,
 which is the part we want to keep.
 
 The second argument is the replacement we want.
@@ -816,7 +816,7 @@ python bin/countwords.py data/time_machine.txt > results/time_machine.csv
 
 Our workflow is now just two steps:
 add a data file and run Make.
-As we'll see in {% include xref key="s:integrate" %},
+As we'll see in {% include x key="s:integrate" %},
 we can even automate the second half in some cases,
 but this is still a big improvement over running things manually,
 particularly as we start to add more steps
@@ -853,7 +853,7 @@ the same information appears in both the comments on rules and the help,
 which means that authors have to remember to update the help when adding or changing rules.
 
 A better approach,
-which we will explore in more depth in {% include xref key="s:docs" %},
+which we will explore in more depth in {% include x key="s:docs" %},
 is to have people format some comments in a special way
 and then extract and display those comments when asked for help.
 We'll use `##` (a double comment marker) to indicate the lines we want displayed
@@ -927,7 +927,7 @@ but this is a good start.
 
 <figure id="f:automate-concept"> <figcaption>Automation Concept Map</figcaption> <img src="../../figures/automate_concept.svg"/> </figure>
 
--   {% include cite key="Smit2011" %} describes the design and implementation of several build tools in detail.
+-   {% include b key="Smit2011" %} describes the design and implementation of several build tools in detail.
 
 ## Exercises {#s:automate-exercises}
 

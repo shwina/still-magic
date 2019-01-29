@@ -15,7 +15,7 @@ keypoints:
 -   "Infer constraints on data and then check that subsequent data sets obey these constraints."
 ---
 
-FIXME: [tolerance](#g:tolerance)
+FIXME: {% include g key="g:tolerance" text="tolerance" %}
 
 -   Previous lesson explained how to test in general
 -   This lesson focuses on tests specific to data analysis pipelines
@@ -23,8 +23,8 @@ FIXME: [tolerance](#g:tolerance)
     -   Run them in production to make sure assumptions still hold
     -   They might not because the environment might have changed
 -   Difference between validation and verification
-    -   [Validation](#g:validation): is specification correct (i.e., did we build the right thing?)
-    -   [Verification](#g:verification): does the software meet the spec (i.e., did we build the thing right?)
+    -   {% include g key="g:validation" text="Validation" %}: is specification correct (i.e., did we build the right thing?)
+    -   {% include g key="g:verification" text="Verification" %}: does the software meet the spec (i.e., did we build the thing right?)
 -   Different from the tests most software engineers write because you don't always know what the right answer is
     -   If you did, you would have submitted your report and moved on to the next problem
 -   But there's a close analogy with physical experiments
@@ -46,10 +46,10 @@ FIXME: [tolerance](#g:tolerance)
     -   We cannot represent an infinite number of real values with a finite set of bit patterns
     -   And unlike integers, no matter what values we *do* represent, there will be an infinite number of values between each of them that we can't
 -   The explanation that follows is simplified---possibly over-simplified---to keep it manageable.
-    -   If you want to know more, take half an hour to read {% include cite key="Gold1991" %}
--   Floating point numbers are usually represented using [sign](#g:sign), [magnitude](#g:magnitude), and an [exponent](#g:exponent).
+    -   If you want to know more, take half an hour to read {% include b key="Gold1991" %}
+-   Floating point numbers are usually represented using {% include g key="g:sign" text="sign" %}, {% include g key="g:magnitude" text="magnitude" %}, and an {% include g key="g:exponent" text="exponent" %}.
 -   In a 32-bit word, the IEEE 754 standard calls for 1 bit of sign,
-    23 bits for the magnitude (or [mantissa](#g:mantissa)),
+    23 bits for the magnitude (or {% include g key="g:mantissa" text="mantissa" %}),
     and 8 bits for the exponent
 -   To illustrate the problems with floating point, we'll use a much dumber representation.
     -   Only use 5 bits: 3 for the magnitude and 2 for the exponent
@@ -116,8 +116,8 @@ FIXME: [tolerance](#g:tolerance)
     -   The first group is separated by 1, then the separation becomes 2, then 4, then 8
     -   This happens because we're multiplying the same fixed set of mantissas by ever-larger exponents
     -   Leads to some useful definitions
--   The [absolute error](#g:absolute-error) in some approximation to a value is the absolute value of the difference between the two
--   The [relative error](#g:relative-error) is the ratio of the absolute error to the value we're approximating
+-   The {% include g key="g:absolute-error" text="absolute error" %} in some approximation to a value is the absolute value of the difference between the two
+-   The {% include g key="g:relative-error" text="relative error" %} is the ratio of the absolute error to the value we're approximating
     -   If we are off by 1 in approximating 8+1 and 56+1, that's the same absolute error
     -   But the relative error is larger in the first case than in the second
 -   Relative error is almost always more useful than absolute
@@ -206,15 +206,15 @@ for bound in (1e-15, 1e-16):
 -   Both of these bounds are unreasonably tight
     -   A relative error of $$10^{-3}$$ (three decimal places) is more than good enough for most data science
     -   Because the decision the human being would make won't change if the number changes by 0.1%
--   [Accuracy](#g:accuracy) is how close your answer is to right
--   [Precision](#g:precision) is how close repeated measurements are to each other
+-   {% include g key="g:accuracy" text="Accuracy" %} is how close your answer is to right
+-   {% include g key="g:precision" text="Precision" %} is how close repeated measurements are to each other
 -   You can be precise without being accurate (systematic bias), or accurate without being precise (near the right answer, but without many significant digits)
 -   For human decision making, accuracy is usually more important than precision
 
 ## How Can I Test Plots and Other Graphical Results? {#s:verify-plots}
 
 -   Testing visualizations is hard
-    -   Any change to the dimension of the plot, however small, can change many pixels in a [raster image](#g:raster-image)
+    -   Any change to the dimension of the plot, however small, can change many pixels in a {% include g key="g:raster-image" text="raster image" %}
     -   Trivial changes (such as moving the legend up a couple of pixels) will generate false positives
 -   As with floating point, the generated image should not change if nothing else has changed
     -   So you should be able to do an exact match against a saved (reference) image
@@ -229,7 +229,7 @@ FIXME: example
 ```
 
 -   If the plotting library allows output as SVG, can test the structure of the SVG
-    -   SVG is a [vector format](#g:vector-image) that uses a hierarchical document structure like HTML's
+    -   SVG is a {% include g key="g:vector-image" text="vector format" %} that uses a hierarchical document structure like HTML's
     -   Check that the right elements are there with the right properties
     -   Although any changes to the library can invalidate all the tests because of layers being introduced, renamed, or removed
 -   The best option is to test the data structures used to generate the plot and then trust the plotting library
@@ -285,13 +285,13 @@ def test_fit_last_too_large():
 
 ## How Can I Check the Steps in a Data Analysis Pipeline in Production? {#s:verify-operational}
 
--   [Operational tests](#g:operational-test) are ones that are kept in place during production
+-   {% include g key="g:operational-test" text="Operational tests" %} are ones that are kept in place during production
     -   Is everything working as it should?
 -   Common pattern:
     -   Have every tool append information to a log
     -   Have another tool check that log file after the run is over
     -   Logging and then checking makes it easy to compare values between pipeline stages
-    -   {% include xref key="s:logging" %} shows how to do logging
+    -   {% include x key="s:logging" %} shows how to do logging
 -   Common tests
     -   Same number of output records as input records
     -   Or fewer output records than input records if you're aggregating

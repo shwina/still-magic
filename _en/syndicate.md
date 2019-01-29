@@ -13,12 +13,12 @@ keypoints:
 - "Make data sets more useful by providing metadata."
 ---
 
-A growing number of organizations make data sets available on the web in a style called [REST](#g:rest),
+A growing number of organizations make data sets available on the web in a style called {% include g key="g:rest" text="REST" %},
 which stands for REpresentational State Transfer.
 When REST is used,
 every data set is identified by a URL
 and can be accessed through a set of functions
-called an [application programming interface](#g:api) (API).
+called an {% include g key="g:api" text="application programming interface" %} (API).
 This lesson will look at how to use these interfaces,
 and how to provide data through them ourselves.
 
@@ -40,7 +40,7 @@ where:
     and
 -   *EXT* (short for "extension") specifies the format we want the data in.
     There are several choices for format,
-    but the simplest is [comma-separated values](#g:csv) (CSV),
+    but the simplest is {% include g key="g:csv" text="comma-separated values" %} (CSV),
     in which each record is a row,
     and the values in each row are separated by commas.
     (CSV is frequently used for spreadsheet data.)
@@ -130,7 +130,7 @@ year,data
 (We could just pass this URL as an argument to the `requests.get` call,
 but assigning it to a variable makes it easier to find.)
 
-The server can return many different [status codes](#g:http-status-code);
+The server can return many different {% include g key="g:http-status-code" text="status codes" %};
 the most common are:
 
 | Code | Name                  | Meaning                                                                    |
@@ -204,7 +204,7 @@ with open('test_01.csv', 'r') as reader:
 
 The dates are correct,
 but the values all end with `\n`.
-This is an [escape sequence](#g:escape-sequence) that represents
+This is an {% include g key="g:escape-sequence" text="escape sequence" %} that represents
 the newline character at the end of each line.
 To get rid of it,
 we should strip leading and trailing whitespace from each line before splitting it on commas:
@@ -245,7 +245,7 @@ with open('test_01.csv', 'r') as raw:
 
 Here,
 `raw` reads data in the normal way,
-while `cooked` is a [wrapper](#g:wrapper)
+while `cooked` is a {% include g key="g:wrapper" text="wrapper" %}
 that takes a line of text and turns it into a list of fields.
 
 We can equally well give a `csv.reader` a list of strings rather than a file:
@@ -646,7 +646,7 @@ while the third crashes because we're using `left` to determine the number of re
 but `right` doesn't have that many.
 
 The first two problems are actually worse than the third
-because they are [silent failures](#g:silent-failure):
+because they are {% include g key="g:silent-failure" text="silent failures" %}:
 the function does the wrong thing, but doesn't indicate that in any way.
 Let's fix that:
 
@@ -820,7 +820,7 @@ It's not enough to tell people what the rule is for creating filenames,
 since that doesn't tell them what data sets we've actually generated.
 The final step in this lesson is therefore
 to make the data we generate findable
-by creating an [index](#g:index) to tell people what files exist.
+by creating an {% include g key="g:index" text="index" %} to tell people what files exist.
 Here's the format we will use:
 
 ```text

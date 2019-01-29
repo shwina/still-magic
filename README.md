@@ -13,15 +13,19 @@
 -   Markdown source files for each human language are in a [collection][jekyll-collections] named after the language.
     -   E.g., `_en` for English.
 
+-   Use underscores rather than dashes in filenames, e.g., `a_b.md`.
+    -   Need underscores for Python source files that are being loaded.
+    -   Might as well be consistent.
+
 -   Every file has a unique slug.  Using the English version as an example:
+    -   Entry in Jekyll configuration's table of contents is `slug`.
     -   File's name is `_en/slug.md`.
     -   File's auto-generated slug is `slug`.
     -   Generated HTML is `_site/en/slug/index.html`.
     -   Chapter ID is `s:slug` and section IDs are `s:slug-something`.
     -   Figure IDs are `f:slug-something`.
-    -   Entry in Jekyll configuration's table of contents is `slug`.
     -   Source for all diagrams for the file are in `./figures/slug.xml` (a [draw.io][draw-io] drawing).
-    -   PNG, SVG, and PDF versions of diagrams are in `./figures/slug-something.suffix`.
+    -   PNG, SVG, and PDF versions of diagrams are in `./figures/slug_something.suffix`.
 
 -   Every Markdown file's YAML must contain one field:
     -   `title`: the file's title.
@@ -37,12 +41,14 @@
 
 -   Goal was to use pure Jekyll to create HTML for GitHub Pages without pre-processing and committing generated files.
     -   Came close but failed.
-    -   Need to regenerate `./_data/toc.json` with table of contents because Jekyll won't extract and list headings within files.
+    -   Need to regenerate table of contents in `./_data/toc.json` with a compilation step because Jekyll won't extract and list headings within files.
+    -   Then use `{% raw %}{% include x key="s:whatever" %}{% endraw %}` to reference by key (where `x` stands for "cross-reference").
+    -   Since we have to do that, we use `{% raw %}{% include g key="g:whatever" text="term" %}{% endraw %}` for glossary references
+        and `{% raw %}{% include b key="b:first,b:second" %}{% endraw %}` for bibliographic citations.
 
 -   Some inclusions loop over the table of contents to match slugs to files because Jekyll doesn't support lookup by key in collections.
 
--   Use the JavaScript in `./js/site.js` to patch up some references, construct per-page table of contents, etc.
-    -   Now that cross-references are being generated, might as well replace this with compilation step using `./_data`...
+-   Use the JavaScript in `./js/site.js` to patch up classes for tables and create table of contents for each page.
 
 -   All-in-one HTML version generated dynamically by JavaScript so as not to require pre-commit compilation.
     -   `all/lang.html` is a placeholder that goes into `_site/lang/all/index.html` (for each language `lang`).
@@ -55,21 +61,10 @@
 -   We use a script to regenerate the Markdown bibliography (e.g., `_en/bib.md`) from the BibTeX source (e.g., `tex/en/book.bib`).
     -   Yeah, this is also a server-side compilation step...
 
-## Typography
+-   External links are `[text][link-name]`, where `link-name` is a key in `./_includes/links.md`
+    -   `./_includes/links.md` is included explicitly at the bottom of every Markdown file because including it in the template doesn't work.
 
--   Links are written in four ways:
-    -   Inter-chapter links are `[CHAPTER](../slug/)`.
-        -   JavaScript in `js/site.js` turns this into `Chapter 123` or `Appendix ABC` as appropriate.
-        -   Data required is in `lang/toc.json`, which is turned into `_site/lang/toc.json`.
-    -   External links are `[text][link-name]`, where `link-name` is a key in `./_includes/links.md`
-        -   `./_includes/links.md` is included explicitly at the bottom of every Markdown file because including it in the template doesn't work.
-    -   Bibliographic citations are written as `[Key1234](#BIB)`.
-        -   Keys are found in `_en/bib.md`.
-        -   JavaScript replaces `#BIB` with a link to the bibliography.
-        -   To cite multiple items at once, put them together like `[Name1900,Enam2000](#BIB)`.
-    -   Glossary entries are written as `[term](#g:key)`.
-        -   `g:key` must be found in `_en/gloss.md`.
-        -   JavaScript patches this to link to the glossary file.
+## Typography
 
 -   If you would like to add code fragments,
     please put the source in `src/chapter/long-name.ext`.
@@ -130,8 +125,11 @@
         -   The use of `permalink: /:collection/:title/` to turn `_en/something.md` into `_site/en/something/index.html`.
         -   The use of `defaults` to specify the `lesson` layout for all the files in `_en`.
             -   Except `toc.json`, which uses `layout: none`.
+-   `./_data/toc.json`: JSON-formatted table of contents data.
+    -   FIXME: should be done by language.
 -   `./_en/`: English-language collection of Markdown files.
 -   `./_includes/`: inclusions
+    -   `./_includes/b`, `./_includes/g`, and `./_includes/x` handle bibliographic citations, glossary entries, and cross-references respectively.
     -   `./_includes/contributing.md`: how to contribute (included in several places).
     -   `./_includes/disclaimer.html`: temporary disclaimer about files being under development.
     -   `./_includes/foot.html`: everything needed in the foot of the page.

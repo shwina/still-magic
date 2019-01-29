@@ -15,16 +15,16 @@ keypoints:
 - "The primary responsibility of a project manager is to create and maintain a schedule."
 ---
 
-A [software development process](#g:dev-process) is
+A {% include g key="g:dev-process" text="software development process" %} is
 the steps a team goes through to create, deliver, and maintain software.
 Broadly speaking,
 software development processes can be divided into three groups:
 
 -   Chaotic: everyone's doing something,
     but there's no overall plan or consistency.
--   An [agile](#g:agile) process
+-   An {% include g key="g:agile" text="agile" %} process
     based on lots of short steps with frequent feedback and course correction.
--   A [sturdy](#g:sturdy) process
+-   A {% include g key="g:sturdy" text="sturdy" %} process
     that invests a lot of effort in planning out work.
     (This label is made up:
     historically,
@@ -64,7 +64,7 @@ This approach came into prominence with the rise of the web in the 1990s:
 
 At its core,
 agile development relies on continuous feedback.
-Agile methods break development down into short [iterations](#g:iteration),
+Agile methods break development down into short {% include g key="g:iteration" text="iterations" %},
 typically no more than two weeks long,
 and often as short as a single day.
 In each iteration,
@@ -83,7 +83,7 @@ Second, finding bugs becomes easier:
 instead of looking through weeks' or months' worth of software to find out where the problem is,
 developers usually only have to look at what's been written in the last few days.
 
-A typical working day starts with a [stand-up meeting](#g:stand-up-meeting)
+A typical working day starts with a {% include g key="g:stand-up-meeting" text="stand-up meeting" %}
 where everyone in the team reports what they did since the last meeting,
 what they're planning to do next,
 and what's blocking them (if anything).
@@ -115,7 +115,7 @@ so feedback and the possibility of early course correction are lost.
 
 Once the stand-up meeting is over, everyone gets back to work.
 In many agile teams,
-this means sitting with a partner and doing [pair programming](#g:pair-programming).
+this means sitting with a partner and doing {% include g key="g:pair-programming" text="pair programming" %}.
 One person, called the driver, does the typing,
 while the other person, called the navigator,
 watches and comments;
@@ -140,10 +140,10 @@ And finally,
 most people are less likely to check Facebook every five minutes if someone else is working with them...
 
 As well as pair programming, most agile teams use two other practices.
-[Test-driven development](#g:tdd) (TDD),
-discussed in {% include xref key="s:unit" %},
+{% include g key="g:tdd" text="Test-driven development" %} (TDD),
+discussed in {% include x key="s:unit" %},
 is the practice of writing unit tests *before* writing application code.
-The second is [continuous integration](#g:continuous-integration).
+The second is {% include g key="g:continuous-integration" text="continuous integration" %}.
 Every time someone commits code to the version control repository,
 an automated process checks out a clean copy of the code,
 builds it,
@@ -152,7 +152,7 @@ and posts the results somewhere for the whole team to see.
 If any of the tests fail,
 the continuous integration system notifies people by sending out email or texting them.
 
-We will explain how to implement continuous integration in {% include xref key="s:integrate" %}.
+We will explain how to implement continuous integration in {% include x key="s:integrate" %}.
 From a developer's point of view,
 its key benefit is that it ensures the project is always in a runnable state.
 This may not seem important if you don't have to hand it in until next week,
@@ -160,7 +160,7 @@ but is critical as soon as two or more people are involved in development.
 It's very frustrating (and unproductive) for someone to be blocked
 because someone else has broken something but not realized it.
 
-The final key practice in agile development is the [post-mortem](#g:post-mortem).
+The final key practice in agile development is the {% include g key="g:post-mortem" text="post-mortem" %}.
 At the end of every sprint,
 the team should get together and ask themselves what went well,
 what could be improved,
@@ -211,7 +211,7 @@ the product manager and the project manager.
 
 ## What is the role of a product manager? {#s:process-product}
 
-The [product manager](#g:product-manager) is
+The {% include g key="g:product-manager" text="product manager" %} is
 the person responsible for the software's feature list.
 Typically,
 while developers are building Version N,
@@ -241,7 +241,7 @@ the team has had a weekend to catch its collective breath
 and is ready to start work once again.
 (If people are so burned out from the previous round of work
 that they need a whole week to recover,
-read the discussion of crunch mode in {% include xref key="s:pacing" %}.)
+read the discussion of crunch mode in {% include x key="s:pacing" %}.)
 At this point,
 the product manager divides up the list of desired features
 and assigns a few to each developer.
@@ -255,7 +255,7 @@ but could be done in a tenth of the time?
 What impact will each alternative have on the installation process?
 And how will the new feature be tested?
 
-This process is called [analysis and estimation](#g:ae) (A&E).
+This process is called {% include g key="g:ae" text="analysis and estimation" %} (A&E).
 The result is a collection of short proposals,
 each typically half a page to half a dozen pages long.
 There's no set form for these,
@@ -290,7 +290,7 @@ and the product manager steps out of the way.
 
 ## What is the role of a project manager? {#s:process-project}
 
-The [project manager](#g:project-manager)'s role is
+The {% include g key="g:project-manager" text="project manager" %}'s role is
 to turn priorities and effort estimates into a schedule
 and then ensure that the schedule is met.
 First,
@@ -347,11 +347,11 @@ If you're an undergraduate,
 your project will probably have to fit in one or two terms.
 You will therefore probably be asked to go around the planning loop once or twice,
 which in turn determines how much you'll be expected to deliver in each iteration.
-This is called [time boxing](#g:time-boxing):
+This is called {% include g key="g:time-boxing" text="time boxing" %}:
 you specify how long a cycle will last,
 then see how much work you can fit into that interval.
 
-The alternative is [feature boxing](#g:feature-boxing):
+The alternative is {% include g key="g:feature-boxing" text="feature boxing" %}:
 decide what you want to do,
 then build a schedule that gives you enough time to do it.
 Time boxing generally works better
@@ -378,7 +378,7 @@ Ignore the problem.
 
 Work longer hours.
 :   This is also very popular,
-    but as {% include xref key="s:pacing" %} explains,
+    but as {% include x key="s:pacing" %} explains,
     it is self-defeating.
 
 Enlarge the team.

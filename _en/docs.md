@@ -53,7 +53,7 @@ so they should therefore be the most carefully written documentation for that so
 A quick web search for "writing good error messages" turns up hundreds of hits,
 but recommendations are often more like gripes than solid guidelines
 and are usually not backed up by evidence.
-What research there is {% include cite key="Trav2010,Beck2016" %} gives us the following rules:
+What research there is {% include b key="Trav2010,Beck2016" %} gives us the following rules:
 
 1.  Do not tell the user what the program did that caused the problem,
     but what the user did.
@@ -165,8 +165,8 @@ where `user_language` is a two-letter code for the user's preferred language.
 ## What should I document for whom? {#s:docs-what}
 
 There are three kinds of people in any domain:
-[novices](#g:novice), [competent practitioners](#g:competent-practitioner), and [experts](#g:expert) {% include cite key="Wils2018" %}.
-A novice doesn't yet have a [mental model](#g:mental-model) of the domain;
+{% include g key="g:novice" text="novices" %}, {% include g key="g:competent-practitioner" text="competent practitioners" %}, and {% include g key="g:expert" text="experts" %} {% include b key="Wils2018" %}.
+A novice doesn't yet have a {% include g key="g:mental-model" text="mental model" %} of the domain;
 they don't know what the key terms are,
 how they relate,
 what the causes of their problems are,
@@ -195,13 +195,13 @@ and why they were designed that way.
 The first thing to decide when writing documentation
 is therefore to decide which of these needs you are trying to meet.
 Tutorials like this one should be long-form prose that contain code samples and diagrams.
-They should use [authentic tasks](#g:authentic-task) to motivate ideas,
+They should use {% include g key="g:authentic-task" text="authentic tasks" %} to motivate ideas,
 i.e.,
 show people things they actually want to do rather than printing the numbers from 1 to 10,
 and should include regular check-ins
 so that learners and instructors alike can tell if they're making progress.
 If you would like to know more about creating tutorials,
-please see {% include cite key="Wils2018" %}.
+please see {% include b key="Wils2018" %}.
 
 Tutorials help novices build a mental model,
 but competent practitioners and experts will be frustrated by their slow pace and low information density.
@@ -213,7 +213,7 @@ but are much happier if they can search by keyword to find what they need;
 one of the signs that someone is no longer a novice is that
 they're able to compose useful queries and tell if the results are on the right track or not.
 
-That observation brings us to the notion of a [false beginner](#g:false-beginner),
+That observation brings us to the notion of a {% include g key="g:false-beginner" text="false beginner" %},
 which is someone who appears not to know anything,
 but who has enough prior experience in other domains
 to be able to piece things together much more quickly than a genuine novice.
@@ -234,7 +234,7 @@ how to create reference guides and FAQs.
 ## How should I write documentation for code? {#s:docs-docstrings}
 
 Instead of writing comments to document code,
-Python encourages us to write [docstrings](#g:docstring)
+Python encourages us to write {% include g key="g:docstring" text="docstrings" %}
 (short for "documentation string").
 A docstring is a string placed at the start of a file or function
 but not assigned to a variable.
@@ -333,13 +333,13 @@ or we can run `pydoc -w bin/trim.py` to generate an HTML page
 (with some rather garish coloring).
 
 We can go further and use a more sophisticated (i.e., more powerful but also more complicated) tool called [Sphinx][sphinx].
-It reads a superset of Markdown called [reStructredText](#g:restructured-text)
+It reads a superset of Markdown called {% include g key="g:restructured-text" text="reStructredText" %}
 and generates. cross-indexed documentation that is more nicely formatted than `pydoc`'s default output.
 Sphinx is used by by [ReadTheDocs][readthedocs],
 which extracts and formats documentation from GitHub repositories and other places.
 One benefit of ReadTheDocs is that it puts documentation in an easily-findable place;
 the other is that it automatically regenerates that documentation every time there's a change to the repository
-(an example of [continuous integration](#g:continuous-integration)).
+(an example of {% include g key="g:continuous-integration" text="continuous integration" %}).
 It's a great service,
 but it's out of the scope of this lesson.
 
@@ -349,7 +349,7 @@ see [this tutorial][mertz-documentation] by James Mertz.
 ## What should I document? {#s:docs-infer}
 
 The answer to the question in this section's title depends on what stage of development you are in.
-If you are doing [exploratory programming](#g:exploratory-programming),
+If you are doing {% include g key="g:exploratory-programming" text="exploratory programming" %},
 a short docstring to remind yourself of each function's purpose is good enough.
 (In fact, it's probably better than what most people do.)
 That one- or two-liner should begin with an active verb and describe either
@@ -384,13 +384,13 @@ You don't have to write full documentation for helper functions
 that are only used inside your package and aren't meant to be called by users,
 but these should still have at least a comment explaining their purpose.
 You also don't have to document unit testing functions:
-as discussed in {% include xref key="s:unit" %},
+as discussed in {% include x key="s:unit" %},
 these should have long names that describe what they're checking
 so that failure reports are easy to scan.
 
 ## How can I create a useful FAQ? {#s:docs-faq}
 
-An [FAQ](#g:faq) is a list of frequently-asked questions and corresponding answers.
+An {% include g key="g:faq" text="FAQ" %} is a list of frequently-asked questions and corresponding answers.
 A good FAQ uses the terms and concepts that people bring to the software
 rather than the vocabulary of its authors;
 putting it another way,
@@ -436,7 +436,7 @@ Give context before giving sample code.
     will help people determine if their question is a close match to yours or not.
 
 Provide a minimal reprex.
-:   {% include xref key="s:backlog" %} explained the value of a [reproducible example](#g:reprex) (reprex),
+:   {% include x key="s:backlog" %} explained the value of a {% include g key="g:reprex" text="reproducible example" %} (reprex),
     and why reprexes should be as short as possible.
     Readers will have a much easier time figuring out if this question and its answers are for them
     if they can see *and understand* a few lines of code.
@@ -452,7 +452,7 @@ Use "I" and question words (how/what/when/where/why).
     what someone might actually be thinking when they need help.
 
 Keep each item short.
-:   The "minimal manual" approach to instructional design {% include cite key="Carr2014" %}
+:   The "minimal manual" approach to instructional design {% include b key="Carr2014" %}
     breaks everything down into single-page steps,
     with half of that page devoted to troubleshooting.
     This may feel like baby steps to the person doing the writing,

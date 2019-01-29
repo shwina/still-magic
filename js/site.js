@@ -21,21 +21,9 @@ const stripeTables = () => {
     .forEach(t => t.classList.add('table', 'table-striped'))
 }
 
-// Fix glossary reference URLs.
-const fixGlossRefs = () => {
-  const pageIsRoot = document.currentScript.getAttribute('ROOT') != ''
-  const bibStem = pageIsRoot ? './gloss/' : '../gloss/'
-  Array.from(document.querySelectorAll('a'))
-    .filter(e => e.getAttribute('href').startsWith('#g:'))
-    .forEach(e => {
-      e.setAttribute('href', bibStem + e.getAttribute('href'))
-    })
-}
-
 // Perform transformations on load (which is why this script is included at the
 // bottom of the page).
 (function(){
   makeTableOfContents()
   stripeTables()
-  fixGlossRefs()
 })()

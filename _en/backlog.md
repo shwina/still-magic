@@ -14,7 +14,7 @@ keypoints:
 ---
 
 Version control tells us where we've been;
-[issues](#g:issue) tells us where we're going.
+{% include g key="g:issue" text="issues" %} tells us where we're going.
 Issue tracking tools are often called ticketing systems or bug trackers
 because they were created to keep track of work that needs to be done and bugs that needed fixing.
 However,
@@ -23,7 +23,7 @@ and are often a convenient way to manage discussions as well.
 
 ## How can I manage the work I still have to do? {#s:backlog-issues}
 
-Like other [forges](#g:forge),
+Like other {% include g key="g:forge" text="forges" %},
 GitHub records a set of issues for each project,
 and allows members of that project to create new ones,
 modify existing ones,
@@ -32,7 +32,7 @@ Every issue has:
 
 -   A unique ID, such as `#123`, which is also part of its link.
     This makes issues easy to find and refer to:
-    in particular, GitHub automatically translates the expression `#123` in a [commit message](#g:commit-message)
+    in particular, GitHub automatically translates the expression `#123` in a {% include g key="g:commit-message" text="commit message" %}
     into a link to that issue.
 
 -   A one-line title to aid browsing and search.
@@ -60,7 +60,7 @@ people create three kinds of issues:
 
 2.  *Feature requests* (for software packages)
     or *tasks* (for projects).
-    These issues are the other kind of [work backlog](#g:backlog) in a project:
+    These issues are the other kind of {% include g key="g:backlog" text="work backlog" %} in a project:
     not "what needs to be fixed" but "what do we want to do next".
 
 3.  *Questions*.
@@ -79,14 +79,14 @@ people create three kinds of issues:
 
 The better the bug report,
 the faster the response,
-and the more likely the response will actually address the issue {% include cite key="Bett2008" %}.
+and the more likely the response will actually address the issue {% include b key="Bett2008" %}.
 
 1.  Make sure the problem actually *is* a bug.
     It's always possible that you have called a function the wrong way
     or done an analysis using the wrong configuration file;
     if you take a minute to double-check,
     you could well fix the problem yourself.
-2.  Try to come up with a [reproducible example](#g:reprex), or reprex.
+2.  Try to come up with a {% include g key="g:reprex" text="reproducible example" %}, or reprex.
     A reprex includes only the steps or lines of code needed to make the problem happen;
     again, you'll be surprised how often you can solve the problem yourself
     as you trim down your steps to create one.
@@ -98,7 +98,7 @@ and the more likely the response will actually address the issue {% include cite
     and anything else that might affect behavior.
 6.  Describe each problem separately so that each one can be tackled on its own.
     (This parallels the rule about creating a branch in version control for each bug fix or feature
-    discussed in {% include xref key="s:branches" %}.)
+    discussed in {% include x key="s:branches" %}.)
 
 Here's an example of a well-written bug report with all of the fields mentioned above:
 
@@ -132,7 +132,7 @@ Versions:
 ## How can I use labels to organize work? {#s:backlog-label}
 
 There is always more work to do than there is time to do it.
-Issue trackers let project members add [labels](#g:issue-label) to issues to manage this.
+Issue trackers let project members add {% include g key="g:issue-label" text="labels" %} to issues to manage this.
 A label is just a word or two;
 GitHub allows project owners to create any labels they want
 that users can then add to their issues.
@@ -152,18 +152,18 @@ It might also use:
 -   *Suitable for Newcomer* or *Beginner-Friendly*:
     to identify an easy starting point for someone who has just joined the project.
     If you help potential new contributors find places to start,
-    they're more likely to do so {% include cite key="Stei2014" %}.
+    they're more likely to do so {% include b key="Stei2014" %}.
 
 ## How can I use labels to prioritize work? {#s:backlog-triage}
 
 The labels listed above described what kind of work an issue describes;
 a separate set of labels can be used to indicate how important that work is.
 These labels typically have names like "High Priority" or "Low Priority";
-their purpose is to help [triage](#g:triage),
+their purpose is to help {% include g key="g:triage" text="triage" %},
 which is the process of deciding what is going to be worked on in what order.
 
 In a large project,
-this is the responsibility of the product manager ({% include xref key="s:process" %});
+this is the responsibility of the product manager ({% include x key="s:process" %});
 in a small one,
 it's common for the project's lead to decide this,
 or for project members to use up-votes and down-votes on an issue

@@ -19,7 +19,7 @@ keypoints:
 -   "Publish your software as you would a paper."
 ---
 
--   Now that we know *how* to publish ({% include xref key="s:ghp" %}), the next questions are *what* and *where*
+-   Now that we know *how* to publish ({% include x key="s:ghp" %}), the next questions are *what* and *where*
 -   Use the generic term "report" to include research papers, summaries for clients,
     and everything else that is shorter than a book and is going to be read by someone else
     -   "A report is a PDF you would print on your own printer."
@@ -33,7 +33,7 @@ keypoints:
 -   Big raw data (more than 5 GB)
     -   May not be yours in the first place, and needs professional archiving
     -   Again, include identifiers or download scripts
--   Whichever you use, get or create a [DOI](#g:doi) for each version of each dataset ([s:publish-identifiers](#SECTION))
+-   Whichever you use, get or create a {% include g key="g:doi" text="DOI" %} for each version of each dataset ([s:publish-identifiers](#SECTION))
 -   Also publish intermediate files that take a long time to generate
     -   Same sizing rules as above
     -   If they're likely to be used by other people or in other reports, get a DOI
@@ -71,16 +71,16 @@ archive :
 ```
 
 -   The configurations and parameters used for that software
-    -   If all parameters are in a configuration file, use that ({% include xref key="s:configure" %})
-    -   Or log all configuration parameters and use `grep` or a script to extract from the logfile ({% include xref key="s:logging" %})
+    -   If all parameters are in a configuration file, use that ({% include x key="s:configure" %})
+    -   Or log all configuration parameters and use `grep` or a script to extract from the logfile ({% include x key="s:logging" %})
 
 ## How Can I Identify Myself and My Work in Bibliographies? {#s:publish-identifiers}
 
--   An [ORCID](#g:orcid) is an Open Researcher and Contributor ID
+-   An {% include g key="g:orcid" text="ORCID" %} is an Open Researcher and Contributor ID
     -   Because names and affiliations change
 -   Can [get an ORCID][orcid] for free and include in publications
     -   Greg Wilson's is 0000-0001-8659-8979
--   A [DOI](#g:doi) is a Digital Object Identifier
+-   A {% include g key="g:doi" text="DOI" %} is a Digital Object Identifier
     -   Uniquely identifies a particular version of a particular digital artefact
     -   Can be a report, a dataset, or a version of software
     -   Format is `doi:prefix/suffix`, but will often see URLs like `http://dx.doi.org/prefix/suffix`
@@ -128,7 +128,7 @@ archive :
     3.  (Meta)data has detailed provenance
     4.  (Meta)data meets domain-relevant community standards
 -   In practice:
-    -   Always use [tidy data](#g:tidy-data)
+    -   Always use {% include g key="g:tidy-data" text="tidy data" %}
     -   Include keywords in the project's `README.md` so that they appear on its home page
     -   Give everything DOIs
     -   Put data in open repositories

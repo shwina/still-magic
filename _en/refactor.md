@@ -14,16 +14,16 @@ keypoints:
 -   "Use comprehensions instead of loops."
 ---
 
-[Refactoring](#g:refactor) means changing the structure of code without changing what it does,
+{% include g key="g:refactor" text="Refactoring" %} means changing the structure of code without changing what it does,
 like refactoring an equation to simplify it.
 It is just as much a part of programming as writing code in the first place:
-nobody gets things right the first time {% include cite key="Bran1995" %},
+nobody gets things right the first time {% include b key="Bran1995" %},
 and needs or insights can change over time.
 
-Most discussions of refactoring focus on [object-oriented programming](#g:oop),
-but many patterns can and should be used to clean up [procedural](#g:procedural-programming) code.
+Most discussions of refactoring focus on {% include g key="g:oop" text="object-oriented programming" %},
+but many patterns can and should be used to clean up {% include g key="g:procedural-programming" text="procedural" %} code.
 This lesson describes and motivates some of the most useful patterns;
-These rules are examples of [design patterns](#g:design-patterns):
+These rules are examples of {% include g key="g:design-patterns" text="design patterns" %}:
 general solutions to commonly occurring problems in software design.
 Knowing them and their names will help you create better software,
 and also make it easier for you to communicate with your peers.
@@ -50,7 +50,7 @@ Finally,
 a single value defined in one place is much easier to change
 than a bunch of numbers scattered throughout your program.
 You may not think you will have to change it,
-but then people want to use your software on Mars and you discover that constants aren't {% include cite key="Mak2006" %}.
+but then people want to use your software on Mars and you discover that constants aren't {% include b key="Mak2006" %}.
 
 {% include refactor/replace_value_with_name.html %}
 
@@ -100,7 +100,7 @@ there is no need to write `if was_greater == True`:
 that always produces the same result as `if was_greater`.
 Similarly, the equality tests in `if was_greater == False` is redundant:
 the expression can simply be written `if not was_greater`.
-Creating and using a [flag](#g:flag) instead of repeating the test
+Creating and using a {% include g key="g:flag" text="flag" %} instead of repeating the test
 is therefore like moving a calculation out of a loop:
 even if that value is only used once,
 it makes our intention clearer---these really are the same test.
@@ -115,8 +115,8 @@ since the test only appears in one place and its result is given a name.
 
 ## How can I avoid duplicating expressions in assignment statements? {#s:refactor-in-place}
 
-An [in-place operator](#g:in-place-operator),
-sometimes called an [update operator](#g:update-operator),
+An {% include g key="g:in-place-operator" text="in-place operator" %},
+sometimes called an {% include g key="g:update-operator" text="update operator" %},
 does a calculation with two values
 and overwrites one of the values.
 For example,
@@ -162,7 +162,7 @@ converts normal assignments into their briefer equivalents.
 
 ## How can I make special cases easier to spot? {#s:refactor-short-circuits}
 
-A [short circuit test](#g:short-circuit-test) is a quick check to handle a special case,
+A {% include g key="g:short-circuit-test" text="short circuit test" %} is a quick check to handle a special case,
 such as checking the length of a list of values
 and returning `math.nan` for the average if the list is empty.
 "Place short circuits early" tells us to put short-circuit tests near the start of functions
@@ -194,7 +194,7 @@ if configuration['threshold'] > UPPER_BOUND: scale = 0.8
 
 <!-- == \noindent -->
 Some programmers take this even further
-and use a [conditional expression](#g:conditional-expression):
+and use a {% include g key="g:conditional-expression" text="conditional expression" %}:
 
 ```python
 scale = 0.8 if configuration['threshold'] > UPPER_BOUND else 1.0
@@ -209,7 +209,7 @@ which is less clear.
 
 Functions were created so that programmers could write common operations and re-use them
 in order to reduce the amount of code that needed to be compiled.
-It turns out that moving complex operations into functions also reduces [cognitive load](#g:cognitive-load):
+It turns out that moving complex operations into functions also reduces {% include g key="g:cognitive-load" text="cognitive load" %}:
 by reducing the number of things that have to be understood simultaneously.
 
 {% include refactor/extract-function.html %}
@@ -247,7 +247,7 @@ The fragment below shows how two functions can be combined:
 One thing you may not notice about the ocmbination is that
 it assumes characters are either vowels or consonants,
 which means it might work differently than separate calls to the two original functions.
-Issues like this are why experienced developers write unit tests ({% include xref key="s:unit" %})
+Issues like this are why experienced developers write unit tests ({% include x key="s:unit" %})
 *before* starting to refactor.
 
 ## How can I replace code with data? {#s:refactor-lookup}
@@ -297,7 +297,7 @@ When programmers see a pattern in many different contexts,
 they will often add features to the language to support it.
 Many language features therefore exist to give programmers something to refactor *to*.
 
-One such feature is called a [list comprehensions](#g:list-comprehension),
+One such feature is called a {% include g key="g:list-comprehension" text="list comprehensions" %},
 which can be used in place of a loop that processes one list to create another.
 The word "comprehension" is used in the sense of "comprehensive":
 every element of the original list is processed,

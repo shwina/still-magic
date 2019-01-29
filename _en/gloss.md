@@ -80,7 +80,7 @@ title: "Glossary"
 
 **Competent practitioner**{:#g:competent-practitioner}
 :   Someone who can do normal tasks with normal effort under normal
-    circumstances.  See also [novice](#g:novice) and [expert](#g:expert).
+    circumstances.  See also {% include g key="g:novice" text="novice" %} and {% include g key="g:expert" text="expert" %}.
 
 **Computational competence**{:#g:computational-competence}
 :   FIXME
@@ -154,8 +154,8 @@ title: "Glossary"
 **Expert**{:#g:expert}
 :   Someone who can diagnose and handle unusual situations, knows when the usual
     rules do not apply, and tends to recognize solutions rather than reasoning
-    to them. See also [competent practitioner](#g:competent-practitioner) and
-    [novice](#g:novice).
+    to them. See also {% include g key="g:competent-practitioner" text="competent practitioner" %} and
+    {% include g key="g:novice" text="novice" %}.
 
 **Exploratory programming**{:#g:exploratory-programming}
 :   FIXME
@@ -276,7 +276,7 @@ title: "Glossary"
 
 **Novice**{:#g:novice}
 :   Someone who has not yet built a usable mental model of a domain. See also
-    [competent practitioner](#g:competent-practitioner) and [expert](#g:expert).
+    {% include g key="g:competent-practitioner" text="competent practitioner" %} and {% include g key="g:expert" text="expert" %}.
 
 **Object-oriented programming**{:#g:oop}
 :   FIXME
@@ -453,7 +453,7 @@ title: "Glossary"
 :   FIXME
 
 **Tidy data**{:#g:tidy-data}
-:   As defined in {% include cite key="Wick2014" %}, tabular data is tidy if:
+:   As defined in {% include b key="Wick2014" %}, tabular data is tidy if:
     1.  Each variable is in one column.
     2.  Each different observation of that variable is in a different row.
     3.  There is one table for each kind of variable.
@@ -478,7 +478,7 @@ title: "Glossary"
 :   FIXME
 
 **Update operator**{:#g:update-operator}
-:   See [in-place operator](#g:in-place-operator).
+:   See {% include g key="g:in-place-operator" text="in-place operator" %}.
 
 **Validation**{:#g:validation}
 :   FIXME

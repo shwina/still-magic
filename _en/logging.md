@@ -27,7 +27,7 @@ but removing them or commenting them out,
 only to add them again,
 is tedious---especially when the software is in production.
 
-A better approach is to use a [logging framework](#g:logging-framework),
+A better approach is to use a {% include g key="g:logging-framework" text="logging framework" %},
 such as Python's `logging` library.
 This lets you leave your debugging statements in your code
 and turn them on or off at will.
@@ -71,7 +71,7 @@ Each of these has a corresponding function:
 we can use `logging.debug`, `logging.info`, etc. to write messages at these levels.
 By default,
 only `WARNING` and above are displayed;
-messages appear on [standard error](#g:stderr) so that the flow of data in pipes isn't affected.
+messages appear on {% include g key="g:stderr" text="standard error" %} so that the flow of data in pipes isn't affected.
 The source of the message appears as well:
 by default, the source is called "root" for reasons that will become clear later.
 Thus,
@@ -118,7 +118,7 @@ CRITICAL:root:Something went seriously wrong.
 ```
 
 By default,
-`basicConfig` re-opens the log file in [append mode](#g:append-mode);
+`basicConfig` re-opens the log file in {% include g key="g:append-mode" text="append mode" %};
 we can use `filemode='w'` to overwrite the existing log data.
 This is useful during debugging,
 but we should think twice before doing in production,
@@ -161,7 +161,7 @@ By default,
 the name of the logger (we have only seen `root` so far)
 and the message.
 We can put whatever we want in the message,
-but `logging` also allows us to specify a [format string](#g:format-string)
+but `logging` also allows us to specify a {% include g key="g:format-string" text="format string" %}
 using the conventions of an older form of string formatting.
 The general form is `%(NAME)s` to insert a named value as a string;
 some of the names supported are:
@@ -172,7 +172,7 @@ some of the names supported are:
 
 As the example below shows,
 we can also change the format used for displaying dates.
-We should *always* use [ISO date format](#g:iso-date-format):
+We should *always* use {% include g key="g:iso-date-format" text="ISO date format" %}:
 it is unambiguous,
 easy for other programs to parse,
 easy to sort:
@@ -193,7 +193,7 @@ CSV is the lowest common denominator of data formats,
 so logging in that format means that we don't have to write a bunch of regular expressions later
 to pull records out of our log.
 Remember
-if you need to write a parser, you've done something wrong ({% include xref key="s:rules" %}).
+if you need to write a parser, you've done something wrong ({% include x key="s:rules" %}).
 
 ## How can I handle multiple reporting sources in one program? {#s:logging-source}
 
@@ -324,10 +324,10 @@ One of the things this shows,
 by the way,
 is that Unix doesn't necessarily pass text from program to program one line at a time.
 Instead,
-it usually [buffers](#g:buffer) input and output.
+it usually {% include g key="g:buffer" text="buffers" %} input and output.
 
 Libraries like `logging` can send messages to many destinations:
-[rotating files](#g:rotating-file) so that the system always has messages from the last few hours
+{% include g key="g:rotating-file" text="rotating files" %} so that the system always has messages from the last few hours
 but doesn't fill up the disk,
 for example,
 or a centralized logging server of some kind that collates logs from many different systems.
@@ -341,7 +341,7 @@ because then they can set it up the way they want with very little work.
 One of the most important things a program can record
 is its configuration---its *entire* configuration,
 so that its operation can be reproduced exactly later on
-({% include xref key="s:configure" %}).
+({% include x key="s:configure" %}).
 Unfortunately,
 the configuration for even a moderately complex program consists of many values,
 and logging frameworks are designed to log one thing at a time.
