@@ -139,7 +139,7 @@ Everyone can check what was actually said or promised.
 People can be held accountable at subsequent meetings.
 :   There's no point making lists of questions and action items
     if you don't follow up on them later.
-    If you're using a ticketing system ({% include x key="s:backlog" %}),
+    If you're using a ticketing system ({% include xref key="s:backlog" %}),
     create a ticket for each new question or task right after the meeting
     and update those that are being carried forward.
     That way,
@@ -284,7 +284,7 @@ Petra
     Otherwise,
     for every step you move forward,
     the project's goalposts will recede by two.
-    This is called {% include g key="g:feature-creep" text="feature creep" %},
+    This is called [feature creep](#g:feature-creep),
     and has ruined many projects that might otherwise have delivered something small but useful.
 
 Raj
@@ -309,7 +309,7 @@ Sergei
 
 ## How should we handle conflict within the team? {#s:teamwork-conflict}
 
-FIXME: this is not about harassment or abuse---see {% include x key="s:inclusive" %} for that.
+FIXME: this is not about harassment or abuse---see {% include xref key="s:inclusive" %} for that.
 
 You just missed an important deadline,
 and people are unhappy.
@@ -440,7 +440,7 @@ your supervisor will likely be left with the impression that the whole team is d
 and nothing will improve.
 
 One technique your supervisor may ask you to use in a meeting like this
-is {% include g key="g:active-listening" text="active listening" %}.
+is [active listening](#g:active-listening).
 As soon as one person makes a point,
 the person on the opposite side of the issue explains it back to them,
 as in, "So what I think Igor is saying is..."
@@ -452,7 +452,7 @@ if only for a few moments.
 
 ## Summary {#s:teamwork-summary}
 
--   {% include b key="Brow2007" %} has lots of good advice on running meetings.
--   {% include b key="Broo2016" %} is a catalog of ways to get people talking productively.
+-   [Brow2007](#BIB) has lots of good advice on running meetings.
+-   [Broo2016](#BIB) is a catalog of ways to get people talking productively.
 
 {% include links.md %}

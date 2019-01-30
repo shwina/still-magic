@@ -1,6 +1,0 @@
-{%- comment -%}
-Handle bibliographic citations.
-Requires input parameter key="b:whatever".
-{%- endcomment -%}
-{%- assign entries = include.key | split: "," -%}
-[{%- for entry in entries -%}{%- assign e = entry | strip -%}<a class="cite" href="{%- if page.root -%}.{%- else -%}..{%- endif -%}/bib/#b:{{e}}">{{e}}</a>{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}]

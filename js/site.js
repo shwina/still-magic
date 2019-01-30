@@ -21,9 +21,39 @@ const stripeTables = () => {
     .forEach(t => t.classList.add('table', 'table-striped'))
 }
 
+// Fix glossary reference URLs.
+const fixGlossRefs = () => {
+  const pageIsRoot = document.currentScript.getAttribute('ROOT') != ''
+  const bibStem = pageIsRoot ? './gloss/' : '../gloss/'
+  Array.from(document.querySelectorAll('a'))
+    .filter(e => e.getAttribute('href').startsWith('#g:'))
+    .forEach(e => {
+      e.setAttribute('href', bibStem + e.getAttribute('href'))
+    })
+}
+
+// Convert bibliography citation links.
+const fixBibRefs = () => {
+  const pageIsRoot = document.currentScript.getAttribute('ROOT') != ''
+  const bibStem = pageIsRoot ? './bib/#b:' : '../bib/#b:'
+  Array.from(document.querySelectorAll('a'))
+    .filter(e => e.getAttribute('href') == '#BIB')
+    .forEach(e => {
+      const cites = e.textContent
+	    .split(',')
+	    .filter(c => c.length > 0)
+	    .map(c => '<a href="' + bibStem + c + '" class="citation">' + c + '</a>')
+      const newNode = document.createElement('span')
+      newNode.innerHTML = '[' + cites.join(',') + ']'
+      e.parentNode.replaceChild(newNode, e)
+    })
+}
+
 // Perform transformations on load (which is why this script is included at the
 // bottom of the page).
 (function(){
   makeTableOfContents()
   stripeTables()
+  fixBibRefs()
+  fixGlossRefs()
 })()

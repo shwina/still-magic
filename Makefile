@@ -106,7 +106,7 @@ ${ALL_TEX} : ${PAGES_HTML} Makefile
 	> ${ALL_TEX}
 
 # Create all the HTML pages once the Markdown files are up to date.
-${PAGES_HTML} : ${PAGES_MD}
+${PAGES_HTML} : ${PAGES_MD} ${BIB_MD} ${TOC_JSON}
 	${JEKYLL} build
 
 # Create the bibliography Markdown file from the BibTeX file.

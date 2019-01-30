@@ -12,7 +12,7 @@ keypoints:
 -   "Check style as well as correctness."
 ---
 
--   {% include g key="g:continuous-integration" text="Continuous integration" %} is a simple idea
+-   [Continuous integration](#g:continuous-integration) is a simple idea
     -   Build and test code and documentation every time someone commits code
     -   Post results somewhere everyone can see them (you, the team, users, ...)
     -   If build or tests fail, send out notifications
@@ -48,7 +48,7 @@ script:
     -   `language` tells Travis what language we're using
     -   `python` specifies the version (or versions) of Python to use
     -   `install` tells Travis how to install the software we need for testing
-        -   Have a list of packages in `requirements.txt` for `pip` to use ({% include x key="s:package" %})
+        -   Have a list of packages in `requirements.txt` for `pip` to use ({% include xref key="s:package" %})
     -   `script` tells Travis what to run on our behalf
 -   Create a "test" script that just prints a message
 
@@ -79,7 +79,7 @@ print('Hello, continuous')
 
 <figure id="f:integrate-log"> <figcaption>Travis Log</figcaption> <img src="../../figures/travis_log.png"/> </figure>
 
--   Most important thing is the test program's {% include g key="g:exit-status" text="exit status" %}
+-   Most important thing is the test program's [exit status](#g:exit-status)
 -   Exit status of 0 means "nothing went wrong"
     -   The default if you don't specify anything else
     -   You can do it explicitly with `sys.exit(0)`

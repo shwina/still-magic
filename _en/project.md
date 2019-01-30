@@ -20,14 +20,14 @@ there is no such thing as "no diet",
 just a good one or a bad one.
 Similarly, there is no such thing as "no project organization":
 your project is either organized well or poorly.
-As with coding style ({% include x key="s:style" %}),
+As with coding style ({% include xref key="s:style" %}),
 small pieces in predictable places with readable names are easier to find and use
 than large chunks that vary from project to project
 and have names like `stuff`.
 
 ## What are Noble's Rules? {#s:project-noble}
 
-{% include b key="Nobl2009" %} described a way to organize small bioinformatics projects
+[Nobl2009](#BIB) described a way to organize small bioinformatics projects
 that is equally useful for other kinds of research computing.
 Each project is put in a separate Git repository,
 and the directories in the root of this repository are organized according to purpose.
@@ -63,7 +63,7 @@ A few things to notice are:
 -   The documentation for the `regulate` script appears in the root of `./doc/`,
     while the paper for JCMB is stored in a sub-directory,
     since it contains several files.
--   The `./src/` directory contains a Makefile to re-build the `regulate` program ({% include x key="s:automate" %}).
+-   The `./src/` directory contains a Makefile to re-build the `regulate` program ({% include xref key="s:automate" %}).
     Some projects put the Makefile in the root directory,
     reasoning that since it affects both `./src/` and `./bin/`,
     it belongs above them both rather than in either one.
@@ -78,7 +78,7 @@ While the directories in the top level of each project are organized by purpose.
 the directories within `./data/` and `./results/` are organized chronologically
 so that it's easy to see when data was gathered
 and when results were generated.
-These directories all have names in {% include g key="g:iso-date-format" text="ISO date format" %} like `YYYY-MM-DD`
+These directories all have names in [ISO date format](#g:iso-date-format) like `YYYY-MM-DD`
 to make it easy to sort them chronologically.
 This naming is particularly helpful when data and results are used in several reports.
 
@@ -91,7 +91,7 @@ giving filenames like `human_kidney_cm200.csv`.
 This allows `human_*_cm200.csv` to match all human organs
 or `*_kidney_*.csv` to match all kidney data.
 It does produce long filenames,
-but {% include g key="g:tab-completion" text="tab completion" %} means you only have to type them once.
+but [tab completion](#g:tab-completion) means you only have to type them once.
 Long filenames are just as easy to match in programs:
 Python's `glob` and R's `Sys.glob` will both take a pattern and return a list of matching filenames.
 
@@ -104,7 +104,7 @@ not the output of the compiler.
 There are three ways to handle this:
 
 1.  Put the compiled program under version control.
-    In theory this makes research more {% include g key="g:reproducible-research" text="reproducible" %},
+    In theory this makes research more [reproducible](#g:reproducible-research),
     since anyone who wants to re-run the analysis can be sure they're using exactly the same program as the author,
     but in practice,
     many "compiled" programs load libraries dynamically,
@@ -133,7 +133,7 @@ As with compiled programs and scripts,
 some people separate these,
 so that (for example) `./docs/` has the project's website and the documentation for its software,
 while `./reports/` has one sub-directory for each paper, thesis chapter, or other manuscript.
-As more researchers {% include g key="g:open-science" text="work in the open" %},
+As more researchers [work in the open(#g:open-science),
 and as tools like [R Markdown][r-markdown] and the [Jupyter Notebook][jupyter]
 blur the distinction between software, documentation, and reports,
 separating the two makes less sense.
@@ -178,11 +178,11 @@ since a growing number of tools expect them.
     This file is displayed by GitHub Pages as the project's home page.
 
 -   `LICENSE`:
-    the project's license (discussed in {% include x key="s:inclusive" %}).
+    the project's license (discussed in {% include xref key="s:inclusive" %}).
 
 -   `CONDUCT`:
     its code of conduct
-    (also discussed in {% include x key="s:inclusive" %}).
+    (also discussed in {% include xref key="s:inclusive" %}).
 
 -   `CITATION`:
     how the work should be cited.
@@ -198,11 +198,11 @@ and so on.
 These instructions can also be included as a section in `README`.
 Whichever convention is used,
 remember that the easier it is for people to get set up and contribute,
-the more likely they are to do so {% include b key="Stei2014" %}.
+the more likely they are to do so [Stei2014](#BIB).
 
 ## What *is* a project? {#s:project-thinking}
 
-Like features ({% include x key="s:branches" %}),
+Like features ({% include xref key="s:branches" %}),
 what exactly constitutes a "project" requires a bit of judgment,
 and different people will make different decisions.
 Some common criteria are one project per publication,

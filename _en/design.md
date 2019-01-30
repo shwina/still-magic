@@ -54,8 +54,8 @@ title: "Design Notes"
     -   `git tag` to tag releases.
     -   Travis-CI for continuous integration.
     -   `pep8` for checking style.
-    -   Noble's Rules for project organization {% include b key="Nobl2009" %}.
-    -   Taschuk's Rules for robust software {% include b key="Tasc2017" %}.
+    -   Noble's Rules for project organization [Nobl2009](#BIB).
+    -   Taschuk's Rules for robust software [Tasc2017](#BIB).
     -   Creative Commons and MIT licenses for data, reports, and software.
     -   The Contributor Covenant as a code of conduct.
     -   `pip` for package creation and installation.

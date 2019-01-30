@@ -25,8 +25,6 @@ Every widely-used language now has an online repository
 from which people can download and install those libraries.
 This lesson shows you how to use Python's tools to create and share libraries of your own.
 
-### Acknowledgments
-
 This material is based in part on [Python 102][python-102] by [Ashwin Srinath][srinath-ashwin].
 
 ## How can I turn a set of Python source files into a module? {#s:package-modules}
@@ -167,7 +165,7 @@ you may need to run `sudo` to overwrite previously-installed libraries.
 *This is a bad idea*,
 since system tools may depend on particular versions of those packages,
 and may break if you overwrite them.
-{% include x key="s:package-virtualenv" %} shows how to avoid these problems.
+{% include xref key="s:package-virtualenv" %} shows how to avoid these problems.
 
 Since a project may depend on many packages,
 developers frequently put a list of those dependencies in a file called `requirements.txt`.
@@ -190,7 +188,7 @@ You usually won't use this directly in `requirements.txt`,
 since your project probably doesn't depend on all of the listed files,
 but it's a good practice to save this in version control when producing reports
 so that you can reproduce your results later
-({% include x key="s:publish" %}).
+({% include xref key="s:publish" %}).
 
 ## How can I create an installable Python package? {#s:package-package}
 
@@ -199,7 +197,7 @@ and that "somewhere" is mostly developers like you.
 Creating a Python package is fairly straightforward,
 and mostly comes down to having the right directory structure.
 
-A {% include g key="g:package" text="package" %} is a directory that contains a file called `__init__.py`,
+A [package](#g:package) is a directory that contains a file called `__init__.py`,
 and may contain other files or sub-directories containing files.
 `__init__.py` can contain useful code or be empty,
 but either way,
@@ -403,7 +401,7 @@ but we *don't* want to affect the packages we already have installed,
 and as noted earlier,
 we may not have permission to write into the directory that contains system-wide packages.
 (For example, we may be testing something out on a cluster shared by our whole department.)
-The solution is to use a {% include g key="g:virtual-environment" text="virtual environment" %}.
+The solution is to use a [virtual environment](#g:virtual-environment).
 These are slowly being superceded by more general solutions like [Docker][docker],
 but they are still the easiest solution for most of us.
 

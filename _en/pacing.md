@@ -29,7 +29,7 @@ You can't produce software (or anything else) without doing some work,
 but you can easily do lots of work without producing anything of value.
 
 Scientific study of the issue goes back to at least the 1890s;
-{% include b key="Robi2005" %} is a good short summary,
+[Robi2005](#BIB) is a good short summary,
 and the most important facts are:
 
 1.  Working more than eight hours a day for an extended period of time
@@ -149,7 +149,7 @@ Make a list of the things you have to do.
     or send themselves email messages that then go into a folder titled "To Do".
     However you do it, the important thing is to write it down.
     You can only hold half a dozen things in working memory at once
-    {% include b key="Hock2004,Wils2018" %};
+    [Hock2004,Wils2018](#BIB);
     if you try to manage a to-do list longer than that in your head,
     you will forget things.
 
@@ -221,11 +221,11 @@ which means you'd better tackle the first piece two weeks before the deadline.
 And since breaking large tasks down into small ones takes time,
 don't be embarrassed by having "plan XYZ" as a task in your list.
 Remember,
-a week of hard work can sometimes save you an hour of thought ({% include x key="s:rules" %}).
+a week of hard work can sometimes save you an hour of thought ({% include xref key="s:rules" %}).
 
 The point of all this organization and preparation is
 to get yourself into the most productive mental state possible.
-Psychologists call it **flow** {% include b key="Csik1991" %};
+Psychologists call it **flow** [Csik1991](#BIB);
 athletes call it "being in the zone",
 while musicians talk about losing themselves in what they're playing.
 Whatever name you use,
@@ -254,7 +254,7 @@ it would be harder on instructors,
 and some things need time to digest.
 Similarly,
 companies may know that meetings distract from work
-as often as they move it forward ({% include x key="s:teamwork" %}),
+as often as they move it forward ({% include xref key="s:teamwork" %}),
 but some things really do need to be discussed.
 
 I find I'm most productive when I do three back-to-back sprints on one project in the morning,
@@ -388,13 +388,13 @@ you'll start laughing once in a while.
 
 ## Summary {#s:pacing-summary}
 
-Nothing in software development makes sense except in light of human psychology ({% include x key="s:rules" %}).
+Nothing in software development makes sense except in light of human psychology ({% include xref key="s:rules" %}).
 If you want to understand how to get more done in less time and with less pain,
 these books may help:
 
--   {% include b key="Gawa2007" %} FIXME
--   {% include b key="Hock2004" %} is an entertaining summary of some keys studies in psychology.
--   {% include b key="Lyon2018" %} describes the way tech companies chase one fad after another
+-   [Gawa2007](#BIB) FIXME
+-   [Hock2004](#BIB) is an entertaining summary of some keys studies in psychology.
+-   [Lyon2018](#BIB) describes the way tech companies chase one fad after another
     rather than addressing the root causes of poor performance.
 
 {% include links.md %}

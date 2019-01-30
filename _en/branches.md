@@ -29,7 +29,7 @@ to look at what's changed in files,
 or `git checkout abcd1234 path/to/file` followed by `git add` and `git commit`
 to restore an old version of a file.
 And every once in a while,
-you'll {% include g key="g:jenny" text="jenny" %} the repository and clone a new copy because everything is messed up.
+you'll [jenny](#g:jenny) the repository and clone a new copy because everything is messed up.
 
 This workflow essentially uses Git to do backups and as a replacement for `scp`
 (or `ftp`, if you're of an older generation).
@@ -41,13 +41,13 @@ this workflow doesn't provide guidance for collaborating with others.
 This lesson introduces a few working practices that will help you do these things.
 Along the way, it shows you how to use some of Git's more advanced capabilities.
 As with everything involving Git,
-the syntax for commands is more complicated than it needs to be {% include b key="Pere2013,Pere2016" %},
+the syntax for commands is more complicated than it needs to be [Pere2013,Pere2016](#BIB),
 but if used carefully,
 they can make you much more productive.
 
 ## How can I use branches to manage development of new features? {#s:branches-branch}
 
-Experienced developers tend to use a {% include g key="g:branch-per-feature-workflow" text="branch-per-feature workflow" %},
+Experienced developers tend to use a [branch-per-feature workflow](#g:branch-per-feature-workflow),
 even when they are working on their own.
 Whenever they want to create a new feature,
 they create a new branch from `master` and do the work there.
@@ -113,7 +113,7 @@ I am essentially using branches as a to-do list,
 which takes no more time than typing a brief note about the feature into a text file
 or writing it in a lab notebook,
 and is much easier to track.
-{% include x key="s:backlog" %} will look at better ways to manage this.
+{% include xref key="s:backlog" %} will look at better ways to manage this.
 
 ## How can I switch between branches when work is only partly done? {#s:branches-switching}
 
@@ -175,7 +175,7 @@ FIXME: figure
 
 ## How can I keep my project's history clean when working on many branches? {#s:branches-rebase}
 
-The workflow described above depends on {% include g key="g:rebase" text="rebasing" %},
+The workflow described above depends on [rebasing](#g:rebase),
 which means moving or combining some commits from one branch to another.
 `git rebase` is a powerful command:
 it can replay changes made in one branch on top of changes made to another:
@@ -248,12 +248,12 @@ so it's a good way to end friendships.
 The biggest benefit of having a second person work on a programming project
 is not getting twice as much code written,
 but having a second pair of eyes look at the software.
-{% include x key="s:review" %} will discuss how to do code review,
+{% include xref key="s:review" %} will discuss how to do code review,
 but a good first step depends on using a branch-per-feature workflow.
 
 In order for someone to review your change,
 that change and the original have to somehow be put side-by-side.
-The usual way to do this is to create a {% include g key="g:pull-request" text="pull request" %},
+The usual way to do this is to create a [pull request](#g:pull-request),
 which is a marker saying, "Someone would like to merge branch A into branch X".
 The pull request does *not* contain the changes:
 instead,
@@ -266,7 +266,7 @@ FIXME: figure
 Pull requests can be created between two branches in a single repository,
 or between branches of different repositories.
 The latter is common in projects with many contributors:
-each contributor works in a branch in their own {% include g key="g:fork" text="fork" %} of the repository,
+each contributor works in a branch in their own [fork](#g:fork) of the repository,
 and when they're done,
 they create a pull request offering to merge their changes into the `master` branch
 of the original repository.
@@ -278,12 +278,12 @@ FIXME: figure
 A pull request can store more than the location of the source and destination branch.
 In particular,
 it can store comments that people have made about the proposed merge.
-GitHub and other {% include g key="g:forge" text="forges" %} allow users to add comments on the pull request as a whole,
+GitHub and other [forges](#g:forge) allow users to add comments on the pull request as a whole,
 or on particular lines,
 and can mark old comments as out of date if the lines of code the comment is attached to are updated.
 
 Pull requests aren't just for code.
-If you are using a {% include g key="g:typesetting-language" text="typesetting language" %} like Markdown or LaTeX to write your papers,
+If you are using a [typesetting language](#g:typesetting-language) like Markdown or LaTeX to write your papers,
 you can create pull requests for changes
 so that your colleagues can comment on them,
 then revise and push again when you incorporate their suggestions.
@@ -291,7 +291,7 @@ This workflow has all the benefits of adding comments to Google Docs,
 but scales to large projects or large numbers of contributors.
 The downside,
 of course,
-is that you have to use a typesetting language rather than a {% include g key="g:wysiwyg" text="WYSIWYG" %} editor,
+is that you have to use a typesetting language rather than a [WYSIWYG](#g:wysiwyg) editor,
 because the programmers who created Git and other version control systems
 still don't support anything that couldn't be put on a punchcard in 1965.
 
@@ -334,18 +334,18 @@ The other thing that's hard to do with a branch-per-feature workflow is a major 
 If many files are being moved, renamed, and altered in order to restructure the project,
 merging branches where those changes *haven't* been made can be tedious and error-prone.
 The solution is to not get into this situation:
-as {% include x key="s:refactor" %} says,
+as {% include xref key="s:refactor" %} says,
 code should be reorganized in many small steps,
 not one big one.
 
 ## How can I label specific versions of my work? {#s:branches-tag}
 
-A {% include g key="g:git-tag" text="tag" %} is a permanent label on a particular state of the repository.
+A [tag](#g:git-tag) is a permanent label on a particular state of the repository.
 Tags are theoretically redundant,
-since the {% include g key="g:commit-hash" text="commit hash" %} identifies that state as well,
+since the [commit hash](#g:commit-hash) identifies that state as well,
 but commit hashes are (deliberately) random and therefore hard to remember or find.
 
-Experienced developers Use {% include g key="g:annotated-tag" text="annotated tags" %}
+Experienced developers Use [annotated tags](#g:annotated-tag)
 to mark every major event in the project's history.
 These tags are called "annotated" because they allow their creator to specify a message,
 just like a commit.
@@ -354,7 +354,7 @@ such as `jse-2018-06-23-response` or `pediatrics-2018-08-15-summary`.
 If you do this,
 please don't tempt fate by calling something `-final`.
 
-Most software projects use {% include g key="g:semantic-versioning" text="semantic versioning" %} for software releases,
+Most software projects use [semantic versioning](#g:semantic-versioning) for software releases,
 which produces three-part version numbers `major.minor.patch`:
 
 -   Increment `major` every time there's an incompatible externally-visible change.

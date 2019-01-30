@@ -50,8 +50,6 @@ In order to tell which one we've actually built and whether we've built it corre
 we need to write some tests.
 This lesson therefore introduces some key ideas and tools.
 
-### Acknowledgments
-
 This material is drawn in part from
 [Testing and Continuous Integration with Python][huff-testing] by [Katy Huff][huff-katy].
 
@@ -103,13 +101,13 @@ A framework for software testing has to:
 
 Any single test can have one of three results:
 
--   {% include g key="g:test-success" text="success" %}, meaning that the test passed correctly;
--   {% include g key="g:test-failure" text="failure" %}, meaning that the software being tested didn't do what it was supposed to; or
--   {% include g key="g:test-error" text="error" %}, meaning that the test itself failed (in which case, we don't know anything about the software being tested).
+-   [success](#g:test-success), meaning that the test passed correctly;
+-   [failure](#g:test-failure), meaning that the software being tested didn't do what it was supposed to; or
+-   [error](#g:test-error), meaning that the test itself failed (in which case, we don't know anything about the software being tested).
 
-A {% include g key="g:unit-test" text="unit test" %} is a function that runs some code and produces one of these three results.
-The input data to the unit test is called the {% include g key="g:fixture" text="fixture" %};
-we tell if the test passed or not by comparing the {% include g key="g:actual-output" text="actual output" %} to the {% include g key="g:expected-output" text="expected output" %}.
+A [unit test](#g:unit-test) is a function that runs some code and produces one of these three results.
+The input data to the unit test is called the [fixture](#g:fixture);
+we tell if the test passed or not by comparing the [actual output](#g:actual-output) to the [expected output](#g:expected-output).
 For example, here's a very badly written version of `numSign` and an equally badly written pair of tests for it:
 
 ```r
@@ -148,8 +146,8 @@ rather than using the output of previous tests.
 
 ## How Can I manage tests systematically? {#s:unit-pytest}
 
-A {% include g key="g:test-framework" text="test framework" %} is a library that provides us with functions that help us write tests,
-and includes a {% include g key="g:test-runner" text="test runner" %} that will find tests,
+A [test framework](#g:test-framework) is a library that provides us with functions that help us write tests,
+and includes a [test runner](#g:test-runner) that will find tests,
 execute them,
 and report both individual results that require attention and a summary of overall results.
 
@@ -244,14 +242,14 @@ which we will explore in the sections that follow.
 ## How can I tell if my software failed as it was supposed to? {#s:unit-exception}
 
 Many errors in production systems happen because people don't test their error handling code.
-{% include b key="Yuan2014" %} found that almost all (92%) of catastrophic system failures
+[Yuan2014](#BIB) found that almost all (92%) of catastrophic system failures
 were the result of incorrect handling of non-fatal errors explicitly signalled in software,
 and that in 58% of the catastrophic failures,
 the underlying faults could easily have been detected through simple testing of error handling code.
 Our tests should therefore check that the software fails as it's supposed to
 and when it's supposed to;
 if it doesn't,
-we run the risk of a {% include g key="g:silent-error" text="silent error" %}.
+we run the risk of a [silent error](#g:silent-error).
 
 We can check for exceptions manually using this pattern:
 
@@ -280,7 +278,7 @@ but it violates our first rule of testing:
 if writing tests is clumsy,
 developers won't do it.
 To make life easier,
-`pytest` provides a {% include g key="g:context-manager" text="context manager" %} called `pytest.raises` to handle tests for exceptions.
+`pytest` provides a [context manager](#g:context-manager) called `pytest.raises` to handle tests for exceptions.
 A context manager creates an object that lives exactly as long as a block of code,
 and which can do setup and cleanup actions at the start and end of that block.
 We can use `pytest.raises` with Python's `with` keyword
@@ -325,9 +323,9 @@ or go back and fix our function.
 
 Data scientists use a lot of random numbers;
 testing code that relies on them makes use of the fact that they aren't actually random.
-A {% include g key="g:prng" text="pseudorandom number generator" %} (PRNG) uses a complex algorithm
+A [pseudorandom number generator](#g:prng) (PRNG) uses a complex algorithm
 to create a stream of values that have all the properties of a truly random sequence.
-A key feature of PRNGs is that they can be initialized with a {% include g key="g:prng-seed" text="seed" %},
+A key feature of PRNGs is that they can be initialized with a [seed](#g:prng-seed),
 and that given the same seed,
 the PRNG will always produce the same sequence of values.
 If you want your work to be reproducible,
@@ -383,7 +381,7 @@ current 25
 fixed 4
 ```
 
-A cleaner approach is to make the test control an {% include g key="g:function-attribute" text="attribute" %} of the function.
+A cleaner approach is to make the test control an [attribute](#g:function-attribute) of the function.
 (Remember,
 functions are objects in memory like anything else,
 so we can attach other data to them.)
@@ -473,7 +471,7 @@ for line in StringIO(DATA):
 ```
 
 In order to use `StringIO` in tests,
-we may need to refactor our code a bit ({% include x key="s:refactor" %}).
+we may need to refactor our code a bit ({% include xref key="s:refactor" %}).
 It's common to have a function open a file,
 read its contents,
 and return the result like this:
@@ -551,7 +549,7 @@ if __name__ == '__main__':
 <!-- == \noindent -->
 The answer is probably "no",
 but the second half of the answer should be "that's what computers are for".
-{% include g key="g:coverage" text="Coverage" %} measures which parts of program are and are not executed.
+[Coverage](#g:coverage) measures which parts of program are and are not executed.
 In principle,
 a coverage tool keep a list of Booleans, one per line, all of which are initialized to `False`.
 Each time a line is executed,
@@ -560,10 +558,10 @@ After the program finishes,
 the tool reports which lines have and have not been executed,
 along with summary statistics like the percentage of code executed.
 
-It's easy and wrong to obsess about meeting specific targets for {% include g key="g:test-coverage" text="test coverage" %}.
+It's easy and wrong to obsess about meeting specific targets for [test coverage](#g:test-coverage).
 However,
 anything that *isn't* tested should be assumed to be wrong,
-and drops in coverage often indicate new {% include g key="g:technical-debt" text="technical debt" %}.
+and drops in coverage often indicate new [technical debt](#g:technical-debt).
 
 Use `pip install coverage` to install the standard Python coverage tool.
 Once you ahve done that,
@@ -588,7 +586,7 @@ you can use `coverage html` to generate an HTML listing:
 
 ## Summary {#s:unit-summary}
 
-One practice we haven't described in this section is {% include g key="g:tdd" text="test-driven development" %} (TDD).
+One practice we haven't described in this section is [test-driven development](#g:tdd) (TDD).
 Rather than writing code and then writing tests,
 many developers believe we should write tests first to help us figure out what the code is supposed to do,
 and then write just enough code to make those tests pass.
@@ -603,9 +601,9 @@ They also claim that TDD ensures that code actually *is* testable,
 and that tests are actually written.
 However,
 the evidence backing these claims is contradictory:
-empirical studies have not found a strong effect {% include b key="Fucc2016" %},
+empirical studies have not found a strong effect [Fucc2016](#BIB),
 and at least one study suggests that it may not be the order of testing and coding that matters,
-but whether developers work in short, interleaved bursts {% include b key="Fucc2017" %}.
+but whether developers work in short, interleaved bursts [Fucc2017](#BIB).
 Many productive programmers still believe in TDD,
 so it's possible that we are measuring the wrong things.
 

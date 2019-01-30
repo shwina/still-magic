@@ -27,8 +27,8 @@ but the software is only a means to an end.
 But just as some astronomers spend their entire careers designing better telescopes,
 some researchers choose to spend their time building software
 that will primarily be used by their colleagues.
-People who do this may be called {% include g key="g:rse" text="research software engineers" %} (RSEs)
-or {% include g key="g:data-engineering" text="data engineers" %},
+People who do this may be called [research software engineers](#g:rse) (RSEs)
+or [data engineers](#g:data-engineering),
 and the aim of these lessons is to help you get ready for these roles---to go from
 writing code on your own, for your own use,
 to working in a small team creating tools to help your entire field advance.
@@ -51,9 +51,9 @@ you'll be able to find them.
 
 In order to answer the question posed in this section's title,
 we need to distinguish between three key ideas.
-The first is {% include g key="g:open-science" text="open science" %},
+The first is [open science](#g:open-science),
 which aims to make research methods and results available for everyone to read and re-use.
-The second is {% include g key="g:reproducible-research" text="reproducible research" %},
+The second is [reproducible research](#g:reproducible-research),
 which means that anyone with access to the raw materials can easily reproduce the results.
 Openness and reproducibility are closely related,
 but are *not* the same thing:
@@ -65,7 +65,7 @@ but are *not* the same thing:
     but it's only available to people in my company or lab,
     it's reproducible but not open.
 
-The third key idea is {% include g key="g:sustainability" text="sustainability" %}.
+The third key idea is [sustainability](#g:sustainability).
 A piece of software is being sustained
 if people are using it, fixing it, and improving it
 rather than replacing it.
@@ -76,16 +76,16 @@ even Fortran-77 can thrive
 (though of course good tooling and packaging can lower costs and barriers to entry).
 Conversely,
 it doesn't matter whether a library has automated tests and is properly packaged
-if potential users suffer from {% include g key="g:not-invented-here" text="Not Invented Here" %} syndrome.
+if potential users suffer from [Not Invented Here](#g:not-invented-here) syndrome.
 More importantly,
 if the software is being maintained by a couple of post-docs
 who are being paid a fraction of what they could earn in industry,
 and who have no realistic hope of promotion because their field looks down on tool building,
 those people will eventually move on
-and their software will start to suffer from {% include g key="g:bit-rot" text="bit rot" %}.
+and their software will start to suffer from [bit rot](#g:bit-rot).
 
 What ties these three ideas together is the notion of
-{% include g key="g:computational-competence" text="computational competence" %},
+[computational competence](#g:computational-competence),
 which is the the programming equivalent of good laboratory skills.
 Software is just another kind of lab equipment;
 just as an archaeologist should know how to prepare and catalog an artefact,
@@ -95,8 +95,8 @@ without staying up until dawn.
 
 > #### Why "Computational Competence"?
 >
-> The term {% include g key="g:computational-thinking" text="computational thinking" %}
-> has been widely used since {% include b key="Wing2006" %} introduced it a decade ago.
+> The term [computational thinking](#g:computational-thinking)
+> has been widely used since [Wing2006](#BIB) introduced it a decade ago.
 > It has also been used in such a wide variety of ways
 > that no one really knows what it means.
 > I therefore prefer to talk about computational competence---about
@@ -123,7 +123,7 @@ This is almost unheard of in practice
 but that doesn't stop people using it as a boogeyman.
 
 Other people are afraid of looking foolish or incompetent by sharing code that might contain bugs.
-This isn't just {% include g key="g:impostor-syndrome" text="impostor syndrome" %}:
+This isn't just [impostor syndrome](#g:impostor-syndrome):
 members of marginalized groups are frequently judged more harshly than others (FIXME: CITE).
 
 ## What will this book accomplish? {#s:intro-coverage}
@@ -211,7 +211,7 @@ The frequencies aren't an exact match---we would expect about 48,600 occurrences
 there certainly seems to be a decay curve of some kind.
 We'll look more closely at this data as we go along.
 
-The second project is a simple form of {% include g key="g:computational-stylometry" text="computational stylometry" %}.
+The second project is a simple form of [computational stylometry](#g:computational-stylometry).
 Different writers have different styles;
 can a computer detect those differences,
 and if so,
@@ -249,19 +249,19 @@ we will see if the similarity measures we develop show that.
 This book owes its existence to
 the hundreds of researchers I met through [Software Carpentry][carpentries].
 I am also grateful to [Insight Data Science][insight] for sponsoring the early stages of this work,
-to everyone who has contributed ({% include x key="s:citation" %}),
+to everyone who has contributed ({% include xref key="s:citation" %}),
 and to:
 
--   *Practical Computing for Biologists* {% include b key="Hadd2010" %}
--   "A Quick Guide to Organizing Computational Biology Projects" {% include b key="Nobl2009" %}
--   "Ten Simple Rules for Making Research Software More Robust" {% include b key="Tasc2017" %}
--   "Best Practices for Scientific Computing" {% include b key="Wils2014" %}
--   "Good Enough Practices in Scientific Computing" {% include b key="Wils2017" %}
+-   *Practical Computing for Biologists* [Hadd2010](#BIB)
+-   "A Quick Guide to Organizing Computational Biology Projects" [Nobl2009](#BIB)
+-   "Ten Simple Rules for Making Research Software More Robust" [Tasc2017](#BIB)
+-   "Best Practices for Scientific Computing" [Wils2014](#BIB)
+-   "Good Enough Practices in Scientific Computing" [Wils2017](#BIB)
 
 Before any of that, though,
 four books written by [Brian Kernighan][kernighan-brian] and his colleagues
 forever changed the way I think about programming
-{% include b key="Kern1978,Kern1988,Kern1983,Kern1981" %}.
+[Kern1978,Kern1988,Kern1983,Kern1981](#BIB).
 *The Elements of Programming Style*,
 *The C Programming Language*,
 *The Unix Programming Environment*,

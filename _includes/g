@@ -1,5 +1,0 @@
-{%- comment -%}
-Handle glossary references.
-Requires input parameters key="g:whatever" and text="whatever".
-{%- endcomment -%}
-<a class="gloss" href="{%- if page.root -%}.{%- else -%}..{%- endif -%}/gloss/#{{include.key}}">{{include.text}}</a>

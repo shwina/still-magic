@@ -21,9 +21,9 @@ keypoints:
 ---
 
 All options for publishing technical work in the early 21st Century are clumsy and contradictory.
-{% include g key="g:wysiwyg" text="WYSIWYG" %} tools like [Microsoft Word][ms-word],
+[WYSIWYG](#g:wysiwyg) tools like [Microsoft Word][ms-word],
 [LibreOffice][libreoffice],
-and [Google Docs][google-docs] lower {% include g key="g:cognitive-load" text="cognitive load" %}
+and [Google Docs][google-docs] lower [cognitive load](#g:cognitive-load)
 because you can see what your readers will see as you're writing.
 They *can* allow restyling if authors are careful to apply named styles
 instead of just changing the font and making something bold,
@@ -38,7 +38,7 @@ There's no reason they couldn't,
 but programmers are pretty heavily invested in plain text,
 and unfortunately tend to consider everything else beneath them.
 
-{% include g key="g:typesetting-language" text="Typesetting languages" %} like [Markdown][markdown],
+[Typesetting languages](#g:typesetting-language) like [Markdown][markdown],
 HTML,
 and [LaTeX][latex] require authors to type in the text they want
 plus instructions on how to format it.
@@ -72,7 +72,7 @@ it also means that less can go wrong.
 
 ## How can I write HTML without writing HTML? {#s:ghp-markdown}
 
-A {% include g key="g:static-website" text="static website" %} is one that consists solely of pages:
+A [static website](#g:static-website) is one that consists solely of pages:
 no forms, no interactivity, just information to read.
 To create such a site,
 we ust write HTML,
@@ -252,7 +252,7 @@ Any file with this header is processed:
 in particular, Markdown is turned into HTML,
 which is what browsers know how to render.
 
-The triple-dash header can contain {% include g key="g:metadata" text="metadata" %}
+The triple-dash header can contain [metadata](#g:metadata)
 telling Jekyll how to format the document.
 Here's a simple example:
 
@@ -267,7 +267,7 @@ The manifold perplexities of my chosen research topic...
 ```
 {: title="ghp/adagu.md"}
 
-First line specifies the {% include g key="g:page-template" text="page template" %} that Jekyll is to use.
+First line specifies the [page template](#g:page-template) that Jekyll is to use.
 This tells it what common HTML elements should be put in each page.
 To create a template,
 make a sub-directory called `_layouts`
@@ -360,10 +360,10 @@ The `exclude` list is completely independent of what's listed in the repository'
 because there are things we probably *do* want saved (like the spreadsheet with the status of our experiments)
 but *don't* want shared with the world.
 
-There are *lots* of {% include g key="g:theme" text="themes" %} for Jekyll
+There are *lots* of [themes](#g:theme) for Jekyll
 that will set background colors, fonts, and page layouts:
 use one of GitHub's defaults unless you know a lot about graphic design
-and want to spend hours fiddling with {% include g key="g:css" text="CSS" %}.
+and want to spend hours fiddling with [CSS](#g:css).
 
 ## How can I preview pages locally? {#s:ghp-preview}
 
@@ -403,7 +403,7 @@ A typical workflow is:
 <!-- == \noindent -->
 This means you're storing generated files in your repository,
 which is generally considered bad practice,
-but we should always break rules rather than doing something awkward ({% include x key="s:rules" %}).
+but we should always break rules rather than doing something awkward ({% include xref key="s:rules" %}).
 
 There are a *lot* of tools for generating static websites,
 [Sphinx][sphinx] and [Hugo][hugo] being only two of the most popular.
@@ -416,7 +416,7 @@ For research and data analysis,
 though,
 the best choices these days are [R Markdown][r-markdown] and [Jupyter][jupyter],
 both of which can generate static websites that you can commit to `docs`.
-It's very common to use a Makefile to automate this ({% include x key="s:automate" %}),
+It's very common to use a Makefile to automate this ({% include xref key="s:automate" %}),
 and have `make site` run `ipython nbconvert` or `knit` on any files that need to be updated.
 
 ## How can I include math in web pages? {#s:ghp-math}
@@ -454,7 +454,7 @@ see [this tutorial][js-vs-ds] if you really want to learn more.
 ```
 
 <!-- == \noindent -->
-One thing to note is that the sample HTML above is loading MathJax from a {% include g key="g:cdn" text="content delivery network" %},
+One thing to note is that the sample HTML above is loading MathJax from a [content delivery network](#g:cdn),
 which means that the math won't render if we are offline.
 We can install MathJax locally,
 but that's out of the scope of this lesson.
@@ -566,8 +566,8 @@ This means that you cannot use something like `/images/profile.png` as an image 
 because when you're running on GitHub Pages,
 the actual path will be `/PROJECT/images/profile.png`.
 
-The solution is to use {% include g key="g:relative-url" text="relative URLs" %}
-instead of {% include g key="g:absolute-url" text="absolute URLs" %} where you can,
+The solution is to use [relative URLs](#g:relative-url)
+instead of [absolute URLs](#g:absolute-url) where you can,
 i.e., use `../images/profile.png`.
 This is fine until you URLs in your templates and want to put pages at different levels of your directory hierarchy.
 For example,
@@ -578,7 +578,7 @@ that will work in `reports/quarterly.html` but not in `index.html`;
 if you use `./images/creative-commons.png` (with `.` instead of `..`),
 it will work in `index.html` but not in pages that are one level down.
 
-The solution is to use a Jekyll {% include g key="g:jekyll-filter" text="filter" %},
+The solution is to use a Jekyll [filter](#g:jekyll-filter),
 which is simply a small function that transforms the value you give it into some other value.
 The syntax is shown below:
 
