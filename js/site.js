@@ -29,6 +29,7 @@ const fixGlossRefs = () => {
     .filter(e => e.getAttribute('href').startsWith('#g:'))
     .forEach(e => {
       e.setAttribute('href', bibStem + e.getAttribute('href'))
+      e.classList.add('gloss')
     })
 }
 

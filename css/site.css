@@ -71,7 +71,7 @@ a {
 }
 
 /* Style glossary reference links. */
-a[href^="#g:"] {
+a.gloss {
     font-weight: bold;
 }
 
