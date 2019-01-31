@@ -49,6 +49,7 @@ FIXME: [Dobz1973](#BIB)
     -   Keep functions short (no more than a page or three levels of control flow)
     -   Put early exits or decisions at the top of the function ([guard clause](#g:guard-clause))
     -   Prefer `if` to `else`
+-   [Break lines](https://www.python.org/dev/peps/pep-0008/#should-a-line-break-before-or-after-a-binary-operator)
 
 ## How Can I Specify Default Values for My Functions' Parameters? {#s:style-defaults}
 
@@ -154,6 +155,10 @@ def settings(user_id, **settings):
 jenny {'lang': 'R', 'country': 'CA'}
 ```
 
+## How Can I Pass an Unknown Number of Parameters? {#s:style-starargs}
+
+FIXME: unpacking lists and dictionaries in calls
+
 ## How and Why Can I Make It Easy to Chain Function Calls Together? {#s:style-chain}
 
 FIXME: method chaining
@@ -167,6 +172,14 @@ update a database record,
 or modify an image in place rather than make a copy for performance reasons.
 In cases like these,
 it's helpful if the function returns the object that was modified...
+
+## How Can I Work With Structures? {#s:style-structures}
+
+FIXME: structured assignment (and `__` rather than `_` because `gettext` <https://docs.python-guide.org/writing/style/>)
+
+## How Can I Signal Errors? {#s:style-exception}
+
+FIXME: discuss exceptions here
 
 ## Summary {#s:style-summary}
 
