@@ -23,11 +23,15 @@ def main(src_dir, filenames):
 
 def find_files(src_dir):
     prefix_len = len(src_dir + '/')
-    unprefix = lambda x: x[prefix_len:]
-    ignore = lambda x: x.endswith('~') or ('__pycache__' in x)
-    return set([unprefix(x)
-                for x in glob.iglob('{}/**/*.*'.format(src_dir), recursive=True)
-                if not ignore(x)])
+
+    def unprefix(x):
+        return x[prefix_len:]
+
+    def ignore(x):
+        return x.endswith('~') or ('__pycache__' in x)
+
+    filenames = glob.iglob('{}/**/*.*'.format(src_dir), recursive=True)
+    return set([unprefix(x) for x in filenames if not ignore(x)])
 
 
 def find_mentions(filenames):
@@ -42,4 +46,3 @@ if __name__ == '__main__':
     if len(sys.argv) < 3:
         usage('checksrc.py src_dir filename [filename...]')
     main(sys.argv[1], sys.argv[2:])
-

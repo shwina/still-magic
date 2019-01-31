@@ -388,7 +388,6 @@ you'll start laughing once in a while.
 
 ## Summary {#s:pacing-summary}
 
-Nothing in software development makes sense except in light of human psychology ({% include xref key="s:rules" %}).
 If you want to understand how to get more done in less time and with less pain,
 these books may help:
 

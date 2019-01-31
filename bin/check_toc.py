@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 '''
-Check for unused or missing files compared to table of contents in YAML configuration.
+Check for unused or missing files vs. table of contents in configuration.
 '''
 
 import sys

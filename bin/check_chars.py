@@ -21,7 +21,8 @@ def check(filename, reader):
     for (i, line) in enumerate(reader):
         for (j, char) in enumerate(line):
             if ord(char) > 127:
-                print('{0} {1} {2}: {3}'.format(filename, i+1, j+1, line.rstrip()))
+                print('{0} {1} {2}: {3}'
+                      .format(filename, i+1, j+1, line.rstrip()))
                 break
 
 

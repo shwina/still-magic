@@ -64,18 +64,22 @@ def _authors(entry):
     if len(names) == 0:
         raise Exception('NO AUTHOR')
     elif len(names) == 1:
-        return _c('{}{}'.format(names[0], suffix))
+        return _c('{}{}'
+                  .format(names[0], suffix))
     elif len(names) == 2:
-        return _c('{} and {}{}'.format(names[0], names[1], suffix))
+        return _c('{} and {}{}'
+                  .format(names[0], names[1], suffix))
     else:
-        return _c('{}, and {}{}'.format(', '.join(names[:-1]), names[-1], suffix))
+        return _c('{}, and {}{}'
+                  .format(', '.join(names[:-1]), names[-1], suffix))
 
 
 def _booktitle(entry):
     '''
     Format the book title for a collection or proceedings.
     '''
-    return _c('*{}*'.format(entry['booktitle']))
+    return _c('*{}*'
+              .format(entry['booktitle']))
 
 
 def _details(entry):
@@ -84,13 +88,13 @@ def _details(entry):
     '''
     result = entry['year']
     if 'month' in entry:
-        result = '{} {}'.format(entry['month'], result)
+        result = '{} {}' .format(entry['month'], result)
     if 'volume' in entry:
         if 'number' in entry:
-            extra = '{}({})'.format(_c(entry['volume']), entry['number'])
+            extra = '{}({})' .format(_c(entry['volume']), entry['number'])
         else:
             extra = _c(entry['volume'])
-        result = '{}, {}'.format(extra, result)
+        result = '{}, {}' .format(extra, result)
     return result
 
 
@@ -103,21 +107,21 @@ def _howpublished(entry):
         how = '<{}>'.format(how)
     return _c(how)
 
-    
+
 def _institution(entry):
     '''
     Format the institution that published a tech report.
     '''
     return _c(entry['institution'])
 
-    
+
 def _journal(entry):
     '''
     Format a journal title.
     '''
     return _c('*{}*'.format(entry['journal']))
 
-    
+
 def _key(entry):
     '''
     Format the citation key, including the Markdown to create a linkable ID.
@@ -148,7 +152,7 @@ def _papertitle(entry):
     '''
     return _c('"{}"'.format(entry['title']))
 
-    
+
 def _publisher(entry):
     '''
     Format the publisher in an entry.
@@ -164,21 +168,31 @@ def _title(entry):
 
 
 # Handlers for various entry types.
-# Each element is either a function (always called) or a (prefix, function) pair.
-# In the latter case, the prefix is only displayed if the function returns something.
+# Each element is a function (always called) or a (prefix, function) pair.
+# In the latter case, the prefix is only displayed if the function
+# returns something.
 HANDLERS = {
-    'article' : [_key, ': ', _authors, ': ', _papertitle, '. ', _journal, (', ', _details), (', ', _link), '. ', _note],
-    'book' : [_key, ': ', _authors, ': ', _title, '. ', _publisher, (', ', _details), (', ', _link), '. ', _note],
-    'comment' : [],
-    'incollection' : [_key, ': ', _authors, ': ', _papertitle, ', in', _booktitle, '. ', _publisher, (', ', _details), (', ', _link), '. ', _note],
-    'inproceedings' : [_key, ': ', _authors, ': ', _papertitle, '. ', _booktitle, (', ', _details), (', ', _link), '. ', _note],
-    'misc' : [_key, ': ', _authors, ': ', _papertitle, '. ', _howpublished, _details, (', ', _link), '. ', _note],
-    'techreport' : [_key, ': ', _authors, ': ', _papertitle, '. ', _institution, (', ', _details), '. ', _note]
+    'article': [_key, ': ', _authors, ': ', _papertitle, '. ',
+                _journal, (', ', _details), (', ', _link), '. ', _note],
+    'book': [_key, ': ', _authors, ': ', _title, '. ',
+             _publisher, (', ', _details), (', ', _link), '. ', _note],
+    'comment': [],
+    'incollection': [_key, ': ', _authors, ': ', _papertitle,
+                     ', in', _booktitle, '. ', _publisher, (', ', _details),
+                     (', ', _link), '. ', _note],
+    'inproceedings': [_key, ': ', _authors, ': ', _papertitle, '. ',
+                      _booktitle, (', ', _details), (', ', _link), '. ',
+                      _note],
+    'misc': [_key, ': ', _authors, ': ', _papertitle, '. ',
+             _howpublished, _details, (', ', _link), '. ', _note],
+    'techreport': [_key, ': ', _authors, ': ', _papertitle, '. ',
+                   _institution, (', ', _details), '. ', _note]
 }
+
 
 def main(language):
     '''
-    Main driver: read bibliography from stdin, format and print the entries to stdout.
+    Main driver: read bibliography from stdin, format, and print.
     '''
     source = bibtexparser.loads(sys.stdin.read()).entries
     print(HEADER.format(language))

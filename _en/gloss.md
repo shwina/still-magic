@@ -45,6 +45,9 @@ title: "Glossary"
     answers, and to work with the same tools and data they would use in real
     life.
 
+**Auto-completion**{:#g:auto-completion}
+:   FIXME
+
 **Automatic variable**{:#g:automatic-variable}
 :   FIXME
 
@@ -61,6 +64,9 @@ title: "Glossary"
 :   FIXME
 
 **Build tool**{:#g:build-tool}
+:   FIXME
+
+**Camel case**{:#g:camel-case}
 :   FIXME
 
 **Cascading Style Sheets**{:#g:css} (CSS)
@@ -128,6 +134,9 @@ title: "Glossary"
 :   FIXME
 
 **Design patterns**{:#g:design-patterns}
+:   FIXME
+
+**Destructuring**{:#g:destructuring}
 :   FIXME
 
 **Dictionary**{:#g:dictionary}
@@ -210,9 +219,6 @@ title: "Glossary"
 **GNU Public License**{:#g:gpl} (GPL)
 :   FIXME
 
-**Guard clause**{:#g:guard-clause}
-:   FIXME
-
 **HTTP status code**{:#g:http-status-code}
 :   FIXME
 
@@ -238,6 +244,9 @@ title: "Glossary"
 :   FIXME
 
 **JSON**{:#g:json}
+:   FIXME
+
+**Kebab case**{:#g:kebab-case}
 :   FIXME
 
 **Label**{:#g:issue-label} (in issue tracker)
@@ -309,6 +318,9 @@ title: "Glossary"
 :   FIXME
 
 **Post-mortem**{:#g:post-mortem}
+:   FIXME
+
+**Pothole case**{:#g:pothole-case}
 :   FIXME
 
 **Precision**{:#g:precision}
@@ -383,10 +395,10 @@ title: "Glossary"
 **Set and override**{:#g:set-and-override} (pattern)
 :   FIXME
 
-**Short circuit test**{:#g:short-circuit-test}
+**Shebang**{:#g:shebang}
 :   FIXME
 
-**Side effect**{:#g:side-effect}
+**Short circuit test**{:#g:short-circuit-test}
 :   FIXME
 
 **Sign**{:#g:sign}
@@ -469,6 +481,9 @@ title: "Glossary"
 :   FIXME
 
 **Triage**{:#g:triage}
+:   FIXME
+
+**Tuple**{:#g:tuple}
 :   FIXME
 
 **Typesetting language**{:#g:typesetting-language}

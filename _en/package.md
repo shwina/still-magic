@@ -33,7 +33,8 @@ Any Python source file can be imported by any other.
 When a file is imported,
 the statements in it are executed as it loads.
 Variables defined in the file are then available as `module.name`.
-(This is why Python files should be named using `pothole_case` instead of `kebab-case`:
+(This is why Python files should be named using [`pothole_case`](#g:pothole-case)
+instead of [`kebab-case`](#g:kebab-case):
 an expression like `import some-thing` isn't allowed
 because `some-thing` isn't a legal variable name.)
 

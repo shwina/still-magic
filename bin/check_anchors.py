@@ -19,7 +19,8 @@ def main(config_file, source_dir):
         with open(path, 'r') as reader:
             for line in reader:
                 anchor = header_pat.search(line)
-                if not anchor: continue
+                if not anchor:
+                    continue
                 m = target_pat.search(anchor.group(1))
                 if (not m) or (m.group(1) != slug):
                     result.add('{}: "{}"'.format(slug, anchor.group(1)))
@@ -30,4 +31,3 @@ if __name__ == '__main__':
     if len(sys.argv) != 3:
         usage('check_anchors.py config_file source_dir')
     main(sys.argv[1], sys.argv[2])
-    

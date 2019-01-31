@@ -20,7 +20,8 @@ def main(figure_dir, filenames):
 
 
 def list_figures(figure_dir):
-    ignore = lambda x: x.endswith('.xml')
+    def ignore(x):
+        return x.endswith('.xml')
     return set([x for x in os.listdir(figure_dir) if not ignore(x)])
 
 
@@ -35,7 +36,8 @@ def find_references(filenames):
 
 
 def subtract(available, required):
-    make_stem = lambda x: x.split('.')[0]
+    def make_stem(x):
+        return x.split('.')[0]
     stemmed = {}
     for filename in available:
         stem = make_stem(filename)
@@ -54,5 +56,5 @@ def subtract(available, required):
 
 if __name__ == '__main__':
     if len(sys.argv) < 3:
-        usage('Usage: checkfig.py /path/to/figure/directory filename [filename...]')
+        usage('Usage: checkfig.py /path/to/figures filename [filename...]')
     main(sys.argv[1], sys.argv[2:])

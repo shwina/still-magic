@@ -28,7 +28,8 @@ def read_defs(filename):
     with open(filename, 'r') as reader:
         for line in reader:
             m = pat.search(line)
-            if not m: continue
+            if not m:
+                continue
             key = m.group(1)
             assert key not in result, \
                 'Duplicate key {} in {}'.format(key, filename)
