@@ -22,16 +22,16 @@ def main(config_file, source_dir):
     for (i, slug) in enumerate(lessons):
         key = str(i+1)
         result['s:{}'.format(slug)] = {'slug': slug,
-                                        'toplevel': True,
-                                        'text': 'Chapter {}'.format(key)}
+                                       'toplevel': True,
+                                       'text': 'Chapter {}'.format(key)}
         process_sections(result, source_dir, slug, key)
 
     extras = config['toc']['extras']
     letters = ascii_uppercase[:len(extras)]
     for (key, slug) in zip(letters, extras):
         result['s:{}'.format(slug)] = {'slug': slug,
-                                        'toplevel': True,
-                                        'text': 'Appendix {}'.format(key)}
+                                       'toplevel': True,
+                                       'text': 'Appendix {}'.format(key)}
         process_sections(result, source_dir, slug, key)
 
     language = source_dir.lstrip('_')
