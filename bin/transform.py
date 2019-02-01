@@ -5,7 +5,9 @@ Do pre- and post-transformations required to produce clean LaTeX from Pandoc's M
 '''
 
 import sys
-from util import usage
+import os
+import re
+from util import usage, get_toc_slugs
 
 
 class Base(object):
@@ -30,14 +32,10 @@ class Base(object):
             if m:
                 line = fmt.format(*m.groups())
             result.append(line)
+        return result
 
     def _sub(self, lines, before, after):
-        return [s.sub(before, after) for s in lines]
-
-    def _get_file(self, accum, path):
-        with open(path, 'r') as reader:
-            for line in reader:
-                accum.append(line)
+        return [s.replace(before, after) for s in lines]
 
 
 class ReplaceInclusion(Base):
@@ -64,15 +62,21 @@ class ReplaceInclusion(Base):
                 m = end.search(line)
                 if m:
                     echo = True
+        return result
 
     def post(self, lines):
         pat = re.compile(r'==include==([^=]+)==')
+        result = []
         for line in lines:
             m = pat.search(line)
             if m:
-                self._get_file(lines, os.path.join(self.include_dir, m.group(1)))
+                filename = os.path.join(self.include_dir, m.group(1))
+                with open(filename, 'r') as reader:
+                    content = reader.readlines()
+                    result.extend(content)
             else:
-                lines.append(line)
+                result.append(line)
+        return result
 
 
 class GlossaryEntry(Base):
@@ -142,9 +146,9 @@ class Command(Base):
                              r'==command=={{{0}}}==')
 
     def post(self, lines):
-        return self.replace(lines,
-                            r'==command==([^=]+)==',
-                            r'{{{0}}}')
+        return self._replace(lines,
+                             r'==command==([^=]+)==',
+                             r'{{{0}}}')
 
 
 class Language(Base):
@@ -160,9 +164,9 @@ class Language(Base):
                              r'==language=={{{0}}}==')
 
     def post(self, lines):
-        return self.replace(lines,
-                            r'==language==([^=]+)==',
-                            r'\begin{{lstlisting}}[language={0}]')
+        return self._replace(lines,
+                             r'==language==([^=]+)==',
+                             r'\begin{{lstlisting}}[language={0}]')
 
 
 class PdfToSvg(Base):
@@ -173,7 +177,7 @@ class PdfToSvg(Base):
     def post(self, lines):
         return self._replace(lines,
                              r'/figures/(.+)\.svg}',
-                             r'/figures/{{{0}}}.pdf}')
+                             r'/figures/{{{0}}}.pdf}}')
 
 class Citation(Base):
     '''
@@ -188,7 +192,7 @@ class Citation(Base):
         pat = re.compile(r'\\hyperlink{BIB}{([^}]+)}')
         result = []
         for line in lines:
-            result.append(pat.sub(fixup, line))
+            result.append(pat.sub(_fixup, line))
         return result
 
 
@@ -198,7 +202,7 @@ class Quote(Base):
     '''
 
     def post(self, lines):
-        self._sub(lines, r'\begin{quote}', r'\begin{quote}\setlength{\parindent}{0pt}')
+        return self._sub(lines, r'\begin{quote}', r'\begin{quote}\setlength{\parindent}{0pt}')
 
 
 class Section(Base):
@@ -207,7 +211,7 @@ class Section(Base):
     '''
 
     def post(self, lines):
-        self._sub(lines, r'\section', r'\chapter')
+        return self._sub(lines, r'\section', r'\chapter')
 
 
 class Subsection(Base):
@@ -216,7 +220,7 @@ class Subsection(Base):
     '''
 
     def post(self, lines):
-        self._sub(lines, r'\subsection', r'\section')
+        return self._sub(lines, r'\subsection', r'\section')
 
 
 class Subsubsection(Base):
@@ -225,7 +229,7 @@ class Subsubsection(Base):
     '''
 
     def post(self, lines):
-        self._sub(lines, r'\subsubsection', r'\subsection')
+        return self._sub(lines, r'\subsubsection', r'\subsection')
 
 
 class Newline(Base):
@@ -234,7 +238,7 @@ class Newline(Base):
     '''
 
     def post(self, lines):
-        self._sub(lines, r'\texttt{\n}', r'\texttt{\textbackslash n}')
+        return self._sub(lines, r'\texttt{\n}', r'\texttt{\textbackslash n}')
 
     
 # All symmetric handlers in pre order.
@@ -252,34 +256,70 @@ POST = [
     PdfToSvg,
     Citation,
     Quote,
-    Chapter,
     Section,
     Subsection,
     Subsubsection,
     Newline
 ]
 
-def main(phase):
+def pre_process(config_file, source_dir, include_dir):
     '''
-    Apply all pre or post handlers.
+    Apply all pre-processing handlers.
     '''
-
-    lines = sys.stdin.readlines()
-
-    handlers = BOTH
-    if phase == 'post':
-        handlers = reversed(handlers)
-    for cls in handlers:
-        lines = getattr(cls(), phase)(lines)
-
-    if phase == 'post':
-        for cls in POST:
-            lines = cls().post(lines)
-
+    lines = get_lines(config_file, source_dir)
+    for handler in BOTH:
+        lines = handler(include_dir).pre(lines)
     sys.stdout.writelines(lines)
 
 
+def post_process(include_dir):
+    '''
+    Apply all post-processing handlers.
+    '''
+    lines = sys.stdin.readlines()
+    for handler in reversed(BOTH):
+        lines = handler(include_dir).post(lines)
+    for handler in POST:
+        lines = handler(include_dir).post(lines)
+    sys.stdout.writelines(lines)
+
+
+def get_lines(config_file, source_dir):
+    slugs = get_toc_slugs(config_file, as_set=False)
+    filenames = [os.path.join(source_dir, 'index.html')] \
+        + [os.path.join(source_dir, s, 'index.html') for s in slugs]
+    result = []
+    for f in filenames:
+        with open(f, 'r') as reader:
+            lines = reader.readlines()
+            lines = keep_main(lines)
+            result.extend(lines)
+    return result
+
+
+def keep_main(lines):
+    start = end = None
+    for (i, line) in enumerate(lines):
+        if '<!-- begin: main -->' in line:
+            start = i
+        elif '<!-- end: main -->' in line:
+            end = i
+            break
+    return lines[start:end+1]
+
+
 if __name__ == '__main__':
-    if (len(sys.argv) != 2) or (sys.argv[1] not in ['pre', 'post']):
-        usage('transform.py [pre | post]')
-    main(sys.argv[1])
+    USAGE = 'transform.py --pre config_file source_dir include_dir OR transform.py --post include_dir'
+    if len(sys.argv) < 2:
+        usage(USAGE)
+    if sys.argv[1] == '--pre':
+        if len(sys.argv) != 5:
+            usage(USAGE)
+        else:
+            pre_process(sys.argv[2], sys.argv[3], sys.argv[4])
+    elif sys.argv[1] == '--post':
+        if len(sys.argv) != 3:
+            usage(USAGE)
+        post_process(sys.argv[2])
+    else:
+        usage(USAGE)
