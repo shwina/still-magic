@@ -22,6 +22,15 @@ class Base(object):
     def post(self, lines):
         return lines
 
+    def _replace(self, lines, pat, fmt):
+        pat = re.compile(pat)
+        result = []
+        for line in lines:
+            m = pat.search(line)
+            if m:
+                line = fmt.format(*m.groups())
+            result.append(line)
+
     def _get_file(self, accum, path):
         with open(path, 'r') as reader:
             for line in reader:
@@ -30,7 +39,9 @@ class Base(object):
 
 class ReplaceInclusion(Base):
     '''
-    Replace '<div markdown="1" replacement="ghp/mathjax-1.tex">...</div>' with named file.
+    HTML file inclusion marker: <div markdown="1" replacement="path-to-file.tex">...</div>
+    =>
+    LaTeX: content of file
     '''
 
     def pre(self, lines):
@@ -61,9 +72,94 @@ class ReplaceInclusion(Base):
                 lines.append(line)
 
 
+class GlossaryEntry(Base):
+    '''
+    HTML glossary key: <strong id="g:LABEL">TEXT</strong>'
+    =>
+    LaTeX: \hypertarget{g:LABEL}{TEXT}\label{g:LABEL}
+    '''
+
+    def pre(self, lines):
+        return self._replace(lines,
+                             r'<strong id="(g:[^"]+)">([^<]+)</strong>',
+                             r'<strong>==glossary=={0}=={1}==</strong>')
+
+    def post(self, lines):
+        return self._replace(lines,
+                             r'==glossary==([^=]+)==([^=]+)==',
+                             r'\hypertarget{{{0}}}{{{1}}}\label{{{0}}}')
+
+
+class BibliographyEntry(Base):
+    '''
+    HTML bibliography key: <strong id="b:LABEL">TEXT</strong>'
+    =>
+    LaTeX: \hypertarget{b:LABEL}{TEXT}\label{g:LABEL}
+    '''
+
+    def pre(self, lines):
+        return self._replace(lines,
+                             r'<strong id="(b:[^"]+)">([^<]+)</strong>',
+                             r'<strong>==citation=={0}=={1}==</strong>')
+
+    def post(self, lines):
+        return self._replace(lines,
+                             r'==citation==([^=]+)==([^=]+)==',
+                             r'\hypertarget{{{0}}}{{{1}}}\label{{{0}}}')
+
+
+class Figure(Base):
+    '''
+    HTML figure: <figure id="f:LABEL"> <img src="PATH"> <figcaption>TEXT</figcaption> </figure>
+    =>
+    LaTeX: \begin{figure}[H]\label{f:LABEL}\centering\includegraphics{PATH}\caption{TEXT}\end{figure}
+    '''
+
+    def pre(self, lines):
+        return self._replace(lines,
+                             r'<figure +id="(f:.+)"> *<img +src="(.+)"> *<figcaption>(.+)</figcaption> *</figure>',
+                             r'<strong>==figure=={0}=={1}=={2}==</strong>')
+
+    def post(self, lines):
+        return self._replace(lines,
+                             r'==figure==([^=]+)==([^=]+)==([^=]+)==',
+                             r'\begin{figure}[H]\label{{{0}}}\centering\includegraphics{{{1}}}\caption{{{2}}}\end{figure}')
+
+
+class Command(Base):
+
+    def pre(self, lines):
+        return self._replace(lines,
+                             r'<!-- +== +(.+) +-->',
+                             r'==command=={{{0}}}==')
+
+    def post(self, lines):
+        return self.replace(lines,
+                            r'==command==([^=]+)==',
+                            r'{{{0}}}')
+
+
+class Language(Base):
+
+    def pre(self, lines):
+        return self._replace(lines,
+                             r'<div.+class="language-([^ ]+)',
+                             r'==language=={{{0}}}==')
+
+    def post(self, lines):
+        return self.replace(lines,
+                            r'==language==([^=]+)==',
+                            r'\begin{{lstlisting}}[language={0}]')
+
+
 # All handlers in pre order.
 HANDLERS = [
-    Base
+    ReplaceInclusion,
+    GlossaryEntry,
+    BibliographyEntry,
+    Figure,
+    Command,
+    Language
 ]
 
 
