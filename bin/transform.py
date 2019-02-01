@@ -31,6 +31,9 @@ class Base(object):
                 line = fmt.format(*m.groups())
             result.append(line)
 
+    def _sub(self, lines, before, after):
+        return [s.sub(before, after) for s in lines]
+
     def _get_file(self, accum, path):
         with open(path, 'r') as reader:
             for line in reader:
@@ -127,6 +130,11 @@ class Figure(Base):
 
 
 class Command(Base):
+    '''
+    HTML embedded command comment: <!-- == COMMMAND -->
+    =>
+    LaTeX command: COMMAND
+    '''
 
     def pre(self, lines):
         return self._replace(lines,
@@ -140,6 +148,11 @@ class Command(Base):
 
 
 class Language(Base):
+    '''
+    HTML div opening language block: <div class="language-LANG"
+    =>
+    LaTeX listing with language: \begin{lstlisting}[language=LANG]
+    '''
 
     def pre(self, lines):
         return self._replace(lines,
@@ -152,8 +165,80 @@ class Language(Base):
                             r'\begin{{lstlisting}}[language={0}]')
 
 
-# All handlers in pre order.
-HANDLERS = [
+class PdfToSvg(Base):
+    '''
+    LaTeX: /figures/FILENAME.svg => /figures/FILENAME.pdf
+    '''
+
+    def post(self, lines):
+        return self._replace(lines,
+                             r'/figures/(.+)\.svg}',
+                             r'/figures/{{{0}}}.pdf}')
+
+class Citation(Base):
+    '''
+    LaTeX: hyperlink to multiple bibliography citations => hyperlink to each.
+    '''
+
+    def post(self, lines):
+        def _fixup(match):
+            keys = [s.strip() for s in match.group(1).split(',')]
+            return '[' + ','.join(['\\hyperlink{{b:{}}}{{{}}}'.format(k, k) for k in keys]) + ']'
+
+        pat = re.compile(r'\\hyperlink{BIB}{([^}]+)}')
+        result = []
+        for line in lines:
+            result.append(pat.sub(fixup, line))
+        return result
+
+
+class Quote(Base):
+    '''
+    LaTeX: unindent quotations.
+    '''
+
+    def post(self, lines):
+        self._sub(lines, r'\begin{quote}', r'\begin{quote}\setlength{\parindent}{0pt}')
+
+
+class Section(Base):
+    '''
+    LaTeX: turn sections into chapters.
+    '''
+
+    def post(self, lines):
+        self._sub(lines, r'\section', r'\chapter')
+
+
+class Subsection(Base):
+    '''
+    LaTeX: turn subsections into sections.
+    '''
+
+    def post(self, lines):
+        self._sub(lines, r'\subsection', r'\section')
+
+
+class Subsubsection(Base):
+    '''
+    LaTeX: turn subsubsections into subsections.
+    '''
+
+    def post(self, lines):
+        self._sub(lines, r'\subsubsection', r'\subsection')
+
+
+class Newline(Base):
+    '''
+    LaTeX: represent literal newline properly.
+    '''
+
+    def post(self, lines):
+        self._sub(lines, r'\texttt{\n}', r'\texttt{\textbackslash n}')
+
+    
+# All symmetric handlers in pre order.
+BOTH = [
     ReplaceInclusion,
     GlossaryEntry,
     BibliographyEntry,
@@ -162,18 +247,35 @@ HANDLERS = [
     Language
 ]
 
+# All post-only handlers in execution order.
+POST = [
+    PdfToSvg,
+    Citation,
+    Quote,
+    Chapter,
+    Section,
+    Subsection,
+    Subsubsection,
+    Newline
+]
 
 def main(phase):
     '''
     Apply all pre or post handlers.
     '''
-    handlers = HANDLERS
-    if phase == 'post':
-        handlers.reverse()
+
     lines = sys.stdin.readlines()
-    for cls in HANDLERS:
-        h = cls()
-        lines = getattr(h, phase)(lines)
+
+    handlers = BOTH
+    if phase == 'post':
+        handlers = reversed(handlers)
+    for cls in handlers:
+        lines = getattr(cls(), phase)(lines)
+
+    if phase == 'post':
+        for cls in POST:
+            lines = cls().post(lines)
+
     sys.stdout.writelines(lines)
 
 
