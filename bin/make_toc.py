@@ -21,17 +21,21 @@ def main(config_file, source_dir):
     lessons = config['toc']['lessons']
     for (i, slug) in enumerate(lessons):
         key = str(i+1)
-        result['s:{}'.format(slug)] = {'slug': slug,
-                                       'toplevel': True,
-                                       'text': 'Chapter {}'.format(key)}
+        result['s:{}'.format(slug)] = {
+            'slug': slug,
+            'text': 'Chapter',
+            'value': key
+        }
         process_sections(result, source_dir, slug, key)
 
     extras = config['toc']['extras']
     letters = ascii_uppercase[:len(extras)]
     for (key, slug) in zip(letters, extras):
-        result['s:{}'.format(slug)] = {'slug': slug,
-                                       'toplevel': True,
-                                       'text': 'Appendix {}'.format(key)}
+        result['s:{}'.format(slug)] = {
+            'slug': slug,
+            'text': 'Appendix',
+            'value': key
+        }
         process_sections(result, source_dir, slug, key)
 
     language = source_dir.lstrip('_')
@@ -44,9 +48,11 @@ def process_sections(result, source_dir, slug, base):
         content = reader.read()
     headings = SECTION_PAT.findall(content)
     for (h, i) in zip(headings, range(1, len(headings) + 1)):
-        result[h] = {'slug': slug,
-                     'toplevel': False,
-                     'text': 'Section {}.{}'.format(base, i)}
+        result[h] = {
+            'slug': slug,
+            'text': 'Section',
+            'value': '{}.{}'.format(base, i)
+        }
 
 
 if __name__ == '__main__':

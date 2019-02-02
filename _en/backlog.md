@@ -145,7 +145,7 @@ A small project should always use these four labels:
 -   *Discussion*: something the team needs to make a decision about.
     (All issues can have discussion---this category is for issues that start that way.)
 
-<!-- == \noindent -->
+<!-- == noindent -->
 It might also use:
 
 -   *Question*: how is something supposed to work (discussed [earlier](#s:backlog-issues)).

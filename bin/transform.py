@@ -7,8 +7,9 @@ Do pre- and post-transformations required to produce clean LaTeX from Pandoc's M
 import sys
 import os
 import re
-from util import usage, get_toc_slugs
+from util import usage, get_toc
 
+#-------------------------------------------------------------------------------
 
 class Base(object):
     '''
@@ -24,17 +25,13 @@ class Base(object):
     def post(self, lines):
         return lines
 
-    def _replace(self, lines, pat, fmt):
+    def _regexp(self, lines, pat, fmt):
         pat = re.compile(pat)
-        result = []
-        for line in lines:
-            m = pat.search(line)
-            if m:
-                line = fmt.format(*m.groups())
-            result.append(line)
-        return result
+        def f(match):
+            return fmt.format(*match.groups())
+        return [pat.sub(f, s) for s in lines]
 
-    def _sub(self, lines, before, after):
+    def _replace(self, lines, before, after):
         return [s.replace(before, after) for s in lines]
 
 
@@ -79,105 +76,16 @@ class ReplaceInclusion(Base):
         return result
 
 
-class GlossaryEntry(Base):
-    '''
-    HTML glossary key: <strong id="g:LABEL">TEXT</strong>'
-    =>
-    LaTeX: \hypertarget{g:LABEL}{TEXT}\label{g:LABEL}
-    '''
-
-    def pre(self, lines):
-        return self._replace(lines,
-                             r'<strong id="(g:[^"]+)">([^<]+)</strong>',
-                             r'<strong>==glossary=={0}=={1}==</strong>')
-
-    def post(self, lines):
-        return self._replace(lines,
-                             r'==glossary==([^=]+)==([^=]+)==',
-                             r'\hypertarget{{{0}}}{{{1}}}\label{{{0}}}')
-
-
-class BibliographyEntry(Base):
-    '''
-    HTML bibliography key: <strong id="b:LABEL">TEXT</strong>'
-    =>
-    LaTeX: \hypertarget{b:LABEL}{TEXT}\label{g:LABEL}
-    '''
-
-    def pre(self, lines):
-        return self._replace(lines,
-                             r'<strong id="(b:[^"]+)">([^<]+)</strong>',
-                             r'<strong>==citation=={0}=={1}==</strong>')
-
-    def post(self, lines):
-        return self._replace(lines,
-                             r'==citation==([^=]+)==([^=]+)==',
-                             r'\hypertarget{{{0}}}{{{1}}}\label{{{0}}}')
-
-
-class Figure(Base):
-    '''
-    HTML figure: <figure id="f:LABEL"> <img src="PATH"> <figcaption>TEXT</figcaption> </figure>
-    =>
-    LaTeX: \begin{figure}[H]\label{f:LABEL}\centering\includegraphics{PATH}\caption{TEXT}\end{figure}
-    '''
-
-    def pre(self, lines):
-        return self._replace(lines,
-                             r'<figure +id="(f:.+)"> *<img +src="(.+)"> *<figcaption>(.+)</figcaption> *</figure>',
-                             r'<strong>==figure=={0}=={1}=={2}==</strong>')
-
-    def post(self, lines):
-        return self._replace(lines,
-                             r'==figure==([^=]+)==([^=]+)==([^=]+)==',
-                             r'\begin{figure}[H]\label{{{0}}}\centering\includegraphics{{{1}}}\caption{{{2}}}\end{figure}')
-
-
-class Command(Base):
-    '''
-    HTML embedded command comment: <!-- == COMMMAND -->
-    =>
-    LaTeX command: COMMAND
-    '''
-
-    def pre(self, lines):
-        return self._replace(lines,
-                             r'<!-- +== +(.+) +-->',
-                             r'==command=={{{0}}}==')
-
-    def post(self, lines):
-        return self._replace(lines,
-                             r'==command==([^=]+)==',
-                             r'{{{0}}}')
-
-
-class Language(Base):
-    '''
-    HTML div opening language block: <div class="language-LANG"
-    =>
-    LaTeX listing with language: \begin{lstlisting}[language=LANG]
-    '''
-
-    def pre(self, lines):
-        return self._replace(lines,
-                             r'<div.+class="language-([^ ]+)',
-                             r'==language=={{{0}}}==')
-
-    def post(self, lines):
-        return self._replace(lines,
-                             r'==language==([^=]+)==',
-                             r'\begin{{lstlisting}}[language={0}]')
-
-
 class PdfToSvg(Base):
     '''
     LaTeX: /figures/FILENAME.svg => /figures/FILENAME.pdf
     '''
 
     def post(self, lines):
-        return self._replace(lines,
-                             r'/figures/(.+)\.svg}',
-                             r'/figures/{{{0}}}.pdf}}')
+        return self._regexp(lines,
+                            r'/figures/(.+)\.svg}',
+                            r'/figures/{{{0}}}.pdf}}')
+
 
 class Citation(Base):
     '''
@@ -196,70 +104,236 @@ class Citation(Base):
         return result
 
 
-class Quote(Base):
+class SpecialCharacters(Base):
+    '''
+    LaTeX: accented characters replaced by LaTeX escapes.
+    '''
+
+    def post(self, lines):
+        def _regexpall(s):
+            for (raw, latex) in [('é', r"\'{e}"), ('ö', r'\"{o}')]:
+                s = s.replace(raw, latex)
+            return s
+        return [_regexpall(s) for s in lines]
+
+#-------------------------------------------------------------------------------
+
+class CodeBlock(Base):
+    '''
+    HTML div opening language block: <div class="language-LANG"
+    =>
+    LaTeX listing with language: \begin{lstlisting}[language=LANG]
+    '''
+
+    def pre(self, lines):
+        return self._regexp(lines,
+                            r'(<div class="language-([^ ]+).*>)',
+                            r'==language=={1}=={0}')
+
+    def post(self, lines):
+        lines = self._squash(lines)
+        lines = self._regexp(lines,
+                             r'==language==([^=]+)==\\begin{verbatim}',
+                             r'\begin{{lstlisting}}[language={0}]')
+        lines = self._replace(lines,
+                              r'\begin{lstlisting}[language=text]',
+                              r'\begin{lstlisting}[backgroundcolor=\color{verylightgray}]')
+        lines = self._replace(lines,
+                              r'\begin{verbatim}',
+                              r'\begin{lstlisting}')
+        lines = self._replace(lines,
+                              r'\end{verbatim}',
+                              r'\end{lstlisting}')
+        return lines
+
+    def _squash(self, lines):
+        result = []
+        pat = re.compile(r'==language==([^=]+)==')
+        language = None
+        for line in lines:
+            if language:
+                if not line.strip():
+                    pass
+                else:
+                    result.append('==language=={}=={}'.format(language, line))
+                    language = None
+            else:
+                m = pat.search(line)
+                if m:
+                    language = m.group(1)
+                else:
+                    result.append(line)
+        return result
+
+#-------------------------------------------------------------------------------
+
+class BaseRegexp(Base):
+    '''
+    General HTML-to-temp-to-LaTeX transformation.
+    Expects class variable MATCH_HTML, WRITE_TEMP, MATCH_TEMP, WRITE_LATEX
+    '''
+
+    def pre(self, lines):
+        return self._regexp(lines, self.MATCH_HTML, self.WRITE_TEMP)
+
+    def post(self, lines):
+        return self._regexp(lines, self.MATCH_TEMP, self.WRITE_LATEX)
+
+
+class GlossaryEntry(BaseRegexp):
+    '''
+    HTML glossary key: <strong id="g:LABEL">TEXT</strong>'
+    =>
+    LaTeX: \hypertarget{g:LABEL}{TEXT}\label{g:LABEL}
+    '''
+
+    MATCH_HTML = r'<strong id="(g:[^"]+)">([^<]+)</strong>'
+    WRITE_TEMP = r'<strong>==glossary=={0}=={1}==</strong>'
+    MATCH_TEMP = r'==glossary==([^=]+)==([^=]+)=='
+    WRITE_LATEX = r'\hypertarget{{{0}}}{{{1}}}\label{{{0}}}'
+
+
+class BibliographyEntry(BaseRegexp):
+    '''
+    HTML bibliography key: <strong id="b:LABEL">TEXT</strong>'
+    =>
+    LaTeX: \hypertarget{b:LABEL}{TEXT}\label{g:LABEL}
+    '''
+
+    MATCH_HTML = r'<strong id="(b:[^"]+)">([^<]+)</strong>'
+    WRITE_TEMP = r'<strong>==citation=={0}=={1}==</strong>'
+    MATCH_TEMP = r'==citation==([^=]+)==([^=]+)=='
+    WRITE_LATEX = r'\hypertarget{{{0}}}{{{1}}}\label{{{0}}}'
+
+
+class CrossRef(BaseRegexp):
+    '''
+    HTML cross-reference: <a class="xref" href="../SLUG/#s:IDENT">WORD NUMBER</a>
+    =>
+    LaTeX: WORD~\ref{#s:IDENT}
+    '''
+
+    MATCH_HTML = r'<a\s+class="xref"\s+href=".+/.+/#(s:[^"]+)">(.+)\s+([^<]+)</a>'
+    WRITE_TEMP = r'==crossref=={0}=={1}=={2}=='
+    MATCH_TEMP = r'==crossref==([^=]+)==([^=]+)==([^=]+)=='
+    WRITE_LATEX = r'{1}~\ref{{{0}}}'
+
+
+class Figure(BaseRegexp):
+    '''
+    HTML figure: <figure id="f:LABEL"> <img src="PATH"> <figcaption>TEXT</figcaption> </figure>
+    =>
+    LaTeX: \begin{figure}[H]\label{f:LABEL}\centering\includegraphics{PATH}\caption{TEXT}\end{figure}
+    '''
+
+    MATCH_HTML = r'<figure +id="(f:.+)"> *<img +src="(.+)"> *<figcaption>(.+)</figcaption> *</figure>'
+    WRITE_TEMP = r'<strong>==figure=={0}=={1}=={2}==</strong>'
+    MATCH_TEMP = r'==figure==([^=]+)==([^=]+)==([^=]+)=='
+    WRITE_LATEX = r'\begin{figure}[H]\label{{{0}}}\centering\includegraphics{{{1}}}\caption{{{2}}}\end{figure}'
+
+
+class Noindent(BaseRegexp):
+    '''
+    HTML embedded command comment: <!-- == COMMMAND -->
+    =>
+    LaTeX command: COMMAND
+    '''
+
+    MATCH_HTML = r'<!-- +== noindent +-->'
+    WRITE_TEMP = r'==command==noindent=='
+    MATCH_TEMP = r'==command==noindent==\n'
+    WRITE_LATEX = r'\noindent'
+
+
+#-------------------------------------------------------------------------------
+
+class BaseStringMatch(Base):
+    '''
+    General temp-to-LaTeX transformation with pure string matching.
+    Expects class variables MATCH_TEMP and WRITE_LATEX.
+    '''
+
+    def post(self, lines):
+        return self._replace(lines, self.MATCH_TEMP, self.WRITE_LATEX)
+
+
+class Quote(BaseStringMatch):
     '''
     LaTeX: unindent quotations.
     '''
 
-    def post(self, lines):
-        return self._sub(lines, r'\begin{quote}', r'\begin{quote}\setlength{\parindent}{0pt}')
+    MATCH_TEMP = r'\begin{quote}'
+    WRITE_LATEX = r'\begin{quote}\setlength{\parindent}{0pt}'
 
 
-class Section(Base):
+class BibliographyTitle(BaseStringMatch):
+    '''
+    LaTeX: don't number the bibliography as a chapter.
+    '''
+
+    MATCH_TEMP = r'\chapter{Bibliography}'
+    WRITE_LATEX = r'\chapter*{Bibliography}'
+
+
+class Section(BaseStringMatch):
     '''
     LaTeX: turn sections into chapters.
     '''
 
-    def post(self, lines):
-        return self._sub(lines, r'\section', r'\chapter')
+    MATCH_TEMP = r'\section'
+    WRITE_LATEX = r'\chapter'
 
 
-class Subsection(Base):
+class Subsection(BaseStringMatch):
     '''
     LaTeX: turn subsections into sections.
     '''
 
-    def post(self, lines):
-        return self._sub(lines, r'\subsection', r'\section')
+    MATCH_TEMP = r'\subsection'
+    WRITE_LATEX = r'\section'
 
 
-class Subsubsection(Base):
+class Subsubsection(BaseStringMatch):
     '''
     LaTeX: turn subsubsections into subsections.
     '''
 
-    def post(self, lines):
-        return self._sub(lines, r'\subsubsection', r'\subsection')
+    MATCH_TEMP = r'\subsubsection'
+    WRITE_LATEX = r'\subsection'
 
 
-class Newline(Base):
+class Newline(BaseStringMatch):
     '''
     LaTeX: represent literal newline properly.
     '''
 
-    def post(self, lines):
-        return self._sub(lines, r'\texttt{\n}', r'\texttt{\textbackslash n}')
+    MATCH_TEMP = r'\texttt{\n}'
+    WRITE_LATEX = r'\texttt{\textbackslash n}'
 
-    
-# All symmetric handlers in pre order.
+#-------------------------------------------------------------------------------
+
+# All symmetric handlers.
 BOTH = [
     ReplaceInclusion,
     GlossaryEntry,
     BibliographyEntry,
+    CrossRef,
     Figure,
-    Command,
-    Language
+    Noindent,
+    CodeBlock
 ]
 
-# All post-only handlers in execution order.
+# All post-only handlers.
 POST = [
+    Newline,
     PdfToSvg,
     Citation,
     Quote,
+    BibliographyTitle,
     Section,
     Subsection,
     Subsubsection,
-    Newline
+    SpecialCharacters
 ]
 
 def pre_process(config_file, source_dir, include_dir):
@@ -277,7 +351,7 @@ def post_process(include_dir):
     Apply all post-processing handlers.
     '''
     lines = sys.stdin.readlines()
-    for handler in reversed(BOTH):
+    for handler in BOTH:
         lines = handler(include_dir).post(lines)
     for handler in POST:
         lines = handler(include_dir).post(lines)
@@ -285,15 +359,32 @@ def post_process(include_dir):
 
 
 def get_lines(config_file, source_dir):
-    slugs = get_toc_slugs(config_file, as_set=False)
-    filenames = [os.path.join(source_dir, 'index.html')] \
-        + [os.path.join(source_dir, s, 'index.html') for s in slugs]
+
+    toc = get_toc(config_file)
     result = []
-    for f in filenames:
-        with open(f, 'r') as reader:
-            lines = reader.readlines()
-            lines = keep_main(lines)
-            result.extend(lines)
+
+    for filename in [os.path.join(source_dir, s, 'index.html')
+                     for s in toc['lessons']]:
+        _get_lines(result, filename)
+
+    _get_lines(result, os.path.join(source_dir, 'bib', 'index.html'))
+
+    result.extend([
+        r'\appendix\n'
+    ])
+
+    for filename in [os.path.join(source_dir, s, 'index.html')
+                     for s in toc['extras']]:
+        _get_lines(result, filename)
+
+    return result
+
+
+def _get_lines(result, filename):
+    with open(filename, 'r') as reader:
+        lines = reader.readlines()
+        lines = keep_main(lines)
+        result.extend(lines)
     return result
 
 

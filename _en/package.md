@@ -61,7 +61,7 @@ def is_zipf(hist, rel=RELATIVE_ERROR):
 ```
 {: title="package/01/zipf.py"}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 and then use `import zipf`,
 `from zipf import is_zipf`,
 and so on:
@@ -85,7 +85,7 @@ passes test with default tolerance: False
 passes test with tolerance of 1.0: True
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 It also creates a sub-directory called `__pycache__`
 that holds the compiled versions of the imported files.
 The next time Python imports `zipf`,
@@ -214,7 +214,7 @@ we can reorganize our files as follows:
 <!-- {: title="package/03/use.py"} -->
 <!-- {: title="package/03/zipf/__init__.py"} -->
 
-<!-- == \noindent -->
+<!-- == noindent -->
 `zipf/__init__.py` contains `RELATIVE_ERROR` and the functions we've seen before.
 `use.py` doesn't change---in particular,
 it can still use `import zipf` or `from zipf import is_zipf`
@@ -238,7 +238,7 @@ def make_zipf(length):
 ```
 {: title="package/04/zipf/generate.py"}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 and then import that file in `__init__.py`.
 
 ```python
@@ -300,7 +300,7 @@ we must create a file called `setup.py` in the directory *above* the root direct
     +- generate.py
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 The file `setup.py` must have exactly that name,
 and must contain these lines:
 
@@ -320,7 +320,7 @@ setup(
 <!-- {: title="package/05/zipf/__init__.py"} -->
 <!-- {: title="package/05/zipf/generate.py"} -->
 
-<!-- == \noindent -->
+<!-- == noindent -->
 The `name`, `version`, and `author` parameters to `setup` are self-explanatory;
 you should modify the values assigned to them for your package;
 the function `find_packages` returns a list of things worth packaging.
@@ -367,7 +367,7 @@ Creating tar archive
 removing 'zipf-0.1' (and everything under it)
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 We will look at how to clean up the warnings about `README.md`, `url`, and `author_email` in the exercises.
 
 `python setup.py sdist` creates a compressed file `dist/zipf-0.1.tar.gz` that contains the following:
@@ -390,7 +390,7 @@ drwxr-xr-x  0 pterry staff       0 20 Aug 15:36 zipf-0.1/zipf.egg-info/
 -rw-r--r--  0 pterry staff       5 20 Aug 15:36 zipf-0.1/zipf.egg-info/top_level.txt
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 The source files `__init__.py` and `generate.py` are in there,
 along with the odds and ends that `pip` will need to install this package properly when the time comes.
 
@@ -433,7 +433,7 @@ Installing setuptools, pip, wheel...
 done.
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 `virtualenv` creates a new directory called `test`,
 which contains sub-directories called `bin`, `lib`, and so on---everything
 needed for a minimal Python installation.
@@ -446,7 +446,7 @@ We can switch to the `test` environment by running:
 $ source test/bin/activate
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 `source` is a Unix shell command meaning "run all the commands from a file in this currently-active shell".
 We use it because typing `test/bin/activate` on its own would run those commands in a sub-shell,
 which would have no effect on the shell we're in.

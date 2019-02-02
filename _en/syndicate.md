@@ -569,7 +569,7 @@ def annual_mean_temp(country):
 ```
 {: title="syndicate/get_with_check.py"}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 and here's a quick check:
 
 ```python
@@ -756,7 +756,7 @@ If we then look in the file `temp.csv`, we find:
 3,4
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 as desired.
 
 Now, where should this file go?

@@ -146,21 +146,21 @@ Suppose we have created a branch to work on a feature:
 
 FIXME: figure
 
-<!-- == \noindent -->
+<!-- == noindent -->
 We make several small changes,
 then realize we need to fix something else,
 so we commit those changes:
 
 FIXME: figure
 
-<!-- == \noindent -->
+<!-- == noindent -->
 switch to `master`, and create a new branch to do the other work.
 This happens several times,
 eventually leaving the repository in this state:
 
 FIXME: figure
 
-<!-- == \noindent -->
+<!-- == noindent -->
 If we were to merge now,
 four commits would wind up in the history of the `master` branch.
 Instead,
@@ -168,7 +168,7 @@ we squash those four commits into one:
 
 FIXME: figure
 
-<!-- == \noindent -->
+<!-- == noindent -->
 and then merge that:
 
 FIXME: figure
@@ -182,7 +182,7 @@ it can replay changes made in one branch on top of changes made to another:
 
 FIXME: figure
 
-<!-- == \noindent -->
+<!-- == noindent -->
 or collapse several consecutive commits into a single commit,
 as we saw in the [previous section](#s:branches-switching).
 We will only use it for the latter ability.
@@ -209,7 +209,7 @@ the combination of recent changes and messages:
 
 FIXME: figure
 
-<!-- == \noindent -->
+<!-- == noindent -->
 We can now edit this text to create a commit message for the unified commit.
 After we have done this,
 `git log` will only show us this single commit,
@@ -234,7 +234,7 @@ as shown below:
 
 FIXME: figure
 
-<!-- == \noindent -->
+<!-- == noindent -->
 In this case,
 Git realizes that your merge would lose information and prevents the operation from going through.
 You can use `git push --force` to overwrite the remote history,

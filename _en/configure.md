@@ -137,7 +137,7 @@ print('Extras {}'.format(extras))
 ```
 {: title="configure/getopt_dict.py"}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 which we can run like this:
 
 ```shell
@@ -242,7 +242,7 @@ fonts:
 ```
 {: title="configure/config.yml"}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 And here's a short Python program that reads and prints that configuration:
 
 ```python
@@ -347,7 +347,7 @@ We can test this with these three configuration files
 <!-- {: title="configure/user.yml"} -->
 <!-- {: title="configure/job.yml"} -->
 
-<!-- == \noindent -->
+<!-- == noindent -->
 using this test program:
 
 ```python
@@ -364,7 +364,7 @@ print(config)
 ```
 {: title="configure/test_config.py"}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 and this command line:
 
 ```shell

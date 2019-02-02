@@ -144,7 +144,7 @@ Code can be written inline using back quotes:
 Compile `rnadiff` using `Make`.
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 or we can use three back quotes or tildes at the start and end of a code block:
 
     ```
@@ -339,7 +339,7 @@ author: "Adagu Okereke"
 ```
 {: title="ghp/config.yml"}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 then every occurrence of `{% raw %}{{site.author}}{% endraw %}`
 will be replaced with "Adagu Okereke" (without the quotation marks).
 
@@ -355,7 +355,7 @@ exclude:
 ```
 {: title="ghp/config.yml"}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 The `exclude` list is completely independent of what's listed in the repository's `.gitignore`
 because there are things we probably *do* want saved (like the spreadsheet with the status of our experiments)
 but *don't* want shared with the world.
@@ -400,7 +400,7 @@ A typical workflow is:
     so that Jekyll doesn't try to translate them a second time.)
 3.  Commit the generated files to Git and push to your GitHub site.
 
-<!-- == \noindent -->
+<!-- == noindent -->
 This means you're storing generated files in your repository,
 which is generally considered bad practice,
 but we should always break rules rather than doing something awkward ({% include xref key="s:rules" %}).
@@ -453,7 +453,7 @@ see [this tutorial][js-vs-ds] if you really want to learn more.
 </html>
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 One thing to note is that the sample HTML above is loading MathJax from a [content delivery network](#g:cdn),
 which means that the math won't render if we are offline.
 We can install MathJax locally,
@@ -472,7 +472,7 @@ The circle is defined by $$x^2 + y^2 = \mu$$.
 
 <div markdown="1" replacement="ghp/mathjax-1.tex">
 
-<!-- == \noindent -->
+<!-- == noindent -->
 produces "The circle is defined by $$x^2 + y^2 = \mu$$."
 We can also use double dollar signs on lines of their own to generate block equations:
 
@@ -482,7 +482,7 @@ We can also use double dollar signs on lines of their own to generate block equa
 $$ r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}} $$
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 produces:
 
 <div markdown="1" replacement="ghp/mathjax-2.tex">
@@ -544,7 +544,7 @@ we can create a file called `_includes/footer.html` that contains this:
 </footer>
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 and then include that in our template with:
 
 ```html
@@ -591,7 +591,7 @@ The syntax is shown below:
 <img src="{% raw %}{{'/images/profile.png' | relative_url}}{% endraw %}" />
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 As its name suggests,
 `relative_url` takes an absolute path from the root of the project
 and transforms it into a relative path from the page that's being generated.
