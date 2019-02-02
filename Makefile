@@ -11,6 +11,7 @@ STEM=still-magic
 JEKYLL=jekyll
 PANDOC=pandoc
 LATEX=pdflatex
+BIBTEX=bibtex
 PYTHON=python
 
 # Language-dependent settings.
@@ -54,6 +55,8 @@ toc : ${TOC_JSON}
 # Regenerate PDF once 'all.tex' has been created.
 ${BOOK_PDF} : ${ALL_TEX}
 	cd ${DIR_TEX} \
+	&& ${LATEX} -jobname=${STEM} book \
+	&& ${BIBTEX} ${STEM} \
 	&& ${LATEX} -jobname=${STEM} book \
 	&& ${LATEX} -jobname=${STEM} book
 

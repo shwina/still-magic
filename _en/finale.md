@@ -27,7 +27,7 @@ which may help people in other domains see their own problems with fresh eyes.
 *An early version of this paper was inspired by Jon Udell's essay
 "Seven Ways to Think Like the Web" [Udel2011](#BIB).*
 
-## 1. Programs are data.
+## Programs are data. {#s:finale-programs-data}
 
 The key insight that all of modern computing is built on is that
 programs are just another kind of data. Source code is text, no
@@ -44,7 +44,7 @@ advanced programming techniques depend on this fact, from function
 pointers in C and callbacks in JavaScript to decorators in Python and
 lazy evaluation in R.
 
-## 2. Computers don't understand anything.
+## Computers don't understand anything. {#s:finale-understand}
 
 Computers don't understand: they only obey instructions that make them
 appear to. If a person looks at this image, they see the word "data":
@@ -60,7 +60,7 @@ you have written a few programs, but thirty years after [Pea1986](#BIB) first
 called it the "superbug", believing that the computer will somehow
 understand intent remains a common error.
 
-## 3. Programming is about creating and combining abstractions.
+## Programming is about creating and combining abstractions. {#s:finale-abstractions}
 
 Computers don't have to understand instructions in order to execute
 them, but we do in order to create them (and fix them afterward). Since
@@ -77,7 +77,7 @@ different implementations of a single interface: if we do our work well,
 we shouldn't have to care about the differences between them until
 something goes wrong or we need to improve its performance.
 
-## 4. Every redundancy in software is an abstraction trying to be born.
+## Every redundancy in software is an abstraction trying to be born. {#s:finale-redundancy}
 
 The history of programming is in part the history of people noticing
 patterns and then making it easier for programmers to use them. Does
@@ -99,7 +99,7 @@ often unable to remember that they ever saw the world any other way, or
 to see the world afresh through novice eyes. As a result, they are prone
 to say, "It's obvious," and then follow it with incomprehensible jargon.
 
-## 5. Create models for computers and views for human beings.
+## Create models for computers and views for human beings. {#s:finale-models-views}
 
 One consequence of the second and third rules is important enough to be
 a rule in its own right: we should create models for computers and views
@@ -126,7 +126,7 @@ this separation in software they build for the rest of humanity have
 been remarkably resistant to the idea of adopting any kind of model-view
 separation in programming itself.
 
-## 6. Paranoia makes us productive.
+## Paranoia makes us productive. {#s:finale-paranoia}
 
 "I want to count the cells in this photograph" is easy to say, but what
 does it actually mean? What constitutes a cell? When do you decide that
@@ -150,7 +150,7 @@ commercial software because (almost by definition) we don't know what
 the right answer *is* in research software, which makes it difficult to
 check that we're getting it.
 
-## 7. Things that don't change are easier to understand than things that do.
+## Things that don't change are easier to understand than things that do. {#s:finale-immutable}
 
 Programmers use the words *mutable* and *immutable* to refer to things
 that can be modified after they are created and things that cannot.
@@ -173,7 +173,7 @@ we automate a task---i.e., make its steps immutable---we reduce the chances
 of getting it wrong the next time, and have more time to think about
 things that machines *can't* do for us.
 
-## 8. Better algorithms are better than better hardware.
+## Better algorithms are better than better hardware. {#s:finale-algorithms}
 
 One of the greatest mathematical advances of the Twentieth Century was
 the idea of *algorithmic complexity*. The key insight is that the
@@ -185,7 +185,7 @@ was one large computer, it couldn't solve any interesting problem.
 Faster chips are therefore very welcome, but the real key to speed is to
 focus on how we're doing things.
 
-## 9. Distributed is different.
+## Distributed is different. {#s:finale-distributed}
 
 Distributed computing is intrinsically different from running a program
 on a single machine [Wald1994](#BIB). On a single computer, we can usually
@@ -203,7 +203,7 @@ have been made to paper over these differences, but all have failed in
 the large. As a result, the future of programming is about how we deal
 with this---a statement that has been true since the 1980s
 
-## 10. Privacy, security, fairness, and responsibility can't be added after the fact.
+## Privacy, security, fairness, and responsibility can't be added after the fact. {#s:finale-privacy}
 
 Our final rule may be the most important of all. As the last few years
 have shown, collecting and interpreting data is never a neutral

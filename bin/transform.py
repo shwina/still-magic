@@ -87,23 +87,6 @@ class PdfToSvg(Base):
                             r'/figures/{{{0}}}.pdf}}')
 
 
-class Citation(Base):
-    '''
-    LaTeX: hyperlink to multiple bibliography citations => hyperlink to each.
-    '''
-
-    def post(self, lines):
-        def _fixup(match):
-            keys = [s.strip() for s in match.group(1).split(',')]
-            return '[' + ','.join(['\\hyperlink{{b:{}}}{{{}}}'.format(k, k) for k in keys]) + ']'
-
-        pat = re.compile(r'\\hyperlink{BIB}{([^}]+)}')
-        result = []
-        for line in lines:
-            result.append(pat.sub(_fixup, line))
-        return result
-
-
 class SpecialCharacters(Base):
     '''
     LaTeX: accented characters replaced by LaTeX escapes.
@@ -180,6 +163,19 @@ class BaseRegexp(Base):
         return self._regexp(lines, self.MATCH_TEMP, self.WRITE_LATEX)
 
 
+class Citation(BaseRegexp):
+    '''
+    HTML: hyperlink to multiple bibliography citations
+    =>
+    LaTeX: \cite{citations}
+    '''
+
+    MATCH_HTML = r'<a href="#BIB">([^<]+)</a>'
+    WRITE_TEMP = r'==citation=={0}=='
+    MATCH_TEMP = r'==citation==([^=]+)=='
+    WRITE_LATEX = r'\cite{{{0}}}'
+
+
 class GlossaryEntry(BaseRegexp):
     '''
     HTML glossary key: <strong id="g:LABEL">TEXT</strong>'
@@ -190,19 +186,6 @@ class GlossaryEntry(BaseRegexp):
     MATCH_HTML = r'<strong id="(g:[^"]+)">([^<]+)</strong>'
     WRITE_TEMP = r'<strong>==glossary=={0}=={1}==</strong>'
     MATCH_TEMP = r'==glossary==([^=]+)==([^=]+)=='
-    WRITE_LATEX = r'\hypertarget{{{0}}}{{{1}}}\label{{{0}}}'
-
-
-class BibliographyEntry(BaseRegexp):
-    '''
-    HTML bibliography key: <strong id="b:LABEL">TEXT</strong>'
-    =>
-    LaTeX: \hypertarget{b:LABEL}{TEXT}\label{g:LABEL}
-    '''
-
-    MATCH_HTML = r'<strong id="(b:[^"]+)">([^<]+)</strong>'
-    WRITE_TEMP = r'<strong>==citation=={0}=={1}==</strong>'
-    MATCH_TEMP = r'==citation==([^=]+)==([^=]+)=='
     WRITE_LATEX = r'\hypertarget{{{0}}}{{{1}}}\label{{{0}}}'
 
 
@@ -275,6 +258,15 @@ class BibliographyTitle(BaseStringMatch):
     WRITE_LATEX = r'\chapter*{Bibliography}'
 
 
+class Midpoint(BaseStringMatch):
+    '''
+    Bibliography and the switch to appendices at midpoint.
+    '''
+
+    MATCH_TEMP = '==midpoint=='
+    WRITE_LATEX = '\\bibliographystyle{abstract}\n\\bibliography{book}\n\\appendix'
+
+
 class Section(BaseStringMatch):
     '''
     LaTeX: turn sections into chapters.
@@ -316,23 +308,23 @@ class Newline(BaseStringMatch):
 BOTH = [
     ReplaceInclusion,
     GlossaryEntry,
-    BibliographyEntry,
     CrossRef,
     Figure,
     Noindent,
-    CodeBlock
+    CodeBlock,
+    Citation
 ]
 
 # All post-only handlers.
 POST = [
     Newline,
     PdfToSvg,
-    Citation,
     Quote,
-    BibliographyTitle,
     Section,
     Subsection,
     Subsubsection,
+    BibliographyTitle,
+    Midpoint,
     SpecialCharacters
 ]
 
@@ -363,21 +355,21 @@ def get_lines(config_file, source_dir):
     toc = get_toc(config_file)
     result = []
 
-    for filename in [os.path.join(source_dir, s, 'index.html')
-                     for s in toc['lessons']]:
+    for filename in _make_filenames(source_dir, toc['lessons']):
         _get_lines(result, filename)
 
     _get_lines(result, os.path.join(source_dir, 'bib', 'index.html'))
 
-    result.extend([
-        r'\appendix\n'
-    ])
+    result.append('==midpoint==\n')
 
-    for filename in [os.path.join(source_dir, s, 'index.html')
-                     for s in toc['extras']]:
+    for filename in _make_filenames(source_dir, toc['extras']):
         _get_lines(result, filename)
 
     return result
+
+
+def _make_filenames(source_dir, slugs):
+    return [os.path.join(source_dir, s, 'index.html') for s in slugs]
 
 
 def _get_lines(result, filename):
