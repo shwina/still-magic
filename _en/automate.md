@@ -93,7 +93,7 @@ was written in 1976 to recompile programs
 [GNU Make][gnu-make] is a free, fast, and well-documented version of Make;
 we will use it throughout this book.
 
-> #### Alternatives
+> **Alternatives**
 >
 > [Many better build tools][build-tools] have been developed since Make---so many,
 > in fact,
@@ -186,7 +186,7 @@ In this case,
 there is no screen output,
 so we only see the command.
 
-> #### Indentation Errors
+> **Indentation Errors**
 >
 > If `Makefile` contains spaces instead of tabs to indent the rule's action,
 > we will see an error message like this:
@@ -907,7 +907,7 @@ $ make -f makefile_grep.mk
 With a bit more work we could strip off the leading `##` markers,
 but this is a good start.
 
-> #### How did you know that?
+> **How did you know that?**
 >
 > I had never used the variable `MAKEFILE_LIST` before writing this lesson.
 > In fact, until about 15 minutes ago, I didn't even know it existed:

@@ -93,7 +93,7 @@ any researcher writing software should know how to make their work reproducible
 and share it with the world
 without staying up until dawn.
 
-> #### Why "Computational Competence"?
+> **Why "Computational Competence"?**
 >
 > The term [computational thinking](#g:computational-thinking)
 > has been widely used since [Wing2006](#BIB) introduced it a decade ago.

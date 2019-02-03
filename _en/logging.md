@@ -143,10 +143,10 @@ since strings can be used as level names:
 basicConfig(level="DEBUG") # the same as basicConfig(level=logging.DEBUG)
 ```
 
-The flag names `-v`, `--quiet, and so on are just conventions,
+The flag names `-v`, `--quiet`, and so on are just conventions,
 but they are widely used.
 
-> #### `tail -f`
+> **`tail -f`**
 >
 > A handy trick during development is to configure logging to send messages to a file,
 > and then open another terminal window and run <code>tail -f <em>filename</em></code>
