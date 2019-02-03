@@ -75,7 +75,6 @@ translations:
     generated: "Last generated"
     questions: "Questions"
     keypoints: "Key Points"
-    singlepage: "Single page version"
 
 # Standard Jekyll settings.
 repository: <USERNAME>/<PROJECT>
