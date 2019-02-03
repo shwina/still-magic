@@ -169,7 +169,6 @@ class Citation(BaseRegexp):
     =>
     LaTeX: \cite{citations}
     '''
-
     MATCH_HTML = r'<a href="#BIB">([^<]+)</a>'
     WRITE_TEMP = r'==citation=={0}=='
     MATCH_TEMP = r'==citation==([^=]+)=='
@@ -182,7 +181,6 @@ class GlossaryEntry(BaseRegexp):
     =>
     LaTeX: \hypertarget{g:LABEL}{TEXT}\label{g:LABEL}
     '''
-
     MATCH_HTML = r'<strong id="(g:[^"]+)">([^<]+)</strong>'
     WRITE_TEMP = r'<strong>==glossary=={0}=={1}==</strong>'
     MATCH_TEMP = r'==glossary==([^=]+)==([^=]+)=='
@@ -195,7 +193,6 @@ class CrossRef(BaseRegexp):
     =>
     LaTeX: WORD~\ref{#s:IDENT}
     '''
-
     MATCH_HTML = r'<a\s+class="xref"\s+href=".+/.+/#(s:[^"]+)">(.+)\s+([^<]+)</a>'
     WRITE_TEMP = r'==crossref=={0}=={1}=={2}=='
     MATCH_TEMP = r'==crossref==([^=]+)==([^=]+)==([^=]+)=='
@@ -208,7 +205,6 @@ class Figure(BaseRegexp):
     =>
     LaTeX: \begin{figure}[H]\label{f:LABEL}\centering\includegraphics{PATH}\caption{TEXT}\end{figure}
     '''
-
     MATCH_HTML = r'<figure +id="(f:.+)"> *<img +src="(.+)"> *<figcaption>(.+)</figcaption> *</figure>'
     WRITE_TEMP = r'<strong>==figure=={0}=={1}=={2}==</strong>'
     MATCH_TEMP = r'==figure==([^=]+)==([^=]+)==([^=]+)=='
@@ -221,7 +217,6 @@ class Noindent(BaseRegexp):
     =>
     LaTeX command: COMMAND
     '''
-
     MATCH_HTML = r'<!-- +== noindent +-->'
     WRITE_TEMP = r'==command==noindent=='
     MATCH_TEMP = r'==command==noindent==\n'
@@ -244,7 +239,6 @@ class Quote(BaseStringMatch):
     '''
     LaTeX: unindent quotations.
     '''
-
     MATCH_TEMP = r'\begin{quote}'
     WRITE_LATEX = r'\begin{quote}\setlength{\parindent}{0pt}'
 
@@ -253,16 +247,30 @@ class BibliographyTitle(BaseStringMatch):
     '''
     LaTeX: don't number the bibliography as a chapter.
     '''
-
     MATCH_TEMP = r'\chapter{Bibliography}'
     WRITE_LATEX = r'\chapter*{Bibliography}'
+
+
+class FrontMatter(BaseStringMatch):
+    '''
+    \frontmatter command
+    '''
+    MATCH_TEMP = '==frontmatter=='
+    WRITE_LATEX = '\\frontmatter'
+
+
+class MainMatter(BaseStringMatch):
+    '''
+    \mainmatter command
+    '''
+    MATCH_TEMP = '==mainmatter=='
+    WRITE_LATEX = '\\mainmatter'
 
 
 class Midpoint(BaseStringMatch):
     '''
     Bibliography and the switch to appendices at midpoint.
     '''
-
     MATCH_TEMP = '==midpoint=='
     WRITE_LATEX = '\\bibliographystyle{abstract}\n\\bibliography{book}\n\\appendix'
 
@@ -271,7 +279,6 @@ class Section(BaseStringMatch):
     '''
     LaTeX: turn sections into chapters.
     '''
-
     MATCH_TEMP = r'\section'
     WRITE_LATEX = r'\chapter'
 
@@ -280,7 +287,6 @@ class Subsection(BaseStringMatch):
     '''
     LaTeX: turn subsections into sections.
     '''
-
     MATCH_TEMP = r'\subsection'
     WRITE_LATEX = r'\section'
 
@@ -289,7 +295,6 @@ class Subsubsection(BaseStringMatch):
     '''
     LaTeX: turn subsubsections into subsections.
     '''
-
     MATCH_TEMP = r'\subsubsection'
     WRITE_LATEX = r'\subsection'
 
@@ -298,7 +303,6 @@ class Newline(BaseStringMatch):
     '''
     LaTeX: represent literal newline properly.
     '''
-
     MATCH_TEMP = r'\texttt{\n}'
     WRITE_LATEX = r'\texttt{\textbackslash n}'
 
@@ -324,6 +328,8 @@ POST = [
     Subsection,
     Subsubsection,
     BibliographyTitle,
+    FrontMatter,
+    MainMatter,
     Midpoint,
     SpecialCharacters
 ]
@@ -355,13 +361,14 @@ def get_lines(config_file, source_dir):
     toc = get_toc(config_file)
     result = []
 
+    result.append('==frontmatter==\n')
+    _get_lines(result, os.path.join(source_dir, 'index.html'))
+
+    result.append('==mainmatter==\n')
     for filename in _make_filenames(source_dir, toc['lessons']):
         _get_lines(result, filename)
 
-    _get_lines(result, os.path.join(source_dir, 'bib', 'index.html'))
-
     result.append('==midpoint==\n')
-
     for filename in _make_filenames(source_dir, toc['extras']):
         _get_lines(result, filename)
 

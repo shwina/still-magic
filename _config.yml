@@ -49,7 +49,6 @@ toc:
   - objectives
   - keypoints
   - rules
-  - design
 
 # Tell Jekyll that "en" is a collection (whose files are found in "_en").  This
 # is what allows us to loop over files in various inclusions.  We use "en" to
