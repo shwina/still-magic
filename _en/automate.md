@@ -268,7 +268,7 @@ When we ask Make to run this file:
 $ make -f double_rule.mk
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 we get this rather disappointing message:
 
 ```text
@@ -321,7 +321,7 @@ Let's run Make:
 $ make -f pipeline.mk clean
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 and then use `ls` to list the contents of `results`.
 Sure enough, it's empty.
 
@@ -508,7 +508,7 @@ results/moby_dick.csv : data/moby_dick.txt
 ```
 {: title="automate/single_rule.mk"}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 and turn it into this:
 
 ```make
@@ -518,7 +518,7 @@ results/moby_dick.csv : data/moby_dick.txt
 ```
 {: title="automate/automatic_variables_wrong.mk"}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 `$@` is an automatic variable:
 Make defines its value for us separately in each rule.
 And yes,
@@ -549,7 +549,7 @@ results/time_machine.csv : data/time_machine.txt ${COUNT}
 ```
 {: title="automate/automatic_variables_wrong.mk"}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 This doesn't do the right thing because `$^` includes *all* of the prerequisites,
 so the action tries to process the script as if it were a data file:
 
@@ -592,7 +592,7 @@ results/%.csv : data/%.txt ${COUNT}
 ```
 {: title="automate/pattern_rule.mk"}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 will handle *Jane Eyre*, *Moby Dick*, and *The Time Machine*.
 (Unfortunately, `%` cannot be used in rules' actions,
 which is why `$<` and `$@` are needed.)
@@ -664,7 +664,7 @@ RESULTS=results/*.csv
 ```
 {: title="automate/filename_wildcard.mk"}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 and then make `all` depend on that:
 
 ```make
@@ -692,7 +692,7 @@ DATA = $(wildcard data/*.txt)
 ```
 {: title="automate/function_wildcard.mk"}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 This calls the function `wildcard` with the argument `data/*.txt`.
 The result is a list of all the text files in the `raw` directory,
 just as we'd get with `data/*.txt` in the shell.

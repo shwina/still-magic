@@ -6,15 +6,17 @@ import sys
 import yaml
 
 
-def get_toc_slugs(config_path, as_set=True):
-    '''Read the table of contents, returning a list of slugs.'''
+def get_toc(config_path):
+    '''Read the table of contents and return ToC section.'''
     with open(config_path, 'r') as reader:
         config = yaml.load(reader)
-    toc = config['toc']
-    result = toc['lessons'] + toc['bib'] + toc['extras']
-    if as_set:
-        result = set(result)
-    return result
+    return config['toc']
+
+
+def get_toc_slugs(config_path):
+    '''Return a set of all slugs in the ToC.'''
+    toc = get_toc(config_path)
+    return set(toc['lessons'] + toc['bib'] + toc['extras'])
 
 
 def report(title, group, values):

@@ -304,7 +304,7 @@ $ python get_words.py | python count_words.py
 3
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 but when we look in `log.csv`,
 we see the messages from both programs:
 

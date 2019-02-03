@@ -32,14 +32,14 @@ This is not a helpful error message:
 
 <figure id="f:docs-error-message"> <figcaption>Error Message</figcaption> <img src="../../figures/docs_error_message.png"/> </figure>
 
-<!-- == \noindent -->
+<!-- == noindent -->
 Neither is this:
 
 ```text
 System.InvalidOperationException: Nullable object must have a value.
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 or this:
 
 ```text
@@ -107,7 +107,7 @@ except OSError as e:
     sys.exit(1)
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 A better approach for large projects is to put all of the error messages in a catalog:
 
 ```python
@@ -118,7 +118,7 @@ ERROR_MESSAGES = {
 }
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 and then only use messages from that catalog:
 
 ```python
@@ -131,7 +131,7 @@ except OSError as e:
     sys.exit(1)
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 Doing this makes it much easier to ensure that messages are consistent.
 It also makes it much easier to give messages in the user's preferred language:
 
@@ -152,14 +152,14 @@ ERROR_MESSAGES = {
 }
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 The error report is then looked up as:
 
 ```python
 ERROR_MESSAGES[user_language]['cannot_read_file']
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 where `user_language` is a two-letter code for the user's preferred language.
 
 ## What should I document for whom? {#s:docs-what}
@@ -290,7 +290,7 @@ If we run the shell command:
 pydoc bin/trim.py`
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 Python will read the Python file,
 extract the docstrings,
 and create a nicely-formatted listing:
@@ -328,7 +328,7 @@ import trim
 help(trim)
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 or we can run `pydoc -w bin/trim.py` to generate an HTML page
 (with some rather garish coloring).
 
@@ -413,7 +413,7 @@ which is where most programmers are going to look for answers anyway:
     making sure to mention which version of the software you're talking about
     (so that people can easily spot and discard stale answers in the future).
 
-<!-- == \noindent -->
+<!-- == noindent -->
 With a bit of work,
 the [Stack Exchange Data Explorer][stack-exchange-data-explorer]
 can be used to download questions and answers about your software

@@ -32,7 +32,7 @@ $$
 \tau_w = \frac{n_w(d) / n_*(d)}{D / D_w}
 $$
 
-<!-- == \noindent -->
+<!-- == noindent -->
 If a word is very common in one document, but absent in others, TF-IDF is high for that (word, document) pair.
 If a word is common in all documents, or if a word is rare in a document, TF-IDF is lower.
 This simple measure can therefore be used to rank documents' relevance with respect to that term.
@@ -159,7 +159,7 @@ which structures tests according to three simple rules:
 2.  Each test is a function whose name also begins with `test_`.
 3.  Test functions use `assert` to check that results are as expected.
 
-<!-- == \noindent -->
+<!-- == noindent -->
 For example,
 we could test the `count_words` function by putting the following code in `test_count.py`:
 
@@ -196,7 +196,7 @@ We can run our tests from the shell with a single command:
 $ pytest
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 As it runs tests,
 pytest prints `.` for each one that passes and `F` for each one that fails.
 After all of the tests have been run,
@@ -264,7 +264,7 @@ def test_text_not_empty():
 ```
 {: title="unit/test_exception_manual.py"}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 This code runs the test (i.e., calls `count_words`)
 and then fails on purpose if execution reaches the next line.
 If the right kind of exception is raised,
@@ -314,7 +314,7 @@ test_exception.py:6: Failed
 =========================== 1 failed in 0.04 seconds ===========================
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 The output tells us that `count_words` doesn't raise an exception when given an empty string,
 so we should either decide that the count in this case is zero,
 or go back and fix our function.
@@ -366,7 +366,7 @@ def weeks_since_01(start):
 ```
 {: title="unit/wrappers.py"}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 If this code is in a file called `wrappers.py`,
 we would use it like this:
 
@@ -399,9 +399,10 @@ def weeks_since_02(start):
         current = datetime.date.today()
     return round((current - start).days / DAYS_PER_WEEK)
 weeks_since_02.testing_date = None
-```{: title="unit/wrappers.py"}
+```
+{: title="unit/wrappers.py"}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 and here's how we would use it:
 
 ```python
@@ -483,7 +484,7 @@ def main(infile, outfile):
             # ...read from reader and write to writer...
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 However,
 this `main` function is hard to test,
 since there's no easy way to substitute a `StringIO` for the file inside that function.
@@ -513,7 +514,7 @@ def process(reader, writer):
     # ...read from reader and write to writer...
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 After moving the reading and writing into `process`,
 we can easily pass in a couple of `StringIO` objects for testing.
 
@@ -546,7 +547,7 @@ if __name__ == '__main__':
 ```
 {: title="unit/demo_coverage.py"}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 The answer is probably "no",
 but the second half of the answer should be "that's what computers are for".
 [Coverage](#g:coverage) measures which parts of program are and are not executed.

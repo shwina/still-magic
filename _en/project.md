@@ -57,7 +57,7 @@ The figure below shows this layout for a project called `g-trans`:
 
 <figure id="f:project-noble"> <figcaption>Project Layout</figcaption> <img src="../../figures/project_noble.svg"/> </figure>
 
-<!-- == \noindent -->
+<!-- == noindent -->
 A few things to notice are:
 
 -   The documentation for the `regulate` script appears in the root of `./doc/`,

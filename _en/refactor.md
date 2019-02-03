@@ -79,7 +79,7 @@ if (a > b) == True:
     # ...do something...
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 The comparison to `True` is unnecessary because `a > b` is a Boolean value
 that is itself either `True` or `False`.
 Like any other value,
@@ -93,7 +93,7 @@ if was_greater:
     # ...do something...
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 This refactoring is called "replace repeated test with flag".
 When it is used,
 there is no need to write `if was_greater == True`:
@@ -107,7 +107,7 @@ it makes our intention clearer---these really are the same test.
 
 {% include refactor/replace_repeated_test_with_flag.html %}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 If it takes many lines of code to process data and create a score,
 and the test then needs to change from `>` to `>=`,
 we're more likely to get the refactored version right the first time,
@@ -126,7 +126,7 @@ instead of writing:
 step = step + 1
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 we can write:
 
 ```python
@@ -143,7 +143,7 @@ For example:
 samples[least_factor_index, max(current_offset, offset_limit)] *= scaling_factor
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 is much easier to read than the equivalent expression:
 
 ```python
@@ -151,7 +151,7 @@ samples[least_factor_index, max(current_offset, offset_limit)] = \
     scaling_factor * samples[least_factor_index, max(current_limit, offset_limit)]
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 (The proof of this claim is that you probably didn't notice on first reading
 that the long form uses different expressions to index `samples`
 on the left and right of the assignment.)
@@ -192,7 +192,7 @@ scale = 1.0
 if configuration['threshold'] > UPPER_BOUND: scale = 0.8
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 Some programmers take this even further
 and use a [conditional expression](#g:conditional-expression):
 
@@ -200,7 +200,7 @@ and use a [conditional expression](#g:conditional-expression):
 scale = 0.8 if configuration['threshold'] > UPPER_BOUND else 1.0
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 However,
 this puts the default last instead of first,
 which is less clear.
@@ -243,7 +243,7 @@ The fragment below shows how two functions can be combined:
 
 {% include refactor/combine-functions.html %}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 One thing you may not notice about the ocmbination is that
 it assumes characters are either vowels or consonants,
 which means it might work differently than separate calls to the two original functions.
@@ -285,7 +285,7 @@ def count_vowels_and_consonants(text):
 ```
 {: title="refactor/set_lookup_table.py"}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 The expressions used to update `num_vowels` and `num_consonants` make use of the fact that
 `in` produces either `True` or `False`,
 which the function `int` converts to either 1 or 0.
@@ -312,7 +312,7 @@ The `if` case isn't too base:
 
 {% include refactor/comprehension-if.html %}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 but `if`-`else` is structured differently in comprehensions than it is in a one-line conditional:
 
 {% include refactor/comprehension-else.html %}
@@ -323,7 +323,7 @@ cross-product loops are straightforward
 
 {% include refactor/cross-product-comprehension.html %}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 but the equivalent of nested loops in which the inner loop depends on the value of the outer loop
 always feels back-to-front:
 

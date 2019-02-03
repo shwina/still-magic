@@ -33,12 +33,12 @@ keypoints:
 -   Big raw data (more than 5 GB)
     -   May not be yours in the first place, and needs professional archiving
     -   Again, include identifiers or download scripts
--   Whichever you use, get or create a [DOI](#g:doi) for each version of each dataset ([s:publish-identifiers](#SECTION))
+-   Whichever you use, get or create a [DOI](#g:doi) for each version of each dataset ({% include xref key="s:publish-identifiers" %})
 -   Also publish intermediate files that take a long time to generate
     -   Same sizing rules as above
     -   If they're likely to be used by other people or in other reports, get a DOI
 -   Publish the version IDs of the standard software used in the analysis
-    -   `pip freeze > requirements.txt` for Python packages ([s:packages-install](#SECTION))
+    -   `pip freeze > requirements.txt` for Python packages ({% include xref key="s:packages-install" %})
     -   Helps to write a script to get versions for everything else
     -   Or put commands in a Makefile
 
@@ -90,7 +90,7 @@ archive :
     -   Pick a repository and click the "On" button
 -   Go back to GitHub repository
     -   Go to the "Releases" tab
-    -   Create a new release and give it a version number ([s:workflow-tag](#SECTION))
+    -   Create a new release and give it a version number ({% include xref key="s:workflow-tag" %})
     -   Click "Publish release"
 -   Go back to Zenodo
     -   Look under the "Upload" tab for a new upload corresponding to this release
@@ -99,7 +99,7 @@ archive :
 -   Cite datasets and software versions in reports
     -   Include DOIs in bibliography entries
 -   Publish software in [JOSS][joss] or [F1000 Research][f1000-research]
--   Publish *everything* in open access venues ([s:inclusive-license](#SECTION))
+-   Publish *everything* in open access venues ({% include xref key="s:inclusive-license" %})
     -   Use [Unpaywall][unpaywall] browser extension to check and find things
 
 ## What Is the Most Useful Way to Share My Data? {#s:publish-fair}

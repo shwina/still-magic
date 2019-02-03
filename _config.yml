@@ -1,6 +1,6 @@
 # Display.
 title: "Still Magic"
-subtitle: "How to Build Research Software You Can Trust and Still Be Home in Time for Dinner"
+subtitle: "How to Put Research Software Into Production and Still Be Home in Time for Dinner"
 editor: "Greg Wilson"
 copyrightyear: "2019"
 repo: "https://github.com/merely-useful/still-magic"
@@ -50,7 +50,6 @@ toc:
   - objectives
   - keypoints
   - rules
-  - design
 
 # Tell Jekyll that "en" is a collection (whose files are found in "_en").  This
 # is what allows us to loop over files in various inclusions.  We use "en" to
@@ -76,7 +75,6 @@ translations:
     generated: "Last generated"
     questions: "Questions"
     keypoints: "Key Points"
-    singlepage: "Single page version"
 
 # Standard Jekyll settings.
 repository: <USERNAME>/<PROJECT>
