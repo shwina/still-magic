@@ -141,10 +141,11 @@ words :
 
 ## clean       : clean up junk files.
 clean :
-	@rm -r -f _site dist bin/__pycache__
-	@rm -r -f tex/*/all.tex tex/*/*.aux tex/*/*.bbl tex/*/*.blg tex/*/*.log tex/*/*.out tex/*/*.toc
+	@rm -r -f _site dist
 	@find . -name '*~' -delete
-	@find . -name .DS_Store -prune -delete
+	@find . -name __pycache__ -prune -exec rm -r "{}" \;
+	@rm -r -f tex/*/all.tex tex/*/*.aux tex/*/*.bbl tex/*/*.blg tex/*/*.log tex/*/*.out tex/*/*.toc
+	@find . -name .DS_Store -prune -exec rm -r "{}" \;
 
 ## settings    : show macro values.
 settings :

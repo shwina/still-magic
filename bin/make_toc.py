@@ -39,7 +39,7 @@ def main(config_file, source_dir):
         process_sections(result, source_dir, slug, key)
 
     language = source_dir.lstrip('_')
-    json.dump(result, sys.stdout)
+    json.dump(result, sys.stdout, indent=2)
 
 
 def process_sections(result, source_dir, slug, base):
