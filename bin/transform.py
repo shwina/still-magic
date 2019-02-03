@@ -7,31 +7,42 @@ Do pre- and post-transformations required to produce clean LaTeX from Pandoc's M
 import sys
 import os
 import re
+import json
 from util import usage, get_toc
 
 #-------------------------------------------------------------------------------
 
 class Base(object):
     '''
-    Base transformation does nothing in either pre or post phase.
+    Base transformation does nothing in either pre or post phase,
+    but is a convenient place to put utilities.
     '''
 
-    def __init__(self, include_dir):
+    def __init__(self, crossref, include_dir):
+        self.crossref = crossref
         self.include_dir = include_dir
 
     def pre(self, lines):
+        '''Pre-process.'''
+
         return lines
 
     def post(self, lines):
+        '''Post-process.'''
+
         return lines
 
     def _regexp(self, lines, pat, fmt):
+        '''Handle line-by-line regular expression replacement.'''
+
         pat = re.compile(pat)
         def f(match):
             return fmt.format(*match.groups())
         return [pat.sub(f, s) for s in lines]
 
     def _replace(self, lines, before, after):
+        '''Handle line-by-line direct string substitution.'''
+
         return [s.replace(before, after) for s in lines]
 
 
@@ -99,7 +110,6 @@ class SpecialCharacters(Base):
             return s
         return [_regexpall(s) for s in lines]
 
-#-------------------------------------------------------------------------------
 
 class CodeBlock(Base):
     '''
@@ -130,6 +140,10 @@ class CodeBlock(Base):
         return lines
 
     def _squash(self, lines):
+        '''
+        Remove blank line(s) put after the language marker by Pandoc
+        so that post-processing can do a single-line match.
+        '''
         result = []
         pat = re.compile(r'==language==([^=]+)==')
         language = None
@@ -147,6 +161,26 @@ class CodeBlock(Base):
                 else:
                     result.append(line)
         return result
+
+class CrossRef(Base):
+    '''
+    HTML cross-reference: <a class="xref" href="../SLUG/#s:IDENT">WORD NUMBER</a>
+    =>
+    LaTeX: WORD~\ref{#s:IDENT}
+    '''
+
+    def pre(self, lines):
+        return self._regexp(lines,
+                            r'<a\s+href="#REF">([^<]+)</a>',
+                            r'==crossref=={0}==')
+
+    def post(self, lines):
+        pat = re.compile(r'==crossref==([^=]+)==')
+        def f(match):
+            key = match.group(1)
+            return r'{}~\ref{{{}}}'.format(self.crossref[key]['text'], key)
+        return [pat.sub(f, s) for s in lines]
+
 
 #-------------------------------------------------------------------------------
 
@@ -185,18 +219,6 @@ class GlossaryEntry(BaseRegexp):
     WRITE_TEMP = r'<strong>==glossary=={0}=={1}==</strong>'
     MATCH_TEMP = r'==glossary==([^=]+)==([^=]+)=='
     WRITE_LATEX = r'\hypertarget{{{0}}}{{{1}}}\label{{{0}}}'
-
-
-class CrossRef(BaseRegexp):
-    '''
-    HTML cross-reference: <a class="xref" href="../SLUG/#s:IDENT">WORD NUMBER</a>
-    =>
-    LaTeX: WORD~\ref{#s:IDENT}
-    '''
-    MATCH_HTML = r'<a\s+class="xref"\s+href=".+/.+/#(s:[^"]+)">(.+)\s+([^<]+)</a>'
-    WRITE_TEMP = r'==crossref=={0}=={1}=={2}=='
-    MATCH_TEMP = r'==crossref==([^=]+)==([^=]+)==([^=]+)=='
-    WRITE_LATEX = r'{1}~\ref{{{0}}}'
 
 
 class Figure(BaseRegexp):
@@ -253,7 +275,7 @@ class BibliographyTitle(BaseStringMatch):
 
 class FrontMatter(BaseStringMatch):
     '''
-    \frontmatter command
+    LaTeX: add \frontmatter command.
     '''
     MATCH_TEMP = '==frontmatter=='
     WRITE_LATEX = '\\frontmatter'
@@ -261,7 +283,7 @@ class FrontMatter(BaseStringMatch):
 
 class MainMatter(BaseStringMatch):
     '''
-    \mainmatter command
+    LaTeX: add \mainmatter command.
     '''
     MATCH_TEMP = '==mainmatter=='
     WRITE_LATEX = '\\mainmatter'
@@ -269,7 +291,7 @@ class MainMatter(BaseStringMatch):
 
 class Midpoint(BaseStringMatch):
     '''
-    Bibliography and the switch to appendices at midpoint.
+    LaTeX: add marker for bibliography and the switch to appendices at midpoint.
     '''
     MATCH_TEMP = '==midpoint=='
     WRITE_LATEX = '\\bibliographystyle{abstract}\n\\bibliography{book}\n\\appendix'
@@ -308,19 +330,15 @@ class Newline(BaseStringMatch):
 
 #-------------------------------------------------------------------------------
 
-# All symmetric handlers.
-BOTH = [
+# All handlers.
+HANDLERS = [
     ReplaceInclusion,
     GlossaryEntry,
     CrossRef,
     Figure,
     Noindent,
     CodeBlock,
-    Citation
-]
-
-# All post-only handlers.
-POST = [
+    Citation,
     Newline,
     PdfToSvg,
     Quote,
@@ -334,52 +352,64 @@ POST = [
     SpecialCharacters
 ]
 
-def pre_process(config_file, source_dir, include_dir):
+def pre_process(config_file, source_dir, crossref, include_dir):
     '''
     Apply all pre-processing handlers.
     '''
     lines = get_lines(config_file, source_dir)
-    for handler in BOTH:
-        lines = handler(include_dir).pre(lines)
+    crossref = get_crossref(crossref)
+    for handler in HANDLERS:
+        lines = handler(crossref, include_dir).pre(lines)
     sys.stdout.writelines(lines)
 
 
-def post_process(include_dir):
+def post_process(config_file, source_dir, crossref, include_dir):
     '''
     Apply all post-processing handlers.
     '''
     lines = sys.stdin.readlines()
-    for handler in BOTH:
-        lines = handler(include_dir).post(lines)
-    for handler in POST:
-        lines = handler(include_dir).post(lines)
+    crossref = get_crossref(crossref)
+    for handler in HANDLERS:
+        lines = handler(crossref, include_dir).post(lines)
     sys.stdout.writelines(lines)
 
 
 def get_lines(config_file, source_dir):
+    '''
+    Get all lines from input files, inserting a few markers for post-processing.
+    '''
 
     toc = get_toc(config_file)
     result = []
 
     result.append('==frontmatter==\n')
-    _get_lines(result, os.path.join(source_dir, 'index.html'))
+    get_main_div(result, os.path.join(source_dir, 'index.html'))
 
     result.append('==mainmatter==\n')
-    for filename in _make_filenames(source_dir, toc['lessons']):
-        _get_lines(result, filename)
+    for filename in make_filenames(source_dir, toc['lessons']):
+        get_main_div(result, filename)
 
     result.append('==midpoint==\n')
-    for filename in _make_filenames(source_dir, toc['extras']):
-        _get_lines(result, filename)
+    for filename in make_filenames(source_dir, toc['extras']):
+        get_main_div(result, filename)
 
     return result
 
 
-def _make_filenames(source_dir, slugs):
+def get_crossref(filename):
+    with open(filename, 'r') as reader:
+        return json.load(reader)
+
+
+def make_filenames(source_dir, slugs):
+    '''Turn slugs into filenames.'''
+
     return [os.path.join(source_dir, s, 'index.html') for s in slugs]
 
 
-def _get_lines(result, filename):
+def get_main_div(result, filename):
+    '''Read main div from file, returning a list of lines.'''
+
     with open(filename, 'r') as reader:
         lines = reader.readlines()
         lines = keep_main(lines)
@@ -388,6 +418,8 @@ def _get_lines(result, filename):
 
 
 def keep_main(lines):
+    '''Find and keep the main div.'''
+
     start = end = None
     for (i, line) in enumerate(lines):
         if '<!-- begin: main -->' in line:
@@ -397,19 +429,15 @@ def keep_main(lines):
             break
     return lines[start:end+1]
 
+#-------------------------------------------------------------------------------
 
 if __name__ == '__main__':
-    USAGE = 'transform.py --pre config_file source_dir include_dir OR transform.py --post include_dir'
-    if len(sys.argv) < 2:
+    USAGE = 'transform.py [--pre | --post] config_file source_dir crossref include_dir'
+    if len(sys.argv) != 6:
         usage(USAGE)
-    if sys.argv[1] == '--pre':
-        if len(sys.argv) != 5:
-            usage(USAGE)
-        else:
-            pre_process(sys.argv[2], sys.argv[3], sys.argv[4])
+    elif sys.argv[1] == '--pre':
+        pre_process(*sys.argv[2:])
     elif sys.argv[1] == '--post':
-        if len(sys.argv) != 3:
-            usage(USAGE)
-        post_process(sys.argv[2])
+        post_process(*sys.argv[2:])
     else:
         usage(USAGE)

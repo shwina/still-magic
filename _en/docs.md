@@ -384,7 +384,7 @@ You don't have to write full documentation for helper functions
 that are only used inside your package and aren't meant to be called by users,
 but these should still have at least a comment explaining their purpose.
 You also don't have to document unit testing functions:
-as discussed in {% include xref key="s:unit" %},
+as discussed in [s:unit](#REF),
 these should have long names that describe what they're checking
 so that failure reports are easy to scan.
 
@@ -436,7 +436,7 @@ Give context before giving sample code.
     will help people determine if their question is a close match to yours or not.
 
 Provide a minimal reprex.
-:   {% include xref key="s:backlog" %} explained the value of a [reproducible example](#g:reprex) (reprex),
+:   [s:backlog](#REF) explained the value of a [reproducible example](#g:reprex) (reprex),
     and why reprexes should be as short as possible.
     Readers will have a much easier time figuring out if this question and its answers are for them
     if they can see *and understand* a few lines of code.

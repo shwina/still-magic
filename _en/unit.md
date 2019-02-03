@@ -472,7 +472,7 @@ for line in StringIO(DATA):
 ```
 
 In order to use `StringIO` in tests,
-we may need to refactor our code a bit ({% include xref key="s:refactor" %}).
+we may need to refactor our code a bit ([s:refactor](#REF)).
 It's common to have a function open a file,
 read its contents,
 and return the result like this:

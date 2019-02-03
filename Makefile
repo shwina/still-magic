@@ -23,6 +23,7 @@ DIR_HTML=_site/${lang}
 PAGES_HTML=${DIR_HTML}/index.html $(patsubst ${DIR_MD}/%.md,${DIR_HTML}/%/index.html,$(filter-out ${DIR_MD}/index.md,${PAGES_MD}))
 DIR_TEX=tex/${lang}
 BIB_TEX=${DIR_TEX}/book.bib
+TRANSFORM_FLAGS=_config.yml ${DIR_HTML} ${TOC_JSON} _includes
 ALL_TEX=${DIR_TEX}/all.tex
 BOOK_PDF=${DIR_TEX}/${STEM}.pdf
 
@@ -61,10 +62,10 @@ ${BOOK_PDF} : ${ALL_TEX}
 	&& ${LATEX} -jobname=${STEM} book
 
 # Create the unified LaTeX file (separate target to simplify testing).
-${ALL_TEX} : ${PAGES_HTML} bin/transform.py
-	${PYTHON} bin/transform.py --pre _config.yml ${DIR_HTML} _includes \
+${ALL_TEX} : ${PAGES_HTML} bin/transform.py ${TOC_JSON}
+	${PYTHON} bin/transform.py --pre ${TRANSFORM_FLAGS} \
 	| ${PANDOC} --wrap=preserve -f html -t latex -o - \
-	| ${PYTHON} bin/transform.py --post _includes \
+	| ${PYTHON} bin/transform.py --post ${TRANSFORM_FLAGS} \
 	> ${ALL_TEX}
 
 # Create all the HTML pages once the Markdown files are up to date.

@@ -90,13 +90,13 @@ or whose purpose isn't immediately clear
 The order of items in each file should be:
 
 -   The [shebang](#g:shebang) line (because it has to come first to work).
--   The file's documentation string ({% include xref key="s:style" %}).
+-   The file's documentation string ([s:style](#REF)).
 -   All of the `import` statements, one per line.
 -   Constant definitions.
 -   Function definitions.
 -   If the file can be run as a program,
     the `if __name__ == '__main__'` statement discussed in
-    {% include xref key="s:package-import" %}.
+    [s:package-import](#REF).
 
 ### Do not comment and uncomment sections of code to change behavior.
 
@@ -104,7 +104,7 @@ If you need to do something in some runs of the program and not do it in others,
 use an `if` statement to enable or disable that block of code.
 It's much more reliable---you're far less likely to accidentally comment out one too many lines---and
 you may find that you want to leave those conditional sections in the finished program
-for logging purposes ({% include xref key="s:logging" %}).
+for logging purposes ([s:logging](#REF)).
 
 ### Keep functions short.
 
@@ -112,13 +112,13 @@ Nothing should be more than a page long
 or have more than three levels of indentation because of nested loops and conditionals.
 Anything longer or more deeply nested will be hard for readers to fit into [working memory](#g:working-memory);
 when you find yourself needing to break these limits,
-extract a function ({% include xref key="s:refactor-extract-function" %}).
+extract a function ([s:refactor-extract-function](#REF)).
 
 ### Handle special cases at the start of the function.
 
 This helps readers mentally get them out of the way
 and focus on the "normal" case.
-{% include xref key="s:refactor-short-circuits" %}
+[s:refactor-short-circuits](#REF)
 discusses this in more detail.
 
 ## In what order should functions be defined? {#s:style-order}
@@ -134,7 +134,7 @@ After reading that function,
 someone should have a good idea of what the program does in what order.
 Three common patterns that people might match against are:
 
-1.  Figure out what the user has asked it to do ({% include xref key="s:configure" %}).
+1.  Figure out what the user has asked it to do ([s:configure](#REF)).
 2.  Read all input data.
 3.  Process it.
 4.  Write output.
@@ -187,7 +187,7 @@ and more recent estimates put it as low as 4 or 5.
 If your function requires two dozen parameters,
 the odds are very good that users will frequently forget them
 or put them in the wrong order.
-One solution is to give parameters default values ({% include xref key="s:style" %});
+One solution is to give parameters default values ([s:style](#REF));
 another is to bundle them together so that (for example)
 people pass three `point` objects instead of nine separate `x`, `y`, and `z` values.
 

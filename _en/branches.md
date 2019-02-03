@@ -113,7 +113,7 @@ I am essentially using branches as a to-do list,
 which takes no more time than typing a brief note about the feature into a text file
 or writing it in a lab notebook,
 and is much easier to track.
-{% include xref key="s:backlog" %} will look at better ways to manage this.
+[s:backlog](#REF) will look at better ways to manage this.
 
 ## How can I switch between branches when work is only partly done? {#s:branches-switching}
 
@@ -248,7 +248,7 @@ so it's a good way to end friendships.
 The biggest benefit of having a second person work on a programming project
 is not getting twice as much code written,
 but having a second pair of eyes look at the software.
-{% include xref key="s:review" %} will discuss how to do code review,
+[s:review](#REF) will discuss how to do code review,
 but a good first step depends on using a branch-per-feature workflow.
 
 In order for someone to review your change,
@@ -334,7 +334,7 @@ The other thing that's hard to do with a branch-per-feature workflow is a major 
 If many files are being moved, renamed, and altered in order to restructure the project,
 merging branches where those changes *haven't* been made can be tedious and error-prone.
 The solution is to not get into this situation:
-as {% include xref key="s:refactor" %} says,
+as [s:refactor](#REF) says,
 code should be reorganized in many small steps,
 not one big one.
 

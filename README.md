@@ -10,64 +10,74 @@
 
 ## Overall Design
 
--   Markdown source files for each human language are in a [collection][jekyll-collections] named after the language.
+-   Markdown source files for each human language are in a [Jekyll collection][jekyll-collections] named after the language.
     -   E.g., `_en` for English.
 
--   Use underscores rather than dashes in filenames, e.g., `a_b.md`.
-    -   Need underscores for Python source files that are being loaded.
-    -   Might as well be consistent.
-
 -   Every file has a unique slug.  Using the English version as an example:
-    -   Entry in Jekyll configuration's table of contents is `slug`.
-    -   File's name is `_en/slug.md`.
-    -   File's auto-generated slug is `slug`.
-    -   Generated HTML is `_site/en/slug/index.html`.
-    -   Chapter ID is `s:slug` and section IDs are `s:slug-something`.
-    -   Figure IDs are `f:slug-something`.
-    -   Source for all diagrams for the file are in `./figures/slug.xml` (a [draw.io][draw-io] drawing).
-    -   PNG, SVG, and PDF versions of diagrams are in `./figures/slug_something.suffix`.
+    -   The entry in the Jekyll configuration's table of contents is `slug`.
+    -   The file's name is `./_en/slug.md` (so the file's auto-generated slug is `slug`).
+    -   The generated HTML file is `./_site/en/slug/index.html`.
+    -   The chapter ID is `s:slug` and all section IDs are `s:slug-something`.
+    -   The figure IDs are `f:slug-something`.
+    -   The source for all diagrams for the file is in `./figures/slug.xml` (a [draw.io][draw-io] drawing).
+    -   The PNG, SVG, and PDF versions of the diagrams are in `./figures/slug_something.suffix`.
 
 -   Every Markdown file's YAML must contain one field:
     -   `title`: the file's title.
 
 -   Lessons must also contain:
-    -   `questions`: a point-form list of motivating questions (lessons only).
-    -   `objectives`: a point-form list of learning objectives (lessons only).
-    -   `keypoints`: a point-form list of key points for a cheat sheet (lessons only).
+    -   `questions`: a point-form list of motivating questions.
+    -   `objectives`: a point-form list of learning objectives.
+    -   `keypoints`: a point-form list of key points for a cheat sheet.
 
 -   The `index.md` file for each language (e.g., `_en/index.md`) must also contain:
-    -   `root: true` to control formatting properly.
+    -   `root: true` to control formatting.
     -   `permalink: "/en/"` (or whatever the language is) to override the default output path defined in `_config.yml`.
+    -   This file becomes `./_site/en/index.html` (or whatever the language is).
 
--   Goal was to use pure Jekyll to create HTML for GitHub Pages without pre-processing and committing generated files.
-    -   Came close but failed.
-    -   Need to regenerate table of contents in `./_data/toc.json` with a compilation step because Jekyll won't extract and list headings within files.
-    -   Then use `{% raw %}{% include x key="s:whatever" %}{% endraw %}` to reference by key (where `x` stands for "cross-reference").
-    -   Since we have to do that, we use `{% raw %}{% include g key="g:whatever" text="term" %}{% endraw %}` for glossary references
-        and `{% raw %}{% include b key="b:first,b:second" %}{% endraw %}` for bibliographic citations.
+-   The goal was to use pure Jekyll to create HTML for GitHub Pages without having to commit any generated files.
+    -   Came close but failed: we can't access section headings within files in Jekyll,
+        so we wouldn't be able to refer to sections (only to chapters).
+    -   So we need to regenerate the table of contents in `./_data/toc.json` with a compilation step and commit that.
+    -   We also use a script to regenerate the Markdown bibliography (e.g., `./_en/bib.md`) from the BibTeX source (e.g., `./tex/en/book.bib`).
 
--   Some inclusions loop over the table of contents to match slugs to files because Jekyll doesn't support lookup by key in collections.
+-   Use the JavaScript in `./js/site.js` to:
+    -   Add a disclaimer to the HTML version.
+    -   Create a table of contents for each page.
+    -   Patch up classes for tables.
+    -   Fix cross-references and references to bibliography items and glossary entries.
 
--   Use the JavaScript in `./js/site.js` to patch up classes for tables and create table of contents for each page.
+-   Refer to glossary entries using `{% raw %}[text](#g:key){% endraw %}`.
+    -   This minimizes typing: without it, glossary entries would all need `../gloss/` in the path, which isn't horrible, but...
+    -   The JavaScript in `./js/site.js` patches these references and sets the style for glossary references when the page loads.
+    -   Knows which ones to patch by looking for the leading `g:` in the reference.
 
--   All-in-one HTML version generated dynamically by JavaScript so as not to require pre-commit compilation.
-    -   `all/lang.html` is a placeholder that goes into `_site/lang/all/index.html` (for each language `lang`).
-    -   `./js/stitch.js` runs in this file, loads all the other files dynamically, and stitches them together.
+-   Bibliographic citations are written using `{% raw %}[Name1901,Name2001](#BIB){% endraw %}`.
+    -   Deliberately similar to LaTeX's `\cite{Name1901,Name2001}`.
+    -   Again, `./js/site.js` turns this into links into the bibligraphy: the `#BIB` link identifies elements to be modified.
 
--   Use Pandoc with pre- and post-processing to convert Markdown to LaTeX to build PDF.
-    -   Most of the pre/post-processing uses `sed` directly in `Makefile`.
-    -   Easier for newcomers to understand and maintain than a custom Pandoc template.
-
--   We use a script to regenerate the Markdown bibliography (e.g., `_en/bib.md`) from the BibTeX source (e.g., `tex/en/book.bib`).
-    -   Yeah, this is also a server-side compilation step...
+-   Cross-references are written using `{% raw %}[s:whatever](#REF){% endraw %}`.
+    -   `./js/site.js` relies on an up-to-date table of contents to fix these.
 
 -   External links are `[text][link-name]`, where `link-name` is a key in `./_includes/links.md`
     -   `./_includes/links.md` is included explicitly at the bottom of every Markdown file because including it in the template doesn't work.
 
+-   Some inclusions loop over the table of contents to match slugs to files because Jekyll doesn't support lookup by key in collections.
+
+-   Use Pandoc with pre- and post-processing to convert HTML to LaTeX to build PDF.
+    -   Run `bin/transform.py --pre` to read the HTML in (for example) `./_site/en/.../*.html` and generate a stream with markers for problematic elements.
+    -   Run this through Pandoc to do HTML-to-LaTeX conversion.
+    -   Run `bin/transform.py --post` to find and convert the markers.
+    -   It's clumsy, but easier to maintain than a custom Pandoc template.
+
 ## Typography
 
+-   Use underscores rather than dashes in filenames, e.g., `a_b.md`.
+    -   Need underscores for Python source files that are being loaded.
+    -   Might as well be consistent.
+
 -   If you would like to add code fragments,
-    please put the source in `src/chapter/long-name.ext`.
+    please put the source in `./src/chapter/long-name.ext`.
     Include it in a left-justified, triple-backquoted code block:
     use `python` for Python, `r` for R, `shell` for shell commands, `html` for HTML,
     and `text` for output (including error output), YAML, and and other things.
@@ -87,13 +97,7 @@
         containing (in order) an `img` element with a `src` attribute but nothing else
         and a `figcaption` element with the figure's label.
         **These elements all have to be on one line**
-        so that the `sed` magic in the Makefile that gets around Pandoc's handling of figures
-        can find and translate the elements correctly.
-
--   If you need to embed a one-line LaTeX command in a Markdown file and have it passed through,
-    format it as an HTML comment with a double equals sign and then the command.
-    (We do not include one here because it will be interpreted literally,
-    as this mechanism's implementation is rather crude).
+        so that `./bin/transform.py` can find and translate the elements correctly.
 
 -   When all else fails, put `<div markdown="1" replacement="something.tex">` in the Markdown file
     and a corresponding `</div>` after the block of Markdown that's to be replaced by
@@ -108,12 +112,12 @@
     -   Not processed by Jekyll.
 -   `./CITATION.md`, `./CONDUCT.md`, `./LICENSE.md`: how to cite, code of conduct, and license respectively.
     -   Not processed by Jekyll.
-    -   Redundant (information is also in `_en/filename.md`) but people expect to find these in the root directory.
--   `Makefile`: re-build everything.
+    -   Redundant (information is also in `./_en/filename.md`) but people expect to find these in the root directory.
+-   `./Makefile`: re-build everything.
     -   `make` prints a list of targets.
     -   Can regenerate HTML and PDF, check file consistency, count words, etc.
     -   Use `make lang=xx` to run commands for a particular human language (e.g., `make lang=en` to build the English version).
--   `_config.yml`: Jekyll configuration file.
+-   `./_config.yml`: Jekyll configuration file.
     -   Simple values defined at the top (e.g., `title` and `subtitle`).
     -   `toc` is table of contents, and has three sub-keys:
         -   `lessons` for the main body.
@@ -129,7 +133,7 @@
     -   FIXME: should be done by language.
 -   `./_en/`: English-language collection of Markdown files.
 -   `./_includes/`: inclusions
-    -   `./_includes/b`, `./_includes/g`, and `./_includes/x` handle bibliographic citations, glossary entries, and cross-references respectively.
+    -   `./_includes/xref` handle cross-references.
     -   `./_includes/contributing.md`: how to contribute (included in several places).
     -   `./_includes/disclaimer.html`: temporary disclaimer about files being under development.
     -   `./_includes/foot.html`: everything needed in the foot of the page.
@@ -140,7 +144,7 @@
     -   `./_includes/toc-bib.html`: display the bibliography in the table of contents.
     -   `./_includes/toc-section.html`: display lessons or extras in the table of contents.
     -   `./_includes/toc.html`: display the entire table of contents.
-    -   `./_includes/lesson/file.ext`: an inclusion for `lesson`.
+    -   `./_includes/slug/file.ext`: an inclusion for the lesson with that slug.
 -   `./_layouts/`: page layouts.
     -   `./_layouts/default.html`: base layout (used directly only for the overall index page for the whole site).
     -   `./_layouts/lesson.html`: derived layout for all lesson pages.
@@ -158,6 +162,7 @@
     -   `./bin/check_src.py`: check for unused and missing source files in `./src/`.
     -   `./bin/check_toc.py`: check for unused or missing files compared to table of contents in `./_config.yml`.
     -   `./bin/cites.py`: handle citations during Markdown-to-LaTeX transformation (because `sed` can't do this one step).
+    -   `./bin/transform.py`: handle HTML-to-intermediate-to-LateX transformation.
     -   `./bin/uncode.py`: remove code blocks (used in counting words).
     -   `./bin/util.py`: utilities used by other scripts.
 -   `./css/`: CSS files
@@ -167,16 +172,13 @@
 -   `./etc/`: holding area for files that aren't being used right now but might be (re-)added later.
 -   `./favicon.ico`: toolbar icon.
 -   `./figures/`: [draw.io][draw-io] source for figures and all exported figures.
-    -   `./figures/lesson.xml`: source for all diagrams in that lesson.
-    -   `./figures/lesson-something.suffix`: PDF, PNG, or SVG export of a single figure from the XML file.
+    -   `./figures/slug.xml`: source for all diagrams in that lesson.
+    -   `./figures/slug_something.suffix`: PDF, PNG, or SVG export of a single figure from the XML file.
 -   `./img/`: miscellaneous images used in website (e.g., logo for license).
 -   `./index.md`: overall home page for site (currently redirects to English-language version).
 -   `./js/`: JavaScript files for site.
-    -   `./js/all-in-one.js`: create all-in-one HTML version in the browser (uses `concatenate.js`).
     -   `./js/bootstrap.min.js`: [Bootstrap][bootstrap]
-    -   `./js/concatenate.js`: utilities used to create all-in-one version of site.
     -   `./js/site.js`: used to clean up bibliographic citations and glossary entries, style tables, etc.
-    -   `./js/stitch.js`: command-line utility to combine all Markdown files into one (uses `concatenate.js`).
 -   `./project/`: the running example used throughout the lessons.
     -   Put in a sub-directory so that it can be structured the way a real project would be.
 -   `./requirements.txt`: Pip installation requirements.

@@ -221,7 +221,7 @@ which means you'd better tackle the first piece two weeks before the deadline.
 And since breaking large tasks down into small ones takes time,
 don't be embarrassed by having "plan XYZ" as a task in your list.
 Remember,
-a week of hard work can sometimes save you an hour of thought ({% include xref key="s:rules" %}).
+a week of hard work can sometimes save you an hour of thought ([s:rules](#REF)).
 
 The point of all this organization and preparation is
 to get yourself into the most productive mental state possible.
@@ -254,7 +254,7 @@ it would be harder on instructors,
 and some things need time to digest.
 Similarly,
 companies may know that meetings distract from work
-as often as they move it forward ({% include xref key="s:teamwork" %}),
+as often as they move it forward ([s:teamwork](#REF)),
 but some things really do need to be discussed.
 
 I find I'm most productive when I do three back-to-back sprints on one project in the morning,

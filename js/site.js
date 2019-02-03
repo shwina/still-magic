@@ -62,6 +62,22 @@ const fixBibRefs = () => {
     })
 }
 
+// Fix cross-reference links.
+const fixCrossRefs = () => {
+  const prefix = document.currentScript.getAttribute('ROOT') != '' ? '.' : '..'
+  const crossref = JSON.parse(document.currentScript.getAttribute('CROSSREF'))
+  Array.from(document.querySelectorAll('a'))
+    .filter(e => (e.getAttribute('href') == '#REF'))
+    .forEach(e => {
+      const key = e.textContent
+      const entry = crossref[key]
+      const link = prefix + '/' + entry.slug + '/#' + key
+      const text = entry.text + '&nbsp;' + entry.value
+      e.setAttribute('href', link)
+      e.innerHTML = text
+    })
+}
+
 // Perform transformations on load (which is why this script is included at the
 // bottom of the page).
 (function(){
@@ -70,4 +86,5 @@ const fixBibRefs = () => {
   stripeTables()
   fixBibRefs()
   fixGlossRefs()
+  fixCrossRefs()
 })()

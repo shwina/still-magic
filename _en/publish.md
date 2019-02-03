@@ -19,7 +19,7 @@ keypoints:
 -   "Publish your software as you would a paper."
 ---
 
--   Now that we know *how* to publish ({% include xref key="s:ghp" %}), the next questions are *what* and *where*
+-   Now that we know *how* to publish ([s:ghp](#REF)), the next questions are *what* and *where*
 -   Use the generic term "report" to include research papers, summaries for clients,
     and everything else that is shorter than a book and is going to be read by someone else
     -   "A report is a PDF you would print on your own printer."
@@ -33,12 +33,12 @@ keypoints:
 -   Big raw data (more than 5 GB)
     -   May not be yours in the first place, and needs professional archiving
     -   Again, include identifiers or download scripts
--   Whichever you use, get or create a [DOI](#g:doi) for each version of each dataset ({% include xref key="s:publish-identifiers" %})
+-   Whichever you use, get or create a [DOI](#g:doi) for each version of each dataset ([s:publish-identifiers](#REF))
 -   Also publish intermediate files that take a long time to generate
     -   Same sizing rules as above
     -   If they're likely to be used by other people or in other reports, get a DOI
 -   Publish the version IDs of the standard software used in the analysis
-    -   `pip freeze > requirements.txt` for Python packages ({% include xref key="s:packages-install" %})
+    -   `pip freeze > requirements.txt` for Python packages ([s:package-install](#REF))
     -   Helps to write a script to get versions for everything else
     -   Or put commands in a Makefile
 
@@ -71,8 +71,8 @@ archive :
 ```
 
 -   The configurations and parameters used for that software
-    -   If all parameters are in a configuration file, use that ({% include xref key="s:configure" %})
-    -   Or log all configuration parameters and use `grep` or a script to extract from the logfile ({% include xref key="s:logging" %})
+    -   If all parameters are in a configuration file, use that ([s:configure](#REF))
+    -   Or log all configuration parameters and use `grep` or a script to extract from the logfile ([s:logging](#REF))
 
 ## How Can I Identify Myself and My Work in Bibliographies? {#s:publish-identifiers}
 
@@ -90,7 +90,7 @@ archive :
     -   Pick a repository and click the "On" button
 -   Go back to GitHub repository
     -   Go to the "Releases" tab
-    -   Create a new release and give it a version number ({% include xref key="s:workflow-tag" %})
+    -   Create a new release and give it a version number ([s:branches-tag](#REF))
     -   Click "Publish release"
 -   Go back to Zenodo
     -   Look under the "Upload" tab for a new upload corresponding to this release
@@ -99,7 +99,7 @@ archive :
 -   Cite datasets and software versions in reports
     -   Include DOIs in bibliography entries
 -   Publish software in [JOSS][joss] or [F1000 Research][f1000-research]
--   Publish *everything* in open access venues ({% include xref key="s:inclusive-license" %})
+-   Publish *everything* in open access venues ([s:inclusive-license](#REF))
     -   Use [Unpaywall][unpaywall] browser extension to check and find things
 
 ## What Is the Most Useful Way to Share My Data? {#s:publish-fair}

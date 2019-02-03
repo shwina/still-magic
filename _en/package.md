@@ -166,7 +166,7 @@ you may need to run `sudo` to overwrite previously-installed libraries.
 *This is a bad idea*,
 since system tools may depend on particular versions of those packages,
 and may break if you overwrite them.
-{% include xref key="s:package-virtualenv" %} shows how to avoid these problems.
+[s:package-virtualenv](#REF) shows how to avoid these problems.
 
 Since a project may depend on many packages,
 developers frequently put a list of those dependencies in a file called `requirements.txt`.
@@ -189,7 +189,7 @@ You usually won't use this directly in `requirements.txt`,
 since your project probably doesn't depend on all of the listed files,
 but it's a good practice to save this in version control when producing reports
 so that you can reproduce your results later
-({% include xref key="s:publish" %}).
+([s:publish](#REF)).
 
 ## How can I create an installable Python package? {#s:package-package}
 
