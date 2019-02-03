@@ -1,3 +1,15 @@
+// Add the disclaimer.
+const addDisclaimer = () => {
+  const container = document.querySelector('div.disclaimer')
+  if (! container) {
+    return
+  }
+  container.innerHTML = `<p>These notes are in the early stages of development.
+      Recycled material that has not been edited is shown with a twilight blue background;
+      everything in white has had a first pass,
+      but needs at least one more.</p>`
+}
+
 // Pull all H2's into div.headings, or delete div.headings.
 const makeTableOfContents = () => {
   const container = document.querySelector('div.headings')
@@ -53,6 +65,7 @@ const fixBibRefs = () => {
 // Perform transformations on load (which is why this script is included at the
 // bottom of the page).
 (function(){
+  addDisclaimer()
   makeTableOfContents()
   stripeTables()
   fixBibRefs()

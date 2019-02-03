@@ -55,6 +55,12 @@ code.highlighter-rouge {
     color: #a06060;
 }
 
+/* Disclaimer. */
+div.disclaimer {
+    font-style: italic;
+    font-weight: bold;
+}
+
 /* Make output distinct. */
 div.language-text {
     font-weight: bold;
