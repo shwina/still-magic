@@ -113,14 +113,14 @@ class SpecialCharacters(Base):
 
 class CodeBlock(Base):
     '''
-    HTML div opening language block: <div class="language-LANG"
+    HTML div opening language block: <div ... class="language-LANG"
     =>
     LaTeX listing with language: \begin{lstlisting}[language=LANG]
     '''
 
     def pre(self, lines):
         return self._regexp(lines,
-                            r'(<div class="language-([^ ]+).*>)',
+                            r'(<div[^>]* class="language-([^ ]+)[^>]*>)',
                             r'==language=={1}=={0}')
 
     def post(self, lines):

@@ -459,7 +459,7 @@ this target is called `all`,
 and while we don't have to list all our phony targets in alphabetical order,
 it makes them a lot easier to find:
 
-```
+```make
 .PHONY: all clean
 
 COUNT=bin/countwords.py
@@ -542,7 +542,7 @@ They also depend on `bin/countwords.py`.
 What happens if we include that in the rule while using automatic variables?
 (We'll do this for a third book to keep the three rules separate in the example Makefile.)
 
-```
+```make
 # Regenerate results for "The Time Machine" - WRONG
 results/time_machine.csv : data/time_machine.txt ${COUNT}
         python bin/countwords.py $^ > $@
@@ -561,7 +561,7 @@ This situation comes up so often that
 Make helpfully provides another automatic variable `$<` meaning "the first prerequisite",
 which lets us rewrite our rules like this:
 
-```
+```make
 # Regenerate results for "Janey Eyre"
 results/jane_eyre.csv : data/jane_eyre.txt ${COUNT}
         python bin/countwords.py $< > $@
