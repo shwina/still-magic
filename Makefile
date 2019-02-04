@@ -91,6 +91,7 @@ check : ${BIB_MD}
 	@make lang=${lang} check_cites
 	@make lang=${lang} check_figs
 	@make lang=${lang} check_gloss
+	@make lang=${lang} check_langs
 	@make lang=${lang} check_links
 	@make lang=${lang} check_src
 	@make lang=${lang} check_toc
@@ -110,6 +111,10 @@ check_figs :
 ## check_gloss : check that all glossary entries are defined and used.
 check_gloss :
 	@bin/check_gloss.py ${PAGES_MD}
+
+## check_langs : check that all fenced code blocks have language types.
+check_langs :
+	@bin/check_langs.py _config.yml ${DIR_MD}
 
 ## check_links : check that all external links are defined and used.
 check_links :

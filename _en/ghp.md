@@ -105,7 +105,7 @@ which render as *italics* and **bold**.
 
 We can use one to six `#` signs at the start of a line to create headings of various levels:
 
-```
+```text
 # Level-1
 ## Level-2
 ### Level-3
@@ -115,7 +115,7 @@ Unnumbered lists are written using dashes or asterisks as markers;
 it's conventional to indent points and nested lists by four columns for readability,
 but not strictly required.
 
-```
+```text
 -   First top item
     -   First nested item
     -   Second nested
@@ -129,7 +129,7 @@ Numbered lists are written `1.`, `2.`, and so on instead of dashes or asterisks.
 We usually number everything with `1.`
 and let the Markdown processor figure out what the actual numbers should be.
 
-```
+```text
 1.  First top item
 1.  Second top item
     1.  You can use
@@ -140,7 +140,7 @@ and let the Markdown processor figure out what the actual numbers should be.
 
 Code can be written inline using back quotes:
 
-```
+```text
 Compile `rnadiff` using `Make`.
 ```
 
@@ -161,7 +161,7 @@ which is helpful when we're trying to show how back quotes work
 There are three ways to write links.
 The first puts the displayed text in square brackets and the URL in parentheses:
 
-```
+```text
 Please see [our website](http://example.com) for more information.
 ```
 
@@ -169,7 +169,7 @@ It's generally considered better style to use a memorable name for the link
 in square brackets in the text
 and then define that link at the bottom of the file:
 
-```
+```text
 Create links [like this][website] to ensure consistency.
 
 [website]: http://example.com
@@ -183,7 +183,7 @@ Images are where things start to get squirrelly.
 There is no obvious syntax,
 so Markdown uses link syntax with an exclamation mark at the start:
 
-```
+```text
 ![image title](URL)
 ```
 
@@ -191,7 +191,7 @@ And then there are tables.
 In a throwback to the 1970s,
 Markdown requires us to draw them using horizontal and vertical bars:
 
-```
+```text
 | Common Name | Scientific Name       |
 |-------------|-----------------------|
 | groath      | Hebecephalus montanus |
@@ -241,7 +241,7 @@ When Jekyll processes source files,
 it copies text files (including Markdown and HTML) as-is,
 unless they start with two triple-dash lines:
 
-```
+```text
 ---
 ---
 
@@ -442,7 +442,7 @@ Finally,
 the word `async` means "don't hold up loading, but run the script as soon as it's available";
 see [this tutorial][js-vs-ds] if you really want to learn more.
 
-```
+```html
 <html>
   <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
@@ -466,7 +466,7 @@ we mark the inline LaTeX in the body of our page with `$$...$$` markers
 This works in both Markdown and HTML,
 so that:
 
-```
+```text
 The circle is defined by $$x^2 + y^2 = \mu$$.
 ```
 
@@ -478,7 +478,7 @@ We can also use double dollar signs on lines of their own to generate block equa
 
 </div>
 
-```
+```text
 $$ r = \sqrt{\frac {N} {N+1}} \sqrt{\frac {N+1} {2N}} = \sqrt{\frac{1}{2}} $$
 ```
 
@@ -515,8 +515,8 @@ Here are just a few of the things MathJax can do:
 In order to enable MathJax in a page,
 we need to include this line in the page's `head` element:
 
-```
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
 ```
 
 If all our pages use the same template,
@@ -587,7 +587,7 @@ The syntax is shown below:
 -   A pipe symbol (just as you would use in the shell).
 -   The name of the filter function (in this case, `relative_url`).
 
-```
+```html
 <img src="{% raw %}{{'/images/profile.png' | relative_url}}{% endraw %}" />
 ```
 

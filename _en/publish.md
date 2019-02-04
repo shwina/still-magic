@@ -42,7 +42,7 @@ keypoints:
     -   Helps to write a script to get versions for everything else
     -   Or put commands in a Makefile
 
-```
+```make
 ## versions : dump versions of everything used in this run
 versions :
         @echo '# Python packages'
@@ -58,7 +58,7 @@ versions :
     -   May publish script by script, or create a Zipfile or tar file that includes everything
     -   The Makefile fragment below creates `~/archive/meow-2018-08-21.tgz`
 
-```
+```make
 ARCHIVE=${HOME}/archive
 PROJECT=meow
 TODAY=$(shell date "+%Y-%m-%d")

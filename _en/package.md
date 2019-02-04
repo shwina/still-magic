@@ -305,7 +305,7 @@ we must create a file called `setup.py` in the directory *above* the root direct
 The file `setup.py` must have exactly that name,
 and must contain these lines:
 
-```
+```python
 from setuptools import setup, find_packages
 
 setup(

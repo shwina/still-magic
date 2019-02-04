@@ -247,7 +247,7 @@ we will see if the similarity measures we develop show that.
 ## Acknowledgments {#s:intro-ack}
 
 This book owes its existence to
-the hundreds of researchers I met through [Software Carpentry][carpentries].
+the hundreds of researchers I met through [Software Carpentry][swc] and [Data Carpentry][dc].
 I am also grateful to [Insight Data Science][insight] for sponsoring the early stages of this work,
 to everyone who has contributed ([s:citation](#REF)),
 and to:

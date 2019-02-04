@@ -70,7 +70,7 @@ print('options is', options)
 print('extras is', extras)
 ```
 {: title="configure/getopt_simple.py"}
-```
+```text
 options is [('-q', ''), ('-b', '/tmp/log.txt')]
 extras is ['file1.txt', 'file2.txt']
 ```
@@ -177,7 +177,7 @@ print('options is', options)
 print('extras is', extras)
 ```
 {: title="configure/getopt_long.py"}
-```
+```text
 options is [('-q', ''), ('--logfile', '/tmp/log.txt'), ('--overwrite', '')]
 extras is ['file1.txt', 'file2.txt']
 ```

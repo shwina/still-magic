@@ -197,7 +197,7 @@ for bound in (1e-15, 1e-16):
         if total != approx(expected, abs=bound):
             print('{:22.21f} {:2d} {:22.21f} {:22.21f}'.format(bound, i, total, expected))
 ```
-```
+```text
 9.999999999999999790978e-17  6 0.999999000000000082267 0.999998999999999971244
 9.999999999999999790978e-17  8 0.999999990000000060775 0.999999989999999949752
 ```
@@ -224,9 +224,7 @@ for bound in (1e-15, 1e-16):
 -   It also allows you to turn off comparison of text, because font differences can throw up spurious failures
     -   If images are close enough that a human being would make the same decision about meaning, the test should pass
 
-```
 FIXME: example
-```
 
 -   If the plotting library allows output as SVG, can test the structure of the SVG
     -   SVG is a [vector format](#g:vector-image) that uses a hierarchical document structure like HTML's
@@ -249,7 +247,7 @@ FIXME: example
     -   Real data will be integers (since words only occur or not), and distribution is fractional
     -   Use 5% relative error (by experimentation, 1% excludes a valid correct value)
 
-```
+```python
 import sys
 from pytest import approx
 
@@ -330,8 +328,7 @@ with open('logfile.txt', 'a') as logger:
     logger.write('word_count.py,num_words,{}\n'.format(num_words))
     logger.write('word_count.py,num_distinct,{}\n'.format(len(count)))
 ```
-
-```
+```text
 text_to_words.py,num_lines,431
 text_to_words.py,num_words,2554
 word_count.py,num_words,2554
@@ -378,7 +375,8 @@ assert actual == pytest.approx(reference, rel=TEST_TOLERANCE)
 -   Inferred rules are stored as JSON, and are (sort of) readable
     -   Reading and modifying the rules is a good way to get to know your data
 
-```
+<!-- FIXME: should be 'json' -->
+```python
 "fields": {
     "Name": {
         "type": "string",
@@ -427,8 +425,10 @@ assert actual == pytest.approx(reference, rel=TEST_TOLERANCE)
     -   `-7` to get pure ASCII output
     -   `-f` to show only fields with failures
 
+```shell
+$ tdda verify -7 -f elements118.csv elements92.tdda
 ```
-$ tdda verify -7 -f elements118.csv elements92.tdda 
+```text
 FIELDS:
 
 Name: 1 failure  4 passes  type OK  min_length OK  max_length X  max_nulls OK  no_duplicates OK

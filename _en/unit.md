@@ -293,7 +293,7 @@ def test_text_not_empty():
         count_words('')
 ```
 {: title="unit/test_exception_with.py"}
-```
+```text
 ============================= test session starts ==============================
 platform darwin -- Python 3.6.5, pytest-3.5.1, py-1.5.3, pluggy-0.6.0
 rootdir: /Users/gvwilson/merely-useful/still-magic/src/unit, inifile:
