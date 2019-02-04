@@ -375,8 +375,7 @@ assert actual == pytest.approx(reference, rel=TEST_TOLERANCE)
 -   Inferred rules are stored as JSON, and are (sort of) readable
     -   Reading and modifying the rules is a good way to get to know your data
 
-<!-- FIXME: should be 'json' -->
-```python
+```json
 "fields": {
     "Name": {
         "type": "string",

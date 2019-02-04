@@ -34,8 +34,7 @@ keypoints:
     -   Flick the switch
 -   Create a file called `.travis.yml` in the root directory of the repository (note the leading '.')
 
-<!-- FIXME: should be 'yaml' -->
-```text
+```yaml
 language: "python"
 python:
 -   "3.6"
@@ -89,8 +88,7 @@ print('Hello, continuous')
     -   Don't worry about other codes (like 127 for "command not found" and 130 for "terminated with Control-C")
 -   Test this by adding a second script to `.travis.yml`
 
-<!-- FIXME: should be 'yaml' -->
-```text
+```yaml
 language: "python"
 python:
 -   "3.6"

@@ -55,10 +55,10 @@ toc : ${TOC_JSON}
 # Regenerate PDF once 'all.tex' has been created.
 ${BOOK_PDF} : ${ALL_TEX}
 	cd ${DIR_TEX} \
-	&& ${LATEX} -jobname=${STEM} book \
+	&& ${LATEX} --shell-escape -jobname=${STEM} book \
 	&& ${BIBTEX} ${STEM} \
-	&& ${LATEX} -jobname=${STEM} book \
-	&& ${LATEX} -jobname=${STEM} book
+	&& ${LATEX} --shell-escape -jobname=${STEM} book \
+	&& ${LATEX} --shell-escape -jobname=${STEM} book
 
 # Create the unified LaTeX file (separate target to simplify testing).
 ${ALL_TEX} : ${PAGES_HTML} bin/get_body.py bin/transform.py ${TOC_JSON}

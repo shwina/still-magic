@@ -4,12 +4,14 @@
 *.egg-info
 *.log
 *.out
+*.pyg
 *.toc
 *~
 .coverage
 .jekyll-metadata
 .pytest_cache
 __pycache__
+_minted-*
 _site
 dist
 htmlcov

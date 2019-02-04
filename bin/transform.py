@@ -113,9 +113,9 @@ class SpecialCharacters(Base):
 
 class CodeBlock(Base):
     '''
-    HTML div opening language block: <div ... class="language-LANG"
+    HTML div opening language block: <div ... class="language-LANG"...>...</div>
     =>
-    LaTeX listing with language: \begin{lstlisting}[language=LANG]
+    LaTeX listing with language: \begin{minted}{language}...\end{minted}
     '''
 
     def pre(self, lines):
@@ -127,16 +127,13 @@ class CodeBlock(Base):
         lines = self._squash(lines)
         lines = self._regexp(lines,
                              r'==language==([^=]+)==\\begin{verbatim}',
-                             r'\begin{{lstlisting}}[language={0}]')
-        lines = self._replace(lines,
-                              r'\begin{lstlisting}[language=text]',
-                              r'\begin{lstlisting}[backgroundcolor=\color{verylightgray}]')
+                             r'\begin{{minted}}{{{0}}}')
         lines = self._replace(lines,
                               r'\begin{verbatim}',
-                              r'\begin{lstlisting}')
+                              '% FIXME\n\\begin{minted}{text}')
         lines = self._replace(lines,
                               r'\end{verbatim}',
-                              r'\end{lstlisting}')
+                              r'\end{minted}')
         return lines
 
     def _squash(self, lines):
