@@ -17,12 +17,13 @@ keypoints:
 -   If you return a default (e.g., couldn't find configuration file, using default settings) tell users, and confirm before proceeding.
 -   For things like null pointers, assume that state is too corrupt to be recoverable: log and fail.
 
--   Example from Nick Radcliffee: the message below isn't helpful because it doesn't tell us which of the four tests failed:
-```
+-   Example from Nick Radcliffe: the message below isn't helpful because it doesn't tell us which of the four tests failed:
+
+```python
 if (val is not None and minVal < val < maxVal and val % 2 = 0 and val >= prevVal):
     # OK branch
 else:
-    raise Exception('Bad value: %s'.format(val))
+    raise Exception('Bad value: {}'.format(val))
 ```
 
 -   Use `finally`.
