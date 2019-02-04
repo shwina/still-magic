@@ -352,48 +352,16 @@ HANDLERS = [
     SpecialCharacters
 ]
 
-def pre_process(config_file, source_dir, crossref, include_dir):
+def main(which, crossref, include_dir):
     '''
-    Apply all pre-processing handlers.
-    '''
-    lines = get_lines(config_file, source_dir)
-    crossref = get_crossref(crossref)
-    for handler in HANDLERS:
-        lines = handler(crossref, include_dir).pre(lines)
-    sys.stdout.writelines(lines)
-
-
-def post_process(config_file, source_dir, crossref, include_dir):
-    '''
-    Apply all post-processing handlers.
+    Apply all pre- or post-processing handlers.
     '''
     lines = sys.stdin.readlines()
     crossref = get_crossref(crossref)
     for handler in HANDLERS:
-        lines = handler(crossref, include_dir).post(lines)
+        h = handler(crossref, include_dir)
+        lines = getattr(h, which)(lines)
     sys.stdout.writelines(lines)
-
-
-def get_lines(config_file, source_dir):
-    '''
-    Get all lines from input files, inserting a few markers for post-processing.
-    '''
-
-    toc = get_toc(config_file)
-    result = []
-
-    result.append('==frontmatter==\n')
-    get_main_div(result, os.path.join(source_dir, 'index.html'))
-
-    result.append('==mainmatter==\n')
-    for filename in make_filenames(source_dir, toc['lessons']):
-        get_main_div(result, filename)
-
-    result.append('==midpoint==\n')
-    for filename in make_filenames(source_dir, toc['extras']):
-        get_main_div(result, filename)
-
-    return result
 
 
 def get_crossref(filename):
@@ -401,43 +369,11 @@ def get_crossref(filename):
         return json.load(reader)
 
 
-def make_filenames(source_dir, slugs):
-    '''Turn slugs into filenames.'''
-
-    return [os.path.join(source_dir, s, 'index.html') for s in slugs]
-
-
-def get_main_div(result, filename):
-    '''Read main div from file, returning a list of lines.'''
-
-    with open(filename, 'r') as reader:
-        lines = reader.readlines()
-        lines = keep_main(lines)
-        result.extend(lines)
-    return result
-
-
-def keep_main(lines):
-    '''Find and keep the main div.'''
-
-    start = end = None
-    for (i, line) in enumerate(lines):
-        if '<!-- begin: main -->' in line:
-            start = i
-        elif '<!-- end: main -->' in line:
-            end = i
-            break
-    return lines[start:end+1]
-
-#-------------------------------------------------------------------------------
-
 if __name__ == '__main__':
-    USAGE = 'transform.py [--pre | --post] config_file source_dir crossref include_dir'
-    if len(sys.argv) != 6:
+    USAGE = 'transform.py [--pre | --post] crossref include_dir'
+    if len(sys.argv) != 4:
         usage(USAGE)
-    elif sys.argv[1] == '--pre':
-        pre_process(*sys.argv[2:])
-    elif sys.argv[1] == '--post':
-        post_process(*sys.argv[2:])
+    elif sys.argv[1] not in ['--pre', '--post']:
+        usage(USAGE)
     else:
-        usage(USAGE)
+        main(sys.argv[1].lstrip('-'), sys.argv[2], sys.argv[3])
