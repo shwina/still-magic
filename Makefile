@@ -29,25 +29,25 @@ BOOK_PDF=${DIR_TEX}/${STEM}.pdf
 # Controls
 all : commands
 
-## commands    : show all commands.
+## commands       : show all commands.
 commands :
 	@grep -h -E '^##' ${MAKEFILE_LIST} | sed -e 's/## //g'
 
-## serve       : run a local server.
+## serve          : run a local server.
 serve : ${TOC_JSON}
 	${JEKYLL} serve -I
 
-## site        : build files but do not run a server.
+## site           : build files but do not run a server.
 site : ${TOC_JSON}
 	${JEKYLL} build
 
-## pdf         : generate PDF from LaTeX source.
+## pdf            : generate PDF from LaTeX source.
 pdf : ${BOOK_PDF}
 
-## bib         : regenerate the Markdown bibliography from the BibTeX file.
+## bib            : regenerate the Markdown bibliography from the BibTeX file.
 bib : ${BIB_MD}
 
-## toc         : regenerate the table of contents JSON file.
+## toc            : regenerate the table of contents JSON file.
 toc : ${TOC_JSON}
 
 # ----------------------------------------
@@ -85,10 +85,11 @@ ${DIR_HTML}/%/index.html : $(wildcard _includes/%/*.*)
 
 ## ----------------------------------------
 
-## check       : check everything.
-check : ${BIB_MD}
+## check          : check everything.
+check : ${BIB_MD} ${TOC_JSON}
 	@make lang=${lang} check_anchors
 	@make lang=${lang} check_cites
+	@make lang=${lang} check_crossref
 	@make lang=${lang} check_figs
 	@make lang=${lang} check_gloss
 	@make lang=${lang} check_langs
@@ -96,56 +97,60 @@ check : ${BIB_MD}
 	@make lang=${lang} check_src
 	@make lang=${lang} check_toc
 
-## check_anchors : list all incorrectly-formatted H2 anchors.
+## check_anchors  : list all incorrectly-formatted H2 anchors.
 check_anchors :
 	@bin/check_anchors.py _config.yml ${DIR_MD}
 
-## check_cites : list all missing or unused bibliography entries.
+## check_cites    : list all missing or unused bibliography entries.
 check_cites : ${BIB_MD}
 	@bin/check_cites.py ${DIR_MD}/bib.md ${PAGES_MD}
 
-## check_figs  : list all missing or unused figures.
+## check_crossref : find all missing cross-references.
+check_crossref : ${TOC_JSON}
+	@bin/check_crossref.py _config.yml ${DIR_MD} ${TOC_JSON}
+
+## check_figs     : list all missing or unused figures.
 check_figs :
 	@bin/check_figs.py figures ${PAGES_MD}
 
-## check_gloss : check that all glossary entries are defined and used.
+## check_gloss    : check that all glossary entries are defined and used.
 check_gloss :
 	@bin/check_gloss.py ${PAGES_MD}
 
-## check_langs : check that all fenced code blocks have language types.
+## check_langs    : check that all fenced code blocks have language types.
 check_langs :
 	@bin/check_langs.py _config.yml ${DIR_MD}
 
-## check_links : check that all external links are defined and used.
+## check_links    : check that all external links are defined and used.
 check_links :
 	@bin/check_links.py _config.yml _includes/links.md ${PAGES_MD} _includes/contributing.md
 
-## check_src   : check source file inclusion references.
+## check_src      : check source file inclusion references.
 check_src :
 	@bin/check_src.py src ${PAGES_MD}
 
-## check_toc   : check consistency of tables of contents.
+## check_toc      : check consistency of tables of contents.
 check_toc :
 	@bin/check_toc.py _config.yml ${PAGES_MD}
 
 ## ----------------------------------------
 
-## spelling    : compare words against saved list.
+## spelling       : compare words against saved list.
 spelling :
 	@cat ${PAGES_MD} | bin/uncode.py | aspell list | sort | uniq | comm -2 -3 - .words
 
-## undone      : which files have not yet been done?
+## undone         : which files have not yet been done?
 undone :
 	@grep -l 'undone: true' _en/*.md
 
-## words       : count words in finished files.
+## words          : count words in finished files.
 words :
 	@for filename in $$(fgrep -L 'undone: true' ${PAGES_MD}); do printf '%6d %s\n' $$(cat $$filename | bin/uncode.py | wc -w) $$filename; done | sort -n -r
 	@printf '%6d %s\n' $$(cat ${PAGES_MD} | bin/uncode.py | wc -w) 'total'
 
 ## ----------------------------------------
 
-## clean       : clean up junk files.
+## clean          : clean up junk files.
 clean :
 	@rm -r -f _site dist
 	@find . -name '*~' -delete
@@ -153,7 +158,7 @@ clean :
 	@rm -r -f tex/*/all.tex tex/*/*.aux tex/*/*.bbl tex/*/*.blg tex/*/*.log tex/*/*.out tex/*/*.toc
 	@find . -name .DS_Store -prune -exec rm -r "{}" \;
 
-## settings    : show macro values.
+## settings       : show macro values.
 settings :
 	@echo "JEKYLL=${JEKYLL}"
 	@echo "DIR_MD=${DIR_MD}"

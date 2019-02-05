@@ -7,8 +7,7 @@ Do pre- and post-transformations required to produce clean LaTeX from Pandoc's M
 import sys
 import os
 import re
-import json
-from util import usage, get_toc
+from util import usage, get_crossref, get_toc
 
 #-------------------------------------------------------------------------------
 
@@ -359,11 +358,6 @@ def main(which, crossref, include_dir):
         h = handler(crossref, include_dir)
         lines = getattr(h, which)(lines)
     sys.stdout.writelines(lines)
-
-
-def get_crossref(filename):
-    with open(filename, 'r') as reader:
-        return json.load(reader)
 
 
 if __name__ == '__main__':

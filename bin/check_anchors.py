@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 
+'''
+Check that all anchors on level-2 headings are properly formatted and include the chapter slug.
+'''
+
 import sys
 import os
 import re
@@ -10,7 +14,7 @@ TITLE = 'Anchors'
 
 
 def main(config_file, source_dir):
-    header_pat = re.compile(r'^##\s+[^}]+{([^}]+)}\s*$')
+    header_pat = re.compile(r'^##\s+[^{]+{([^}]+)}\s*$')
     target_pat = re.compile(r'#s:([^-]+)')
     slugs = get_toc_slugs(config_file)
     result = set()

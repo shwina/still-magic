@@ -3,6 +3,8 @@ Utilities.
 '''
 
 import sys
+import os
+import json
 import yaml
 
 
@@ -17,6 +19,18 @@ def get_toc_slugs(config_path):
     '''Return a set of all slugs in the ToC.'''
     toc = get_toc(config_path)
     return set(toc['lessons'] + toc['bib'] + toc['extras'])
+
+
+def get_source_filenames(config_path, source_dir):
+    toc = get_toc(config_path)
+    slugs = toc['lessons'] + toc['bib'] + toc['extras']
+    return [os.path.join(source_dir, 'index.md')] + \
+        [os.path.join(source_dir, '{}.md'.format(s)) for s in slugs]
+
+
+def get_crossref(filename):
+    with open(filename, 'r') as reader:
+        return json.load(reader)
 
 
 def report(title, group, values):

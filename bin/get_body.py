@@ -7,7 +7,6 @@ Get bodies of generated pages.
 import sys
 import os
 import re
-import json
 from util import usage, get_toc
 
 
