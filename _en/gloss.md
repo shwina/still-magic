@@ -365,6 +365,9 @@ title: "Glossary"
 **Relative URL**{:#g:relative-url}
 :   FIXME
 
+**Remote login**{:#g:remote-login}
+:   FIXME
+
 **Representation State Transfer**{:#g:rest} (REST)
 :   FIXME
 
@@ -411,6 +414,12 @@ title: "Glossary"
 :   FIXME
 
 **Software development process**{:#g:dev-process}
+:   FIXME
+
+**SSH key**{:#g:ssh-key}
+:   FIXME
+
+**SSH protocol**{:#g:ssh-protocol}
 :   FIXME
 
 **Stand-up meeting**{:#g:stand-up-meeting}

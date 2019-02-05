@@ -129,8 +129,7 @@
         -   The use of `permalink: /:collection/:title/` to turn `_en/something.md` into `_site/en/something/index.html`.
         -   The use of `defaults` to specify the `lesson` layout for all the files in `_en`.
             -   Except `toc.json`, which uses `layout: none`.
--   `./_data/toc.json`: JSON-formatted table of contents data.
-    -   FIXME: should be done by language.
+-   `./_data/lang_toc.json`: JSON-formatted table of contents data.
 -   `./_en/`: English-language collection of Markdown files.
 -   `./_includes/`: inclusions
     -   `./_includes/disclaimer.html`: temporary disclaimer about files being under development.
