@@ -40,7 +40,6 @@ definitions if that's done.
 
 [f1000-research]: https://f1000research.com/
 [figshare]: https://figshare.com/
-[format-r]: https://yihui.name/formatr/
 
 [geek-feminism]: http://geekfeminism.wikia.com/
 [gfm]: https://help.github.com/articles/github-flavored-markdown/

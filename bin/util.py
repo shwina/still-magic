@@ -15,17 +15,17 @@ def get_toc(config_path):
     return config['toc']
 
 
-def get_toc_slugs(config_path):
-    '''Return a set of all slugs in the ToC.'''
-    toc = get_toc(config_path)
-    return set(toc['lessons'] + toc['bib'] + toc['extras'])
-
-
-def get_source_filenames(config_path, source_dir):
+def get_sources(config_path, source_dir, with_index=True):
+    '''
+    Return a list of (slug, filename) pairs from the table of contents,
+    including ('index', 'lang/index.md') unless told not to.
+    '''
     toc = get_toc(config_path)
     slugs = toc['lessons'] + toc['bib'] + toc['extras']
-    return [os.path.join(source_dir, 'index.md')] + \
-        [os.path.join(source_dir, '{}.md'.format(s)) for s in slugs]
+    result = [(s, os.path.join(source_dir, '{}.md'.format(s))) for s in slugs]
+    if with_index:
+        result = [('index', os.path.join(source_dir, 'index.md'))] + result
+    return result
 
 
 def get_crossref(filename):

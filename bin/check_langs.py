@@ -2,12 +2,12 @@
 
 import sys
 import os
-from util import get_source_filenames, report, usage
+from util import get_sources, report, usage
 
 
 def main(config_file, source_dir):
     result = set()
-    for filename in get_source_filenames(config_file, source_dir):
+    for (slug, filename) in get_sources(config_file, source_dir):
         with open(filename, 'r') as reader:
             in_block = False
             for (i, line) in enumerate(reader):

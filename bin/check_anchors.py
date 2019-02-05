@@ -7,7 +7,7 @@ Check that all anchors on level-2 headings are properly formatted and include th
 import sys
 import os
 import re
-from util import get_toc_slugs, report
+from util import get_sources, report
 
 
 TITLE = 'Anchors'
@@ -16,11 +16,9 @@ TITLE = 'Anchors'
 def main(config_file, source_dir):
     header_pat = re.compile(r'^##\s+[^{]+{([^}]+)}\s*$')
     target_pat = re.compile(r'#s:([^-]+)')
-    slugs = get_toc_slugs(config_file)
     result = set()
-    for slug in slugs:
-        path = os.path.join(source_dir, slug + '.md')
-        with open(path, 'r') as reader:
+    for (slug, filename) in get_sources(config_file, source_dir):
+        with open(filename, 'r') as reader:
             for line in reader:
                 anchor = header_pat.search(line)
                 if not anchor:

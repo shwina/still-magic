@@ -133,8 +133,6 @@
     -   FIXME: should be done by language.
 -   `./_en/`: English-language collection of Markdown files.
 -   `./_includes/`: inclusions
-    -   `./_includes/xref` handle cross-references.
-    -   `./_includes/contributing.md`: how to contribute (included in several places).
     -   `./_includes/disclaimer.html`: temporary disclaimer about files being under development.
     -   `./_includes/foot.html`: everything needed in the foot of the page.
     -   `./_includes/head.html`: everything needed in the head of the page that doesn't depend on configuration variables.

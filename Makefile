@@ -123,7 +123,7 @@ check_langs :
 
 ## check_links    : check that all external links are defined and used.
 check_links :
-	@bin/check_links.py _config.yml _includes/links.md ${PAGES_MD} _includes/contributing.md
+	@bin/check_links.py _config.yml ${DIR_MD} _includes/links.md
 
 ## check_src      : check source file inclusion references.
 check_src :

@@ -6,20 +6,18 @@ Check for unused and undefined links.
 
 import sys
 import re
-from util import get_toc_slugs, report, usage
+from util import get_sources, report, usage
 
 
 LINKS_TITLE = 'Links'
-INTERNAL_TITLE = 'Internal References'
 
 
-def main(config_file, links_file, source_files):
-    toc = get_toc_slugs(config_file)
+def main(config_file, source_dir, links_file):
+    source_files = [filename for (slug, filename) in get_sources(config_file, source_dir)]
     defs = read_defs(links_file)
     link_refs, internal_refs = read_refs(source_files)
     report(LINKS_TITLE, 'unused', defs - link_refs)
     report(LINKS_TITLE, 'undefined', link_refs - defs)
-    report(INTERNAL_TITLE, 'undefined', internal_refs - toc)
 
 
 def read_defs(filename):
@@ -53,6 +51,6 @@ def read_refs(filenames):
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 3:
-        usage('checklinks.py config_file links_file [filename ...]')
-    main(sys.argv[1], sys.argv[2], sys.argv[3:])
+    if len(sys.argv) != 4:
+        usage('checklinks.py config_file source_dir links_file')
+    main(sys.argv[1], sys.argv[2], sys.argv[3])

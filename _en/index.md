@@ -74,8 +74,4 @@ the Bash shell,
 Python 3,
 and a GitHub account.
 
-## Contributing {#s:index-contributing}
-
-{% include contributing.md %}
-
 {% include links.md %}
