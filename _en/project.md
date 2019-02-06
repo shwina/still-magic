@@ -160,8 +160,8 @@ so that instead of reading `human_genome.bam`,
 the program reads `human_genome.yml` and then uses the `url` key in that file to find the data it actually wants.
 If your data is complicated,
 you may also want to include a `README.md` file in `./data/` modelled on the one that accompanies
-The Pudding article "[Women's Pockets are Inferior][womens-pockets]",
-which you can find [here][womens-pockets-data].
+The Pudding article "[Women's Pockets are Inferior][womens-pockets]"
+(see [s:publish](#REF)).
 
 ## What other files should every project contain? {#s:project-boilerplate}
 

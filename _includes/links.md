@@ -13,6 +13,7 @@ definitions if that's done.
 [config-website]: {{site.website}}
 
 [ally-skills]: https://frameshiftconsulting.com/ally-skills-workshop/
+[aruliah-dhavide]: https://www.linkedin.com/in/dhavide-aruliah-76818184/
 
 [becker-bruce]: https://www.brettbecker.com/
 [bibtex]: http://www.bibtex.org/
@@ -53,6 +54,7 @@ definitions if that's done.
 [gustavsen-julia]: http://www.juliagustavsen.com/
 [gutenberg]: https://www.gutenberg.org/
 
+[hertweck-kate]: https://www.linkedin.com/in/katehertweck/
 [huff-katy]: http://katyhuff.github.io/
 [huff-testing]: https://github.com/katyhuff/python-testing
 [hugo]: https://gohugo.io/
@@ -67,6 +69,7 @@ definitions if that's done.
 
 [kernighan-brian]: https://en.wikipedia.org/wiki/Brian_Kernighan
 [kirk-matthew]: https://www.matthewkirk.com/
+[koch-christina]: http://christinalk.github.io/
 
 [latex]: http://www.latex-project.org/
 [libreoffice]: https://www.libreoffice.org/
@@ -90,6 +93,7 @@ definitions if that's done.
 [overleaf]: https://www.overleaf.com/
 
 [pandoc]: https://pandoc.org/
+[pentium-div-bug]: https://en.wikipedia.org/wiki/Pentium_FDIV_bug
 [pep-8]: https://www.python.org/dev/peps/pep-0008/
 [poisot-timothee]: http://poisotlab.io/
 [producing-oss]: https://producingoss.com/
@@ -125,12 +129,14 @@ definitions if that's done.
 [tldr-gpl]: https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)
 [travis-ci]: https://travis-ci.org/
 [troy-meetings]: https://chelseatroy.com/2018/03/29/why-do-remote-meetings-suck-so-much/
+[turk-matt]: https://sites.google.com/site/matthewturk/
 [tyranny-structurelessness]: http://www.jofreeman.com/joreen/tyranny.htm
 
 [unpaywall]: http://unpaywall.org/
 
 [vanderplas-licensing]: http://www.astrobetter.com/blog/2014/03/10/the-whys-and-hows-of-licensing-scientific-code/
 
+[wickes-elizabeth]: https://elizabethwickes.com/
 [wikipedia-iso-country]: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3
 [wilson-greg]: http://third-bit.com
 [womens-pockets]: https://pudding.cool/2018/08/pockets/
