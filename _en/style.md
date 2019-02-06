@@ -139,7 +139,7 @@ Three common patterns that people might match against are:
 3.  Process it.
 4.  Write output.
 
-<!-- == \noindent -->
+<!-- == noindent -->
 or:
 
 1.  Figure out what the user has asked for.
@@ -149,7 +149,7 @@ or:
     3.  Write file-specific output (if any).
 3.  Write summary output (if any).
 
-<!-- == \noindent -->
+<!-- == noindent -->
 or:
 
 1.  Figure out what the user has asked for.
@@ -212,7 +212,7 @@ def image_diff(left, right, per_pixel=0, fraction=0.01):
     # ...implementation...
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 When this function is called using `image_diff(old, new)`,
 those default values apply.
 However,
@@ -234,7 +234,7 @@ def collect(new_value, accumulator=set()):
     return accumulator
 ```
 
-<!-- == \noindent -->
+<!-- == noindent -->
 it calls `set()` to create a new empty set,
 and then uses that set as the default value for `accumulator` every time the function is called.
 It does *not* call `set()` anew for each call,
@@ -327,7 +327,7 @@ print(set_options('p', align='center', size='150%'))
 ```
 {: title="style/set_options.py"}
 
-<!-- == \noindent -->
+<!-- == noindent -->
 Notice that the names of parameters are not quoted:
 the call is `color='blue'` and not `'color'='blue'`.
 

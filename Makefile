@@ -87,51 +87,43 @@ ${DIR_HTML}/%/index.html : $(wildcard _includes/%/*.*)
 
 ## check          : check everything.
 check : ${BIB_MD} ${TOC_JSON}
-	@make lang=${lang} check_anchors
-	@make lang=${lang} check_cites
-	@make lang=${lang} check_crossref
-	@make lang=${lang} check_figs
-	@make lang=${lang} check_gloss
-	@make lang=${lang} check_langs
-	@make lang=${lang} check_links
-	@make lang=${lang} check_src
-	@make lang=${lang} check_toc
+	@bin/check.py ${lang} all
 
 ## check_anchors  : list all incorrectly-formatted H2 anchors.
 check_anchors :
-	@bin/check_anchors.py _config.yml ${DIR_MD}
+	@bin/check.py ${lang} anchors
 
 ## check_cites    : list all missing or unused bibliography entries.
 check_cites : ${BIB_MD}
-	@bin/check_cites.py ${DIR_MD}/bib.md ${PAGES_MD}
+	@bin/check.py ${lang} cites
 
 ## check_crossref : find all missing cross-references.
 check_crossref : ${TOC_JSON}
-	@bin/check_crossref.py _config.yml ${DIR_MD} ${TOC_JSON}
+	@bin/check.py ${lang} crossref
 
 ## check_figs     : list all missing or unused figures.
 check_figs :
-	@bin/check_figs.py figures ${PAGES_MD}
+	@bin/check.py ${lang} figures
 
 ## check_gloss    : check that all glossary entries are defined and used.
 check_gloss :
-	@bin/check_gloss.py ${PAGES_MD}
+	@bin/check.py ${lang} gloss
 
 ## check_langs    : check that all fenced code blocks have language types.
 check_langs :
-	@bin/check_langs.py _config.yml ${DIR_MD}
+	@bin/check.py ${lang} langs
 
 ## check_links    : check that all external links are defined and used.
 check_links :
-	@bin/check_links.py _config.yml ${DIR_MD} _includes/links.md
+	@bin/check.py ${lang} links
 
 ## check_src      : check source file inclusion references.
 check_src :
-	@bin/check_src.py src ${PAGES_MD}
+	@bin/check.py ${lang} src
 
 ## check_toc      : check consistency of tables of contents.
 check_toc :
-	@bin/check_toc.py _config.yml ${PAGES_MD}
+	@bin/check.py ${lang} toc
 
 ## ----------------------------------------
 

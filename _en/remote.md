@@ -94,107 +94,56 @@ FIXME: diagram
 In the example below,
 the local machine's command prompt is `earth$` and the remote computer's is `moon$`.
 
-<table>
-
-<tr>
-<th>Input and Output</th>
-<th>Explanation</th>
-</tr>
-
-<tr>
-<td markdown="1">
 ```bash
+# Check current directory on local computer.
 earth$ pwd
 ```
 ```text
 /users/pterry
 ```
-</td>
-<td>
-Check current directory on local computer.
-<td>
-</tr>
 
-<tr>
-<td markdown="1">
 ```bash
+# Log in to remote computer `moon.euphoric.edu` as `tp`.
 earth$ ssh tp@moon.euphoric.edu
 Password: ********
 ```
-<td>
-<td markdown="1">
-Log in to remote computer `moon.euphoric.edu` as `tp`.
-</td>
-</tr>
 
-<tr>
-<td markdown="1">
 ```bash
+# Check name of computer on which remote shell is running.
 moon$ hostname
 ```
 ```text
 moon
 ```
-</td>
-<td>
-Check name of computer on which remote shell is running.
-</td>
-</tr>
 
-<tr>
-<td markdown="1">
 ```bash
+# Check current directory on remote computer.
 moon$ pwd
 ```
 ```text
 /home/tp
 ```
-</td>
-<td>
-Check current directory on remote computer.
-</td>
-</tr>
 
-<tr>
-<td markdown="1">
 ```bash
+# List contents of directory on remote computer.
 moon$ ls -F
 ```
 ```text
 bin/     cheese.txt   dark_side/   rocks.cfg
 ```
-</td>
-<td>
-List contents of directory on remote computer.
-</td>
-</tr>
 
-<tr>
-<td markdown="1">
 ```bash
+# End remote shell session.
 moon$ exit
 ```
-</td>
-<td>
-End remote shell session.
-</td>
-</tr>
 
-<tr>
-<td markdown="1">
 ```bash
+# Confirm that we are back in the starting directory on the local computer.
 earth$ pwd
 ```
 ```text
 /users/pterry
 ```
-</td>
-<td>
-Confirm that we are back in the starting directory on the local computer.
-</td>
-</tr>
-
-</table>
 
 ## How can I execute commands on a remote computer without logging in? {#s:remote-command}
 

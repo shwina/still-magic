@@ -15,19 +15,6 @@ def get_toc(config_path):
     return config['toc']
 
 
-def get_sources(config_path, source_dir, with_index=True):
-    '''
-    Return a list of (slug, filename) pairs from the table of contents,
-    including ('index', 'lang/index.md') unless told not to.
-    '''
-    toc = get_toc(config_path)
-    slugs = toc['lessons'] + toc['bib'] + toc['extras']
-    result = [(s, os.path.join(source_dir, '{}.md'.format(s))) for s in slugs]
-    if with_index:
-        result = [('index', os.path.join(source_dir, 'index.md'))] + result
-    return result
-
-
 def get_crossref(filename):
     with open(filename, 'r') as reader:
         return json.load(reader)
