@@ -96,7 +96,6 @@ definitions if that's done.
 [pentium-div-bug]: https://en.wikipedia.org/wiki/Pentium_FDIV_bug
 [pep-8]: https://www.python.org/dev/peps/pep-0008/
 [poisot-timothee]: http://poisotlab.io/
-[producing-oss]: https://producingoss.com/
 [pypi]: https://pypi.org/
 [python-102]: https://python-102.readthedocs.io/
 [pytest]: http://pytest.org/

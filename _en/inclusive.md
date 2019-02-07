@@ -25,49 +25,87 @@ keypoints:
 -   "Be proactive about welcoming and nurturing community members."
 ---
 
--   Previous lesson talked about the physical structure of a project
--   This one talks about the social structure
--   Sources:
-    -   *[Producing Open Source Software][producing-oss]* describes how good open source software projects are run
-    -   [Boll2014](#BIB) explains what a [commons](#g:commons) is and when it's an appropriate model
--   Avoid [the tyranny of structurelessness][tyranny-structurelessness]
-    -   Every group of people has a power structure
-    -   Only question is whether it is formal and accountable,
-        or informal and unaccountable
+The previous lesson talked about the physical organization of projects.
+This one talks about the social structure,
+which is more important to the project's success.
+A project can survive badly-organized code;
+none will survive for long if people are confused,
+pulling in different directions,
+or hostile.
+This lesson therefore talks about what projects can do to make newcomers feel welcome
+and to make things run smoothly after that.
+It draws on [Foge2005](#BIB),
+which describes how good open source software projects are run,
+and on [Boll2014](#BIB),
+which explains what a [commons](#g:commons) is and when it's the right model to use.
 
-## How Should I License My Software, Data, and Reports? {#s:inclusive-license}
+## Why does a project need explicit rules? {#s:inclusive-rules}
 
--   If the law or a publication agreement prevents people from reading your work or using your software,
-    you're excluding them
-    -   And probably hurting your own career
--   Creative works are automatically eligible for intellectual property (and thus copyright) protection
--   Every creative work has some sort of license - the only question is whether authors and users know what it is
--   See [Mori2012](#BIB) and [this blog post][vanderplas-licensing] for overviews from a scientist's point of view
--   Every repository (version control or otherwise) should therefore include an explicit license
-    -   Usually `LICENSE` or `LICENSE.txt` in root directory
-    -   Clearly states under which license(s) the content is being made available
-    -   Plural because code, data, and text may be covered by different licenses
--   Choose a license early
-    -   Otherwise, each time a new collaborator starts contributing,
-        they will hold copyright on their work
-        and will thus need to be asked for approval when a license is chosen
--   **Don't write your own**, even if you are a lawyer
-    -   Legalese is a highly technical language, and words don't mean what you think they mean
--   A few licenses are by far the most popular
-    -   Choosing a common license makes project more intelligible
-    -   [Open Source Initiative][osi-license-list] license list
-    -   [choosealicense.com][choose-license] will help you find a license that suits your needs
--   Considerations:
-    1.  Do you want to license the code at all?
-    2.  Is the content you are licensing source code?
-    3.  Do you require people distributing derivative works to also distribute their code?
-    4.  Do you want to address patent rights?
-    5.  Is your license compatible with the licenses of the software you depend on?
-        -   E.g., can't use MIT on top of GPL
--   Licenses for software
-    -   [MIT/BSD](#g:mit-license): do whatever you want as long as you cite the original source,
-        and the authors accept no responsibility if things go wrong
-    -   [GPL](#g:gpl): as above, but requires similar sharing
+Jo Freeman's influential essay
+"[The Tyranny of Structurelessness][tyranny-structurelessness]" pointed out that
+every group has a power structure;
+the only question is whether it is formal and accountable
+or informal and unaccountable [Free1972](#BIB).
+Thirty-five years after the free software movement took on its modern, self-aware form,
+its successes and failures have shown that if a project doesn't clearly state
+who has the right to do what,
+it will wind up being run by whoever argues loudest and longest.
+
+## How should I license my software? {#s:inclusive-software-license}
+
+If the law or a publication agreement prevents people from reading your work or using your software,
+you're excluding them
+(and probably hurting your own career).
+You may need to do this in order to respect personal or commercial confidentiality,
+but the first and most important rule of inclusivity
+is to be open by default.
+
+However,
+that is easier said than done,
+not least because the law hasn't kept up with everyday practice.
+[Mori2012](#BIB) and [this blog post][vanderplas-licensing] are good starting points from a scientist's point of view,
+while [Lind2008](#BIB) is a deeper dive for those who want details.
+In brief,
+creative works are automatically eligible for intellectual property (and thus copyright) protection.
+This means that every creative work has some sort of license:
+the only question is whether authors and users know what it is.
+
+Every project should therefore include an explicit license.
+This license should be chosen early:
+if you don't set it up right at the start,
+then each collaborator will hold copyright on their work
+and will need to be asked for approval when a license *is* chosen.
+By convention,
+the license is usually put in a file called `LICENSE` or `LICENSE.txt` in the project's root directory.
+This file should clearly state the license(s) under which the content is being made available;
+the plural is used because code, data, and text may be covered by different licenses.
+
+> *Don't write your own license*,
+> even if you are a lawyer:
+> legalese is a highly technical language,
+> and words don't mean what you think they do.
+
+To make license selection as easy as possible,
+GitHub allows you to select one of the most common licenses when creating a repository.
+The Open Source Initiative maintains [a list of licenses][osi-license-list],
+and [choosealicense.com][choose-license] will help you find a license that suits your needs.
+Some of the things you will need to think about are:
+
+1.  Do you want to license the code at all?
+2.  Is the content you are licensing source code?
+3.  Do you require people distributing derivative works to also distribute their code?
+4.  Do you want to address patent rights?
+5.  Is your license compatible with the licenses of the software you depend on?
+    For example, as we will discuss below,
+    you can use MIT-licensed code in a GPL-licensed project but not vice versa.
+
+The two most popular licenses for software are
+the [MIT license](#g:mit-license) and the [GNU Public License](#g:gpl) (GPL).
+The MIT license (and its close sibling the BSD license)
+say that people can do whatever they want to with the software as long as they cite the original source,
+and that the authors accept no responsibility if things go wrong.
+The GPL gives people similar rights,
+but requires them to share their own work on the same terms:
 
 > You may copy, distribute and modify the software as long as you track changes/dates in source files.
 > Any modifications to or software including (via compiler) GPL-licensed code must also be made available under the GPL
@@ -75,21 +113,55 @@ keypoints:
 >
 > --- [tl;dr][tldr-gpl]
 
--   We recommend MIT
-    -   Fewest complications down the road
-    -   The last thirty years shows that it's good enough to keep work open
--   Use [Creative Commons][creative-commons] licenses for data and manuscripts
-    -   Written and checked by lawyers
-    -   Well understood by the community
--   [CC-0](#g:cc-0): public domain
-    -   Usually the best choice for data, since it simplifies aggregate analysis
--   [CC-BY](#g:cc-by): do whatever you want as long as you cite the original source
-    -   Use for manuscripts, since you *want* people to share them widely
--   Other restrictions all inhibit specific use cases
-    -   -ND: no derivative works (e.g., prevents translation or reformatting)
-    -   -NC: no commercial use without explicit permission
-        -   Some publishers try to imply that -NC means *nobody* can make money from it, which is untrue
-    -   -SA: share-alike
+We recommend the MIT license:
+it places the fewest restrictions on future action,
+it can be made stricter later on,
+and the last thirty years shows that it's good enough to keep work open.
+
+## How should I license my data and reports? {#s:inclusive-software-text}
+
+The MIT license and the GPL apply to software.
+When it comes to data and reports,
+the most widely used family of licenses are those produced by [Creative Commons][creative-commons],
+which have been written and checked by lawyers and are well understood by the community.
+
+The most liberal license is referred to as [CC-0](#g:cc-0),
+where the "0" stands for "zero restrictions".
+CC-0 puts work in the public domain,
+i.e.,
+allows anyone who wants to use it to do so however they want with no restrictions.
+This is usually the best choice for data,
+since it simplifies aggregate analysis.
+For example,
+if you choose a license for data that requires people to cite their source,
+then anyone who uses that data in an analysis must cite you;
+so must anyone who cites *their* results,
+and so on,
+which quickly becomes unwieldy.
+
+The next most common license is the Creative Commons - Attribution license,
+usually referred to as [CC-BY](#g:cc-by).
+This allows people to do whatever they want to with the work
+as long as they cite the original source.
+This is the best license to use for manuscripts,
+since you *want* people to share them widely
+but also want to get credit for your work.
+
+Other Creative Commons licenses incorporate various restrictions on specific use cases:
+
+-   ND (no derivative works) prevents people from creating modified versions of your work.
+    Unfortunately, this also inhibits translation and reformatting.
+-   NC (no commercial use) does *not* mean that people cannot charge money for something that includes your work,
+    though some publishers still try to imply that in order to scare people away from open licensing.
+    Instead,
+    the NC clause means that people cannot charge for something that uses your work without your explicit permission,
+    which you can give under whatever terms you want.
+-   Finally,
+    SA (share-alike) requires people to share work that incorporates yours
+    on the same terms that you used.
+    Again,
+    this is fine in principle,
+    but in practice makes aggregation a headache.
 
 ## Why Should I Establish a Code of Conduct for My Project? {#s:inclusive-conduct}
 

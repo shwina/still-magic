@@ -39,6 +39,10 @@ title: "Bibliography"
 
 **Faga1986**{:#b:Faga1986}: Michael E. Fagan: "Advances in Software Inspections". *IEEE Transactions on Software Engineering*, 12(7), July 1986. *FIXME*
 
+**Foge2005**{:#b:Foge2005}: Karl Fogel: *Producing Open Source Software: How to Run a Successful Free Software Project*. O'Reilly Media, 2005, <http://producingoss.com/>. *The definite guide to managing open source software development projects.*
+
+**Free1972**{:#b:Free1972}: Jo Freeman: "The Tyranny of Structurelessness". *The Second Wave*, 2(1), 1972, <https://www.jofreeman.com/joreen/tyranny.htm>. *Points out that every organization has a power structure: the only question is whether it's accountable or not.*
+
 **Fucc2016**{:#b:Fucc2016}: Davide Fucci, Giuseppe Scanniello, Simone Romano, Martin Shepperd, Boyce Sigweni, Fernando Uyaguari, Burak Turhan, Natalia Juristo, and Markku Oivo: "An External Replication on the Effects of Test-driven Development Using a Multi-site Blind Analysis Approach". *Proc.\ 10th ACM/IEEE International Symposium on Empirical Software Engineering and Measurement (ESEM'16)*, 2016, <https://doi.org/10.1145/2961111.2962592>. *The latest in a long line to find that test-driven development (TDD) has little or no impact on development time or code quality.*
 
 **Fucc2017**{:#b:Fucc2017}: Davide Fucci, Hakan Erdogmus, Burak Turhan, Markku Oivo, and Natalia Juristo: "A Dissection of the Test-Driven Development Process: Does It Really Matter to Test-First or to Test-Last?". *IEEE Transactions on Software Engineering*, 43(7), Jul 2017. *FIXME*
@@ -60,6 +64,8 @@ title: "Bibliography"
 **Kern1983**{:#b:Kern1983}: Brian W. Kernighan and Rob Pike: *The Unix Programming Environment*. Prentice-Hall, 1983, <https://isbndb.com/book/013937681X>. *An influential early description of Unix.*
 
 **Kern1988**{:#b:Kern1988}: Brian W. Kernighan and Dennis M. Ritchie: *The C Programming Language*. Prentice-Hall, 1988, <https://isbndb.com/book/0131103628>. *The book that made C a popular programming language.*
+
+**Lind2008**{:#b:Lind2008}: Van Lindberg: *Intellectual Property and Open Source: A Practical Guide to Protecting Code*. O'Reilly Media, 2008. *A thorough dive into intellectual property issues related to open source software*
 
 **Lyon2018**{:#b:Lyon2018}: Dan Lyons: *Lab Rats: How Silicon Valley Made Work Miserable for the Rest of Us*. Hachette Books, 2018. *FIXME*
 

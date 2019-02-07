@@ -36,7 +36,7 @@ Our motivation is summed up in this quotation:
 
 While some things can't be published without violating personal or commercial confidentiality,
 every researcher's default should be to make their work as widely available as possible.
-That means publishing it in an open access venue ([s:inclusive-license](#REF))
+That means publishing it in an open access venue ([s:inclusive](#REF))
 so that people who aren't in academia can find it and read it.
 Software can be published in [JOSS][joss] or [F1000 Research][f1000-research],
 and you can use the [Unpaywall][unpaywall] browser extension
