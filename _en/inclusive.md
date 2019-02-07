@@ -1,6 +1,5 @@
 ---
 title: "Including Everyone"
-undone: true
 questions:
 -   "Why should I make my project welcoming for everyone?"
 -   "Why do I need a license for my work?"
@@ -53,7 +52,8 @@ it will wind up being run by whoever argues loudest and longest.
 
 ## How should I license my software? {#s:inclusive-software-license}
 
-If the law or a publication agreement prevents people from reading your work or using your software,
+It might seem strange to put licensing under discussion of inclusivity,
+but if the law or a publication agreement prevents people from reading your work or using your software,
 you're excluding them
 (and probably hurting your own career).
 You may need to do this in order to respect personal or commercial confidentiality,
@@ -163,91 +163,185 @@ Other Creative Commons licenses incorporate various restrictions on specific use
     this is fine in principle,
     but in practice makes aggregation a headache.
 
-## Why Should I Establish a Code of Conduct for My Project? {#s:inclusive-conduct}
+## Why should I establish a code of conduct for my project? {#s:inclusive-conduct}
 
--   FIXME: [Auro2018](#BIB)
--   A CoC lays out the expectations for personal interaction in your project
-    -   Explicitly communicate standards to which this project holds its participants
-    -   Encourages newcomers to engage with the project
--   Important to make clear how to report and who handles
-    -   Without that, it's meaningless
--   We recommend the [Contributor Covenant][covenant]
-    -   Provides examples of acceptable and unacceptable behavior for your project
-    -   Specifies how unacceptable behavior will be handled
-    -   Specifically designed for project contributors rather than conference participants
-    -   Use the [model code of conduct][model-coc] from the [Geek Feminism Wiki][geek-feminism] for in-person events
--   Reduces the uncertainty that project participants face about what is acceptable and unacceptable behavior
-    -   While you might think this is obvious,
-        long experience suggests that articulating it clearly and concisely reduces problems caused by have different expectations
-    -   You don't expect to have a fire, but every large building or event should have a fire safety plan
--   Welcomes newcomers specifically, which can help grow your project and encourage user feedback
-    -   Particularly important for people from marginalized groups, who have probably experienced harassment or unwelcoming behavior before
-    -   Having a CoC signals that your project is trying to be a better place than YouTube, Twitter, and other cesspools
--   It delineates responsibilities within the project and provides specific points of contact in case of misconduct or harassment,
-    as well as specifying the process to be followed in these cases
--   Some people may (still) push back claiming that it's unnecessary, or that it infringes freedom of speech, or...
-    -   What they really mean is that thinking about unfairness that may have benefited from makes them uncomfortable
-    -   In our experience, that is also a very useful filter on contributors...
+You don't expect to have a fire,
+but every large building or event should have a fire safety plan.
+Similarly,
+having a Code of Conduct for your project
+reduces the uncertainty that participants face about what is acceptable and unacceptable behavior.
+You might think this is obvious,
+but long experience shows that articulating it clearly and concisely reduces problems caused by have different expectations,
+particularly when people from very different cultural backgrounds are trying to collaborate.
+An explicit Code of Conduct is particularly helpful for newcomers,
+so having one can help your project grow
+and encourage people to give you feedback.
 
-## How Can I Be a Good Ally for Members of Marginalized Groups? {#s:inclusive-ally}
+Having a Code of Conduct is particularly important for people from marginalized or under-represented groups,
+who have probably experienced harassment or unwelcoming behavior before.
+By adopting one,
+you signal that your project is trying to be a better place than YouTube,
+Twitter,
+and other online cesspools.
+Some people may push back claiming that it's unnecessary,
+or that it infringes freedom of speech,
+but in our experience,
+what they often mean is that thinking about how they might have benefited from past inequity makes them feel uncomfortable,
+or that they like to argue for the sake of arguing.
+If having a Code of Conduct leads to them going elsewhere,
+that will probably make your project run more smoothly.
 
--   Drawn primarily from [Frameshift Consulting Ally Skills Workshop][ally-skills]
-    -   Which you should attend if you can
--   Privilege: an unearned advantage given by society to some people but not all
--   Oppression: systemic, pervasive inequality that benefits the privileged and harms those without privilege
--   Target: someone who suffers from oppression
-    -   Often called "a member of a marginalized group", but that phrasing is deliberately passive
-    -   Targets don't choose to be marginalized: those with privilege marginalize them
--   Ally: a member of a privileged group who is working to understand their own privilege and end oppression
--   Example
-    -   Privilege: being able to walk into a store and have the owner assume you're there to buy things, not to steal them
-    -   Oppression: the self-perpetuating stories told about (for example) indigenous people being thieves,
-        and the actions people take as a result of them
-    -   Target: an indigenous person who wants to buy milk
-    -   Ally: a white person who pays attention to lesson like this one (raising their own awareness),
-        calls out peers who spread racist stories (peer action),
-        or asks the shopkeeper whether they should leave too (situational action)
--   Why be an ally?
-    -   Because you can:
-        taking action to value diversity results in worse performance ratings for minority and female leaders,
-        while ethnic majority or male leaders who do this aren't penalized [Hekm2017](#BIB)
-    -   Because you have benefited, even if you don't realize it
-    -   As soon as you acknowledge that (for example) women are called on less often than men,
-        or are less likely to get an interview or a publication given identical work,
-        you have to acknowledge that white and Asian males are *more* likely to get these benefits than their performance alone deserves
-    -   See discussion above about willingness or refusal to acknowledge this being a good filter on project participants
-1.  Be short, simple, firm
-1.  Don't try to be funny
-1.  Play for the audience
-1.  Practice simple responses
-1.  Pick your battles
-1.  Don't shame or insult one group when trying to help another
-    -   E.g., don't call someone ugly or stupid when what you really mean is that they're racist or homophobic
--   [Captain Awkward][captain-awkward] has useful advice
--   [Charles' Rules of Argument][charles-rules] are very useful online
-    1.  Don't go looking for an argument
-    1.  State your position once, speaking to the audience
-    1.  Wait for absurd replies
-    1.  Reply once more to correct any misunderstandings of your original statement
-    1.  Do not reply again - go do something fun instead
--   Recognize that good principles sometimes conflict
-    -   "A manager consistently uses male pronouns to refer to software and people of unknown gender.
-        When you tell them it makes you uncomfortable to treat maleness as the norm,
-        they say that male is the default gender in their first language
-        and you should be more considerate of people from other cultures."
-    -   Respect for other cultures vs. being inclusive of women
-    -   In this case, discomfort of changing pronouns is less than career harm caused by being exclusionary
--   Change the terms of the debate
-    -   "Why should we take diversity into account when hiring? Why don't we just hire the best candidate?"
-    -   Because taking diversity into account *is* hiring the best candidate
-    -   If you can run a mile in four minutes, and I can do it in 4:15 with a ball and chain on my leg, which one of us is the better athlete?
-    -   Which one of us will perform better *if the impediment is removed*?
-    -   So sure, if you intend to preserve an exclusionary culture in this lab,
-        considering how much someone has achieved despite systemic unfairness might not make sense,
-        but you're not arguing for that, are you?
+Just as you shouldn't write your own license for a project,
+you probably shouldn't write your own Code of Conduct.
+We recommend using the [Contributor Covenant][covenant] for development projects
+and the [model code of conduct][model-coc] from the [Geek Feminism Wiki][geek-feminism] for in-person events.
+Both have been thought through carefully and revised in the light of experience,
+and both are now used widely enough that
+many potential participants in your project will not need to have them explained.
+
+Rules are meaningless if they aren't enforced.
+If you adopt a Code of Conduct,
+it is therefore important to be clear about how to report issues and who will handle them.
+[Auro2018](#BIB) is a short, practical guide to handling incidents;
+like the Contributor Covenant and the model code of conduct,
+it's better to start with something that other people have thought through and refined
+than to try to create something from scratch.
+
+## Why can I be a good ally for members of marginalized groups? {#s:inclusive-why-ally}
+
+Setting out rules and handling incidents when they arise is what projects can do;
+if you have power
+(even or especially the power that comes from being a member of the majority group),
+what you can do personally is be a good ally for members of marginalized groups.
+Much of this discussion is drawn from the [Frameshift Consulting Ally Skills workshop][ally-skills],
+which you should attend if you can.
+
+First,
+some definitions.
+[Privilege](#g:privilege) is an unearned advantage given to some people but not all;
+[oppression](#g:oppression) is systemic, pervasive inequality that benefits the privileged
+and harms those without privilege.
+A straight, white, physically able, economically secure male
+is less likely to be interrupted when speaking,
+more likely to be called on in class,
+and more likely to get a job interview based on an identical CV
+than someone who is perceived as being outside these categories.
+The unearned advantage may be small in any individual case,
+but compound interest quickly amplifies these differences:
+someone who is called on more often in class is more likely to be remembered by a professor,
+who in turn is therefore more likely to recommend them to a potential employer,
+who is more likely to excuse the poor grades on their transcripts,
+and on and on it goes.
+People who are privileged are often not aware of it
+for the same reason that most fish don't know what water tastes like.
+
+A [target](#g:target-oppression) is someone who suffers from oppression.
+Targets are often called "members of a marginalized group",
+but that phrasing is deliberately passive.
+Targets don't choose to be marginalized:
+those with privilege marginalize them.
+An [ally](#g:ally) is a member of a privileged group
+who is working to understand their own privilege and end oppression.
+For example,
+privilege is being able to walk into a store and have the owner assume you're there to buy things,
+not to steal them.
+Oppression is the stories told about (for example) indigenous people being thieves,
+and the actions people take as a result of them.
+A target is an indigenous person who wants to buy milk,
+and an ally is a white person who pays attention to a lesson like this one (raising their own awareness),
+calls out peers who spread racist stories (a [peer action](#g:peer-action)),
+or asks the shopkeeper whether they should leave too (a [situational action](#g:situational-action)).
+
+Why should you be an ally?
+You could do it out of a sense of fairness
+because you realize that you have benefited from oppression
+even if you haven't taken part (or don't think you have).
+And you should do it because you can:
+taking action to value diversity results in worse performance ratings for minority and female leaders,
+while ethnic majority or male leaders who do this aren't penalized [Hekm2017](#BIB).
+As soon as you acknowledge that (for example) women are called on less often than men,
+or are less likely to get an interview or a publication given identical work,
+you have to acknowledge that white and Asian males are *more* likely to get these benefits than their performance alone deserves.
+
+## How can I be a good ally for members of marginalized groups? {#s:inclusive-how-ally}
+
+So much for the theory:
+what should you actually do?
+A few simple rules will go a long way:
+
+1.  Be short, simple, and firm.
+2.  Don't try to be funny: it almost always backfires, or will later be used against you.
+3.  Play for the audience:
+    you probably won't change the mind of the oppressor you're calling out,
+    but you might change the minds or give heart to people who are observign.
+4.  Pick your battles.
+    You can't challenge everyone, every time,
+    without exhausting yourself and deafening your audience.
+    An occasional sharp retort will be much more effective than constant criticism.
+5.  Don't shame or insult one group when trying to help another.
+    For example,
+    don't call someone stupid when what you really mean is that they're racist or homophobic.
+6.  Change the terms of the debate.
+
+The last rule is best explained by example.
+Suppose someone says,
+"Why should we take diversity into account when hiring?
+Why don't we just hire the best candidate?"
+Your response could be,
+"Because taking diversity into account *is* hiring the best candidate.
+If you can run a mile in four minutes and I can do it in 4:15 with a ball and chain on my leg,
+which one of us is the better athlete?
+Which one of us will perform better *if the impediment is removed*?
+So sure,
+if you intend to preserve an exclusionary culture in this lab,
+considering how much someone has achieved despite systemic unfairness might not make sense,
+but you're not arguing for that,
+are you?"
+And if someone then says,
+"But it's not fair to take anything other than technical skill into account when hiring for a technical job,"
+you can say,
+"You're right,
+which means that what you're *really* upset about is the thought that
+you might be treated the way targets have been treated their whole lives."
+
+[Captain Awkward][captain-awkward] has useful advice,
+and [Charles' Rules of Argument][charles-rules] are very useful online:
+
+1.  Don't go looking for an argument.
+2.  State your position once, speaking to the audience.
+3.  Wait for absurd replies.
+4.  Reply once more to correct any misunderstandings of your original statement.
+5.  Do not reply again---go do something fun instead.
+
+Finally,
+it's important to recognize that good principles sometimes conflict.
+For example,
+consider this scenario:
+
+> A manager consistently uses male pronouns to refer to software and people of unknown gender.
+> When you tell them it makes you uncomfortable to treat maleness as the norm,
+> they say that male is the default gender in their first language
+> and you should be more considerate of people from other cultures.
+
+On the one hand,
+you want to respect other people's cultures;
+on the other hand,
+you want to be inclusive of women.
+In this case,
+the manager's discomfort about changing pronouns
+matters less than the career harm caused by them being exclusionary,
+but many cases are not this clear cut.
+Like any written rules,
+a Code of Conduct requires constant interpretation;
+like everything else,
+discussion about specific cases becomes easier with practice.
 
 ## Summary {#s:inclusive-summary}
 
 FIXME: create concept map for making an inclusive project
+
+## Exercises {#s:inclusive-exercises}
+
+FIXME: exercises for creating an inclusive project.
 
 {% include links.md %}

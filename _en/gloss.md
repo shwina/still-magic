@@ -23,6 +23,9 @@ title: "Glossary"
 **Agile development**{:#g:agile}
 :   FIXME
 
+**Ally**{:#g:ally}
+:   FIXME
+
 **Analysis and estimation**{:#g:ae}
 :   FIXME
 
@@ -296,6 +299,9 @@ title: "Glossary"
 **Operational test**{:#g:operational-test}
 :   FIXME
 
+**Oppression**{:#g:oppression}
+:   FIXME
+
 **ORCID**{:#g:orcid}
 :   FIXME
 
@@ -314,6 +320,9 @@ title: "Glossary"
 **Pattern rule**{:#g:pattern-rule}
 :   FIXME
 
+**Peer action**{:#g:peer-action}
+:   FIXME
+
 **Phony target**{:#g:phony-target}
 :   FIXME
 
@@ -327,6 +336,9 @@ title: "Glossary"
 :   FIXME
 
 **Prerequisite**{:#g:make-prerequisite} (in Make)
+:   FIXME
+
+**Privilege**{:#g:privilege}
 :   FIXME
 
 **Procedural programming**{:#g:procedural-programming}
@@ -413,6 +425,9 @@ title: "Glossary"
 **Silent failure**{:#g:silent-failure}
 :   FIXME
 
+**Situational action**{:#g:situational-action}
+:   FIXME
+
 **Software development process**{:#g:dev-process}
 :   FIXME
 
@@ -453,6 +468,9 @@ title: "Glossary"
 :   FIXME
 
 **Target**{:#g:make-target} (in Make)
+:   FIXME
+
+**Target**{:#g:target-oppression} (of oppression)
 :   FIXME
 
 **Technical debt**{:#g:technical-debt}
