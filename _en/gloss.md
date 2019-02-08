@@ -127,6 +127,9 @@ title: "Glossary"
 **Data engineering**{:#g:data-engineering}
 :   FIXME
 
+**Data package**{:#g:data-package}
+:   FIXME
+
 **Declarative programming**{:#g:declarative-programming}
 :   FIXME
 
@@ -348,6 +351,9 @@ title: "Glossary"
 :   FIXME
 
 **Project manager**{:#g:project-manager}
+:   FIXME
+
+**Provenance**{:#g:provenance}
 :   FIXME
 
 **Pseudorandom number generator**{:#g:prng} (PRNG)

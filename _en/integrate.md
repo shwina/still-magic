@@ -102,14 +102,14 @@ Every time a commit is made to this branch, it will:
 
 Travis's summary report tells us what happened:
 
-<figure id="f:integrate-summary"> <figcaption>Travis Summary Report</figcaption> <img src="../../figures/travis_summary.png"/> </figure>
+{% include figure.html id="f:integrate-summary" src="../../figures/travis_summary.png" caption="Travis Summary Report" %}
 
 <!-- == noindent -->
 The detailed log has *lots* of information:
 there are 397 lines hidden under "Build system information"
 and another 23 under "pip install" heading:
 
-<figure id="f:integrate-log"> <figcaption>Travis Log</figcaption> <img src="../../figures/travis_log.png"/> </figure>
+{% include figure.html id="f:integrate-log" src="../../figures/travis_log.png" caption="Travis Log" %}
 
 ## How can I tell Travis that something went wrong? {#s:integrate-error}
 
@@ -153,7 +153,7 @@ sys.exit(1)
 When we commit these changes and view the repository's status page,
 we are initially told that our build is queued:
 
-<figure id="f:integrate-queued"> <figcaption>Travis Queued</figcaption> <img src="../../figures/travis_queued.png"/> </figure>
+{% include figure.html id="f:integrate-queued" src="../../figures/travis_queued.png" caption="Travis Queued" %}
 
 <!-- == noindent -->
 We don't need to refresh the page:
@@ -162,7 +162,7 @@ the page updates automatically.
 When when the build finishes,
 the summary is red and the log displays this:
 
-<figure id="f:integrate-failure"> <figcaption>Travis Failure</figcaption> <img src="../../figures/travis_failure.png"/> </figure>
+{% include figure.html id="f:integrate-failure" src="../../figures/travis_failure.png" caption="Travis Failure" %}
 
 ## How can I display the status of a repository? {#s:integrate-display}
 
@@ -171,7 +171,7 @@ but we would also like to display the status of the build on GitHub because that
 To do this,
 we can at the top of the status page and find the build icon:
 
-<figure id="f:integrate-build-icon"> <figcaption>Travis Build Icon</figcaption> <img src="../../figures/travis_build_icon.png"/> </figure>
+{% include figure.html id="f:integrate-build-icon" src="../../figures/travis_build_icon.png" caption="Travis Build Icon" %}
 
 Clicking on it brings up a dialog
 where we can select the Markdown we need for the `master` branch.
@@ -185,7 +185,7 @@ While we are waiting for Travis to finish building our site,
 we can take a look at the "Branches" tab of our repository.
 Clicking on a check mark or an X will bring up details of that build on that branch:
 
-<figure id="f:integrate-overall"> <figcaption>Travis Overall</figcaption> <img src="../../figures/travis_overall.png"/> </figure>
+{% include figure.html id="f:integrate-overall" src="../../figures/travis_overall.png" caption="Travis Overall" %}
 
 <!-- == noindent -->
 Sure enough,
@@ -195,7 +195,7 @@ commit,
 wait for an email to arrive to tell us that the build has completed,
 and then go to the project on GitHub:
 
-<figure id="f:integrate-github-icon"> <figcaption>Travis GitHub Icon</figcaption> <img src="../../figures/travis_github_icon.png"/> </figure>
+{% include figure.html id="f:integrate-github-icon" src="../../figures/travis_github_icon.png" caption="Travis GitHub Icon" %}
 
 ## How Can I Automatically Run Tests for My Project When Things Change?  {#s:integrate-tests}
 

@@ -1,5 +1,4 @@
 ---
-permalink: "/en/bib/"
 title: "Bibliography"
 ---
 

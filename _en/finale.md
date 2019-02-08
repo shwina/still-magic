@@ -49,7 +49,7 @@ lazy evaluation in R.
 Computers don't understand: they only obey instructions that make them
 appear to. If a person looks at this image, they see the word "data":
 
-<figure id="f:finale-data"> <figcaption>The Word "Data"</figcaption> <img src="../../figures/finale_data.png"/> </figure>
+{% include figure.html id="f:finale-data" src="../../figures/finale_data.png" caption="The Word 'Data'" %}
 
 A machine doesn't; it doesn't even see four blobs of blue pixels on a
 gray background, because it doesn't "see" anything. Equally, calling a
@@ -110,7 +110,7 @@ interact with. For example, an HTML page is represented in memory as a
 data structure containing nodes for elements like headings and
 paragraphs, which can in turn contain a mix of other nodes or text:
 
-<figure id="f:finale-modelview"> <figcaption>Model-View Separation</figcaption> <img src="../../figures/finale_modelview.png"/> </figure>
+{% include figure.html id="f:finale-modelview" src="../../figures/finale_modelview.png" caption="Model-View Separation" %}
 
 That model can be rendered in a browser, turned into speech, or
 displayed as text using angle brackets. None of these *is* the model:

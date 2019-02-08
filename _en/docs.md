@@ -30,7 +30,7 @@ and where it should go.
 
 This is not a helpful error message:
 
-<figure id="f:docs-error-message"> <figcaption>Error Message</figcaption> <img src="../../figures/docs_error_message.png"/> </figure>
+{% include figure.html id="f:docs-error-message" src="../../figures/docs_error_message.png" caption="Error Message" %}
 
 <!-- == noindent -->
 Neither is this:

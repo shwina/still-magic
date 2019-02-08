@@ -101,8 +101,8 @@ check_cites : ${BIB_MD}
 check_crossref : ${TOC_JSON}
 	@bin/check.py ${lang} crossref
 
-## check_figs     : list all missing or unused figures.
-check_figs :
+## check_figures  : list all missing or unused figures.
+check_figures :
 	@bin/check.py ${lang} figures
 
 ## check_gloss    : check that all glossary entries are defined and used.

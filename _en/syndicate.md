@@ -621,7 +621,7 @@ one record: [[1900, -1.0]]
 two records: [[1900, -1.0], [1901, -10.0]]
 ```
 
-That looks pretty good—but what about these cases?
+That looks pretty good, but what about these cases?
 
 ```python
 print('mis-matched years:', diff_records([[1900, 1.0]],
@@ -941,7 +941,7 @@ By automating this process, blogging tools help us focus attention on things tha
 
 ## Exercises {#s:syndicate-summary}
 
-<figure id="f:syndicate-concept"> <figcaption>Syndication Concept Map</figcaption> <img src="../../figures/syndicate_concept.svg"/> </figure>
+{% include figure.html id="f:syndicate-concept" src="../../figures/syndicate_concept.svg" caption="Syndication Concept Map" %}
 
 ## Exercises {#s:syndicate-exercises}
 

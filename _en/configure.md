@@ -443,7 +443,7 @@ we'll have to guess what options mean.
     -   So you wind up with lots of configuration files littering your root directory
     -   Tempting to move them all to `./etc/`, but tools don't know to look there
 
-<figure id="f:configure-concept"> <figcaption>Configuration Concept Map</figcaption> <img src="../../figures/configure_concept.svg"/> </figure>
+{% include figure.html id="f:configure-concept" src="../../figures/configure_concept.svg" caption="Configuration Concept Map" %}
 
 ## Exercises {#s:configure-exercises}
 

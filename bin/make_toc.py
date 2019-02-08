@@ -6,19 +6,17 @@ import re
 import yaml
 import json
 from string import ascii_uppercase
-from util import usage
+from util import get_toc, usage
 
 
 SECTION_PAT = re.compile(r'^##\s+.+\s+\{#(s:.+)\}', re.MULTILINE)
 
 
 def main(config_file, source_dir):
-    with open(config_file, 'r') as reader:
-        config = yaml.load(reader)
-
+    config = get_toc(config_file)
     result = {}
 
-    lessons = config['toc']['lessons']
+    lessons = config['lessons']
     for (i, slug) in enumerate(lessons):
         key = str(i+1)
         result['s:{}'.format(slug)] = {
@@ -28,7 +26,7 @@ def main(config_file, source_dir):
         }
         process_sections(result, source_dir, slug, key)
 
-    extras = config['toc']['extras']
+    extras = config['extras']
     letters = ascii_uppercase[:len(extras)]
     for (key, slug) in zip(letters, extras):
         result['s:{}'.format(slug)] = {

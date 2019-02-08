@@ -206,7 +206,7 @@ and to only allow some people to move them.
 For example,
 the figure below shows a workflow for handling bugs in a medium-sized project:
 
-<figure id="f:backlog-lifecycle"> <figcaption>Issue State Transitions</figcaption> <img src="../../figures/backlog_lifecycle.svg"/> </figure>
+{% include figure.html id="f:backlog-lifecycle" src="../../figures/backlog_lifecycle.svg" caption="Issue State Transitions" %}
 
 -   An "Open" issue becomes "Assigned" when someone is made responsible for it.
 -   An "Assigned" issue becomes "Active" when that person starts to work on it.

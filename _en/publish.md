@@ -127,7 +127,7 @@ You can tell you've done this if:
 
 1.  Meta(data) is described with accurate and relevant attributes.
 2.  (Meta)data is released with a clear and accessible data usage license.
-3.  (Meta)data has detailed [provenance](#s:provenance).
+3.  (Meta)data has detailed [provenance](#g:provenance).
 4.  (Meta)data meets domain-relevant community standards.
 
 ## What data should I publish and how? {#s:publish-data}
@@ -136,7 +136,7 @@ Small datasets (i.e., anything under 500 MB) can be stored in version control
 using the conventions described in [s:project](#REF).
 If the data is being used in several projects,
 it may make sense to create one repository to hold only the data;
-the R community refers to these as [data packages](#s:data-package),
+the R community refers to these as [data packages](#g:data-package),
 and they are often accompanied by small scripts to clean up and query the data.
 Be sure to give the dataset an identifier as discussed in [s:publish-identifiers](#REF).
 

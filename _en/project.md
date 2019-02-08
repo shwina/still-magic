@@ -55,7 +55,7 @@ The original specification included five top-level directories:
 
 The figure below shows this layout for a project called `g-trans`:
 
-<figure id="f:project-noble"> <figcaption>Project Layout</figcaption> <img src="../../figures/project_noble.svg"/> </figure>
+{% include figure.html id="f:project-noble" src="../../figures/project_noble.svg" caption="Project Layout" %}
 
 <!-- == noindent -->
 A few things to notice are:

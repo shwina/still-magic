@@ -14,6 +14,7 @@ from collections import Counter
 from util import get_crossref, report
 
 
+CHARACTERS = "éëö"                      # non-7-bit characters that are translated
 CHECK_PREFIX = 'check_'                 # prefix for all checking function names
 CONFIG_FILE = '_config.yml'             # Jekyll configuration file
 CROSSREF_FMT = '_data/{}_toc.json'      # cross-reference file (%language)
@@ -67,13 +68,13 @@ def check_anchors(language):
 
 def check_chars(language):
     '''
-    Find and report non-7-bit characters.
+    Find and report non-7-bit characters that aren't translated.
     '''
     result = set()
     for (slug, filename, body, lines) in _get_all(language):
         for (i, line) in enumerate(lines):
             for (j, char) in enumerate(line):
-                if ord(char) > 127:
+                if (ord(char) > 127) and (char not in CHARACTERS):
                     result.add('{} {} {}: {}'.format(filename, i+1, j+1, char))
     report('Characters', 'non-ascii', result)
 
@@ -112,7 +113,7 @@ def check_figures(language):
             filename.replace('.png', '.svg') in defined
 
     content = _get_all(language)
-    used = _match_lines(content, r'<img\s+src=".+/figures/([^"]+)"')
+    used = _match_lines(content, r'{%\s+include\s+figure.html[^%]+src=".+/figures/([^"]+)"')
     defined = {f for f in os.listdir(FIGURE_DIR) if not _ignore(f)}
     defined -= {f for f in defined if _redundant(f, defined)}
     report('Figures', 'unused', defined - used)

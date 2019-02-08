@@ -97,7 +97,7 @@ FIXME: [tolerance](#g:tolerance)
 
 -   Here's a clearer view of some of the values our scheme can represent:
 
-<figure id="f:verify-spacing"> <figcaption>Number Spacing</figcaption> <img src="../../figures/number_spacing.png"/> </figure>
+{% include figure.html id="f:verify-spacing" src="../../figures/number_spacing.png" caption="Number Spacing" %}
 
 -   There are a lot of values we *can't* store
     -   Can do 8 and 10 but not 9

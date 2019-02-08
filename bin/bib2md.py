@@ -12,7 +12,6 @@ from util import usage
 
 # Constants
 HEADER = '''---
-permalink: "/{}/bib/"
 title: "Bibliography"
 ---
 '''

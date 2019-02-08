@@ -279,11 +279,11 @@ in which he said:
 In a [companion piece][noller-sequel] written a month later,
 he showed the price of being "all in" by turning [this classic XKCD cartoon][xkcd-duty-calls]:
 
-<figure id="f:pacing-xkcd"> <figcaption>XKCD's Version</figcaption> <img src="../../figures/xkcd_duty_calls.png" /> </figure>
+{% include figure.html id="f:pacing-xkcd" src="../../figures/xkcd_duty_calls.png" caption="XKCD's Version" %}
 
 into this:
 
-<figure id="f:pacing-noller"> <figcaption>Jesse Noller's Version</figcaption> <img src="../../figures/noller_wrong_answer.png" /> </figure>
+{% include figure.html id="f:pacing-noller" src="../../figures/noller_wrong_answer.png" caption="Jesse Noller's Version" %}
 
 It took a lot of courage to be as honest as Jesse was.
 What follows is my attempt to live up to his example.

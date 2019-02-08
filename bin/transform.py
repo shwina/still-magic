@@ -9,6 +9,12 @@ import os
 import re
 from util import usage, get_crossref, get_toc
 
+CHARACTERS = [
+    ('é', r"\'{e}"),
+    ('ë', r'\"{e}'),
+    ('ö', r'\"{o}')
+]
+
 #-------------------------------------------------------------------------------
 
 class Base(object):
@@ -104,7 +110,7 @@ class SpecialCharacters(Base):
 
     def post(self, lines):
         def _regexpall(s):
-            for (raw, latex) in [('é', r"\'{e}"), ('ö', r'\"{o}')]:
+            for (raw, latex) in CHARACTERS:
                 s = s.replace(raw, latex)
             return s
         return [_regexpall(s) for s in lines]
