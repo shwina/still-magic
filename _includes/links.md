@@ -17,6 +17,7 @@ definitions if that's done.
 
 [becker-bruce]: https://www.brettbecker.com/
 [bibtex]: http://www.bibtex.org/
+[bonsma-fisher-madeleine]: http://madeleinebonsma.com/
 [branch-per-feature]: https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
 [bryan-jenny]: https://jennybryan.org/
 [build-tools]: https://en.wikipedia.org/wiki/List_of_build_automation_software
