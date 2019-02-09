@@ -1,7 +1,7 @@
 ---
 title: "Working Remotely"
 questions:
--   "How can I work with remote computeres?"
+-   "How can I work with remote computers?"
 objectives:
 -   "Explain what SSH is and when it should be used."
 -   "Use `ssh` to connect to a remote computer."
@@ -83,7 +83,7 @@ and `scp` (which stands for "secure copy").
 
 To log in to a remote computer,
 we use the command <code>ssh <em>username</em>@<em>hostname</em></code>.
-If the login is succesful,
+If the login is successful,
 we will be presented with a shell prompt that just happens to be coming from somewhere else.
 Typing `exit` or Control-D terminates the remote shell,
 just as it would terminate a local shell,
@@ -189,7 +189,7 @@ Password: ********
 results.dat              100%  9  1.0 MB/s 00:00
 ```
 
-Note the colon `:`, seperating the hostname of the server
+Note the colon `:`, separating the hostname of the server
 and the pathname of  the file we are copying to.
 It is this character that informs `scp` that
 the source or target of the copy is on the remote machine.

@@ -273,7 +273,7 @@ A few simple rules will go a long way:
 2.  Don't try to be funny: it almost always backfires, or will later be used against you.
 3.  Play for the audience:
     you probably won't change the mind of the oppressor you're calling out,
-    but you might change the minds or give heart to people who are observign.
+    but you might change the minds or give heart to people who are observing.
 4.  Pick your battles.
     You can't challenge everyone, every time,
     without exhausting yourself and deafening your audience.

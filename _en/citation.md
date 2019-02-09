@@ -9,7 +9,7 @@ Please cite this work as:
 ## Primary Contributors {#s:citation-primary}
 
 -   [Dhavide Aruliah][aruliah-dhavide] ([ORCID](https://orcid.org/0000-0002-6432-2709))
--   [Madeleine Bonsma-Fisher][bonsma-fisher-madeleine]
+-   [Madeleine Bonsma-Fisher][bonsma-fisher-madeleine] ([ORCID](https://orcid.org/0000-0002-5813-4664))
 -   [Jenny Bryan][bryan-jenny] ([ORCID](https://orcid.org/0000-0002-6983-2759))
 -   [Kate Hertweck][hertweck-kate] ([ORCID](https://orcid.org/0000-0002-4026-4612))
 -   [Katy Huff][huff-katy] ([ORCID](https://orcid.org/0000-0002-7075-6802))

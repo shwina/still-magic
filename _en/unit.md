@@ -565,7 +565,7 @@ anything that *isn't* tested should be assumed to be wrong,
 and drops in coverage often indicate new [technical debt](#g:technical-debt).
 
 Use `pip install coverage` to install the standard Python coverage tool.
-Once you ahve done that,
+Once you have done that,
 use `coverage run filename.py` instead of `python filename.py` to run your program.
 This creates a file in the current directory called `.coverage`;
 once your program completes,

@@ -15,30 +15,51 @@ keypoints:
 -   "Infer constraints on data and then check that subsequent data sets obey these constraints."
 ---
 
-FIXME: [tolerance](#g:tolerance)
+The previous lesson explained how to test software in general;
+this one focuses on testing data analysis.
 
--   Previous lesson explained how to test in general
--   This lesson focuses on tests specific to data analysis pipelines
-    -   Run them when building the pipeline to convince ourselves the code is correct
-    -   Run them in production to make sure assumptions still hold
-    -   They might not because the environment might have changed
--   Difference between validation and verification
-    -   [Validation](#g:validation): is specification correct (i.e., did we build the right thing?)
-    -   [Verification](#g:verification): does the software meet the spec (i.e., did we build the thing right?)
--   Different from the tests most software engineers write because you don't always know what the right answer is
-    -   If you did, you would have submitted your report and moved on to the next problem
--   But there's a close analogy with physical experiments
-    -   High school students should get $$10 m/sec^2$$
-    -   Undergraduates might get $$9.8 m/sec^2$$ depending on the equipment used
-    -   If any of them get $$9.806 m/sec^2$$ with a stopwatch, they're either incredibly lucky or rather foolish
--   Similarly, when testing data analysis, specify tolerances
-    -   Does the answer have to be exactly the same as a hand-calculated value or a previously-saved value?
-    -   If not, how close is good enough?
--   Distinguish between *development* and *production*
-    -   During development: is this (exactly or approximately) right?
-    -   In production: has behavior deviated significantly from what I previously decided was right?
--   Most of the time we calibrate estimates by checking real data, convincing ourselves it's OK, then re-checking whenever an alarm rings
-    -   If you change things substantially then the mean absolute error (which is in units of your original problem) will move noticeably
+## What is the difference between testing in software engineering and in data analysis? {#s:verify-diff}
+
+Testing data analysis pipelines is often harder than testing mainstream software applications.
+The reason is that data analysts often don't know what the right answer is,
+which makes it hard to check correctness.
+The key distinction is the difference between validation and verification.
+[Validation](#g:validation) asks, "Is specification correct?"
+while [verification](#g:verification) asks,
+It's the difference between building the right thing and building something right;
+the former question is often much harder for data scientists to answer.
+
+Instead of unit testing,
+a better analogy is often physical experiments.
+When high school students are measuring acceleration due to gravity,
+they should get a figure close to $$10 m/sec^2$$.
+Undergraduates might get $$9.8 m/sec^2$$ depending on the equipment used,
+but if either group gets $$9.806 m/sec^2$$ with a stopwatch, a marble, and an ramp,
+they're either incredibly lucky or cheating.
+Similarly,
+when testing data analysis pipelines,
+we often have to specify tolerances.
+Does the answer have to be exactly the same as a hand-calculated value or a previously-saved value?
+If not, how close is good enough?
+
+We also need to distinguish between development and production.
+During development,
+our main concern is whether our answers are (close enough to) what we expect.
+We do this by analyzing small datasets
+and convincing ourselves that we're getting the right answer in some ad hoc way.
+
+In production,
+on the other hand,
+our goal is to detect cases where behavior deviates significantly from what we previously decided what right.
+We want this to be automated
+so that our pipeline will ring an alarm bell to tell us something is wrong
+even if we're busy working on something else.
+We also have to decide on tolerances once again,
+since the real data will never have exactly the same characteristics as the data we used during development.
+We also need these checks because the pipeline's environment can change:
+for example,
+someone could upgrade a library that one of our libraries depends on,
+which could lead to us getting slightly different answers than we expected.
 
 ## Why Should I Be Cautious When Using Floating-Point Numbers? {#s:verify-float}
 
@@ -449,6 +470,8 @@ Constraints failing: 15
 -   Especially useful if the constraint file is put under version control
 
 ## Summary {#s:verify-summary}
+
+FIXME: [tolerance](#g:tolerance)
 
 FIXME: create concept map for correctness
 
