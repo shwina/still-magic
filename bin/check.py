@@ -181,7 +181,7 @@ def check_src(language):
         return x.endswith('~') or ('__pycache__' in x)
 
     content = _get_all(language, remove_code_blocks=False)
-    referenced = _match_body(content, r'{:\s+title="([^"]+)"}')
+    referenced = _match_body(content, r'{:\s+title="([^"]+)\s*"}')
     actual = {_unprefix(filename)
               for filename in glob.iglob('{}/**/*.*'.format(SOURCE_DIR), recursive=True)
               if not _ignore(filename)}

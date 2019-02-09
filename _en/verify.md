@@ -1,6 +1,5 @@
 ---
 title: "Verification"
-undone: true
 questions:
 -   "How should I test a data analysis pipeline?"
 objectives:
@@ -61,25 +60,39 @@ for example,
 someone could upgrade a library that one of our libraries depends on,
 which could lead to us getting slightly different answers than we expected.
 
-## Why Should I Be Cautious When Using Floating-Point Numbers? {#s:verify-float}
+## Why should I be cautious when using floating-point numbers? {#s:verify-float}
 
--   Finding a good representation for floating point numbers is hard.
-    -   We cannot represent an infinite number of real values with a finite set of bit patterns
-    -   And unlike integers, no matter what values we *do* represent, there will be an infinite number of values between each of them that we can't
--   The explanation that follows is simplified---possibly over-simplified---to keep it manageable.
-    -   If you want to know more, take half an hour to read [Gold1991](#BIB)
--   Floating point numbers are usually represented using [sign](#g:sign), [magnitude](#g:magnitude), and an [exponent](#g:exponent).
--   In a 32-bit word, the IEEE 754 standard calls for 1 bit of sign,
-    23 bits for the magnitude (or [mantissa](#g:mantissa)),
-    and 8 bits for the exponent
--   To illustrate the problems with floating point, we'll use a much dumber representation.
-    -   Only use 5 bits: 3 for the magnitude and 2 for the exponent
-    -   Don't worry about fractions or signs
--   Here are the possible values (in decimal) that we can represent this way
-    -   For example, the decimal values 48 is binary 110 times 2 to the binary 11 power.
-    -   Which is 6 times 2 to the third...
-    -   ...or 6 times 8.
-    -   Real floating point representations don't have all the redundancy that you see in this table, but it illustrates the point
+Every tutorial on testing numerical software has to include a discussion of the perils of floating point,
+so we might as well get ours out of the way.
+The explanation that follows is simplified to keep it manageable;
+if you want to know more,
+please take half an hour to read [Gold1991](#BIB).
+
+Finding a good representation for floating point numbers is hard:
+we cannot represent an infinite number of real values with a finite set of bit patterns,
+and unlike integers,
+no matter what values we *do* represent,
+there will be an infinite number of values between each of them that we can't.
+These days,
+floating point numbers are usually represented using [sign](#g:sign),
+[magnitude](#g:magnitude) (or [mantissa](#g:mantissa)),
+and an [exponent](#g:exponent).
+In a 32-bit word,
+the IEEE 754 standard calls for 1 bit of sign,
+23 bits for the mantissa,
+and 8 bits for the exponent.
+To illustrate the problems with floating point,
+we will use a much simpler 5-bit representation
+with 3 bits for the magnitude and 2 for the exponent.
+We won't worry about fractions or negative numbers,
+since our simple representation will show off the main problems.
+
+The table below shows the possible values (in decimal) that we can represent with 5 bits.
+Real floating point representations don't have all the redundancy that you see in this table,
+but it illustrates the point.
+Using subscripts to show the bases of numbers,
+$$110_2 \times 2^{11_2)$$
+$$6 \times 2^3$$ or 48.
 
 <table class="table table-striped">
   <tr>
@@ -115,35 +128,35 @@ which could lead to us getting slightly different answers than we expected.
   </tr>
 </table>
 
-
--   Here's a clearer view of some of the values our scheme can represent:
+Here's a clearer view of some of the values our scheme can represent:
 
 {% include figure.html id="f:verify-spacing" src="../../figures/number_spacing.png" caption="Number Spacing" %}
 
--   There are a lot of values we *can't* store
-    -   Can do 8 and 10 but not 9
-    -   Exactly like the problem writing out 1/3 in decimal: have to round that to 0.3333 or 0.3334
--   But if this scheme has no representation for 9, then 8+1 must be stored as either 8 or 10
--   Which raises an interesting question: if 8+1 is 8, what is 8+1+1?
-    -   If we add from the left, 8+1 is 8, plus another 1 is 8 again
-    -   If we add from the right, 1+1 is 2, and 2+8 is 10
-    -   Changing the order of operations can make the difference between right and wrong
--   This is the sort of thing that numerical analysts spend their time on
-    -   In this case, if we sort the values and then add from smallest to largest, it gives us the best chance of getting the best answer
-    -   In other situations, like inverting a matrix, the rules are more complicated
-    -   Trust the authors of core libraries to get this right (just like electrical engineers trust oscilloscope makers)
--   The absolute spacing between the values we can represent is uneven
-    -   But the relative spacing between each set of values stays the same
-    -   The first group is separated by 1, then the separation becomes 2, then 4, then 8
-    -   This happens because we're multiplying the same fixed set of mantissas by ever-larger exponents
-    -   Leads to some useful definitions
--   The [absolute error](#g:absolute-error) in some approximation to a value is the absolute value of the difference between the two
--   The [relative error](#g:relative-error) is the ratio of the absolute error to the value we're approximating
-    -   If we are off by 1 in approximating 8+1 and 56+1, that's the same absolute error
-    -   But the relative error is larger in the first case than in the second
--   Relative error is almost always more useful than absolute
-    -   It makes little sense to say that we're off by a hundredth when the value in question is a billionth
--   What does this have to do with testing?
+A lot of values are missing from this diagram:
+for example,
+it includes 8 and 10 but not 9.
+This is exactly like the problem writing out 1/3 in decimal:
+we have to round that to 0.3333 or 0.3334.
+
+But if this scheme has no representation for 9,
+then 8+1 must be stored as either 8 or 10.
+This raises an interesting question:
+if 8+1 is 8, what is 8+1+1?
+If we add from the left, 8+1 is 8, plus another 1 is 8 again.
+If we add from the right, 1+1 is 2, and 2+8 is 10,
+so changing the order of operations can make the difference between right and wrong.
+
+In this case,
+if we sort the values and then add from smallest to largest,
+it gives us the best chance of getting the best answer.
+In other situations,
+like inverting a matrix,
+the rules are more complicated.
+Just as electrical engineers trust oscilloscope makers,
+almost all data scientists should trust the authors of core libraries to get this right.
+
+To make this more concrete,
+consider the short Python program below:
 
 ```python
 vals = []
@@ -155,12 +168,15 @@ for i in range(1, 10):
     diff = total - expected
     print('{:2d} {:22.21f} {:22.21f}'.format(i, total, total-expected))
 ```
+{: title="verify/fp_table.py"}
 
--   Loop runs over the integers from 1 to 9 inclusive
-    -   Put the numbers 0.9, 0.09, 0.009, and so on in `vals`
-    -   Sum should be 0.9, 0.99, 0.999, and so on, but is it?
--   Calculate the same value a different way, by subtracting .1 from 1, then subtracting .01 from 1, and so on
-    -   This should create exactly the same sequence of numbers
+This program loop runs over the integers from 1 to 9 inclusive
+and puts the numbers 0.9, 0.09, 0.009, and so on in `vals`.
+The sums should be 0.9, 0.99, 0.999, and so on, but are they?
+To find out,
+we can calculate the same values by subtracting .1 from 1,
+then subtracting .01 from 1, and so on.
+This should create exactly the same sequence of numbers, but it doesn't:
 
 <table class="table table-striped">
   <tr> <th>index</th> <th>total</th> <th>difference</th> </tr>
@@ -175,35 +191,94 @@ for i in range(1, 10):
   <tr> <th>9</th> <td>0.999999999000000028282</td> <td>0.000000000000000000000</td> </tr>
 </table>
 
--   The very first value contributing to our sum is already slightly off
-    -   Even with 23 bits for a mantissa, we cannot exactly represent 0.9 in base 2,
-        any more than we can exactly represent 1/3 in base 10
-    -   Doubling the size of the mantissa would reduce the error, but we can't ever eliminate it
--   The good news is, $$9 {\times} 10^{-1}$$ and $$1 - 0.1$$ are exactly the same
-    -   Might not be precisely right, but at least it's consistent
--   But some later values differ
-    -   And sometimes accumulated error makes the result *more* accurate
--   Very important to note that *this has nothing to do with randomness*
-    -   The same calculation will produce exactly the same results no matter how many times it is run
-    -   Process is completely deterministic, just hard to predict
-    -   If you see someone run the same code on the same data with the same parameters many times and average the results,
-        you should ask if they know what they're doing
-    -   Thought it *can* be defensible if there is parallelism (which can change evaluation order)
-        or if you're changing platform (e.g., moving computation to a GPU)
--   So what does this have to do with testing?
-    -   If the function you're testing uses floating point numbers, what do you compare its result to?
-    -   If we compared the sum of the first few numbers in `vals` to what it's supposed to be, the answer could be `False`
-    -   If we compare it to a previously calculated result, the match should be exact
--   No one has a good generic answer,
-    because the root of our problem is that we're using approximations,
-    and each approximation has to be judged on its own merits
--   So what can you do to test your programs?
--   If you are comparing to a saved result (and the result was saved at full precision), use equality
-    -   No reason for it not to be equal
--   Otherwise, use `pytest.approx` with a relative error rather than an absolute error
-    -   It works on lists, sets, arrays, and other collections
--   `approx` can be given either relative or absolute error bounds
-    -   To show how it works, set an unrealistically tight absolute bound
+As this table shows,
+the very first value contributing to our sum is already slightly off.
+Even with 23 bits for a mantissa,
+we cannot exactly represent 0.9 in base 2,
+any more than we can exactly represent 1/3 in base 10.
+Doubling the size of the mantissa would reduce the error,
+but we can't ever eliminate it.
+
+The good news is,
+$$9 {\times} 10^{-1}$$ and $$1 - 0.1$$ are exactly the same:
+the value might not be precisely right,
+but at least they are consistent.
+But some later values differ,
+and sometimes accumulated error makes the result *more* accurate.
+
+It's very important to note that *this has nothing to do with randomness*.
+The same calculation will produce exactly the same results no matter how many times it is run,
+because the process is completely deterministic, just hard to predict.
+If you see someone run the same code on the same data with the same parameters many times and average the results,
+you should ask if they know what they're doing.
+(That said,
+doing this *can* be defensible if there is parallelism,
+which can change evaluation order,
+or if you're changing platform,
+e.g., moving computation to a GPU.)
+
+## How can I express how close one number is to another? {#s:verify-error}
+
+The absolute spacing in the diagram above between the values we can represent is uneven.
+However,
+the relative spacing between each set of values stays the same:
+the first group is separated by 1,
+then the separation becomes 2,
+then 4,
+and then 8.
+This happens because we're multiplying the same fixed set of mantissas by ever-larger exponents,
+and it leads to some useful definitions.
+The [absolute error](#g:absolute-error) in an approximation is the absolute value of
+the difference between the approximation and the actual value.
+The [relative error](#g:relative-error) is the ratio of the absolute error to the value we're approximating.
+For example,
+it we are off by 1 in approximating 8+1 and 56+1,
+we have the same absolute error,
+but the relative error is larger in the first case than in the second.
+Relative error is almost always more important than absolute error when we are testing software
+because it makes little sense to say that we're off by a hundredth
+when the value in question is a billionth.
+
+## How should I write tests that involved floating-point values? {#s:verify-numeric}
+
+[Accuracy](#g:accuracy) is how close your answer is to right,
+and [precision](#g:precision) is how close repeated measurements are to each other.
+You can be precise without being accurate (systematic bias),
+or accurate without being precise (near the right answer, but without many significant digits).
+Accuracy is usually more important than precision for human decision making,
+and a relative error of $$10^{-3}$$ (three decimal places) is more than good enough for most data science
+because the decision a human being would make won't change if the number changes by 0.1%.
+
+We now come to the crux of this lesson:
+if the function you're testing uses floating point numbers,
+what do you compare its result to?
+If we compared the sum of the first few numbers in `vals` to what it's supposed to be,
+the answer could be `False` even though we're doing nothing wrong.
+If we compared it to a previously calculated result that we had stored somehow,
+the match would be exact.
+
+No one has a good generic answer to this problem
+because its root cause is that we're using approximations,
+and each approximation has to be judged in context.
+So what can you do to test your programs?
+If you are comparing to a saved result,
+and the result was saved at full precision,
+you could use exact equality,
+because there is no reason for the new number to differ.
+However,
+any change to your code,
+however small,
+could trigger a report of a difference.
+Experience shows that these spurious warnings quickly lead developers to stop paying attention to their tests.
+
+A much better approach is to write a test that checks whether numbers are the same within some [tolerance](#g:tolerance),
+which is best expressed as a relative error.
+In Python,
+you can do this with `pytest.approx`,
+which works on lists, sets, arrays, and other collections,
+and can be given either relative or absolute error bounds.
+To show how it works,
+here's an example with an unrealistically tight absolute bound:
 
 ```python
 from pytest import approx
@@ -218,58 +293,99 @@ for bound in (1e-15, 1e-16):
         if total != approx(expected, abs=bound):
             print('{:22.21f} {:2d} {:22.21f} {:22.21f}'.format(bound, i, total, expected))
 ```
+{: title="verify/approx.py"}
 ```text
 9.999999999999999790978e-17  6 0.999999000000000082267 0.999998999999999971244
 9.999999999999999790978e-17  8 0.999999990000000060775 0.999999989999999949752
 ```
 
--   So two tests pass at an absolute error of $$10^{-15}$$ but fail at $$10^{-16}$$
--   Both of these bounds are unreasonably tight
-    -   A relative error of $$10^{-3}$$ (three decimal places) is more than good enough for most data science
-    -   Because the decision the human being would make won't change if the number changes by 0.1%
--   [Accuracy](#g:accuracy) is how close your answer is to right
--   [Precision](#g:precision) is how close repeated measurements are to each other
--   You can be precise without being accurate (systematic bias), or accurate without being precise (near the right answer, but without many significant digits)
--   For human decision making, accuracy is usually more important than precision
+This tells us that two tests pass with an absolute error of $$10^{-15}$$
+but fail when the bound is $$10^{-16}$$,
+both of which are unreasonably tight.
+(Again, think of physical experiments:
+an absolute error of $$10^{-15}$$ is one part in a trillion,
+which only a handful of high-precision experiments have ever achieved.)
 
-## How Can I Test Plots and Other Graphical Results? {#s:verify-plots}
+## How can I test plots and other graphical results? {#s:verify-plots}
 
--   Testing visualizations is hard
-    -   Any change to the dimension of the plot, however small, can change many pixels in a [raster image](#g:raster-image)
-    -   Trivial changes (such as moving the legend up a couple of pixels) will generate false positives
--   As with floating point, the generated image should not change if nothing else has changed
-    -   So you should be able to do an exact match against a saved (reference) image
--   But if the image size has changed at all, or the fonts, or the color scheme, that will fail
--   [pytest-mpl][pytest-mpl] compares the latest image against a saved reference version
-    -   Root mean square (RMS) difference between images must be below a threshold for the comparison to pass
--   It also allows you to turn off comparison of text, because font differences can throw up spurious failures
-    -   If images are close enough that a human being would make the same decision about meaning, the test should pass
+Testing visualizations is hard:
+any change to the dimension of the plot,
+however small,
+can change many pixels in a [raster image](#g:raster-image),
+and cosmetic changes such as moving the legend up a couple of pixels
+will similarly generate false positives.
+
+The simplest solution is therefore *not* to test the generated image,
+but to test the data used to produce it.
+Unless you suspect that the plotting library contains bugs,
+feeding it the correct data should produce the correct plot.
+
+If you *do* need to test the generated image,
+the only practical approach is to compare it to a saved image that you have visually verified.
+[pytest-mpl][pytest-mpl] does this by calculating the root mean square (RMS) difference between images,
+which must be below a threshold for the comparison to pass.
+It also allows you to turn off comparison of text,
+because font differences can throw up spurious failures.
+As with choosing tolerances for floating-point tests,
+your rule for picking thresholds should be,
+"If images are close enough that a human being would make the same decision about meaning,
+the test should pass"
 
 FIXME: example
 
--   If the plotting library allows output as SVG, can test the structure of the SVG
-    -   SVG is a [vector format](#g:vector-image) that uses a hierarchical document structure like HTML's
-    -   Check that the right elements are there with the right properties
-    -   Although any changes to the library can invalidate all the tests because of layers being introduced, renamed, or removed
--   The best option is to test the data structures used to generate the plot and then trust the plotting library
+Another approach is to save the plot in a [vector format](#g:vector-image) like [SVG](#g:svg)
+that stores the coordinates of lines and other elements as text
+in a structure similar to that of HTML.
+You can then check that the right elements are there with the right properties,
+although this is less rewarding than you might think:
+again,
+small changes to the library or to plotting parameters can make all of the tests fail
+by moving elements by a pixel or two.
+Vector-based tests therefore still need to have thresholds on floating-point values.
 
-## How Can I Test the Steps in a Data Analysis Pipeline During Development? {#s:verify-simple}
+## How can I test the steps in a data analysis pipeline during development? {#s:verify-simple}
 
--   Subsampling
-    -   Choose random subsets of input data, do analysis, see how close output is to output with full data set
-    -   If output doesn't converge as sample size grows, something is probably unstable
-    -   Which is not the same as wrong: it's a problem with the algorithm, rather than with the implementation
-    -   FIXME: add an exercise that subsamples the Zipf data
--   Test with synthesized data
-    -   Uniform data, i.e., same values for all observations
-    -   Strictly bimodal data
-    -   Data generated from known distribution
--   Example: generate distribution that conforms to Zipf's Law and test analysis
-    -   Real data will be integers (since words only occur or not), and distribution is fractional
-    -   Use 5% relative error (by experimentation, 1% excludes a valid correct value)
+We can't tell you how to test your math,
+since we don't know what math you're using,
+but we *can* tell you where to get data to test it with.
+The first method is [subsampling](#g:subsampling):
+choose random subsets of your data,
+analyze it,
+and see how close the output is to what you get with the full dataset.
+If output doesn't converge as sample size grows,
+something is probably unstable---which is not necessarily the same as wrong.
+Instability is often a problem with the algorithm,
+rather than with the implementation.
+
+If you do this,
+it's important that you select a random sample from your data
+rather than (for example) the first N records or every N'th record.
+If there is any ordering or grouping in your data,
+those techniques can produce samples that are biased,
+which may in turn invalidate some of your tests.
+
+FIXME: add an exercise that subsamples the Zipf data.
+
+The other approach is to test with [synthetic data](#g:synthetic-data).
+With just a few lines of code,
+you can generate uniform data (i.e., data having the same values for all observations),
+strongly bimodal data (which is handy for testing clustering algorithms),
+or just sample a known distribution.
+If you do this,
+you should also try giving your pipeline data that *doesn't* fit your expected distribution
+and make sure that something, somewhere, complains.
+Doing this is the data science equivalent of testing the fire alarm every once in a while.
+
+For example,
+we can write a short program to generate data that conforms to Zips' Law and use it to test our analysis.
+Real data will be integers (since words only occur or not),
+and distributions will be fractional.
+We will use 5% relative error as our threshold,
+which we pick by experimentation:
+1% excludes a valid correct value.
+The test function is called `is_zipf`:
 
 ```python
-import sys
 from pytest import approx
 
 
@@ -282,8 +398,14 @@ def is_zipf(hist):
     perfect = [1/(1 + i) for i in range(len(hist))]
     print('perfect', perfect)
     return scaled == approx(perfect, rel=RELATIVE_ERROR)
+```
+{: title="verify/test_zipf.py"}
 
+<!-- == noindent -->
+Here are three tests that use this function
+with names that suggest their purpose:
 
+```python
 def test_fit_correct():
     actual = [round(100 / (1 + i)) for i in range(10)]
     print('actual', actual)
@@ -301,25 +423,29 @@ def test_fit_last_too_large():
     actual[-1] = actual[1]
     assert not is_zipf(actual)
 ```
+{: title="verify/test_zipf.py"}
 
-## How Can I Check the Steps in a Data Analysis Pipeline in Production? {#s:verify-operational}
+## How can I check the steps in a data analysis pipeline in production? {#s:verify-operational}
 
--   [Operational tests](#g:operational-test) are ones that are kept in place during production
-    -   Is everything working as it should?
--   Common pattern:
-    -   Have every tool append information to a log
-    -   Have another tool check that log file after the run is over
-    -   Logging and then checking makes it easy to compare values between pipeline stages
-    -   [s:logging](#REF) shows how to do logging
--   Common tests
-    -   Same number of output records as input records
-    -   Or fewer output records than input records if you're aggregating
-    -   Or the product of the sizes of two tables if you're joining records
-    -   Standard deviation has to be smaller than the range of the data
-    -   NaNs and NULLs only where you're expecting them and handling them
+An [operational test](#g:operational-test) is one that is kept in place during production
+to tell users if everything is still working as it should.
+A common pattern for such tests is to have every tool append information to a log ([s:logging](#REF))
+and then have another tool check that log file after the run is over.
+Logging and then checking makes it easy to compare values between pipeline stages,
+and ensures that there's a record of why a problem was reported.
+Some common operational tests include:
+
+-   Does this pipeline stage produce the same number of output records as input records?
+-   Or fewer if the stage is aggregating?
+-   If two or more tables are being [joined](#g:join),
+    is the number of output records equal to the product of the number of input records?
+-   Is the standard deviation be smaller than the range of the data?
+-   Are there any NaNs or NULLs where there aren't supposed to be any?
+
+To illustrate these ideas,
+here's a script that reads a document and prints one line per word:
 
 ```python
-# text_to_words.py
 import sys
 
 num_lines = num_words = 0
@@ -329,13 +455,16 @@ for line in sys.stdin:
     num_words += len(words)
     for w in words:
         print(w)
-with open('logfile.txt', 'a') as logger:
+with open('logfile.csv', 'a') as logger:
     logger.write('text_to_words.py,num_lines,{}\n'.format(num_lines))
     logger.write('text_to_words.py,num_words,{}\n'.format(num_words))
 ```
+{: title="verify/text_to_words.py"}
+
+<!-- == noindent -->
+Here's a complementary script that counts how often words appear in its input:
 
 ```python
-# word_count.py
 import sys
 
 num_words = 0
@@ -345,10 +474,16 @@ for word in sys.stdin:
     count[word] = count.get(word, 0) + 1
 for word in count:
     print('{} {}', word, count[word])
-with open('logfile.txt', 'a') as logger:
+with open('logfile.csv', 'a') as logger:
     logger.write('word_count.py,num_words,{}\n'.format(num_words))
     logger.write('word_count.py,num_distinct,{}\n'.format(len(count)))
 ```
+{: title="verify/word_count.py"}
+
+Both of these scripts write records to `logfile.csv`.
+When we look at that file after a typical run,
+we see records like this:
+
 ```text
 text_to_words.py,num_lines,431
 text_to_words.py,num_words,2554
@@ -356,45 +491,47 @@ word_count.py,num_words,2554
 word_count.py,num_distinct,1167
 ```
 
+We can then write a small program to check that everything went as planned:
+
 ```python
-# check_log.py
-data = ...read CSV file...
+# read CSV file into the variable data
 check(data['text_to_words.py']['num_lines'] <= data['word_count.py']['num_words'])
 check(data['text_to_words.py']['num_words'] == data['word_count.py']['num_words'])
 check(data['word_count.py']['num_words'] >= data['word_count.py']['num_distinct'])
 ```
 
--   Verify data against a distribution
-    -   E.g., [Shapiro-Wilk test][shapiro-wilk] that data is normal
-    -   Requires a tolerance, but again, that's good because it forces you to make your tolerances explicit
--   Alternative: use a non-parametric test
-    -   Kolmogorov Smirnov test checks that an empirical distribution fits a ideal distribution
-    -   Chi-square test check whether the two distributions are the same or different
-    -   t-stat test is good for testing how far out of the mean something is
--   Create histogram of results for test data
-    -   Verify that subsequent data fits histogram
-    -   Although you still have to decide what "fits" means
-    -   And you have to 
+## How can I infer and check properties of my data? {#s:verify-infer}
 
-```python
-TEST_BINS = 100
-TEST_TOLERANCE = 1.0e-3
+Writing tests for the properties of data can be tedious,
+but some of the work can be automated.
+In particular,
+the [TDDA library][tdda-site] can infer test rules from data,
+such as `age <= 100`, `Date` should be sorted ascending, or `StartDate <= EndDate`.
+The library comes with a command-line tool called `tdda`,
+so that the command:
 
-reference = pandas.read_csv('test_reference.csv').iloc[,0]
-actual = ...some complex calculation...
-check = actual.hist(column=3, bins=TEST_BINS)
-assert actual == pytest.approx(reference, rel=TEST_TOLERANCE)
+```shell
+$ tdda discover elements92.csv elements.tdda
 ```
 
-## How Can I Infer and Check Properties of My Data? {#s:verify-infer}
+<!-- {: title="verify/elements92.csv"} -->
 
--   The [TDDA library][tdda-site] can infer test rules from data
--   `age <= 100`, `Date` should be sorted ascending, `StartDate <= EndDate`, etc.
--   Comes with a command-line tool `tdda`
-    -   `tdda discover elements92.csv elements.tdda` infers rules from data
-    -   `tdda verify elements92.csv elements.tdda` verifies data against those rules (should pass)
--   Inferred rules are stored as JSON, and are (sort of) readable
-    -   Reading and modifying the rules is a good way to get to know your data
+<!-- == noindent -->
+infers rules from data,
+while the command:
+
+```shell
+tdda verify elements92.csv elements.tdda
+```
+
+<!-- == noindent -->
+verifies data against those rules.
+The inferred rules are stored as JSON,
+which is (sort of) readable with a bit of practice.
+Reading the generated rules is a good way to get to know your data,
+and modifying values
+(e.g., changing the maximum allowed value for `Grade` from the observed 94.5 to the actual 100.0)
+is an easy way to make constraints explicit:
 
 ```json
 "fields": {
@@ -441,9 +578,11 @@ assert actual == pytest.approx(reference, rel=TEST_TOLERANCE)
 }
 ```
 
--   Apply these inferred rules to all elements
-    -   `-7` to get pure ASCII output
-    -   `-f` to show only fields with failures
+We can apply these inferred rules to all elements
+using the `-7` flag to get pure ASCII output
+and the `-f` flag to show only fields with failures:
+
+<!-- {: title="verify/elements118.csv"} -->
 
 ```shell
 $ tdda verify -7 -f elements118.csv elements92.tdda
@@ -465,14 +604,16 @@ Constraints passing: 57
 Constraints failing: 15
 ```
 
--   Additional use: generate constraints for two datasets and then look at differences in constraint files
-    -   "Is this dataset similar to the one I tested on?"
--   Especially useful if the constraint file is put under version control
+Another way to use TDDA is to generate constraints for two datasets and then look at differences
+in order to see how similar the datasets are to each other.
+This is especially useful if the constraint file is put under version control.
 
 ## Summary {#s:verify-summary}
 
-FIXME: [tolerance](#g:tolerance)
+FIXME: create concept map for verification
 
-FIXME: create concept map for correctness
+## Exercises {#s:verify-exercises}
+
+FIXME: create exercises for verification
 
 {% include links.md %}

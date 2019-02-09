@@ -249,6 +249,9 @@ title: "Glossary"
 **Jenny**{:#g:jenny} (a repository)
 :   FIXME
 
+**Join**{:#g:join} (of database tables)
+:   FIXME
+
 **JSON**{:#g:json}
 :   FIXME
 
@@ -407,6 +410,9 @@ title: "Glossary"
 **Rule**{:#g:make-rule} (in Make)
 :   FIXME
 
+**Scalable Vector Graphics**{:#g:svg} (SVG):
+:   FIXME
+
 **Seed**{:#g:prng-seed} (for pseudorandom number generator)
 :   FIXME
 
@@ -461,10 +467,16 @@ title: "Glossary"
 **Sturdy development**{:#g:sturdy}
 :   FIXME
 
+**Subsampling**{:#g:subsampling}
+:   FIXME
+
 **Success**{:#g:test-success} (result from a unit test)
 :   FIXME
 
 **Sustainability**{:#g:sustainability}
+:   FIXME
+
+**Synthetic data**{:#g:synthetic-data}
 :   FIXME
 
 **Tab completion**{:#g:tab-completion}

@@ -107,7 +107,6 @@ definitions if that's done.
 [requests]: http://docs.python-requests.org
 
 [setuptools]: https://setuptools.readthedocs.io/
-[shapiro-wilk]: https://en.wikipedia.org/wiki/Shapiro%E2%80%93Wilk_test
 [snakemake]: https://snakemake.readthedocs.io/
 [sphinx]: http://www.sphinx-doc.org/en/master/
 [srinath-ashwin]: https://ccit.clemson.edu/research/researcher-profiles/ashwin-srinath/
