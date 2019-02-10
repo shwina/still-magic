@@ -105,7 +105,8 @@ def check_figures(language):
     Check included figures.
     '''
     def _ignore(filename):
-        return filename.endswith('.xml') or \
+        return filename.startswith('.') or \
+            filename.endswith('.xml') or \
             filename.endswith('.pdf')
 
     def _redundant(filename, defined):
