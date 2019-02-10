@@ -8,7 +8,7 @@ Display a section of the table of contents.
 - toc: a section of the table of contents from _config.yml.
 {% endcomment %}
 
-{% if include.title %}<p><strong>{{include.title}}</strong></p>{% endif %}
+{% if include.title %}<p>{{include.title}}</p>{% endif %}
 <ol class="{{include.class}}">
   {% comment %}Search to find this page (because Jekyll does not support lookup by key).{% endcomment %}
   {%- for lesson in include.toc -%}

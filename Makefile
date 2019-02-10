@@ -4,8 +4,8 @@ $(warning Please set 'lang' with 'lang=en' or similar.)
 lang=en
 endif
 
-# Project stem.
-STEM=still-magic
+# Pick up project-specific setting for STEM.
+include config.mk
 
 # Tools.
 JEKYLL=jekyll
