@@ -2,44 +2,29 @@
 Display the table of comments.  Parameters are:
 
 - language: the two-letter code for the page language (e.g., 'en' for English).
-- coll: the corresponding collection.
-- class: the CSS class to apply to the list.
-- title: the TOC section title.
-- toc: a section of the table of contents from _config.yml.
 {% endcomment %}
 
-{% comment %}
-Select the entire collection for the language from "_config.yml".  We include
-"um" as a dummy collection to show how to use "elsif" to select a second one.
-{% endcomment %}
-{% if include.language == 'en' %}
-  {% assign chapters = site.en %}
-{% elsif include.language == 'um' %}
-  {% assign chapters = site.um %}
-{% endif %}
-{% assign translations=site.translations[include.language] %}
-
-{% comment %} Set path to root. {% endcomment %}
-{% if page.root %}{% assign rootpath = "." %}{% else %}{% assign rootpath = ".." %}{% endif %}
-{% assign imgpath = "../" | append: rootpath %}
+{% comment %} Select chapters and translations based on language. {% endcomment %}
+{% assign chapters = site[include.language] %}
+{% assign translations = site.translations[include.language] %}
 
 <nav>
 
   {% comment %} Put the logo at the top of the navigation menu. {% endcomment %}
-  <a href="{{rootpath}}/"><img src="{{imgpath}}/img/logo.svg" alt="{{site.title}} logo" width="75%" /></a>
+  <a href="{{'/'|append: include.language|append: '/'|relative_url}}"><img src="{{'/img/logo.svg'|relative_url}}" alt="{{site.title}} logo" width="75%" /></a>
 
   {% comment %} Show the lessons, bibliography, and extras in that order using a sub-inclusion. {% endcomment %}
   <hr/>
   {% include toc-section.html language=include.language coll=chapters class="chapter" title="Lessons" toc=site.toc.lessons %}
-  {% include toc-bib.html %}
+  {% include toc-bib.html language=include.language %}
   {% include toc-section.html language=include.language coll=chapters class="appendix" title="Extras" toc=site.toc.extras %}
 
   {% comment %} Show footer links. {% endcomment %}
   <hr/>
-  <p><a href="{{rootpath}}/license/"><img src="{{imgpath}}/img/cc-by.svg" alt="CC-BY License" width="80%" /></a></p>
+  <p><a href="{{'/'|append: include.language|append: '/license/'|relative_url}}"><img src="{{'/img/cc-by.svg'|relative_url}}" alt="CC-BY License" width="80%" /></a></p>
   <p>
-    <a href="mailto:{{site.email}}"><img src="{{imgpath}}/img/email.svg" alt="Email" width="20%" /></a>
-    <a href="{{site.repo}}"><img src="{{imgpath}}/img/github.svg" alt="GitHub" width="20%" /></a>
+    <a href="mailto:{{site.email}}"><img src="{{'/img/email.svg'|relative_url}}" alt="Email" width="20%" /></a>
+    <a href="{{site.repo}}"><img src="{{'/img/github.svg'|relative_url}}" alt="GitHub" width="20%" /></a>
   </p>
 
   {% comment %} Show the creation date on the index page only. {% endcomment %}

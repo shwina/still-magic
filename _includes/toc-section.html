@@ -8,9 +8,6 @@ Display a section of the table of contents.
 - toc: a section of the table of contents from _config.yml.
 {% endcomment %}
 
-{% comment %} Figure out the path to the root of the collection. {% endcomment %}
-{% if page.root %}{% assign rootpath = "." %}{% else %}{% assign rootpath = ".." %}{% endif %}
-
 {% if include.title %}<p><strong>{{include.title}}</strong></p>{% endif %}
 <ol class="{{include.class}}">
   {% comment %}Search to find this page (because Jekyll does not support lookup by key).{% endcomment %}
@@ -19,7 +16,9 @@ Display a section of the table of contents.
       {% comment %}If there's a match, add a link to the generated ToC.{% endcomment %}
       {%- if lesson == chap.slug -%}
         <li>{% if page.slug == chap.slug %}<strong>{% endif %}
-          <a href="{{rootpath}}/{{chap.slug}}/" class="toc">{{chap.title}}</a>
+          <a href="{{'/'|append: include.language|append: '/'|append: chap.slug|append: '/'}}" class="toc">
+            {% if chap.undone %}<em>{% endif %}{{chap.title}}{% if chap.undone %} &#9734;</em>{% endif %}
+          </a>
           {% if page.slug == chap.slug %}</strong>{% endif %}
         </li>
         {% break %}

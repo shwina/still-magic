@@ -2,9 +2,8 @@
 Display the bibliography.
 {% endcomment %}
 
-{% if page.root %}{% assign rootpath = "." %}{% else %}{% assign rootpath = ".." %}{% endif %}
 <p>
   {% if page.slug == "bib" %}<strong>{% endif %}
-    <a href="{{rootpath}}/bib/" class="toc">{{chap.title}}</a>
+    <a href="{{'/'|append: include.language|append: '/bib/'|relative_url}}" class="toc">{{chap.title}}</a>
   {% if page.slug == "bib" %}</strong>{% endif %}
 </p>
