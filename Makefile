@@ -147,6 +147,7 @@ clean :
 	@rm -r -f _site dist
 	@find . -name '*~' -delete
 	@find . -name __pycache__ -prune -exec rm -r "{}" \;
+	@find . -name '_minted-*' -prune -exec rm -r "{}" \;
 	@rm -r -f tex/*/all.tex tex/*/*.aux tex/*/*.bbl tex/*/*.blg tex/*/*.log tex/*/*.out tex/*/*.toc
 	@find . -name .DS_Store -prune -exec rm -r "{}" \;
 
