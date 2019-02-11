@@ -205,6 +205,8 @@ FIXME: describe how to run actual tests with Travis-CI - will this require a pro
 
 FIXME: create concept map for integration.
 
+FIXME: forward ref to [s:tools-cron](#REF).
+
 ## Exercises {#s:integrate-exercises}
 
 FIXME: exercises for integration.

@@ -63,6 +63,9 @@ title: "Glossary"
 **Branch-per-feature workflow**{:#g:branch-per-feature-workflow}
 :   [branch-per-feature][branch-per-feature]
 
+**Breakpoint**{:#g:breakpoint}
+:   FIXME
+
 **Buffer**{:#g:buffer}
 :   FIXME
 
@@ -73,6 +76,9 @@ title: "Glossary"
 :   FIXME
 
 **Cascading Style Sheets**{:#g:css} (CSS)
+:   FIXME
+
+**Code browser**{:#g:code-browser}
 :   FIXME
 
 **Cognitive load**{:#g:cognitive-load}
@@ -225,6 +231,9 @@ title: "Glossary"
 **GNU Public License**{:#g:gpl} (GPL)
 :   FIXME
 
+**Hot spot**{:#g:hot-spot}
+:   FIXME
+
 **HTTP status code**{:#g:http-status-code}
 :   FIXME
 
@@ -235,6 +244,12 @@ title: "Glossary"
 :   FIXME
 
 **Index**{:#g:index}
+:   FIXME
+
+**Instrumenting profiler**{:#g:instrumenting-profiler}
+:   FIXME
+
+**Integrated Development Environment**{:#g:ide} (IDE)
 :   FIXME
 
 **Issue**{:#g:issue}
@@ -268,6 +283,9 @@ title: "Glossary"
 :   FIXME
 
 **Logging framework**{:#g:logging-framework}
+:   FIXME
+
+**Macro**{:#g:macro}
 :   FIXME
 
 **Magnitude**{:#g:magnitude}
@@ -353,6 +371,9 @@ title: "Glossary"
 **Product manager**{:#g:product-manager}
 :   FIXME
 
+**Profiler**{:#g:profiler}
+:   FIXME
+
 **Project manager**{:#g:project-manager}
 :   FIXME
 
@@ -408,6 +429,9 @@ title: "Glossary"
 :   FIXME
 
 **Rule**{:#g:make-rule} (in Make)
+:   FIXME
+
+**Sampling profiler**{:#g:sampling-profiler}
 :   FIXME
 
 **Scalable Vector Graphics**{:#g:svg} (SVG):
@@ -476,6 +500,9 @@ title: "Glossary"
 **Sustainability**{:#g:sustainability}
 :   FIXME
 
+**Symbolic debugger**{:#g:symbolic-debugger}
+:   FIXME
+
 **Synthetic data**{:#g:synthetic-data}
 :   FIXME
 
@@ -526,6 +553,9 @@ title: "Glossary"
 :   FIXME
 
 **Triage**{:#g:triage}
+:   FIXME
+
+**Tuning**{:#g:tuning}
 :   FIXME
 
 **Tuple**{:#g:tuple}

@@ -585,6 +585,9 @@ you can use `coverage html` to generate an HTML listing:
 
 {% include unit/coverage.html %}
 
+A more advanced tool called a [profiler](#g:profiler) can give you even more information;
+we will discuss profilers briefly in [s:tools-profiler](#REF).
+
 ## Summary {#s:unit-summary}
 
 One practice we haven't described in this section is [test-driven development](#g:tdd) (TDD).

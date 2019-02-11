@@ -1,197 +1,248 @@
 ---
 title: "Other Tools"
-undone: true
 questions:
-- "FIXME"
+-   "What other tools can help me be more productive?"
 objectives:
-- "FIXME"
+-   "List the criteria for choosing a good program editor."
+-   "Explain what a symbolic debugger is and demonstrate its use."
+-   "Explain what profiling is and describe two approaches to profiling."
+-   "Explain what integrated development environments are and what advantages they have over standalone tools."
+-   "Explain how to execute tasks at specified times."
 keypoints:
-- "FIXME"
+-   "Choose an editor that is kind to your wrists, portable, syntax-aware, programmable, and can handle Unicode characters."
+-   "A symbolic debugger is a program that allows you to control and inspect the execution of another program."
+-   "Symbolic debuggers are a much more efficient way to find most bugs than `print` statements."
+-   "A profiler records and reports the execution time of the statements in a program."
+-   "Instrumenting profilers modify the source code to check the clock and record start and end times for statements."
+-   "Sampling profilers interrupt a program's execution to build a histogram of execution times."
+-   "An integrated development environment (IDE) combines editing, execution, profiling, code checking, and many other tools in one."
+-   "Use `cron` or `at` to execute tasks periodically or at some future time respectively."
 ---
 
-The next most important tool after a version control system is your
-editor.  There are literally thousands to choose from; if you want a
-plain text editor, your choices range from the very small (such as
-Pico, which is included in most Linux installations) to the very large
-(like Emacs, whose name doesn't actually stand for "eighty
-megabytes and constantly swapping", and which isn't actually a
-Lisp-based operating system in disguise).  There are also editors that
-understand the syntax of particular file formats, and can
-automatically indent text, complete phrases, and colorize the stuff
-you're typing: JEdit for Java, Amaya for HTML, and many
-others.  Finally, there are WYSIWYG tools like Microsoft Word
-and LibreOffice; these usually *can't* be used for
-programming, since they insert non-ASCII characters and formatting
-information in files (even files that look unformatted).
+The previous chapters have explored several key tools in depth,
+but there are many others that will improve your productivity.
+You shouldn't try to pick them all up at once,
+but each will help you do something in less time and with less pain.
 
-You probably already have a favorite editor.  If you're like most
-programmers, you will change jobs, languages, operating systems, and
-nationality before you'll switch to another, because it's taken weeks
-or months for your hands to master the current one.  However, if your
-editor doesn't pass the following tests, switching now will save you
-enough time and grief in the future to make the temporary loss of
-productivity worthwhile:
+## What should I look for in an editor? {#s:tools-editor}
+
+The next most important tool after a version control system is your editor.
+There are literally thousands to choose from;
+if you want a plain text editor, your choices range from the very small
+(such as Pico, which is included in most Linux installations)
+to the very large
+(like Emacs,
+whose name doesn't actually stand for "eighty megabytes and constantly swapping"
+and which isn't actually a Lisp-based operating system in disguise).
+There are also [WYSIWYG](#g:wysiwyg) tools like Microsoft Word, LibreOffice, and Google Docs,
+though these usually can't be used for programming,
+since they insert non-ASCII characters and formatting information in files
+(even files that look unformatted).
+
+You probably already have a favorite editor.
+If you're like most programmers, you will change jobs, languages, operating systems, and nationality
+before you'll switch to another,
+because it's taken weeks or months for your hands to master the current one.
+However, if your editor doesn't pass the following tests,
+switching now will save you enough time and grief in the future
+to make the temporary loss of productivity worthwhile.
 
 Is it kind to your wrists?
-:   I was an Emacs power user for many years, and have paid a heavy
-    price for it: I can't type for more than half an hour now before my
-    hands start to hurt from all those control-key combinations and long
-    reaches for the escape key.  If ergonomics was a standard part of
-    the undergraduate curriculum, programming editors would probably be
-    used as examples of bad design.
+:   If ergonomics was a standard part of the undergraduate curriculum,
+    programming editors would probably be used as examples of bad design.
+    I was an Emacs power user for many years,
+    and have paid a heavy price for it:
+    I can't type for more than half an hour now before my hands start to hurt
+    from all those control-key combinations and long reaches for the escape key.
 
 Is it portable?
-:   I'm writing this on Windows; an hour from now I'll be using my Mac
-    laptop, and on Monday I'll be back on a Linux machine at work.  I
-    don't know what I'll be using next year; what I'm sure of is that I
-    won't want to have to retrain my hands to use it.  The moral is,
-    pick an editor that's portable.  In practice, that means one that is
-    open source: you don't want to have to trust other people to care
-    about the platforms you do.
+:   I'm writing this on Windows;
+    an hour from now I'll be using my Mac laptop,
+    and on Monday I'll be back on a Linux machine at work.
+    I don't know what I'll be using next year,
+    but what I *do* know is that I won't want to have to retrain my hands to use it.
+    You should therefore pick an editor that's portable across all three major operating systems.
 
 Is it syntax-aware?
-:   Human beings shouldn't have to indent code, or count parentheses to
-    make sure they have closed all the ones they opened.  They equally
-    shouldn't have to type every character in the name of every function
-    or method they call: their editor should do these things for them.
-    This won't just save wear and tear on your wrists: letting the
-    machine do it will make the text you create more uniform, and hence
-    more readable.
+:   Human beings shouldn't have to indent code
+    or count parentheses to make sure they have closed all the ones they opened.
+    They equally shouldn't have to type every character in the name of every function or method they call:
+    their editor should do these things for them.
+    This won't just save wear and tear on your wrists:
+    letting the machine do it will make the text you create more uniform,
+    and hence more readable ([s:style](#REF)).
 
 Is it programmable?
-:   Just like spreadsheets, games, and other applications, editors are
-    built out of functions.  Good ones let you call those functions
-    yourself, so that you can write small programs (usually called
-    "macros") to automate common operations. For example, back in my
-    Emacs power user days, I could type escape-X, "cfl" (for "C for
-    loop"), "i", and "N", and my editor would insert:
-
-        for (i=0; i<N; i++) {
-            _
-        }
-
-    (The underscore shows where the cursor was left.)  I also had macros
-    to reformat the spacing in functions, keep track of how many lines
-    of code I'd added or removed, and many other tasks.  I'll return to
-    this idea below; what's important is that as a programmer, you have
-    the skills to make your tools do more than their creators intended,
+:   Just like spreadsheets, games, and other applications,
+    editors are built out of functions.
+    Good ones let you call those functions yourself so that you can write small programs
+    (usually called [macros](#g:macro)) to automate common operations.
+    As a programmer,
+    you have the skills to make your tools do more than their creators intended,
     so you should find tools that allow you to.
 
 Does it handle Unicode characters?
-:   Most programmers don't speak English as a first language, and spell
-    their names using symbols that aren't in the old 7-bit ASCII
-    character set.  Programming languages haven't caught up yet---they
-    still insist on using `<=`, for example---but at the very least, you
-    have to be able to edit data and documentation (including comments
-    in code) that include Greek, Tamil, and the like. (See
-    [Spolsky2003] for a developer-oriented introduction
-    to character sets in general, and Unicode in particular.)
+:   Most programmers don't speak English as a first language,
+    and spell their names using symbols that aren't in the old 7-bit ASCII character set.
+    Programming languages haven't caught up yet---they still insist on using `<=`, for example---but at the very least,
+    you have to be able to edit data and documentation that include Greek, Tamil, and the like.
+    (See [Spolsky2003] for a developer-oriented introduction to character sets in general and Unicode in particular.)
 
-A **symbolic debugger** is a program that allows you to control and
-inspect the execution of another program.  You can step through the
-target program a line at a time, display the values of variables or
-expressions, look at the call stack, or (my personal favorite) set
-**breakpoints** to say "pause the program when it reaches this
-line". Depending on the language you're using, you may have to compile
-your program with certain options turned on to make it debuggable, but
-that's a small price to pay for the hours or days a debugger can save
-you when you're trying to track down a problem.
+FIXME: syntax highlighting
 
-Some debuggers, like GDB, are standalone programs; others are
-build into IDEs.  Both are better than adding `print` statements to
-your program, recompiling it, and re-running it, because:
+## What are symbolic debuggers and how can they help me? {#s:tools-debugger}
 
-- adding `print` statements takes longer than clicking on a line and
-  setting a breakpoint;
+A [symbolic debugger](#g:symbolic-debugger) is a program
+that allows you to control and inspect the execution of other programs.
+You can step through the target program a line at a time,
+display the values of variables or expressions,
+look at the call stack,
+or (my personal favorite) set [breakpoints](#g:breakpoint) to say,
+"Pause the program when it reaches this line".
+Depending on the language you're using,
+you may have to compile your program with certain options turned on to make it debuggable,
+but that's a small price to pay for the hours or days a debugger can save you
+when you're trying to track down a problem.
 
-- adding `print` statements distorts the code you're debugging by
-  moving things around in memory, altering the flow of control, and/or
-  changing the timing of thread execution; and
+Some debuggers,
+like [GDB][gdb],
+are standalone programs,
+while others are build into integrated development environments (discussed below).
+Both are better than adding `print` statements to your program and re-running it because:
 
-- it's all too easy to make a mistake in the `print` statement---few
-  things are as frustrating as wasting an afternoon debugging a
-  problem, only to realize that the `print` statement you copied and
-  pasted isn't displaying the values you thought it was.
+-   adding `print` statements takes longer than clicking on a line
+    and setting a breakpoint;
 
-A company I used to work for never hired people immediately.  Instead,
-prospective employees were put on a three-month contract.  This gave
-us a chance to see how well they worked, and them a chance to see if
-they actually wanted to work with us.
+-   adding `print` statements distorts the code you're debugging by moving things around in memory,
+    altering the flow of control,
+    and/or changing the timing of thread execution;
+    and
 
-Two things meant automatic disqualification in the assessment at the
-end of those three months: checking broken code into version control,
-and using `print` statements instead of a symbolic debugger.  The
-first was justified because we didn't want to hire people who put
-themselves ahead of their teammates.  The second was justified because
-we didn't want to hire people who were too stupid or stubborn to
-program efficiently.
+-   it's all too easy to make a mistake in the `print` statement---few things are as frustrating
+    as wasting an afternoon debugging a problem,
+    only to realize that the `print` statement you copied and pasted
+    isn't displaying the values you thought it was.
 
-Over the years, I've been surprised by how strongly some programmers
-resist using a debugger.  The reason can't be the five or ten minutes
-it takes to learn how to use one---that pays for itself almost
-immediately.  The only explanation I've been able to come up with is
-that some people *enjoy* being inefficient.  Typing in
-`print` statements and paging through screens of output lets them
-feel like they're being productive, when in fact they're just being
-busy (which isn't the same thing at all).  If your brain needs a break
-(which it sometimes will), then take a break: stretch your legs, stare
-out a window, practice your juggling, or do whatever else you can to
-take your mind away from your problem for a few minutes.  Don't drag
-out the process of finding and fixing your bug by using sloppy
-technique just to let your brain idle for a while.
+Debuggers and logging ([s:logging](#REF)) are complementary.
+A debugger is what you use when you are trying to track down a specific problem;
+logging is what you put into your code so that *if* there's a problem
+you'll have the information you need to track it down more quickly.
 
-And by the way: if you're allowed to choose your teammates at the
-start of the course, treat it like a job interview.  Ask the people
-you think you might want to work with whether they use a debugger.  If
-they say "no", ask yourself what impact that's going to have on your
-grade in the course...
+Over the years,
+I've been surprised by how strongly some programmers resist using a debugger.
+The reason can't be the five or ten minutes it takes to learn how to use one---that pays for itself
+almost immediately.
+The only explanation I've been able to come up with is that some people *enjoy* being inefficient.
+Typing in `print` statements and paging through screens of output lets them feel like they're being productive,
+when in fact they're just being busy.
+If your brain needs a break (which it sometimes will),
+then take a break:
+stretch your legs,
+stare out a window,
+practice your juggling,
+or do whatever else you can to take your mind away from your problem for a few minutes.
+Don't drag out the process of finding and fixing your bug by using sloppy technique
+just to let your brain idle for a while.
 
-A smart editor, a build system, and a debugger, all talking to one
-another: that's a pretty good description of an **integrated
-development environment**, or IDE.  These were invented in the 1970s,
-but didn't really catch on until Borland released Turbo Pascal in the
-1980s. (Its inventor, Anders Hejlsberg, went on to design C#, which
-also shows how far a good tool can take you.)  Along with the tools
-described above, modern IDEs usually include:
+## How can I tell why my program is running slowly? {#s:tools-profiler}
 
-- a **code browser** that displays an overview of the packages,
-  classes, methods, and data in your program;
+[s:unit-coverage](#REF) described how
+a coverage tool can keep track of which lines of a program have and have not been executed
+so that programmers can figure out which bits of code haven't been tested.
+A [profiler](#g:profiler) is a more sophisticated tool that records how much time was spent executing each line
+so that programmers can figure out which parts are slowest.
+As a very rough guide,
+20% of the code accounts for 80% of execution time,
+so finding and [tuning](#g:tuning) a few [hot spots](#g:hot-spot) is the fastest way to make programs faster.
 
-- a **GUI designer** that lets you build GUIs by dragging and dropping
-  components;
+There are two ways to do profiling.
+[instrumenting profilers](#g:instrumenting-profiler) insert extra statements into the application
+to record the clock time,
+while [sampling profilers](#g:sampling-profiler) interrupt execution every few clock ticks
+and see where the program is.
+Both approaches distort the program's behavior slightly,
+so there is an unavoidable tradeoff between how much information is collected
+and how accurately that information represents the behavior of the unmodified program.
 
-- an **interactive prompt** so that you can type in expressions or
-  call functions and see the results without having to start (or
-  restart) your program;
+FIXME: figure showing two kinds of profilers
 
-- a **style checker** that can warn you when your code doesn't meet
-  naming and indentation conventions;
+Profilers typically present two kinds of information:
+how much time was spent in a statement,
+and how much was spent in that statement and any functions it called.
+They may also present time per statement and total time,
+so that if a line of code executes quickly,
+but is called millions of times,
+it will show up as a hot spot.
 
-- some **refactoring tools** to help you reorganize your code; and
+Once you have found where your program is slow,
+the next step is to speed it up.
+That's beyond the scope of this tutorial,
+but [the "Performance" section][advanced-r-performance] of [Wick2014b](#BIB)
+or [Gore2014,Lana2017](#BIB) are good places to start.
 
-- a **test runner** to display the results of tests, and let you jump
-  directly to ones that have failed.
+## How can I get all of these tools in one go? {#s:tools-ide}
 
-In short, an IDE is to programming what a well-equipped workbench is
-to a carpenter.  The most popular one among open source developers is
-undoubtedly Eclipse , which has hundreds of plugins of varying
-quality to support database design, reverse engineering, a dozen
-different programming languages, and more.  Microsoft Visual
-Studio is still my personal favorite, largely because of how well its
-debugger handles multithreaded programs; as of May 2007, the Express
-Edition is still free.
+A build system,
+a smart editor,
+and a debugger all talking to one another:
+that's a pretty good description of an [integrated development environment](#g:ide) or IDE.
+These were invented in the 1970s,
+but didn't really catch on until Borland released Turbo Pascal in the 1980s.
+Along with the tools described above,
+modern IDEs usually include:
 
-There are dozens of others, any of which will make you more productive
-than their disconnected counterparts.  Since most of these store
-project data (including build instructions) in a proprietary format,
-your team will do much better if you all adopt the same IDE.  This
-will also let you help one another solve problems and share
-plugins. (Having to agree on *which* IDE to use may be another reason
-why some programmers resist adopting any IDE at all, since they
-require even more investment to master than editors.)
+-   a [code browser](#g:code-browser)
+    that displays an overview of the packages, classes, methods, and data in your program;
 
-FIXME: add profiling.
+-   an interactive prompt so that you can type in expressions or call functions
+    and see the results without having to start (or restart) your program;
 
-FIXME: add cron or equivalents.
+-   a [linter](#g:linter) that can warn you when your code doesn't meet naming and indentation conventions
+    (discussed in [s:style](#REF));
+
+-   some refactoring tools to help you reorganize your code
+    (discussed in [s:refactor](#REF));
+    and
+
+-   a [test runner](#g:test-runner) to display the results of tests
+    and let you jump directly to ones that have failed
+    ([s:unit](#REF)).
+
+In short,
+an IDE is to programming what a well-equipped workbench is to a carpenter.
+Microsoft's [Visual Studio Code][vs-code],
+Apple's [XCode][xcode],
+and [IntelliJ IDEA][intellij-idea] from JetBrains are three popular commercial IDEs;
+[WingIDE][wing-ide] is a good place to start for Python programmers,
+and [RStudio][rstudio-ide] is a full-featured IDE for R
+that can also be used [online][rstudio-cloud].
+
+There are dozens of others,
+any of which will make you more productive than their disconnected counterparts.
+Since most of these store project data (including build instructions) in a proprietary format,
+your team will do much better if you all adopt the same IDE.
+This will also let you help one another solve problems and share plugins.
+(Having to agree on which IDE to use may be another reason why some programmers resist adopting any IDE at all,
+since they require even more investment to master than editors.)
+
+## How can I run tasks at regular times? {#s:tools-cron}
+
+One other kind of tool that many programmers rely on is one that runs tasks at pre-defined times.
+The best known of these is the venerable Unix utility [`cron`][cron],
+and a related tool is [`at`][at],
+which runs a single job at some time in the future.
+`cron`'s configuration files are famously cryptic,
+and it's more common these days to run jobs when something changes in a version control repository
+([s:integrate](#REF))
+than at a specific time,
+but you may find yourself in need.
+
+## Summary {#s:tools-summary}
+
+FIXME: summary of tools
+
+## Exercises {#s:tools-exercises}
+
+FIXME: exercises for tools
 
 {% include links.md %}

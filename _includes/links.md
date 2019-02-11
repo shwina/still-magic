@@ -12,8 +12,10 @@ definitions if that's done.
 [config-repo]: {{site.repo}}
 [config-website]: {{site.website}}
 
+[advanced-r-performance]: http://adv-r.had.co.nz/Performance.html
 [ally-skills]: https://frameshiftconsulting.com/ally-skills-workshop/
 [aruliah-dhavide]: https://www.linkedin.com/in/dhavide-aruliah-76818184/
+[at]: https://en.wikipedia.org/wiki/At_(command)
 
 [becker-bruce]: https://www.brettbecker.com/
 [bibtex]: http://www.bibtex.org/
@@ -33,6 +35,7 @@ definitions if that's done.
 [conda]: https://conda.io/
 [covenant]: https://www.contributor-covenant.org
 [creative-commons]: https://creativecommons.org/
+[cron]: https://en.wikipedia.org/wiki/Cron
 
 [dc]: https://datacarpentry.org/
 [docker]: https://en.wikipedia.org/wiki/Docker_(software)
@@ -43,6 +46,7 @@ definitions if that's done.
 [f1000-research]: https://f1000research.com/
 [figshare]: https://figshare.com/
 
+[gdb]: https://www.gnu.org/software/gdb
 [geek-feminism]: http://geekfeminism.wikia.com/
 [gfm]: https://help.github.com/articles/github-flavored-markdown/
 [github]: http://github.com
@@ -62,6 +66,7 @@ definitions if that's done.
 
 [ini-format]: https://en.wikipedia.org/wiki/INI_file
 [insight]: https://www.insightdatascience.com/
+[intellij-idea]: https://www.jetbrains.com/idea/
 
 [jekyll]: https://jekyllrb.com/
 [joss]: https://joss.theoj.org/
@@ -105,6 +110,8 @@ definitions if that's done.
 [r-markdown]: https://rmarkdown.rstudio.com/
 [readthedocs]: https://docs.readthedocs.io/en/latest/
 [requests]: http://docs.python-requests.org
+[rstudio-cloud]: https://rstudio.cloud/
+[rstudio-ide]: https://www.rstudio.com/products/rstudio/
 
 [setuptools]: https://setuptools.readthedocs.io/
 [snakemake]: https://snakemake.readthedocs.io/
@@ -134,13 +141,16 @@ definitions if that's done.
 [unpaywall]: http://unpaywall.org/
 
 [vanderplas-licensing]: http://www.astrobetter.com/blog/2014/03/10/the-whys-and-hows-of-licensing-scientific-code/
+[vs-code]: https://code.visualstudio.com/
 
 [wickes-elizabeth]: https://elizabethwickes.com/
 [wikipedia-iso-country]: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3
 [wilson-greg]: http://third-bit.com
+[wing-ide]: https://wingware.com/
 [womens-pockets]: https://pudding.cool/2018/08/pockets/
 [womens-pockets-data]: https://github.com/the-pudding/data/blob/master/pockets/README.md
 
+[xcode]: https://developer.apple.com/xcode/ide/
 [xkcd-duty-calls]: https://xkcd.com/386/
 
 [yaml]: https://en.wikipedia.org/wiki/YAML

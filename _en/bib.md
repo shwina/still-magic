@@ -50,6 +50,8 @@ title: "Bibliography"
 
 **Gold1991**{:#b:Gold1991}: David Goldberg: "What Every Computer Scientist Should Know About Floating-Point Arithmetic". *ACM Computing Surveys*, 23(1), Mar 1991, <https://doi.org/10.1145/103162.103163>. *FIXME*
 
+**Gore2014**{:#b:Gore2014}: Micha Gorelick and Ian Ozsvald: *High Performance Python*. O'Reilly Media, 2014. *A guide to writing efficient numerical code in Python.*
+
 **Hadd2010**{:#b:Hadd2010}: Steven Haddock and Casey Dunn: *Practical Computing for Biologists*. Sinauer Associates, 2010. *FIXME*
 
 **Hekm2017**{:#b:Hekm2017}: David R. Hekman, Stefanie K. Johnson, Maw-Der Foo, and Wei Yang: "Does Diversity-Valuing Behavior Result in Diminished Performance Ratings for Non-White and Female Leaders?". *Academy of Management Journal*, 60(2), Apr 2017, <https://doi.org/10.5465/amj.2014.0538>. *FIXME*
@@ -63,6 +65,8 @@ title: "Bibliography"
 **Kern1983**{:#b:Kern1983}: Brian W. Kernighan and Rob Pike: *The Unix Programming Environment*. Prentice-Hall, 1983, <https://isbndb.com/book/013937681X>. *An influential early description of Unix.*
 
 **Kern1988**{:#b:Kern1988}: Brian W. Kernighan and Dennis M. Ritchie: *The C Programming Language*. Prentice-Hall, 1988, <https://isbndb.com/book/0131103628>. *The book that made C a popular programming language.*
+
+**Lana2017**{:#b:Lana2017}: Gabriele Lanaro: *Python High Performance*. Packt, 2017. *A guide to writing efficient numerical code in Python.*
 
 **Lind2008**{:#b:Lind2008}: Van Lindberg: *Intellectual Property and Open Source: A Practical Guide to Protecting Code*. O'Reilly Media, 2008. *A thorough dive into intellectual property issues related to open source software*
 
@@ -105,6 +109,8 @@ title: "Bibliography"
 **Whit1958**{:#b:Whit1958}: Alfred North Whitehead: *An Introduction to Mathematics*. Oxford University Press, 1958. *FIXME*
 
 **Wick2014**{:#b:Wick2014}: Hadley Wickham: "Tidy Data". *Journal of Statistical Software*, 59(10), 2014, <https://doi.org/10.18637/jss.v059.i10>. *The defining paper on tidy data.*
+
+**Wick2014b**{:#b:Wick2014b}: Hadley Wickham: *Advanced R*. Chapman & Hall/CRC, 2014. *A deep dive into the R programming language.*
 
 **Wils2014**{:#b:Wils2014}: Greg Wilson, D. A. Aruliah, C. Titus Brown, Neil P. Chue Hong, Matt Davis, Richard T. Guy, Steven H. D. Haddock, Kathryn D. Huff, Ian M. Mitchell, Mark D. Plumbley, Ben Waugh, Ethan P. White, and Paul Wilson: "Best Practices for Scientific Computing". *PLoS Biology*, 12(1), Jan 2014, <https://doi.org/10.1371/journal.pbio.1001745>. *Outlines what a mature research software project should look like.*
 
