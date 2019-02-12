@@ -88,7 +88,13 @@ Does it handle Unicode characters?
     you have to be able to edit data and documentation that include Greek, Tamil, and the like.
     (See [Spolsky2003] for a developer-oriented introduction to character sets in general and Unicode in particular.)
 
-FIXME: syntax highlighting
+One thing that *isn't* on the list above is [syntax highlighting](#g:syntax-highlighting).
+Most programming editors do it by default,
+but the most recent empirical studies show that it has little or no benefit [Hann2018](#BIB).
+On the other hand,
+many programmers claim to find it useful,
+and there's no evidence it does any harm,
+so we have turned it on for the code samples in these lessons.
 
 ## What are symbolic debuggers and how can they help me? {#s:tools-debugger}
 

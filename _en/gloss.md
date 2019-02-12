@@ -503,6 +503,9 @@ title: "Glossary"
 **Symbolic debugger**{:#g:symbolic-debugger}
 :   FIXME
 
+**Syntax highlighting**{:#g:syntax-highlighting}
+:   FIXME
+
 **Synthetic data**{:#g:synthetic-data}
 :   FIXME
 

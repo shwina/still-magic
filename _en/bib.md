@@ -54,6 +54,8 @@ title: "Bibliography"
 
 **Hadd2010**{:#b:Hadd2010}: Steven Haddock and Casey Dunn: *Practical Computing for Biologists*. Sinauer Associates, 2010. *FIXME*
 
+**Hann2018**{:#b:Hann2018}: Christoph Hannebauer, Marc Hesenius, and Volker Gruhn: "Does Syntax Highlighting Help Programming Novices?". *Proc.\ 2013 International Conference on Software Engineering (ICSE'13)*, 2018. *FIXME*
+
 **Hekm2017**{:#b:Hekm2017}: David R. Hekman, Stefanie K. Johnson, Maw-Der Foo, and Wei Yang: "Does Diversity-Valuing Behavior Result in Diminished Performance Ratings for Non-White and Female Leaders?". *Academy of Management Journal*, 60(2), Apr 2017, <https://doi.org/10.5465/amj.2014.0538>. *FIXME*
 
 **Hock2004**{:#b:Hock2004}: Roger R. Hock: *Forty Studies that Changed Psychology*. Prentice Hall, 2004. *FIXME*
