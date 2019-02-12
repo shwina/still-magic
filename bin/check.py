@@ -12,15 +12,16 @@ import json
 import yaml
 from collections import Counter
 from util import CHARACTERS, \
-    get_toc, \
+    CONFIG_FILE, \
     get_all_docs, \
-    get_doc, \
     get_crossref, \
+    get_doc, \
+    get_funcs, \
+    get_toc, \
     report
 
 
 CHECK_PREFIX = 'check_'                 # prefix for all checking function names
-CONFIG_FILE = '_config.yml'             # Jekyll configuration file
 CROSSREF_FMT = '_data/{}_toc.json'      # cross-reference file (%language)
 FIGURE_DIR = 'figures'                  # where figure source is stored
 LINK_FILE = '_includes/links.md'        # link definition file
@@ -34,20 +35,19 @@ def main(language, verb):
     Find and call the function the caller wants.
     '''
     verb = CHECK_PREFIX + verb
-    names = _get_checker_names()
-    if verb not in names:
+    funcs = get_funcs(sys.modules['__main__'], CHECK_PREFIX)
+    if verb not in funcs:
         _usage()
-    verb = globals()[verb]
-    verb(language)
+    funcs[verb](language)
 
 
 def check_all(language):
     '''
     Check everything.
     '''
-    for name in _get_checker_names():
+    funcs = get_funcs(sys.modules['__main__'], CHECK_PREFIX)
+    for (name, func) in funcs.items():
         if name not in NOT_ALL:
-            func = globals()[name]
             func(language)
 
     
@@ -208,11 +208,6 @@ def check_toc(language):
 #-------------------------------------------------------------------------------
 
     
-def _get_checker_names():
-    return [name for name in sys.modules['__main__'].__dict__.keys()
-            if name.startswith(CHECK_PREFIX)]
-
-
 def _ignore_file(x):
     return x.endswith('~') or ('__pycache__' in x)
 
@@ -253,8 +248,8 @@ def _match_flatten(matches, splitter):
 
 def _usage(status=1):
     print('usage: check.py language verb')
-    for name in _get_checker_names():
-        func = globals()[name]
+    funcs = _get_funcs(CHECK_PREFIX)
+    for (name, func) in funcs.items():
         print('{:10s}: {}'.format(name.replace(CHECK_PREFIX, ''), func.__doc__.strip()))
     sys.exit(status)
 
