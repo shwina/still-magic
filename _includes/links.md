@@ -78,6 +78,7 @@ definitions if that's done.
 [koch-christina]: http://christinalk.github.io/
 
 [latex]: http://www.latex-project.org/
+[lbyl-vs-eafp]: https://blogs.msdn.microsoft.com/pythonengineering/2016/06/29/idiomatic-python-eafp-versus-lbyl/
 [libreoffice]: https://www.libreoffice.org/
 [lint]: https://en.wikipedia.org/wiki/Lint_(software)
 
@@ -104,6 +105,7 @@ definitions if that's done.
 [poisot-timothee]: http://poisotlab.io/
 [pypi]: https://pypi.org/
 [python-102]: https://python-102.readthedocs.io/
+[python-exceptions]: https://docs.python.org/3/library/exceptions.html#exception-hierarchy
 [pytest]: http://pytest.org/
 [pytest-mpl]: https://github.com/matplotlib/pytest-mpl
 

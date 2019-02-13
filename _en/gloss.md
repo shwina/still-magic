@@ -72,10 +72,16 @@ title: "Glossary"
 **Build tool**{:#g:build-tool}
 :   FIXME
 
+**Call stack**{:#g:call-stack}
+:   FIXME
+
 **Camel case**{:#g:camel-case}
 :   FIXME
 
 **Cascading Style Sheets**{:#g:css} (CSS)
+:   FIXME
+
+**Catch**{:#g:catch} (an exception)
 :   FIXME
 
 **Code browser**{:#g:code-browser}
@@ -166,6 +172,9 @@ title: "Glossary"
 **Escape sequence**{:#g:escape-sequence}
 :   FIXME
 
+**Exception**{:#g:exception}
+:   FIXME
+
 **Exit status**{:#g:exit-status}
 :   FIXME
 
@@ -182,6 +191,9 @@ title: "Glossary"
 :   FIXME
 
 **Exponent**{:#g:exponent}
+:   FIXME
+
+**External error**{:#g:external-error}
 :   FIXME
 
 **Failure**{:#g:test-failure} (result from a unit test)
@@ -250,6 +262,9 @@ title: "Glossary"
 :   FIXME
 
 **Integrated Development Environment**{:#g:ide} (IDE)
+:   FIXME
+
+**Internal error**{:#g:internal-error}
 :   FIXME
 
 **Issue**{:#g:issue}
@@ -387,6 +402,9 @@ title: "Glossary"
 :   FIXME
 
 **Pull request**{:#g:pull-request}
+:   FIXME
+
+**Raise**{:#g:raise}
 :   FIXME
 
 **Raster image**{:#g:raster-image}

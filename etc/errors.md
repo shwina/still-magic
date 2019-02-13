@@ -9,8 +9,14 @@ keypoints:
 -   "FIXME"
 ---
 
--   Distinguish between external errors (no permissions to read file) and internal errors (function called with None instead of list)
--   Most people, most of the time, report the error and halt because anything more is difficult and uncertain
+Things go wrong.
+We can test our software to try to prevent problems ([s:unit](#REF) and [s:verify](#REF))
+and report the ones that occur despite our best efforts ([s:logging](#REF)),
+but in between those two steps we need to detect and handle errors.
+This lesson will look at what it's practical to do.
+
+----------------------------------------
+
 -   Handle the most specific exception you can
 -   Either log it or catch and re-throw, but don't do both (avoid cluttering the log)
 -   Log enough data to track down the problem: there's no point telling me "File Not Found" if you don't tell me *which* file.
