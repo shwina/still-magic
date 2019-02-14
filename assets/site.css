@@ -48,6 +48,17 @@ div.listblock h2 {
     font-size: 1.5em;
 }
 
+/* Add a bit of space above exercises. */
+section {
+    margin-top: 1em;
+}
+
+/* Highlight solutions a little. */
+aside {
+    margin-top: 0.5em;
+    background-color: #FAFAFA;
+}
+
 /* Outlines for code samples. */
 pre.highlight {
     border-style: solid;
