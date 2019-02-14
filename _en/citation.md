@@ -13,6 +13,7 @@ Please cite this work as:
 -   [Jenny Bryan][bryan-jenny] ([ORCID](https://orcid.org/0000-0002-6983-2759))
 -   [Kate Hertweck][hertweck-kate] ([ORCID](https://orcid.org/0000-0002-4026-4612))
 -   [Katy Huff][huff-katy] ([ORCID](https://orcid.org/0000-0002-7075-6802))
+-   [Luke Johnston][johnson-luke] ([ORCID](https://orcid.org/0000-0003-4169-2616))
 -   [Christina Koch][koch-christina] ([ORCID](https://orcid.org/0000-0001-8600-8158))
 -   [Joel Ostblom][ostblom-joel] ([ORCID](https://orcid.org/0000-0003-0051-3239))
 -   [Matt Turk][turk-matt] ([ORCID](https://orcid.org/0000-0002-5294-0198))

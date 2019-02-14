@@ -69,6 +69,7 @@ definitions if that's done.
 [intellij-idea]: https://www.jetbrains.com/idea/
 
 [jekyll]: https://jekyllrb.com/
+[johnston-luke]: http://cv.lukewjohnston.com/
 [joss]: https://joss.theoj.org/
 [js-vs-ds]: https://software-tools-in-javascript.github.io/js-vs-ds/
 [jupyter]: http://jupyter.org/
