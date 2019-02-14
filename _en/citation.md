@@ -14,6 +14,7 @@ Please cite this work as:
 -   [Kate Hertweck][hertweck-kate] ([ORCID](https://orcid.org/0000-0002-4026-4612))
 -   [Katy Huff][huff-katy] ([ORCID](https://orcid.org/0000-0002-7075-6802))
 -   [Christina Koch][koch-christina] ([ORCID](https://orcid.org/0000-0001-8600-8158))
+-   [Joel Ostblom][ostblom-joel] ([ORCID](https://orcid.org/0000-0003-0051-3239))
 -   [Matt Turk][turk-matt] ([ORCID](https://orcid.org/0000-0002-5294-0198))
 -   [Elizabeth Wickes][wickes-elizabeth] ([ORCID](https://orcid.org/0000-0002-5294-0198))
 -   [Greg Wilson][wilson-greg] ([ORCID](https://orcid.org/0000-0001-8659-8979))

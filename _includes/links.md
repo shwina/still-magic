@@ -97,6 +97,7 @@ definitions if that's done.
 [orwells-rules]: https://en.wikipedia.org/wiki/Politics_and_the_English_Language#Remedy_of_Six_Rules
 [osi-license-list]: http://opensource.org/licenses
 [osf]: https://osf.io/
+[ostblom-joel]: https://github.com/joelostblom
 [overleaf]: https://www.overleaf.com/
 
 [pandoc]: https://pandoc.org/
