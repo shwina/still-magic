@@ -1,0 +1,14 @@
+<ul>
+  {% for person in site.people %}
+  {% assign ident = person[0] %}
+  {% assign values = person[1] %}
+  <li class="person" id="{{ident}}">
+    {%- if values.site -%}<a href="{{values.site}}">{%- endif -%}{{values.name}}{%- if values.site -%}</a>{%- endif -%}
+    {%- if values.github or values.orcid %} ({%- endif -%}
+    {%- if values.github -%}GitHub: <a href="https://github.com/{{values.github}}">{{values.github}}</a>{%- endif -%}
+    {%- if values.github and values.orcid -%}, {% endif -%}
+    {%- if values.orcid -%}ORCID: <a href="https://orcid.org/{{values.orcid}}">{{values.orcid}}</a>{%- endif -%}
+    {%- if values.github or values.orcid %}){%- endif -%}
+  </li>
+{%- endfor -%}
+</ul>

@@ -14,14 +14,11 @@ definitions if that's done.
 
 [advanced-r-performance]: http://adv-r.had.co.nz/Performance.html
 [ally-skills]: https://frameshiftconsulting.com/ally-skills-workshop/
-[aruliah-dhavide]: https://www.linkedin.com/in/dhavide-aruliah-76818184/
 [at]: https://en.wikipedia.org/wiki/At_(command)
 
 [becker-bruce]: https://www.brettbecker.com/
 [bibtex]: http://www.bibtex.org/
-[bonsma-fisher-madeleine]: http://madeleinebonsma.com/
 [branch-per-feature]: https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow
-[bryan-jenny]: https://jennybryan.org/
 [build-tools]: https://en.wikipedia.org/wiki/List_of_build_automation_software
 
 [capes-gerard]: https://github.com/gcapes
@@ -59,8 +56,6 @@ definitions if that's done.
 [gustavsen-julia]: http://www.juliagustavsen.com/
 [gutenberg]: https://www.gutenberg.org/
 
-[hertweck-kate]: https://www.linkedin.com/in/katehertweck/
-[huff-katy]: http://katyhuff.github.io/
 [huff-testing]: https://github.com/katyhuff/python-testing
 [hugo]: https://gohugo.io/
 
@@ -75,7 +70,6 @@ definitions if that's done.
 
 [kernighan-brian]: https://en.wikipedia.org/wiki/Brian_Kernighan
 [kirk-matthew]: https://www.matthewkirk.com/
-[koch-christina]: http://christinalk.github.io/
 
 [latex]: http://www.latex-project.org/
 [lbyl-vs-eafp]: https://blogs.msdn.microsoft.com/pythonengineering/2016/06/29/idiomatic-python-eafp-versus-lbyl/
@@ -97,7 +91,6 @@ definitions if that's done.
 [orwells-rules]: https://en.wikipedia.org/wiki/Politics_and_the_English_Language#Remedy_of_Six_Rules
 [osi-license-list]: http://opensource.org/licenses
 [osf]: https://osf.io/
-[ostblom-joel]: https://github.com/joelostblom
 [overleaf]: https://www.overleaf.com/
 
 [pandoc]: https://pandoc.org/
@@ -138,7 +131,6 @@ definitions if that's done.
 [tldr-gpl]: https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)
 [travis-ci]: https://travis-ci.org/
 [troy-meetings]: https://chelseatroy.com/2018/03/29/why-do-remote-meetings-suck-so-much/
-[turk-matt]: https://sites.google.com/site/matthewturk/
 [tyranny-structurelessness]: http://www.jofreeman.com/joreen/tyranny.htm
 
 [unpaywall]: http://unpaywall.org/
@@ -146,9 +138,7 @@ definitions if that's done.
 [vanderplas-licensing]: http://www.astrobetter.com/blog/2014/03/10/the-whys-and-hows-of-licensing-scientific-code/
 [vs-code]: https://code.visualstudio.com/
 
-[wickes-elizabeth]: https://elizabethwickes.com/
 [wikipedia-iso-country]: http://en.wikipedia.org/wiki/ISO_3166-1_alpha-3
-[wilson-greg]: http://third-bit.com
 [wing-ide]: https://wingware.com/
 [womens-pockets]: https://pudding.cool/2018/08/pockets/
 [womens-pockets-data]: https://github.com/the-pudding/data/blob/master/pockets/README.md

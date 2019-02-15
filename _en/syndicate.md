@@ -945,12 +945,15 @@ By automating this process, blogging tools help us focus attention on things tha
 
 ## Exercises {#s:syndicate-exercises}
 
+<section markdown="1">
 ### Enumerating
 
 Python includes a function called `enumerate` that's often used in `for` loops.
 Look at its documentation, then rewrite `diff_records` to use it.
+</section>
 
-### When to Complain?
+<section markdown="1">
+### When to complain?
 
 We committed the same mistake as the World Bank in our differencing code:
 if someone gives `annual_mean_temp` an invalid country identifier,
@@ -959,28 +962,36 @@ but instead returns an empty list,
 so the caller has to somehow know to look for that.
 Should it use an assertion to fail if it doesn't get data?
 Why or why not?
+</section>
 
-### Deciding What to Check
+<section markdown="1">
+### Deciding what to check
 
 Should `save_records` check that every record in its input has exactly two fields?
 Why or why not?
 What about country codes:
 should it contain a list of those that match actual countries
 and check that `left` and `right` are in that list?
+</section>
 
-### Metadata for Metadata
+<section markdown="1">
+### Metadata for metadata
 
 Should the first line of the index file be a header giving the names of the columns?
 Why or why not?
+</section>
 
-### To Automate or Not
+<section markdown="1">
+### To automate or not
 
 Should `update_index` be called inside `save_records`
 so that the index is automatically updated every time a new data set is generated?
 Why or why not?
+</section>
 
-### Removing Redundant Redundancy
+<section markdown="1">
+### Removing redundant redundancy
 
 `update_index` and `save_records` both construct the name of the data file.
 Refactor them to remove this redundancy.
-
+</section>

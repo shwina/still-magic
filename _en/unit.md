@@ -51,7 +51,7 @@ we need to write some tests.
 This lesson therefore introduces some key ideas and tools.
 
 This material is drawn in part from
-[Testing and Continuous Integration with Python][huff-testing] by [Katy Huff][huff-katy].
+[Testing and Continuous Integration with Python][huff-testing].
 
 ## What are realistic goals for testing? {#s:unit-goals}
 
@@ -615,8 +615,10 @@ FIXME: create concept map for unit testing
 
 ## Exercises {#s:unit-exercises}
 
-FIXME: exercises for unit testing
+<section markdown="1">
+### Handle the wrong kind of exception
 
--   Modify explicit exception testing code to handle the wrong kind of exception.
+-   FIXME: modify explicit exception testing code to handle the wrong kind of exception.
+</section>
 
 {% include links.md %}

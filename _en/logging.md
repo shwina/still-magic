@@ -673,9 +673,28 @@ FIXME: create concept map for logging
 
 ## Exercises {#s:logging-exercises}
 
+<section markdown="1">
+### Set the logging level
+
 -   FIXME: use `getopt` and `--level NAME` to set logging level.
+</section>
+
+<section markdown="1">
+### Display logging configuration
+
 -   FIXME: use `logging_tree.printout()` to display logging configuration.
+</section>
+
+<section markdown="1">
+### Log to standard error as well as a file
+
 -   FIXME: modify `create_logger` to log to standard error as well as to a file.
+</section>
+
+<section markdown="1">
+### Write configuration as JSON
+
 -   FIXME: write configuration as JSON.
+</section>
 
 {% include links.md %}

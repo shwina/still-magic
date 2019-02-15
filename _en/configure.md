@@ -447,10 +447,28 @@ we'll have to guess what options mean.
 
 ## Exercises {#s:configure-exercises}
 
--   FIXME: dump configuration and check.
-    -   How to handle lack of order in keys? (answer: use deep equality)
+<section markdown="1">
+### Dump and check configuration
+
+-   FIXME: how to handle lack of order in keys? (answer: use deep equality)
+</section>
+
+<section markdown="1">
+### Read configuration solely from file
+
 -   FIXME: implement flag to read entire configuration from file *and nothing else*.
+</section>
+
+<section markdown="1">
+### Implement a usage function
+
 -   FIXME: implement `usage` function to display message and exit instead of using `assert`.
+</section>
+
+<section markdown="1">
+### Read standard input if no files specified
+
 -   FIXME: how to handle reading from stdin/stdout if no files specified.
+</section>
 
 {% include links.md %}

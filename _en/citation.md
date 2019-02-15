@@ -8,14 +8,18 @@ Please cite this work as:
 
 ## Contributors
 
+{% include people.html %}
+
+## Acknowledgments
+
+We are grateful for help and input from:
+
 -   [Ashwin Srinath][srinath-ashwin]
 -   [Bruce Becker][becker-bruce]
 -   [Daniel Standage][standage-daniel]
 -   [Gerard Capes][capes-gerard]
--   [Greg Wilson][wilson-greg] ([ORCID](https://orcid.org/0000-0001-8659-8979))
 -   [Jonathan Dursi][dursi-jonathan]
 -   [Julia Gustavsen][gustavsen-julia]
--   [Katy Huff][huff-katy] ([ORCID](https://orcid.org/0000-0002-7075-6802))
 -   [Matthew J. Kirk][kirk-matthew]
 -   [Timothée Poisot][poisot-timothee]
 

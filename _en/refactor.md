@@ -339,6 +339,10 @@ FIXME: create concept map for refactoring
 
 ## Exercises {#s:refactor-exercises}
 
+<section markdown="1">
+### Make lookup tables easier to read
+
 FIXME: make last example of lookup tables easier to read.
+</section>
 
 {% include links.md %}

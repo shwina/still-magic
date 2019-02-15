@@ -929,9 +929,17 @@ but this is a good start.
 
 ## Exercises {#s:automate-exercises}
 
--   FIXME: add rule to Makefile to create a summary CSV file from all of the book CSV files.
-    -   Careful how to write the dependencies so that it doesn't depend on itself.
--   FIXME: add rule to generate a plot for the top N words
-    -   Make it depends on the summary.
+<section markdown="1">
+### Create a summary CSV file
+
+-   Add rule to Makefile to create a summary CSV file from all of the book CSV files.
+-   Careful how to write the dependencies so that it doesn't depend on itself.
+</section>
+
+<section markdown="1">
+### Generate a plot for the top N words
+
+-   FIXME: make it depend on the summary.
+</section>
 
 {% include links.md %}

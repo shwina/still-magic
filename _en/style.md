@@ -43,7 +43,7 @@ that checks source files against this style guide and reports violations.
 Tools of this kind are called [linters](#g:linter),
 after an early tool called `[lint][lint]` that found lint (or fluff) in C code.
 Some of `pycodestyle`'s rules are listed below,
-along with others borrowed from [Jenny Bryan][bryan-jenny]'s "[Code Smells and Feels][code-smells-and-feels]":
+along with others borrowed from "[Code Smells and Feels][code-smells-and-feels]":
 
 FIXME: add before-and-after examples for each of these.
 

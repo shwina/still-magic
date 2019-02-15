@@ -575,6 +575,10 @@ FIXME: create concept map for packages
 
 ## Exercises {#s:package-exercises}
 
+<section markdown="1">
+### Clean up warning messages
+
 -   FIXME: clean up warning messages from `python setup.py sdist`
+</section>
 
 {% include links.md %}
