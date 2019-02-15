@@ -204,7 +204,7 @@ and more sophisticated issue tracking systems will let you enforce those convent
 The basic idea is to only allow issues to move from some states to others,
 and to only allow some people to move them.
 For example,
-the figure below shows a workflow for handling bugs in a medium-sized project:
+[f:backlog-lifecycle](#FIG) shows a workflow for handling bugs in a medium-sized project:
 
 {% include figure.html id="f:backlog-lifecycle" src="../../figures/backlog_lifecycle.svg" caption="Issue State Transitions" %}
 

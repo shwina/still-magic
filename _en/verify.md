@@ -128,7 +128,7 @@ $$6 \times 2^3$$ or 48.
   </tr>
 </table>
 
-Here's a clearer view of some of the values our scheme can represent:
+[f:verify-spacing](#FIG) is a clearer view of some of the values our scheme can represent:
 
 {% include figure.html id="f:verify-spacing" src="../../figures/number_spacing.png" caption="Number Spacing" %}
 

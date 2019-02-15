@@ -28,7 +28,7 @@ and where it should go.
 
 ## How can I write useful error messages? {#s:docs-error-messages}
 
-This is not a helpful error message:
+The error message shown in [f:docs-error-message](#FIG) is not helpful:
 
 {% include figure.html id="f:docs-error-message" src="../../figures/docs_error_message.png" caption="Error Message" %}
 

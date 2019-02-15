@@ -53,11 +53,9 @@ The original specification included five top-level directories:
 -   Finally,
     documentation and manuscripts go in `./doc/`.
 
-The figure below shows this layout for a project called `g-trans`:
-
 {% include figure.html id="f:project-noble" src="../../figures/project_noble.svg" caption="Project Layout" %}
 
-<!-- == noindent -->
+[f:project-noble](#FIG) below shows this layout for a project called `g-trans`.
 A few things to notice are:
 
 -   The documentation for the `regulate` script appears in the root of `./doc/`,

@@ -277,11 +277,12 @@ in which he said:
 > I stole time from my family, from work, from everything.
 
 In a [companion piece][noller-sequel] written a month later,
-he showed the price of being "all in" by turning [this classic XKCD cartoon][xkcd-duty-calls]:
+he showed the price of being "all in" by turning [a classic XKCD cartoon][xkcd-duty-calls]
+([f:pacing-xkcd](#FIG))
+into something more personal
+([f:pacing-noller](#FIG)).
 
 {% include figure.html id="f:pacing-xkcd" src="../../figures/xkcd_duty_calls.png" caption="XKCD's Version" %}
-
-into this:
 
 {% include figure.html id="f:pacing-noller" src="../../figures/noller_wrong_answer.png" caption="Jesse Noller's Version" %}
 

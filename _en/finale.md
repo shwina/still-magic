@@ -47,7 +47,7 @@ lazy evaluation in R.
 ## Computers don't understand anything. {#s:finale-understand}
 
 Computers don't understand: they only obey instructions that make them
-appear to. If a person looks at this image, they see the word "data":
+appear to. If a person looks at [f:finale-data](#FIG), they see the word "data":
 
 {% include figure.html id="f:finale-data" src="../../figures/finale_data.png" caption="The Word 'Data'" %}
 
@@ -108,7 +108,8 @@ information that is easy for a computer to operate on; a *view* is a way
 of displaying information that human beings can easily understand and
 interact with. For example, an HTML page is represented in memory as a
 data structure containing nodes for elements like headings and
-paragraphs, which can in turn contain a mix of other nodes or text:
+paragraphs, which can in turn contain a mix of other nodes or text
+([f:finale-modelview](#FIG)).
 
 {% include figure.html id="f:finale-modelview" src="../../figures/finale_modelview.png" caption="Model-View Separation" %}
 

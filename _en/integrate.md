@@ -100,14 +100,14 @@ Every time a commit is made to this branch, it will:
 4.  Run the `hello.py` script.
 5.  Report the results at <code>https://travis-ci.org/<em>user</em>/<em>repo</em></code>.
 
-Travis's summary report tells us what happened:
-
-{% include figure.html id="f:integrate-summary" src="../../figures/travis_summary.png" caption="Travis Summary Report" %}
-
-<!-- == noindent -->
+Travis's summary report tells us what happened
+([f:integrate-summary](#FIG)).
 The detailed log has *lots* of information:
 there are 397 lines hidden under "Build system information"
-and another 23 under "pip install" heading:
+and another 23 under "pip install" heading
+([f:integrate-log](#FIG)).
+
+{% include figure.html id="f:integrate-summary" src="../../figures/travis_summary.png" caption="Travis Summary Report" %}
 
 {% include figure.html id="f:integrate-log" src="../../figures/travis_log.png" caption="Travis Log" %}
 
@@ -151,16 +151,16 @@ sys.exit(1)
 {: title="integrate/failure.py"}
 
 When we commit these changes and view the repository's status page,
-we are initially told that our build is queued:
-
-{% include figure.html id="f:integrate-queued" src="../../figures/travis_queued.png" caption="Travis Queued" %}
-
-<!-- == noindent -->
+we are initially told that our build is queued
+([f:integrate-queued](#FIG)).
 We don't need to refresh the page:
 when the build starts,
 the page updates automatically.
 When when the build finishes,
-the summary is red and the log displays this:
+the summary turns red and the log displays an error message
+([f:integrate-failure](#FIG)).
+
+{% include figure.html id="f:integrate-queued" src="../../figures/travis_queued.png" caption="Travis Queued" %}
 
 {% include figure.html id="f:integrate-failure" src="../../figures/travis_failure.png" caption="Travis Failure" %}
 
@@ -169,7 +169,8 @@ the summary is red and the log displays this:
 Travis's dashboard is very useful,
 but we would also like to display the status of the build on GitHub because that's where most people will look.
 To do this,
-we can at the top of the status page and find the build icon:
+we can at the top of the status page and find the build icon
+([f:integrate-build-icon](#FIG)).
 
 {% include figure.html id="f:integrate-build-icon" src="../../figures/travis_build_icon.png" caption="Travis Build Icon" %}
 
@@ -183,17 +184,17 @@ Note that the `./README.md` is the project's home page on GitHub,
 
 While we are waiting for Travis to finish building our site,
 we can take a look at the "Branches" tab of our repository.
-Clicking on a check mark or an X will bring up details of that build on that branch:
-
-{% include figure.html id="f:integrate-overall" src="../../figures/travis_overall.png" caption="Travis Overall" %}
-
-<!-- == noindent -->
+Clicking on a check mark or an X will bring up details of that build on that branch
+([f:integrate-overall](#FIG)).
 Sure enough,
 the page displays a red X once the build on `master` completes.
 We can now modify `.travis.yml` to remove the failing script,
 commit,
 wait for an email to arrive to tell us that the build has completed,
-and then go to the project on GitHub:
+and then go to the project on GitHub
+([f:integrate-github-icon](#FIG)).
+
+{% include figure.html id="f:integrate-overall" src="../../figures/travis_overall.png" caption="Travis Overall" %}
 
 {% include figure.html id="f:integrate-github-icon" src="../../figures/travis_github_icon.png" caption="Travis GitHub Icon" %}
 
