@@ -923,7 +923,7 @@ but this is a good start.
 
 ## Summary {#s:automate-summary}
 
-{% include figure.html id="f:automate-concept" src="../../figures/automate_concept.svg" caption="Automation Concept Map" %}
+{% include figure.html id="f:automate-concept" src="../../figures/automate-concept.svg" caption="Automation Concept Map" %}
 
 -   [Smit2011](#BIB) describes the design and implementation of several build tools in detail.
 

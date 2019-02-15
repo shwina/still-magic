@@ -57,7 +57,7 @@ toc : ${TOC_JSON}
 # ----------------------------------------
 
 # Regenerate PDF once 'all.tex' has been created.
-${BOOK_PDF} : ${ALL_TEX}
+${BOOK_PDF} : ${ALL_TEX} tex/settings.tex ${DIR_TEX}/book.tex
 	cd ${DIR_TEX} \
 	&& ${LATEX} --shell-escape -jobname=${STEM} book \
 	&& ${BIBTEX} ${STEM} \

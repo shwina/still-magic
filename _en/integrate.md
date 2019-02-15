@@ -107,9 +107,9 @@ there are 397 lines hidden under "Build system information"
 and another 23 under "pip install" heading
 ([f:integrate-log](#FIG)).
 
-{% include figure.html id="f:integrate-summary" src="../../figures/travis_summary.png" caption="Travis Summary Report" %}
+{% include figure.html id="f:integrate-summary" src="../../figures/travis-summary.png" caption="Travis Summary Report" %}
 
-{% include figure.html id="f:integrate-log" src="../../figures/travis_log.png" caption="Travis Log" %}
+{% include figure.html id="f:integrate-log" src="../../figures/travis-log.png" caption="Travis Log" %}
 
 ## How can I tell Travis that something went wrong? {#s:integrate-error}
 
@@ -160,9 +160,9 @@ When when the build finishes,
 the summary turns red and the log displays an error message
 ([f:integrate-failure](#FIG)).
 
-{% include figure.html id="f:integrate-queued" src="../../figures/travis_queued.png" caption="Travis Queued" %}
+{% include figure.html id="f:integrate-queued" src="../../figures/travis-queued.png" caption="Travis Queued" %}
 
-{% include figure.html id="f:integrate-failure" src="../../figures/travis_failure.png" caption="Travis Failure" %}
+{% include figure.html id="f:integrate-failure" src="../../figures/travis-failure.png" caption="Travis Failure" %}
 
 ## How can I display the status of a repository? {#s:integrate-display}
 
@@ -172,7 +172,7 @@ To do this,
 we can at the top of the status page and find the build icon
 ([f:integrate-build-icon](#FIG)).
 
-{% include figure.html id="f:integrate-build-icon" src="../../figures/travis_build_icon.png" caption="Travis Build Icon" %}
+{% include figure.html id="f:integrate-build-icon" src="../../figures/travis-build-icon.png" caption="Travis Build Icon" %}
 
 Clicking on it brings up a dialog
 where we can select the Markdown we need for the `master` branch.
@@ -194,9 +194,9 @@ wait for an email to arrive to tell us that the build has completed,
 and then go to the project on GitHub
 ([f:integrate-github-icon](#FIG)).
 
-{% include figure.html id="f:integrate-overall" src="../../figures/travis_overall.png" caption="Travis Overall" %}
+{% include figure.html id="f:integrate-overall" src="../../figures/travis-overall.png" caption="Travis Overall" %}
 
-{% include figure.html id="f:integrate-github-icon" src="../../figures/travis_github_icon.png" caption="Travis GitHub Icon" %}
+{% include figure.html id="f:integrate-github-icon" src="../../figures/travis-github-icon.png" caption="Travis GitHub Icon" %}
 
 ## How Can I Automatically Run Tests for My Project When Things Change?  {#s:integrate-tests}
 

@@ -282,9 +282,9 @@ he showed the price of being "all in" by turning [a classic XKCD cartoon][xkcd-d
 into something more personal
 ([f:pacing-noller](#FIG)).
 
-{% include figure.html id="f:pacing-xkcd" src="../../figures/xkcd_duty_calls.png" caption="XKCD's Version" %}
+{% include figure.html id="f:pacing-xkcd" src="../../figures/xkcd-duty-calls.png" caption="XKCD's Version" %}
 
-{% include figure.html id="f:pacing-noller" src="../../figures/noller_wrong_answer.png" caption="Jesse Noller's Version" %}
+{% include figure.html id="f:pacing-noller" src="../../figures/noller-wrong-answer.png" caption="Jesse Noller's Version" %}
 
 It took a lot of courage to be as honest as Jesse was.
 What follows is my attempt to live up to his example.
