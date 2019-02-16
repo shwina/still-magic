@@ -248,7 +248,7 @@ so it's a good way to end friendships.
 The biggest benefit of having a second person work on a programming project
 is not getting twice as much code written,
 but having a second pair of eyes look at the software.
-[s:review](#REF) will discuss how to do code review,
+[s:style](#REF) will discuss how to do code review,
 but a good first step depends on using a branch-per-feature workflow.
 
 In order for someone to review your change,

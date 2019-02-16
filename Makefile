@@ -163,8 +163,9 @@ spelling :
 	@cat ${PAGES_MD} | bin/uncode.py | aspell list | sort | uniq | comm -2 -3 - .words
 
 ## undone         : which files have not yet been done?
+#  Note: piping to 'cat' so that Make won't report an error if there are no undone chapters.
 undone :
-	@grep -l 'undone: true' _en/*.md
+	@grep -l 'undone: true' _en/*.md | cat
 
 ## ----------------------------------------
 

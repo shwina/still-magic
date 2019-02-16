@@ -52,6 +52,8 @@ title: "Bibliography"
 
 **Gore2014**{:#b:Gore2014}: Micha Gorelick and Ian Ozsvald: *High Performance Python*. O'Reilly Media, 2014. *A guide to writing efficient numerical code in Python.*
 
+**Grue2015**{:#b:Grue2015}: Steve Gruenert and Todd Whitaker: *School Culture Rewired: How to Define, Assess, and Transform It*. ASCD, 2015. *The source of a much-quoted observation on culture.*
+
 **Hadd2010**{:#b:Hadd2010}: Steven Haddock and Casey Dunn: *Practical Computing for Biologists*. Sinauer Associates, 2010. *FIXME*
 
 **Hann2018**{:#b:Hann2018}: Christoph Hannebauer, Marc Hesenius, and Volker Gruhn: "Does Syntax Highlighting Help Programming Novices?". *Proc.\ 2018 International Conference on Software Engineering (ICSE'18)*, 2018. *FIXME*
@@ -92,7 +94,11 @@ title: "Bibliography"
 
 **Petr2014**{:#b:Petr2014}: Marian Petre and Greg Wilson: "Code Review For and By Scientists". *Proc.\ Second Workshop on Sustainable Software for Science: Practice and Experience*, 2014. *FIXME*
 
+**Quen2018**{:#b:Quen2018}: Joël Quenneville: "Code Review". <https://github.com/thoughtbot/guides/tree/master/code-review>2018. *Guidelines for code review*
+
 **Robi2005**{:#b:Robi2005}: Evan Robinson: "Why Crunch Mode Doesn't Work: 6 Lessons". <http://www.igda.org/articles/erobinson_crunch.php>2005. *Summarizes research on the effects of overwork and sleep deprivation.*
+
+**Sank2018**{:#b:Sank2018}: Sandya Sankarram: "Unlearning toxic behaviors in a code review culture". <https://medium.freecodecamp.org/unlearning-toxic-behaviors-in-a-code-review-culture-b7c295452a3c>2018. *What \emphnot to do in code review.*
 
 **Sega2005**{:#b:Sega2005}: Judith Segal: "When Software Engineers Met Research Scientists: A Case Study". *Empirical Software Engineering*, 10(4), 2005. *FIXME*
 

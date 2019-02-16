@@ -1,5 +1,5 @@
 ---
-title: "Programming Style"
+title: "Code Style and Review"
 questions:
 -   "How should I name my variables and functions?"
 -   "How should I organize my code so that other people can understand it?"
@@ -31,18 +31,31 @@ the easier it is to find things and make sense of them.
 This lesson therefore describes some widely-used rules of Python programming style,
 and some features of the language that you can use to make your programs more flexible and more readable.
 
+The biggest benefit of having a second person work on a programming project
+is therefore not getting twice as much code written,
+but having code reviewed.
+Study after study over more than 40 years has shown that code review is the most effective way to find bugs in software
+[Faga1976,Faga1986,Cohe2010,Bacc2013](#BIB).
+Despite this,
+it still isn't common in research software development,
+in part because it isn't part of the culture [Sega2005](#BIB),
+but also because code review is mostly useful
+when the reviewers understand the problem domain well enough to comment on algorithms and design choices
+rather than indentation and variable naming,
+and the number of people who can do that for a research project is typically very small---sometimes
+as small as one [Petr2014](#BIB).
+
+This lesson will look at the mechanics of code review
+and present some short examples of the kinds of things reviewers should look for.
+
 ## What are the standard rules of good style for Python programs? {#s:style-pep8}
 
 The single most important rule of style is to be consistent,
 both internally and with other programs.
-Python's standard style is called [PEP 8][pep-8];
-the term "PEP" is short for "Python Enhancement Proposal".
-It also has a tool that used to be called `pep8`
-and is now called `pycodestyle`
-that checks source files against this style guide and reports violations.
-Tools of this kind are called [linters](#g:linter),
-after an early tool called `[lint][lint]` that found lint (or fluff) in C code.
-Some of `pycodestyle`'s rules are listed below,
+Python's standard style is called [PEP-8][pep-8];
+the term "PEP" is short for "Python Enhancement Proposal",
+and PEP-8 has become the most widely used standard for Python coding.
+Some of its rules are listed below,
 along with others borrowed from "[Code Smells and Feels][code-smells-and-feels]":
 
 FIXME: add before-and-after examples for each of these.
@@ -120,6 +133,236 @@ This helps readers mentally get them out of the way
 and focus on the "normal" case.
 [s:refactor-short-circuits](#REF)
 discusses this in more detail.
+
+## How can I check that code follows style guidelines? {#s:style-check}
+
+Checking that code conforms to guidelines like the ones above can be time consuming,
+but luckily it doesn't have to be done by hand.
+Most languages have tools that will check code style rules and report violations.
+These are often called [linters](#g:linter),
+after an early tool called `[lint][lint]` that found lint (or fluff) in C code.
+Python has a tool that used to be called `pep8`
+and is now called `pycodestyle`
+that will do this.
+For example,
+this program is supposed to count the number of stop words in a document:
+
+```python
+stops = ['a', 'A', 'the', 'The', 'and']
+
+def count(ln):
+    n = 0
+    for i in range(len(ln)):
+        line = ln[i]
+        stuff = line.split()
+        for word in stuff:
+            # print(word)
+            j = stops.count(word)
+            if (j > 0) == True:
+                n = n + 1
+    return n
+
+import sys
+
+lines = sys.stdin.readlines()
+# print('number of lines', len(lines))
+n = count(lines)
+print('number', n)
+```
+{: title="style/count_stops_1.py"}
+
+<!-- == noindent -->
+When we run this command:
+
+```shell
+$ pycodestyle count_stops.py
+```
+
+<!-- == noindent -->
+it prints this report:
+
+```text
+src/style/count_stops_before.py:3:1: E302 expected 2 blank lines, found 1
+src/style/count_stops_before.py:11:24: E712 comparison to True should be 'if cond is True:' or 'if cond:'
+src/style/count_stops_before.py:12:13: E101 indentation contains mixed spaces and tabs
+src/style/count_stops_before.py:12:13: W191 indentation contains tabs
+src/style/count_stops_before.py:15:1: E305 expected 2 blank lines after class or function definition, found 1
+src/style/count_stops_before.py:15:1: E402 module level import not at top of file
+```
+
+Fixing these issues gives us this:
+
+```python
+import sys
+
+stops = ['a', 'A', 'the', 'The', 'and']
+
+
+def count(ln):
+    n = 0
+    for i in range(len(ln)):
+        line = ln[i]
+        stuff = line.split()
+        for word in stuff:
+            # print(word)
+            j = stops.count(word)
+            if j > 0:
+                n = n + 1
+    return n
+
+
+lines = sys.stdin.readlines()
+# print('number of lines', len(lines))
+n = count(lines)
+print('number', n)
+```
+{: title="style/count_stops_2.py"}
+
+This program gets a clean bill of health,
+so it's worth looking at in more detail.
+Here are things that should be changed:
+
+-   The commented-out `print` statements should either be removed
+    or turned into proper logging statements ([s:logging](#REF)).
+-   The variables `ln`, `i`, and `j` should be given clearer names.
+-   The outer loop in `count` loops over the indices of the line list
+    rather than over the lines.
+    It should do the latter
+    (which will allow us to get rid of the variable `i`).
+-   There's no reason to store the result of `line.split` in a temporary variable:
+    the inner loop of `count` can use it directly.
+-   Rather than counting how often a word occurs in the list of stop words
+    and then adding 1 to `n`,
+    we can create a set of stop words and use a simple membership test.
+    This will be more readable *and* more efficient.
+-   Since the set of stop words is a global variable,
+    it should be written in upper case.
+-   We should use `+=` to increment the counter `n`.
+-   Rather than reading the input into a list of lines and then looping over that,
+    we can give `count` a stream and have it process the lines one by one.
+-   Since we might want to use `count` in other programs some day,
+    we should put the two lines at the bottom that handle input
+    into a conditional
+    so that they aren't executed when this script is imported.
+
+After making all these changes,
+our little program looks like this:
+
+```python
+import sys
+
+
+STOPS = {'a', 'A', 'the', 'The', 'and'}
+
+
+def count(reader):
+    n = 0
+    for line in reader:
+        for word in line.split():
+            if word in STOPS:
+                n += 1
+    return n
+
+
+if __name__ == '__main__':
+    n = count(sys.stdin)
+    print('number', n)
+```
+{: title="style/count_stops_3.py"}
+
+## How should I review someone else's code: {#s:style-github}
+
+FIXME: how to review on GitHub.
+
+## How should I collaborate with people when doing code reviews? {#s:style-how}
+
+How you review is just as important as what you look for:
+being dismissive or combative are good ways to ensure that people don't pay attention to your reviews,
+or avoid having you review their work.
+Equally,
+being defensive when someone offers suggestions politely and sincerely is very human,
+but can stunt your development as a programmer.
+
+Lots of people have written guidelines for doing reviews,
+which are also useful when reviewing written work
+[Quen2018,Sank2018](#BIB).
+A few key points are:
+
+Work in small increments.
+:   As [Cohe2010](#BIB) and others have found,
+    code review is most effective when done in short bursts.
+    That means that change requests should also be short:
+    anything that's more than a couple of screens long
+    should be broken into smaller pieces.
+
+Look for algorithmic problems first.
+:   Code review isn't just (or even primarily) about style:
+    its real purpose is to find bugs before they can affect anyone.
+    The first pass over any change hould therefore look for algorithmic problems.
+    Are the calculations right?
+    Are any rare cases going to be missed?
+    Are errors being caught and handled [s:logging](#REF)?
+
+Use a rubric.
+:   Linters are great,
+    but can't decide when someone should have used a lookup table instead of conditionals.
+    A list of things to check for can make review faster and more comprehensible,
+    especially when you can copy-and-paste or drag-and-drop specific comments
+    onto specific lines
+    (something that GitHub unfortunately doesn't yet support).
+
+Ask for clarification.
+:   If you don't understand something,
+    or don't understand why the author did it,
+    ask.
+    (And when the author explains it,
+    think about suggesting that the explanation ought to be documented somewhere.)
+
+Offer alternatives.
+:   Telling authors that something is wrong is helpful;
+    telling them what they might do instead is more so.
+
+Don't be sarcastic or disparaging.
+:   "Did you maybe think about *testing* this garbage?"
+    is a Code of Conduct violation in any well-run project.
+
+Don't present opinions as facts.
+:   "Nobody uses X any more" might be true.
+    If it is,
+    the person making the claim ought to be able to point at download statistics
+    or a Google Trends search;
+    if they can't,
+    they should say,
+    "I don't think anybody uses X any more" and explain why they think that.
+
+Don't feign surprise or pass judgment.
+:   "Gosh, didn't you know [some obscure fact]?" isn't helpful;
+    neither is, "Geez, why don't you [some clever trick] here?"
+
+Don't overwhelm people with details.
+:   If someone has used the letter `x` as a variable name in several places,
+    and they shouldn't have,
+    comment on the first two or three and simply put a check beside the others---the reader
+    won't need the comment repeated.
+
+Don't ask people to do extra work.
+:   Nobody enjoys fixing bugs and style violations.
+    Asking them to add a few features while they're at it is rude.
+
+Don't let people break these rules just because they're frequent contributors or in positions of power.
+:   The culture of any organization is shaped by the worst behavior it is willing to tolerate [Grue2015](#BIB).
+    If you let people be rude to one another,
+    *that* is your culture.
+
+Be specific in replies to reviewers.
+:   If someone has suggested a better variable name,
+    you can probably simply fix it.
+    If someone has suggested a major overhaul to an algorithm,
+    you should reply to their comment to point at the commit that includes the fix.
+
+Thank your reviewers.
+:   If someone has taken the time to read your code carefully,
+    thank them for doing it.
 
 ## In what order should functions be defined? {#s:style-order}
 
@@ -398,10 +641,10 @@ There will always be cases where your code will be easier to understand
 if you *don't* do the things described in this lesson,
 but there are probably fewer of them than you think.
 
-FIXME: create concept map for style.
+FIXME: create concept map for review.
 
 ## Exercises {#s:style-exercises}
 
-FIXME: create exercises for style.
+FIXME: create exercises for review.
 
 {% include links.md %}
