@@ -3,6 +3,7 @@ title: "Packaging"
 questions:
 -   "How can I manage the libraries my project relies on?"
 -   "How can I package up my work for others to use?"
+-   "How should I announce my work?"
 objectives:
 -   "Create and use virtual environments to manage library versions without conflict."
 -   "Create and test a citable, shareable Pip package."
@@ -568,6 +569,10 @@ Again,
 one environment per project and one project per environment might use more disk space than is absolutely necessary,
 but it will still be less than most of your data sets,
 and will save a lot of debugging.
+
+## Announcing Work {#s:package-announce}
+
+FIXME: <https://medium.com/indeed-engineering/marketing-for-data-science-a-7-step-go-to-market-plan-for-your-next-data-product-60c034c34d55>
 
 ## Summary {#s:package-summary}
 
