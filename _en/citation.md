@@ -2,13 +2,7 @@
 title: "Citation"
 ---
 
-Please cite this work as:
-
-> {{site.editor}} (ed.): *{{site.title}}: {{site.subtitle}}*.  <{{site.website}}>, {{site.copyrightyear}}.
-
-## Contributors
-
-{% include people.html %}
+Please see <{{site.organization}}> for citation information.
 
 ## Acknowledgments
 

@@ -1,10 +1,6 @@
 # Citation
 
-Please cite this work as:
-
-> Greg Wilson (ed.):
-> *Still Magic: How to Build Research Software You Can Trust and Still Be Home in Time for Dinner*.
-> <https://merely-useful.github.io/still-magic/>, 2018.
+Please see <https://merely-useful.github.io> for citation information.
 
 ## Contributors
 
