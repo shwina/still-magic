@@ -8,6 +8,7 @@ website: "https://merely-useful.github.io/still-magic/"
 email: "gvwilson@third-bit.com"
 organization: https://github.com/merely-useful/
 isbn: "000-0-0000000-0-0"
+disclaimer: true
 
 # Order for table of contents.
 toc:
