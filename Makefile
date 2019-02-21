@@ -144,6 +144,10 @@ check_langs : ${CONFIG_YML}
 check_links : ${CONFIG_YML}
 	@bin/check.py ${lang} links
 
+## check_pages    : make sure Markdown pages are properly structured.
+check_pages : ${CONFIG_YML}
+	@bin/check.py ${lang} pages
+
 ## check_src      : check source file inclusion references.
 check_src : ${CONFIG_YML}
 	@bin/check.py ${lang} src
