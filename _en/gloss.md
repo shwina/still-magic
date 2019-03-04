@@ -14,10 +14,10 @@ title: "Glossary"
 **Action**{:#g:make-action} (in Make)
 :   FIXME
 
-**Actual output**{:#g:actual-output} (of a test)
+**Active listening**{:#g:active-listening}
 :   FIXME
 
-**Active listening**{:#g:active-listening}
+**Actual output**{:#g:actual-output} (of a test)
 :   FIXME
 
 **Agile development**{:#g:agile}
@@ -90,6 +90,9 @@ title: "Glossary"
 **Cognitive load**{:#g:cognitive-load}
 :   FIXME
 
+**Comma-separated values**{:#g:csv} (CSV)
+:   FIXME
+
 **Commit hash**{:#g:commit-hash}
 :   FIXME
 
@@ -133,9 +136,6 @@ title: "Glossary"
 **Creative Commons - Attribution License**{:#g:cc-by} (CC-BY)
 :   FIXME
 
-**Comma-separated values**{:#g:csv} (CSV)
-:   FIXME
-
 **Data engineering**{:#g:data-engineering}
 :   FIXME
 
@@ -160,10 +160,10 @@ title: "Glossary"
 **Dictionary**{:#g:dictionary}
 :   FIXME
 
-**Docstring**{:#g:docstring}
+**Digital Object Identifier**{:#g:doi} (DOI)
 :   FIXME
 
-**Digital Object Identifier**{:#g:doi} (DOI)
+**Docstring**{:#g:docstring}
 :   FIXME
 
 **Error**{:#g:test-error} (result from a unit test)
@@ -204,9 +204,6 @@ title: "Glossary"
     beginners start at the same point as true beginners (i.e., a pre-test will
     show the same proficiency) but can move much more quickly.
 
-**Frequently Asked Questions**{:#g:faq} (FAQ)
-:   FIXME
-
 **Feature boxing**{:#g:feature-boxing}
 :   FIXME
 
@@ -232,6 +229,9 @@ title: "Glossary"
 :   FIXME
 
 **Format string**{:#g:format-string}
+:   FIXME
+
+**Frequently Asked Questions**{:#g:faq} (FAQ)
 :   FIXME
 
 **Function**{:#g:make-function} (in Make)
@@ -267,10 +267,10 @@ title: "Glossary"
 **Internal error**{:#g:internal-error}
 :   FIXME
 
-**Issue**{:#g:issue}
+**ISO date format**{:#g:iso-date-format}
 :   FIXME
 
-**ISO date format**{:#g:iso-date-format}
+**Issue**{:#g:issue}
 :   FIXME
 
 **Iteration**{:#g:iteration} (in software development)
@@ -431,10 +431,10 @@ title: "Glossary"
 **Representation State Transfer**{:#g:rest} (REST)
 :   FIXME
 
-**Reproducible research**{:#g:reproducible-research}:
+**Reproducible example**{:#g:reprex} (reprex):
 :   FIXME
 
-**Reproducible example**{:#g:reprex} (reprex):
+**Reproducible research**{:#g:reproducible-research}:
 :   FIXME
 
 **Research software engineer**{:#g:rse} (RSE):
@@ -606,10 +606,10 @@ title: "Glossary"
 **Virtual environment**{:#g:virtual-environment}
 :   FIXME
 
-**Wildcard**{:#g:wildcard}
+**What You See Is What You Get**{:#g:wysiwyg} (WYSIWYG)
 :   FIXME
 
-**What You See Is What You Get**{:#g:wysiwyg} (WYSIWYG)
+**Wildcard**{:#g:wildcard}
 :   FIXME
 
 **Working directory**{:#g:working-directory}
