@@ -28,7 +28,7 @@ The two guides cannot teach you everything you need to know,
 but we hope they will turn some unknown unknowns into known unknowns
 and help you figure out what you ought to learn about next.
 
-## Who Are These Lessons For? {#s:index-personas}
+## Who are these lessons for? {#s:index-personas}
 
 Amira
 :   completed a Master's in library science five years ago,
@@ -56,6 +56,10 @@ Sami
     have shifted from fluid dynamics to data analysis.
     This guide will teach them how to build and run data pipelines
     so that they can teach those skills to their users.
+
+## What is the goal? {#s:index-goals}
+
+-   Be able to do the steps in [Yenn2019](#BIB).
 
 ## Summary {#s:index-summary}
 

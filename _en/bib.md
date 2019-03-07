@@ -130,6 +130,8 @@ title: "Bibliography"
 
 **Xu2015**{:#b:Xu2015}: Tianyin Xu, Long Jin, Xuepeng Fan, Yuanyuan Zhou, Shankar Pasupathy, and Rukma Talwadker: "Hey, you have given me too many knobs!: understanding and dealing with over-designed configuration in system software". *Proc.\ 10th Joint Meeting on Foundations of Software Engineering (FSE'2015)*, 2015, <https://doi.org/10.1145/2786805.2786852>. *Examines the over-abundance of configuration options in software.*
 
+**Yenn2019**{:#b:Yenn2019}: Glenda M. Yenni, Erica M. Christensen, Ellen K. Bledsoe, Sarah R. Supp, Renata M. Diaz, Ethan P. White, and S. K. Morgan Ernest: "Developing a modern data workflow for regularly updated data". *PLOS Biology*, 17(1), jan 2019. *FIXME*
+
 **Yuan2014**{:#b:Yuan2014}: Ding Yuan, Yu Luo, Xin Zhuang, Guilherme Renna Rodrigues, Xu Zhao, Yongle Zhang, Pranay Jain, and Michael Stumm: "Simple Testing Can Prevent Most Critical Failures: An Analysis of Production Failures in Distributed Data-Intensive Systems". *OSDI*, 2014. *Most failures in big data systems can be prevented by testing the error-handling code.*
 
 {% include links.md %}
