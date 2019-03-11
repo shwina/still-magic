@@ -179,8 +179,8 @@ where we can select the Markdown we need for the `master` branch.
 Paste this into the file `README.md` in the root directory of the `master` branch of your repository,
 commit,
 and push to GitHub.
-Note that the `./README.md` is the project's home page on GitHub,
-*not* the root of the GitHub Pages site ([s:ghp](#REF)).
+(Note that the `./README.md` is the project's home page on GitHub,
+*not* the root of the [GitHub Pages](#g:github-pages) site.
 
 While we are waiting for Travis to finish building our site,
 we can take a look at the "Branches" tab of our repository.
@@ -198,7 +198,7 @@ and then go to the project on GitHub
 
 {% include figure.html id="f:integrate-github-icon" src="../../figures/travis-github-icon.png" caption="Travis GitHub Icon" %}
 
-## How Can I Automatically Run Tests for My Project When Things Change?  {#s:integrate-tests}
+## How can I automatically run tests for my project when things change?  {#s:integrate-tests}
 
 FIXME: describe how to run actual tests with Travis-CI - will this require a project or projects in a separate repository?
 

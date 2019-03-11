@@ -5,9 +5,6 @@ title: "Glossary"
 **Absolute error**{:#g:absolute-error}
 :   FIXME
 
-**Absolute URL**{:#g:absolute-url}
-:   FIXME
-
 **Accuracy**{:#g:accuracy}
 :   FIXME
 
@@ -78,9 +75,6 @@ title: "Glossary"
 **Camel case**{:#g:camel-case}
 :   FIXME
 
-**Cascading Style Sheets**{:#g:css} (CSS)
-:   FIXME
-
 **Catch**{:#g:catch} (an exception)
 :   FIXME
 
@@ -119,9 +113,6 @@ title: "Glossary"
 :   FIXME
 
 **Configuration object**{:#g:configuration-object}
-:   FIXME
-
-**Content delivery network**{:#g:cdn} (CDN)
 :   FIXME
 
 **Context manager**{:#g:context-manager}
@@ -213,9 +204,6 @@ title: "Glossary"
 **Filename stem**{:#g:filename-stem}
 :   FIXME
 
-**Filter**{:#g:jekyll-filter} (in Jekyll)
-:   FIXME
-
 **Fixture**{:#g:fixture}
 :   FIXME
 
@@ -238,6 +226,9 @@ title: "Glossary"
 :   FIXME
 
 **Function attribute**{:#g:function-attribute}
+:   FIXME
+
+**GitHub Pages**{:#g:github-pages}
 :   FIXME
 
 **GNU Public License**{:#g:gpl} (GPL)
@@ -316,9 +307,6 @@ title: "Glossary"
 :   A simplified representation of the key elements and relationships of some
     problem domain that is good enough to support problem solving.
 
-**Metadata**{:#g:metadata}
-:   FIXME
-
 **MIT License**{:#g:mit-license}
 :   FIXME
 
@@ -348,9 +336,6 @@ title: "Glossary"
 :   FIXME
 
 **Package**{:#g:package}
-:   FIXME
-
-**Page template**{:#g:page-template}
 :   FIXME
 
 **Pair programming**{:#g:pair-programming}
@@ -420,9 +405,6 @@ title: "Glossary"
 :   FIXME
 
 **Relative error**{:#g:relative-error}
-:   FIXME
-
-**Relative URL**{:#g:relative-url}
 :   FIXME
 
 **Remote login**{:#g:remote-login}
@@ -503,9 +485,6 @@ title: "Glossary"
 **Standard output**{:#g:stdout}
 :   FIXME
 
-**Static website**{:#g:static-website}
-:   FIXME
-
 **Sturdy development**{:#g:sturdy}
 :   FIXME
 
@@ -552,9 +531,6 @@ title: "Glossary"
 :   FIXME
 
 **Test runner**{:#g:test-runner}
-:   FIXME
-
-**Theme**{:#g:theme} (in Jekyll)
 :   FIXME
 
 **Tidy data**{:#g:tidy-data}

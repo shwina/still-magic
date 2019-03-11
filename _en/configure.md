@@ -225,7 +225,7 @@ INI files are simple to read and write,
 but the format is slowly falling out of use.
 What seems to be replacing it is [YAML](#g:yaml),
 which stands for "Yet Another Markup Language".
-Since YAML is used in GitHub Pages ([s:ghp](#REF)),
+Since YAML is used in [GitHub Pages](#g:github-pages),
 and (unlike JSON) allows comments,
 we'll explore it in this section.
 

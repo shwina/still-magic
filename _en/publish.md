@@ -18,9 +18,7 @@ keypoints:
 -   "Publish your software as you would a paper."
 ---
 
-[s:ghp](#REF) discussed how to publish;
-the next questions are what and where.
-This lesson therefore looks at what should be included in reports and how best to do that.
+This lesson looks at what should be included in reports and how best to do that.
 We use the generic term "report" to include research papers,
 summaries for clients,
 and everything else that is shorter than a book and is going to be read by someone else.

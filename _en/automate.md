@@ -487,7 +487,7 @@ This is called [declarative programming](#g:declarative-programming):
 we declare what outcome we want,
 and the program figures out how to achieve it.
 
-## How Can I Abbreviate My Update Rules? {#s:automate-automatic}
+## How can I abbreviate my update rules? {#s:automate-automatic}
 
 We could add a third book to our Makefile,
 then a fourth,

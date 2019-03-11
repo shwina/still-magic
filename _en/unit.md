@@ -144,7 +144,7 @@ or pass when it should fail.
 This means that every test should start from a freshly-generated fixture
 rather than using the output of previous tests.
 
-## How Can I manage tests systematically? {#s:unit-pytest}
+## How can I manage tests systematically? {#s:unit-pytest}
 
 A [test framework](#g:test-framework) is a library that provides us with functions that help us write tests,
 and includes a [test runner](#g:test-runner) that will find tests,

@@ -939,7 +939,7 @@ It then checks the articles listed in that index against its local record of wha
 then downloads any articles that are new.
 By automating this process, blogging tools help us focus attention on things that are actually worth looking at.
 
-## Exercises {#s:syndicate-summary}
+## Summary {#s:syndicate-summary}
 
 {% include figure.html id="f:syndicate-concept" src="../../figures/syndicate-concept.svg" caption="Syndication Concept Map" %}
 

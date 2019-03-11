@@ -45,19 +45,15 @@ definitions if that's done.
 
 [gdb]: https://www.gnu.org/software/gdb
 [geek-feminism]: http://geekfeminism.wikia.com/
-[gfm]: https://help.github.com/articles/github-flavored-markdown/
 [github]: http://github.com
-[github-pages]: https://pages.github.com/
 [github-zenodo-tutorial]: https://guides.github.com/activities/citable-code/
 [gnu-make]: http://www.gnu.org/software/make/
 [gnu-make-other-vars]: https://www.gnu.org/software/make/manual/html_node/Special-Variables.html
 [go-fair]: https://www.go-fair.org/fair-principles/
-[google-docs]: https://en.wikipedia.org/wiki/Google_Docs,_Sheets,_and_Slides
 [gustavsen-julia]: http://www.juliagustavsen.com/
 [gutenberg]: https://www.gutenberg.org/
 
 [huff-testing]: https://github.com/katyhuff/python-testing
-[hugo]: https://gohugo.io/
 
 [ini-format]: https://en.wikipedia.org/wiki/INI_file
 [insight]: https://www.insightdatascience.com/
@@ -65,23 +61,18 @@ definitions if that's done.
 
 [jekyll]: https://jekyllrb.com/
 [joss]: https://joss.theoj.org/
-[js-vs-ds]: https://software-tools-in-javascript.github.io/js-vs-ds/
 [jupyter]: http://jupyter.org/
 
 [kernighan-brian]: https://en.wikipedia.org/wiki/Brian_Kernighan
 [kirk-matthew]: https://www.matthewkirk.com/
 
-[latex]: http://www.latex-project.org/
 [lbyl-vs-eafp]: https://blogs.msdn.microsoft.com/pythonengineering/2016/06/29/idiomatic-python-eafp-versus-lbyl/
-[libreoffice]: https://www.libreoffice.org/
 [lint]: https://en.wikipedia.org/wiki/Lint_(software)
 
 [make]: https://www.gnu.org/software/make/
 [markdown]: https://en.wikipedia.org/wiki/Markdown
-[mathjax]: https://www.mathjax.org/
 [mertz-documentation]: https://realpython.com/documenting-python-code/
 [model-coc]: http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy
-[ms-word]: https://en.wikipedia.org/wiki/Microsoft_Word
 
 [noller-a-lot-happens]: http://jessenoller.com/blog/2015/9/27/a-lot-happens
 [noller-sequel]: http://jessenoller.com/blog/2015/10/31/community-boundaries
@@ -91,9 +82,7 @@ definitions if that's done.
 [orwells-rules]: https://en.wikipedia.org/wiki/Politics_and_the_English_Language#Remedy_of_Six_Rules
 [osi-license-list]: http://opensource.org/licenses
 [osf]: https://osf.io/
-[overleaf]: https://www.overleaf.com/
 
-[pandoc]: https://pandoc.org/
 [pentium-div-bug]: https://en.wikipedia.org/wiki/Pentium_FDIV_bug
 [pep-8]: https://www.python.org/dev/peps/pep-0008/
 [poisot-timothee]: http://poisotlab.io/
@@ -125,7 +114,6 @@ definitions if that's done.
 [swc-r]: https://swcarpentry.github.io/r-novice-gapminder/
 [swc-shell]: https://swcarpentry.github.io/shell-novice/
 
-[tables-generator]: https://www.tablesgenerator.com/
 [tdda-site]: http://www.tdda.info/
 [tf-idf]: https://en.wikipedia.org/wiki/Tf%E2%80%93idf
 [tldr-gpl]: https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)
