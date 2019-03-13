@@ -355,8 +355,8 @@ by putting this in the Makefile:
 .PHONY : clean
 ```
 
-I usually declare all of my phony targets together near the top of the file.
-Other people put the `.PHONY` declarations right before the rules they refer to.
+Most people declare all of their phony targets together near the top of the file,
+though some put the `.PHONY` declarations right before the rules they refer to.
 As with most other rules about programming style ([s:style](#REF)),
 consistency matters more than exactly what you do.
 
@@ -908,6 +908,8 @@ With a bit more work we could strip off the leading `##` markers,
 but this is a good start.
 
 > **How did you know that?**
+>
+> FIXME: keep this personal?
 >
 > I had never used the variable `MAKEFILE_LIST` before writing this lesson.
 > In fact, until about 15 minutes ago, I didn't even know it existed:

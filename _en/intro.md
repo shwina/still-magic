@@ -58,11 +58,11 @@ which means that anyone with access to the raw materials can easily reproduce th
 Openness and reproducibility are closely related,
 but are *not* the same thing:
 
--   If I share my data and analysis scripts,
+-   If you share my data and analysis scripts,
     but haven't documented the manual steps in the analysis,
-    my work is open but not reproducible.
--   If I completely automate the analysis,
-    but it's only available to people in my company or lab,
+    your work is open but not reproducible.
+-   If you completely automate the analysis,
+    but it's only available to people in you company or lab,
     it's reproducible but not open.
 
 The third key idea is [sustainability](#g:sustainability).
@@ -95,6 +95,8 @@ without staying up until dawn.
 
 > **Why "Computational Competence"?**
 >
+> FIXME: keep this personal?
+>
 > The term [computational thinking](#g:computational-thinking)
 > has been widely used since [Wing2006](#BIB) introduced it a decade ago.
 > It has also been used in such a wide variety of ways
@@ -118,8 +120,7 @@ open work is cited more often than closed (FIXME: citation).
 However,
 some people still worry that if they make their data and code generally available,
 someone else will use it and publish a result they have come up with themselves.
-This is almost unheard of in practice
-(over twenty years, I know of only one case),
+This is almost unheard of in practice,
 but that doesn't stop people using it as a boogeyman.
 
 Other people are afraid of looking foolish or incompetent by sharing code that might contain bugs.
@@ -247,8 +248,8 @@ we will see if the similarity measures we develop show that.
 ## Acknowledgments {#s:intro-ack}
 
 This book owes its existence to
-the hundreds of researchers I met through [Software Carpentry][swc] and [Data Carpentry][dc].
-I am also grateful to [Insight Data Science][insight] for sponsoring the early stages of this work,
+the hundreds of researchers we met through [Software Carpentry][swc] and [Data Carpentry][dc].
+We are also grateful to [Insight Data Science][insight] for sponsoring the early stages of this work,
 to everyone who has contributed ([s:citation](#REF)),
 and to:
 
@@ -260,13 +261,13 @@ and to:
 
 Before any of that, though,
 four books written by [Brian Kernighan][kernighan-brian] and his colleagues
-forever changed the way I think about programming
+forever changed the way people think about programming
 [Kern1978,Kern1988,Kern1983,Kern1981](#BIB).
 *The Elements of Programming Style*,
 *The C Programming Language*,
 *The Unix Programming Environment*,
 and *Software Tools in Pascal*
-didn't just show my generation how to write software we could be proud of:
+didn't just show an entire generation how to write software we could be proud of:
 they also showed us that books about programming could be a pleasure to read.
 
 ## Contributing {#s:intro-contrib}

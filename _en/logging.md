@@ -664,7 +664,7 @@ Use a structured log instead of a line-oriented log.
     writing the configuration as a blob of JSON is straightforward.
 
 On balance,
-I recommend the third option:
+we recommend the third option:
 convert the configuration to a JSON structure and write that as a single log entry.
 
 ## Summary {#s:logging-summary}

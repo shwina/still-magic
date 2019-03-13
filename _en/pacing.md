@@ -12,6 +12,8 @@ FIXME: introduction
 
 ## How much work is overwork and what are its effects? {#s:pacing-crunch}
 
+FIXME: keep this personal?
+
 I used to brag about the hours I was working.
 Not in so many words, of course---I had *some* social skills---but
 I'd show up for class around noon,

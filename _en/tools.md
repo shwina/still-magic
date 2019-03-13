@@ -47,6 +47,8 @@ However, if your editor doesn't pass the following tests,
 switching now will save you enough time and grief in the future
 to make the temporary loss of productivity worthwhile.
 
+FIXME: keep this personal?
+
 Is it kind to your wrists?
 :   If ergonomics was a standard part of the undergraduate curriculum,
     programming editors would probably be used as examples of bad design.

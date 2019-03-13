@@ -126,7 +126,7 @@ People who weren't at the meeting can keep track of what's going on.
 
 Everyone can check what was actually said or promised.
 :   More than once,
-    I've looked over the minutes of a meeting I was in and thought,
+    one of us has looked over the minutes of a meeting and thought,
     "Did I say that?" or,
     "Wait a minute, I didn't promise to have it ready then!"
     Accidentally or not,
@@ -148,7 +148,7 @@ People can be held accountable at subsequent meetings.
 
 Run all your meetings like this for a month,
 with the goal of making each one a minute shorter than the one before,
-and I promise that you'll build better software.
+and we promise that you'll build better software.
 
 ## How can we keep people from talking too much or too little? {#s:teamwork-fair}
 
@@ -417,7 +417,7 @@ Escalate as soon as there's a second offense.
 In the context of a research project,
 "escalation" means "taking the issue to your supervisor".
 (If you're reluctant to do this because you don't want to be a snitch,
-go back and read what I just wrote about people stealing your laptop.)
+go back and re-read the bit about people stealing your laptop.)
 Of course,
 your supervisor has probably had dozens of students complain to her over the years
 about teammates not doing their share---it isn't uncommon to have both halves of a pair

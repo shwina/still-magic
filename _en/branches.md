@@ -103,13 +103,13 @@ a branch-per-feature workflow looks like this:
 It takes longer to describe this workflow than to use it.
 Right now,
 for example,
-I have six active branches in the repository for this material:
+the repository for this material currently has six active branches:
 `master` (which is the published version),
-`explain-branch-per-feature` (which is where I'm writing this),
-and four others that I've created from `master` to remind myself to fix a glossary entry,
-to rewrite the description in `README.md` of how to generate a PDF of these notes,
+`explain-branch-per-feature` (where this is being written),
+and four others created from `master` as reminders to fix a glossary entry,
+rewrite the description in `README.md` of how to generate a PDF of these notes,
 and so on.
-I am essentially using branches as a to-do list,
+This approach essentially uses branches as a to-do list,
 which takes no more time than typing a brief note about the feature into a text file
 or writing it in a lab notebook,
 and is much easier to track.
@@ -131,7 +131,7 @@ And if we make a dozen commits while working on a feature and then merge that br
 the overall history of the project can become very difficult to read.
 
 There is a command called `git stash` that will temporarily save work on a branch.
-I recommend not using it,
+We don't recommend using it,
 since it creates yet another place where valuable information might be stored (or forgotten).
 Instead,
 commit changes in the branch as you work,
@@ -190,10 +190,9 @@ We will only use it for the latter ability.
 The command we want is `git rebase -i BASE`,
 where `BASE` is the most recent commit *before* the sequence to be compressed
 (i.e., the one that everything else will be based on).
-Even after several years,
-I find this confusing,
-and frequently ask `git rebase` to start with the first commit that I want changed
-rather than the last one that I don't.
+Many people find this confusing,
+and frequently ask `git rebase` to start with the first commit they want changed
+rather than the last one that they don't.
 
 When we run `git rebase -i`,
 it brings up a display of recent commits
@@ -202,7 +201,8 @@ in the same editor we would use for writing commit messages:
 FIXME: figure
 
 The help text in this display tells us what we can do;
-I *always* choose to `pick` the first commit and `squash` the rest.
+in most cases,
+people choose to `pick` the first commit and `squash` the rest.
 When we save this file,
 Git immediately launches the editor again to show us
 the combination of recent changes and messages:
@@ -223,7 +223,9 @@ Git can become confused
 (or rather, it can confuse us).
 A good rule to follow is,
 "Don't rebase branches that are shared with other people."
-I will frequently do all the work required for a feature and rebase,
+Instead,
+do all the work required for a feature,
+rebase,
 and then merge in recent changes from `master` and merge back to `master`:
 
 FIXME: figure
@@ -299,9 +301,7 @@ still don't support anything that couldn't be put on a punchcard in 1965.
 
 But what is a "feature", exactly?
 What's large enough to merit creation of a new branch?
-On small projects,
-with or without collaborators,
-I try to follow these rules?
+These rules make sense for small projects with or without collaborators:
 
 1.  Anything cosmetic that is only one or two lines long can be done in `master` and committed right away.
     "Cosmetic" means changes to comments or documentation:

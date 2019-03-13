@@ -193,7 +193,7 @@ Finally, FIXME: customer buy-in.
 
 As we said in the introduction,
 the alternative to agile development doesn't have a widely-accepted name;
-I call it "sturdy",
+we call it "sturdy",
 since "traditional", "old-fashioned", and "process-heavy" all sound pejorative.
 
 Whatever it's called,

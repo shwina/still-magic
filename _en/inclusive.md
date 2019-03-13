@@ -289,11 +289,10 @@ Suppose someone says,
 Why don't we just hire the best candidate?"
 Your response could be,
 "Because taking diversity into account *is* hiring the best candidate.
-If you can run a mile in four minutes and I can do it in 4:15 with a ball and chain on my leg,
-which one of us is the better athlete?
-Which one of us will perform better *if the impediment is removed*?
-So sure,
-if you intend to preserve an exclusionary culture in this lab,
+If you can run a mile in four minutes and someone else can do it in 4:15 with a ball and chain on their leg,
+who the better athlete?
+Who will perform better *if the impediment is removed*?
+If you intend to preserve an exclusionary culture in this lab,
 considering how much someone has achieved despite systemic unfairness might not make sense,
 but you're not arguing for that,
 are you?"

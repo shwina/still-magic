@@ -120,7 +120,7 @@ There are three ways to handle this:
     This makes management simpler (just ignore everything in `./bin/`),
     but means there are two places where runnable programs might live.
 
-I usually go with the third option,
+We usually go with the third option,
 but they're all good as long as you are consistent between projects
 and [document your rule](#s:project-boilerplate).
 
@@ -216,7 +216,7 @@ The third tends to be too large:
 a team of half a dozen people may work on many different things at once,
 and a repository that holds them all quickly looks like someone's basement.
 
-The best rule of thumb I have found for deciding what is and isn't a project
+The best rule of thumb we have found for deciding what is and isn't a project
 is to ask what you have meetings about.
 If the same set of people need to get together on a regular basis to talk about something,
 that "something" probably deserves its own repository.
