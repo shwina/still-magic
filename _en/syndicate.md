@@ -615,7 +615,7 @@ print('one record:', diff_records([[1900, 1.0]],
 print('two records:', diff_records([[1900, 1.0], [1901, 10.0]],
                                    [[1900, 2.0], [1901, 20.0]]))
 ```
-{: title="syndicate/compare_01.py}
+{: title="syndicate/compare_01.py"}
 ```text
 one record: [[1900, -1.0]]
 two records: [[1900, -1.0], [1901, -10.0]]
@@ -631,7 +631,7 @@ print('left is shorter', diff_records([[1900, 1.0]],
 print('right is shorter', diff_records([[1900, 1.0], [1901, 2.0]],
                                        [[1900, 10.0]]))
 ```
-{: title="syndicate/compare_01.py}
+{: title="syndicate/compare_01.py"}
 ```text
 IndexError: list index out of rangemis-matched years: [[1900, -1.0]]
 left is shorter [[1900, -9.0]]
