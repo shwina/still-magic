@@ -231,6 +231,9 @@ title: "Glossary"
 **GitHub Pages**{:#g:github-pages}
 :   FIXME
 
+**Globbing**{:#g:globbing}:
+:   FIXME
+
 **GNU Public License**{:#g:gpl} (GPL)
 :   FIXME
 
