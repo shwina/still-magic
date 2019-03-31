@@ -513,8 +513,7 @@ so that the command:
 ```shell
 $ tdda discover elements92.csv elements.tdda
 ```
-
-<!-- {: title="verify/elements92.csv"} -->
+<!-- used="verify/elements92.csv" -->
 
 <!-- == noindent -->
 infers rules from data,
@@ -582,7 +581,7 @@ We can apply these inferred rules to all elements
 using the `-7` flag to get pure ASCII output
 and the `-f` flag to show only fields with failures:
 
-<!-- {: title="verify/elements118.csv"} -->
+<!-- used="verify/elements118.csv" -->
 
 ```shell
 $ tdda verify -7 -f elements118.csv elements92.tdda

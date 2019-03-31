@@ -163,7 +163,7 @@ which structures tests according to three simple rules:
 For example,
 we could test the `count_words` function by putting the following code in `test_count.py`:
 
-<!-- {: title="unit/tf_idf.py"} -->
+<!-- used="unit/tf_idf.py" -->
 
 ```python
 from tf_idf import count_word

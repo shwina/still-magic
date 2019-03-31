@@ -141,7 +141,7 @@ if __name__ == '__main__':
 ```
 {: title="package/02/zipf.py"}
 
-<!-- {: title="package/02/use.py"} -->
+<!-- used="package/02/use.py" -->
 
 Here,
 the code guarded by `if __name__ == '__main__'` isn't executed when the file loaded by something else.
@@ -213,8 +213,8 @@ we can reorganize our files as follows:
     +- __init__.py
 ```
 
-<!-- {: title="package/03/use.py"} -->
-<!-- {: title="package/03/zipf/__init__.py"} -->
+<!-- used="package/03/use.py" -->
+<!-- used="package/03/zipf/__init__.py" -->
 
 <!-- == noindent -->
 `zipf/__init__.py` contains `RELATIVE_ERROR` and the functions we've seen before.
@@ -318,9 +318,9 @@ setup(
 ```
 {: title="package/05/setup.py"}
 
-<!-- {: title="package/05/use.py"} -->
-<!-- {: title="package/05/zipf/__init__.py"} -->
-<!-- {: title="package/05/zipf/generate.py"} -->
+<!-- used="package/05/use.py" -->
+<!-- used="package/05/zipf/__init__.py" -->
+<!-- used="package/05/zipf/generate.py" -->
 
 <!-- == noindent -->
 The `name`, `version`, and `author` parameters to `setup` are self-explanatory;

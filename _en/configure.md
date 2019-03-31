@@ -343,9 +343,9 @@ We can test this with these three configuration files
     <tr><code>logfile: "./complaints.txt"</code></tr>
   </tr>
 </table>
-<!-- {: title="configure/system.yml"} -->
-<!-- {: title="configure/user.yml"} -->
-<!-- {: title="configure/job.yml"} -->
+<!-- used="configure/system.yml" -->
+<!-- used="configure/user.yml" -->
+<!-- used="configure/job.yml" -->
 
 <!-- == noindent -->
 using this test program:
