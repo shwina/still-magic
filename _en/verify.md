@@ -130,7 +130,7 @@ $$6 \times 2^3$$ or 48.
 
 [f:verify-spacing](#FIG) is a clearer view of some of the values our scheme can represent:
 
-{% include figure.html id="f:verify-spacing" src="../../figures/number-spacing.png" caption="Number Spacing" %}
+{% include figure.html id="f:verify-spacing" src="number-spacing.png" caption="Number Spacing" %}
 
 A lot of values are missing from this diagram:
 for example,

@@ -941,7 +941,7 @@ By automating this process, blogging tools help us focus attention on things tha
 
 ## Summary {#s:syndicate-summary}
 
-{% include figure.html id="f:syndicate-concept" src="../../figures/syndicate-concept.svg" caption="Syndication Concept Map" %}
+{% include figure.html id="f:syndicate-concept" src="concept.svg" caption="Syndication Concept Map" %}
 
 ## Exercises {#s:syndicate-exercises}
 
