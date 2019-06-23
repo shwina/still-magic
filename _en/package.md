@@ -570,13 +570,73 @@ one environment per project and one project per environment might use more disk 
 but it will still be less than most of your data sets,
 and will save a lot of debugging.
 
+## How can I make my package easy for others to install
+
+In the same way you used `pip` to install a package from PyPI,
+you can also make your own package as easy for others to install as:
+
+```
+$ pip install your-package
+```
+
+To do this, you'll need to upload the "source distribution"
+(created above with `python setup.py sdist`)
+to <PyPI.org>.
+
+You'll need to [create an account](https://pypi.org/account/register/) on
+both [PyPI](pypi.org) and [TestPyPI](test.pypi.org).
+TestPyPI is a place to test publishing your packages before you actually
+upload them to PyPI.
+
+First, you'll need to decide on a unique name for your project
+(unfortunately `zipf` already exists on PyPI.org).
+You can search the existing packages on PyPI and TestPyPI to check
+if a package already exists with the name you want.
+
+Next, you'll need to install [`twine`](https://pypi.org/project/twine/),
+a program for uploading Python packages to repositories such as
+PyPI and TestPyPI.
+From within your virtual environment:
+
+```
+$ pip install twine
+```
+
+Now, from the directory *above* the root directory of the package,
+i.e., the directory containing `setup.py`, run:
+
+```
+$ twine upload --repository-url https://test.pypi.org/legacy/ dist/
+```
+
+You will be prompted for your TestPyPI username and password.
+
+That's all! Your project is now available on TestPyPI for
+you (or anyone else) to install using:
+
+```
+$ pip install --index-url https://test.pypi.org/simple your-package-name
+```
+
+To upload to the "real" PyPI index, you would simply do:
+
+```
+$ twine upload dist/*
+```
+
+And users can install your package simply with:
+
+```
+$ pip install your-package-name
+```
+
 ## Announcing Work {#s:package-announce}
 
 FIXME: <https://medium.com/indeed-engineering/marketing-for-data-science-a-7-step-go-to-market-plan-for-your-next-data-product-60c034c34d55>
 
 ## Summary {#s:package-summary}
 
-FIXME: create concept map for packages
+
 
 ## Exercises {#s:package-exercises}
 
